@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
-import Candidate from '../components/Candidate';
+// import Candidate from '../components/Candidate';
 
 const CandidatePage = ({ data }) => {
   const candidate = data.markdownRemark;
@@ -25,7 +25,7 @@ const CandidatePage = ({ data }) => {
   return (
     <DefaultLayout>
       <div>
-        <h1>{JSON.stringify(candidate.frontmatter)}</h1>
+        <h1>{JSON.stringify(candidate)}</h1>
       </div>
     </DefaultLayout>
   );
