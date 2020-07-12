@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: adamavenir/election-guide
+  repo: tumbleweird/election
   branch: master
 
 local_backend: true
