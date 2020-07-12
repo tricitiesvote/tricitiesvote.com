@@ -13,27 +13,27 @@ class SiteIndex extends React.Component {
       <DefaultLayout location={this.props.location} title={siteTitle}>
         {posts.map(({ node }) => {
 
-          var candidate = node.frontmatter
+          var candidateData = node.frontmatter
+          var candidateHtml = node.fields
         
-          var recyes, recno, recs, donors, articles, website, facebook, pdc
+          var bio, recyes, recno, recs, donors, articles, website, facebook, pdc
 
-          if (candidate.lettersyes) {
+          if (candidateHtml.lettersyes_html) {
             recyes = <li className="yes"
               dangerouslySetInnerHTML={{
-                __html: candidate.lettersyes
+                __html: candidateHtml.lettersyes_html
               }}
             ></li>
           } else {
             recyes = <li className="yes">No letters yet. <a href="https://triciti.es/letters-to-an-editor">Write one</a>.</li>
           }
 
-          if (candidate.lettersno) {
+          if (candidateHtml.lettersno_html) {
             recno = <li className="no"
               dangerouslySetInnerHTML={{
-                __html: candidate.lettersno
+                __html: candidateHtml.lettersno_html
               }}
             ></li>
-          } else {
             recno = ''
           }
 
@@ -46,11 +46,11 @@ class SiteIndex extends React.Component {
             recs = ''
           }
 
-          if (candidate.donors) {
+          if (candidateHtml.donors_html) {
             donors = <ul className="donors">
               <li title="As of September 16"
                 dangerouslySetInnerHTML={{
-                __html: candidate.donors || ''
+                __html: candidateHtml.donors_html
               }}
               ></li>
             </ul>
@@ -62,38 +62,48 @@ class SiteIndex extends React.Component {
           </ul>
           }
 
-          if (candidate.articles) {
+          if (candidateHtml.articles_html) {
             articles =  <ul className="news"
               dangerouslySetInnerHTML={{
-                __html: candidate.articles || ''
+                __html: candidateHtml.articles_html
               }}
             ></ul>
           } else {
             articles = ''
           }
 
-          if (candidate.website) {
+          if (candidateHtml.bio_html) {
+            bio =  <div className="bio"
+              dangerouslySetInnerHTML={{
+                __html: candidateHtml.bio_html
+              }}
+            ></div>
+          } else {
+            bio = ''
+          }
+
+          if (candidateData.website) {
             website = <li>
               <span role="img" aria-label="link">🌐</span> 
-              <a href={candidate.website}>Website</a>
+              <a href={candidateData.website}>Website</a>
             </li>
           } else {
             website = ''
           }
 
-          if (candidate.facebook) {
+          if (candidateData.facebook) {
             facebook = <li>
               <span role="img" aria-label="link">🌐</span> 
-              <a href={candidate.facebook}>Facebook</a>
+              <a href={candidateData.facebook}>Facebook</a>
             </li>
           } else {
             facebook = ''
           }
 
-          if (candidate.pdc) {
+          if (candidateData.pdc) {
             pdc = <li>
               <span role="img" aria-label="finance">💰</span> 
-              <a href={candidate.pdc}>Finance</a>
+              <a href={candidateData.pdc}>Finance</a>
             </li>
           } else {
             pdc = ''
@@ -104,25 +114,24 @@ class SiteIndex extends React.Component {
               <div className="candidate">
                 <div className="details">
                   <h5>
-                    <a href={candidate.statement}>
-                      {candidate.name}
+                    <a href={candidateData.statement}>
+                      {candidateData.name}
                     </a>
                   </h5>
-                  <p>
-                    {candidate.bio}
-                  </p>
+                  {bio}
                   {recs}
                   {donors}
                   {articles}
                 </div>
                 <div className="info">
-                  <img src={candidate.img} alt={candidate.name} />
+                  <img src={candidateData.image} alt={candidateData.name} />
                   <ul>
                     {website}
                     {facebook}
                     {pdc}
                   </ul>
                 </div>
+                <h1>{JSON.stringify(candidateHtml)}</h1>
               </div>
             </div>
           )

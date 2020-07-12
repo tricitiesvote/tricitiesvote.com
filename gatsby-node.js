@@ -1,16 +1,16 @@
 const _ = require('lodash');
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const remark = require("remark");
+const remarkHTML = require("remark-html");
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (_.get(node, 'internal.type') === `MarkdownRemark`) {
-    // Get the parent node
-    // This is different from frontmatter.parent below
+
+    // Set the name of the parent node as the collection
     const parent = getNode(_.get(node, 'parent'));
-    const slugged = _.kebabCase(node.frontmatter.name)
-    // console.log(slugged)
 
     createNodeField({
       node,
@@ -18,13 +18,59 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: _.get(parent, 'sourceInstanceName'),
     });
 
+    // add slug 
+    const slugged = _.kebabCase(node.frontmatter.name)
+    
     createNodeField({
       node,      
       name: `slug`,
       value: slugged
     })
 
-    // console.log(node.fields.slug)
+    // create frontmatter markdown html fields 
+    const my_field = node.frontmatter.my_field;
+
+    const markdownFields = [
+      { 
+        "name": "bio", 
+        "data": node.frontmatter.bio 
+      },
+      { 
+        "name": "lettersyes", 
+        "data": node.frontmatter.lettersyes 
+      },
+      {
+        "name": "lettersno",
+        "data": node.frontmatter.lettersno 
+      },
+      { 
+        "name": "articles",
+        "data": node.frontmatter.articles
+      },
+    ]
+
+    for (var key in markdownFields) {
+      if (markdownFields.hasOwnProperty(key)) {
+          let fieldName = markdownFields[key]['name'];
+          let fieldData = markdownFields[key]['data'];
+
+          if (fieldData) {
+            const value = remark()
+              .use(remarkHTML)
+              .processSync(fieldData)
+              .toString();
+
+            // create new node at:
+            // fields { fieldName_html }
+            createNodeField({
+              name: `${fieldName}_html`,
+              node,
+              value
+            });
+          }
+
+        }
+    }
 
   }
 };

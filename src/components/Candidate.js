@@ -10,16 +10,33 @@ class Candidate extends React.Component {
           {node.frontmatter.region}
           {node.frontmatter.office }
           {node.frontmatter.image}
-          {node.frontmatter.bio}
+          hi
+          <div
+            dangerouslySetInnerHTML={{
+              __html: node.fields.bioo_html,
+            }}
+          />
           {node.frontmatter.email}
           {node.frontmatter.statement}
           {node.frontmatter.website}
           {node.frontmatter.facebook}
           {node.frontmatter.twitter}
           {node.frontmatter.pdc}
-          {node.frontmatter.lettersyes}
-          {node.frontmatter.lettersno}
-          {node.frontmatter.articles}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: node.fields.lettersyes_html,
+            }}
+          />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: node.fields.lettersno_html,
+            }}
+          />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: node.fields.articles_html,
+            }}
+          />
           <p
             dangerouslySetInnerHTML={{
               __html: node.frontmatter.description || node.excerpt,
