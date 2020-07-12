@@ -30,6 +30,39 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+      fields: Fields
+    }
+    type Fields {
+      collection: String
+      slug:       String
+    }
+    type Frontmatter {
+      name:       String
+      region:     String
+      office:     String
+      image:      String
+      bio:        String
+      email:      String
+      statement:  String
+      website:    String
+      facebook:   String
+      twitter:    String
+      pdc:        String
+      lettersyes: String
+      lettersno:  String
+      articles:   String
+    }
+  `;
+
+  createTypes(typeDefs);
+};
+
 exports.createPages = async ({
   actions: { createPage },
   graphql,

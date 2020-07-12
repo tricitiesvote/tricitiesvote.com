@@ -7,15 +7,18 @@ class Candidate extends React.Component {
       return (
         <div key={node.fields.slug}>
           {node.frontmatter.name}
-          {node.frontmatter.img}
+          {node.frontmatter.region}
+          {node.frontmatter.office }
+          {node.frontmatter.image}
           {node.frontmatter.bio}
+          {node.frontmatter.email}
           {node.frontmatter.statement}
-          {node.frontmatter.lettersyes}
-          {node.frontmatter.lettersno}
           {node.frontmatter.website}
           {node.frontmatter.facebook}
+          {node.frontmatter.twitter}
           {node.frontmatter.pdc}
-          {node.frontmatter.donors}
+          {node.frontmatter.lettersyes}
+          {node.frontmatter.lettersno}
           {node.frontmatter.articles}
           <p
             dangerouslySetInnerHTML={{
@@ -44,15 +47,18 @@ export const pageQuery = graphql`
       html
       frontmatter {
         name
-        img
+        region
+        office 
+        image
         bio
+        email
         statement
-        lettersyes
-        lettersno
         website
         facebook
+        twitter
         pdc
-        donors
+        lettersyes
+        lettersno
         articles
       }
     }
