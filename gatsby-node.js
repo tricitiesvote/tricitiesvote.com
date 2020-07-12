@@ -51,6 +51,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     for (var key in markdownFields) {
       if (markdownFields.hasOwnProperty(key)) {
+
           let fieldName = markdownFields[key]['name'];
           let fieldData = markdownFields[key]['data'];
 
@@ -85,24 +86,28 @@ exports.createSchemaCustomization = ({ actions }) => {
       fields: Fields
     }
     type Fields {
-      collection: String
-      slug:       String
+      collection:       String
+      slug:             String
+      articles_html:    String
+      bio_html:         String
+      lettersno_html:   String
+      lettersyes_html:  String
     }
     type Frontmatter {
-      name:       String
-      region:     String
-      office:     String
-      image:      String
-      bio:        String
-      email:      String
-      statement:  String
-      website:    String
-      facebook:   String
-      twitter:    String
-      pdc:        String
-      lettersyes: String
-      lettersno:  String
-      articles:   String
+      name:             String
+      region:           String
+      office:           String
+      image:            String
+      bio:              String
+      email:            String
+      statement:        String
+      website:          String
+      facebook:         String
+      twitter:          String
+      pdc:              String
+      lettersyes:       String
+      lettersno:        String
+      articles:         String
     }
   `;
 
@@ -122,8 +127,12 @@ exports.createPages = async ({
         edges {
           node {
             fields {
-              collection
               slug
+              collection
+              articles_html
+              bio_html
+              lettersno_html
+              lettersyes_html
             }
             id
             html

@@ -19,6 +19,7 @@ collections:
     label: Candidates
     folder: data
     slug: '{{region}}-{{office}}-{{fields.slug}}'
+    extension: json
     create: true
     fields:
       - { name: name, label: Name }

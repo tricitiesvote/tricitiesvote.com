@@ -131,7 +131,7 @@ class SiteIndex extends React.Component {
                     {pdc}
                   </ul>
                 </div>
-                <h1>{JSON.stringify(candidateHtml)}</h1>
+                {/* <h1>{JSON.stringify(candidateHtml)}</h1> */}
               </div>
             </div>
           )
@@ -156,6 +156,11 @@ export const pageQuery = graphql`
           excerpt
           fields {
             slug
+            collection
+            articles_html
+            bio_html
+            lettersno_html
+            lettersyes_html
           }
           id
           html

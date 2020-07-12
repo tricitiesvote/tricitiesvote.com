@@ -10,7 +10,6 @@ class Candidate extends React.Component {
           {node.frontmatter.region}
           {node.frontmatter.office }
           {node.frontmatter.image}
-          hi
           <div
             dangerouslySetInnerHTML={{
               __html: node.fields.bioo_html,
