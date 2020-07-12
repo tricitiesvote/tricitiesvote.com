@@ -31,7 +31,7 @@ const CandidatePage = ({ data }) => {
   );
 };
 
-export default SynapsePage;
+export default CandidatePage;
 
 export const pageQuery = graphql`
   query($slug: String!) {
