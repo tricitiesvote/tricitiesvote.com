@@ -1,44 +1,38 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import Helmet from 'react-helmet';
 
-class Layout extends React.Component {
-  render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+// import '../styl/main.styl';
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1>
-          <Link to={`/`}>
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3>
-          <Link to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
-    return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-        }}
-      >
-        <header>{header}</header>
-        <main>{children}</main>
-        <footer>
-        </footer>
-      </div>
-    )
-  }
-}
+export default props => {
+  const {
+    pageDescription,
+    pageTitle,
+    bodyClass,
+    children,
+  } = props;
+  return (
+    <>
+      <Helmet>
+        <meta charset="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="chrome-1" />
+        <meta name="description" content={pageDescription} />
+        <meta
+          name="keywords"
+          content=""
+        />
+        <meta name="author" content="Tumbleweird, SPC" />
+        <title>
+          {pageTitle ? `${pageTitle} — ` : ''}
+          Tri-Cities Election Guide
+        </title>
+        {/* <link rel="shortcut icon" href="" /> */}
 
-export default Layout
+        {/* <link rel="stylesheet" href="/css/main.css" /> */}
+
+        <body className={bodyClass} />
+      </Helmet>
+      {/* <BannerGTP /> */}
+      <main>{children}</main>
+    </>
+  );
+};
