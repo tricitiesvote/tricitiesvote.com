@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Tri-Cities Daily Election guide`,
-    author: `Tri-Cities Daily`,
+    title: `vote.triciti.es`,
+    author: `Tumbleweird, SPC`,
     description: `An impartial set of info and links to help people stay informed about the upcoming election`,
-    siteUrl: `https://triciti.es/election`,
+    siteUrl: `https://vote.triciti.es`,
   },
   plugins: [
     {

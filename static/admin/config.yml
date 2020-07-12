@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: tumbleweird/election
+  repo: tumbleweird/vote.triciti.es
   branch: master
 
 local_backend: true
