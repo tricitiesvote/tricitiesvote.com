@@ -52,27 +52,27 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     for (var key in markdownFields) {
       if (markdownFields.hasOwnProperty(key)) {
 
-          let fieldName = markdownFields[key]['name'];
-          let fieldData = markdownFields[key]['data'];
+        let fieldName = markdownFields[key]['name'];
+        let fieldData = markdownFields[key]['data'];
 
-          if (fieldData) {
-            const value = remark()
-              .use(remarkHTML)
-              .processSync(fieldData)
-              .toString();
+        if (fieldData) {
+          const value = remark()
+            .use(remarkHTML)
+            .processSync(fieldData)
+            .toString()
+            .slice(3)     // remove <p>
+            .slice(0,-5) // remove </p>
 
-            // create new node at:
-            // fields { fieldName_html }
-            createNodeField({
-              name: `${fieldName}_html`,
-              node,
-              value
-            });
-          }
-
+          // create new node at:
+          // fields { fieldName_html }
+          createNodeField({
+            name: `${fieldName}_html`,
+            node,
+            value
+          });
         }
+      }
     }
-
   }
 };
 
