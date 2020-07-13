@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/data`,
+        path: `${__dirname}/data/`,
         name: `data`,
       },
     },
@@ -31,26 +31,9 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-plugin-json-remark`,
-            options: {
-              paths: [
-                `${__dirname}/content/data`,
-              ],
-              fieldNameBlacklist: [
-                "id",
-                "children",
-                "parent",
-                "fields",
-                "internal",
-                "path",
-                "template",
-              ],
-            },
-          },
-          {
             resolve: `gatsby-remark-remove-root-p-tag`,
             options: {
-              parents: ["gatsby-plugin-json-remark", "default-site-plugin"], // Required: will process only the MarkdownRemark nodes created by these plugins
+              parents: ["gatsby-transformer-remark"],
             },
           },
           {
