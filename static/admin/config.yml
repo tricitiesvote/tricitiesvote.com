@@ -154,7 +154,7 @@ collections:
           collection: 'offices',
           required: true,
           searchFields: ['title'],
-          valueField: 'slug',
+          valueField: 'title',
           displayFields: ['title'],
         }
       - { name: intro, label: Intro, widget: markdown, required: false, hint: 'Intro catch-all for content/links related to both/all candidates or the race in general.' }
@@ -197,7 +197,7 @@ collections:
         collection: 'races',
         multiple: true,
         searchFields: ['title'],
-        valueField: 'slug',
+        valueField: 'title',
         displayFields: ['title'],
       }
 
