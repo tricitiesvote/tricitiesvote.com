@@ -9,8 +9,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/data/`,
-        name: `data`,
+        path: `${__dirname}/data/candidates`,
+        name: `candidates`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/races`,
+        name: `races`,
       },
     },
     {

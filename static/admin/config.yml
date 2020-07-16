@@ -10,52 +10,50 @@ publish-mode: editorial_workflow
 media_folder: 'static/images'
 public_folder: 'images'
 
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
 collections:
   - name: candidates
+    label: Candidates
+    label_singular: Candidate
+    slug: '{{year}}-{{name}}'
+    folder: 'data/candidates'
     media_folder: '/{{media_folder}}/candidates'
     public_folder: '/{{public_folder}}/candidates'
-    identifier_field: name
-    label_singular: Candidate
-    label: Candidates
-    folder: data
-    slug: '{{region}}-{{office}}-{{fields.slug}}'
+    identifier_field: 'name'
     create: true
     fields:
+      - { name: year, label: Year, widget: 'hidden', default: '2020'}
       - { name: name, label: Name }
       - {
-          name: region,
-          label: Region,
-          widget: select,
-          required: true,
-          options:
-            [
-              { label: 'District 8', value: 'district-8' },
-              { label: 'District 9', value: 'district-9' },
-              { label: 'District 16', value: 'district-16' },
-              { label: 'Benton County', value: 'benton' },
-              { label: 'Franklin County', value: 'franklin' },
-              { label: 'Benton/Franklin', value: 'bf'}
-            ],
+          name: race,
+          label: Election race,
+          widget: relation,
+          collection: 'races',
+          searchFields: ['title', 'region', 'office', 'job', 'position'],
+          valueField: 'slug',
+          displayFields: ['title'],
         }
-      - {
-          name: office,
-          label: Office,
-          widget: select,
-          options:
-            [
-              { label: 'County Commissioner District 1', value: 'commissioner-1' },
-              { label: 'County Commissioner District 2', value: 'commissioner-2' },
-              { label: 'County Commissioner District 3', value: 'commissioner-3' },
-              { label: 'State Senator', value: 'wa-senator' },
-              { label: 'State Representative Pos 1', value: 'wa-rep-1' },
-              { label: 'State Representative Pos 2', value: 'wa-rep-2' },
-              { label: 'Superior Court Judge', value: 'judge' },
-              { label: 'U.S. Representative', value: 'congress' },
-            ],
-          required: true,
-        }
-      - { name: image, label: Image, widget: image, required: false }  
+      - { name: incumbent, label: 'Incumbent?', widget: boolean, required: false }
+      - { name: yearsin, label: 'Years in office (if incumbent)', widget: number, required: false }
+      - { name: image, label: Image, widget: image, required: false }
       - { name: bio, label: Short bio, widget: markdown }
+      - { 
+          name: party, 
+          label: Political Party, 
+          widget: select, 
+          required: false,
+          options:
+            [
+              { label: 'Democrat', value: 'Democrat' },
+              { label: 'Republican', value: 'Republican' },
+              { label: 'Libertarian', value: 'Libertarian' },
+              { label: 'Independent', value: 'Independent' },
+              { label: 'Non-Partisan', value: 'Non-Partisan' },
+            ],
+        }
       - { name: email, label: Email, required: false }
       - { name: statement, label: Statement, required: false }
       - { name: website, label: Website, required: false }
@@ -65,4 +63,90 @@ collections:
       - { name: lettersyes, label: Letters Yes / Endorsements, widget: markdown, required: false }
       - { name: lettersno, label: Letters No, widget: markdown, required: false }
       - { name: articles, label: Articles, widget: markdown, required: false }
-      - { name: body, label: Body, widget: markdown }
+      - { name: body, label: Body, widget: markdown, required: false }
+      - { name: hide, label: 'Hide?', widget: boolean, required: false }
+  - name: races
+    label: Election races
+    label_singular: Election race
+    slug: '{{year}}-{{region}}-{{office}}'
+    folder: 'data/races'
+    media_folder: '/{{media_folder}}/races'
+    public_folder: '/{{public_folder}}/races'
+    create: true
+    fields:
+      - { name: title, label: 'Full name of office', hint: 'Name of Region Name of Office Position (e.g. Franklin County Commissioner Pos 1 or Richland City Council Pos 4' }      
+      - { name: year, label: Year, widget: 'hidden', default: '2020'}
+      - {
+          name: region,
+          label: Region,
+          widget: select,
+          required: true,
+          options:
+            [
+              { label: 'District 8', value: 'District 8' },
+              { label: 'District 9', value: 'District 9' },
+              { label: 'District 16', value: 'district 16' },
+              { label: 'Benton County', value: 'Benton' },
+              { label: 'Franklin County', value: 'Franklin' },
+              { label: 'Benton-Franklin', value: 'Benton-Franklin' },
+              { label: 'WA-4', value: 'WA-4' },
+              { label: 'Kennewick', value: 'Kennewick' },
+              { label: 'Pasco', value: 'Pasco' },
+              { label: 'Richland', value: 'Richland' },
+              { label: 'West Richland', value: 'West Richland' },
+              { label: 'State', value: 'State' },
+            ],
+        }
+      - {
+          name: office,
+          label: Office title,
+          widget: select,
+          required: true,
+          options:
+            [
+              { label: 'City Council', value: 'City Council' },
+              { label: 'School Board', value: 'School Board' },
+              { label: 'Port Commissioner', value: 'Port Commissioner' },
+              { label: 'County Commissioner', value: 'County Commissioner' },
+              { label: 'WA Legislator (Senate)', value: 'WA Legislator (Senate)' },
+              { label: 'WA Legislator (House)', value: 'WA Legislator (House)' },
+              { label: 'Superior Court Judge', value: 'Superior Court Judge' },
+              { label: 'U.S. House', value: 'U.S. House' },
+              { label: 'U.S. Senate', value: 'U.S. Senate' },
+            ],
+        }
+      - {
+          name: job,
+          label: Title of person holding office,
+          widget: select,
+          options:
+            [
+              { label: 'Council member', value: 'Council member' },
+              { label: 'Board member', value: 'Board member' },
+              { label: 'Commissioner', value: 'Commissioner' },
+              { label: 'Representative', value: 'Representative' },
+              { label: 'Senator', value: 'Senator' },
+              { label: 'Judge', value: 'Judge' },
+            ],
+          required: true,
+        }
+      - { name: position, label: Position number, hint: 'If needed', widget: number, required: false }
+      - { name: intro, label: Intro, widget: markdown, required: false, hint: 'Intro catch-all for content/links related to both/all candidates or the race in general.' }
+      - { name: body, label: Body, widget: markdown, required: false, hint: 'Body catch-all for content/links related to both/all candidates or the race in general.' }
+      - {
+          name: guide,
+          label: "Election guides to include in",
+          widget: select,
+          multiple: true,
+          required: true,
+          options:
+            [
+              { label: 'Benton County', value: 'Benton County' },
+              { label: 'Franklin County', value: 'Franklin County' },
+              { label: 'Kennewick', value: 'Kennewick' },
+              { label: 'Pasco', value: 'Pasco' },
+              { label: 'Richland', value: 'Richland' },
+              { label: 'West Richland', value: 'West Richland' },
+            ],
+        }
+      - { name: hide, label: 'Hide?', widget: boolean, required: false }
