@@ -6,6 +6,29 @@ const remarkHTML = require("remark-html");
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
+  const jsonData = [`CandidatesJson`,`OfficesJson`, `RacesJson`, `GuidesJson`]
+
+  if (jsonData.includes(_.get(node, 'internal.type'))) {
+    console.log('>>> type:', _.get(node, 'internal.type'))
+
+    // Set the name of the parent node as the collection
+    const parent = getNode(_.get(node, 'parent'));
+
+    createNodeField({
+      node,
+      name: `collection`,
+      value: _.get(parent, 'sourceInstanceName'),
+    });    
+
+    // add slug 
+    const slugged = _.kebabCase(node.title)
+
+    createNodeField({
+      node,      
+      name: `slug`,
+      value: slugged
+    })
+  }
 
   if (_.get(node, 'internal.type') === `MarkdownRemark`) {
 

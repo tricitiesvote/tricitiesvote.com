@@ -23,6 +23,20 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/data/offices`,
+        name: `offices`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/guides`,
+        name: `guides`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/assets`,
         name: `assets`,
       },
@@ -40,7 +54,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-remove-root-p-tag`,
             options: {
-              parents: ["gatsby-transformer-remark"],
+              parents: ["gatsby-transformer-remark", "default-site-plugin"],
             },
           },
           {
@@ -62,6 +76,13 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          `gatsby-transformer-json`,
+          {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              path: `${__dirname}/data/`,
+            },
+          },
         ],
       },
     },

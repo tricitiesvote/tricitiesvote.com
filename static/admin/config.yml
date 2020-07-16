@@ -24,15 +24,15 @@ collections:
     public_folder: '/{{public_folder}}/candidates'
     identifier_field: 'name'
     create: true
+    extension: json
     fields:
-      - { name: year, label: Year, widget: 'hidden', default: '2020'}
       - { name: name, label: Name }
       - {
           name: race,
           label: Election race,
           widget: relation,
           collection: 'races',
-          searchFields: ['title', 'region', 'office', 'job', 'position'],
+          searchFields: ['title'],
           valueField: 'slug',
           displayFields: ['title'],
         }
@@ -65,17 +65,19 @@ collections:
       - { name: articles, label: Articles, widget: markdown, required: false }
       - { name: body, label: Body, widget: markdown, required: false }
       - { name: hide, label: 'Hide?', widget: boolean, required: false }
-  - name: races
-    label: Election races
-    label_singular: Election race
-    slug: '{{year}}-{{region}}-{{office}}'
-    folder: 'data/races'
-    media_folder: '/{{media_folder}}/races'
-    public_folder: '/{{public_folder}}/races'
+  - name: offices
+    label: Elected offices
+    label_singular: Elected office
+    identifier_field: title
+    slug: '{{region}} {{office}}{{position}}'
+    folder: 'data/offices'
+    media_folder: '/{{media_folder}}/offices'
+    public_folder: '/{{public_folder}}/offices'
+    summary: '{{region}} {{office}} {{position}}'
     create: true
+    extension: json
     fields:
-      - { name: title, label: 'Full name of office', hint: 'Name of Region Name of Office Position (e.g. Franklin County Commissioner Pos 1 or Richland City Council Pos 4' }      
-      - { name: year, label: Year, widget: 'hidden', default: '2020'}
+      - { name: title, label: 'Full name of office', hint: 'Name of Region Name of Office Position (e.g. Franklin County Commissioner Pos 1 or Richland City Council Pos 4' }
       - {
           name: region,
           label: Region,
@@ -83,9 +85,9 @@ collections:
           required: true,
           options:
             [
-              { label: 'District 8', value: 'District 8' },
-              { label: 'District 9', value: 'District 9' },
-              { label: 'District 16', value: 'district 16' },
+              { label: 'District 8', value: '8th District' },
+              { label: 'District 9', value: '9th District' },
+              { label: 'District 16', value: '16th District' },
               { label: 'Benton County', value: 'Benton' },
               { label: 'Franklin County', value: 'Franklin' },
               { label: 'Benton-Franklin', value: 'Benton-Franklin' },
@@ -131,11 +133,48 @@ collections:
           required: true,
         }
       - { name: position, label: Position number, hint: 'If needed', widget: number, required: false }
+  - name: races
+    label: Election races
+    label_singular: Election race
+    identifier_field: title
+    slug: '{{year}}-{{office}}'
+    folder: 'data/races'
+    media_folder: '/{{media_folder}}/races'
+    public_folder: '/{{public_folder}}/races'
+    summary: '{{year}} {{office}}'
+    create: true
+    extension: json
+    fields:
+      - { name: title, label: 'Year + Full name of office', hint: 'YYYY Name of Region Name of Office Position (e.g. 2020 Franklin County Commissioner Pos 1 or 2021 Richland City Council Pos 4' }
+      - { name: year, label: Year, widget: number, hint: 'YYYY (eg. 2020)'}
+      - {
+          name: office,
+          label: Office title,
+          widget: relation,
+          collection: 'offices',
+          required: true,
+          searchFields: ['title'],
+          valueField: 'slug',
+          displayFields: ['title'],
+        }
       - { name: intro, label: Intro, widget: markdown, required: false, hint: 'Intro catch-all for content/links related to both/all candidates or the race in general.' }
       - { name: body, label: Body, widget: markdown, required: false, hint: 'Body catch-all for content/links related to both/all candidates or the race in general.' }
+      - { name: hide, label: 'Hide?', widget: boolean, required: false }
+  - name: guides
+    label: Election guides
+    label_singular: Election guide
+    slug: '{{year}}-{{region}}'
+    folder: 'data/guides'
+    media_folder: '/{{media_folder}}/guides'
+    public_folder: '/{{public_folder}}/guides'
+    summary: '{{year}} {{region}} {{primary}}'
+    create: true
+    extension: json
+    fields:
+      - { name: year, label: Year, widget: number, hint: 'YYYY (eg. 2020)'}
       - {
-          name: guide,
-          label: "Election guides to include in",
+          name: region,
+          label: "Region",
           widget: select,
           multiple: true,
           required: true,
@@ -149,4 +188,17 @@ collections:
               { label: 'West Richland', value: 'West Richland' },
             ],
         }
-      - { name: hide, label: 'Hide?', widget: boolean, required: false }
+      - { name: primary, label: 'Primary?', widget: boolean, required: false }
+      - {
+        name: races,
+        label: Election races,
+        required: true,
+        widget: relation,
+        collection: 'races',
+        multiple: true,
+        searchFields: ['title'],
+        valueField: 'slug',
+        displayFields: ['title'],
+      }
+
+      
