@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `vote.triciti.es`,
+    title: `tricitiesvote.com`,
     author: `Tumbleweird, SPC`,
     description: `An impartial set of info and links to help people stay informed about the upcoming election`,
-    siteUrl: `https://vote.triciti.es`,
+    siteUrl: `https://tricitiesvote.com`,
   },
   plugins: [
     {

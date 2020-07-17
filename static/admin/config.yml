@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: tumbleweird/vote.triciti.es
+  repo: tumbleweird/tricitiesvote.com
   branch: master
 
 local_backend: true
@@ -140,13 +140,13 @@ collections:
     folder: 'data/races'
     media_folder: '/{{media_folder}}/races'
     public_folder: '/{{public_folder}}/races'
-    summary: '{{year}} {{title}}'
+    summary: "Some {{year}} {{title}}"
     create: true
     extension: json
     fields:
-      - { name: year, label: Year, widget: hidden, default: '2020'}
+      - { name: year, label: Year, default: '2020'}
       - {
-          name: office,
+          name: title,
           label: Office title,
           widget: relation,
           collection: 'offices',
@@ -166,12 +166,11 @@ collections:
     folder: 'data/guides'
     media_folder: '/{{media_folder}}/guides'
     public_folder: '/{{public_folder}}/guides'
-    identifier_field: 'region'
-    summary: '{{year}} {{primary}}'
+    summary: "This {{year}} {{region}} ({{type}} election)"
     create: true
     extension: json
     fields:
-      - { name: year, label: Year, widget: hidden, default: '2020'}
+      - { name: year, label: Year, default: '2020'}
       - {
           name: region,
           label: "Region",
@@ -188,7 +187,17 @@ collections:
               { label: 'West Richland', value: 'West Richland' },
             ],
         }
-      - { name: primary, label: 'Primary?', widget: boolean, required: false }
+      - { 
+          name: type, 
+          label: 'Election type', 
+          widget: select, 
+          multiple: false,
+          options: [
+            { label: 'Primary election', value: 'Primary' },
+            { label: 'General election', value: 'General' },
+            { label: 'Special election', value: 'Special' }
+          ]
+        }
       - {
         name: races,
         label: Election races,
@@ -196,8 +205,8 @@ collections:
         widget: relation,
         collection: 'races',
         multiple: true,
-        searchFields: ['year', 'office'],
+        searchFields: ['year', 'title'],
         valueField: 'uuid',
-        displayFields: ['year', 'office'],
+        displayFields: ['year', 'title'],
       }
       
