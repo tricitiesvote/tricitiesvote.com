@@ -33,7 +33,7 @@ collections:
           widget: relation,
           collection: 'races',
           searchFields: ['title'],
-          valueField: 'slug',
+          valueField: 'uuid',
           displayFields: ['title'],
         }
       - { name: incumbent, label: 'Incumbent?', widget: boolean, required: false }
@@ -69,11 +69,10 @@ collections:
     label: Elected offices
     label_singular: Elected office
     identifier_field: title
-    slug: '{{region}} {{office}}{{position}}'
+    slug: '{{title}}'
     folder: 'data/offices'
     media_folder: '/{{media_folder}}/offices'
     public_folder: '/{{public_folder}}/offices'
-    summary: '{{region}} {{office}} {{position}}'
     create: true
     extension: json
     fields:
@@ -133,6 +132,7 @@ collections:
           required: true,
         }
       - { name: position, label: Position number, hint: 'If needed', widget: number, required: false }
+      - { name: uuid, label: ID, widget: ncw-id }
   - name: races
     label: Election races
     label_singular: Election race
@@ -145,8 +145,7 @@ collections:
     create: true
     extension: json
     fields:
-      - { name: title, label: 'Year + Full name of office', hint: 'YYYY Name of Region Name of Office Position (e.g. 2020 Franklin County Commissioner Pos 1 or 2021 Richland City Council Pos 4' }
-      - { name: year, label: Year, widget: number, hint: 'YYYY (eg. 2020)'}
+      - { name: year, label: Year, widget: hidden, default: '2020'}
       - {
           name: office,
           label: Office title,
@@ -154,12 +153,13 @@ collections:
           collection: 'offices',
           required: true,
           searchFields: ['title'],
-          valueField: 'title',
+          valueField: 'uuid',
           displayFields: ['title'],
         }
       - { name: intro, label: Intro, widget: markdown, required: false, hint: 'Intro catch-all for content/links related to both/all candidates or the race in general.' }
       - { name: body, label: Body, widget: markdown, required: false, hint: 'Body catch-all for content/links related to both/all candidates or the race in general.' }
       - { name: hide, label: 'Hide?', widget: boolean, required: false }
+      - { name: uuid, label: ID, widget: ncw-id }
   - name: guides
     label: Election guides
     label_singular: Election guide
@@ -167,11 +167,12 @@ collections:
     folder: 'data/guides'
     media_folder: '/{{media_folder}}/guides'
     public_folder: '/{{public_folder}}/guides'
-    summary: '{{year}} {{region}} {{primary}}'
+    identifier_field: 'region'
+    summary: '{{year}} {{primary}}'
     create: true
     extension: json
     fields:
-      - { name: year, label: Year, widget: number, hint: 'YYYY (eg. 2020)'}
+      - { name: year, label: Year, widget: hidden, default: '2020'}
       - {
           name: region,
           label: "Region",
@@ -196,9 +197,9 @@ collections:
         widget: relation,
         collection: 'races',
         multiple: true,
-        searchFields: ['title'],
-        valueField: 'title',
-        displayFields: ['title'],
+        searchFields: ['year', 'office'],
+        valueField: 'uuid',
+        displayFields: ['year', 'office'],
       }
 
       

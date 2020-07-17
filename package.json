@@ -36,6 +36,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "@ncwidgets/id": "^0.8.1",
     "@raae/gatsby-remark-oembed": "^0.1.1",
     "gatsby": "^2.24.2",
     "gatsby-plugin-json-remark": "^1.1.5",
