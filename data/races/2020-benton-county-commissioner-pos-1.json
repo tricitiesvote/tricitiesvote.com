@@ -1,5 +1,9 @@
 {
-  "year": "2020",
+  "electionyear": "2020",
   "uuid": "L1gJcN-zE",
-  "title": "Benton County Commissioner Pos 1"
+  "title": "Benton County Commissioner Pos 1",
+  "type": "primary",
+  "candidates": [
+    "RSZFKMFK_"
+  ]
 }

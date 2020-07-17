@@ -26,16 +26,8 @@ collections:
     create: true
     extension: json
     fields:
+      - { name: electionyear, label: Election year, default: '2020'}
       - { name: name, label: Name }
-      - {
-          name: race,
-          label: Election race,
-          widget: relation,
-          collection: 'races',
-          searchFields: ['title'],
-          valueField: 'uuid',
-          displayFields: ['title'],
-        }
       - { name: incumbent, label: 'Incumbent?', widget: boolean, required: false }
       - { name: yearsin, label: 'Years in office (if incumbent)', widget: number, required: false }
       - { name: image, label: Image, widget: image, required: false }
@@ -59,12 +51,14 @@ collections:
       - { name: website, label: Website, required: false }
       - { name: facebook, label: Facebook, required: false }
       - { name: twitter, label: Twitter, required: false }
+      - { name: instagram, label: Instagram, required: false }
       - { name: pdc, label: Campaign Finance, required: true }
       - { name: lettersyes, label: Letters Yes / Endorsements, widget: markdown, required: false }
       - { name: lettersno, label: Letters No, widget: markdown, required: false }
       - { name: articles, label: Articles, widget: markdown, required: false }
       - { name: body, label: Body, widget: markdown, required: false }
       - { name: hide, label: 'Hide?', widget: boolean, required: false }
+      - { name: uuid, label: ID, widget: ncw-id }
   - name: offices
     label: Elected offices
     label_singular: Elected office
@@ -140,11 +134,11 @@ collections:
     folder: 'data/races'
     media_folder: '/{{media_folder}}/races'
     public_folder: '/{{public_folder}}/races'
-    summary: "Some {{year}} {{title}}"
+    summary: "{{electionyear}} {{title}} ({{type}})"
     create: true
     extension: json
     fields:
-      - { name: year, label: Year, default: '2020'}
+      - { name: electionyear, label: Election year, default: '2020'}
       - {
           name: title,
           label: Office title,
@@ -155,6 +149,27 @@ collections:
           valueField: 'title',
           displayFields: ['title'],
         }
+      - { 
+          name: type, 
+          label: 'Election type', 
+          widget: select, 
+          multiple: false,
+          options: [
+            { label: 'Primary election', value: 'primary' },
+            { label: 'General election', value: 'general' },
+            { label: 'Special election', value: 'special' }
+          ]
+        }
+      - {
+          name: candidates,
+          label: Candidates,
+          widget: relation,
+          multiple: true,
+          collection: 'candidates',
+          searchFields: ['name'],
+          valueField: 'uuid',
+          displayFields: ['name'],
+        } 
       - { name: intro, label: Intro, widget: markdown, required: false, hint: 'Intro catch-all for content/links related to both/all candidates or the race in general.' }
       - { name: body, label: Body, widget: markdown, required: false, hint: 'Body catch-all for content/links related to both/all candidates or the race in general.' }
       - { name: hide, label: 'Hide?', widget: boolean, required: false }
@@ -166,16 +181,16 @@ collections:
     folder: 'data/guides'
     media_folder: '/{{media_folder}}/guides'
     public_folder: '/{{public_folder}}/guides'
-    summary: "This {{year}} {{region}} ({{type}} election)"
+    summary: "{{electionyear}} {{region}} {{type}} election"
     create: true
     extension: json
     fields:
-      - { name: year, label: Year, default: '2020'}
+      - { name: electionyear, label: Election year, default: '2020'}
       - {
           name: region,
           label: "Region",
           widget: select,
-          multiple: true,
+          multiple: false,
           required: true,
           options:
             [
@@ -193,9 +208,9 @@ collections:
           widget: select, 
           multiple: false,
           options: [
-            { label: 'Primary election', value: 'Primary' },
-            { label: 'General election', value: 'General' },
-            { label: 'Special election', value: 'Special' }
+            { label: 'Primary election', value: 'primary' },
+            { label: 'General election', value: 'general' },
+            { label: 'Special election', value: 'special' }
           ]
         }
       - {
@@ -205,8 +220,8 @@ collections:
         widget: relation,
         collection: 'races',
         multiple: true,
-        searchFields: ['year', 'title'],
+        searchFields: ['electionyear', 'title', 'type'],
         valueField: 'uuid',
-        displayFields: ['year', 'title'],
+        displayFields: ['electionyear', 'title', 'type'],
       }
       
