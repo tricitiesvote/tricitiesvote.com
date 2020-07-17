@@ -136,15 +136,15 @@ collections:
   - name: races
     label: Election races
     label_singular: Election race
-    identifier_field: title
-    slug: '{{year}}-{{office}}'
+    slug: '{{year}}-{{title}}'
     folder: 'data/races'
     media_folder: '/{{media_folder}}/races'
     public_folder: '/{{public_folder}}/races'
-    summary: '{{year}} {{office}}'
+    summary: '{{year}} {{title}}'
     create: true
     extension: json
     fields:
+      - { name: title, label: 'Year + Full name of office', hint: 'YYYY Name of Region Name of Office Position (e.g. 2020 Franklin County Commissioner Pos 1 or 2021 Richland City Council Pos 4' }
       - { name: year, label: Year, widget: hidden, default: '2020'}
       - {
           name: office,
