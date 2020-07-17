@@ -144,7 +144,6 @@ collections:
     create: true
     extension: json
     fields:
-      - { name: title, label: 'Year + Full name of office', hint: 'YYYY Name of Region Name of Office Position (e.g. 2020 Franklin County Commissioner Pos 1 or 2021 Richland City Council Pos 4' }
       - { name: year, label: Year, widget: hidden, default: '2020'}
       - {
           name: office,
@@ -153,7 +152,7 @@ collections:
           collection: 'offices',
           required: true,
           searchFields: ['title'],
-          valueField: 'uuid',
+          valueField: 'title',
           displayFields: ['title'],
         }
       - { name: intro, label: Intro, widget: markdown, required: false, hint: 'Intro catch-all for content/links related to both/all candidates or the race in general.' }
@@ -201,5 +200,4 @@ collections:
         valueField: 'uuid',
         displayFields: ['year', 'office'],
       }
-
       
