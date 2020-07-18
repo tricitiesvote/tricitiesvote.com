@@ -98,6 +98,42 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-json-remark`,
+      options: {
+        paths: [
+          `${__dirname}/data/candidates`,
+          `${__dirname}/data/races`,
+        ], // Process all JSON files in these directories.
+        fieldNameBlacklist: [
+          "id",
+          "children",
+          "parent",
+          "fields",
+          "internal",
+          "path",
+          "template",
+          "email",
+          "facebook",
+          "twitter",
+          "instagram",
+          "name",
+          "party",
+          "title",
+          "name",
+          "electionyear",
+          "image",
+          "pdc",
+          "website",
+          "candidates",
+          "uuid",
+          "type",
+          "yearsin",
+          "incumbent",
+          "hide"
+        ],
+      },
+    },
     // `gatsby-plugin-feed`,
     // {
     //   resolve: `gatsby-plugin-manifest`,

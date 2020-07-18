@@ -140,7 +140,7 @@ collections:
     fields:
       - { name: electionyear, label: Election year, default: '2020'}
       - {
-          name: title,
+          name: office,
           label: Office title,
           widget: relation,
           collection: 'offices',

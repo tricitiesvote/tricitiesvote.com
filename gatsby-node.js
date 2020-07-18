@@ -14,12 +14,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // Set the name of the parent node as the collection
     const parent = getNode(_.get(node, 'parent'));
 
-    createNodeField({
-      node,
-      name: `collection`,
-      value: _.get(parent, 'sourceInstanceName'),
-    });    
-
     // add slug 
     const slugged = _.kebabCase(node.title)
 
@@ -104,33 +98,71 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-      fields: Fields
+
+    type OfficesJson implements Node {
+      fields:           Fields
+      title:            String  
+      job:              String
+      position:         String
+      region:           String
+      uuid:             String
     }
-    type Fields {
-      collection:       String
-      slug:             String
-      articles_html:    String
-      bio_html:         String
-      lettersno_html:   String
-      lettersyes_html:  String
-    }
-    type Frontmatter {
-      name:             String
+
+    type CandidatesJson implements Node {
+      office:           OfficesJson @link(by: "title", from: "office")      
+      fields:           Fields
+      electionyear:     String      
+      name:             String      
       region:           String
       office:           String
+      party:            String
+      incumbent:        Boolean
+      yearsin:          String   
       image:            String
-      bio:              String
       email:            String
-      statement:        String
       website:          String
       facebook:         String
       twitter:          String
+      instagram:        String
       pdc:              String
+      uuid:             String
+      hide:             Boolean
+
+      bio:              String
+      bioHtml:          String
+      statement:        String
+      statementHtml:    String
       lettersyes:       String
+      lettersyesHtml:   String
       lettersno:        String
+      lettersnoHtml:    String
       articles:         String
+      articlesHtml:     String
+    }
+
+    type RacesJson implements Node {
+      candidates:       [CandidatesJson] @link(by: "uuid", from: "candidates")
+      fields:           Fields
+      electionyear:     String
+      title:            String
+      type:             String
+      uuid:             String
+      intro:            String
+      body:             String
+      hide:             Boolean 
+    }
+
+    type GuidesJson implements Node {
+      races:            [RacesJson] @link(by: "uuid", from: "races")      
+      fields:           Fields
+      electionyear:     String      
+      type:             String      
+      region:           String
+    }
+
+    type Fields {
+      collection:       String
+      slug:             String
     }
   `;
 
@@ -144,37 +176,189 @@ exports.createPages = async ({
 }) => {
   const results = await graphql(`
     {
-      everything: allMarkdownRemark(
+
+      offices: allOfficesJson(
+        limit: 1000
+      ) {
+        edges {
+          node {
+            ...OfficeDetailsFragment
+          }
+        }
+      }
+
+      candidates: allCandidatesJson(
         limit: 1000
       ) {
         edges {
           node {
             fields {
               slug
-              collection
-              articles_html
-              bio_html
-              lettersno_html
-              lettersyes_html
             }
-            id
-            html
-            frontmatter {
+            office { 
+              fields {
+                slug
+              }
+              title
+              job
+              position
+              region
+              uuid
+            }
+            electionyear  
+            name
+            region
+            office
+            party
+            incumbent
+            yearsin
+            image
+            email
+            website
+            facebook
+            twitter
+            instagram
+            pdc
+            uuid
+            hide
+            bio
+            bioHtml
+            statement
+            statementHtml
+            lettersyes
+            lettersyesHtml
+            lettersno
+            lettersnoHtml
+            articles
+            articlesHtml
+          }
+        }
+      }
+
+      races: allRacesJson(
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            candidates {
+              fields {
+                slug
+              }
+              office { 
+                fields {
+                  slug
+                }
+                title
+                job
+                position
+                region
+                uuid
+              }
+              electionyear  
               name
               region
-              office 
+              office
+              party
+              incumbent
+              yearsin
               image
-              bio
               email
-              statement
               website
               facebook
               twitter
+              instagram
               pdc
+              uuid
+              hide
+              bio
+              bioHtml
+              statement
+              statementHtml
               lettersyes
+              lettersyesHtml
               lettersno
+              lettersnoHtml
               articles
+              articlesHtml
             }
+            electionyear
+            title
+            type
+            uuid
+            intro
+            body
+            hide
+          }
+        }
+      }
+
+      guides: allGuidesJson(
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            races {
+              fields {
+                slug
+              }
+              candidates {
+                fields {
+                  slug
+                }
+                office { 
+                  fields {
+                    slug
+                  }
+                  title
+                  job
+                  position
+                  region
+                  uuid
+                }
+                electionyear  
+                name
+                region
+                office
+                party
+                incumbent
+                yearsin
+                image
+                email
+                website
+                facebook
+                twitter
+                instagram
+                pdc
+                uuid
+                hide
+                bio
+                bioHtml
+                statement
+                statementHtml
+                lettersyes
+                lettersyesHtml
+                lettersno
+                lettersnoHtml
+                articles
+                articlesHtml
+              }
+              electionyear
+              title
+              type
+              uuid
+              intro
+              body
+              hide
+            }
+            electionyear
+            type
+            region
           }
         }
       }
@@ -186,18 +370,18 @@ exports.createPages = async ({
     return;
   }
 
-  const allCandidates = results.data.everything.edges;
+  // const allCandidates = results.data.everything.edges;
 
-  allCandidates.forEach((person, index) => {
+  // allCandidates.forEach((person, index) => {
 
-    createPage({
-      path: `/candidates/${person.node.fields.slug}/`,
-      component: path.resolve('./src/templates/CandidatePage.js'),
-      context: {
-        slug: person.node.fields.slug,
-      },
-    })
-  })
+  //   createPage({
+  //     path: `/candidates/${person.node.fields.slug}/`,
+  //     component: path.resolve('./src/templates/CandidatePage.js'),
+  //     context: {
+  //       slug: person.node.fields.slug,
+  //     },
+  //   })
+  // })
 
 };
 
