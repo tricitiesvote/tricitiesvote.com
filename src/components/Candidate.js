@@ -1,82 +1,90 @@
-// import React from "react"
-// import { graphql } from "gatsby"
+import React from "react"
+import { graphql, Link } from "gatsby"
 
-// class Candidate extends React.Component {
-//   render() {
-//     {posts.map(({ node }) => {
-//       return (
-//         <div key={node.fields.slug}>
-//           {node.name}
-//           {node.region}
-//           {node.office }
-//           {node.image}
-//           <div
-//             dangerouslySetInnerHTML={{
-//               __html: node.fields.bioo_html,
-//             }}
-//           />
-//           {node.email}
-//           {node.statement}
-//           {node.website}
-//           {node.facebook}
-//           {node.twitter}
-//           {node.pdc}
-//           <div
-//             dangerouslySetInnerHTML={{
-//               __html: node.fields.lettersyes_html,
-//             }}
-//           />
-//           <div
-//             dangerouslySetInnerHTML={{
-//               __html: node.fields.lettersno_html,
-//             }}
-//           />
-//           <div
-//             dangerouslySetInnerHTML={{
-//               __html: node.fields.articles_html,
-//             }}
-//           />
-//           <p
-//             dangerouslySetInnerHTML={{
-//               __html: node.description || node.excerpt,
-//             }}
-//           />
-//         </div>
-//       )
-//     })}
-//   }
-// }
+const Candidate = props => {
+  const { id, slug, name, office, image, bioHtml, statement, email, website, facebook, twitter, instagram, youtube, pdc, lettersyesHtml, lettersnoHtml, articlesHtml } = props;
+  const url = `/candidate/${slug}`;
+  return (
+    <div key={id}>
+      <Link to={url}>
+        {name}
+      </Link>
+      {office }
+      {image}
+      <div
+      dangerouslySetInnerHTML={{
+          __html: bioHtml,
+      }}
+      />
+      {statement}
+      {email}
+      {website}
+      {facebook}
+      {twitter}
+      {instagram}
+      {youtube}
+      {pdc}
+      <div
+      dangerouslySetInnerHTML={{
+          __html: lettersyesHtml,
+      }}
+      />
+      <div
+      dangerouslySetInnerHTML={{
+          __html: lettersnoHtml,
+      }}
+      />
+      <div
+      dangerouslySetInnerHTML={{
+          __html: articlesHtml,
+      }}
+      />
+    </div>
+  );
+};
 
-// export default Candidate
+export default Candidate
 
-// export const pageQuery = graphql`
-//   query BlogPostBySlug($slug: String!) {
-//     site {
-//       siteMetadata {
-//         title
-//         author
-//       }
-//     }
-//     markdownRemark(fields: { slug: { eq: $slug } }) {
-//       id
-//       excerpt(pruneLength: 160)
-//       html
-//       frontmatter {
-//         name
-//         region
-//         office 
-//         image
-//         bio
-//         email
-//         statement
-//         website
-//         facebook
-//         twitter
-//         pdc
-//         lettersyes
-//         lettersno
-//         articles
-//       }
-//     }
-//   }
-// `
+export const pageQuery = graphql`
+
+  fragment OfficeDetails on OfficesJson {
+    title
+    job
+    position
+    region
+    uuid
+  }
+
+  fragment CandidateDetails on CandidatesJson {
+    fields {
+      slug
+    }
+    office {
+      ...OfficeDetails
+    }
+    electionyear  
+    name
+    party
+    incumbent
+    yearsin
+    image
+    statement
+    email
+    website
+    facebook
+    twitter
+    instagram
+    youtube
+    pdc
+    uuid
+    hide
+    bio
+    bioHtml
+    lettersyes
+    lettersyesHtml
+    lettersno
+    lettersnoHtml
+    articles
+    articlesHtml
+  }
+`

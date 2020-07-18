@@ -50,6 +50,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       incumbent:        Boolean
       yearsin:          String   
       image:            String
+      statement:        String
       email:            String
       website:          String
       facebook:         String
@@ -62,8 +63,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 
       bio:              String
       bioHtml:          String
-      statement:        String
-      statementHtml:    String
       lettersyes:       String
       lettersyesHtml:   String
       lettersno:        String
@@ -130,6 +129,7 @@ exports.createPages = async ({
       incumbent
       yearsin
       image
+      statement
       email
       website
       facebook
@@ -139,8 +139,6 @@ exports.createPages = async ({
       pdc
       bio
       bioHtml
-      statement
-      statementHtml
       lettersyes
       lettersyesHtml
       lettersno

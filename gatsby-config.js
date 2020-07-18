@@ -52,12 +52,6 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-remove-root-p-tag`,
-            options: {
-              parents: ["gatsby-transformer-remark", "default-site-plugin"],
-            },
-          },
-          {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
@@ -125,6 +119,7 @@ module.exports = {
           "electionyear",
           "image",
           "pdc",
+          "statement",
           "website",
           "candidates",
           "uuid",

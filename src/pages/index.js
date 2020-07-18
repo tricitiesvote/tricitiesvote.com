@@ -2,17 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import DefaultLayout from "../layouts/DefaultLayout"
+import CandidateCollection from "../components/CandidateCollection.js"
 
 class SiteIndex extends React.Component {
   render() {
     const { data } = this.props
-    const dataset = data.allGuidesJson.edges
     const siteTitle = data.site.siteMetadata.title
 
     return (
       <DefaultLayout location={this.props.location} title={siteTitle}>
 
-        <pre><code>${JSON.stringify(dataset, null, 2)}</code></pre>
+        {/* <pre><code>${JSON.stringify(dataset, null, 2)}</code></pre> */}
+
+        <CandidateCollection />
 
       </DefaultLayout>
     )
@@ -44,6 +46,7 @@ export const pageQuery = graphql`
     incumbent
     yearsin
     image
+    statement
     email
     website
     facebook
@@ -55,8 +58,6 @@ export const pageQuery = graphql`
     hide
     bio
     bioHtml
-    statement
-    statementHtml
     lettersyes
     lettersyesHtml
     lettersno
