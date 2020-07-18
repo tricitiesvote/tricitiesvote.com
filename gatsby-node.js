@@ -26,7 +26,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
@@ -160,7 +159,6 @@ exports.createPages = async ({
     }
 
     {
-
       offices: allOfficesJson(
         limit: 1000
       ) {
