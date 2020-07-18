@@ -28,6 +28,17 @@ collections:
     fields:
       - { name: electionyear, label: Election year, default: '2020'}
       - { name: name, label: Name }
+      - {
+          name: office,
+          label: Office title,
+          widget: relation,
+          collection: 'offices',
+          required: true,
+          multiple: false,
+          searchFields: ['title'],
+          valueField: 'title',
+          displayFields: ['title'],
+        }
       - { name: incumbent, label: 'Incumbent?', widget: boolean, required: false }
       - { name: yearsin, label: 'Years in office (if incumbent)', widget: number, required: false }
       - { name: image, label: Image, widget: image, required: false }
@@ -52,12 +63,13 @@ collections:
       - { name: facebook, label: Facebook, required: false }
       - { name: twitter, label: Twitter, required: false }
       - { name: instagram, label: Instagram, required: false }
+      - { name: youtube, label: YouTube, required: false }
       - { name: pdc, label: Campaign Finance, required: true }
       - { name: lettersyes, label: Letters Yes / Endorsements, widget: markdown, required: false }
       - { name: lettersno, label: Letters No, widget: markdown, required: false }
       - { name: articles, label: Articles, widget: markdown, required: false }
       - { name: body, label: Body, widget: markdown, required: false }
-      - { name: hide, label: 'Hide?', widget: boolean, required: false }
+      - { name: hide, label: 'Hide?', widget: boolean, default: false }
       - { name: uuid, label: ID, widget: ncw-id }
   - name: offices
     label: Elected offices
@@ -172,7 +184,7 @@ collections:
         } 
       - { name: intro, label: Intro, widget: markdown, required: false, hint: 'Intro catch-all for content/links related to both/all candidates or the race in general.' }
       - { name: body, label: Body, widget: markdown, required: false, hint: 'Body catch-all for content/links related to both/all candidates or the race in general.' }
-      - { name: hide, label: 'Hide?', widget: boolean, required: false }
+      - { name: hide, label: 'Hide?', widget: boolean, default: false }
       - { name: uuid, label: ID, widget: ncw-id }
   - name: guides
     label: Election guides

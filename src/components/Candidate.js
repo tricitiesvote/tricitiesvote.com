@@ -6,21 +6,21 @@
 //     {posts.map(({ node }) => {
 //       return (
 //         <div key={node.fields.slug}>
-//           {node.frontmatter.name}
-//           {node.frontmatter.region}
-//           {node.frontmatter.office }
-//           {node.frontmatter.image}
+//           {node.name}
+//           {node.region}
+//           {node.office }
+//           {node.image}
 //           <div
 //             dangerouslySetInnerHTML={{
 //               __html: node.fields.bioo_html,
 //             }}
 //           />
-//           {node.frontmatter.email}
-//           {node.frontmatter.statement}
-//           {node.frontmatter.website}
-//           {node.frontmatter.facebook}
-//           {node.frontmatter.twitter}
-//           {node.frontmatter.pdc}
+//           {node.email}
+//           {node.statement}
+//           {node.website}
+//           {node.facebook}
+//           {node.twitter}
+//           {node.pdc}
 //           <div
 //             dangerouslySetInnerHTML={{
 //               __html: node.fields.lettersyes_html,
@@ -38,7 +38,7 @@
 //           />
 //           <p
 //             dangerouslySetInnerHTML={{
-//               __html: node.frontmatter.description || node.excerpt,
+//               __html: node.description || node.excerpt,
 //             }}
 //           />
 //         </div>

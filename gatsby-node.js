@@ -3,27 +3,29 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const remark = require("remark");
 const remarkHTML = require("remark-html");
+const { nextTick } = require('process');
 // const OfficeDetailsFragment = require('./src/queries/Office.js');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-  const jsonData = [`CandidatesJson`, `OfficesJson`, `RacesJson`, `GuidesJson`]
 
-  if (jsonData.includes(_.get(node, 'internal.type'))) {
-    // console.log('>>> type:', _.get(node, 'internal.type'))
-
-    // Set the name of the parent node as the collection
-    const parent = getNode(_.get(node, 'parent'));
-
-    // add slug 
-    const slugged = _.kebabCase(node.title)
-
+  // build slug contents for Races
+  if (node.internal.type === 'RacesJson') {
     createNodeField({
       node,      
       name: `slug`,
-      value: slugged
+      value: _.kebabCase(node.office)
     })
   }
+
+    // build slug contents for Races
+    if (node.internal.type === 'CandidatesJson' && node.name) {
+      createNodeField({
+        node,      
+        name: `slug`,
+        value: _.kebabCase(node.name)
+      })
+    }
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -41,11 +43,9 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type CandidatesJson implements Node {
-      office:           OfficesJson @link(by: "title", from: "office")
       fields:           Fields
       electionyear:     String      
       name:             String      
-      region:           String
       party:            String
       incumbent:        Boolean
       yearsin:          String   
@@ -55,6 +55,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       facebook:         String
       twitter:          String
       instagram:        String
+      youtube:          String
       pdc:              String
       uuid:             String
       hide:             Boolean
@@ -69,10 +70,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       lettersnoHtml:    String
       articles:         String
       articlesHtml:     String
+
+      office:           OfficesJson @link(by: "title", from: "office")
     }
 
     type RacesJson implements Node {
-      candidates:       [CandidatesJson] @link(by: "uuid", from: "candidates")
+      office:           OfficesJson @link(by: "title", from: "office")
       fields:           Fields
       electionyear:     String
       title:            String
@@ -80,19 +83,19 @@ exports.createSchemaCustomization = ({ actions }) => {
       uuid:             String
       intro:            String
       body:             String
+      candidates:       [CandidatesJson] @link(by: "uuid", from: "candidates")
       hide:             Boolean 
     }
 
-    type GuidesJson implements Node {
-      races:            [RacesJson] @link(by: "uuid", from: "races")      
+    type GuidesJson implements Node {    
       fields:           Fields
       electionyear:     String      
       type:             String      
       region:           String
+      races:            [RacesJson] @link(by: "uuid", from: "races")  
     }
 
     type Fields {
-      collection:       String
       slug:             String
     }
   `;
@@ -115,12 +118,14 @@ exports.createPages = async ({
     }
 
     fragment CandidateDetails on CandidatesJson {
+      fields {
+        slug
+      }
+      name
+      electionyear
       office {
         ...OfficeDetails
       }
-      electionyear  
-      name
-      region
       party
       incumbent
       yearsin
@@ -130,9 +135,8 @@ exports.createPages = async ({
       facebook
       twitter
       instagram
+      youtube
       pdc
-      uuid
-      hide
       bio
       bioHtml
       statement
@@ -143,18 +147,25 @@ exports.createPages = async ({
       lettersnoHtml
       articles
       articlesHtml
+      uuid
+      hide
     }
 
     fragment RaceDetails on RacesJson {
+      fields {
+        slug
+      }
+      electionyear
+      type
+      office {
+        ...OfficeDetails
+      }
+      intro
+      body
       candidates {
         ...CandidateDetails
       }
-      electionyear
-      title
-      type
       uuid
-      intro
-      body
       hide
     }
 

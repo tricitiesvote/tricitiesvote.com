@@ -117,6 +117,7 @@ module.exports = {
           "facebook",
           "twitter",
           "instagram",
+          "youtube",
           "name",
           "party",
           "title",
@@ -130,7 +131,8 @@ module.exports = {
           "type",
           "yearsin",
           "incumbent",
-          "hide"
+          "hide",
+          "office"
         ],
       },
     },
