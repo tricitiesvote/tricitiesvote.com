@@ -3,13 +3,14 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const remark = require("remark");
 const remarkHTML = require("remark-html");
+// const OfficeDetailsFragment = require('./src/queries/Office.js');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-  const jsonData = [`CandidatesJson`,`OfficesJson`, `RacesJson`, `GuidesJson`]
+  const jsonData = [`CandidatesJson`, `OfficesJson`, `RacesJson`, `GuidesJson`]
 
   if (jsonData.includes(_.get(node, 'internal.type'))) {
-    console.log('>>> type:', _.get(node, 'internal.type'))
+    // console.log('>>> type:', _.get(node, 'internal.type'))
 
     // Set the name of the parent node as the collection
     const parent = getNode(_.get(node, 'parent'));
@@ -22,74 +23,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       value: slugged
     })
-  }
-
-  if (_.get(node, 'internal.type') === `MarkdownRemark`) {
-
-    // Set the name of the parent node as the collection
-    const parent = getNode(_.get(node, 'parent'));
-
-    createNodeField({
-      node,
-      name: `collection`,
-      value: _.get(parent, 'sourceInstanceName'),
-    });
-
-    // add slug 
-    const slugged = _.kebabCase(node.frontmatter.name)
-    
-    createNodeField({
-      node,      
-      name: `slug`,
-      value: slugged
-    })
-
-    // create frontmatter markdown html fields 
-    const my_field = node.frontmatter.my_field;
-
-    const markdownFields = [
-      { 
-        "name": "bio", 
-        "data": node.frontmatter.bio 
-      },
-      { 
-        "name": "lettersyes", 
-        "data": node.frontmatter.lettersyes 
-      },
-      {
-        "name": "lettersno",
-        "data": node.frontmatter.lettersno 
-      },
-      { 
-        "name": "articles",
-        "data": node.frontmatter.articles
-      },
-    ]
-
-    for (var key in markdownFields) {
-      if (markdownFields.hasOwnProperty(key)) {
-
-        let fieldName = markdownFields[key]['name'];
-        let fieldData = markdownFields[key]['data'];
-
-        if (fieldData) {
-          const value = remark()
-            .use(remarkHTML)
-            .processSync(fieldData)
-            .toString()
-            .slice(3)     // remove <p>
-            .slice(0,-5) // remove </p>
-
-          // create new node at:
-          // fields { fieldName_html }
-          createNodeField({
-            name: `${fieldName}_html`,
-            node,
-            value
-          });
-        }
-      }
-    }
   }
 };
 
@@ -109,12 +42,11 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type CandidatesJson implements Node {
-      office:           OfficesJson @link(by: "title", from: "office")      
+      office:           OfficesJson @link(by: "title", from: "office")
       fields:           Fields
       electionyear:     String      
       name:             String      
       region:           String
-      office:           String
       party:            String
       incumbent:        Boolean
       yearsin:          String   
@@ -175,6 +107,58 @@ exports.createPages = async ({
   reporter,
 }) => {
   const results = await graphql(`
+    fragment OfficeDetails on OfficesJson {
+      title
+      job
+      position
+      region
+      uuid
+    }
+
+    fragment CandidateDetails on CandidatesJson {
+      office {
+        ...OfficeDetails
+      }
+      electionyear  
+      name
+      region
+      party
+      incumbent
+      yearsin
+      image
+      email
+      website
+      facebook
+      twitter
+      instagram
+      pdc
+      uuid
+      hide
+      bio
+      bioHtml
+      statement
+      statementHtml
+      lettersyes
+      lettersyesHtml
+      lettersno
+      lettersnoHtml
+      articles
+      articlesHtml
+    }
+
+    fragment RaceDetails on RacesJson {
+      candidates {
+        ...CandidateDetails
+      }
+      electionyear
+      title
+      type
+      uuid
+      intro
+      body
+      hide
+    }
+
     {
 
       offices: allOfficesJson(
@@ -182,7 +166,7 @@ exports.createPages = async ({
       ) {
         edges {
           node {
-            ...OfficeDetailsFragment
+            ...OfficeDetails
           }
         }
       }
@@ -192,45 +176,7 @@ exports.createPages = async ({
       ) {
         edges {
           node {
-            fields {
-              slug
-            }
-            office { 
-              fields {
-                slug
-              }
-              title
-              job
-              position
-              region
-              uuid
-            }
-            electionyear  
-            name
-            region
-            office
-            party
-            incumbent
-            yearsin
-            image
-            email
-            website
-            facebook
-            twitter
-            instagram
-            pdc
-            uuid
-            hide
-            bio
-            bioHtml
-            statement
-            statementHtml
-            lettersyes
-            lettersyesHtml
-            lettersno
-            lettersnoHtml
-            articles
-            articlesHtml
+            ...CandidateDetails
           }
         }
       }
@@ -240,57 +186,7 @@ exports.createPages = async ({
       ) {
         edges {
           node {
-            fields {
-              slug
-            }
-            candidates {
-              fields {
-                slug
-              }
-              office { 
-                fields {
-                  slug
-                }
-                title
-                job
-                position
-                region
-                uuid
-              }
-              electionyear  
-              name
-              region
-              office
-              party
-              incumbent
-              yearsin
-              image
-              email
-              website
-              facebook
-              twitter
-              instagram
-              pdc
-              uuid
-              hide
-              bio
-              bioHtml
-              statement
-              statementHtml
-              lettersyes
-              lettersyesHtml
-              lettersno
-              lettersnoHtml
-              articles
-              articlesHtml
-            }
-            electionyear
-            title
-            type
-            uuid
-            intro
-            body
-            hide
+            ...RaceDetails
           }
         }
       }
@@ -300,61 +196,8 @@ exports.createPages = async ({
       ) {
         edges {
           node {
-            fields {
-              slug
-            }
             races {
-              fields {
-                slug
-              }
-              candidates {
-                fields {
-                  slug
-                }
-                office { 
-                  fields {
-                    slug
-                  }
-                  title
-                  job
-                  position
-                  region
-                  uuid
-                }
-                electionyear  
-                name
-                region
-                office
-                party
-                incumbent
-                yearsin
-                image
-                email
-                website
-                facebook
-                twitter
-                instagram
-                pdc
-                uuid
-                hide
-                bio
-                bioHtml
-                statement
-                statementHtml
-                lettersyes
-                lettersyesHtml
-                lettersno
-                lettersnoHtml
-                articles
-                articlesHtml
-              }
-              electionyear
-              title
-              type
-              uuid
-              intro
-              body
-              hide
+              ...RaceDetails
             }
             electionyear
             type
