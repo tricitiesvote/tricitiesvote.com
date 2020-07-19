@@ -3,25 +3,26 @@ import { graphql, Link } from "gatsby"
 
 const Candidate = props => {
   // TODO: re-add { donors } and var donorsHtml
-  const { id, slug, name, image, bioHtml, statement, email, website, facebook, twitter, instagram, youtube, pdc, lettersyesHtml, lettersnoHtml, articlesHtml } = props.data;
+  const { id, slug, name, image, statement, email, website, facebook, twitter, instagram, youtube, pdc, fields } = props.data;
   const url = `/candidate/${slug}`;
+  const { bio_html, body_html, lettersyes_html_nowrap, lettersno_html_nowrap, articles_html_nowrap } = fields
 
-  var recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, pdcHtml, articlesHtmlHtml
+  var recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, pdcHtml, articlesHtml
 
-  if (lettersyesHtml) {
+  if (lettersyes_html_nowrap) {
     recyes = <li className="yes"
       dangerouslySetInnerHTML={{
-        __html: lettersyesHtml
+        __html: lettersyes_html_nowrap
       }}
     ></li>
   } else {
     recyes = <li className="yes">No letters yet. <a href="https://tricitiesvote.com/letters">Write one</a>.</li>
   }
 
-  if (lettersnoHtml) {
+  if (lettersno_html_nowrap) {
     recno = <li className="no"
       dangerouslySetInnerHTML={{
-        __html: lettersnoHtml
+        __html: lettersno_html_nowrap
       }}
     ></li>
   } else {
@@ -117,22 +118,22 @@ const Candidate = props => {
     pdcHtml = ''
   }
 
-  if (articlesHtml) {
-    articlesHtmlHtml =  <ul className="news">
+  if (articles_html_nowrap) {
+    articlesHtml =  <ul className="news">
       <li
       dangerouslySetInnerHTML={{
-        __html: articlesHtml || ''
+        __html: articles_html_nowrap || ''
       }}
       />
     </ul>
   } else {
-    articlesHtmlHtml = ''
+    articlesHtml = ''
   }
 
   return (
     <div className="container-candidate" key={id}>
     <div className="candidate">
-    <pre><code>{JSON.stringify(props,null,2)}</code></pre>
+    {/* <pre><code>{JSON.stringify(props,null,2)}</code></pre> */}
       <div className="details">
         <h5>
           <Link to={url}>
@@ -140,14 +141,18 @@ const Candidate = props => {
           </Link>
         </h5>
         <div className="candidate-bio" dangerouslySetInnerHTML={{
-            __html: bioHtml
+            __html: bio_html
           }}
         />
         <p className="candidate-statement"><a href={statement}>Read full candidate statement »</a></p>
+        <div dangerouslySetInnerHTML={{
+            __html: body_html
+          }}
+        />
         {recHtml}
         {/* commenting out until we have donor data */}
         {/* {donorsHtml} */}
-        {articlesHtmlHtml}
+        {articlesHtml}
       </div>
       <div className="info">
         <img src={image} alt={name} />
@@ -183,6 +188,16 @@ export const pageQuery = graphql`
   fragment CandidateDetails on CandidatesJson {
     fields {
       slug
+      body_html
+      bio_html
+      lettersyes_html
+      lettersno_html
+      articles_html
+      lettersyes_html_nowrap
+      lettersno_html_nowrap 
+      bio_html_nowrap       
+      articles_html_nowrap  
+      body_html_nowrap   
     }
     office {
       ...OfficeDetails
@@ -204,9 +219,9 @@ export const pageQuery = graphql`
     donors
     uuid
     hide
-    bioHtml
-    lettersyesHtml
-    lettersnoHtml
-    articlesHtml
+    bio
+    lettersyes
+    lettersno
+    articles
   }
 `

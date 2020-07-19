@@ -18,14 +18,80 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 
-    // build slug contents for Races
-    if (node.internal.type === 'CandidatesJson' && node.name) {
-      createNodeField({
-        node,      
-        name: `slug`,
-        value: _.kebabCase(node.name)
-      })
+  // build slug contents for Races
+  if (node.internal.type === 'CandidatesJson' && node.name) {
+    createNodeField({
+      node,      
+      name: `slug`,
+      value: _.kebabCase(node.name)
+    })
+  }
+
+  const markdownFields = [
+    { 
+      "name": "bio", 
+      "data": node.bio,
+      "wrap": true
+    },
+    { 
+      "name": "lettersyes", 
+      "data": node.lettersyes,
+      "wrap": false
+    },
+    {
+      "name": "lettersno",
+      "data": node.lettersno,
+      "wrap": false
+    },
+    { 
+      "name": "articles",
+      "data": node.articles,
+      "wrap": false
+    },
+    { 
+      "name": "body",
+      "data": node.body,
+      "wrap": true
+    },
+  ]
+
+  for (var key in markdownFields) {
+    if (markdownFields.hasOwnProperty(key)) {
+
+      let fieldName = markdownFields[key]['name'];
+      let fieldData = markdownFields[key]['data'];
+      let wrap = markdownFields[key]['wrap'];
+
+      if (fieldData) {
+        const valueWrap = remark()
+          .use(remarkHTML)
+          .processSync(fieldData)
+          .toString()
+
+        const valueNoWrap = remark()
+          .use(remarkHTML)
+          .processSync(fieldData)
+          .toString()
+          .slice(3).slice(0,-5) // remove <p> and </p>
+
+        // create new node at:
+        // fields { fieldName_html }
+        createNodeField({
+          name: `${fieldName}_html`,
+          node,
+          value: valueWrap
+        });
+
+        // create new unwrapped node at:
+        // fields { fieldName_html_nowrap }
+        createNodeField({
+          name: `${fieldName}_html_nowrap`,
+          node,
+          value: valueNoWrap
+        });
+      }
     }
+  }
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -63,13 +129,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       hide:             Boolean
 
       bio:              String
-      bioHtml:          String
+      body:             String
       lettersyes:       String
-      lettersyesHtml:   String
       lettersno:        String
-      lettersnoHtml:    String
       articles:         String
-      articlesHtml:     String
 
       office:           OfficesJson @link(by: "title", from: "office")
     }
@@ -97,6 +160,17 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Fields {
       slug:             String
+      lettersyes_html:  String
+      lettersno_html:   String
+      bio_html:         String
+      articles_html:    String
+      body_html:        String
+
+      lettersyes_html_nowrap:  String
+      lettersno_html_nowrap:   String
+      bio_html_nowrap:         String
+      articles_html_nowrap:    String
+      body_html_nowrap:        String
     }
   `;
 
@@ -120,6 +194,16 @@ exports.createPages = async ({
     fragment CandidateDetails on CandidatesJson {
       fields {
         slug
+        body_html
+        bio_html
+        lettersyes_html
+        lettersno_html
+        articles_html
+        lettersyes_html_nowrap
+        lettersno_html_nowrap 
+        bio_html_nowrap       
+        articles_html_nowrap  
+        body_html_nowrap      
       }
       name
       electionyear
@@ -139,10 +223,10 @@ exports.createPages = async ({
       youtube
       pdc
       donors
-      bioHtml
-      lettersyesHtml
-      lettersnoHtml
-      articlesHtml
+      bio
+      lettersyes      
+      lettersno
+      articles
       uuid
       hide
     }
@@ -181,7 +265,7 @@ exports.createPages = async ({
       ) {
         edges {
           node {
-            ...CandidateDetails
+            ...CandidateDetails    
           }
         }
       }

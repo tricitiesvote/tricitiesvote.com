@@ -8,10 +8,10 @@ const Guide = props => {
 
   return (
     <div className="guide" key={props.uuid}>
-      <h1>Guide</h1>
+      <h1>{data.node.region}</h1>
       <RaceList data={races} />
       {/* <pre><code>
-        {JSON.stringify(races,null,2)}
+        {JSON.stringify(props,null,2)}
       </code></pre> */}
     </div>
   )
