@@ -3,9 +3,28 @@ import { graphql, Link } from "gatsby"
 
 const Candidate = props => {
   // TODO: re-add { donors } and var donorsHtml
-  const { id, slug, name, image, statement, email, website, facebook, twitter, instagram, youtube, pdc, fields } = props.data;
-  const url = `/candidate/${slug}`;
-  const { bio_html, body_html, lettersyes_html_nowrap, lettersno_html_nowrap, articles_html_nowrap } = fields
+  const { 
+    id, 
+    name, 
+    image, 
+    statement, 
+    email, 
+    website, 
+    facebook, 
+    twitter, 
+    instagram, 
+    youtube, 
+    pdc, 
+    fields 
+  } = props.data;
+  const { 
+    bio_html, 
+    body_html, 
+    lettersyes_html_nowrap, 
+    lettersno_html_nowrap, 
+    articles_html_nowrap 
+  } = fields
+  const url = `/${fields.slug}`;
 
   var recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, pdcHtml, articlesHtml
 

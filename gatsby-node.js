@@ -314,7 +314,7 @@ exports.createPages = async ({
 
   allCandidates.forEach((candidate, index) => {
     createPage({
-      path: `/candidates/${candidate.node.fields.slug}/`,
+      path: `/${candidate.node.fields.slug}/`,
       component: path.resolve('./src/templates/CandidatePage.js'),
       context: {
         slug: candidate.node.fields.slug,
