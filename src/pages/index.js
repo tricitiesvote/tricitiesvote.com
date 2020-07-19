@@ -54,15 +54,12 @@ export const pageQuery = graphql`
     instagram
     youtube
     pdc
+    donors
     uuid
     hide
-    bio
     bioHtml
-    lettersyes
     lettersyesHtml
-    lettersno
     lettersnoHtml
-    articles
     articlesHtml
   }
 

@@ -58,6 +58,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       instagram:        String
       youtube:          String
       pdc:              String
+      donors:           String
       uuid:             String
       hide:             Boolean
 
@@ -137,13 +138,10 @@ exports.createPages = async ({
       instagram
       youtube
       pdc
-      bio
+      donors
       bioHtml
-      lettersyes
       lettersyesHtml
-      lettersno
       lettersnoHtml
-      articles
       articlesHtml
       uuid
       hide

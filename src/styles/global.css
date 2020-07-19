@@ -330,7 +330,7 @@ article p {
   left: -15px;
 }
 
-.news li::before {
+.news p::before {
   content: "📰";
   position: absolute;
   left: -15px;
