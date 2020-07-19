@@ -10,7 +10,7 @@ const Race = props => {
   if (candidates) {
     return(
       <div className="candidate-set">
-        {/* <pre><code>{JSON.stringify(props,null,2)}</code></pre> */}
+        <pre><code>{JSON.stringify(props,null,2)}</code></pre>
         {candidates.map(candidate => (
           <Candidate data={candidate} />
         ))}

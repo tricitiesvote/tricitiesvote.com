@@ -304,16 +304,23 @@ exports.createPages = async ({
 
   // const allCandidates = results.data.everything.edges;
 
-  // allCandidates.forEach((person, index) => {
+  const allCandidates = results.data.candidates.edges;
+  const allGuides = results.data.guides.edges;
+  const allRaces = results.data.races.edges;
 
-  //   createPage({
-  //     path: `/candidates/${person.node.fields.slug}/`,
-  //     component: path.resolve('./src/templates/CandidatePage.js'),
-  //     context: {
-  //       slug: person.node.fields.slug,
-  //     },
-  //   })
-  // })
+  // console.log('candidates >>>>', JSON.stringify(allCandidates,null,2))
+  // console.log('guides >>>>', JSON.stringify(allGuides,null,2))
+  // console.log('races >>>>', JSON.stringify(allRaces,null,2))
+
+  allCandidates.forEach((candidate, index) => {
+    createPage({
+      path: `/candidates/${candidate.node.fields.slug}/`,
+      component: path.resolve('./src/templates/CandidatePage.js'),
+      context: {
+        slug: candidate.node.fields.slug,
+      },
+    })
+  })
 
 };
 

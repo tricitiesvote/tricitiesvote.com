@@ -1,58 +1,30 @@
-// import React from 'react';
-// import { graphql } from 'gatsby';
-// import DefaultLayout from '../layouts/DefaultLayout';
-// // import Candidate from '../components/Candidate';
+import React from 'react';
+import { graphql } from 'gatsby';
+import DefaultLayout from '../layouts/DefaultLayout';
+import Candidate from '../components/Candidate';
 
-// const CandidatePage = ({ data }) => {
-//   const candidate = data.markdownRemark;
-// //   const {
-// //     name,
-// //     city,
-// //     position,
-// //     img,
-// //     bio,
-// //     statement,
-// //     lettersyes,
-// //     lettersno,
-// //     email,
-// //     website,
-// //     facebook,
-// //     pdc,
-// //     donors,
-// //     articles
-// //   } = candidate.frontmatter;
+const CandidatePage = ({ data }) => {
+  // const { edges } = data
+  const { allCandidatesJson } = data
+  const candidate = allCandidatesJson.edges[0].node
 
-//   return (
-//     <DefaultLayout>
-//       <div>
-//         <h1>{JSON.stringify(candidate)}</h1>
-//       </div>
-//     </DefaultLayout>
-//   );
-// };
+  return (
+    <DefaultLayout>
+      <Candidate data={candidate} />
+    </DefaultLayout>
+  );
+};
 
-// export default CandidatePage;
+export default CandidatePage;
 
-// export const pageQuery = graphql`
-//   query($slug: String!) {
-//     markdownRemark(fields: { slug: { eq: $slug } }) {
-//       html
-//       frontmatter {
-//         name
-//         region
-//         office 
-//         image
-//         bio
-//         email
-//         statement
-//         website
-//         facebook
-//         twitter
-//         pdc
-//         lettersyes
-//         lettersno
-//         articles
-//       }
-//     }
-//   }
-// `;
+export const pageQuery = graphql`
+  query($slug: String!) {
+    allCandidatesJson(filter: {fields: {slug: {eq: $slug}}}) {
+      edges {
+        node {
+          ...CandidateDetails
+        }
+      }
+    }
+  }
+`;
