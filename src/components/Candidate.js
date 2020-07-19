@@ -2,10 +2,11 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 const Candidate = props => {
-  const { id, slug, name, image, bioHtml, statement, email, website, facebook, twitter, instagram, youtube, pdc, donors, lettersyesHtml, lettersnoHtml, articlesHtml } = props;
+  // TODO: re-add { donors } and var donorsHtml
+  const { id, slug, name, image, bioHtml, statement, email, website, facebook, twitter, instagram, youtube, pdc, lettersyesHtml, lettersnoHtml, articlesHtml } = props;
   const url = `/candidate/${slug}`;
 
-  var recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, donorsHtml, pdcHtml, articlesHtmlHtml
+  var recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, pdcHtml, articlesHtmlHtml
 
   if (lettersyesHtml) {
     recyes = <li className="yes"
@@ -38,21 +39,21 @@ const Candidate = props => {
 
   // no donor data yet
   // TODO need to include indicator of date updated
-  if (donors) {
-    donorsHtml = <ul className="donors">
-      <li title=""
-        dangerouslySetInnerHTML={{
-        __html: donors || ''
-      }}
-      ></li>
-    </ul>
-  } else {
-    donorsHtml = <ul className="donors">
-    <li title="">
-      <span>Candidate is a mini-filer raising less than the statutory requirements for public reporting.</span>
-    </li>
-  </ul>
-  }
+  // if (donors) {
+  //   donorsHtml = <ul className="donors">
+  //     <li title=""
+  //       dangerouslySetInnerHTML={{
+  //       __html: donors || ''
+  //     }}
+  //     ></li>
+  //   </ul>
+  // } else {
+  //   donorsHtml = <ul className="donors">
+  //   <li title="">
+  //     <span>Candidate is a mini-filer raising less than the statutory requirements for public reporting.</span>
+  //   </li>
+  // </ul>
+  // }
 
   if (email) {
     emailHtml = <li>
@@ -137,12 +138,11 @@ const Candidate = props => {
             {name}
           </Link>
         </h5>
-        <div dangerouslySetInnerHTML={{
-            __html: bioHtml,
+        <div className="candidate-bio" dangerouslySetInnerHTML={{
+            __html: bioHtml
           }}
         />
-        <p className="candidate-statement"><a href={statement}>Read full candidate statement</a></p>
-
+        <p className="candidate-statement"><a href={statement}>Read full candidate statement »</a></p>
         {recHtml}
         {/* commenting out until we have donor data */}
         {/* {donorsHtml} */}
