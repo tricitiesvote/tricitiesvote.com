@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 
 const Candidate = props => {
   // TODO: re-add { donors } and var donorsHtml
-  const { id, slug, name, image, bioHtml, statement, email, website, facebook, twitter, instagram, youtube, pdc, lettersyesHtml, lettersnoHtml, articlesHtml } = props;
+  const { id, slug, name, image, bioHtml, statement, email, website, facebook, twitter, instagram, youtube, pdc, lettersyesHtml, lettersnoHtml, articlesHtml } = props.data;
   const url = `/candidate/${slug}`;
 
   var recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, pdcHtml, articlesHtmlHtml
@@ -132,6 +132,7 @@ const Candidate = props => {
   return (
     <div className="container-candidate" key={id}>
     <div className="candidate">
+    <pre><code>{JSON.stringify(props,null,2)}</code></pre>
       <div className="details">
         <h5>
           <Link to={url}>

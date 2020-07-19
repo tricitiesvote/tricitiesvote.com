@@ -1,21 +1,28 @@
 import React from "react"
 import { graphql } from "gatsby"
-
+// import _ from 'lodash'
 import DefaultLayout from "../layouts/DefaultLayout"
-import CandidateCollection from "../components/CandidateCollection.js"
+import Guide from "../components/Guide.js"
+
+// collect Candidates in Races, collect Races in Guides
 
 class SiteIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
 
+    const guides = data.allGuidesJson.edges;
+
     return (
       <DefaultLayout location={this.props.location} title={siteTitle}>
-
-        {/* <pre><code>${JSON.stringify(dataset, null, 2)}</code></pre> */}
-
-        <CandidateCollection />
-
+        {guides.map(guide => (
+          <div className="guide" key={guide.id}>
+            {/* <pre><code>
+              {JSON.stringify(guide,null,2)}
+            </code></pre> */}
+            <Guide data={guide} />
+          </div>
+        ))}
       </DefaultLayout>
     )
   }
@@ -25,99 +32,13 @@ export default SiteIndex
 
 export const pageQuery = graphql`
 
-  fragment OfficeDetails on OfficesJson {
-    title
-    job
-    position
-    region
-    uuid
-  }
-
-  fragment CandidateDetails on CandidatesJson {
-    fields {
-      slug
-    }
-    office {
-      ...OfficeDetails
-    }
-    electionyear  
-    name
-    party
-    incumbent
-    yearsin
-    image
-    statement
-    email
-    website
-    facebook
-    twitter
-    instagram
-    youtube
-    pdc
-    donors
-    uuid
-    hide
-    bioHtml
-    lettersyesHtml
-    lettersnoHtml
-    articlesHtml
-  }
-
-  fragment RaceDetails on RacesJson {
-    fields {
-      slug
-    }
-    candidates {
-      ...CandidateDetails
-    }
-    electionyear
-    office {
-      ...OfficeDetails
-    }
-    type
-    uuid
-    intro
-    body
-    hide
-  }
-
   query {
     site {
       siteMetadata {
         title
       }
     }
-
-    allOfficesJson(
-      limit: 1000
-    ) {
-      edges {
-        node {
-          ...OfficeDetails
-        }
-      }
-    }
-
-    allCandidatesJson(
-      limit: 1000
-    ) {
-      edges {
-        node {
-          ...CandidateDetails
-        }
-      }
-    }
-
-    allRacesJson(
-      limit: 1000
-    ) {
-      edges {
-        node {
-          ...RaceDetails
-        }
-      }
-    }
-
+    
     allGuidesJson(
       filter: {
         electionyear: {eq: "2020"}, 
