@@ -69,7 +69,7 @@ collections:
       - { name: lettersno, label: Letters No, widget: markdown, required: false }
       - { name: articles, label: Articles, widget: markdown, required: false }
       - { name: body, label: Body, widget: markdown, required: false }
-      - { name: hide, label: 'Hide?', widget: boolean, default: false }
+      - { name: hide, label: 'Hide?', widget: boolean, required: false, default: false }
       - { name: uuid, label: ID, widget: ncw-id }
   - name: offices
     label: Elected offices
@@ -146,7 +146,7 @@ collections:
     folder: 'data/races'
     media_folder: '/{{media_folder}}/races'
     public_folder: '/{{public_folder}}/races'
-    summary: "{{electionyear}} {{title}} ({{type}})"
+    summary: "{{electionyear}} {{office}} ({{type}})"
     create: true
     extension: json
     fields:
@@ -184,7 +184,7 @@ collections:
         } 
       - { name: intro, label: Intro, widget: markdown, required: false, hint: 'Intro catch-all for content/links related to both/all candidates or the race in general.' }
       - { name: body, label: Body, widget: markdown, required: false, hint: 'Body catch-all for content/links related to both/all candidates or the race in general.' }
-      - { name: hide, label: 'Hide?', widget: boolean, default: false }
+      - { name: hide, label: 'Hide?', widget: boolean, required: false, default: false }
       - { name: uuid, label: ID, widget: ncw-id }
   - name: guides
     label: Election guides
