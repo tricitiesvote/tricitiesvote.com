@@ -29,6 +29,9 @@ export default Guide
 //     ) {
 //       edges {
 //         node {
+//           fields {
+//            slug
+//           }
 //           races {
 //             ...RaceDetails
 //           }

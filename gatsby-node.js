@@ -9,6 +9,16 @@ const { nextTick } = require('process');
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
+  // build slug contents for Guides
+  if (node.internal.type === 'GuidesJson') {
+    const region = node.region.substr(0, node.region.indexOf(' ')); 
+    createNodeField({
+      node,      
+      name: `slug`,
+      value: _.kebabCase(region)
+    })
+  }
+
   // build slug contents for Races
   if (node.internal.type === 'RacesJson') {
     createNodeField({
@@ -18,7 +28,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 
-  // build slug contents for Races
+  // build slug contents for Candidates
   if (node.internal.type === 'CandidatesJson' && node.name) {
     createNodeField({
       node,      
@@ -285,6 +295,9 @@ exports.createPages = async ({
       ) {
         edges {
           node {
+            fields {
+              slug
+            }
             races {
               ...RaceDetails
             }
@@ -318,6 +331,17 @@ exports.createPages = async ({
       component: path.resolve('./src/templates/CandidatePage.js'),
       context: {
         slug: candidate.node.fields.slug,
+      },
+    })
+  })
+
+  allGuides.forEach((guide, index) => {
+    // console.log(JSON.stringify(guide))
+    createPage({
+      path: `/${guide.node.fields.slug}/`,
+      component: path.resolve('./src/templates/GuidePage.js'),
+      context: {
+        slug: guide.node.fields.slug,
       },
     })
   })
