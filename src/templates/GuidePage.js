@@ -8,15 +8,12 @@ const GuidePage = ({ data }) => {
   const { allGuidesJson } = data;
   const races = allGuidesJson.edges[0].node.races
   const region = allGuidesJson.edges[0].node.region
-  const region_url = allGuidesJson.edges[0].node.fields.slug
 
   return (
     <DefaultLayout>
       <div className="guide" key={data.uuid}>
         {/* <pre><code>{JSON.stringify(data, null, 2)}</code></pre> */}
-        <Link to={'/' + region_url}>
-          <h1>{region}</h1>
-        </Link>
+        <h1>{region}</h1>
         <RaceList data={races} />
       </div>
     </DefaultLayout>

@@ -17,12 +17,9 @@ const RacePage = ({ data }) => {
     <DefaultLayout>
       <div className="guide">
         {/* <pre><code>{JSON.stringify(race, null, 2)}</code></pre> */}
-        <Link to={'/' + region_url}>
-          <h1>{region}</h1>
-        </Link>
         <section className="race" key={race.uuid}>
           <Link to={'/' + race.node.fields.slug}>
-            <h2>{race.node.office.title}</h2>
+            <h1>{race.node.office.title}</h1>
           </Link>
           <Race data={race.node} />
         </section>

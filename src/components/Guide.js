@@ -8,9 +8,7 @@ const Guide = props => {
 
   return (
     <div className="guide" key={props.uuid}>
-      <Link to={'/' + data.node.fields.slug}>
-          <h1>{data.node.region}</h1>
-        </Link>
+      <h1>{data.node.region}</h1>
       <RaceList data={races} />
       {/* <pre><code>
         {JSON.stringify(props,null,2)}
