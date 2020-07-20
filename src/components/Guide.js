@@ -1,5 +1,5 @@
 import React from "react"
-// import { graphql } from "gatsby"
+import { Link } from "gatsby"
 import RaceList from "./RaceList";
 
 const Guide = props => {
@@ -8,7 +8,9 @@ const Guide = props => {
 
   return (
     <div className="guide" key={props.uuid}>
-      <h1>{data.node.region}</h1>
+      <Link to={'/' + data.node.fields.slug}>
+          <h1>{data.node.region}</h1>
+        </Link>
       <RaceList data={races} />
       {/* <pre><code>
         {JSON.stringify(props,null,2)}

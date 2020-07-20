@@ -47,6 +47,9 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          fields {
+            slug
+          }
           races {
             ...RaceDetails
           }

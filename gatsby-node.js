@@ -10,6 +10,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   // build slug contents for Guides
+  // TODO: make 'region' consistent across data sets
+  // it's also having county re-added in components/RacePage.js
   if (node.internal.type === 'GuidesJson') {
     const region = node.region.substr(0, node.region.indexOf(' ')); 
     createNodeField({
@@ -331,6 +333,17 @@ exports.createPages = async ({
       component: path.resolve('./src/templates/CandidatePage.js'),
       context: {
         slug: candidate.node.fields.slug,
+      },
+    })
+  })
+
+  allRaces.forEach((race, index) => {
+    // console.log(JSON.stringify(guide))
+    createPage({
+      path: `/${race.node.fields.slug}/`,
+      component: path.resolve('./src/templates/RacePage.js'),
+      context: {
+        slug: race.node.fields.slug,
       },
     })
   })
