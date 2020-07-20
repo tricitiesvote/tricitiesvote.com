@@ -8,10 +8,10 @@ const RaceList = props => {
   return (
     <div className="races-collection" key={data.uuid}>
       {data.map(race => (
-        <div className="race" key={race.uuid}>
+        <section className="race" key={race.uuid}>
           <h2>{race.office.title}</h2>
           <Race data={race} />
-        </div>
+        </section>
       ))}
       {/* <pre><code>
         {JSON.stringify(races,null,2)}

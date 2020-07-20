@@ -150,9 +150,8 @@ const Candidate = props => {
   }
 
   return (
-    <div className="container-candidate" key={id}>
-    <div className="candidate">
-    {/* <pre><code>{JSON.stringify(props,null,2)}</code></pre> */}
+    <div className="candidate" key={id}>
+      {/* <pre><code>{JSON.stringify(props,null,2)}</code></pre> */}
       <div className="details">
         <h5>
           <Link to={url}>
@@ -186,7 +185,6 @@ const Candidate = props => {
         </ul>
       </div>
     </div>
-  </div>
 
 
   );
