@@ -100,11 +100,14 @@ header {
   padding: 0;
 }
 nav {
-   text-align: center;
+  text-align: center;
   font-size: 14px;
   margin: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
+}
+nav a {
+  margin: 10px;
 }
 nav form {
   display: inline-block

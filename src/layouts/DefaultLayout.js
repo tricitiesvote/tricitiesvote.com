@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link } from 'gatsby';
+import Nav from '../components/Nav'
 
 // import '../styl/main.styl';
 
@@ -33,7 +33,8 @@ export default props => {
         <body className={bodyClass} />
       </Helmet>
       <main>
-        <Link to="/">Home</Link>
+        <Nav />
+        {/* <Link to="/">Home</Link> */}
         {children}
       </main>
     </>
