@@ -182,6 +182,13 @@ const Candidate = props => {
           {instagramHtml}
           {youtubeHtml}
           {pdcHtml}
+          <li>
+            <span role="img" aria-label="notebook">📓</span> 
+            <Link to={url + '/notes'}>
+              Rough notes
+            </Link>
+          </li>
+          
         </ul>
       </div>
     </div>

@@ -2,16 +2,16 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import Race from '../components/Race';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 const RacePage = ({ data }) => {
   const { allRacesJson } = data;
   const race = allRacesJson.edges[0]
   // TODO: make 'region' consistent across data sets
   // it's also having slug trimmed in gatsby-node.js
-  const region = allRacesJson.edges[0].node.office.region
+  // const region = allRacesJson.edges[0].node.office.region
   // const region_url = allRacesJson.edges[0].node.fields.slug
-  const region_url = _.kebabCase(allRacesJson.edges[0].node.office.region);
+  // const region_url = _.kebabCase(allRacesJson.edges[0].node.office.region);
 
   return (
     <DefaultLayout>

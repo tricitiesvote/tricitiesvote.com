@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import RaceList from '../components/RaceList';
 // import _ from 'lodash';

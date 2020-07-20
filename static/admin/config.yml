@@ -71,6 +71,29 @@ collections:
       - { name: body, label: Body, widget: markdown, required: false }
       - { name: hide, label: 'Hide?', widget: boolean, required: false, default: false }
       - { name: uuid, label: ID, widget: ncw-id }
+  - name: notes
+    label: Candidate notes
+    label_singular: Candidate notes
+    slug: '{{candidate}}-{{candidate.name}}-notes'
+    folder: 'data/notes'
+    media_folder: '/{{media_folder}}/notes'
+    public_folder: '/{{public_folder}}/notes'
+    summary: "{{candidate.name}} notes"
+    create: true
+    extension: json
+    fields:
+      - {
+          name: candidate,
+          label: Candidate,
+          widget: relation,
+          multiple: false,
+          collection: 'candidates',
+          searchFields: ['name'],
+          valueField: 'uuid',
+          displayFields: ['name'],
+        } 
+      - { name: notes, label: Notes, widget: markdown, required: false, hint: 'This does not show up on the candidates page' }
+      - { name: uuid, label: ID, widget: ncw-id }
   - name: offices
     label: Elected offices
     label_singular: Elected office

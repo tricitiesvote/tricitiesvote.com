@@ -430,7 +430,7 @@ del, del a:link, del li {
 .candidate {
   border: 1px solid #eee;
   display: inline-grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 170px 1fr;
   padding: 10px;
 }
 
@@ -444,8 +444,8 @@ del, del a:link, del li {
 }
 
 .candidate img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 .candidate img, .pos img {
@@ -459,7 +459,7 @@ del, del a:link, del li {
 }
 
 .info ul {
-  padding-left: 5px;
+  padding-left: 25px;
 }
 
 .candidate .details {

@@ -65,6 +65,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       "data": node.body,
       "wrap": true
     },
+    {
+      "name": "notes",
+      "data": node.notes,
+      "wrap": true
+    }
   ]
 
   for (var key in markdownFields) {
@@ -149,6 +154,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       office:           OfficesJson @link(by: "title", from: "office")
     }
 
+    type NotesJson implements Node {
+      fields:          NoteFields
+      candidate:       CandidatesJson @link(by: "uuid", from: "candidate")
+      notes:           String
+    }
+
     type RacesJson implements Node {
       office:           OfficesJson @link(by: "title", from: "office")
       fields:           Fields
@@ -183,6 +194,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       bio_html_nowrap:         String
       articles_html_nowrap:    String
       body_html_nowrap:        String
+    }
+
+    type NoteFields {
+      notes_html:        String
     }
   `;
 
@@ -282,6 +297,29 @@ exports.createPages = async ({
         }
       }
 
+      notes: allNotesJson(
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              notes_html
+            }
+            candidate {
+              name 
+              office {
+                ...OfficeDetails
+              }
+              image
+              fields {
+                slug
+              }
+            }
+            notes
+          }
+        }
+      }
+
       races: allRacesJson(
         limit: 1000
       ) {
@@ -322,10 +360,12 @@ exports.createPages = async ({
   const allCandidates = results.data.candidates.edges;
   const allGuides = results.data.guides.edges;
   const allRaces = results.data.races.edges;
+  const allNotes = results.data.notes.edges;
 
   // console.log('candidates >>>>', JSON.stringify(allCandidates,null,2))
   // console.log('guides >>>>', JSON.stringify(allGuides,null,2))
   // console.log('races >>>>', JSON.stringify(allRaces,null,2))
+  console.log('notes >>>>', JSON.stringify(allNotes,null,2))
 
   allCandidates.forEach((candidate, index) => {
     createPage({
@@ -333,6 +373,16 @@ exports.createPages = async ({
       component: path.resolve('./src/templates/CandidatePage.js'),
       context: {
         slug: candidate.node.fields.slug,
+      },
+    })
+  })
+
+  allNotes.forEach((note, index) => {
+    createPage({
+      path: `/${note.node.candidate.fields.slug}/notes`,
+      component: path.resolve('./src/templates/NotesPage.js'),
+      context: {
+        slug: note.node.candidate.fields.slug,
       },
     })
   })

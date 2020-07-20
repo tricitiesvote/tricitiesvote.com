@@ -29,7 +29,7 @@ const Nav = () => {
         <nav>
           <Link to="/">Home</Link>
           {data.allGuidesJson.edges.map(guide => (
-            <Link to={'/' + guide.node.fields.slug}>{guide.node.region} guide</Link>
+            <Link to={'/' + guide.node.fields.slug}>{guide.node.region}</Link>
           ))}
         </nav>
       )}
