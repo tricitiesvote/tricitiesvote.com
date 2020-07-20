@@ -74,14 +74,17 @@ collections:
   - name: notes
     label: Candidate notes
     label_singular: Candidate notes
-    slug: '{{candidate}}-{{candidate.name}}-notes'
+    slug: '{{title}}-notes'
     folder: 'data/notes'
     media_folder: '/{{media_folder}}/notes'
     public_folder: '/{{public_folder}}/notes'
-    summary: "{{candidate.name}} notes"
+    summary: "📓 {{title}} notes"
     create: true
     extension: json
     fields:
+      - { 
+        name: title, label: 'Candidate name', required: true
+      }
       - {
           name: candidate,
           label: Candidate,
