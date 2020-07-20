@@ -10,6 +10,7 @@ const NotesPage = ({ data }) => {
 
   return (
     <DefaultLayout>
+      <p className="notes-note"><em>We use this page to collect quotes, rough notes, and extra links for our own purposes</em></p>
       <div className="container-candidate">
         <div className="candidate" key={note.candidate.uuid}>
           {/* <pre><code>{JSON.stringify(props,null,2)}</code></pre> */}

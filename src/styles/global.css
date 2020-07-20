@@ -1019,3 +1019,22 @@ th:first-of-type {
 li span {
   margin-right: 10px;
 } */
+
+.notes-note {
+  text-align: center;
+  font-size: 13px;
+}
+
+.rough-notes {
+  margin-top: 13px;
+  opacity: .4;
+}
+
+.rough-notes a {
+  padding-top: 5px;
+  border-top: 1px solid #eee
+}
+
+.rough-notes:hover {
+  opacity: 1;
+}
