@@ -12,7 +12,7 @@ const CandidateMini = props => {
 
   return (
     <div className="candidate">
-      <pre><code>hi
+      <pre><code>
         {JSON.stringify(data,null,2)}
       </code></pre>
       {/* <Link to={url}>
