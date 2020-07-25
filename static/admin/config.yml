@@ -65,6 +65,7 @@ collections:
       - { name: instagram, label: Instagram, required: false }
       - { name: youtube, label: YouTube, required: false }
       - { name: pdc, label: Campaign Finance, required: true }
+      - { name: donors, label: Donors, widget: markdown, required: false }      
       - { name: lettersyes, label: Letters Yes / Endorsements, widget: markdown, required: false }
       - { name: lettersno, label: Letters No, widget: markdown, required: false }
       - { name: articles, label: Articles, widget: markdown, required: false }

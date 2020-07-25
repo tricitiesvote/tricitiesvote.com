@@ -46,6 +46,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       "wrap": true
     },
     { 
+      "name": "donors", 
+      "data": node.donors,
+      "wrap": false
+    },
+    { 
       "name": "lettersyes", 
       "data": node.lettersyes,
       "wrap": false
@@ -147,6 +152,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
       bio:              String
       body:             String
+      donors:           String
       lettersyes:       String
       lettersno:        String
       articles:         String
@@ -183,12 +189,14 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Fields {
       slug:             String
+      donors_html:      String
       lettersyes_html:  String
       lettersno_html:   String
       bio_html:         String
       articles_html:    String
       body_html:        String
 
+      donors_html_nowrap:      String
       lettersyes_html_nowrap:  String
       lettersno_html_nowrap:   String
       bio_html_nowrap:         String
@@ -223,9 +231,11 @@ exports.createPages = async ({
         slug
         body_html
         bio_html
+        donors_html
         lettersyes_html
         lettersno_html
         articles_html
+        donors_html_nowrap
         lettersyes_html_nowrap
         lettersno_html_nowrap 
         bio_html_nowrap       
@@ -251,6 +261,7 @@ exports.createPages = async ({
       pdc
       donors
       bio
+      donors
       lettersyes      
       lettersno
       articles
@@ -365,7 +376,7 @@ exports.createPages = async ({
   // console.log('candidates >>>>', JSON.stringify(allCandidates,null,2))
   // console.log('guides >>>>', JSON.stringify(allGuides,null,2))
   // console.log('races >>>>', JSON.stringify(allRaces,null,2))
-  console.log('notes >>>>', JSON.stringify(allNotes,null,2))
+  // console.log('notes >>>>', JSON.stringify(allNotes,null,2))
 
   allCandidates.forEach((candidate, index) => {
     createPage({
