@@ -2,5 +2,10 @@
   "electionyear": "2020",
   "uuid": "u7Cszn0W1",
   "office": "Franklin County Commissioner Pos 1",
-  "type": "primary"
+  "type": "primary",
+  "candidates": [
+    "PECKL  301",
+    "LEHRK--302",
+    "BEATM  301"
+  ]
 }

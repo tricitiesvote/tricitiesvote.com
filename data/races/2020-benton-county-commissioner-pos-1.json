@@ -3,5 +3,14 @@
   "uuid": "L1gJcN-zE",
   "office": "Benton County Commissioner Pos 1",
   "type": "primary",
-  "hide": false
+  "hide": false,
+  "candidates": [
+    "RAFFJ--352",
+    "LANDD  352",
+    "SMARJ--352",
+    "ALVAM  352",
+    "DELVJ  352",
+    "PETED  338",
+    "AJAXS--336"
+  ]
 }

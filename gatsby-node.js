@@ -365,7 +365,7 @@ exports.createPages = async ({
   // console.log('candidates >>>>', JSON.stringify(allCandidates,null,2))
   // console.log('guides >>>>', JSON.stringify(allGuides,null,2))
   // console.log('races >>>>', JSON.stringify(allRaces,null,2))
-  console.log('notes >>>>', JSON.stringify(allNotes,null,2))
+  // console.log('notes >>>>', JSON.stringify(allNotes,null,2))
 
   allCandidates.forEach((candidate, index) => {
     createPage({

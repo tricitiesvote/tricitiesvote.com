@@ -2,5 +2,10 @@
   "electionyear": "2020",
   "uuid": "VyoGRzhI1",
   "office": "Benton County Commissioner Pos 3",
-  "type": "primary"
+  "type": "primary",
+  "candidates": [
+    "MCKAW  337",
+    "BEAVJ  337",
+    "LUSIJ--336"
+  ]
 }

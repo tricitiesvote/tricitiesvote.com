@@ -2,5 +2,10 @@
   "electionyear": "2020",
   "uuid": "a4kd0sS3j",
   "office": "16th District State Senator",
-  "type": "primary"
+  "type": "primary",
+  "candidates": [
+    "DOZIP  361",
+    "RESED--362",
+    "JENKW2-350"
+  ]
 }
