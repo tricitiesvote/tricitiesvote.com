@@ -1,5 +1,10 @@
 const fs = require('fs');
 const fermata = require('fermata');
+const Turndown = require('turndown')
+const _ = require('lodash');
+
+const markdownify = new Turndown()
+
 
 // https://voter.votewa.gov/elections/candidate.ashx?e=865&r=57373&la=&c=
 // https://voter.votewa.gov/elections/candidate.ashx?e={{election_id}}&r={{race_id}}&la=&c=
@@ -34,15 +39,27 @@ raceIds.forEach((raceId, index) => {
     // console.log(data)
      
     data.forEach((item, index) => {
+
+      let statement_md = markdownify.turndown(item.statement.Statement)
       let pamphletUrl = webUrl + electionId + `#\/candidates\/` + raceId + `\/` + item.statement.BallotID;
+      // let photo = `data:image/png;base64,${item.statement.Photo}`
+
+      // Get images base64, convert to file, save it
+      let filename = _.kebabCase(item.statement.BallotName);
+      let imagePath = `/images/candidates/` + filename + `-original.png`
+      let buf = new Buffer.from(item.statement.Photo, 'base64');
+      fs.writeFileSync(`./static/images/candidates/${filename}-original.png`, buf);
+      console.log(`🌠 ${imagePath}`);
+
       let candidate = {
-        // TODO: get image
         'candidate_ballot_id': item.statement.BallotID,
         'candidate_ballot_name': item.statement.BallotName,
         'email': item.statement.OrgEmail,
         'website': item.statement.OrgWebsite,
         'statement_html': item.statement.Statement,
+        'statement': statement_md,
         'pamphlet_url': pamphletUrl,
+        'image': imagePath,
       }
       candidates.push(candidate);
       // console.log(candidate.candidate_ballot_name)

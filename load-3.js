@@ -23,19 +23,21 @@ const options = {
 const fuse = new Fuse(pdcData, options);
 
 for (const pamphletRecord of pamphletData) {
-  console.log('\n===== pamphlet name:', pamphletRecord.candidate_ballot_name);
+  // console.log('\n===== pamphlet name:', pamphletRecord.candidate_ballot_name);
 
   // search pdc dataset for names matching pamphlet name
   let match = fuse.search(pamphletRecord.candidate_ballot_name);
   // console.log('===== match', JSON.stringify(match[0], null, 2));
+
   if (match[0]) {
     let pdcRecord = match[0].item;
-    console.log('========= pdc match:', pdcRecord.candidate_fullname);
+    // console.log('========= pdc match:', pdcRecord.candidate_fullname);
     let merged = {
       name: pamphletRecord.candidate_ballot_name,
       slug: _.kebabCase(pamphletRecord.candidate_ballot_name),
       uuid: pdcRecord.candidate_filer_id,
       party: pdcRecord.party,
+      statement: pamphletRecord.statement,
       statement_html: pamphletRecord.statement_html,
       electionyear: pdcRecord.election_year,
       office: pdcRecord.office,
@@ -43,12 +45,14 @@ for (const pamphletRecord of pamphletData) {
       email: pamphletRecord.email,
       pamphlet_url: pamphletRecord.pamphlet_url,
       pdc_url: pdcRecord.pdc_url,
+      image: pamphletRecord.image,
     }
 
     // add merged item 
     // data.push(merged);
     let candidateData = JSON.stringify(merged, null, 2);
     fs.writeFileSync(`./data/candidates/${merged.electionyear}-${merged.slug}.json`, candidateData);
+    console.log('⚪️', `/data/candidates/${merged.electionyear}-${merged.slug}.json`);
 
   } else {
     let unmerged = {
@@ -64,9 +68,13 @@ for (const pamphletRecord of pamphletData) {
       email: pamphletRecord.email,
       pamphlet_url: pamphletRecord.pamphlet_url,
       pdc_url: '',
+      image: pamphletRecord.image,
+      // need to add this to data
+      pdc_filed: false,
     }
     let candidateData = JSON.stringify(unmerged, null, 2);
     fs.writeFileSync(`./data/candidates/${unmerged.electionyear}-${unmerged.slug}.json`, candidateData);
+    console.log('🔴', `/data/candidates/${unmerged.electionyear}-${unmerged.slug}.json`);
   }
   
 }

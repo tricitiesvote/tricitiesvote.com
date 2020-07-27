@@ -53,7 +53,7 @@ consumer.query()
 
         // check to see if we already have the candidate
         if (!_.includes(filer_ids, row.filer_id)) {
-          console.log(row.first_name)
+          // console.log(row.first_name)
           // const candidate;
           // TODO this is such a big hack
           if (row.first_name === 'LOWELL' && row.last_name === 'PECK') { row.first_name = 'BRAD' }
