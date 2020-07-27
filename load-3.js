@@ -1,5 +1,6 @@
 const fs = require('fs');
-const Fuse = require('fuse.js');
+// const Fuse = require('fuse.js');
+const fuzzysort = require('fuzzysort')
 const _ = require('lodash');
 
 // read and parse pamphlet data
@@ -13,24 +14,34 @@ const pdcData = JSON.parse(pdcCandidates);
 // const data = [];
 
 const options = {
-  threshhold: 0.2,
+  threshold: -100000,
+  allowTypo: true,
   keys: [
+    "candidate_firstname",
+    "candidate_lastname",
     "candidate_fullname",
-    "candidate_lastname"
   ]
 };
 
-const fuse = new Fuse(pdcData, options);
-
 for (const pamphletRecord of pamphletData) {
-  // console.log('\n===== pamphlet name:', pamphletRecord.candidate_ballot_name);
+  let ballot_name = pamphletRecord.candidate_ballot_name.replace(/\./g, "")
+  // console.log('\n===== pamphlet name:', ballot_name);
 
   // search pdc dataset for names matching pamphlet name
-  let match = fuse.search(pamphletRecord.candidate_ballot_name);
-  // console.log('===== match', JSON.stringify(match[0], null, 2));
+  // let match = fuse.search(pamphletRecord.candidate_ballot_name);
+  let match = fuzzysort.go(ballot_name, pdcData, options);
+  // if (match) {
+  //   console.log('========= pdc match:', match);
+  // }
+  // if (match[0] && match[0].obj) {
+  //   console.log('========= pdc match:', match[0].obj.candidate_fullname);
+  // }
+  // if (!match[0]) {
+  //   console.log('========= pdc match:', match);
+  // }
 
   if (match[0]) {
-    let pdcRecord = match[0].item;
+    let pdcRecord = match[0].obj;
     // console.log('========= pdc match:', pdcRecord.candidate_fullname);
     let merged = {
       name: pamphletRecord.candidate_ballot_name,

@@ -16,11 +16,11 @@ const Candidate = props => {
     pdc_url, 
     pamphlet_url,
     fields,
-    statement_html,
   } = props.data;
   const { 
     bio_html, 
     body_html, 
+    statement_html,
     donors_html_nowrap,
     lettersyes_html_nowrap, 
     lettersno_html_nowrap, 
@@ -233,6 +233,7 @@ export const pageQuery = graphql`
       lettersyes_html
       lettersno_html
       articles_html
+      statement_html
       donors_html_nowrap
       lettersyes_html_nowrap
       lettersno_html_nowrap 
@@ -249,7 +250,7 @@ export const pageQuery = graphql`
     incumbent
     yearsin
     image
-    statement_html
+    statement
     email
     website
     facebook

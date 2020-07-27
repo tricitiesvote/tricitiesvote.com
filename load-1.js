@@ -56,14 +56,19 @@ consumer.query()
           // console.log(row.first_name)
           // const candidate;
           // TODO this is such a big hack
-          if (row.first_name === 'LOWELL' && row.last_name === 'PECK') { row.first_name = 'BRAD' }
+          // if (row.first_name === 'LOWELL' && row.last_name === 'PECK') { row.first_name = 'BRAD' }
           if (row.first_name === 'BRADLEY' && row.last_name === 'KLIPPERT') { row.first_name = 'BRAD' }
           if (row.first_name === 'MATTHEW' && row.last_name === 'BEATON') { row.first_name = 'MATT' }
           if (row.first_name === 'RODNEY' && row.last_name === 'MULLEN') { row.first_name = 'ROCKY' }
+          if (row.filer_id === 'LANDD  352' ) { row.filer_name = 'Donnie Landsman' }
+          if (row.filer_id === 'MCKAW  337' ) { row.filer_name = 'Will McKay'; row.first_name = "Will"; }
           if (row.filer_name === 'MULLEN RODNEY J (RODNEY MULLEN)' ) { row.filer_name = 'ROCKY MULLEN' }
+          if (row.filer_id === 'JENKW2-350' ) { row.first_name = "William"; row.last_name = "Jenkin" }
+          if (row.filer_id === 'AJAXS--336' ) { row.first_name = "Shelley"; row.last_name = "Ajax" }
           if (row.filer_id === 'JENKW  350') { 
              let candidate = ""
-          } else { let candidate = {
+          } else { 
+            let candidate = {
               'pdc_url': `https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=${row.filer_id}&election_year=2020`,
               'candidate_filer_id': row.filer_id,
               'candidate_fullname': _.startCase(_.lowerCase(row.filer_name)),

@@ -2,6 +2,7 @@ const fs = require('fs');
 const fermata = require('fermata');
 const Turndown = require('turndown')
 const _ = require('lodash');
+var asciify = require('fold-to-ascii');
 
 const markdownify = new Turndown()
 
@@ -32,6 +33,16 @@ const raceIds = [
 
 const candidates = []
 
+// check that urls are properly formatted
+const fixurl = (url) => {
+  if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
+      let newUrl = "http://" + url;
+      return newUrl;
+  } else {
+      return url;
+  }
+}
+
 raceIds.forEach((raceId, index) => {
   const raceUrl = apiUrl + electionId + `&r=` + raceId + `&la=&c=`; 
   const site = fermata.json(raceUrl);
@@ -51,12 +62,13 @@ raceIds.forEach((raceId, index) => {
       fs.writeFileSync(`./static/images/candidates/${filename}-original.png`, buf);
       console.log(`🌠 ${imagePath}`);
 
+
+
       let candidate = {
         'candidate_ballot_id': item.statement.BallotID,
-        'candidate_ballot_name': item.statement.BallotName,
+        'candidate_ballot_name': asciify.foldReplacing(item.statement.BallotName),
         'email': item.statement.OrgEmail,
-        'website': item.statement.OrgWebsite,
-        'statement_html': item.statement.Statement,
+        'website': fixurl(item.statement.OrgWebsite),
         'statement': statement_md,
         'pamphlet_url': pamphletUrl,
         'image': imagePath,

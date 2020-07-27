@@ -70,6 +70,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       "data": node.body,
       "wrap": true
     },
+    { 
+      "name": "body",
+      "data": node.statement,
+      "wrap": true
+    },
     {
       "name": "notes",
       "data": node.notes,
@@ -149,7 +154,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       donors:           String
       uuid:             String
       hide:             Boolean
-      statement_html:   String
+      statement:        String
 
       bio:              String
       body:             String
@@ -196,6 +201,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       bio_html:         String
       articles_html:    String
       body_html:        String
+      statement_html:   String
 
       donors_html_nowrap:      String
       lettersyes_html_nowrap:  String
@@ -236,6 +242,7 @@ exports.createPages = async ({
         lettersyes_html
         lettersno_html
         articles_html
+        statement_html
         donors_html_nowrap
         lettersyes_html_nowrap
         lettersno_html_nowrap 
@@ -252,7 +259,7 @@ exports.createPages = async ({
       incumbent
       yearsin
       image
-      statement_html
+      statement
       email
       website
       facebook
