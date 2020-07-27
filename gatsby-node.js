@@ -66,13 +66,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       "wrap": false
     },
     { 
-      "name": "body",
-      "data": node.body,
+      "name": "bio",
+      "data": node.bio,
+      "wrap": true
+    },
+    { 
+      "name": "statement",
+      "data": node.statement,
       "wrap": true
     },
     { 
       "name": "body",
-      "data": node.statement,
+      "data": node.body,
       "wrap": true
     },
     {

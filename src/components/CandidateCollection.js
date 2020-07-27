@@ -28,17 +28,14 @@ const CandidateCollection = () => {
               incumbent={edge.node.incumbent}
               yearsin={edge.node.yearsin}
               image={edge.node.image}
-              statement={edge.node.statement}
-              bioHtml={edge.node.bioHtml}
               email={edge.node.email}
               website={edge.node.website}
               facebook={edge.node.facebook}
               instagram={edge.node.instagram}
               youtube={edge.node.youtube}
               pdc_url={edge.node.pdc_url}
-              lettersyesHtml={edge.node.lettersyesHtml}
-              lettersnoHtml={edge.node.lettersnoHtml}
-              articlesHtml={edge.node.articlesHtml}
+              pamphlet_url={edge.node.pamphlet_url}
+              fields={edge.node.fields}
             />
           ))}
         </div>

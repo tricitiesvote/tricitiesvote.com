@@ -15,16 +15,16 @@ const Candidate = props => {
     youtube, 
     pdc_url, 
     pamphlet_url,
-    fields,
+    fields
   } = props.data;
   const { 
-    bio_html, 
-    body_html, 
+    bio_html,
+    body_html,
     statement_html,
     donors_html_nowrap,
-    lettersyes_html_nowrap, 
-    lettersno_html_nowrap, 
-    articles_html_nowrap 
+    lettersyes_html_nowrap,
+    lettersno_html_nowrap,
+    articles_html_nowrap,
   } = fields
   const url = `/${fields.slug}`;
 
@@ -97,7 +97,7 @@ const Candidate = props => {
         __html: statement_html
       }}
     />
-  } else {
+  } else if (!bio_html && !statement_html) {
     bioHtml = <div className="candidate-bio"><p>No candidate statement</p></div>
   }
 
@@ -178,7 +178,7 @@ const Candidate = props => {
           </Link>
         </h5>
         { bioHtml }
-        <div dangerouslySetInnerHTML={{
+        <div className="candidate-body" dangerouslySetInnerHTML={{
             __html: body_html
           }}
         />
