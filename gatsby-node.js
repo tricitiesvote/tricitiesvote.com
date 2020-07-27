@@ -169,6 +169,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       articles:         String
 
       office:           OfficesJson @link(by: "title", from: "office")
+      donors:           [DonorsJson] @link(by: "slug", from: "donors")
     }
 
     type NotesJson implements Node {
@@ -187,7 +188,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       intro:            String
       body:             String
       candidates:       [CandidatesJson] @link(by: "uuid", from: "candidates")
-      hide:             Boolean 
+      hide:             Boolean
     }
 
     type GuidesJson implements Node {    
@@ -198,9 +199,26 @@ exports.createSchemaCustomization = ({ actions }) => {
       races:            [RacesJson] @link(by: "uuid", from: "races")  
     }
 
+    type DonorsJson implements Node {
+      name:             String
+      slug:             String
+      type:             String
+      city:             String
+      electionyear:     String      
+    }
+
+    type DonationsJson implements Node {
+      donor:            DonorsJson @link(by: "slug", from: "donors")
+      candidate:        CandidatesJson @link(by: "uuid", from: "candidates")
+      party:            String
+      type:             String
+      amount:           Float
+      detail:           String
+      report:           String
+    }
+
     type Fields {
       slug:             String
-      donors_html:      String
       lettersyes_html:  String
       lettersno_html:   String
       bio_html:         String
@@ -208,7 +226,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       body_html:        String
       statement_html:   String
 
-      donors_html_nowrap:      String
       lettersyes_html_nowrap:  String
       lettersno_html_nowrap:   String
       bio_html_nowrap:         String
@@ -243,12 +260,10 @@ exports.createPages = async ({
         slug
         body_html
         bio_html
-        donors_html
         lettersyes_html
         lettersno_html
         articles_html
         statement_html
-        donors_html_nowrap
         lettersyes_html_nowrap
         lettersno_html_nowrap 
         bio_html_nowrap       
@@ -274,12 +289,14 @@ exports.createPages = async ({
       pdc_url
       pamphlet_url
       bio
-      donors
       lettersyes      
       lettersno
       articles
       uuid
       hide
+      donors {
+        ...DonorDetails
+      }
     }
 
     fragment RaceDetails on RacesJson {
@@ -298,6 +315,33 @@ exports.createPages = async ({
       }
       uuid
       hide
+    }
+
+    fragment DonationDetails on DonationsJson {
+      donor {
+        ...DonorDetails
+      }
+      party
+      type
+      amount
+      date
+      report
+      candidate {
+        fields {
+          slug     
+        }
+        name
+        party
+        image
+      }
+    }
+
+    fragment DonorDetails on DonorsJson {
+      electionyear
+      type
+      slug
+      name
+      city
     }
 
     {
@@ -350,6 +394,26 @@ exports.createPages = async ({
         edges {
           node {
             ...RaceDetails
+          }
+        }
+      }
+
+      donors: allDonorsJson(
+        limit: 5000
+      ) {
+        edges {
+          node {
+            ...DonorDetails
+          }
+        }
+      }
+
+      donations: allDonationsJson(
+        limit: 8000
+      ) {
+        edges {
+          node {
+            ...DonationDetails
           }
         }
       }

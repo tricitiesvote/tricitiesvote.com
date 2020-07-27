@@ -26,32 +26,33 @@ consumer.query()
       rows.forEach((row, index) => {
         // console.log(row);
         let date = Date.parse(row.receipt_date);
+        let donorId = _.kebabCase(_.lowerCase(row.contributor_name))
+
         let donation = {
           // create donation record
-          candidate_filer_id: row.filer_id,
-          candidate_party: _.startCase(_.lowerCase(row.party)),
-          donation_type: row.cash_or_in_kind,
-          donation_amount: parseInt(row.amount,10),
-          donation_date: date,
-          donation_description: row.description,
-          donation_report_url: row.url.url,
+          donor: donorId,
+          candidate: row.filer_id,
+          party: _.startCase(_.lowerCase(row.party)),
+          type: row.cash_or_in_kind,
+          amount: parseInt(row.amount,10),
+          date: date,
+          detail: row.description,
+          report: row.url.url,
         }
         donations.push(donation)
 
-        let id = _.kebabCase(_.lowerCase(row.contributor_name))
-
         // check to see if we already have the donor
-        if (!_.includes(donorIds, id)) {
+        if (!_.includes(donorIds, donorId)) {
           // console.log(row.first_name)
           // const candidate;
           let donor = {
-            election_year: row.election_year,
-            donor_type: row.code,
-            donor_id: id,
-            donor_name: _.startCase(_.lowerCase(row.contributor_name)),
-            donor_city: _.startCase(_.lowerCase(row.contributor_city)),
+            electionyear: row.election_year,
+            type: row.code,
+            slug: donorId,
+            name: _.startCase(_.lowerCase(row.contributor_name)),
+            city: _.startCase(_.lowerCase(row.contributor_city)),
           }
-          donorIds.push(id);
+          donorIds.push(donorId);
           donors.push(donor);
         }
 

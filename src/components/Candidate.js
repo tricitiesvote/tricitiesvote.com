@@ -224,17 +224,17 @@ export const pageQuery = graphql`
     uuid
   }
 
+  
+
   fragment CandidateDetails on CandidatesJson {
     fields {
       slug
       body_html
       bio_html
-      donors_html
       lettersyes_html
       lettersno_html
       articles_html
       statement_html
-      donors_html_nowrap
       lettersyes_html_nowrap
       lettersno_html_nowrap 
       bio_html_nowrap       
@@ -260,11 +260,40 @@ export const pageQuery = graphql`
     pdc_url
     pamphlet_url
     bio
-    donors
     lettersyes      
     lettersno
     articles
     uuid
     hide
+    donors {
+      ...DonorDetails
+    }
   }
+  fragment DonationDetails on DonationsJson {
+    donor {
+      ...DonorDetails
+    }
+    party
+    type
+    amount
+    date
+    report
+    candidate {
+      fields {
+        slug     
+      }
+      name
+      party
+      image
+    }
+  }
+
+  fragment DonorDetails on DonorsJson {
+    electionyear
+    type
+    slug
+    name
+    city
+  }
+
 `
