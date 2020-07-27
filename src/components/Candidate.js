@@ -6,16 +6,17 @@ const Candidate = props => {
   const { 
     id, 
     name, 
-    image, 
-    statement, 
+    image,
     email, 
     website, 
     facebook, 
     twitter, 
     instagram, 
     youtube, 
-    pdc, 
-    fields 
+    pdc_url, 
+    pamphlet_url,
+    fields,
+    statement_html,
   } = props.data;
   const { 
     bio_html, 
@@ -27,7 +28,7 @@ const Candidate = props => {
   } = fields
   const url = `/${fields.slug}`;
 
-  var donorsHtml, recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, pdcHtml, articlesHtml
+  var donorsHtml, bioHtml, recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, pdcHtml, articlesHtml
 
   if (lettersyes_html_nowrap) {
     recyes = <li className="yes"
@@ -78,11 +79,29 @@ const Candidate = props => {
   if (email) {
     emailHtml = <li>
       <span role="img" aria-label="email">📩</span> 
-      <a href={email}>Email</a>
+      <a href={'mailto:' + email}>Email</a>
     </li>
   } else {
     emailHtml = ''
   }
+
+  if (bio_html) {
+    bioHtml = <div className="candidate-bio"
+      dangerouslySetInnerHTML={{
+        __html: bio_html
+      }}
+    />
+  } else if (statement_html) {
+    bioHtml = <div className="candidate-bio"
+      dangerouslySetInnerHTML={{
+        __html: statement_html
+      }}
+    />
+  } else {
+    bioHtml = <div className="candidate-bio"><p>No candidate statement</p></div>
+  }
+
+  // TODO: add pamphlet_url
 
   if (website) {
     websiteHtml = <li>
@@ -128,10 +147,10 @@ const Candidate = props => {
     instagramHtml = ''
   }
 
-  if (pdc) {
+  if (pdc_url) {
     pdcHtml = <li>
       <span role="img" aria-label="finance">💰</span> 
-      <a href={pdc}>Finance</a>
+      <a href={pdc_url}>Finance</a>
     </li>
   } else {
     pdcHtml = ''
@@ -158,11 +177,7 @@ const Candidate = props => {
             {name}
           </Link>
         </h5>
-        <div className="candidate-bio" dangerouslySetInnerHTML={{
-            __html: bio_html
-          }}
-        />
-        <p className="candidate-statement"><a href={statement}>Read full candidate statement »</a></p>
+        { bioHtml }
         <div dangerouslySetInnerHTML={{
             __html: body_html
           }}
@@ -223,32 +238,32 @@ export const pageQuery = graphql`
       lettersno_html_nowrap 
       bio_html_nowrap       
       articles_html_nowrap  
-      body_html_nowrap   
+      body_html_nowrap      
     }
+    name
+    electionyear
     office {
       ...OfficeDetails
     }
-    electionyear  
-    name
     party
     incumbent
     yearsin
     image
-    statement
+    statement_html
     email
     website
     facebook
     twitter
     instagram
     youtube
-    pdc
-    donors
-    uuid
-    hide
+    pdc_url
+    pamphlet_url
     bio
     donors
-    lettersyes
+    lettersyes      
     lettersno
     articles
+    uuid
+    hide
   }
 `

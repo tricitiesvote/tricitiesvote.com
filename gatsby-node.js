@@ -138,17 +138,18 @@ exports.createSchemaCustomization = ({ actions }) => {
       incumbent:        Boolean
       yearsin:          String   
       image:            String
-      statement:        String
       email:            String
       website:          String
       facebook:         String
       twitter:          String
       instagram:        String
       youtube:          String
-      pdc:              String
+      pdc_url:          String
+      pamphlet_url:     String
       donors:           String
       uuid:             String
       hide:             Boolean
+      statement_html:   String
 
       bio:              String
       body:             String
@@ -251,15 +252,15 @@ exports.createPages = async ({
       incumbent
       yearsin
       image
-      statement
+      statement_html
       email
       website
       facebook
       twitter
       instagram
       youtube
-      pdc
-      donors
+      pdc_url
+      pamphlet_url
       bio
       donors
       lettersyes      

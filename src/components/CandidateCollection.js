@@ -35,7 +35,7 @@ const CandidateCollection = () => {
               facebook={edge.node.facebook}
               instagram={edge.node.instagram}
               youtube={edge.node.youtube}
-              pdc={edge.node.pdc}
+              pdc_url={edge.node.pdc_url}
               lettersyesHtml={edge.node.lettersyesHtml}
               lettersnoHtml={edge.node.lettersnoHtml}
               articlesHtml={edge.node.articlesHtml}
