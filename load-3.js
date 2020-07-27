@@ -49,7 +49,6 @@ for (const pamphletRecord of pamphletData) {
       uuid: pdcRecord.candidate_filer_id,
       party: pdcRecord.party,
       statement: pamphletRecord.statement,
-      statement_html: pamphletRecord.statement_html,
       electionyear: pdcRecord.election_year,
       office: pdcRecord.office,
       website: pamphletRecord.website,
@@ -70,17 +69,18 @@ for (const pamphletRecord of pamphletData) {
       name: pamphletRecord.candidate_ballot_name,
       slug: _.kebabCase(pamphletRecord.candidate_ballot_name),
       uuid: _.kebabCase(pamphletRecord.candidate_ballot_name),
+      // TODO add this data
       party: '',
-      statement_html: pamphletRecord.statement_html,
+      statement: pamphletRecord.statement,
       // TODO fix this
       electionyear: '2020',
+      // TODO add this data
       office: '',
       website: pamphletRecord.website,
       email: pamphletRecord.email,
       pamphlet_url: pamphletRecord.pamphlet_url,
       pdc_url: '',
       image: pamphletRecord.image,
-      // need to add this to data
       pdc_filed: false,
     }
     let candidateData = JSON.stringify(unmerged, null, 2);
