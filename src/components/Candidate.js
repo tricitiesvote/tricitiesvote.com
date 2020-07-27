@@ -223,8 +223,6 @@ export const pageQuery = graphql`
     uuid
   }
 
-  
-
   fragment CandidateDetails on CandidatesJson {
     fields {
       slug
@@ -264,10 +262,8 @@ export const pageQuery = graphql`
     articles
     uuid
     hide
-    donors {
-      ...DonorDetails
-    }
   }
+  
   fragment DonationDetails on DonationsJson {
     donor {
       ...DonorDetails

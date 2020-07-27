@@ -46,11 +46,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       "wrap": true
     },
     { 
-      "name": "donors", 
-      "data": node.donors,
-      "wrap": false
-    },
-    { 
       "name": "lettersyes", 
       "data": node.lettersyes,
       "wrap": false
@@ -156,20 +151,17 @@ exports.createSchemaCustomization = ({ actions }) => {
       youtube:          String
       pdc_url:          String
       pamphlet_url:     String
-      donors:           String
       uuid:             String
       hide:             Boolean
       statement:        String
 
       bio:              String
-      body:             String
-      donors:           String
+      body:             String\
       lettersyes:       String
       lettersno:        String
       articles:         String
 
       office:           OfficesJson @link(by: "title", from: "office")
-      donors:           [DonorsJson] @link(by: "slug", from: "donors")
     }
 
     type NotesJson implements Node {
@@ -208,8 +200,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type DonationsJson implements Node {
-      donor:            DonorsJson @link(by: "slug", from: "donors")
-      candidate:        CandidatesJson @link(by: "uuid", from: "candidates")
+      donor:            DonorsJson @link(by: "slug", from: "donor")
+      candidate:        CandidatesJson @link(by: "uuid", from: "candidate")
       party:            String
       type:             String
       amount:           Float
@@ -294,9 +286,6 @@ exports.createPages = async ({
       articles
       uuid
       hide
-      donors {
-        ...DonorDetails
-      }
     }
 
     fragment RaceDetails on RacesJson {
