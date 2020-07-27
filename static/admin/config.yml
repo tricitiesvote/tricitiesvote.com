@@ -33,16 +33,16 @@ collections:
           label: Office title,
           widget: relation,
           collection: 'offices',
-          required: true,
+          required: false,
           multiple: false,
           searchFields: ['title'],
-          valueField: 'title',
+          valueField: 'office',
           displayFields: ['title'],
         }
       - { name: incumbent, label: 'Incumbent?', widget: boolean, required: false }
       - { name: yearsin, label: 'Years in office (if incumbent)', widget: number, required: false }
       - { name: image, label: Image, widget: image, required: false }
-      - { name: bio, label: Short bio, widget: markdown }
+      - { name: bio, label: Short bio, widget: markdown, required: false }
       - { 
           name: party, 
           label: Political Party, 
@@ -64,14 +64,14 @@ collections:
       - { name: twitter, label: Twitter, required: false }
       - { name: instagram, label: Instagram, required: false }
       - { name: youtube, label: YouTube, required: false }
-      - { name: pdc, label: Campaign Finance, required: true }
+      - { name: pdc, label: Campaign Finance, required: false }
       - { name: donors, label: Donors, widget: markdown, required: false }      
       - { name: lettersyes, label: Letters Yes / Endorsements, widget: markdown, required: false }
       - { name: lettersno, label: Letters No, widget: markdown, required: false }
       - { name: articles, label: Articles, widget: markdown, required: false }
       - { name: body, label: Body, widget: markdown, required: false }
       - { name: hide, label: 'Hide?', widget: boolean, required: false, default: false }
-      - { name: uuid, label: ID, hint: 'This is the state-assigned PDC filer_id' }
+      - { name: uuid, label: ID, hint: 'This is the state-assigned PDC filer_id. Don't change it.', hidden: true }
   - name: notes
     label: Candidate notes
     label_singular: Candidate notes
