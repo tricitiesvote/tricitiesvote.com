@@ -259,8 +259,8 @@ collections:
         widget: relation,
         collection: 'races',
         multiple: true,
-        searchFields: ['electionyear', 'title', 'type'],
+        searchFields: ['electionyear', 'office', 'type'],
         valueField: 'uuid',
-        displayFields: ['electionyear', 'title', 'type'],
+        displayFields: ['electionyear', 'office', 'type'],
       }
       
