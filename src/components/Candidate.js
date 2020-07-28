@@ -21,14 +21,16 @@ const Candidate = props => {
     bio_html,
     body_html,
     statement_html,
-    donors_html_nowrap,
+    statement_excerpt_html,
+    body_excerpt_html,
+    bio_excerpt_html,
     lettersyes_html_nowrap,
     lettersno_html_nowrap,
     articles_html_nowrap,
   } = fields
   const url = `/${fields.slug}`;
 
-  var donorsHtml, bioHtml, recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, pdcHtml, articlesHtml
+  var bioHtml, recHtml, recno, recyes, emailHtml, websiteHtml, facebookHtml, twitterHtml, instagramHtml, youtubeHtml, pdcHtml, articlesHtml
 
   if (lettersyes_html_nowrap) {
     recyes = <li className="yes"
@@ -59,22 +61,22 @@ const Candidate = props => {
     recHtml = ''
   }
 
-  // TODO need to include indicator of date updated
-  if (donors_html_nowrap) {
-    donorsHtml = <ul className="donors">
-      <li title=""
-        dangerouslySetInnerHTML={{
-        __html: donors_html_nowrap || ''
-      }}
-      ></li>
-    </ul>
-  } else {
-    donorsHtml = <ul className="donors">
-    <li title="">
-      <span>Candidate is a mini-filer raising less than the statutory requirements for public reporting.</span>
-    </li>
-  </ul>
-  }
+  // // TODO need to include indicator of date updated
+  // if (donors_html_nowrap) {
+  //   donorsHtml = <ul className="donors">
+  //     <li title=""
+  //       dangerouslySetInnerHTML={{
+  //       __html: donors_html_nowrap || ''
+  //     }}
+  //     ></li>
+  //   </ul>
+  // } else {
+  //   donorsHtml = <ul className="donors">
+  //   <li title="">
+  //     <span>Candidate is a mini-filer raising less than the statutory requirements for public reporting.</span>
+  //   </li>
+  // </ul>
+  // }
 
   if (email) {
     emailHtml = <li>
@@ -229,12 +231,13 @@ export const pageQuery = graphql`
       slug
       body_html
       bio_html
-      donors_html
       lettersyes_html
       lettersno_html
       articles_html
       statement_html
-      donors_html_nowrap
+      statement_excerpt_html
+      body_excerpt_html
+      bio_excerpt_html
       lettersyes_html_nowrap
       lettersno_html_nowrap 
       bio_html_nowrap       
@@ -260,7 +263,6 @@ export const pageQuery = graphql`
     pdc_url
     pamphlet_url
     bio
-    donors
     lettersyes      
     lettersno
     articles

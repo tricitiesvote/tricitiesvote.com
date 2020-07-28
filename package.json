@@ -24,6 +24,7 @@
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
     "soda-js": "^0.2.3",
+    "truncate-html": "^1.0.3",
     "turndown": "^6.0.0"
   },
   "license": "MIT",

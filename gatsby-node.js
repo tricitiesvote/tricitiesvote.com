@@ -4,6 +4,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const remark = require("remark");
 const remarkHTML = require("remark-html");
 const { nextTick } = require('process');
+const truncate = require('truncate-html');
 // const OfficeDetailsFragment = require('./src/queries/Office.js');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -41,49 +42,46 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   const markdownFields = [
     { 
-      "name": "bio", 
-      "data": node.bio,
-      "wrap": true
-    },
-    { 
-      "name": "donors", 
-      "data": node.donors,
-      "wrap": false
-    },
-    { 
       "name": "lettersyes", 
       "data": node.lettersyes,
-      "wrap": false
+      "wrap": false,
+      "excerpt": false
     },
     {
       "name": "lettersno",
       "data": node.lettersno,
-      "wrap": false
+      "wrap": false,
+      "excerpt": false
     },
     { 
       "name": "articles",
       "data": node.articles,
-      "wrap": false
+      "wrap": false,
+      "excerpt": false
     },
     { 
       "name": "bio",
       "data": node.bio,
-      "wrap": true
+      "wrap": true,
+      "excerpt": 160
     },
     { 
       "name": "statement",
       "data": node.statement,
-      "wrap": true
+      "wrap": true,
+      "excerpt": 240
     },
     { 
       "name": "body",
       "data": node.body,
-      "wrap": true
+      "wrap": true,
+      "excerpt": 240
     },
     {
       "name": "notes",
       "data": node.notes,
-      "wrap": true
+      "wrap": true,
+      "excerpt": 240
     }
   ]
 
@@ -93,34 +91,57 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       let fieldName = markdownFields[key]['name'];
       let fieldData = markdownFields[key]['data'];
       let wrap = markdownFields[key]['wrap'];
+      let excerpt = markdownFields[key]['excerpt'];
+
+      // console.log(excerpt)
 
       if (fieldData) {
-        const valueWrap = remark()
+        const wrapValue = remark()
           .use(remarkHTML)
           .processSync(fieldData)
           .toString()
 
-        const valueNoWrap = remark()
+        const noWrapValue = remark()
           .use(remarkHTML)
           .processSync(fieldData)
           .toString()
           .slice(3).slice(0,-5) // remove <p> and </p>
 
-        // create new node at:
-        // fields { fieldName_html }
-        createNodeField({
-          name: `${fieldName}_html`,
-          node,
-          value: valueWrap
-        });
+        if (wrapValue && wrap) {
+          // create new node at:
+          // fields { fieldName_html }
+          createNodeField({
+            name: `${fieldName}_html`,
+            node,
+            value: wrapValue
+          });
+        }
 
-        // create new unwrapped node at:
-        // fields { fieldName_html_nowrap }
-        createNodeField({
-          name: `${fieldName}_html_nowrap`,
-          node,
-          value: valueNoWrap
-        });
+        if (noWrapValue && !wrap) {
+          // create new unwrapped node at:
+          // fields { fieldName_html_nowrap }
+          createNodeField({
+            name: `${fieldName}_html_nowrap`,
+            node,
+            value: noWrapValue
+          });
+        }
+
+        // console.log(excerpt)
+
+        if (wrapValue && excerpt > 0) {
+          let excerptValue = truncate(wrapValue, excerpt)
+          // create new node at:
+          // fields { fieldName_excerpt_html }
+          createNodeField({
+            name: `${fieldName}_excerpt_html`,
+            node,
+            // value: 'hi'
+            value: excerptValue
+          });
+        }
+
+
       }
     }
   }
@@ -156,14 +177,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       youtube:          String
       pdc_url:          String
       pamphlet_url:     String
-      donors:           String
       uuid:             String
       hide:             Boolean
       statement:        String
 
       bio:              String
       body:             String
-      donors:           String
       lettersyes:       String
       lettersno:        String
       articles:         String
@@ -200,7 +219,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Fields {
       slug:             String
-      donors_html:      String
       lettersyes_html:  String
       lettersno_html:   String
       bio_html:         String
@@ -208,7 +226,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       body_html:        String
       statement_html:   String
 
-      donors_html_nowrap:      String
+      statement_excerpt_html:  String
+      body_excerpt_html:       String
+      bio_excerpt_html:        String
+
       lettersyes_html_nowrap:  String
       lettersno_html_nowrap:   String
       bio_html_nowrap:         String
@@ -217,7 +238,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type NoteFields {
-      notes_html:        String
+      notes_html:              String
+      notes_excerpt_html:      String
     }
   `;
 
@@ -243,12 +265,13 @@ exports.createPages = async ({
         slug
         body_html
         bio_html
-        donors_html
         lettersyes_html
         lettersno_html
         articles_html
         statement_html
-        donors_html_nowrap
+        statement_excerpt_html
+        body_excerpt_html
+        bio_excerpt_html
         lettersyes_html_nowrap
         lettersno_html_nowrap 
         bio_html_nowrap       
@@ -274,7 +297,6 @@ exports.createPages = async ({
       pdc_url
       pamphlet_url
       bio
-      donors
       lettersyes      
       lettersno
       articles
