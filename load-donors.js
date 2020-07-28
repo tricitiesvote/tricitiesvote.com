@@ -30,7 +30,11 @@ consumer.query()
 
         let donation = {
           // create donation record
-          donor: donorId,
+          donor_slug: donorId,
+          electionyear: row.election_year,
+          donation_type: row.code,
+          donor_name: _.startCase(_.lowerCase(row.contributor_name)),
+          donor_city: _.startCase(_.lowerCase(row.contributor_city)),
           candidate: row.filer_id,
           party: _.startCase(_.lowerCase(row.party)),
           type: row.cash_or_in_kind,

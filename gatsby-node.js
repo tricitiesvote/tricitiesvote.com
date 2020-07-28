@@ -39,6 +39,28 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 
+  // const donors = []
+  // const recipients = []
+
+  // // iterate through donations
+  // if (node.internal.type === 'DonationsJson') {
+  //   if (!_.includes(donors, node.)) {
+
+
+  //   recipients.push(node.candidate)
+
+  //   console.log(JSON.stringify(node.candidate))
+  //   recipient = node.candidate;
+    
+  
+  //   // createNodeField({
+  //   //   node,      
+  //   //   name: `slug`,
+  //   //   value: _.kebabCase(region)
+  //   // })
+
+  // }
+
   const markdownFields = [
     { 
       "name": "bio", 
@@ -156,7 +178,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       statement:        String
 
       bio:              String
-      body:             String\
+      body:             String
       lettersyes:       String
       lettersno:        String
       articles:         String
@@ -196,12 +218,15 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug:             String
       type:             String
       city:             String
-      electionyear:     String      
+      electionyear:     String
     }
 
     type DonationsJson implements Node {
-      donor:            DonorsJson @link(by: "slug", from: "donor")
+      donor_slug:       String
       candidate:        CandidatesJson @link(by: "uuid", from: "candidate")
+      donor_name:       String
+      donation_type:    String
+      donor_city:       String
       party:            String
       type:             String
       amount:           Float
@@ -228,6 +253,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type NoteFields {
       notes_html:        String
     }
+  
   `;
 
   createTypes(typeDefs);
@@ -307,15 +333,17 @@ exports.createPages = async ({
     }
 
     fragment DonationDetails on DonationsJson {
-      donor {
-        ...DonorDetails
-      }
+      donor_slug
+      donor_name
+      donation_type
+      donor_city
       party
       type
       amount
       date
       report
       candidate {
+        uuid
         fields {
           slug     
         }
@@ -323,14 +351,6 @@ exports.createPages = async ({
         party
         image
       }
-    }
-
-    fragment DonorDetails on DonorsJson {
-      electionyear
-      type
-      slug
-      name
-      city
     }
 
     {
@@ -387,16 +407,6 @@ exports.createPages = async ({
         }
       }
 
-      donors: allDonorsJson(
-        limit: 5000
-      ) {
-        edges {
-          node {
-            ...DonorDetails
-          }
-        }
-      }
-
       donations: allDonationsJson(
         limit: 8000
       ) {
@@ -422,6 +432,18 @@ exports.createPages = async ({
             type
             region
           }
+        }
+      }
+
+      donationsByCandidateGroup: allDonationsJson(limit: 10000) {
+        group(field: candidate___uuid ) { 
+          fieldValue
+        }
+      }
+  
+      donationsByDonorGroup: allDonationsJson(limit: 10000) {
+        group(field: donor_slug ) { 
+          fieldValue
         }
       }
     }

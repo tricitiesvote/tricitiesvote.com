@@ -15580,5 +15580,47 @@
     "slug": "stalberger-nancy",
     "name": "Stalberger Nancy",
     "city": "Walla Walla"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "baffney-daniel",
+    "name": "Baffney Daniel",
+    "city": "Walla Walla"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "baffney-valerie",
+    "name": "Baffney Valerie",
+    "city": "Walla Walla"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "smith-linda",
+    "name": "Smith Linda",
+    "city": "Benton City"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Business",
+    "slug": "the-pacific-nortwest-project",
+    "name": "The Pacific Nortwest Project",
+    "city": "Kennewick"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "chevreaux-meredith",
+    "name": "Chevreaux Meredith",
+    "city": "Walla Walla"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Business",
+    "slug": "amazon-com-services-llc",
+    "name": "Amazon Com Services Llc",
+    "city": "Seattle"
   }
 ]

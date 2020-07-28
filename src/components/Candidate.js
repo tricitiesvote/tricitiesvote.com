@@ -263,17 +263,19 @@ export const pageQuery = graphql`
     uuid
     hide
   }
-  
+
   fragment DonationDetails on DonationsJson {
-    donor {
-      ...DonorDetails
-    }
+    donor_slug
+    donor_name
+    donation_type
+    donor_city
     party
     type
     amount
     date
     report
     candidate {
+      uuid
       fields {
         slug     
       }
@@ -281,14 +283,6 @@ export const pageQuery = graphql`
       party
       image
     }
-  }
-
-  fragment DonorDetails on DonorsJson {
-    electionyear
-    type
-    slug
-    name
-    city
   }
 
 `
