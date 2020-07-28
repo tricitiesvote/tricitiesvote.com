@@ -10,7 +10,7 @@ const CandidatePage = ({ data }) => {
 
   return (
     <DefaultLayout>
-      <Candidate data={candidate} />
+      <Candidate data={candidate} fullsize="true" />
     </DefaultLayout>
   );
 };

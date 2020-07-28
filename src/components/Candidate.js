@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 
 const Candidate = props => {
   // TODO: re-add { donors } and var donorsHtml
+  const { fullsize } = props;
   const { 
     id, 
     name, 
@@ -13,7 +14,7 @@ const Candidate = props => {
     twitter, 
     instagram, 
     youtube, 
-    pdc_url, 
+    pdc_url,
     pamphlet_url,
     fields
   } = props.data;
@@ -93,7 +94,15 @@ const Candidate = props => {
         __html: bio_html
       }}
     />
-  } else if (statement_html) {
+  } else if (!fullsize && statement_excerpt_html) {
+    bioHtml = <div className="candidate-bio excerpt"><div
+      dangerouslySetInnerHTML={{
+        __html: statement_excerpt_html
+      }}
+    />
+      <Link className="candidate-link" to={url}>See full profile »</Link>
+    </div>
+  } else if (fullsize && statement_html) {
     bioHtml = <div className="candidate-bio"
       dangerouslySetInnerHTML={{
         __html: statement_html

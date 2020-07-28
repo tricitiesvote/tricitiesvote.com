@@ -475,12 +475,24 @@ del, del a:link, del li {
   font-size: 20px;
 }
 
-.candidate-bio, .candidate-bio, .candidate-statement {
+.candidate-bio, 
+.candidate-bio, 
+.candidate-statement {
   border-bottom: 1px solid #eee;
   margin-bottom: 20px;
   padding-bottom: 10px;
 }
+.candidate-bio.excerpt div, 
+.candidate-bio p:last-child, 
+.candidate-bio 
+.candidate-link { 
+  display: inline; 
+}
 
+.candidate-link {
+  font-size: 14px;
+  margin-left: 10px;
+}
 .candidate ul {
   list-style: none;
 }

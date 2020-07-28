@@ -130,7 +130,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         // console.log(excerpt)
 
         if (wrapValue && excerpt > 0) {
-          let excerptValue = truncate(wrapValue, excerpt)
+          let excerptValue = truncate(wrapValue, excerpt, { reserveLastWord: true } )
           // create new node at:
           // fields { fieldName_excerpt_html }
           createNodeField({
