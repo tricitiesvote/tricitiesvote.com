@@ -1,14 +1,14 @@
 const _ = require('lodash');
 
 const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
+// const { createFilePath } = require(`gatsby-source-filesystem`);
 const remark = require('remark');
 const remarkHTML = require('remark-html');
-const { nextTick } = require('process');
+// const { nextTick } = require('process');
 const truncate = require('truncate-html');
 // const OfficeDetailsFragment = require('./src/queries/Office.js');
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
   // build slug contents for Guides
@@ -86,66 +86,64 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     },
   ];
 
-  for (const key in markdownFields) {
-    if (markdownFields.hasOwnProperty(key)) {
-      const fieldName = markdownFields[key].name;
-      const fieldData = markdownFields[key].data;
-      const { wrap } = markdownFields[key];
-      const { excerpt } = markdownFields[key];
+  markdownFields.forEach((item, key) => {
+    const fieldName = markdownFields[key].name;
+    const fieldData = markdownFields[key].data;
+    const { wrap } = markdownFields[key];
+    const { excerpt } = markdownFields[key];
+
+    // console.log(excerpt)
+
+    if (fieldData) {
+      const wrapValue = remark()
+        .use(remarkHTML)
+        .processSync(fieldData)
+        .toString();
+
+      const noWrapValue = remark()
+        .use(remarkHTML)
+        .processSync(fieldData)
+        .toString()
+        .slice(3)
+        .slice(0, -5); // remove <p> and </p>
+
+      if (wrapValue && wrap) {
+        // create new node at:
+        // fields { fieldName_html }
+        createNodeField({
+          name: `${fieldName}_html`,
+          node,
+          value: wrapValue,
+        });
+      }
+
+      if (noWrapValue && !wrap) {
+        // create new unwrapped node at:
+        // fields { fieldName_html_nowrap }
+        createNodeField({
+          name: `${fieldName}_html_nowrap`,
+          node,
+          value: noWrapValue,
+        });
+      }
 
       // console.log(excerpt)
 
-      if (fieldData) {
-        const wrapValue = remark()
-          .use(remarkHTML)
-          .processSync(fieldData)
-          .toString();
-
-        const noWrapValue = remark()
-          .use(remarkHTML)
-          .processSync(fieldData)
-          .toString()
-          .slice(3)
-          .slice(0, -5); // remove <p> and </p>
-
-        if (wrapValue && wrap) {
-          // create new node at:
-          // fields { fieldName_html }
-          createNodeField({
-            name: `${fieldName}_html`,
-            node,
-            value: wrapValue,
-          });
-        }
-
-        if (noWrapValue && !wrap) {
-          // create new unwrapped node at:
-          // fields { fieldName_html_nowrap }
-          createNodeField({
-            name: `${fieldName}_html_nowrap`,
-            node,
-            value: noWrapValue,
-          });
-        }
-
-        // console.log(excerpt)
-
-        if (wrapValue && excerpt > 0) {
-          const excerptValue = truncate(wrapValue, excerpt, {
-            reserveLastWord: true,
-          });
-          // create new node at:
-          // fields { fieldName_excerpt_html }
-          createNodeField({
-            name: `${fieldName}_excerpt_html`,
-            node,
-            // value: 'hi'
-            value: excerptValue,
-          });
-        }
+      if (wrapValue && excerpt > 0) {
+        const excerptValue = truncate(wrapValue, excerpt, {
+          reserveLastWord: true,
+        });
+        // create new node at:
+        // fields { fieldName_excerpt_html }
+        createNodeField({
+          name: `${fieldName}_excerpt_html`,
+          node,
+          // value: 'hi'
+          value: excerptValue,
+        });
       }
     }
-  }
+  });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -404,7 +402,7 @@ exports.createPages = async ({
   // console.log('races >>>>', JSON.stringify(allRaces,null,2))
   // console.log('notes >>>>', JSON.stringify(allNotes,null,2))
 
-  allCandidates.forEach((candidate, index) => {
+  allCandidates.forEach(candidate => {
     createPage({
       path: `/${candidate.node.fields.slug}/`,
       component: path.resolve('./src/templates/CandidatePage.js'),
@@ -414,7 +412,7 @@ exports.createPages = async ({
     });
   });
 
-  allNotes.forEach((note, index) => {
+  allNotes.forEach(note => {
     createPage({
       path: `/${note.node.candidate.fields.slug}/notes`,
       component: path.resolve('./src/templates/NotesPage.js'),
@@ -424,7 +422,7 @@ exports.createPages = async ({
     });
   });
 
-  allRaces.forEach((race, index) => {
+  allRaces.forEach(race => {
     // console.log(JSON.stringify(guide))
     createPage({
       path: `/${race.node.fields.slug}/`,
@@ -435,7 +433,7 @@ exports.createPages = async ({
     });
   });
 
-  allGuides.forEach((guide, index) => {
+  allGuides.forEach(guide => {
     // console.log(JSON.stringify(guide))
     createPage({
       path: `/${guide.node.fields.slug}/`,

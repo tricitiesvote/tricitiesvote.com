@@ -125,7 +125,8 @@ const Candidate = props => {
         <Link className="candidate-link" to={url}>
           More »
         </Link>
-              </div>
+      </div> 
+    )
   } else if (fullsize && statement_html) {
     bioHtml = (
       <div
@@ -134,7 +135,7 @@ const Candidate = props => {
           __html: statement_html,
         }}
       />
-    );
+    )
   } else if (!bio_html && !statement_html) {
     bioHtml = (
       <div className="candidate-bio">
@@ -152,7 +153,7 @@ const Candidate = props => {
           🌐
         </span>
         <a href={website}>Website</a>
-                  </li>
+      </li>
     );
   } else {
     websiteHtml = '';
@@ -165,7 +166,7 @@ const Candidate = props => {
           👤
         </span>
         <a href={facebook}>Facebook</a>
-                   </li>
+      </li>
     );
   } else {
     facebookHtml = '';
@@ -177,7 +178,7 @@ const Candidate = props => {
           🐦
         </span>
         <a href={twitter}>Twitter</a>
-                  </li>
+      </li>
     );
   } else {
     twitterHtml = '';
@@ -190,7 +191,8 @@ const Candidate = props => {
           📺
         </span>
         <a href={youtube}>YouTube</a>
-                  </li>
+      </li>
+    )
   } else {
     youtubeHtml = '';
   }
@@ -223,15 +225,14 @@ const Candidate = props => {
 
   if (articles_html_nowrap) {
     articlesHtml = (
-      (
-<ul className="news">
-      <li
-      dangerouslySetInnerHTML={{
-        __html: articles_html_nowrap || ''
-      }}
-      />
-    </ul>
-)
+      <ul className="news">
+        <li
+          dangerouslySetInnerHTML={{
+            __html: articles_html_nowrap || '',
+          }}
+        />
+      </ul>
+    )
   } else {
     articlesHtml = '';
   }
@@ -246,7 +247,7 @@ const Candidate = props => {
         {bioHtml}
         <div
 className="candidate-body" dangerouslySetInnerHTML={{
-            __html: body_html,
+            __html: body_html
           }}
         />
         {recHtml}
