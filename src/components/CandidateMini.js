@@ -3,7 +3,7 @@
 
 // const CandidateMini = props => {
 
-//   const { 
+//   const {
 //     data
 //   } = props;
 

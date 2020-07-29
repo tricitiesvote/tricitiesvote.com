@@ -6,7 +6,7 @@ import Race from '../components/Race';
 
 const RacePage = ({ data }) => {
   const { allRacesJson } = data;
-  const race = allRacesJson.edges[0]
+  const race = allRacesJson.edges[0];
   // TODO: make 'region' consistent across data sets
   // it's also having slug trimmed in gatsby-node.js
   // const region = allRacesJson.edges[0].node.office.region
@@ -18,7 +18,7 @@ const RacePage = ({ data }) => {
       <div className="guide">
         {/* <pre><code>{JSON.stringify(race, null, 2)}</code></pre> */}
         <section className="race" key={race.uuid}>
-          <Link to={'/' + race.node.fields.slug}>
+          <Link to={`/${race.node.fields.slug}`}>
             <h1>{race.node.office.title}</h1>
           </Link>
           <Race data={race.node} />
@@ -34,9 +34,9 @@ export const pageQuery = graphql`
   query($slug: String!) {
     allRacesJson(
       filter: {
-        electionyear: {eq: "2020"}, 
-        type: {eq: "primary"},
-        fields: {slug: {eq: $slug}}
+        electionyear: { eq: "2020" }
+        type: { eq: "primary" }
+        fields: { slug: { eq: $slug } }
       }
     ) {
       edges {
@@ -49,5 +49,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
-
+`;

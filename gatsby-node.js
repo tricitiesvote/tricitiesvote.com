@@ -1,8 +1,9 @@
 const _ = require('lodash');
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-const remark = require("remark");
-const remarkHTML = require("remark-html");
+
+const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
+const remark = require('remark');
+const remarkHTML = require('remark-html');
 const { nextTick } = require('process');
 const truncate = require('truncate-html');
 // const OfficeDetailsFragment = require('./src/queries/Office.js');
@@ -14,84 +15,83 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // TODO: make 'region' consistent across data sets
   // it's also having county re-added in components/RacePage.js
   if (node.internal.type === 'GuidesJson') {
-    const region = node.region.substr(0, node.region.indexOf(' ')); 
+    const region = node.region.slice(0, node.region.indexOf(' '));
     createNodeField({
-      node,      
+      node,
       name: `slug`,
-      value: _.kebabCase(region)
-    })
+      value: _.kebabCase(region),
+    });
   }
 
   // build slug contents for Races
   if (node.internal.type === 'RacesJson') {
     createNodeField({
-      node,      
+      node,
       name: `slug`,
-      value: _.kebabCase(node.office)
-    })
+      value: _.kebabCase(node.office),
+    });
   }
 
   // build slug contents for Candidates
   if (node.internal.type === 'CandidatesJson' && node.name) {
     createNodeField({
-      node,      
+      node,
       name: `slug`,
-      value: _.kebabCase(node.name)
-    })
+      value: _.kebabCase(node.name),
+    });
   }
 
   const markdownFields = [
-    { 
-      "name": "lettersyes", 
-      "data": node.lettersyes,
-      "wrap": false,
-      "excerpt": false
+    {
+      name: 'lettersyes',
+      data: node.lettersyes,
+      wrap: false,
+      excerpt: false,
     },
     {
-      "name": "lettersno",
-      "data": node.lettersno,
-      "wrap": false,
-      "excerpt": false
-    },
-    { 
-      "name": "articles",
-      "data": node.articles,
-      "wrap": false,
-      "excerpt": false
-    },
-    { 
-      "name": "bio",
-      "data": node.bio,
-      "wrap": true,
-      "excerpt": 160
-    },
-    { 
-      "name": "statement",
-      "data": node.statement,
-      "wrap": true,
-      "excerpt": 240
-    },
-    { 
-      "name": "body",
-      "data": node.body,
-      "wrap": true,
-      "excerpt": 240
+      name: 'lettersno',
+      data: node.lettersno,
+      wrap: false,
+      excerpt: false,
     },
     {
-      "name": "notes",
-      "data": node.notes,
-      "wrap": true,
-      "excerpt": 240
-    }
-  ]
+      name: 'articles',
+      data: node.articles,
+      wrap: false,
+      excerpt: false,
+    },
+    {
+      name: 'bio',
+      data: node.bio,
+      wrap: true,
+      excerpt: 160,
+    },
+    {
+      name: 'statement',
+      data: node.statement,
+      wrap: true,
+      excerpt: 240,
+    },
+    {
+      name: 'body',
+      data: node.body,
+      wrap: true,
+      excerpt: 240,
+    },
+    {
+      name: 'notes',
+      data: node.notes,
+      wrap: true,
+      excerpt: 240,
+    },
+  ];
 
-  for (var key in markdownFields) {
+  for (const key in markdownFields) {
     if (markdownFields.hasOwnProperty(key)) {
-
-      let fieldName = markdownFields[key]['name'];
-      let fieldData = markdownFields[key]['data'];
-      let wrap = markdownFields[key]['wrap'];
-      let excerpt = markdownFields[key]['excerpt'];
+      const fieldName = markdownFields[key].name;
+      const fieldData = markdownFields[key].data;
+      const { wrap } = markdownFields[key];
+      const { excerpt } = markdownFields[key];
 
       // console.log(excerpt)
 
@@ -99,13 +99,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         const wrapValue = remark()
           .use(remarkHTML)
           .processSync(fieldData)
-          .toString()
+          .toString();
 
         const noWrapValue = remark()
           .use(remarkHTML)
           .processSync(fieldData)
           .toString()
-          .slice(3).slice(0,-5) // remove <p> and </p>
+          .slice(3)
+          .slice(0, -5); // remove <p> and </p>
 
         if (wrapValue && wrap) {
           // create new node at:
@@ -113,7 +114,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
           createNodeField({
             name: `${fieldName}_html`,
             node,
-            value: wrapValue
+            value: wrapValue,
           });
         }
 
@@ -123,25 +124,25 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
           createNodeField({
             name: `${fieldName}_html_nowrap`,
             node,
-            value: noWrapValue
+            value: noWrapValue,
           });
         }
 
         // console.log(excerpt)
 
         if (wrapValue && excerpt > 0) {
-          let excerptValue = truncate(wrapValue, excerpt, { reserveLastWord: true } )
+          const excerptValue = truncate(wrapValue, excerpt, {
+            reserveLastWord: true,
+          });
           // create new node at:
           // fields { fieldName_excerpt_html }
           createNodeField({
             name: `${fieldName}_excerpt_html`,
             node,
             // value: 'hi'
-            value: excerptValue
+            value: excerptValue,
           });
         }
-
-
       }
     }
   }
@@ -273,10 +274,10 @@ exports.createPages = async ({
         body_excerpt_html
         bio_excerpt_html
         lettersyes_html_nowrap
-        lettersno_html_nowrap 
-        bio_html_nowrap       
-        articles_html_nowrap  
-        body_html_nowrap      
+        lettersno_html_nowrap
+        bio_html_nowrap
+        articles_html_nowrap
+        body_html_nowrap
       }
       name
       electionyear
@@ -297,7 +298,7 @@ exports.createPages = async ({
       pdc_url
       pamphlet_url
       bio
-      lettersyes      
+      lettersyes
       lettersno
       articles
       uuid
@@ -323,9 +324,7 @@ exports.createPages = async ({
     }
 
     {
-      offices: allOfficesJson(
-        limit: 1000
-      ) {
+      offices: allOfficesJson(limit: 1000) {
         edges {
           node {
             ...OfficeDetails
@@ -333,26 +332,22 @@ exports.createPages = async ({
         }
       }
 
-      candidates: allCandidatesJson(
-        limit: 1000
-      ) {
+      candidates: allCandidatesJson(limit: 1000) {
         edges {
           node {
-            ...CandidateDetails    
+            ...CandidateDetails
           }
         }
       }
 
-      notes: allNotesJson(
-        limit: 1000
-      ) {
+      notes: allNotesJson(limit: 1000) {
         edges {
           node {
             fields {
               notes_html
             }
             candidate {
-              name 
+              name
               office {
                 ...OfficeDetails
               }
@@ -366,9 +361,7 @@ exports.createPages = async ({
         }
       }
 
-      races: allRacesJson(
-        limit: 1000
-      ) {
+      races: allRacesJson(limit: 1000) {
         edges {
           node {
             ...RaceDetails
@@ -376,9 +369,7 @@ exports.createPages = async ({
         }
       }
 
-      guides: allGuidesJson(
-        limit: 1000
-      ) {
+      guides: allGuidesJson(limit: 1000) {
         edges {
           node {
             fields {
@@ -420,8 +411,8 @@ exports.createPages = async ({
       context: {
         slug: candidate.node.fields.slug,
       },
-    })
-  })
+    });
+  });
 
   allNotes.forEach((note, index) => {
     createPage({
@@ -430,8 +421,8 @@ exports.createPages = async ({
       context: {
         slug: note.node.candidate.fields.slug,
       },
-    })
-  })
+    });
+  });
 
   allRaces.forEach((race, index) => {
     // console.log(JSON.stringify(guide))
@@ -441,8 +432,8 @@ exports.createPages = async ({
       context: {
         slug: race.node.fields.slug,
       },
-    })
-  })
+    });
+  });
 
   allGuides.forEach((guide, index) => {
     // console.log(JSON.stringify(guide))
@@ -452,12 +443,6 @@ exports.createPages = async ({
       context: {
         slug: guide.node.fields.slug,
       },
-    })
-  })
-
+    });
+  });
 };
-
-
-
-
-

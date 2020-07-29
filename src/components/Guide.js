@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react';
 // import { Link } from "gatsby"
-import RaceList from "./RaceList";
+import RaceList from './RaceList';
 
 const Guide = props => {
   const { data } = props;
-  const races = data.node.races;
+  const { races } = data.node;
 
   return (
     <div className="guide" key={props.uuid}>
@@ -14,16 +14,16 @@ const Guide = props => {
         {JSON.stringify(props,null,2)}
       </code></pre> */}
     </div>
-  )
-}
+  );
+};
 
-export default Guide
+export default Guide;
 
 // export const pageQuery = graphql`
 //   query {
 //     allGuidesJson(
 //       filter: {
-//         electionyear: {eq: "2020"}, 
+//         electionyear: {eq: "2020"},
 //         type: {eq: "primary"}
 //       }
 //     ) {
@@ -43,4 +43,3 @@ export default Guide
 //     }
 //   }
 // `
-

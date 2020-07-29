@@ -1,9 +1,9 @@
-import React from "react"
-import { graphql, StaticQuery } from "gatsby"
-import Candidate from "./Candidate";
+import React from 'react';
+import { graphql, StaticQuery } from 'gatsby';
+import Candidate from './Candidate';
 
 const CandidateCollection = () => {
-  return(
+  return (
     <StaticQuery
       query={graphql`
         query {
@@ -19,15 +19,12 @@ const CandidateCollection = () => {
       render={data => (
         <div className="candidate-set">
           {data.allCandidatesJson.edges.map(edge => (
-            <Candidate
-              data={edge.node}
-              fullsize="false"
-            />
+            <Candidate data={edge.node} fullsize="false" />
           ))}
         </div>
       )}
     />
-  )
-}
+  );
+};
 
-export default CandidateCollection
+export default CandidateCollection;
