@@ -13,7 +13,7 @@ class SiteIndex extends React.Component {
     const guides = data.allGuidesJson.edges;
 
     return (
-      <DefaultLayout title={siteTitle}>
+      <DefaultLayout location={data.location} title={siteTitle}>
         <p className="notice">
           More updates coming...
           <br />
@@ -21,7 +21,7 @@ class SiteIndex extends React.Component {
           the latest.
         </p>
         {guides.map(guide => (
-          <Guide data={guide} />
+          <Guide data={guide} mini="true" />
         ))}
       </DefaultLayout>
     );
