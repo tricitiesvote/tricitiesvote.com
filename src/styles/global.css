@@ -984,7 +984,7 @@ th:first-of-type {
     line-height: 1.2;
     text-align: center;
     margin: 0px 5px 0 5px;
-    font-size: 20px;
+    font-size: 22px;
     background-color: transparent;
   }
   
@@ -995,7 +995,7 @@ th:first-of-type {
   .candidate .candidate-links li {
     list-style: none;
     display: inline;
-    margin-right: 20px;
+    margin: 8px;
   }
   
   .candidate img {
@@ -1035,10 +1035,19 @@ th:first-of-type {
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
   }
+
+  .candidate-links span {
+    display: none;
+  }
   
   .candidate-image-name {
     display: block;
     text-align: center;
+  }
+
+  .candidate .info h5 {
+    display: block;
+    margin-top: 20px;
   }
   
   .candidate .details h5 {
