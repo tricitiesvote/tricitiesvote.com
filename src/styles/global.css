@@ -446,6 +446,10 @@ del, del a:link, del li {
   opacity: 0.5 !important;
 }
 
+.notice {
+  text-align: center;
+}
+
 .page {
   max-width: 600px;
   margin: 0 auto;
