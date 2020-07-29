@@ -211,11 +211,6 @@ section li a {
   font-size: 14px;
 }
 
-.container-candidate.container-candidate-mini {
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  width: 100%;
-}
-
 .candidate-links li a {
   font-size: 13px
 }
