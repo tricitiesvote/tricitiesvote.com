@@ -100,7 +100,7 @@ const Candidate = props => {
         __html: statement_excerpt_html
       }}
     />
-      <Link className="candidate-link" to={url}>See full profile »</Link>
+      <Link className="candidate-link" to={url}>More »</Link>
     </div>
   } else if (fullsize && statement_html) {
     bioHtml = <div className="candidate-bio"
