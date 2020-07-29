@@ -199,7 +199,9 @@ const Candidate = props => {
         {articlesHtml}
       </div>
       <div className="info">
-        <img src={image} alt={name} />
+        <Link to={url}>
+          <img src={image} alt={name} />
+        </Link>
         <ul>
           {emailHtml}
           {websiteHtml}

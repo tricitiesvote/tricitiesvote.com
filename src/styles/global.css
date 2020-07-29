@@ -357,6 +357,11 @@ section h4:nth-of-type(2), section .suggestions {
   .container-candidate {
     grid-template-columns: 1fr 1fr;
   }
+  .container-candidate-large .candidate {
+    padding: 50px;
+    grid-template-columns: 200px 1fr;
+  }
+
 }
 
 
