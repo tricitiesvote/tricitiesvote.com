@@ -15,8 +15,9 @@ class SiteIndex extends React.Component {
     return (
       <DefaultLayout title={siteTitle}>
         <p className="notice">
-          More updates coming...{' '}
-          <a href="http://tricitiesdaily.com">follow Tri-Cities Daily</a> for
+          More updates coming...
+          <br />
+          <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
           the latest.
         </p>
         {guides.map(guide => (

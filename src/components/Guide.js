@@ -8,7 +8,7 @@ const Guide = props => {
 
   return (
     <div className="guide" key={data.uuid}>
-      <h1>{races.region}</h1>
+      {races.region ? <h1>{races.region}</h1> : ''}
       <RaceList data={races} />
     </div>
   );

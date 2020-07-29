@@ -191,7 +191,7 @@ section h5 {
 }
 
 a:visited {
-  color: #000;
+  color: rgba(83,187,228,0.6);
   text-decoration: underline;
 }
 
@@ -257,8 +257,6 @@ h4 {
   border-bottom: 1px solid #eee;
   padding-bottom: 5px;
 }
-
-
 
 .container, .container-wide, .container-candidate {
   display: inline-grid;
@@ -477,10 +475,6 @@ article p {
 }
 
 .race a:link h2, .race a:visited h2 {
-  color: rgba(83,187,228,0.7);
-  color: rgba(108, 188, 204, 0.7);
-  color: #000;
-  color:  rgba(0,0,0,.3);
   color: rgba(83,187,228,0.6);
 }
 
@@ -551,6 +545,10 @@ del, del a:link, del li {
 
 .candidate h5 a {
   font-size: 20px;
+}
+
+.candidate .info h5 {
+  display: none;
 }
 
 .container-candidate-large .candidate h5 {
@@ -954,6 +952,104 @@ th:first-of-type {
   h1 {
     padding-top: 10px;
   }
+
+  .candidate .details {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .race {
+    border: 0px none;
+    margin: 0px auto 0px auto;
+    padding: 40px 5px 40px 5px;
+    border-bottom: 1px solid #e1f2f2;
+  }
+
+  .race:nth-of-type(even) {
+    background-color: #edfafa;
+  }
+
+  .container, .container-wide, .container-candidate {
+    width: 100%;
+  }
+  
+  .candidate {
+    grid-template-columns: 1fr;
+  }
+  
+  .race h2 {
+    top: auto;
+    left: auto;
+    position: static;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0px 5px 0 5px;
+    font-size: 20px;
+    background-color: transparent;
+  }
+  
+  .race a:link h2, .race a:visited h2 {
+    color: rgba(83,187,228,0.9);
+  }
+  
+  .candidate .candidate-links li {
+    list-style: none;
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .candidate img {
+    margin: 10px auto;
+    display: block;
+  }
+  
+  .recs .yes::before, .recs .no::before  {
+    position: static;
+    font-size: 14px;
+    font-weight: 500
+  }
+
+  .recs .yes::before, .recs .no::before  {
+    content: "Supporting letters: ";
+  }
+  
+  .recs .no::before {
+    content: "Opposing letters: ";
+  }
+  
+  .recs li, .news li, .finance li, .donors li, section ul, .candidate ul {
+    padding-left: 0;
+    line-height: 1.5;
+  }
+  
+  p, section li, section dl, section a, .headline-container a {
+    font-size: 14px;
+  }
+  
+  .guide {
+    margin-top: 0px;
+  }
+  
+  .candidate-links {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .candidate-image-name {
+    display: block;
+    text-align: center;
+  }
+  
+  .candidate .details h5 {
+    display: none;
+  }
+  
+  .candidate-bio p {
+    margin-top: 0;
+    line-height: 1.4;
+  }  
+
   .tw-compare-o-tron h1 {
     margin-top: 0;
     padding-top: 0;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import CandidateLinkCollection from './CandidateLinkCollection';
 import CandidateImage from './CandidateImage';
 
@@ -18,9 +19,14 @@ const CandidateInfo = props => {
     notes,
   } = props;
 
+  const url = `/${slug}`;
+
   return (
     <fragment>
       <CandidateImage slug={slug} name={name} image={image} />
+      <h5 className="candidate-image-name">
+        <Link to={url}>{name}</Link>
+      </h5>
       <CandidateLinkCollection
         slug={slug}
         email={email}
