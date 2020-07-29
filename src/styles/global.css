@@ -448,7 +448,7 @@ article p {
 
 
 .race {
-  margin: 50px auto 130px auto;
+  margin: 50px 10px 130px 10px;
   padding: 20px;
   position: relative;
   /* border: 1px solid #e4f5f5; */
