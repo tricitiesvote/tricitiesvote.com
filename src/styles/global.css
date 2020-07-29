@@ -219,11 +219,15 @@ section, article, .candidate {
   margin: 10px;
 }
 
-p, section li, section dl, .candidate-links li, .headline-container a {
+p, p br, section li, section dl, .candidate-links li, .headline-container a {
   font-size: 15px;
   display: block;
-  margin-bottom: 10px;
-  line-height: 1.2em;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+strong br {
+  display: none;
 }
 
 section dl {
