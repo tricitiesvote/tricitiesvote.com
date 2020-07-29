@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby';
 const Candidate = props => {
   // TODO: re-add { donors } and var donorsHtml
   const { fullsize } = props;
+  const { data } = props;
   const {
     id,
     name,
@@ -15,23 +16,31 @@ const Candidate = props => {
     instagram,
     youtube,
     pdc_url,
-    pamphlet_url,
     fields,
-  } = props.data;
+  } = data;
   const {
     bio_html,
     body_html,
     statement_html,
     statement_excerpt_html,
-    body_excerpt_html,
-    bio_excerpt_html,
     lettersyes_html_nowrap,
     lettersno_html_nowrap,
     articles_html_nowrap,
   } = fields;
   const url = `/${fields.slug}`;
 
-  let bioHtml; var recHtml; var recno; var recyes; var emailHtml; var websiteHtml; var facebookHtml; var twitterHtml; var instagramHtml; var youtubeHtml; var pdcHtml; var articlesHtml
+  let bioHtml;
+  let recHtml;
+  let recno;
+  let recyes;
+  let emailHtml;
+  let websiteHtml;
+  let facebookHtml;
+  let twitterHtml;
+  let instagramHtml;
+  let youtubeHtml;
+  let pdcHtml;
+  let articlesHtml;
 
   if (lettersyes_html_nowrap) {
     recyes = (
@@ -40,7 +49,7 @@ const Candidate = props => {
         dangerouslySetInnerHTML={{
           __html: lettersyes_html_nowrap,
         }}
-       />
+      />
     );
   } else {
     recyes = (
@@ -58,7 +67,7 @@ const Candidate = props => {
         dangerouslySetInnerHTML={{
           __html: lettersno_html_nowrap,
         }}
-       />
+      />
     );
   } else {
     recno = '';
@@ -98,8 +107,8 @@ const Candidate = props => {
         <span role="img" aria-label="email">
           📩
         </span>
-        <a href={`mailto:${  email}`}>Email</a>
-                </li>
+        <a href={`mailto:${email}`}>Email</a>
+      </li>
     );
   } else {
     emailHtml = '';
@@ -125,8 +134,8 @@ const Candidate = props => {
         <Link className="candidate-link" to={url}>
           More »
         </Link>
-      </div> 
-    )
+      </div>
+    );
   } else if (fullsize && statement_html) {
     bioHtml = (
       <div
@@ -135,7 +144,7 @@ const Candidate = props => {
           __html: statement_html,
         }}
       />
-    )
+    );
   } else if (!bio_html && !statement_html) {
     bioHtml = (
       <div className="candidate-bio">
@@ -192,7 +201,7 @@ const Candidate = props => {
         </span>
         <a href={youtube}>YouTube</a>
       </li>
-    )
+    );
   } else {
     youtubeHtml = '';
   }
@@ -204,7 +213,7 @@ const Candidate = props => {
           📷
         </span>
         <a href={instagram}>Instagram</a>
-                    </li>
+      </li>
     );
   } else {
     instagramHtml = '';
@@ -217,7 +226,7 @@ const Candidate = props => {
           💰
         </span>
         <a href={pdc_url}>Finance</a>
-              </li>
+      </li>
     );
   } else {
     pdcHtml = '';
@@ -232,7 +241,7 @@ const Candidate = props => {
           }}
         />
       </ul>
-    )
+    );
   } else {
     articlesHtml = '';
   }
@@ -246,8 +255,9 @@ const Candidate = props => {
         </h5>
         {bioHtml}
         <div
-className="candidate-body" dangerouslySetInnerHTML={{
-            __html: body_html
+          className="candidate-body"
+          dangerouslySetInnerHTML={{
+            __html: body_html,
           }}
         />
         {recHtml}

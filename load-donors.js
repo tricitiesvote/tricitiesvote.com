@@ -25,8 +25,8 @@ consumer
   `
   )
   .getRows()
-  .on('success', function(rows) {
-    rows.forEach((row, index) => {
+  .on('success', rows => {
+    rows.forEach(row => {
       // console.log(row);
       const date = Date.parse(row.receipt_date);
       const donation = {
@@ -72,6 +72,6 @@ consumer
     fs.writeFileSync('./data/donors/donors.json', donorData);
     console.log(donors.length, 'items written to data/donors/donors.json');
   })
-  .on('error', function(error) {
+  .on('error', error => {
     console.error(error);
   });

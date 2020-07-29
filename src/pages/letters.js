@@ -6,7 +6,12 @@ import DefaultLayout from '../layouts/DefaultLayout';
 export default () => (
   <DefaultLayout title="Letters">
     <div className="page">
-      <h1>✍️ Letters to an Editor</h1>
+      <h1>
+        <span role="img" alt="writing" aria-label="writing">
+          ✍️
+        </span>{' '}
+        Letters to an Editor
+      </h1>
       <p>
         Tri-Cities Vote invites you to write a public{' '}
         <em>Letter to an Editor</em> sharing your thoughts on local political

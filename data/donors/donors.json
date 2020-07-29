@@ -15580,5 +15580,306 @@
     "donor_id": "stalberger-nancy",
     "donor_name": "Stalberger Nancy",
     "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "baffney-daniel",
+    "donor_name": "Baffney Daniel",
+    "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "baffney-valerie",
+    "donor_name": "Baffney Valerie",
+    "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "smith-linda",
+    "donor_name": "Smith Linda",
+    "donor_city": "Benton City"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Business",
+    "donor_id": "the-pacific-nortwest-project",
+    "donor_name": "The Pacific Nortwest Project",
+    "donor_city": "Kennewick"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "chevreaux-meredith",
+    "donor_name": "Chevreaux Meredith",
+    "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Business",
+    "donor_id": "amazon-com-services-llc",
+    "donor_name": "Amazon Com Services Llc",
+    "donor_city": "Seattle"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Political Action Committee",
+    "donor_id": "macpac",
+    "donor_name": "Macpac",
+    "donor_city": "East Olympia"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Political Action Committee",
+    "donor_id": "wa-state-committee-political-education-ppp",
+    "donor_name": "Wa State Committee Political Education Ppp",
+    "donor_city": "Seattle"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "carlson-lynn",
+    "donor_name": "Carlson Lynn",
+    "donor_city": "Kennewick"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "cruz-amanda",
+    "donor_name": "Cruz Amanda",
+    "donor_city": "Richland"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "butner-scott",
+    "donor_name": "Butner Scott",
+    "donor_city": "Richland"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "blegen-frost-gail",
+    "donor_name": "Blegen Frost Gail",
+    "donor_city": "Kennewick"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "barnes-emma",
+    "donor_name": "Barnes Emma",
+    "donor_city": "Pasco"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "baker-steve",
+    "donor_name": "Baker Steve",
+    "donor_city": "Richland"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "knisely-erica",
+    "donor_name": "Knisely Erica",
+    "donor_city": "Reynoldsburg"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "watkins-matthew",
+    "donor_name": "Watkins Matthew",
+    "donor_city": "Pasco"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Political Action Committee",
+    "donor_id": "franklin-co-democratic-central-committee",
+    "donor_name": "Franklin Co Democratic Central Committee",
+    "donor_city": "Pasco"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Political Action Committee",
+    "donor_id": "plumbers-steamfitters-lu-598-pac",
+    "donor_name": "Plumbers Steamfitters Lu 598 Pac",
+    "donor_city": "Pasco"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Political Action Committee",
+    "donor_id": "national-womens-political-caucus-of-wa",
+    "donor_name": "National Womens Political Caucus Of Wa",
+    "donor_city": "Seattle"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "brownlee-michelle",
+    "donor_name": "Brownlee Michelle",
+    "donor_city": "Tacoma"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "patrick-amanda",
+    "donor_name": "Patrick Amanda",
+    "donor_city": "Falls Church"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "seaton-julie",
+    "donor_name": "Seaton Julie",
+    "donor_city": "Kennewick"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "clapp-bill",
+    "donor_name": "Clapp Bill",
+    "donor_city": "Seattle"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "copeland-dorothy",
+    "donor_name": "Copeland Dorothy",
+    "donor_city": "Mamaroneck"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "daggatt-scott",
+    "donor_name": "Daggatt Scott",
+    "donor_city": "Issaquah"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "fogg-davina",
+    "donor_name": "Fogg Davina",
+    "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "huffman-darcy",
+    "donor_name": "Huffman Darcy",
+    "donor_city": "Olympia"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "dunn-small-jordan",
+    "donor_name": "Dunn Small Jordan",
+    "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "schmerer-lori",
+    "donor_name": "Schmerer Lori",
+    "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "pryor-andy",
+    "donor_name": "Pryor Andy",
+    "donor_city": "Dixie"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "gitelman-robin",
+    "donor_name": "Gitelman Robin",
+    "donor_city": "Sammamish"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "mills-richard-jr",
+    "donor_name": "Mills Richard Jr",
+    "donor_city": "Ogdensburg"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Other",
+    "donor_id": "intl-brotherhood-of-teamsters-local-231-political-fund",
+    "donor_name": "Intl Brotherhood Of Teamsters Local 231 Political Fund",
+    "donor_city": "Bellingham"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "jensen-mary",
+    "donor_name": "Jensen Mary",
+    "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "geist-virginia",
+    "donor_name": "Geist Virginia",
+    "donor_city": "West Richland"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "marshall-albert",
+    "donor_name": "Marshall Albert",
+    "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Other",
+    "donor_id": "teamsters-local-174",
+    "donor_name": "Teamsters Local 174",
+    "donor_city": "Tukwila"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "cheuk-norman",
+    "donor_name": "Cheuk Norman",
+    "donor_city": "Seattle"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "dillman-cynthia",
+    "donor_name": "Dillman Cynthia",
+    "donor_city": "Richland"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Individual",
+    "donor_id": "jensen-val",
+    "donor_name": "Jensen Val",
+    "donor_city": "Walla Walla"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Political Action Committee",
+    "donor_id": "wa-st-building-construction-trades-council-pac",
+    "donor_name": "Wa St Building Construction Trades Council Pac",
+    "donor_city": "Olympia"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Other",
+    "donor_id": "franklin-county-democratic-central-committee",
+    "donor_name": "Franklin County Democratic Central Committee",
+    "donor_city": "Pasco"
+  },
+  {
+    "election_year": "2020",
+    "donor_type": "Political Action Committee",
+    "donor_id": "wa-state-dental-pac",
+    "donor_name": "Wa State Dental Pac",
+    "donor_city": "Seattle"
   }
 ]

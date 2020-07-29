@@ -7,39 +7,11 @@ const Guide = props => {
   const { races } = data.node;
 
   return (
-    <div className="guide" key={props.uuid}>
-      <h1>{data.node.region}</h1>
+    <div className="guide" key={data.uuid}>
+      <h1>{races.region}</h1>
       <RaceList data={races} />
-      {/* <pre><code>
-        {JSON.stringify(props,null,2)}
-      </code></pre> */}
     </div>
   );
 };
 
 export default Guide;
-
-// export const pageQuery = graphql`
-//   query {
-//     allGuidesJson(
-//       filter: {
-//         electionyear: {eq: "2020"},
-//         type: {eq: "primary"}
-//       }
-//     ) {
-//       edges {
-//         node {
-//           fields {
-//            slug
-//           }
-//           races {
-//             ...RaceDetails
-//           }
-//           electionyear
-//           type
-//           region
-//         }
-//       }
-//     }
-//   }
-// `

@@ -19,7 +19,9 @@ plugins:
   - react
   - prettier
 rules:
-  camelcase: 1
+  react/prefer-stateless-function: 0        ## don't understand this one
+  camelcase: 0                              ## disable for just destructuring?
+  no-console: 0                             ## maybe just ignore these files?
   jsx-a11y/label-has-associated-control: 0
   react/jsx-filename-extension:
     - 1
