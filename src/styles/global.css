@@ -219,7 +219,7 @@ section, article, .candidate {
   margin: 10px;
 }
 
-p, section li, section dl, section a, .headline-container a {
+p, section li, section dl, .candidate-links li, .headline-container a {
   font-size: 15px;
   display: block;
   margin-bottom: 10px;
@@ -467,7 +467,7 @@ article p {
   font-weight: 500;
   font-size: 25px;
   position: absolute;
-  top: -37px;
+  top: -47px;
   left: 15px;
   background-color: #f7ffff;
   padding: 0 5px;
