@@ -34,7 +34,7 @@ const candidates = [];
 
 // check that urls are properly formatted
 const fixurl = url => {
-  if (!/^(?:f|ht)tps?:\/\//.test(url)) {
+  if (url && !/^(?:f|ht)tps?:\/\//.test(url)) {
     const newUrl = `http://${url}`;
     return newUrl;
   }
