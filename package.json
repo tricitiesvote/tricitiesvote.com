@@ -22,9 +22,7 @@
     "fuzzysort": "^1.1.4",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
-    "prettier": "^1.19.1",
-    "soda-js": "^0.2.3",
-    "turndown": "^6.0.0"
+    "prettier": "^1.19.1"
   },
   "license": "MIT",
   "main": "n/a",
@@ -65,6 +63,19 @@
     "react-helmet": "^6.1.0",
     "remark": "^12.0.0",
     "remark-html": "^11.0.2",
-    "unist-util-select": "^3.0.1"
+    "unist-util-select": "^3.0.1",
+    "truncate-html": "^1.0.3",
+    "soda-js": "^0.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.js": [
+      "npx prettier --write",
+      "eslint src/**/*.js --fix"
+    ]
   }
 }

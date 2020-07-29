@@ -1,6 +1,7 @@
 body {
   font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
   margin: 0;
+  background-color: #f7ffff;
 }
 header {
   text-align: center; 
@@ -104,7 +105,7 @@ nav {
   font-size: 14px;
   margin: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e4f5f5;
 }
 nav a {
   margin: 10px;
@@ -138,8 +139,8 @@ article h2 {
 }
 
 main {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
 }
 
 header img, section img {
@@ -169,6 +170,7 @@ h1 {
   line-height: 1;
   margin: 10px;
   padding: 30px 0 10px 0;
+  text-align: center;
 }
 
 .candidate-position {
@@ -188,6 +190,17 @@ section h5 {
   margin-bottom: 5px;
 }
 
+a:visited {
+  color: rgba(83,187,228,0.6);
+  text-decoration: underline;
+}
+
+a:link, h5 a:link {
+  color: #53bce4;
+  text-decoration: none;
+  /* border-bottom: 1px solid aliceblue; */
+}
+
 section ul {
   margin-top: 0;
   padding: 0 0 0 15px;
@@ -195,7 +208,11 @@ section ul {
 
 section li a {
   display: inline;
-  font-size: 13px;
+  font-size: 14px;
+}
+
+.candidate-links li a {
+  font-size: 13px
 }
 
 section, article, .candidate {
@@ -210,7 +227,7 @@ p, section li, section dl, section a, .headline-container a {
 }
 
 section dl {
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 0;
   grid-template-columns: 40px 1fr;
   display: inline-grid;
@@ -353,6 +370,11 @@ section h4:nth-of-type(2), section .suggestions {
   .container-candidate {
     grid-template-columns: 1fr 1fr;
   }
+  .container-candidate-large .candidate {
+    padding: 50px;
+    grid-template-columns: 200px 1fr;
+  }
+
 }
 
 
@@ -409,29 +431,79 @@ article p {
 .guide {
   margin-top: 10px;
   padding-bottom: 10px;
+  /* background-color: #f7ffff;
+  border-top: 1px solid #e4f5f5;
+  border-bottom: 1px solid #e4f5f5; */
 }
 
+.races-collection {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-candidate-large {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
 .race {
-  margin-top: 10px;
-  padding-bottom: 10px;
-  background-color: #f7ffff;
-  border-top: 1px solid #e4f5f5;
-  border-bottom: 1px solid #e4f5f5;
+  margin: 50px 10px 130px 10px;
+  padding: 20px;
+  position: relative;
+  /* border: 1px solid #e4f5f5; */
+  /* border: 1px solid #000; */
+  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(83,187,228,0.25);
+  /* text-shadow: 1px 0px 0px rgba(83,187,228,1); */
+  /* background-color: #f0fafa; */
+  /* box-shadow: inset 0 0px 2px #daeded; */
 }
 
 .race h2 {
-  text-align: center;
+  text-align: left;
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 25px;
+  position: absolute;
+  top: -37px;
+  left: 15px;
+  background-color: #f7ffff;
+  padding: 0 5px;
+  z-index: 1;
+}
+
+.race a:link h2, .race a:visited h2 {
+  color: rgba(83,187,228,0.6);
 }
 
 del, del a:link, del li {
   opacity: 0.5 !important;
 }
 
+.notice {
+  text-align: center;
+}
+
+.page {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
+  padding: 0 50px 50px 50px;
+  background: #fff;
+  box-shadow: 0px 5px 10px rgba(38, 58, 172, .1);
+}
+
 .candidate {
   border: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
   display: inline-grid;
   grid-template-columns: 170px 1fr;
   padding: 10px;
+  background: #fff;
+  box-shadow: 0px 5px 10px rgba(38, 58, 172, .1);
 }
 
 .candidate ul {
@@ -475,18 +547,40 @@ del, del a:link, del li {
   font-size: 20px;
 }
 
-.candidate-bio, .candidate-bio, .candidate-statement {
+.candidate .info h5 {
+  display: none;
+}
+
+.container-candidate-large .candidate h5 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.candidate-bio, 
+.candidate-bio, 
+.candidate-statement {
   border-bottom: 1px solid #eee;
   margin-bottom: 20px;
   padding-bottom: 10px;
 }
+.candidate-bio.excerpt div, 
+.candidate-bio p:last-child, 
+.candidate-bio 
+.candidate-link { 
+  display: inline; 
+}
 
+.candidate-link {
+  font-size: 14px;
+  margin-left: 10px;
+}
 .candidate ul {
   list-style: none;
 }
 
 .candidate li {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .recs li, .news li, .finance li, .donors li {
@@ -497,13 +591,15 @@ del, del a:link, del li {
 .recs .yes::before, .recs .no::before, .news li::before, .finance li::before, .donors li::before {
   position: absolute;
   left: -15px;
-  top: -3px;
+  top: -0px;
+  font-size: 20px;
 }
 
 .videolink::before {
   position: absolute;
   left: -4px;
   top: -3px;
+  font-size: 20px;
 }
 
 .recs .yes::before {
@@ -524,14 +620,14 @@ del, del a:link, del li {
 }
 
 .videolink {
-  font-size: 13px;
+  font-size: 14px;
   padding-left: 20px;
   position: relative;
 }
 
 .videolink::before {
   content: "📺";
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .videolink::after {
@@ -856,6 +952,113 @@ th:first-of-type {
   h1 {
     padding-top: 10px;
   }
+
+  .candidate .details {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .race {
+    border: 0px none;
+    margin: 0px auto 0px auto;
+    padding: 40px 5px 40px 5px;
+    border-bottom: 1px solid #e1f2f2;
+  }
+
+  .race:nth-of-type(even) {
+    background-color: #edfafa;
+  }
+
+  .container, .container-wide, .container-candidate {
+    width: 100%;
+  }
+  
+  .candidate {
+    grid-template-columns: 1fr;
+  }
+  
+  .race h2 {
+    top: auto;
+    left: auto;
+    position: static;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0px 5px 0 5px;
+    font-size: 22px;
+    background-color: transparent;
+  }
+  
+  .race a:link h2, .race a:visited h2 {
+    color: rgba(83,187,228,0.9);
+  }
+  
+  .candidate .candidate-links li {
+    list-style: none;
+    display: inline;
+    margin: 8px;
+  }
+  
+  .candidate img {
+    margin: 10px auto;
+    display: block;
+  }
+  
+  .recs .yes::before, .recs .no::before  {
+    position: static;
+    font-size: 14px;
+    font-weight: 500
+  }
+
+  .recs .yes::before, .recs .no::before  {
+    content: "Supporting letters: ";
+  }
+  
+  .recs .no::before {
+    content: "Opposing letters: ";
+  }
+  
+  .recs li, .news li, .finance li, .donors li, section ul, .candidate ul {
+    padding-left: 0;
+    line-height: 1.5;
+  }
+  
+  p, section li, section dl, section a, .headline-container a {
+    font-size: 14px;
+  }
+  
+  .guide {
+    margin-top: 0px;
+  }
+  
+  .candidate-links {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  .candidate-links span {
+    display: none;
+  }
+  
+  .candidate-image-name {
+    display: block;
+    text-align: center;
+  }
+
+  .candidate .info h5 {
+    display: block;
+    margin-top: 20px;
+  }
+  
+  .candidate .details h5 {
+    display: none;
+  }
+  
+  .candidate-bio p {
+    margin-top: 0;
+    line-height: 1.4;
+  }  
+
   .tw-compare-o-tron h1 {
     margin-top: 0;
     padding-top: 0;
@@ -1021,11 +1224,11 @@ li span {
 
 .notes-note {
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .rough-notes {
-  margin-top: 13px;
+  margin-top: 14px;
   opacity: .4;
 }
 
@@ -1037,3 +1240,4 @@ li span {
 .rough-notes:hover {
   opacity: 1;
 }
+

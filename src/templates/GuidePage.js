@@ -6,8 +6,8 @@ import RaceList from '../components/RaceList';
 
 const GuidePage = ({ data }) => {
   const { allGuidesJson } = data;
-  const races = allGuidesJson.edges[0].node.races
-  const region = allGuidesJson.edges[0].node.region
+  const { races } = allGuidesJson.edges[0].node;
+  const { region } = allGuidesJson.edges[0].node;
 
   return (
     <DefaultLayout>
@@ -26,9 +26,9 @@ export const pageQuery = graphql`
   query($slug: String!) {
     allGuidesJson(
       filter: {
-        electionyear: {eq: "2020"}, 
-        type: {eq: "primary"},
-        fields: {slug: {eq: $slug}}
+        electionyear: { eq: "2020" }
+        type: { eq: "primary" }
+        fields: { slug: { eq: $slug } }
       }
     ) {
       edges {
@@ -46,5 +46,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
-
+`;

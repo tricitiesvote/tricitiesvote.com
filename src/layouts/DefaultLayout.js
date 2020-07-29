@@ -1,26 +1,18 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Nav from '../components/Nav'
+import Nav from '../components/Nav';
 
 // import '../styl/main.styl';
 
 export default props => {
-  const {
-    pageDescription,
-    pageTitle,
-    bodyClass,
-    children,
-  } = props;
+  const { pageDescription, pageTitle, bodyClass, children } = props;
   return (
     <>
       <Helmet>
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="chrome-1" />
         <meta name="description" content={pageDescription} />
-        <meta
-          name="keywords"
-          content=""
-        />
+        <meta name="keywords" content="" />
         <meta name="author" content="Tumbleweird, SPC" />
         <title>
           {pageTitle ? `${pageTitle} — ` : ''}

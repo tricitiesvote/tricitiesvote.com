@@ -1,42 +1,44 @@
 const _ = require('lodash');
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-const remark = require("remark");
-const remarkHTML = require("remark-html");
-const { nextTick } = require('process');
+
+const path = require(`path`);
+// const { createFilePath } = require(`gatsby-source-filesystem`);
+const remark = require('remark');
+const remarkHTML = require('remark-html');
+// const { nextTick } = require('process');
+const truncate = require('truncate-html');
 // const OfficeDetailsFragment = require('./src/queries/Office.js');
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
   // build slug contents for Guides
   // TODO: make 'region' consistent across data sets
   // it's also having county re-added in components/RacePage.js
   if (node.internal.type === 'GuidesJson') {
-    const region = node.region.substr(0, node.region.indexOf(' ')); 
+    const region = node.region.slice(0, node.region.indexOf(' '));
     createNodeField({
-      node,      
+      node,
       name: `slug`,
-      value: _.kebabCase(region)
-    })
+      value: _.kebabCase(region),
+    });
   }
 
   // build slug contents for Races
   if (node.internal.type === 'RacesJson') {
     createNodeField({
-      node,      
+      node,
       name: `slug`,
-      value: _.kebabCase(node.office)
-    })
+      value: _.kebabCase(node.office),
+    });
   }
 
   // build slug contents for Candidates
   if (node.internal.type === 'CandidatesJson' && node.name) {
     createNodeField({
-      node,      
+      node,
       name: `slug`,
-      value: _.kebabCase(node.name)
-    })
+      value: _.kebabCase(node.name),
+    });
   }
 
   // const donors = []
@@ -46,15 +48,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // if (node.internal.type === 'DonationsJson') {
   //   if (!_.includes(donors, node.)) {
 
-
   //   recipients.push(node.candidate)
 
   //   console.log(JSON.stringify(node.candidate))
   //   recipient = node.candidate;
-    
-  
+
   //   // createNodeField({
-  //   //   node,      
+  //   //   node,
   //   //   name: `slug`,
   //   //   value: _.kebabCase(region)
   //   // })
@@ -62,85 +62,108 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // }
 
   const markdownFields = [
-    { 
-      "name": "bio", 
-      "data": node.bio,
-      "wrap": true
-    },
-    { 
-      "name": "lettersyes", 
-      "data": node.lettersyes,
-      "wrap": false
+    {
+      name: 'lettersyes',
+      data: node.lettersyes,
+      wrap: false,
+      excerpt: false,
     },
     {
-      "name": "lettersno",
-      "data": node.lettersno,
-      "wrap": false
-    },
-    { 
-      "name": "articles",
-      "data": node.articles,
-      "wrap": false
-    },
-    { 
-      "name": "bio",
-      "data": node.bio,
-      "wrap": true
-    },
-    { 
-      "name": "statement",
-      "data": node.statement,
-      "wrap": true
-    },
-    { 
-      "name": "body",
-      "data": node.body,
-      "wrap": true
+      name: 'lettersno',
+      data: node.lettersno,
+      wrap: false,
+      excerpt: false,
     },
     {
-      "name": "notes",
-      "data": node.notes,
-      "wrap": true
-    }
-  ]
+      name: 'articles',
+      data: node.articles,
+      wrap: false,
+      excerpt: false,
+    },
+    {
+      name: 'bio',
+      data: node.bio,
+      wrap: true,
+      excerpt: 160,
+    },
+    {
+      name: 'statement',
+      data: node.statement,
+      wrap: true,
+      excerpt: 240,
+    },
+    {
+      name: 'body',
+      data: node.body,
+      wrap: true,
+      excerpt: 240,
+    },
+    {
+      name: 'notes',
+      data: node.notes,
+      wrap: true,
+      excerpt: 240,
+    },
+  ];
 
-  for (var key in markdownFields) {
-    if (markdownFields.hasOwnProperty(key)) {
+  markdownFields.forEach((item, key) => {
+    const fieldName = markdownFields[key].name;
+    const fieldData = markdownFields[key].data;
+    const { wrap } = markdownFields[key];
+    const { excerpt } = markdownFields[key];
 
-      let fieldName = markdownFields[key]['name'];
-      let fieldData = markdownFields[key]['data'];
-      let wrap = markdownFields[key]['wrap'];
+    // console.log(excerpt)
 
-      if (fieldData) {
-        const valueWrap = remark()
-          .use(remarkHTML)
-          .processSync(fieldData)
-          .toString()
+    if (fieldData) {
+      const wrapValue = remark()
+        .use(remarkHTML)
+        .processSync(fieldData)
+        .toString();
 
-        const valueNoWrap = remark()
-          .use(remarkHTML)
-          .processSync(fieldData)
-          .toString()
-          .slice(3).slice(0,-5) // remove <p> and </p>
+      const noWrapValue = remark()
+        .use(remarkHTML)
+        .processSync(fieldData)
+        .toString()
+        .slice(3)
+        .slice(0, -5); // remove <p> and </p>
 
+      if (wrapValue && wrap) {
         // create new node at:
         // fields { fieldName_html }
         createNodeField({
           name: `${fieldName}_html`,
           node,
-          value: valueWrap
+          value: wrapValue,
         });
+      }
 
+      if (noWrapValue && !wrap) {
         // create new unwrapped node at:
         // fields { fieldName_html_nowrap }
         createNodeField({
           name: `${fieldName}_html_nowrap`,
           node,
-          value: valueNoWrap
+          value: noWrapValue,
+        });
+      }
+
+      // console.log(excerpt)
+
+      if (wrapValue && excerpt > 0) {
+        const excerptValue = truncate(wrapValue, excerpt, {
+          reserveLastWord: true,
+        });
+        // create new node at:
+        // fields { fieldName_excerpt_html }
+        createNodeField({
+          name: `${fieldName}_excerpt_html`,
+          node,
+          // value: 'hi'
+          value: excerptValue,
         });
       }
     }
-  }
+  });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -243,6 +266,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       body_html:        String
       statement_html:   String
 
+      statement_excerpt_html:  String
+      body_excerpt_html:       String
+      bio_excerpt_html:        String
+
       lettersyes_html_nowrap:  String
       lettersno_html_nowrap:   String
       bio_html_nowrap:         String
@@ -251,7 +278,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type NoteFields {
-      notes_html:        String
+      notes_html:              String
+      notes_excerpt_html:      String
     }
   
   `;
@@ -282,11 +310,14 @@ exports.createPages = async ({
         lettersno_html
         articles_html
         statement_html
+        statement_excerpt_html
+        body_excerpt_html
+        bio_excerpt_html
         lettersyes_html_nowrap
-        lettersno_html_nowrap 
-        bio_html_nowrap       
-        articles_html_nowrap  
-        body_html_nowrap      
+        lettersno_html_nowrap
+        bio_html_nowrap
+        articles_html_nowrap
+        body_html_nowrap
       }
       name
       electionyear
@@ -307,7 +338,7 @@ exports.createPages = async ({
       pdc_url
       pamphlet_url
       bio
-      lettersyes      
+      lettersyes
       lettersno
       articles
       uuid
@@ -345,7 +376,7 @@ exports.createPages = async ({
       candidate {
         uuid
         fields {
-          slug     
+          slug
         }
         name
         party
@@ -354,9 +385,7 @@ exports.createPages = async ({
     }
 
     {
-      offices: allOfficesJson(
-        limit: 1000
-      ) {
+      offices: allOfficesJson(limit: 1000) {
         edges {
           node {
             ...OfficeDetails
@@ -364,26 +393,22 @@ exports.createPages = async ({
         }
       }
 
-      candidates: allCandidatesJson(
-        limit: 1000
-      ) {
+      candidates: allCandidatesJson(limit: 1000) {
         edges {
           node {
-            ...CandidateDetails    
+            ...CandidateDetails
           }
         }
       }
 
-      notes: allNotesJson(
-        limit: 1000
-      ) {
+      notes: allNotesJson(limit: 1000) {
         edges {
           node {
             fields {
               notes_html
             }
             candidate {
-              name 
+              name
               office {
                 ...OfficeDetails
               }
@@ -397,9 +422,7 @@ exports.createPages = async ({
         }
       }
 
-      races: allRacesJson(
-        limit: 1000
-      ) {
+      races: allRacesJson(limit: 1000) {
         edges {
           node {
             ...RaceDetails
@@ -407,9 +430,7 @@ exports.createPages = async ({
         }
       }
 
-      donations: allDonationsJson(
-        limit: 8000
-      ) {
+      donations: allDonationsJson(limit: 8000) {
         edges {
           node {
             ...DonationDetails
@@ -417,9 +438,7 @@ exports.createPages = async ({
         }
       }
 
-      guides: allGuidesJson(
-        limit: 1000
-      ) {
+      guides: allGuidesJson(limit: 1000) {
         edges {
           node {
             fields {
@@ -436,13 +455,13 @@ exports.createPages = async ({
       }
 
       donationsByCandidateGroup: allDonationsJson(limit: 10000) {
-        group(field: candidate___uuid ) { 
+        group(field: candidate___uuid) {
           fieldValue
         }
       }
-  
+
       donationsByDonorGroup: allDonationsJson(limit: 10000) {
-        group(field: donor_slug ) { 
+        group(field: donor_slug) {
           fieldValue
         }
       }
@@ -466,27 +485,27 @@ exports.createPages = async ({
   // console.log('races >>>>', JSON.stringify(allRaces,null,2))
   // console.log('notes >>>>', JSON.stringify(allNotes,null,2))
 
-  allCandidates.forEach((candidate, index) => {
+  allCandidates.forEach(candidate => {
     createPage({
       path: `/${candidate.node.fields.slug}/`,
       component: path.resolve('./src/templates/CandidatePage.js'),
       context: {
         slug: candidate.node.fields.slug,
       },
-    })
-  })
+    });
+  });
 
-  allNotes.forEach((note, index) => {
+  allNotes.forEach(note => {
     createPage({
       path: `/${note.node.candidate.fields.slug}/notes`,
       component: path.resolve('./src/templates/NotesPage.js'),
       context: {
         slug: note.node.candidate.fields.slug,
       },
-    })
-  })
+    });
+  });
 
-  allRaces.forEach((race, index) => {
+  allRaces.forEach(race => {
     // console.log(JSON.stringify(guide))
     createPage({
       path: `/${race.node.fields.slug}/`,
@@ -494,10 +513,10 @@ exports.createPages = async ({
       context: {
         slug: race.node.fields.slug,
       },
-    })
-  })
+    });
+  });
 
-  allGuides.forEach((guide, index) => {
+  allGuides.forEach(guide => {
     // console.log(JSON.stringify(guide))
     createPage({
       path: `/${guide.node.fields.slug}/`,
@@ -505,12 +524,6 @@ exports.createPages = async ({
       context: {
         slug: guide.node.fields.slug,
       },
-    })
-  })
-
+    });
+  });
 };
-
-
-
-
-

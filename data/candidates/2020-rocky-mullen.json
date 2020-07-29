@@ -1,14 +1,15 @@
 {
+  "party": "Republican",
   "name": "Rocky Mullen",
   "slug": "rocky-mullen",
-  "uuid": "MULLR  301",
-  "party": "Republican",
   "statement": "**Elected Experience**  \nPrecinct Committee Officer Republican Party.\n\n**Other Professional Experience  \n**Local business owner of Dove Financial Services and Sahara Pizza. Local Cattle Rancher and Real Estate Investor. 35 plus years of management experience working and negotiating with National and International Corporations, US Military Contracts, and the Motion Picture Industry.\n\n**Education**  \nEastern Washington University, World Wide College of Auctioneering.\n\n**Community Service**  \nVolunteer auctioneering services for local fundraising and charity events. Work closely with Benton Franklin County Fair and Farm Fair. Support local schools through various fundraising programs. _Endorsed by Franklin County Sheriff Jim Raymond, Current Franklin County 2nd District Commissioner Bob Koch, Lincoln County Sheriff Wade Majors._\n\n**Statement**  \nI am a lifelong resident of Franklin County, Local Business owner, and Cattle Rancher. I was born and raised in Pasco on our family farm which has been in operation since 1945. I want to be your voice and your representation in our local government.\n\nI have attended the weekly County Commissioners meetings for the past four years on a regular basis to I have a better understanding of the operations, duties, and responsibilities of this position and the challenges that the office brings. I am committed to representing our community in a positive and professional manner. I will be a Commissioner for the people and will work diligently for a balanced budget to ensure that spending is closely monitored, eliminating waste or misuse of county funds.\n\n_I believe in controlled limited spending to provide essential services._\n\n_I believe that our constitution rights and the traditional values that this great nation was founded on should be protected. I will work hard to protect these rights._\n\nAs a business owner, I realize the importance of small business in our community and the need for limiting government regulations to stop over-taxation.\n\nI appreciate your vote!",
   "electionyear": "2020",
-  "office": "County Commissioner",
-  "website": "http://voterockymullen.com",
-  "email": "rocky_mullen@aol.com",
   "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=865#/candidates/29028/42721",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=MULLR  301&election_year=2020",
-  "image": "/images/candidates/rocky-mullen.jpeg"
+  "lettersyes": "[David Cortinas](https://www.tri-cityherald.com/opinion/letters-to-the-editor/article244477992.html)",
+  "website": "http://voterockymullen.com",
+  "image": "/images/candidates/rocky-mullen.jpeg",
+  "uuid": "MULLR  301",
+  "office": "County Commissioner",
+  "email": "rocky_mullen@aol.com",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=MULLR  301&election_year=2020"
 }

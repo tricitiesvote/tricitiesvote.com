@@ -5,12 +5,14 @@ import Candidate from '../components/Candidate';
 
 const CandidatePage = ({ data }) => {
   // const { edges } = data
-  const { allCandidatesJson } = data
-  const candidate = allCandidatesJson.edges[0].node
+  const { allCandidatesJson } = data;
+  const candidate = allCandidatesJson.edges[0].node;
 
   return (
     <DefaultLayout>
-      <Candidate data={candidate} />
+      <div className="container-candidate-large">
+        <Candidate data={candidate} fullsize="true" />
+      </div>
     </DefaultLayout>
   );
 };
@@ -19,7 +21,7 @@ export default CandidatePage;
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allCandidatesJson(filter: {fields: {slug: {eq: $slug}}}) {
+    allCandidatesJson(filter: { fields: { slug: { eq: $slug } } }) {
       edges {
         node {
           ...CandidateDetails

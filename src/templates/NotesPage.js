@@ -5,23 +5,30 @@ import DefaultLayout from '../layouts/DefaultLayout';
 
 const NotesPage = ({ data }) => {
   // const { edges } = data
-  const { allNotesJson } = data
-  const note = allNotesJson.edges[0].node
+  const { allNotesJson } = data;
+  const note = allNotesJson.edges[0].node;
 
   return (
     <DefaultLayout>
-      <p className="notes-note"><em>We use this page to collect quotes, rough notes, and extra links for our own purposes</em></p>
+      <p className="notes-note">
+        <em>
+          We use this page to collect quotes, rough notes, and extra links for
+          our own purposes
+        </em>
+      </p>
       <div className="container-candidate">
         <div className="candidate" key={note.candidate.uuid}>
           {/* <pre><code>{JSON.stringify(props,null,2)}</code></pre> */}
           <div className="details">
             <h5>
-              <Link to={'/' + note.candidate.fields.slug}>
+              <Link to={`/${note.candidate.fields.slug}`}>
                 {note.candidate.name}
               </Link>
             </h5>
-            <div className="notes" dangerouslySetInnerHTML={{
-                __html: note.fields.notes_html
+            <div
+              className="notes"
+              dangerouslySetInnerHTML={{
+                __html: note.fields.notes_html,
               }}
             />
           </div>
@@ -38,16 +45,14 @@ export default NotesPage;
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allNotesJson(filter: {
-      candidate: { fields: { slug: { eq: $slug } } }
-    }) {
+    allNotesJson(filter: { candidate: { fields: { slug: { eq: $slug } } } }) {
       edges {
         node {
           fields {
             notes_html
           }
           candidate {
-            name 
+            name
             office {
               ...OfficeDetails
             }
