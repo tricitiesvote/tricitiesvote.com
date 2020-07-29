@@ -450,13 +450,13 @@ article p {
 
 
 .race {
-  margin: 50px auto 80px auto;
+  margin: 50px auto 130px auto;
   padding: 20px;
   position: relative;
   /* border: 1px solid #e4f5f5; */
   /* border: 1px solid #000; */
   border: 1px solid rgba(0,0,0,.1);
-  border: 1px solid rgba(83,187,228,0.1);
+  border: 1px solid rgba(83,187,228,0.25);
   /* text-shadow: 1px 0px 0px rgba(83,187,228,1); */
   /* background-color: #f0fafa; */
   /* box-shadow: inset 0 0px 2px #daeded; */
@@ -481,7 +481,7 @@ article p {
   color: rgba(108, 188, 204, 0.7);
   color: #000;
   color:  rgba(0,0,0,.3);
-  color: rgba(83,187,228,0.5);
+  color: rgba(83,187,228,0.6);
 }
 
 del, del a:link, del li {
