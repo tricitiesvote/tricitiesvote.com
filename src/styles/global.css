@@ -497,6 +497,12 @@ del, del a:link, del li {
   font-size: 20px;
 }
 
+.container-candidate-large .candidate h5 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
 .candidate-bio, 
 .candidate-bio, 
 .candidate-statement {
