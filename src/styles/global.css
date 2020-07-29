@@ -1,6 +1,7 @@
 body {
   font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
   margin: 0;
+  background-color: #f7ffff;
 }
 header {
   text-align: center; 
@@ -104,7 +105,7 @@ nav {
   font-size: 14px;
   margin: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e4f5f5;
 }
 nav a {
   margin: 10px;
@@ -138,8 +139,8 @@ article h2 {
 }
 
 main {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
 }
 
 header img, section img {
@@ -169,6 +170,7 @@ h1 {
   line-height: 1;
   margin: 10px;
   padding: 30px 0 10px 0;
+  text-align: center;
 }
 
 .candidate-position {
@@ -240,6 +242,8 @@ h4 {
   border-bottom: 1px solid #eee;
   padding-bottom: 5px;
 }
+
+
 
 .container, .container-wide, .container-candidate {
   display: inline-grid;
@@ -409,14 +413,24 @@ article p {
 .guide {
   margin-top: 10px;
   padding-bottom: 10px;
+  /* background-color: #f7ffff;
+  border-top: 1px solid #e4f5f5;
+  border-bottom: 1px solid #e4f5f5; */
+}
+
+.races-collection {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-candidate-large {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .race {
   margin-top: 10px;
   padding-bottom: 10px;
-  background-color: #f7ffff;
-  border-top: 1px solid #e4f5f5;
-  border-bottom: 1px solid #e4f5f5;
 }
 
 .race h2 {
@@ -429,9 +443,12 @@ del, del a:link, del li {
 
 .candidate {
   border: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
   display: inline-grid;
   grid-template-columns: 170px 1fr;
   padding: 10px;
+  background: #fff;
+  box-shadow: 0px 5px 10px rgba(38, 58, 172, .1);
 }
 
 .candidate ul {

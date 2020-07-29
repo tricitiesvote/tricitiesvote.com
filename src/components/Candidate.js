@@ -208,12 +208,12 @@ const Candidate = props => {
           {instagramHtml}
           {youtubeHtml}
           {pdcHtml}
-          <li className="rough-notes">
+          {/* <li className="rough-notes">
             <span role="img" aria-label="notebook">📓</span> 
             <Link to={url + '/notes'}>
               Rough notes
             </Link>
-          </li>
+          </li> */}
           
         </ul>
       </div>

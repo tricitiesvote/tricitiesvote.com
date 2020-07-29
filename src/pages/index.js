@@ -16,12 +16,7 @@ class SiteIndex extends React.Component {
     return (
       <DefaultLayout location={this.props.location} title={siteTitle}>
         {guides.map(guide => (
-          <div className="guide" key={guide.id}>
-            {/* <pre><code>
-              {JSON.stringify(guide,null,2)}
-            </code></pre> */}
-            <Guide data={guide} />
-          </div>
+          <Guide data={guide} />
         ))}
       </DefaultLayout>
     )
