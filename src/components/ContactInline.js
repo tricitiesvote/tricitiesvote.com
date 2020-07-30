@@ -1,9 +1,15 @@
 import React from 'react';
 
-const ContactInline = () => {
-  // const { page } = props;
+const ContactInline = props => {
+  const { page } = props;
   return (
-    <form name="Feedback" action="/thanks" method="post" data-netlify="true">
+    <form
+      name="Feedback"
+      action="/thanks"
+      method="post"
+      data={page}
+      data-netlify="true"
+    >
       <h2>Have feedback?</h2>
       <p>
         This site is a community effort maintained by volunteers. If you see
