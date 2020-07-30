@@ -63,7 +63,7 @@ exports.onCreateNode = ({ node, actions }) => {
     {
       name: 'engagement',
       data: node.engagement,
-      wrap: false,
+      wrap: true,
       excerpt: false,
     },
     {
@@ -240,7 +240,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       lettersyes_html_nowrap:  String
       lettersno_html_nowrap:   String
       bio_html_nowrap:         String
-      engagement_html_nowrap:  String
       articles_html_nowrap:    String
       body_html_nowrap:        String
     }
@@ -284,7 +283,6 @@ exports.createPages = async ({
         lettersyes_html_nowrap
         lettersno_html_nowrap
         bio_html_nowrap
-        engagement_html_nowrap
         articles_html_nowrap
         body_html_nowrap
       }

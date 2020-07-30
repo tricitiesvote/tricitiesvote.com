@@ -32,11 +32,11 @@ const Candidate = props => {
     body_html,
     body_excerpt_html,
     statement_html,
+    engagement_html,
     statement_excerpt_html,
     lettersyes_html_nowrap,
     lettersno_html_nowrap,
     articles_html_nowrap,
-    engagement_html_nowrap,
   } = fields;
 
   const url = `/${slug}`;
@@ -55,7 +55,11 @@ const Candidate = props => {
         ) : (
           ''
         )}
-        <CandidateEngagement engagement={engagement_html_nowrap} />
+        {engagement_html ? (
+          <CandidateEngagement engagement={engagement_html} />
+        ) : (
+          ''
+        )}
         <CandidateLetters
           yes={lettersyes_html_nowrap}
           no={lettersno_html_nowrap}
@@ -118,7 +122,6 @@ export const pageQuery = graphql`
       lettersno_html_nowrap
       bio_html_nowrap
       articles_html_nowrap
-      engagement_html_nowrap
       body_html_nowrap
     }
     name

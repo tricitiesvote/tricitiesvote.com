@@ -64,17 +64,17 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          {
-            resolve: `@raae/gatsby-remark-oembed`,
-            options: {
-              include: ['Instagram', 'YouTube', 'Twitter'],
-              settings: {
-                Instagram: { hidecaption: true },
-                YouTube: { width: 550 },
-                Twitter: { hide_thread: true },
-              },
-            },
-          },
+          // {
+          //   resolve: `@raae/gatsby-remark-oembed`,
+          //   options: {
+          //     include: ['Instagram', 'YouTube', 'Twitter'],
+          //     settings: {
+          //       Instagram: { hidecaption: true },
+          //       YouTube: { width: 550 },
+          //       Twitter: { hide_thread: true },
+          //     },
+          //   },
+          // },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `gatsby-transformer-json`,

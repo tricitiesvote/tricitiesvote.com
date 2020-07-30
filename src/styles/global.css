@@ -1365,3 +1365,51 @@ li span {
 .hidden {
   display: none;
 }
+
+.engagement {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.engagement li { 
+  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
+}
+
+.engagement ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.index .engagement ul {
+  margin: 10px;
+}
+
+.engagement h4 {
+  margin-bottom: 5px;
+  border-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+.index .engagement {
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.index .engagement li {
+  font-size: 13px;
+}
+
+.fullLink {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+}
+
+span.note {
+  font-size: 12px !important;
+  margin-left: 10px; 
+}

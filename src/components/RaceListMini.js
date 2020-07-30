@@ -24,6 +24,7 @@ const RaceListMini = props => {
         <section className="race" key={race.id}>
           <Link to={`/${race.fields.slug}`}>
             <h2>{race.office.title}</h2>
+            <span className="note">See more details »</span>
           </Link>
           <div className="container-candidate container-candidate-mini">
             {race.candidates.map(candidate => (
@@ -31,7 +32,7 @@ const RaceListMini = props => {
                 name={candidate.name}
                 slug={candidate.fields.slug}
                 image={candidate.image}
-                engagement={candidate.engagement_html_nowrap}
+                engagement={candidate.fields.engagement_html}
               />
             ))}
           </div>

@@ -4,12 +4,14 @@ const CandidateEngagement = props => {
   const { engagement } = props;
 
   return (
-    <p
-      className="engagement"
-      dangerouslySetInnerHTML={{
-        __html: engagement,
-      }}
-    />
+    <div className="engagement">
+      <h4>Engagement:</h4>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: engagement,
+        }}
+      />
+    </div>
   );
 };
 

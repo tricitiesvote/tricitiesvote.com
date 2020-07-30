@@ -13,7 +13,10 @@ const CandidateMini = props => {
       <h5>
         <Link to={url}>{name}</Link>
       </h5>
-      <CandidateEngagement engagement={engagement} />
+      {engagement ? <CandidateEngagement engagement={engagement} /> : ''}
+      <Link className="fullLink" to={url}>
+        See full profile »
+      </Link>
     </div>
   );
 };
