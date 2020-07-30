@@ -3,14 +3,7 @@ import React from 'react';
 const ContactInline = props => {
   const { page } = props;
   return (
-    <form
-      name="Feedback"
-      className="content-narrower contact-form"
-      action="/thanks"
-      method="post"
-      data-netlify="true"
-      netlify-honeypot="company"
-    >
+    <form name="Feedback" action="/thanks" method="post" data-netlify="true">
       <h2>Have feedback?</h2>
       <p>
         This site is a community effort maintained by volunteers. If you see
@@ -18,12 +11,7 @@ const ContactInline = props => {
         drop a note in the contact form or email us at{' '}
         <a href="mailto:guide@triciti.es">guide@triciti.es</a>
       </p>
-      <p className="hidden">
-        <label>
-          Fake company <input name="company" />
-        </label>
-        <input type="hidden" id="fieldPage" name="page" value={page} />
-      </p>
+      <input type="hidden" id="fieldPage" name="page" value={page} />
       <fieldset>
         <div className="form-element">
           <label htmlFor="fieldName">Your Name* </label>
