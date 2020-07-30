@@ -61,6 +61,12 @@ exports.onCreateNode = ({ node, actions }) => {
       excerpt: false,
     },
     {
+      name: 'engagement',
+      data: node.engagement,
+      wrap: false,
+      excerpt: false,
+    },
+    {
       name: 'bio',
       data: node.bio,
       wrap: true,
@@ -185,6 +191,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       lettersyes:       String
       lettersno:        String
       articles:         String
+      engagement:       String
 
       office:           OfficesJson @link(by: "title", from: "office")
     }
@@ -222,6 +229,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       lettersno_html:   String
       bio_html:         String
       articles_html:    String
+      engagement_html:  String
       body_html:        String
       statement_html:   String
 
@@ -232,6 +240,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       lettersyes_html_nowrap:  String
       lettersno_html_nowrap:   String
       bio_html_nowrap:         String
+      engagement_html_nowrap:  String
       articles_html_nowrap:    String
       body_html_nowrap:        String
     }
@@ -267,6 +276,7 @@ exports.createPages = async ({
         lettersyes_html
         lettersno_html
         articles_html
+        engagement_html
         statement_html
         statement_excerpt_html
         body_excerpt_html
@@ -274,6 +284,7 @@ exports.createPages = async ({
         lettersyes_html_nowrap
         lettersno_html_nowrap
         bio_html_nowrap
+        engagement_html_nowrap
         articles_html_nowrap
         body_html_nowrap
       }
@@ -299,6 +310,7 @@ exports.createPages = async ({
       lettersyes
       lettersno
       articles
+      engagement
       uuid
       hide
     }

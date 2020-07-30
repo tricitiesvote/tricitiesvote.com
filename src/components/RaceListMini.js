@@ -31,6 +31,7 @@ const RaceListMini = props => {
                 name={candidate.name}
                 slug={candidate.fields.slug}
                 image={candidate.image}
+                engagement={candidate.engagement_html_nowrap}
               />
             ))}
           </div>

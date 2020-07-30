@@ -668,10 +668,14 @@ del, del a:link, del li {
   display: none;
 }
 
-.container-candidate-large .candidate h5 {
+.container-candidate-large .candidate h5, .candidate-body {
   border-bottom: 1px solid #eee;
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+
+.candidate-body:last-child {
+  border-bottom: 0px none;
 }
 
 .candidate-bio, 

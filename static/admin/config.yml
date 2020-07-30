@@ -69,6 +69,7 @@ collections:
       - { name: lettersyes, label: Letters Yes / Endorsements, widget: markdown, required: false }
       - { name: lettersno, label: Letters No, widget: markdown, required: false }
       - { name: articles, label: Articles, widget: markdown, required: false }
+      - { name: engagement, label: Engagement, widget: markdown, required: false }
       - { name: body, label: Body, widget: markdown, required: false }
       - { name: hide, label: 'Hide?', widget: boolean, required: false, default: false }
       - { name: uuid, label: ID, hint: 'This is the state-assigned PDC filer_id.', hidden: true }

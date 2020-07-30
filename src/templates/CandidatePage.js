@@ -6,11 +6,15 @@ import ContactInline from '../components/ContactInline';
 
 const CandidatePage = ({ data }) => {
   // const { edges } = data
-  const { allCandidatesJson } = data;
+  const { allCandidatesJson, location } = data;
   const candidate = allCandidatesJson.edges[0].node;
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      location={location}
+      pageTitle={candidate.name}
+      bodyClass="candidate-page"
+    >
       <div className="container-candidate-large">
         <Candidate data={candidate} fullsize="true" />
       </div>

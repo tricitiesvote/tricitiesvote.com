@@ -5,6 +5,7 @@ import CandidateBody from './CandidateBody';
 import CandidateExcerpt from './CandidateExcerpt';
 import CandidateLetters from './CandidateLetters';
 import CandidateArticles from './CandidateArticles';
+import CandidateEngagement from './CandidateEngagement';
 
 const Candidate = props => {
   // TODO: re-add { donors } and var donorsHtml
@@ -35,6 +36,7 @@ const Candidate = props => {
     lettersyes_html_nowrap,
     lettersno_html_nowrap,
     articles_html_nowrap,
+    engagement_html_nowrap,
   } = fields;
 
   const url = `/${slug}`;
@@ -53,6 +55,7 @@ const Candidate = props => {
         ) : (
           ''
         )}
+        <CandidateEngagement engagement={engagement_html_nowrap} />
         <CandidateLetters
           yes={lettersyes_html_nowrap}
           no={lettersno_html_nowrap}
@@ -106,6 +109,7 @@ export const pageQuery = graphql`
       lettersyes_html
       lettersno_html
       articles_html
+      engagement_html
       statement_html
       statement_excerpt_html
       body_excerpt_html
@@ -114,6 +118,7 @@ export const pageQuery = graphql`
       lettersno_html_nowrap
       bio_html_nowrap
       articles_html_nowrap
+      engagement_html_nowrap
       body_html_nowrap
     }
     name
@@ -138,6 +143,7 @@ export const pageQuery = graphql`
     lettersyes
     lettersno
     articles
+    engagement
     uuid
     hide
   }
