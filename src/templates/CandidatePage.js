@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import Candidate from '../components/Candidate';
+import ContactInline from '../components/ContactInline';
 
 const CandidatePage = ({ data }) => {
   // const { edges } = data
@@ -13,6 +14,9 @@ const CandidatePage = ({ data }) => {
       <div className="container-candidate-large">
         <Candidate data={candidate} fullsize="true" />
       </div>
+      <ContactInline
+        page={`https://tricitiesvote.com/${candidate.fields.slug}`}
+      />
     </DefaultLayout>
   );
 };

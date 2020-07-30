@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Nav from '../components/Nav';
-import ContactInline from '../components/ContactInline';
 
 // import '../styl/main.styl';
 
@@ -29,7 +28,6 @@ export default props => {
         <Nav />
         {/* <Link to="/">Home</Link> */}
         {children}
-        <ContactInline />
       </main>
     </>
   );

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 // import _ from 'lodash'
 import DefaultLayout from '../layouts/DefaultLayout';
 import Guide from '../components/Guide';
+import ContactInline from '../components/ContactInline';
 
 // collect Candidates in Races, collect Races in Guides
 
@@ -27,6 +28,8 @@ class SiteIndex extends React.Component {
         {guides.map(guide => (
           <Guide data={guide} mini="true" />
         ))}
+
+        <ContactInline page="https://tricitiesvote.com" />
       </DefaultLayout>
     );
   }

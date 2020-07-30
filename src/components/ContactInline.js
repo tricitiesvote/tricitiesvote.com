@@ -1,9 +1,10 @@
 import React from 'react';
 
-const ContactInline = () => {
+const ContactInline = props => {
+  const { page } = props;
   return (
     <form
-      name="Contact Inline"
+      name="Feedback"
       className="content-narrower contact-form"
       action="/thanks"
       method="post"
@@ -21,6 +22,7 @@ const ContactInline = () => {
         <label>
           Fake company <input name="company" />
         </label>
+        <input type="hidden" id="fieldPage" name="page" value={page} />
       </p>
       <fieldset>
         <div className="form-element">

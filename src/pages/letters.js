@@ -1,5 +1,6 @@
 import React from 'react';
 import DefaultLayout from '../layouts/DefaultLayout';
+import ContactInline from '../components/ContactInline';
 
 // collect Candidates in Races, collect Races in Guides
 
@@ -78,8 +79,8 @@ export default () => (
         <a href="https://www.tri-cityherald.com/opinion/letters-to-the-editor/submit-letter/">
           submit your letter to the Tri-City Herald
         </a>
-        .
       </p>
     </div>
+    <ContactInline page="https://tricitiesvote.com/letters" />
   </DefaultLayout>
 );

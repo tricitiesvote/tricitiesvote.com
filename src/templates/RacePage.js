@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import Race from '../components/Race';
+import ContactInline from '../components/ContactInline';
 // import _ from 'lodash';
 
 const RacePage = ({ data }) => {
@@ -24,6 +25,7 @@ const RacePage = ({ data }) => {
           <Race data={race.node} />
         </section>
       </div>
+      <ContactInline page={`https://tricitiesvote.com/${race.fields.slug}`} />
     </DefaultLayout>
   );
 };
