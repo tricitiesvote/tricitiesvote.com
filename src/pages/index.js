@@ -13,7 +13,11 @@ class SiteIndex extends React.Component {
     const guides = data.allGuidesJson.edges;
 
     return (
-      <DefaultLayout location={data.location} title={siteTitle}>
+      <DefaultLayout
+        location={data.location}
+        title={siteTitle}
+        bodyClass="index"
+      >
         <p className="notice">
           More updates coming...
           <br />

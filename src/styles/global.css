@@ -470,6 +470,11 @@ article p {
   margin: 0 auto;
 }
 
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .container-candidate-large {
   max-width: 800px;
   margin: 0 auto;
@@ -479,16 +484,20 @@ article p {
   margin: 50px 10px 130px 10px;
   padding: 20px;
   position: relative;
-  /* border: 1px solid #e4f5f5; */
-  /* border: 1px solid #000; */
-  border: 1px solid rgba(0,0,0,.1);
   border: 1px solid rgba(83,187,228,0.25);
   /* text-shadow: 1px 0px 0px rgba(83,187,228,1); */
   /* background-color: #f0fafa; */
   /* box-shadow: inset 0 0px 2px #daeded; */
 }
 
-.race h2 {
+form {
+  position: relative;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid rgba(83,187,228,0.25);
+}
+
+.race h2, form h2 {
   text-align: left;
   margin-left: 10px;
   text-transform: uppercase;
@@ -502,8 +511,71 @@ article p {
   z-index: 1;
 }
 
-.race a:link h2, .race a:visited h2 {
+.race a:link h2, .race a:visited h2, form h2 {
   color: rgba(83,187,228,0.6);
+}
+
+form p {
+  line-height: 1.4;
+  margin: 20px 0;
+}
+
+fieldset {
+  border: 0px;
+  padding: 0;
+  width: 330px;
+  margin: 0 auto;
+  display: block;
+}
+
+.form-element {
+  display: block;
+  padding-bottom: 20px;
+}
+
+
+label { 
+  padding: 5px;
+  width: 100%;
+  display: block;
+  color: rgba(83,187,228,1);
+}
+
+input, textarea {
+  width: 310px;
+  padding: 10px;
+  margin: 0;
+  border: 1px solid rgba(83,187,228,0.6);
+  outline: 0px;
+  font-size: 15px;
+  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
+}
+
+textarea {
+  height: 80px;
+}
+
+input.button {
+  width: 330px;
+  padding: 5px;
+  background-color: transparent;
+  border: 2px solid rgba(83,187,228,0.6);
+  color: rgba(83,187,228,0.6);
+  font-size: 18px;
+  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input.button:hover {
+  background: rgba(83,187,228,0.6);
+  color: #fff;
+}
+
+.index .race a:link h2:after {
+  content: " »"
 }
 
 del, del a:link, del li {
@@ -636,7 +708,7 @@ del, del a:link, del li {
 .recs .yes::before, .recs .no::before, .news li::before, .finance li::before, .donors li::before {
   position: absolute;
   left: -15px;
-  top: -0px;
+  top: -5px;
   font-size: 20px;
 }
 
@@ -1286,3 +1358,6 @@ li span {
   opacity: 1;
 }
 
+.hidden {
+  display: none;
+}
