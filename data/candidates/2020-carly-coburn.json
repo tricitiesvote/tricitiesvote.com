@@ -1,14 +1,15 @@
 {
+  "party": "Democrat",
   "name": "Carly Coburn",
   "slug": "carly-coburn",
-  "uuid": "COBUC--814",
-  "party": "Democrat",
   "statement": "**Elected Experience**  \nElected PCO, First Vice Chair of FCDCC and their State Committee Members pos. 1, First Vice Chair of the 16th LD Democrats, WSDCC First Vice Chair of the Disability Issues Caucus, WSDCC Eastern WA Vice Chair of the Stonewall Caucus.  \n  \n**Other Professional Experience**  \n2020 Census Educator and social media management.  \n  \n**Education**  \nGED, some college.  \n  \n**Community Service**  \n\nPFLAG Benton Franklin, Tri-Cities Pride Festival, Tri-Cities Mutual Aid Project, Annual Disability Day of Mourning, Annual Transgender Day of Remembrance, Annual Tri-Cities Womxn's March, 4th Congressional District Democrats Treasurer, Tri-Cities Young Democrats, Three Rivers Autism Outreach, Autism Ambassadors, and various other local events and organizations.\n\n  \n**Statement**  \nI'm a lifelong Washingtonian, raised in Camas and Vancouver, but who found 'home' in the 16th LD, specifically Pasco. Though my family didn’t speak much about politics growing up, I always felt drawn towards equity, and later an interest in policy making.  \n  \nI’m involved in both local partisan and nonpartisan politics, working on several campaigns over the last four years. I’m running on a platform dedicated to healthcare affordability and accessibility in rural communities, affordable housing, and increasing the standard of living for disabled and low income Washingtonians. Let's show Olympia the Indomitable Spirit of Eastern Washington, and the 16th!",
   "electionyear": "2020",
-  "office": "State Representative",
-  "website": "https://www.electcarlycoburn16ld.com/",
-  "email": "coburn16ldpos2@gmail.com",
   "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=865#/candidates/57300/44918",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=COBUC--814&election_year=2020",
-  "image": "/images/candidates/carly-coburn.jpeg"
+  "lettersyes": "[Zahra Roach](https://www.electcarlycoburn16ld.com/endorsements?pgid=j9s8rkrv-9dfe3a47-88b2-4fc7-8246-073be8e2c630), [Jeffrey Aaron Robinson](https://www.electcarlycoburn16ld.com/endorsements?pgid=j9s8rkrv-9ad310d4-4ea1-4ea4-97e1-67e536b46003), [Everett Maroon](https://www.electcarlycoburn16ld.com/endorsements?pgid=j9s8rkrv-9570dc41-82ba-433f-a792-3cd8d800e32a), [Nancy Peterson](https://www.electcarlycoburn16ld.com/endorsements?pgid=j9s8rkrv-9fc5f33f-17ee-42a1-9a38-7a38ae0c8941), [Jay Chavez](https://www.electcarlycoburn16ld.com/endorsements?pgid=j9s8rkrv-e3c84fea-00b5-4edc-95dd-b40d9f4ec83e), [Claudia Colindres Johnson](https://www.electcarlycoburn16ld.com/endorsements?pgid=j9s8rkrv-74df1b52-24f1-4451-9d82-2f3a761bcca2), [Christine Brown](https://www.electcarlycoburn16ld.com/endorsements?pgid=j9s8rkrv-d3d4c304-30f3-48ac-932f-8bcbc9c4c71f), [Carly Coburn’s endorsement page](https://www.electcarlycoburn16ld.com/endorsements)",
+  "website": "https://www.electcarlycoburn16ld.com/",
+  "image": "/images/candidates/carly-coburn.jpeg",
+  "uuid": "COBUC--814",
+  "office": "State Representative",
+  "email": "coburn16ldpos2@gmail.com",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=COBUC--814&election_year=2020"
 }
