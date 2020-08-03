@@ -1,15 +1,17 @@
 {
+  "facebook": "https://www.facebook.com/senatormarkschoesler/",
+  "party": "",
   "name": "Mark G. Schoesler",
   "slug": "mark-g-schoesler",
-  "uuid": "mark-g-schoesler",
-  "party": "",
   "statement": "**Elected Experience**  \nElected to the Senate in 2004, 2008, and 2016 after serving 12 years in the State House. Elected State Senate Majority Leader for 2015 Legislative Session.\n\n**Other Professional Experience**  \nSelf-employed farmer and rancher, raising cattle, wheat, hay, and canola. Member, Ways and Means; Member, Rules; Member, Labor and Commerce; Member, Select Committee on Pension Policy, Washington State Institute for Public Policy.\n\n**Education**  \nGraduate, Ritzville High School; Graduate, Spokane Community College (A.A.S., Agribusiness)\n\n**Community Service**  \nFormer director, Washington Association of Wheat Growers; Member, Zion Philadelphia Church; Former vice president, Wheatland Communities Fair; Former president, Bronco Boosters; Past President of Washington Friends of Farms and Forests.\n\n**Statement**  \nAs your senator, Mark Schoesler is dedicated to ensuring Eastern Washington’s voice is heard in Olympia and has consistently advocated to limit tax increases, prioritize spending on infrastructure, and stand against Seattle policies and politicians.\n\nAs Washingtonians grapple with COVID-19, Sen. Schoesler supported emergency measures to keep people safe. Now, he is leading the charge on safely restarting our economy. Schoesler and Republican legislators crafted restart plans to get low-risk workers and small business owners back to their livelihoods.\n\nAs Senate Minority Leader, Sen. Schoesler pushed back against extreme Seattle sex-education policies that took local control away from schools. When he was Majority Leader, the percentage of the state budget going to education increased from 46% to 51%, college tuition was cut, and safety improvements have restarted on key highways. He remains focused on agriculture which reflects his background as a fifth-generation farmer in Ritzville. Mark has worked closely with counties, schools, hospitals, universities, and public safety officials to protect the services we depend on.\n\nSen. Schoesler is a proven compassionate, thoughtful, and effective leader in Olympia, and our district would be best served to retain him in his current leadership role.",
   "electionyear": "2020",
-  "office": "",
-  "website": "http://markschoesler.com/",
-  "email": "mschoesler@yahoo.com",
   "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=865#/candidates/57365/45234",
-  "pdc_url": "",
+  "pdc_filed": false,
+  "lettersyes": "[Mark G. Schoesler’s endorsement page](http://markschoesler.com/endorsements/)",
+  "website": "http://markschoesler.com/",
   "image": "/images/candidates/mark-g-schoesler.jpeg",
-  "pdc_filed": false
+  "uuid": "mark-g-schoesler",
+  "office": "",
+  "email": "mschoesler@yahoo.com",
+  "pdc_url": ""
 }
