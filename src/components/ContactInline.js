@@ -10,7 +10,7 @@ const ContactInline = props => {
       data={page}
       data-netlify="true"
     >
-      <h2>Have feedback?</h2>
+      <h2 id="feedback">Have feedback?</h2>
       <p>
         This site is a community effort maintained by volunteers. If you see
         something inaccurate or information missing, let us know asap. Email us

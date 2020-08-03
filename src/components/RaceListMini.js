@@ -19,7 +19,6 @@ const RaceListMini = props => {
 
   return (
     <div className="races-collection" key={data.id}>
-      <pre>{/* <code>{JSON.stringify(races[1], null, 2)}</code> */}</pre>
       {races.map(race => (
         <section className="race" key={race.id}>
           <Link to={`/${race.fields.slug}`}>

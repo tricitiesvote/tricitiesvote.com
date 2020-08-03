@@ -267,7 +267,7 @@ h4 {
 }
 
 .hide-item {
-  float: right;
+  /* float: right; */
   display: inline-block;
   border: 1px solid #eee;
   background-color: #fafafa;
@@ -296,6 +296,14 @@ section h4:nth-of-type(2), section .suggestions {
 }
 
 @media screen and (max-width: 500px) {
+  .intro br {
+    display: none;
+  }
+  .intro p {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
   header img.mini-pic {
     width: 100%;
     height: inherit;
@@ -1402,6 +1410,10 @@ li span {
   font-size: 13px;
 }
 
+.index .race {
+  margin-bottom: 40px;
+}
+
 .fullLink {
   margin-top: 10px;
   display: block;
@@ -1412,4 +1424,37 @@ li span {
 span.note {
   font-size: 12px !important;
   margin-left: 10px; 
+}
+
+.intro { 
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.intro h1 {
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 0;
+  text-align: left; 
+  width: 350px;
+  margin: 0 auto 20px auto;
+  /* color: rgba(83,187,228,0.6); */
+}
+
+.intro span {
+  font-size: 80px;
+  float: left;
+  margin-right: 20px;
+  margin-top: -5px;
+}
+
+.intro h2 {
+  margin-top: 0;
+  font-weight: 300;
+}
+
+.intro h2 a {
+  display: inline-block;
+  margin: 5px;
+  padding: 0;
 }

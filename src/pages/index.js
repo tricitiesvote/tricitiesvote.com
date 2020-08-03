@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 // import _ from 'lodash'
 import DefaultLayout from '../layouts/DefaultLayout';
 import Guide from '../components/Guide';
@@ -19,12 +19,29 @@ class SiteIndex extends React.Component {
         title={siteTitle}
         bodyClass="index"
       >
-        <p className="notice">
-          More updates coming...
-          <br />
-          <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
-          the latest.
-        </p>
+        <div className="intro">
+          <h1>
+            <span>🗳</span>
+            Tri-Cities Vote:
+            <br /> Primary Guide
+          </h1>
+          <h2>
+            A nonpartisan community-driven collection
+            <br /> of information to help you decide.
+          </h2>
+          <h2>
+            <Link to="/benton">Benton County »</Link>
+            <Link to="/franklin">Franklin County »</Link>
+          </h2>
+          <p>
+            Get a quick overview of all of our area’s local
+            <br /> candidates in elimination races below.
+          </p>
+          <p>
+            <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
+            the latest updates.
+          </p>
+        </div>
         {guides.map(guide => (
           <Guide data={guide} mini="true" />
         ))}
