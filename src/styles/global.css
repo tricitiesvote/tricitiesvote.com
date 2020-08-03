@@ -1044,6 +1044,9 @@ th:first-of-type {
     text-align: center;
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .candidate-links span {
@@ -1332,6 +1335,10 @@ span.note {
 .intro h2 {
   margin-top: 0;
   font-weight: 300;
+}
+
+.intro h2 a {
+  font-weight: 500;
 }
 
 .intro h2 a {
