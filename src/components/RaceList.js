@@ -34,9 +34,6 @@ const RaceList = props => {
           <Race data={race} />
         </section>
       ))}
-      {/* <pre><code>
-        {JSON.stringify(data,null,2)}
-      </code></pre> */}
     </div>
   );
 };

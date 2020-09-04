@@ -39,6 +39,7 @@ consumer
         donor_name: _.startCase(_.lowerCase(row.contributor_name)),
         donor_city: _.startCase(_.lowerCase(row.contributor_city)),
         candidate: row.filer_id,
+        candidate_name: row.filer_name,
         party: _.startCase(_.lowerCase(row.party)),
         type: row.cash_or_in_kind,
         amount: parseInt(row.amount, 10),

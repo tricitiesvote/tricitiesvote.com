@@ -5,6 +5,7 @@ import CandidateBody from './CandidateBody';
 import CandidateExcerpt from './CandidateExcerpt';
 import CandidateLetters from './CandidateLetters';
 import CandidateArticles from './CandidateArticles';
+import CandidateEngagement from './CandidateEngagement';
 
 const Candidate = props => {
   // TODO: re-add { donors } and var donorsHtml
@@ -31,6 +32,7 @@ const Candidate = props => {
     body_html,
     body_excerpt_html,
     statement_html,
+    engagement_html,
     statement_excerpt_html,
     lettersyes_html_nowrap,
     lettersno_html_nowrap,
@@ -50,6 +52,11 @@ const Candidate = props => {
         {!bio_html && fullsize ? <CandidateBody body={statement_html} /> : ''}
         {!bio_html && !fullsize ? (
           <CandidateExcerpt url={url} excerpt={statement_excerpt_html} />
+        ) : (
+          ''
+        )}
+        {engagement_html ? (
+          <CandidateEngagement engagement={engagement_html} />
         ) : (
           ''
         )}
@@ -106,6 +113,7 @@ export const pageQuery = graphql`
       lettersyes_html
       lettersno_html
       articles_html
+      engagement_html
       statement_html
       statement_excerpt_html
       body_excerpt_html
@@ -138,6 +146,7 @@ export const pageQuery = graphql`
     lettersyes
     lettersno
     articles
+    engagement
     uuid
     hide
   }

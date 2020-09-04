@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 // import Candidate from '../components/Candidate';
+import ContactInline from '../components/ContactInline';
 
 const NotesPage = ({ data }) => {
   // const { edges } = data
@@ -37,6 +38,9 @@ const NotesPage = ({ data }) => {
           </div>
         </div>
       </div>
+      <ContactInline
+        page={`https://tricitiesvote.com/${note.candidate.fields.slug}/notes`}
+      />
     </DefaultLayout>
   );
 };

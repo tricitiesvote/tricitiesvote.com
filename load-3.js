@@ -69,7 +69,9 @@ for (const pamphletRecord of pamphletData) {
     const unmerged = {
       name: pamphletRecord.candidate_ballot_name,
       slug: _.kebabCase(pamphletRecord.candidate_ballot_name),
-      uuid: _.kebabCase(pamphletRecord.candidate_ballot_name),
+      // TODO -- verify but this original uuid as slug seems wrong. commenting out.
+      // uuid: _.kebabCase(pamphletRecord.candidate_ballot_name),
+      uuid: pdcRecord.candidate_filer_id,
       // TODO add this data
       party: '',
       statement: pamphletRecord.statement,

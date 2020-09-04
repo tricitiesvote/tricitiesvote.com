@@ -8,7 +8,7 @@ const remarkHTML = require('remark-html');
 const truncate = require('truncate-html');
 // const OfficeDetailsFragment = require('./src/queries/Office.js');
 
-exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions;
 
   // build slug contents for Guides
@@ -32,17 +32,36 @@ exports.onCreateNode = ({ node, actions }) => {
     });
   }
 
+  // const candidateUUIDs = [];
+
   // build slug contents for Candidates
+  // add candidate uuid to list
   if (node.internal.type === 'CandidatesJson' && node.name) {
     createNodeField({
       node,
       name: `slug`,
       value: _.kebabCase(node.name),
     });
+    // candidateUUIDs.push(node.uuid);
+    // console.log('candidate uuid added:', node.uuid);
   }
 
+  
+
+  // iterate through donations
+  // get each candidate uuid
+  // if (node.internal.type === 'DonationsJson') {
+  //   node.
+  //   candidateUUIDs.push()
+  // }
+
+  // iterate through donations
+  // divide donations into group by candidate
+
+  // iterate through candidate donation set
+  // create totals of donation per donor per candidate
+
   // const donors = []
-  // const recipients = []
 
   // // iterate through donations
   // if (node.internal.type === 'DonationsJson') {
@@ -78,6 +97,12 @@ exports.onCreateNode = ({ node, actions }) => {
       name: 'articles',
       data: node.articles,
       wrap: false,
+      excerpt: false,
+    },
+    {
+      name: 'engagement',
+      data: node.engagement,
+      wrap: true,
       excerpt: false,
     },
     {
@@ -170,7 +195,6 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
-
     type OfficesJson implements Node {
       fields:           Fields
       title:            String  
@@ -205,6 +229,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       lettersyes:       String
       lettersno:        String
       articles:         String
+      engagement:       String
 
       office:           OfficesJson @link(by: "title", from: "office")
     }
@@ -248,6 +273,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       donor_slug:       String
       candidate:        CandidatesJson @link(by: "uuid", from: "candidate")
       donor_name:       String
+      filer_name:       String
       donation_type:    String
       donor_city:       String
       party:            String
@@ -263,6 +289,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       lettersno_html:   String
       bio_html:         String
       articles_html:    String
+      engagement_html:  String
       body_html:        String
       statement_html:   String
 
@@ -309,6 +336,7 @@ exports.createPages = async ({
         lettersyes_html
         lettersno_html
         articles_html
+        engagement_html
         statement_html
         statement_excerpt_html
         body_excerpt_html
@@ -341,6 +369,7 @@ exports.createPages = async ({
       lettersyes
       lettersno
       articles
+      engagement
       uuid
       hide
     }
@@ -373,6 +402,7 @@ exports.createPages = async ({
       amount
       date
       report
+      filer_name
       candidate {
         uuid
         fields {
@@ -472,6 +502,55 @@ exports.createPages = async ({
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
+
+  const donations = await graphql(`
+    query donationsByCandidate {
+      allDonationsJson {
+        group(field: candidate___uuid, limit: 1) {
+          edges {
+            node {
+              amount
+              candidate {
+                uuid
+              }
+              donor_name
+              donor_slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  // console.log('donationsByCandidate', JSON.stringify(donations, null, 2));
+
+  const candidateDonations = [];
+
+  // candidateDonations(candidate.uuid).donor (candidate_slug).donation (amount)
+  // candidateDonations(candidate.uuid).type(donation_type).donation(amount)
+
+  donations.data.allDonationsJson.group.forEach(group => {
+    const candidateId = group.edges[0].node.candidate.uuid;
+    // add candidate at root
+    candidateDonations.push(candidateId);
+    console.log('added', candidateId);
+    group.edges.forEach(donation => {
+      const slug = donation.node.donor_slug;
+      candidateDonations[candidateId].donor = [];
+      console.log('slug', slug)
+      console.log(candidateDonations[candidateId]);
+      // if (!_.includes(candidateDonations[candidateId].donor, donation.node.donor_slug)) {
+      //   candidateDonations[candidateId].donor.push(slug);
+      //   console.log('added', slug);
+      // }
+    })
+    
+    // console.log('group', JSON.stringify(group, null, 2));
+
+    // group.forEach(donation => {
+
+    // })
+  });
 
   // const allCandidates = results.data.everything.edges;
 

@@ -1,42 +1,24 @@
-// import React from "react"
-// import { graphql, Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
+import CandidateEngagement from './CandidateEngagement';
 
-// const CandidateMini = props => {
+const CandidateMini = props => {
+  const { slug, image, name, engagement } = props;
+  const url = `/${slug}`;
+  return (
+    <div className="candidate candidate-mini">
+      <Link to={url}>
+        <img src={image} alt={name} />
+      </Link>
+      <h5>
+        <Link to={url}>{name}</Link>
+      </h5>
+      {engagement ? <CandidateEngagement engagement={engagement} /> : ''}
+      <Link className="fullLink" to={url}>
+        See full profile »
+      </Link>
+    </div>
+  );
+};
 
-//   const {
-//     data
-//   } = props;
-
-//   // const { slug } = fields
-//   // const url = `/${slug}`;
-
-//   return (
-//     <div className="candidate">
-//       <pre><code>
-//         {JSON.stringify(data,null,2)}
-//       </code></pre>
-//       {/* <Link to={url}>
-//         <img src={image} alt={name} />
-//       </Link> */}
-//       {data.forEach(candidate =>
-//         <div className="candidate-mini">
-//           <img src={candidate.image} />
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default CandidateMini
-
-// export const pageQuery = graphql`
-
-//   fragment OfficeDetails on OfficesJson {
-//     title
-//     job
-//     position
-//     region
-//     uuid
-//   }
-
-// `
+export default CandidateMini;

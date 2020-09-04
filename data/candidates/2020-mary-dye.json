@@ -1,15 +1,16 @@
 {
+  "party": "",
   "name": "Mary Dye",
   "slug": "mary-dye",
-  "uuid": "mary-dye",
-  "party": "",
   "statement": "**Elected Experience**  \nAs your elected State Representative, I serve on the House Environment Committee, Capital Budget Committee and Appropriations Committee. I’m a passionate leader in empowering our communities and reforming the way Olympia works with our citizens and local governments.  \n  \n**Other Professional Experience**  \nFrom 1987 to present, I co-manage a 3rd generation wheat farm. I previously served as an agricultural educator in the Peace Corps in Ubon Thailand.  \n  \n**Education**  \nBachelor of Science - Plant Science, Crop Management, University of Idaho, 1983.  \n  \n**Community Service**  \nI have championed causes important to Eastern Washington including \"Save Our Dams\", “Freedom to Farm” and defending our rural values.  \n  \n**Statement**  \nAs your elected State Representative, I have focused on economic development and building infrastructure that will expand opportunities for families, farms, and communities. I passed legislation that will develop broadband fiber in areas with poor access to high speed internet. I worked to secure water for our towns and farms.  \n  \nWith principle driven leadership, and talent for seeking creative solutions, I develop tools that help expand and promote economic opportunities so citizens in Eastern Washington can live successful lives in freedom. During these challenging times, I have worked to create new ways to connect food producers with people in need.",
+  "twitter": "https://twitter.com/repmarydye",
   "electionyear": "2020",
-  "office": "",
-  "website": "http://",
-  "email": "electmarydye@gmail.com",
   "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=865#/candidates/57292/46045",
-  "pdc_url": "",
+  "pdc_filed": false,
+  "website": "",
   "image": "/images/candidates/mary-dye.jpeg",
-  "pdc_filed": false
+  "uuid": "mary-dye",
+  "office": "",
+  "email": "electmarydye@gmail.com",
+  "pdc_url": ""
 }

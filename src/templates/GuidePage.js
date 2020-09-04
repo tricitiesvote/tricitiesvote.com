@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import RaceList from '../components/RaceList';
+import ContactInline from '../components/ContactInline';
 // import _ from 'lodash';
 
 const GuidePage = ({ data }) => {
@@ -16,6 +17,7 @@ const GuidePage = ({ data }) => {
         <h1>{region}</h1>
         <RaceList data={races} />
       </div>
+      <ContactInline page="guide" />
     </DefaultLayout>
   );
 };
