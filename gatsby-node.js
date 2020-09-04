@@ -8,188 +8,186 @@ const remarkHTML = require('remark-html');
 const truncate = require('truncate-html');
 // const OfficeDetailsFragment = require('./src/queries/Office.js');
 
-exports.onCreateNode = async ({ node, actions }) => {
-  const { createNodeField } = actions;
+// exports.onCreateNode = async ({ node, actions }) => {
+//   const { createNodeField } = actions;
 
-  // build slug contents for Guides
-  // TODO: make 'region' consistent across data sets
-  // it's also having county re-added in components/RacePage.js
-  if (node.internal.type === 'GuidesJson') {
-    const region = node.region.slice(0, node.region.indexOf(' '));
-    createNodeField({
-      node,
-      name: `slug`,
-      value: _.kebabCase(region),
-    });
-  }
+//   // build slug contents for Guides
+//   // TODO: make 'region' consistent across data sets
+//   // it's also having county re-added in components/RacePage.js
+//   if (node.internal.type === 'GuidesJson') {
+//     const region = node.region.slice(0, node.region.indexOf(' '));
+//     createNodeField({
+//       node,
+//       name: `slug`,
+//       value: _.kebabCase(region),
+//     });
+//   }
 
-  // build slug contents for Races
-  if (node.internal.type === 'RacesJson') {
-    createNodeField({
-      node,
-      name: `slug`,
-      value: _.kebabCase(node.office),
-    });
-  }
+//   // build slug contents for Races
+//   if (node.internal.type === 'RacesJson') {
+//     createNodeField({
+//       node,
+//       name: `slug`,
+//       value: _.kebabCase(node.office),
+//     });
+//   }
 
-  // const candidateUUIDs = [];
+//   // const candidateUUIDs = [];
 
-  // build slug contents for Candidates
-  // add candidate uuid to list
-  if (node.internal.type === 'CandidatesJson' && node.name) {
-    createNodeField({
-      node,
-      name: `slug`,
-      value: _.kebabCase(node.name),
-    });
-    // candidateUUIDs.push(node.uuid);
-    // console.log('candidate uuid added:', node.uuid);
-  }
+//   // build slug contents for Candidates
+//   // add candidate uuid to list
+//   if (node.internal.type === 'CandidatesJson' && node.name) {
+//     createNodeField({
+//       node,
+//       name: `slug`,
+//       value: _.kebabCase(node.name),
+//     });
+//     // candidateUUIDs.push(node.uuid);
+//     // console.log('candidate uuid added:', node.uuid);
+//   }
 
-  
+//   // iterate through donations
+//   // get each candidate uuid
+//   // if (node.internal.type === 'DonationsJson') {
+//   //   node.
+//   //   candidateUUIDs.push()
+//   // }
 
-  // iterate through donations
-  // get each candidate uuid
-  // if (node.internal.type === 'DonationsJson') {
-  //   node.
-  //   candidateUUIDs.push()
-  // }
+//   // iterate through donations
+//   // divide donations into group by candidate
 
-  // iterate through donations
-  // divide donations into group by candidate
+//   // iterate through candidate donation set
+//   // create totals of donation per donor per candidate
 
-  // iterate through candidate donation set
-  // create totals of donation per donor per candidate
+//   // const donors = []
 
-  // const donors = []
+//   // // iterate through donations
+//   // if (node.internal.type === 'DonationsJson') {
+//   //   if (!_.includes(donors, node.)) {
 
-  // // iterate through donations
-  // if (node.internal.type === 'DonationsJson') {
-  //   if (!_.includes(donors, node.)) {
+//   //   recipients.push(node.candidate)
 
-  //   recipients.push(node.candidate)
+//   //   console.log(JSON.stringify(node.candidate))
+//   //   recipient = node.candidate;
 
-  //   console.log(JSON.stringify(node.candidate))
-  //   recipient = node.candidate;
+//   //   // createNodeField({
+//   //   //   node,
+//   //   //   name: `slug`,
+//   //   //   value: _.kebabCase(region)
+//   //   // })
 
-  //   // createNodeField({
-  //   //   node,
-  //   //   name: `slug`,
-  //   //   value: _.kebabCase(region)
-  //   // })
+//   // }
 
-  // }
+//   const markdownFields = [
+//     {
+//       name: 'lettersyes',
+//       data: node.lettersyes,
+//       wrap: false,
+//       excerpt: false,
+//     },
+//     {
+//       name: 'lettersno',
+//       data: node.lettersno,
+//       wrap: false,
+//       excerpt: false,
+//     },
+//     {
+//       name: 'articles',
+//       data: node.articles,
+//       wrap: false,
+//       excerpt: false,
+//     },
+//     {
+//       name: 'engagement',
+//       data: node.engagement,
+//       wrap: true,
+//       excerpt: false,
+//     },
+//     {
+//       name: 'bio',
+//       data: node.bio,
+//       wrap: true,
+//       excerpt: 160,
+//     },
+//     {
+//       name: 'statement',
+//       data: node.statement,
+//       wrap: true,
+//       excerpt: 240,
+//     },
+//     {
+//       name: 'body',
+//       data: node.body,
+//       wrap: true,
+//       excerpt: 240,
+//     },
+//     {
+//       name: 'notes',
+//       data: node.notes,
+//       wrap: true,
+//       excerpt: 240,
+//     },
+//   ];
 
-  const markdownFields = [
-    {
-      name: 'lettersyes',
-      data: node.lettersyes,
-      wrap: false,
-      excerpt: false,
-    },
-    {
-      name: 'lettersno',
-      data: node.lettersno,
-      wrap: false,
-      excerpt: false,
-    },
-    {
-      name: 'articles',
-      data: node.articles,
-      wrap: false,
-      excerpt: false,
-    },
-    {
-      name: 'engagement',
-      data: node.engagement,
-      wrap: true,
-      excerpt: false,
-    },
-    {
-      name: 'bio',
-      data: node.bio,
-      wrap: true,
-      excerpt: 160,
-    },
-    {
-      name: 'statement',
-      data: node.statement,
-      wrap: true,
-      excerpt: 240,
-    },
-    {
-      name: 'body',
-      data: node.body,
-      wrap: true,
-      excerpt: 240,
-    },
-    {
-      name: 'notes',
-      data: node.notes,
-      wrap: true,
-      excerpt: 240,
-    },
-  ];
+//   markdownFields.forEach((item, key) => {
+//     const fieldName = markdownFields[key].name;
+//     const fieldData = markdownFields[key].data;
+//     const { wrap } = markdownFields[key];
+//     const { excerpt } = markdownFields[key];
 
-  markdownFields.forEach((item, key) => {
-    const fieldName = markdownFields[key].name;
-    const fieldData = markdownFields[key].data;
-    const { wrap } = markdownFields[key];
-    const { excerpt } = markdownFields[key];
+//     // console.log(excerpt)
 
-    // console.log(excerpt)
+//     if (fieldData) {
+//       const wrapValue = remark()
+//         .use(remarkHTML)
+//         .processSync(fieldData)
+//         .toString();
 
-    if (fieldData) {
-      const wrapValue = remark()
-        .use(remarkHTML)
-        .processSync(fieldData)
-        .toString();
+//       const noWrapValue = remark()
+//         .use(remarkHTML)
+//         .processSync(fieldData)
+//         .toString()
+//         .slice(3)
+//         .slice(0, -5); // remove <p> and </p>
 
-      const noWrapValue = remark()
-        .use(remarkHTML)
-        .processSync(fieldData)
-        .toString()
-        .slice(3)
-        .slice(0, -5); // remove <p> and </p>
+//       if (wrapValue && wrap) {
+//         // create new node at:
+//         // fields { fieldName_html }
+//         createNodeField({
+//           name: `${fieldName}_html`,
+//           node,
+//           value: wrapValue,
+//         });
+//       }
 
-      if (wrapValue && wrap) {
-        // create new node at:
-        // fields { fieldName_html }
-        createNodeField({
-          name: `${fieldName}_html`,
-          node,
-          value: wrapValue,
-        });
-      }
+//       if (noWrapValue && !wrap) {
+//         // create new unwrapped node at:
+//         // fields { fieldName_html_nowrap }
+//         createNodeField({
+//           name: `${fieldName}_html_nowrap`,
+//           node,
+//           value: noWrapValue,
+//         });
+//       }
 
-      if (noWrapValue && !wrap) {
-        // create new unwrapped node at:
-        // fields { fieldName_html_nowrap }
-        createNodeField({
-          name: `${fieldName}_html_nowrap`,
-          node,
-          value: noWrapValue,
-        });
-      }
+//       // console.log(excerpt)
 
-      // console.log(excerpt)
-
-      if (wrapValue && excerpt > 0) {
-        const excerptValue = truncate(wrapValue, excerpt, {
-          reserveLastWord: true,
-        });
-        // create new node at:
-        // fields { fieldName_excerpt_html }
-        createNodeField({
-          name: `${fieldName}_excerpt_html`,
-          node,
-          // value: 'hi'
-          value: excerptValue,
-        });
-      }
-    }
-  });
-};
+//       if (wrapValue && excerpt > 0) {
+//         const excerptValue = truncate(wrapValue, excerpt, {
+//           reserveLastWord: true,
+//         });
+//         // create new node at:
+//         // fields { fieldName_excerpt_html }
+//         createNodeField({
+//           name: `${fieldName}_excerpt_html`,
+//           node,
+//           // value: 'hi'
+//           value: excerptValue,
+//         });
+//       }
+//     }
+//   });
+// };
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -506,7 +504,7 @@ exports.createPages = async ({
   const donations = await graphql(`
     query donationsByCandidate {
       allDonationsJson {
-        group(field: candidate___uuid, limit: 1) {
+        group(field: candidate___uuid) {
           edges {
             node {
               amount
@@ -531,20 +529,52 @@ exports.createPages = async ({
 
   donations.data.allDonationsJson.group.forEach(group => {
     const candidateId = group.edges[0].node.candidate.uuid;
-    // add candidate at root
-    candidateDonations.push(candidateId);
-    console.log('added', candidateId);
+    console.log('\n\n');
+
+    // if candidateId hasn't been added, add it at root
+    if (!_.includes(candidateDonations, candidateId)) {
+      candidateDonations.push(candidateId);
+      console.log(`------ candidate ${candidateId} added ------`);
+    }
+
+    // for each donation
     group.edges.forEach(donation => {
       const slug = donation.node.donor_slug;
-      candidateDonations[candidateId].donor = [];
-      console.log('slug', slug)
-      console.log(candidateDonations[candidateId]);
-      // if (!_.includes(candidateDonations[candidateId].donor, donation.node.donor_slug)) {
-      //   candidateDonations[candidateId].donor.push(slug);
-      //   console.log('added', slug);
-      // }
-    })
-    
+
+      // if no donors have been added to this candidate
+      // add the donor slug as the key
+      if (_.isEmpty(candidateDonations[candidateId])) {
+        candidateDonations[candidateId] = { donor: slug };
+        console.log(`${donation.node.donor_name} donor added`);
+      }
+      // if candidate's donors don't include this donor
+      if (!candidateDonations[candidateId][slug]) {
+        console.log('hi, it does not include the donor');
+        // then add it as a child of candidateId
+        // and add this donation to the donor
+        candidateDonations[candidateId] = { slug };
+        candidateDonations[candidateId][slug] = {
+          name: donation.node.donor_name,
+          amount: donation.node.amount,
+        };
+        console.log(`${donation.node.donor_name} donation added`);
+      }
+      if (candidateDonations[candidateId][slug]) {
+        console.log('hi, it includes the donor');
+        // given we've established the candidate & donor,
+        // add the donation as a child of the candidate and donor
+        candidateDonations[candidateId][slug] = {
+          name: donation.node.donor_name,
+          amount: donation.node.amount,
+        };
+        console.log(`${donation.node.donor_name} donation added`);
+      }
+      // console.log(candidateDonations);
+      // candidateDonations[candidateId].donor[slug].donation = donation.node.amount;
+    });
+
+    // console.log('candidateDonations', candidateDonations[candidateId]);
+
     // console.log('group', JSON.stringify(group, null, 2));
 
     // group.forEach(donation => {
@@ -552,57 +582,55 @@ exports.createPages = async ({
     // })
   });
 
-  // const allCandidates = results.data.everything.edges;
+  // const allCandidates = results.data.candidates.edges;
+  // const allGuides = results.data.guides.edges;
+  // const allRaces = results.data.races.edges;
+  // const allNotes = results.data.notes.edges;
 
-  const allCandidates = results.data.candidates.edges;
-  const allGuides = results.data.guides.edges;
-  const allRaces = results.data.races.edges;
-  const allNotes = results.data.notes.edges;
+  // // console.log('candidates >>>>', JSON.stringify(allCandidates,null,2))
+  // // console.log('guides >>>>', JSON.stringify(allGuides,null,2))
+  // // console.log('races >>>>', JSON.stringify(allRaces,null,2))
+  // // console.log('notes >>>>', JSON.stringify(allNotes,null,2))
 
-  // console.log('candidates >>>>', JSON.stringify(allCandidates,null,2))
-  // console.log('guides >>>>', JSON.stringify(allGuides,null,2))
-  // console.log('races >>>>', JSON.stringify(allRaces,null,2))
-  // console.log('notes >>>>', JSON.stringify(allNotes,null,2))
+  // allCandidates.forEach(candidate => {
+  //   createPage({
+  //     path: `/${candidate.node.fields.slug}/`,
+  //     component: path.resolve('./src/templates/CandidatePage.js'),
+  //     context: {
+  //       slug: candidate.node.fields.slug,
+  //     },
+  //   });
+  // });
 
-  allCandidates.forEach(candidate => {
-    createPage({
-      path: `/${candidate.node.fields.slug}/`,
-      component: path.resolve('./src/templates/CandidatePage.js'),
-      context: {
-        slug: candidate.node.fields.slug,
-      },
-    });
-  });
+  // allNotes.forEach(note => {
+  //   createPage({
+  //     path: `/${note.node.candidate.fields.slug}/notes`,
+  //     component: path.resolve('./src/templates/NotesPage.js'),
+  //     context: {
+  //       slug: note.node.candidate.fields.slug,
+  //     },
+  //   });
+  // });
 
-  allNotes.forEach(note => {
-    createPage({
-      path: `/${note.node.candidate.fields.slug}/notes`,
-      component: path.resolve('./src/templates/NotesPage.js'),
-      context: {
-        slug: note.node.candidate.fields.slug,
-      },
-    });
-  });
+  // allRaces.forEach(race => {
+  //   // console.log(JSON.stringify(guide))
+  //   createPage({
+  //     path: `/${race.node.fields.slug}/`,
+  //     component: path.resolve('./src/templates/RacePage.js'),
+  //     context: {
+  //       slug: race.node.fields.slug,
+  //     },
+  //   });
+  // });
 
-  allRaces.forEach(race => {
-    // console.log(JSON.stringify(guide))
-    createPage({
-      path: `/${race.node.fields.slug}/`,
-      component: path.resolve('./src/templates/RacePage.js'),
-      context: {
-        slug: race.node.fields.slug,
-      },
-    });
-  });
-
-  allGuides.forEach(guide => {
-    // console.log(JSON.stringify(guide))
-    createPage({
-      path: `/${guide.node.fields.slug}/`,
-      component: path.resolve('./src/templates/GuidePage.js'),
-      context: {
-        slug: guide.node.fields.slug,
-      },
-    });
-  });
+  // allGuides.forEach(guide => {
+  //   // console.log(JSON.stringify(guide))
+  //   createPage({
+  //     path: `/${guide.node.fields.slug}/`,
+  //     component: path.resolve('./src/templates/GuidePage.js'),
+  //     context: {
+  //       slug: guide.node.fields.slug,
+  //     },
+  //   });
+  // });
 };

@@ -17582,5 +17582,26 @@
     "slug": "wa-collectors-asso-pac",
     "name": "Wa Collectors Asso Pac",
     "city": "Spokane"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Political Action Committee",
+    "slug": "inland-northwest-agc-pac",
+    "name": "Inland Northwest Agc Pac",
+    "city": "Spokane"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "conner-kelly-m",
+    "name": "Conner Kelly M",
+    "city": "Pasco"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "morgan-stuart",
+    "name": "Morgan Stuart",
+    "city": "Tacoma"
   }
 ]
