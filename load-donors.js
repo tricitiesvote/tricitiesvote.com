@@ -51,8 +51,6 @@ consumer
 
       // check to see if we already have the donor
       if (!_.includes(donorIds, donorId)) {
-        // console.log(row.first_name)
-        // const candidate;
         const donor = {
           electionyear: row.election_year,
           type: row.code,
@@ -63,6 +61,30 @@ consumer
         donorIds.push(donorId);
         donors.push(donor);
       }
+    });
+
+    const donationsByCandidate = {};
+
+    donations.forEach(donation => {
+      const { candidate, donor_slug, amount } = donation;
+      if (
+        !donationsByCandidate[candidate] ||
+        !donationsByCandidate[candidate][donor_slug]
+      ) {
+        const thisDonation = {
+          [candidate]: {
+            [donor_slug]: { donations: [], total: 0 },
+          },
+        };
+        _.merge(donationsByCandidate, thisDonation);
+      }
+      if (donationsByCandidate[candidate][donor_slug]) {
+        donationsByCandidate[candidate][donor_slug].donations.push(amount);
+        donationsByCandidate[candidate][donor_slug].total += amount;
+      } else {
+        return console.error('something broke', donation.donor_slug);
+      }
+      return donationsByCandidate;
     });
 
     // write  donation data
@@ -77,6 +99,14 @@ consumer
     const donorData = JSON.stringify(donors, null, 2);
     fs.writeFileSync('./data/donors/donors.json', donorData);
     console.log(donors.length, 'items written to data/donors/donors.json');
+
+    // write candidate donation data
+    const candidateDonationData = JSON.stringify(donationsByCandidate, null, 2);
+    fs.writeFileSync(
+      './data/candidate-donors/candidate-donors.json',
+      candidateDonationData
+    );
+    console.log('data/candidate-donors/candidate-donors.json written');
   })
   .on('error', error => {
     console.error(error);

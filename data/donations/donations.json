@@ -61118,5 +61118,47 @@
     "amount": 500,
     "date": 1599030000000,
     "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100995739"
+  },
+  {
+    "donor_slug": "community-bankers-of-washington-cbw-pac",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "donor_name": "Community Bankers Of Washington Cbw Pac",
+    "donor_city": "Olympia",
+    "candidate": "RUDES  504",
+    "candidate_name": "SKYLER D. RUDE (SKYLER RUDE)",
+    "party": "Republican",
+    "type": "Cash",
+    "amount": 250,
+    "date": 1599202800000,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100995754"
+  },
+  {
+    "donor_slug": "childrens-campaign-fund",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "donor_name": "Childrens Campaign Fund",
+    "donor_city": "Olympia",
+    "candidate": "RUDES  504",
+    "candidate_name": "SKYLER D. RUDE (SKYLER RUDE)",
+    "party": "Republican",
+    "type": "Cash",
+    "amount": 500,
+    "date": 1599202800000,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100995754"
+  },
+  {
+    "donor_slug": "absolute-power-inc",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "donor_name": "Absolute Power Inc",
+    "donor_city": "Pasco",
+    "candidate": "MCKAW  337",
+    "candidate_name": "MCKAY WILLIAM D",
+    "party": "Republican",
+    "type": "Cash",
+    "amount": 700,
+    "date": 1599030000000,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100995768"
   }
 ]

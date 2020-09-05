@@ -17666,5 +17666,19 @@
     "slug": "oates-laurence",
     "name": "Oates Laurence",
     "city": "Benton City"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Political Action Committee",
+    "slug": "community-bankers-of-washington-cbw-pac",
+    "name": "Community Bankers Of Washington Cbw Pac",
+    "city": "Olympia"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Political Action Committee",
+    "slug": "absolute-power-inc",
+    "name": "Absolute Power Inc",
+    "city": "Pasco"
   }
 ]
