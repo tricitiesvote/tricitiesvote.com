@@ -17603,5 +17603,68 @@
     "slug": "morgan-stuart",
     "name": "Morgan Stuart",
     "city": "Tacoma"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "bredeweg-sally",
+    "name": "Bredeweg Sally",
+    "city": "Richland"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "cox-kyle",
+    "name": "Cox Kyle",
+    "city": "Richland"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "fraser-mary",
+    "name": "Fraser Mary",
+    "city": "Richland"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "hildebrant-barbara",
+    "name": "Hildebrant Barbara",
+    "city": "Richland"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "raffa-samuel",
+    "name": "Raffa Samuel",
+    "city": "Glassboro"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "springer-sara",
+    "name": "Springer Sara",
+    "city": "Richland"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "walters-kaitlin",
+    "name": "Walters Kaitlin",
+    "city": "Pasco"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "miller-kendall",
+    "name": "Miller Kendall",
+    "city": "Richland"
+  },
+  {
+    "electionyear": "2020",
+    "type": "Individual",
+    "slug": "oates-laurence",
+    "name": "Oates Laurence",
+    "city": "Benton City"
   }
 ]

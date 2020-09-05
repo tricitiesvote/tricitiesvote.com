@@ -8,7 +8,6 @@ const consumer = new soda.Consumer('data.wa.gov');
 const donations = [];
 const donors = [];
 const donorIds = [];
-const candidates = [];
 
 consumer
   .query()
@@ -49,16 +48,9 @@ consumer
         report: row.url.url,
       };
       donations.push(donation);
-      // this should be enough to add all the candidateIds
-      // if candidate id hasn't been added, add it at root
-      if (!_.includes(candidates, row.filer_id)) {
-        candidates.push(row.filer_id);
-      }
 
       // check to see if we already have the donor
       if (!_.includes(donorIds, donorId)) {
-        // console.log(row.first_name)
-        // const candidate;
         const donor = {
           electionyear: row.election_year,
           type: row.code,
@@ -71,34 +63,25 @@ consumer
       }
     });
 
-    const donationsByCandidate = candidates;
+    const donationsByCandidate = {};
 
-    donations.forEach(donation => {
+    donations.forEach((donation, index) => {
       const { candidate, donor_slug, donor_name, amount } = donation;
-      // if no donors have been added to this candidate
-      // add the donor slug as the key
-      if (_.isEmpty(donationsByCandidate[candidate])) {
-        donationsByCandidate[candidate] = { donor: donor_slug };
+      console.log(`${index} -- START`);
+      if (
+        !donationsByCandidate[candidate] ||
+        !donationsByCandidate[candidate][donor_slug]
+      ) {
+        const thisDonation = {
+          [candidate]: { [donor_slug]: { donation: [] } },
+        };
+        _.merge(donationsByCandidate, thisDonation);
       }
-      // if donor is not yet in this candidate's donors
-      if (!donationsByCandidate[candidate][donor_slug]) {
-        console.log('does not include the donor');
-        // then add it as a child of candidate
-        // and add this donation to the donor
-        donationsByCandidate[candidate] = { donor_slug };
-        donationsByCandidate[candidate][donor_slug] = [];
-        donationsByCandidate[candidate][donor_slug].push(amount);
-        console.log(`${donor_name} donation added`);
-      }
-      // if donor is in this candidate's donors
       if (donationsByCandidate[candidate][donor_slug]) {
-        console.log('includes the donor');
-        // given we've established the candidate & donor,
-        // add the donation as a child of the candidate and donor
-        donationsByCandidate[candidate][donor_slug].push(amount);
-        console.log(`${donor_name} donation added`);
+        donationsByCandidate[candidate][donor_slug].donation.push(amount);
+      } else {
+        return console.error('something broke', donation.donor_slug);
       }
-      console.log('-------', donationsByCandidate);
     });
 
     // write  donation data
