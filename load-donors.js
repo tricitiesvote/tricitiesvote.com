@@ -63,28 +63,30 @@ consumer
       }
     });
 
-    const donationsByCandidate = {};
+    const candidateDonors = {};
 
     donations.forEach(donation => {
       const { candidate, donor_slug, amount } = donation;
       if (
-        !donationsByCandidate[candidate] ||
-        !donationsByCandidate[candidate][donor_slug]
+        !candidateDonors[candidate] ||
+        !candidateDonors[candidate][donor_slug]
       ) {
         const thisDonation = {
           [candidate]: {
+            total: 0,
             [donor_slug]: { donations: [], total: 0 },
           },
         };
-        _.merge(donationsByCandidate, thisDonation);
+        _.merge(candidateDonors, thisDonation);
       }
-      if (donationsByCandidate[candidate][donor_slug]) {
-        donationsByCandidate[candidate][donor_slug].donations.push(amount);
-        donationsByCandidate[candidate][donor_slug].total += amount;
+      if (candidateDonors[candidate][donor_slug]) {
+        candidateDonors[candidate].total += amount;
+        candidateDonors[candidate][donor_slug].donations.push(amount);
+        candidateDonors[candidate][donor_slug].total += amount;
       } else {
         return console.error('something broke', donation.donor_slug);
       }
-      return donationsByCandidate;
+      return candidateDonors;
     });
 
     // write  donation data
@@ -101,12 +103,12 @@ consumer
     console.log(donors.length, 'items written to data/donors/donors.json');
 
     // write candidate donation data
-    const candidateDonationData = JSON.stringify(donationsByCandidate, null, 2);
+    const candidateDonorsData = JSON.stringify(candidateDonors, null, 2);
     fs.writeFileSync(
       './data/candidate-donors/candidate-donors.json',
-      candidateDonationData
+      candidateDonorsData
     );
-    console.log('data/candidate-donors/candidate-donors.json written');
+    console.log('data/donations/donations-by-candidate.json written');
   })
   .on('error', error => {
     console.error(error);
