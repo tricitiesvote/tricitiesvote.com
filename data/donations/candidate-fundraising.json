@@ -1,6 +1,7 @@
 [
   {
-    "id": "WALSM  362",
+    "id": "walsm-362-funding",
+    "candidate": "WALSM  362",
     "unique_donors": 11,
     "total_raised": 8250,
     "total_cash": 8250,
@@ -20,7 +21,8 @@
     ]
   },
   {
-    "id": "KLICM--362",
+    "id": "klicm-362-funding",
+    "candidate": "KLICM--362",
     "unique_donors": 185,
     "total_raised": 42366,
     "total_cash": 42366,
@@ -192,7 +194,8 @@
     ]
   },
   {
-    "id": "DOZIP  361",
+    "id": "dozip-361-funding",
+    "candidate": "DOZIP  361",
     "unique_donors": 253,
     "total_raised": 59715,
     "total_cash": 57965,
@@ -424,7 +427,8 @@
     ]
   },
   {
-    "id": "RUDES  504",
+    "id": "rudes-504-funding",
+    "candidate": "RUDES  504",
     "unique_donors": 148,
     "total_raised": 67206,
     "total_cash": 66924,
@@ -558,7 +562,8 @@
     ]
   },
   {
-    "id": "BOEHM  336",
+    "id": "boehm-336-funding",
+    "candidate": "BOEHM  336",
     "unique_donors": 145,
     "total_raised": 74590,
     "total_cash": 74590,
@@ -682,7 +687,8 @@
     ]
   },
   {
-    "id": "JENKW2-350",
+    "id": "jenkw-2-350-funding",
+    "candidate": "JENKW2-350",
     "unique_donors": 99,
     "total_raised": 39909,
     "total_cash": 38159,
@@ -772,7 +778,8 @@
     ]
   },
   {
-    "id": "RESED--362",
+    "id": "resed-362-funding",
+    "candidate": "RESED--362",
     "unique_donors": 1651,
     "total_raised": 273532,
     "total_cash": 268542,
@@ -1676,7 +1683,8 @@
     ]
   },
   {
-    "id": "REGES  354",
+    "id": "reges-354-funding",
+    "candidate": "REGES  354",
     "unique_donors": 217,
     "total_raised": 22037,
     "total_cash": 20395,
@@ -1797,7 +1805,8 @@
     ]
   },
   {
-    "id": "KLIPB  336",
+    "id": "klipb-336-funding",
+    "candidate": "KLIPB  336",
     "unique_donors": 38,
     "total_raised": 18189,
     "total_cash": 18189,
@@ -1835,7 +1844,8 @@
     ]
   },
   {
-    "id": "SANTS  301",
+    "id": "sants-301-funding",
+    "candidate": "SANTS  301",
     "unique_donors": 75,
     "total_raised": 11978,
     "total_cash": 11827,
@@ -1904,7 +1914,8 @@
     ]
   },
   {
-    "id": "BEATM  301",
+    "id": "beatm-301-funding",
+    "candidate": "BEATM  301",
     "unique_donors": 103,
     "total_raised": 27188,
     "total_cash": 27188,
@@ -2014,7 +2025,8 @@
     ]
   },
   {
-    "id": "RAFFJ--352",
+    "id": "raffj-352-funding",
+    "candidate": "RAFFJ--352",
     "unique_donors": 381,
     "total_raised": 46083,
     "total_cash": 46038,
@@ -2330,7 +2342,8 @@
     ]
   },
   {
-    "id": "CHVAF--362",
+    "id": "chvaf-362-funding",
+    "candidate": "CHVAF--362",
     "unique_donors": 337,
     "total_raised": 30625,
     "total_cash": 27480,
@@ -2501,7 +2514,8 @@
     ]
   },
   {
-    "id": "PERAA--301",
+    "id": "peraa-301-funding",
+    "candidate": "PERAA--301",
     "unique_donors": 108,
     "total_raised": 24629,
     "total_cash": 23705,
@@ -2599,7 +2613,8 @@
     ]
   },
   {
-    "id": "JENKW  350",
+    "id": "jenkw-350-funding",
+    "candidate": "JENKW  350",
     "unique_donors": 8,
     "total_raised": 4600,
     "total_cash": 4600,
@@ -2616,7 +2631,8 @@
     ]
   },
   {
-    "id": "DELVJ  352",
+    "id": "delvj-352-funding",
+    "candidate": "DELVJ  352",
     "unique_donors": 45,
     "total_raised": 17598,
     "total_cash": 17590,
@@ -2670,7 +2686,8 @@
     ]
   },
   {
-    "id": "LEHRK--302",
+    "id": "lehrk-302-funding",
+    "candidate": "LEHRK--302",
     "unique_donors": 55,
     "total_raised": 11022,
     "total_cash": 9940,
@@ -2719,7 +2736,8 @@
     ]
   },
   {
-    "id": "MCKAW  337",
+    "id": "mckaw-337-funding",
+    "candidate": "MCKAW  337",
     "unique_donors": 24,
     "total_raised": 16377,
     "total_cash": 9475,
@@ -2747,7 +2765,8 @@
     ]
   },
   {
-    "id": "AJAXS--336",
+    "id": "ajaxs-336-funding",
+    "candidate": "AJAXS--336",
     "unique_donors": 23,
     "total_raised": 9169,
     "total_cash": 6325,
@@ -2776,7 +2795,8 @@
     ]
   },
   {
-    "id": "SMARJ--352",
+    "id": "smarj-352-funding",
+    "candidate": "SMARJ--352",
     "unique_donors": 13,
     "total_raised": 2670,
     "total_cash": 2670,
@@ -2795,7 +2815,8 @@
     ]
   },
   {
-    "id": "PETED  338",
+    "id": "peted-338-funding",
+    "candidate": "PETED  338",
     "unique_donors": 74,
     "total_raised": 16865,
     "total_cash": 14625,
@@ -2871,7 +2892,8 @@
     ]
   },
   {
-    "id": "LANDD  352",
+    "id": "landd-352-funding",
+    "candidate": "LANDD  352",
     "unique_donors": 81,
     "total_raised": 13237,
     "total_cash": 7144,
@@ -2937,7 +2959,8 @@
     ]
   },
   {
-    "id": "LUSIJ--336",
+    "id": "lusij-336-funding",
+    "candidate": "LUSIJ--336",
     "unique_donors": 71,
     "total_raised": 25449,
     "total_cash": 11690,
@@ -2994,7 +3017,8 @@
     ]
   },
   {
-    "id": "COBUC--814",
+    "id": "cobuc-814-funding",
+    "candidate": "COBUC--814",
     "unique_donors": 108,
     "total_raised": 11191,
     "total_cash": 9526,
@@ -3069,7 +3093,8 @@
     ]
   },
   {
-    "id": "BROWB--336",
+    "id": "browb-336-funding",
+    "candidate": "BROWB--336",
     "unique_donors": 41,
     "total_raised": 13898,
     "total_cash": 13727,
@@ -3115,7 +3140,8 @@
     ]
   },
   {
-    "id": "BROWS  337",
+    "id": "brows-337-funding",
+    "candidate": "BROWS  337",
     "unique_donors": 9,
     "total_raised": 26450,
     "total_cash": 26450,
@@ -3131,7 +3157,8 @@
     ]
   },
   {
-    "id": "ALVAM  352",
+    "id": "alvam-352-funding",
+    "candidate": "ALVAM  352",
     "unique_donors": 22,
     "total_raised": 23755,
     "total_cash": 4100,
@@ -3145,7 +3172,8 @@
     ]
   },
   {
-    "id": "MULLR  301",
+    "id": "mullr-301-funding",
+    "candidate": "MULLR  301",
     "unique_donors": 11,
     "total_raised": 8975,
     "total_cash": 8975,
@@ -3165,7 +3193,8 @@
     ]
   },
   {
-    "id": "BEAVJ  337",
+    "id": "beavj-337-funding",
+    "candidate": "BEAVJ  337",
     "unique_donors": 2,
     "total_raised": 1719,
     "total_cash": 1719,
@@ -3176,7 +3205,8 @@
     ]
   },
   {
-    "id": "PECKL  301",
+    "id": "peckl-301-funding",
+    "candidate": "PECKL  301",
     "unique_donors": 3,
     "total_raised": 1491,
     "total_cash": 1491,

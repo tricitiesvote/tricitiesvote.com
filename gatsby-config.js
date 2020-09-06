@@ -37,6 +37,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/data/donations/candidate-fundraising.json`,
+        name: `candidateFundraising`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/data/donations/candidate-donors.json`,
         name: `candidateDonors`,
       },
@@ -44,22 +51,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/data/donations/candidate-fundraising.json`,
-        name: `candidateFundraiing`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/data/donations/donations.json`,
-        name: `donations`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         path: `${__dirname}/data/donations/donor-types.json`,
-        name: `donorTypes`,
+        name: `candidateDonorTypes`,
       },
     },
     {
@@ -67,6 +60,13 @@ module.exports = {
       options: {
         path: `${__dirname}/data/donations/donors.json`,
         name: `donors`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/donations/donations.json`,
+        name: `donations`,
       },
     },
     {
@@ -115,15 +115,15 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        manualInit: true,
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        htmlTitle: 'vote.triciti.es admin',
-      },
-    },
+    // `gatsby-transformer-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-netlify-cms`,
+    //   options: {
+    //     manualInit: true,
+    //     modulePath: `${__dirname}/src/cms/cms.js`,
+    //     htmlTitle: 'vote.triciti.es admin',
+    //   },
+    // },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,

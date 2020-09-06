@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 const fs = require('fs');
 const soda = require('soda-js');
 const _ = require('lodash');
@@ -17,7 +18,6 @@ const slug = input => {
 const capitalize = input => {
   return _.startCase(_.lowerCase(input));
 };
-
 
 // TODO: this is currently running constantly
 // and only needs to run at the end of the forEach
@@ -53,13 +53,13 @@ consumer
       const donationId = slug(`${row.filer_id}-${row.code}`);
       const donorId = slug(row.contributor_name);
       const candId = row.filer_id;
-      const candDonorId = slug(`${row.filer_id}-${row.contributor_name}`);
-      const donorTypeId = slug(`${row.filer_id}-${row.code}`);
+      const candFundId = slug(`${candId}-funding`);
+      const candDonorId = slug(`${candId}-${row.contributor_name}`);
+      const donorTypeId = slug(`${candId}-${row.code}`);
       const party = capitalize(row.party);
       const amount = parseInt(row.amount, 10);
       const contribName = capitalize(row.contributor_name);
       const contribCity = capitalize(row.contributor_city);
-      // console.log(donationId, donorId, candDonorId, donorTypeId, contribName, contribCity);
 
       let cash;
       let cash_amt;
@@ -76,7 +76,6 @@ consumer
         in_kind_amt = amount;
       }
 
-      // donations
       const donation = {
         id: donationId,
         candidate: candId,
@@ -92,9 +91,8 @@ consumer
       };
       donations.push(donation);
 
-      // candidate fundraising
-      if (_.findKey(candFundraising, { id: candId })) {
-        const key = _.findKey(candFundraising, { id: candId });
+      if (_.findKey(candFundraising, { id: candFundId })) {
+        const key = _.findKey(candFundraising, { id: candFundId });
         const original = candFundraising[key];
         original.unique_donors += 1;
         original.total_raised += amount;
@@ -105,7 +103,8 @@ consumer
         }
       } else {
         const candFund = {
-          id: candId,
+          id: candFundId,
+          candidate: candId,
           unique_donors: 1,
           total_raised: amount,
           total_cash: cash_amt,
@@ -115,7 +114,6 @@ consumer
         candFundraising.push(candFund);
       }
 
-      //donors 
       if (_.findKey(donors, { id: donorId })) {
         const key = _.findKey(donors, { id: donorId });
         const original = donors[key];
@@ -140,7 +138,6 @@ consumer
         donors.push(donor);
       }
 
-      // candidate donors
       if (_.findKey(candDonors, { id: candDonorId })) {
         const key = _.findKey(candDonors, { id: candDonorId });
         const original = candDonors[key];
@@ -165,7 +162,6 @@ consumer
         candDonors.push(candDonor);
       }
 
-      // donor types
       if (_.findKey(candDonorTypes, { id: donorTypeId })) {
         const key = _.findKey(candDonorTypes, { id: donorTypeId });
         const original = candDonorTypes[key];
