@@ -1,0 +1,1190 @@
+[
+  {
+    "id": "walsm-362-political-action-committee",
+    "candidate": "WALSM  362",
+    "donor_type": "Political Action Committee",
+    "total_donated": 6500,
+    "total_cash": 6500,
+    "total_in_kind": 0,
+    "donations": [
+      "walsm-362-political-action-committee"
+    ]
+  },
+  {
+    "id": "walsm-362-business",
+    "candidate": "WALSM  362",
+    "donor_type": "Business",
+    "total_donated": 1750,
+    "total_cash": 1750,
+    "total_in_kind": 0,
+    "donations": [
+      "walsm-362-business"
+    ]
+  },
+  {
+    "id": "klicm-362-individual",
+    "candidate": "KLICM--362",
+    "donor_type": "Individual",
+    "total_donated": 26943,
+    "total_cash": 26943,
+    "total_in_kind": 0,
+    "donations": [
+      "klicm-362-individual"
+    ]
+  },
+  {
+    "id": "dozip-361-individual",
+    "candidate": "DOZIP  361",
+    "donor_type": "Individual",
+    "total_donated": 38915,
+    "total_cash": 38915,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-individual"
+    ]
+  },
+  {
+    "id": "rudes-504-political-action-committee",
+    "candidate": "RUDES  504",
+    "donor_type": "Political Action Committee",
+    "total_donated": 40800,
+    "total_cash": 40800,
+    "total_in_kind": 0,
+    "donations": [
+      "rudes-504-political-action-committee"
+    ]
+  },
+  {
+    "id": "dozip-361-business",
+    "candidate": "DOZIP  361",
+    "donor_type": "Business",
+    "total_donated": 8550,
+    "total_cash": 8550,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-business"
+    ]
+  },
+  {
+    "id": "rudes-504-business",
+    "candidate": "RUDES  504",
+    "donor_type": "Business",
+    "total_donated": 18050,
+    "total_cash": 18050,
+    "total_in_kind": 0,
+    "donations": [
+      "rudes-504-business"
+    ]
+  },
+  {
+    "id": "boehm-336-political-action-committee",
+    "candidate": "BOEHM  336",
+    "donor_type": "Political Action Committee",
+    "total_donated": 32600,
+    "total_cash": 32600,
+    "total_in_kind": 0,
+    "donations": [
+      "boehm-336-political-action-committee"
+    ]
+  },
+  {
+    "id": "boehm-336-business",
+    "candidate": "BOEHM  336",
+    "donor_type": "Business",
+    "total_donated": 33250,
+    "total_cash": 33250,
+    "total_in_kind": 0,
+    "donations": [
+      "boehm-336-business"
+    ]
+  },
+  {
+    "id": "boehm-336-other",
+    "candidate": "BOEHM  336",
+    "donor_type": "Other",
+    "total_donated": 2390,
+    "total_cash": 2390,
+    "total_in_kind": 0,
+    "donations": [
+      "boehm-336-other"
+    ]
+  },
+  {
+    "id": "jenkw-2-350-individual",
+    "candidate": "JENKW2-350",
+    "donor_type": "Individual",
+    "total_donated": 8629,
+    "total_cash": 8629,
+    "total_in_kind": 0,
+    "donations": [
+      "jenkw-2-350-individual"
+    ]
+  },
+  {
+    "id": "resed-362-individual",
+    "candidate": "RESED--362",
+    "donor_type": "Individual",
+    "total_donated": 208122,
+    "total_cash": 205157,
+    "total_in_kind": 2965,
+    "donations": [
+      "resed-362-individual"
+    ]
+  },
+  {
+    "id": "boehm-336-individual",
+    "candidate": "BOEHM  336",
+    "donor_type": "Individual",
+    "total_donated": 5850,
+    "total_cash": 5850,
+    "total_in_kind": 0,
+    "donations": [
+      "boehm-336-individual"
+    ]
+  },
+  {
+    "id": "jenkw-2-350-political-action-committee",
+    "candidate": "JENKW2-350",
+    "donor_type": "Political Action Committee",
+    "total_donated": 9200,
+    "total_cash": 9200,
+    "total_in_kind": 0,
+    "donations": [
+      "jenkw-2-350-political-action-committee"
+    ]
+  },
+  {
+    "id": "jenkw-2-350-business",
+    "candidate": "JENKW2-350",
+    "donor_type": "Business",
+    "total_donated": 16800,
+    "total_cash": 16800,
+    "total_in_kind": 0,
+    "donations": [
+      "jenkw-2-350-business"
+    ]
+  },
+  {
+    "id": "jenkw-2-350-other",
+    "candidate": "JENKW2-350",
+    "donor_type": "Other",
+    "total_donated": 5280,
+    "total_cash": 3530,
+    "total_in_kind": 1750,
+    "donations": [
+      "jenkw-2-350-other"
+    ]
+  },
+  {
+    "id": "reges-354-individual",
+    "candidate": "REGES  354",
+    "donor_type": "Individual",
+    "total_donated": 14019,
+    "total_cash": 13747,
+    "total_in_kind": 272,
+    "donations": [
+      "reges-354-individual"
+    ]
+  },
+  {
+    "id": "klipb-336-political-action-committee",
+    "candidate": "KLIPB  336",
+    "donor_type": "Political Action Committee",
+    "total_donated": 17200,
+    "total_cash": 17200,
+    "total_in_kind": 0,
+    "donations": [
+      "klipb-336-political-action-committee"
+    ]
+  },
+  {
+    "id": "sants-301-individual",
+    "candidate": "SANTS  301",
+    "donor_type": "Individual",
+    "total_donated": 11861,
+    "total_cash": 11710,
+    "total_in_kind": 151,
+    "donations": [
+      "sants-301-individual"
+    ]
+  },
+  {
+    "id": "beatm-301-individual",
+    "candidate": "BEATM  301",
+    "donor_type": "Individual",
+    "total_donated": 25838,
+    "total_cash": 25838,
+    "total_in_kind": 0,
+    "donations": [
+      "beatm-301-individual"
+    ]
+  },
+  {
+    "id": "rudes-504-individual",
+    "candidate": "RUDES  504",
+    "donor_type": "Individual",
+    "total_donated": 5856,
+    "total_cash": 5574,
+    "total_in_kind": 282,
+    "donations": [
+      "rudes-504-individual"
+    ]
+  },
+  {
+    "id": "klicm-362-business",
+    "candidate": "KLICM--362",
+    "donor_type": "Business",
+    "total_donated": 6975,
+    "total_cash": 6975,
+    "total_in_kind": 0,
+    "donations": [
+      "klicm-362-business"
+    ]
+  },
+  {
+    "id": "raffj-352-individual",
+    "candidate": "RAFFJ--352",
+    "donor_type": "Individual",
+    "total_donated": 42803,
+    "total_cash": 42758,
+    "total_in_kind": 45,
+    "donations": [
+      "raffj-352-individual"
+    ]
+  },
+  {
+    "id": "chvaf-362-individual",
+    "candidate": "CHVAF--362",
+    "donor_type": "Individual",
+    "total_donated": 19588,
+    "total_cash": 18462,
+    "total_in_kind": 1126,
+    "donations": [
+      "chvaf-362-individual"
+    ]
+  },
+  {
+    "id": "peraa-301-individual",
+    "candidate": "PERAA--301",
+    "donor_type": "Individual",
+    "total_donated": 13519,
+    "total_cash": 12695,
+    "total_in_kind": 824,
+    "donations": [
+      "peraa-301-individual"
+    ]
+  },
+  {
+    "id": "peraa-301-union",
+    "candidate": "PERAA--301",
+    "donor_type": "Union",
+    "total_donated": 6000,
+    "total_cash": 6000,
+    "total_in_kind": 0,
+    "donations": [
+      "peraa-301-union"
+    ]
+  },
+  {
+    "id": "klipb-336-individual",
+    "candidate": "KLIPB  336",
+    "donor_type": "Individual",
+    "total_donated": 230,
+    "total_cash": 230,
+    "total_in_kind": 0,
+    "donations": [
+      "klipb-336-individual"
+    ]
+  },
+  {
+    "id": "resed-362-other",
+    "candidate": "RESED--362",
+    "donor_type": "Other",
+    "total_donated": 19160,
+    "total_cash": 17135,
+    "total_in_kind": 2025,
+    "donations": [
+      "resed-362-other"
+    ]
+  },
+  {
+    "id": "resed-362-self",
+    "candidate": "RESED--362",
+    "donor_type": "Self",
+    "total_donated": 13750,
+    "total_cash": 13750,
+    "total_in_kind": 0,
+    "donations": [
+      "resed-362-self"
+    ]
+  },
+  {
+    "id": "jenkw-350-business",
+    "candidate": "JENKW  350",
+    "donor_type": "Business",
+    "total_donated": 3000,
+    "total_cash": 3000,
+    "total_in_kind": 0,
+    "donations": [
+      "jenkw-350-business"
+    ]
+  },
+  {
+    "id": "jenkw-350-political-action-committee",
+    "candidate": "JENKW  350",
+    "donor_type": "Political Action Committee",
+    "total_donated": 1500,
+    "total_cash": 1500,
+    "total_in_kind": 0,
+    "donations": [
+      "jenkw-350-political-action-committee"
+    ]
+  },
+  {
+    "id": "jenkw-350-individual",
+    "candidate": "JENKW  350",
+    "donor_type": "Individual",
+    "total_donated": 600,
+    "total_cash": 600,
+    "total_in_kind": 0,
+    "donations": [
+      "jenkw-350-individual"
+    ]
+  },
+  {
+    "id": "chvaf-362-political-action-committee",
+    "candidate": "CHVAF--362",
+    "donor_type": "Political Action Committee",
+    "total_donated": 4000,
+    "total_cash": 4000,
+    "total_in_kind": 0,
+    "donations": [
+      "chvaf-362-political-action-committee"
+    ]
+  },
+  {
+    "id": "chvaf-362-business",
+    "candidate": "CHVAF--362",
+    "donor_type": "Business",
+    "total_donated": 650,
+    "total_cash": 0,
+    "total_in_kind": 650,
+    "donations": [
+      "chvaf-362-business"
+    ]
+  },
+  {
+    "id": "delvj-352-individual",
+    "candidate": "DELVJ  352",
+    "donor_type": "Individual",
+    "total_donated": 12648,
+    "total_cash": 12640,
+    "total_in_kind": 8,
+    "donations": [
+      "delvj-352-individual"
+    ]
+  },
+  {
+    "id": "peraa-301-business",
+    "candidate": "PERAA--301",
+    "donor_type": "Business",
+    "total_donated": 3700,
+    "total_cash": 3600,
+    "total_in_kind": 100,
+    "donations": [
+      "peraa-301-business"
+    ]
+  },
+  {
+    "id": "lehrk-302-individual",
+    "candidate": "LEHRK--302",
+    "donor_type": "Individual",
+    "total_donated": 4421,
+    "total_cash": 3815,
+    "total_in_kind": 606,
+    "donations": [
+      "lehrk-302-individual"
+    ]
+  },
+  {
+    "id": "mckaw-337-individual",
+    "candidate": "MCKAW  337",
+    "donor_type": "Individual",
+    "total_donated": 14577,
+    "total_cash": 7675,
+    "total_in_kind": 6902,
+    "donations": [
+      "mckaw-337-individual"
+    ]
+  },
+  {
+    "id": "ajaxs-336-individual",
+    "candidate": "AJAXS--336",
+    "donor_type": "Individual",
+    "total_donated": 7044,
+    "total_cash": 4200,
+    "total_in_kind": 2844,
+    "donations": [
+      "ajaxs-336-individual"
+    ]
+  },
+  {
+    "id": "smarj-352-business",
+    "candidate": "SMARJ--352",
+    "donor_type": "Business",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "smarj-352-business"
+    ]
+  },
+  {
+    "id": "ajaxs-336-business",
+    "candidate": "AJAXS--336",
+    "donor_type": "Business",
+    "total_donated": 1600,
+    "total_cash": 1600,
+    "total_in_kind": 0,
+    "donations": [
+      "ajaxs-336-business"
+    ]
+  },
+  {
+    "id": "peted-338-individual",
+    "candidate": "PETED  338",
+    "donor_type": "Individual",
+    "total_donated": 15876,
+    "total_cash": 13650,
+    "total_in_kind": 2226,
+    "donations": [
+      "peted-338-individual"
+    ]
+  },
+  {
+    "id": "landd-352-individual",
+    "candidate": "LANDD  352",
+    "donor_type": "Individual",
+    "total_donated": 12197,
+    "total_cash": 6104,
+    "total_in_kind": 6093,
+    "donations": [
+      "landd-352-individual"
+    ]
+  },
+  {
+    "id": "ajaxs-336-political-action-committee",
+    "candidate": "AJAXS--336",
+    "donor_type": "Political Action Committee",
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "donations": [
+      "ajaxs-336-political-action-committee"
+    ]
+  },
+  {
+    "id": "lusij-336-individual",
+    "candidate": "LUSIJ--336",
+    "donor_type": "Individual",
+    "total_donated": 20084,
+    "total_cash": 6325,
+    "total_in_kind": 13759,
+    "donations": [
+      "lusij-336-individual"
+    ]
+  },
+  {
+    "id": "cobuc-814-party",
+    "candidate": "COBUC--814",
+    "donor_type": "Party",
+    "total_donated": 3188,
+    "total_cash": 2050,
+    "total_in_kind": 1138,
+    "donations": [
+      "cobuc-814-party"
+    ]
+  },
+  {
+    "id": "cobuc-814-individual",
+    "candidate": "COBUC--814",
+    "donor_type": "Individual",
+    "total_donated": 4828,
+    "total_cash": 4301,
+    "total_in_kind": 527,
+    "donations": [
+      "cobuc-814-individual"
+    ]
+  },
+  {
+    "id": "smarj-352-individual",
+    "candidate": "SMARJ--352",
+    "donor_type": "Individual",
+    "total_donated": 650,
+    "total_cash": 650,
+    "total_in_kind": 0,
+    "donations": [
+      "smarj-352-individual"
+    ]
+  },
+  {
+    "id": "browb-336-individual",
+    "candidate": "BROWB--336",
+    "donor_type": "Individual",
+    "total_donated": 9889,
+    "total_cash": 9718,
+    "total_in_kind": 171,
+    "donations": [
+      "browb-336-individual"
+    ]
+  },
+  {
+    "id": "brows-337-individual",
+    "candidate": "BROWS  337",
+    "donor_type": "Individual",
+    "total_donated": 1050,
+    "total_cash": 1050,
+    "total_in_kind": 0,
+    "donations": [
+      "brows-337-individual"
+    ]
+  },
+  {
+    "id": "klicm-362-political-action-committee",
+    "candidate": "KLICM--362",
+    "donor_type": "Political Action Committee",
+    "total_donated": 7598,
+    "total_cash": 7598,
+    "total_in_kind": 0,
+    "donations": [
+      "klicm-362-political-action-committee"
+    ]
+  },
+  {
+    "id": "lehrk-302-political-action-committee",
+    "candidate": "LEHRK--302",
+    "donor_type": "Political Action Committee",
+    "total_donated": 4400,
+    "total_cash": 4400,
+    "total_in_kind": 0,
+    "donations": [
+      "lehrk-302-political-action-committee"
+    ]
+  },
+  {
+    "id": "dozip-361-political-action-committee",
+    "candidate": "DOZIP  361",
+    "donor_type": "Political Action Committee",
+    "total_donated": 9750,
+    "total_cash": 9750,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-political-action-committee"
+    ]
+  },
+  {
+    "id": "resed-362-political-action-committee",
+    "candidate": "RESED--362",
+    "donor_type": "Political Action Committee",
+    "total_donated": 31750,
+    "total_cash": 31750,
+    "total_in_kind": 0,
+    "donations": [
+      "resed-362-political-action-committee"
+    ]
+  },
+  {
+    "id": "alvam-352-individual",
+    "candidate": "ALVAM  352",
+    "donor_type": "Individual",
+    "total_donated": 20655,
+    "total_cash": 1000,
+    "total_in_kind": 19655,
+    "donations": [
+      "alvam-352-individual"
+    ]
+  },
+  {
+    "id": "peraa-301-political-action-committee",
+    "candidate": "PERAA--301",
+    "donor_type": "Political Action Committee",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "peraa-301-political-action-committee"
+    ]
+  },
+  {
+    "id": "chvaf-362-other",
+    "candidate": "CHVAF--362",
+    "donor_type": "Other",
+    "total_donated": 5387,
+    "total_cash": 4018,
+    "total_in_kind": 1369,
+    "donations": [
+      "chvaf-362-other"
+    ]
+  },
+  {
+    "id": "beatm-301-business",
+    "candidate": "BEATM  301",
+    "donor_type": "Business",
+    "total_donated": 300,
+    "total_cash": 300,
+    "total_in_kind": 0,
+    "donations": [
+      "beatm-301-business"
+    ]
+  },
+  {
+    "id": "browb-336-business",
+    "candidate": "BROWB--336",
+    "donor_type": "Business",
+    "total_donated": 4000,
+    "total_cash": 4000,
+    "total_in_kind": 0,
+    "donations": [
+      "browb-336-business"
+    ]
+  },
+  {
+    "id": "mullr-301-business",
+    "candidate": "MULLR  301",
+    "donor_type": "Business",
+    "total_donated": 2000,
+    "total_cash": 2000,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-business"
+    ]
+  },
+  {
+    "id": "peted-338-business",
+    "candidate": "PETED  338",
+    "donor_type": "Business",
+    "total_donated": 764,
+    "total_cash": 750,
+    "total_in_kind": 14,
+    "donations": [
+      "peted-338-business"
+    ]
+  },
+  {
+    "id": "beavj-337-other",
+    "candidate": "BEAVJ  337",
+    "donor_type": "Other",
+    "total_donated": 1719,
+    "total_cash": 1719,
+    "total_in_kind": 0,
+    "donations": [
+      "beavj-337-other"
+    ]
+  },
+  {
+    "id": "mullr-301-individual",
+    "candidate": "MULLR  301",
+    "donor_type": "Individual",
+    "total_donated": 2975,
+    "total_cash": 2975,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-individual"
+    ]
+  },
+  {
+    "id": "delvj-352-other",
+    "candidate": "DELVJ  352",
+    "donor_type": "Other",
+    "total_donated": 1850,
+    "total_cash": 1850,
+    "total_in_kind": 0,
+    "donations": [
+      "delvj-352-other"
+    ]
+  },
+  {
+    "id": "delvj-352-business",
+    "candidate": "DELVJ  352",
+    "donor_type": "Business",
+    "total_donated": 1600,
+    "total_cash": 1600,
+    "total_in_kind": 0,
+    "donations": [
+      "delvj-352-business"
+    ]
+  },
+  {
+    "id": "resed-362-party",
+    "candidate": "RESED--362",
+    "donor_type": "Party",
+    "total_donated": 750,
+    "total_cash": 750,
+    "total_in_kind": 0,
+    "donations": [
+      "resed-362-party"
+    ]
+  },
+  {
+    "id": "cobuc-814-political-action-committee",
+    "candidate": "COBUC--814",
+    "donor_type": "Political Action Committee",
+    "total_donated": 2000,
+    "total_cash": 2000,
+    "total_in_kind": 0,
+    "donations": [
+      "cobuc-814-political-action-committee"
+    ]
+  },
+  {
+    "id": "landd-352-business",
+    "candidate": "LANDD  352",
+    "donor_type": "Business",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "landd-352-business"
+    ]
+  },
+  {
+    "id": "reges-354-party",
+    "candidate": "REGES  354",
+    "donor_type": "Party",
+    "total_donated": 2620,
+    "total_cash": 1250,
+    "total_in_kind": 1370,
+    "donations": [
+      "reges-354-party"
+    ]
+  },
+  {
+    "id": "raffj-352-party",
+    "candidate": "RAFFJ--352",
+    "donor_type": "Party",
+    "total_donated": 1250,
+    "total_cash": 1250,
+    "total_in_kind": 0,
+    "donations": [
+      "raffj-352-party"
+    ]
+  },
+  {
+    "id": "klipb-336-other",
+    "candidate": "KLIPB  336",
+    "donor_type": "Other",
+    "total_donated": 759,
+    "total_cash": 759,
+    "total_in_kind": 0,
+    "donations": [
+      "klipb-336-other"
+    ]
+  },
+  {
+    "id": "boehm-336-union",
+    "candidate": "BOEHM  336",
+    "donor_type": "Union",
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "donations": [
+      "boehm-336-union"
+    ]
+  },
+  {
+    "id": "raffj-352-political-action-committee",
+    "candidate": "RAFFJ--352",
+    "donor_type": "Political Action Committee",
+    "total_donated": 2000,
+    "total_cash": 2000,
+    "total_in_kind": 0,
+    "donations": [
+      "raffj-352-political-action-committee"
+    ]
+  },
+  {
+    "id": "chvaf-362-union",
+    "candidate": "CHVAF--362",
+    "donor_type": "Union",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "chvaf-362-union"
+    ]
+  },
+  {
+    "id": "beatm-301-political-action-committee",
+    "candidate": "BEATM  301",
+    "donor_type": "Political Action Committee",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "beatm-301-political-action-committee"
+    ]
+  },
+  {
+    "id": "lehrk-302-union",
+    "candidate": "LEHRK--302",
+    "donor_type": "Union",
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "donations": [
+      "lehrk-302-union"
+    ]
+  },
+  {
+    "id": "dozip-361-party",
+    "candidate": "DOZIP  361",
+    "donor_type": "Party",
+    "total_donated": 1750,
+    "total_cash": 0,
+    "total_in_kind": 1750,
+    "donations": [
+      "dozip-361-party"
+    ]
+  },
+  {
+    "id": "mullr-301-other",
+    "candidate": "MULLR  301",
+    "donor_type": "Other",
+    "total_donated": 3000,
+    "total_cash": 3000,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-other"
+    ]
+  },
+  {
+    "id": "reges-354-political-action-committee",
+    "candidate": "REGES  354",
+    "donor_type": "Political Action Committee",
+    "total_donated": 4500,
+    "total_cash": 4500,
+    "total_in_kind": 0,
+    "donations": [
+      "reges-354-political-action-committee"
+    ]
+  },
+  {
+    "id": "lehrk-302-party",
+    "candidate": "LEHRK--302",
+    "donor_type": "Party",
+    "total_donated": 476,
+    "total_cash": 0,
+    "total_in_kind": 476,
+    "donations": [
+      "lehrk-302-party"
+    ]
+  },
+  {
+    "id": "ajaxs-336-other",
+    "candidate": "AJAXS--336",
+    "donor_type": "Other",
+    "total_donated": 475,
+    "total_cash": 475,
+    "total_in_kind": 0,
+    "donations": [
+      "ajaxs-336-other"
+    ]
+  },
+  {
+    "id": "smarj-352-political-action-committee",
+    "candidate": "SMARJ--352",
+    "donor_type": "Political Action Committee",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "smarj-352-political-action-committee"
+    ]
+  },
+  {
+    "id": "mckaw-337-political-action-committee",
+    "candidate": "MCKAW  337",
+    "donor_type": "Political Action Committee",
+    "total_donated": 1700,
+    "total_cash": 1700,
+    "total_in_kind": 0,
+    "donations": [
+      "mckaw-337-political-action-committee"
+    ]
+  },
+  {
+    "id": "alvam-352-political-action-committee",
+    "candidate": "ALVAM  352",
+    "donor_type": "Political Action Committee",
+    "total_donated": 3000,
+    "total_cash": 3000,
+    "total_in_kind": 0,
+    "donations": [
+      "alvam-352-political-action-committee"
+    ]
+  },
+  {
+    "id": "delvj-352-political-action-committee",
+    "candidate": "DELVJ  352",
+    "donor_type": "Political Action Committee",
+    "total_donated": 1500,
+    "total_cash": 1500,
+    "total_in_kind": 0,
+    "donations": [
+      "delvj-352-political-action-committee"
+    ]
+  },
+  {
+    "id": "lehrk-302-business",
+    "candidate": "LEHRK--302",
+    "donor_type": "Business",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "lehrk-302-business"
+    ]
+  },
+  {
+    "id": "mullr-301-party",
+    "candidate": "MULLR  301",
+    "donor_type": "Party",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-party"
+    ]
+  },
+  {
+    "id": "jenkw-350-other",
+    "candidate": "JENKW  350",
+    "donor_type": "Other",
+    "total_donated": -500,
+    "total_cash": -500,
+    "total_in_kind": 0,
+    "donations": [
+      "jenkw-350-other"
+    ]
+  },
+  {
+    "id": "raffj-352-other",
+    "candidate": "RAFFJ--352",
+    "donor_type": "Other",
+    "total_donated": 30,
+    "total_cash": 30,
+    "total_in_kind": 0,
+    "donations": [
+      "raffj-352-other"
+    ]
+  },
+  {
+    "id": "cobuc-814-other",
+    "candidate": "COBUC--814",
+    "donor_type": "Other",
+    "total_donated": 1175,
+    "total_cash": 1175,
+    "total_in_kind": 0,
+    "donations": [
+      "cobuc-814-other"
+    ]
+  },
+  {
+    "id": "lehrk-302-other",
+    "candidate": "LEHRK--302",
+    "donor_type": "Other",
+    "total_donated": 225,
+    "total_cash": 225,
+    "total_in_kind": 0,
+    "donations": [
+      "lehrk-302-other"
+    ]
+  },
+  {
+    "id": "peraa-301-other",
+    "candidate": "PERAA--301",
+    "donor_type": "Other",
+    "total_donated": 410,
+    "total_cash": 410,
+    "total_in_kind": 0,
+    "donations": [
+      "peraa-301-other"
+    ]
+  },
+  {
+    "id": "dozip-361-other",
+    "candidate": "DOZIP  361",
+    "donor_type": "Other",
+    "total_donated": 750,
+    "total_cash": 750,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-other"
+    ]
+  },
+  {
+    "id": "rudes-504-other",
+    "candidate": "RUDES  504",
+    "donor_type": "Other",
+    "total_donated": 2500,
+    "total_cash": 2500,
+    "total_in_kind": 0,
+    "donations": [
+      "rudes-504-other"
+    ]
+  },
+  {
+    "id": "klicm-362-other",
+    "candidate": "KLICM--362",
+    "donor_type": "Other",
+    "total_donated": 850,
+    "total_cash": 850,
+    "total_in_kind": 0,
+    "donations": [
+      "klicm-362-other"
+    ]
+  },
+  {
+    "id": "sants-301-other",
+    "candidate": "SANTS  301",
+    "donor_type": "Other",
+    "total_donated": 117,
+    "total_cash": 117,
+    "total_in_kind": 0,
+    "donations": [
+      "sants-301-other"
+    ]
+  },
+  {
+    "id": "reges-354-other",
+    "candidate": "REGES  354",
+    "donor_type": "Other",
+    "total_donated": 898,
+    "total_cash": 898,
+    "total_in_kind": 0,
+    "donations": [
+      "reges-354-other"
+    ]
+  },
+  {
+    "id": "lusij-336-other",
+    "candidate": "LUSIJ--336",
+    "donor_type": "Other",
+    "total_donated": 5365,
+    "total_cash": 5365,
+    "total_in_kind": 0,
+    "donations": [
+      "lusij-336-other"
+    ]
+  },
+  {
+    "id": "peckl-301-other",
+    "candidate": "PECKL  301",
+    "donor_type": "Other",
+    "total_donated": 1391,
+    "total_cash": 1391,
+    "total_in_kind": 0,
+    "donations": [
+      "peckl-301-other"
+    ]
+  },
+  {
+    "id": "peted-338-other",
+    "candidate": "PETED  338",
+    "donor_type": "Other",
+    "total_donated": 225,
+    "total_cash": 225,
+    "total_in_kind": 0,
+    "donations": [
+      "peted-338-other"
+    ]
+  },
+  {
+    "id": "mckaw-337-other",
+    "candidate": "MCKAW  337",
+    "donor_type": "Other",
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "donations": [
+      "mckaw-337-other"
+    ]
+  },
+  {
+    "id": "smarj-352-other",
+    "candidate": "SMARJ--352",
+    "donor_type": "Other",
+    "total_donated": 20,
+    "total_cash": 20,
+    "total_in_kind": 0,
+    "donations": [
+      "smarj-352-other"
+    ]
+  },
+  {
+    "id": "browb-336-other",
+    "candidate": "BROWB--336",
+    "donor_type": "Other",
+    "total_donated": 9,
+    "total_cash": 9,
+    "total_in_kind": 0,
+    "donations": [
+      "browb-336-other"
+    ]
+  },
+  {
+    "id": "brows-337-other",
+    "candidate": "BROWS  337",
+    "donor_type": "Other",
+    "total_donated": 25400,
+    "total_cash": 25400,
+    "total_in_kind": 0,
+    "donations": [
+      "brows-337-other"
+    ]
+  },
+  {
+    "id": "alvam-352-other",
+    "candidate": "ALVAM  352",
+    "donor_type": "Other",
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "donations": [
+      "alvam-352-other"
+    ]
+  },
+  {
+    "id": "beatm-301-other",
+    "candidate": "BEATM  301",
+    "donor_type": "Other",
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "donations": [
+      "beatm-301-other"
+    ]
+  },
+  {
+    "id": "landd-352-other",
+    "candidate": "LANDD  352",
+    "donor_type": "Other",
+    "total_donated": 40,
+    "total_cash": 40,
+    "total_in_kind": 0,
+    "donations": [
+      "landd-352-other"
+    ]
+  },
+  {
+    "id": "peckl-301-individual",
+    "candidate": "PECKL  301",
+    "donor_type": "Individual",
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "donations": [
+      "peckl-301-individual"
+    ]
+  }
+]

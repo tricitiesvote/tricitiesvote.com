@@ -37,15 +37,36 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/data/donors`,
-        name: `donors`,
+        path: `${__dirname}/data/donations/candidate-donors.json`,
+        name: `candidateDonors`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/data/candidate-donors`,
-        name: `candidateDonors`,
+        path: `${__dirname}/data/donations/candidate-fundraising.json`,
+        name: `candidateFundraiing`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/donations/donations.json`,
+        name: `donations`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/donations/donor-types.json`,
+        name: `donorTypes`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/donations/donors.json`,
+        name: `donors`,
       },
     },
     {

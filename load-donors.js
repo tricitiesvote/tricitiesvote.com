@@ -6,8 +6,30 @@ const _ = require('lodash');
 const consumer = new soda.Consumer('data.wa.gov');
 
 const donations = [];
+const candFundraising = [];
 const donors = [];
-const donorIds = [];
+const candDonors = [];
+const candDonorTypes = [];
+
+const slug = input => {
+  return _.kebabCase(_.lowerCase(input));
+};
+const capitalize = input => {
+  return _.startCase(_.lowerCase(input));
+};
+
+
+// TODO: this is currently running constantly
+// and only needs to run at the end of the forEach
+const writeData = dataSet => {
+  dataSet.forEach(item => {
+    const { data, name } = item;
+    const jsonData = JSON.stringify(data, null, 2);
+    const path = `./data/donations/${name}.json`;
+    fs.writeFileSync(path, jsonData);
+    console.log(data.length, `items written to ${path}`);
+  });
+};
 
 consumer
   .query()
@@ -26,89 +48,156 @@ consumer
   )
   .getRows()
   .on('success', function(rows) {
-    rows.forEach((row, index) => {
-      // console.log(row);
+    rows.forEach(row => {
       const date = Date.parse(row.receipt_date);
-      const donorId = _.kebabCase(_.lowerCase(row.contributor_name));
+      const donationId = slug(`${row.filer_id}-${row.code}`);
+      const donorId = slug(row.contributor_name);
+      const candId = row.filer_id;
+      const candDonorId = slug(`${row.filer_id}-${row.contributor_name}`);
+      const donorTypeId = slug(`${row.filer_id}-${row.code}`);
+      const party = capitalize(row.party);
+      const amount = parseInt(row.amount, 10);
+      const contribName = capitalize(row.contributor_name);
+      const contribCity = capitalize(row.contributor_city);
+      // console.log(donationId, donorId, candDonorId, donorTypeId, contribName, contribCity);
 
+      let cash;
+      let cash_amt;
+      let in_kind_amt;
+
+      if (row.cash_or_in_kind === 'Cash') {
+        cash = true;
+        cash_amt = amount;
+        in_kind_amt = 0;
+      }
+      if (row.cash_or_in_kind === 'In kind') {
+        cash = false;
+        cash_amt = 0;
+        in_kind_amt = amount;
+      }
+
+      // donations
       const donation = {
-        // create donation record
-        donor_slug: donorId,
+        id: donationId,
+        candidate: candId,
+        donor: donorId,
         electionyear: row.election_year,
         donation_type: row.code,
-        donor_name: _.startCase(_.lowerCase(row.contributor_name)),
-        donor_city: _.startCase(_.lowerCase(row.contributor_city)),
-        candidate: row.filer_id,
-        candidate_name: row.filer_name,
-        party: _.startCase(_.lowerCase(row.party)),
-        type: row.cash_or_in_kind,
-        amount: parseInt(row.amount, 10),
-        date,
+        party,
+        cash,
         detail: row.description,
         report: row.url.url,
+        amount,
+        date,
       };
       donations.push(donation);
 
-      // check to see if we already have the donor
-      if (!_.includes(donorIds, donorId)) {
-        const donor = {
-          electionyear: row.election_year,
-          type: row.code,
-          slug: donorId,
-          name: _.startCase(_.lowerCase(row.contributor_name)),
-          city: _.startCase(_.lowerCase(row.contributor_city)),
+      // candidate fundraising
+      if (_.findKey(candFundraising, { id: candId })) {
+        const key = _.findKey(candFundraising, { id: candId });
+        const original = candFundraising[key];
+        original.unique_donors += 1;
+        original.total_raised += amount;
+        original.total_cash += cash_amt;
+        original.total_in_kind += in_kind_amt;
+        if (!_.includes(original.donors, donorId)) {
+          original.donors.push(donorId);
+        }
+      } else {
+        const candFund = {
+          id: candId,
+          unique_donors: 1,
+          total_raised: amount,
+          total_cash: cash_amt,
+          total_in_kind: in_kind_amt,
+          donors: [donorId],
         };
-        donorIds.push(donorId);
+        candFundraising.push(candFund);
+      }
+
+      //donors 
+      if (_.findKey(donors, { id: donorId })) {
+        const key = _.findKey(donors, { id: donorId });
+        const original = donors[key];
+        original.donations += 1;
+        original.total_donated += amount;
+        original.total_cash += cash_amt;
+        original.total_in_kind += in_kind_amt;
+        if (!_.includes(original.funded, candId)) {
+          original.funded.push(candId);
+        }
+      } else {
+        const donor = {
+          id: donorId,
+          name: contribName,
+          city: contribCity,
+          type: row.code,
+          total_donated: amount,
+          total_cash: cash_amt,
+          total_in_kind: in_kind_amt,
+          funded: [candId],
+        };
         donors.push(donor);
       }
-    });
 
-    const candidateDonors = {};
-
-    donations.forEach(donation => {
-      const { candidate, donor_slug, amount } = donation;
-      if (
-        !candidateDonors[candidate] ||
-        !candidateDonors[candidate][donor_slug]
-      ) {
-        const thisDonation = {
-          [candidate]: {
-            total: 0,
-            [donor_slug]: { donations: [], total: 0 },
-          },
-        };
-        _.merge(candidateDonors, thisDonation);
-      }
-      if (candidateDonors[candidate][donor_slug]) {
-        candidateDonors[candidate].total += amount;
-        candidateDonors[candidate][donor_slug].donations.push(amount);
-        candidateDonors[candidate][donor_slug].total += amount;
+      // candidate donors
+      if (_.findKey(candDonors, { id: candDonorId })) {
+        const key = _.findKey(candDonors, { id: candDonorId });
+        const original = candDonors[key];
+        original.total_donated += amount;
+        original.total_cash += cash_amt;
+        original.total_in_kind += in_kind_amt;
+        if (!_.includes(original.donations, donationId)) {
+          original.donations.push(donationId);
+        }
       } else {
-        return console.error('something broke', donation.donor_slug);
+        const candDonor = {
+          id: candDonorId,
+          donor: donorId,
+          candidate: candId,
+          name: contribName,
+          city: contribCity,
+          total_donated: amount,
+          total_cash: cash_amt,
+          total_in_kind: in_kind_amt,
+          donations: [donationId],
+        };
+        candDonors.push(candDonor);
       }
-      return candidateDonors;
+
+      // donor types
+      if (_.findKey(candDonorTypes, { id: donorTypeId })) {
+        const key = _.findKey(candDonorTypes, { id: donorTypeId });
+        const original = candDonorTypes[key];
+        original.total_donated += amount;
+        original.total_cash += cash_amt;
+        original.total_in_kind += in_kind_amt;
+        if (!_.includes(original.donations, donationId)) {
+          original.donations.push(donationId);
+        }
+      } else {
+        const candDonorType = {
+          id: donorTypeId,
+          candidate: candId,
+          donor_type: row.code,
+          total_donated: amount,
+          total_cash: cash_amt,
+          total_in_kind: in_kind_amt,
+          donations: [donationId],
+        };
+        candDonorTypes.push(candDonorType);
+      }
+
+      const dataSet = [
+        { data: donations, name: 'donations' },
+        { data: candFundraising, name: 'candidate-fundraising' },
+        { data: donors, name: 'donors' },
+        { data: candDonors, name: 'candidate-donors' },
+        { data: candDonorTypes, name: 'donor-types' },
+      ];
+
+      writeData(dataSet);
     });
-
-    // write  donation data
-    const donationData = JSON.stringify(donations, null, 2);
-    fs.writeFileSync('./data/donations/donations.json', donationData);
-    console.log(
-      donations.length,
-      'items written to data/donations/donations.json'
-    );
-
-    // write donor data
-    const donorData = JSON.stringify(donors, null, 2);
-    fs.writeFileSync('./data/donors/donors.json', donorData);
-    console.log(donors.length, 'items written to data/donors/donors.json');
-
-    // write candidate donation data
-    const candidateDonorsData = JSON.stringify(candidateDonors, null, 2);
-    fs.writeFileSync(
-      './data/candidate-donors/candidate-donors.json',
-      candidateDonorsData
-    );
-    console.log('data/donations/donations-by-candidate.json written');
   })
   .on('error', error => {
     console.error(error);

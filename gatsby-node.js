@@ -229,8 +229,42 @@ exports.createSchemaCustomization = ({ actions }) => {
       articles:         String
       engagement:       String
 
+      fundraising:      CandidateFundraisingJson @link(by: "id", from: "fundraising")
+      donors:           CandidateDonorsJson @link(by: "id", from: "donors")
+      types:            CandidateDonorTypesJson @link(by: "id", from: "types")
       office:           OfficesJson @link(by: "title", from: "office")
     }
+
+    type CandidateFundraisingJson implements Node {
+      id:               CandidatesJson @link(by: "uuid", from: "id")
+      unique_donors:    Int
+      total_raised:     Int
+      total_cash:       Int
+      total_in_kind:    Int
+      donors:           [DonorsJson] @link(by: "id", from: "donors")
+    }
+
+    type CandidateDonorsJson implements Node {
+      id:               String
+      donor:            DonorsJson @link(by: "id", from: "donors")
+      candidate:        CandidatesJson @link(by: "uuid", from: "id")
+      name:             String
+      city:             String
+      total_donated:    Int
+      total_cash:       Int
+      total_in_kind:    Int
+      donations:        [DonationsJson] @link(by: "id", from: "donations")
+    }
+
+    type CandidateDonorTypesJson implements Node {
+      id:               String
+      candidate:        CandidatesJson @link(by: "uuid", from: "id")
+      donor_type:       String
+      total_donated:    Int
+      total_cash:       Int
+      total_in_kind:    Int
+      donations:        [DonationsJson] @link(by: "id", from: "donations")
+    }    
 
     type NotesJson implements Node {
       fields:          NoteFields
@@ -260,25 +294,27 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type DonorsJson implements Node {
+      id:               String
       name:             String
-      slug:             String
-      type:             String
       city:             String
-      electionyear:     String
+      type:             String
+      total_donated:    Int
+      total_cash:       Int
+      total_in_kind:    Int
+      funded:           [CandidatesJson] @link(by: "uuid", from: "candidates")
     }
 
     type DonationsJson implements Node {
-      donor_slug:       String
+      id:               String
       candidate:        CandidatesJson @link(by: "uuid", from: "candidate")
-      donor_name:       String
-      filer_name:       String
+      donor:            DonorsJson @link(by: "id" from: "donor")
+      electionyear:     String
       donation_type:    String
-      donor_city:       String
       party:            String
-      type:             String
-      amount:           Float
+      cash:             Boolean
       detail:           String
       report:           String
+      date:             String
     }
 
     type Fields {
@@ -370,6 +406,71 @@ exports.createPages = async ({
       engagement
       uuid
       hide
+      fundraising {
+        ...CandidateFundraisingDetails
+      }
+      donors { 
+        ...CandidateDonorDetails
+      }
+      types { 
+        ...DonorTypeDetails
+      }
+    }
+
+    fragment CandidateDonorDetails on CandidateDonorsJson {
+      id
+      donor {
+        ...DonorDetails
+      }
+      candidate {
+        ...CandidateDetails
+      }
+      name
+      city
+      total_donated
+      total_cash
+      total_in_kind
+      donations {
+        ...DonationDetails
+      }
+    }
+
+    fragment CandidateDonorDetails on CandidateDonorsJson {
+      id
+      candidate {
+        ...CandidateDetails
+      }
+      donor_type
+      total_donated
+      total_cash
+      total_in_kind
+      donations {
+        ...DonationDetails
+      }
+    }
+
+    fragment CandidateFundraisingDetails on CandidateFundraisingJson {
+      id
+      unique_donors
+      total_raised
+      total_cash
+      total_in_kind
+      donors {
+        ...DonorDetails
+      }
+    }
+
+    fragment DonorDetails on DonorsJson {
+      id
+      name
+      city
+      type
+      total_donated
+      total_cash
+      total_in_kind
+      funded {
+        ...CandidateDetails
+      }
     }
 
     fragment RaceDetails on RacesJson {
@@ -391,25 +492,20 @@ exports.createPages = async ({
     }
 
     fragment DonationDetails on DonationsJson {
-      donor_slug
-      donor_name
-      donation_type
-      donor_city
-      party
-      type
-      amount
-      date
-      report
-      filer_name
+      id
       candidate {
-        uuid
-        fields {
-          slug
-        }
-        name
-        party
-        image
+        ...CandidateDetails
       }
+      donor {
+        ...DonorDetails
+      }
+      electionyear
+      donation_type
+      party
+      cash
+      detail
+      report
+      date
     }
 
     {
