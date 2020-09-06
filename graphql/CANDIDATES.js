@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-const CANDIDATES = gql`
+const CANDIDATES = `
   candidates: allCandidatesJson(limit: 1000) {
     edges {
       node {

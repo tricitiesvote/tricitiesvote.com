@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-const CANDIDATE = gql`
+const CANDIDATE = `
   fragment CandidateDetails on CandidatesJson {
     fields {
       slug

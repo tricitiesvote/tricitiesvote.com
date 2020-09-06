@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-const OFFICES = gql`
+const OFFICES = `
   offices: allOfficesJson(limit: 1000) {
     edges {
       node {

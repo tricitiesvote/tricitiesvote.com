@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-const OFFICE = gql`
+const OFFICE = `
   fragment OfficeDetails on OfficesJson {
     title
     job

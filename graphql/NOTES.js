@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-const NOTES = gql`
+const NOTES = `
 notes: allNotesJson(limit: 1000) {
   edges {
     node {
