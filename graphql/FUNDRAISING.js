@@ -8,6 +8,9 @@ const CANDIDATE_FUNDRAISING = `
     donors {
       ...DonorDetails
     }
+    donations {
+      ...DonationDetails
+    }
   }
 `;
 

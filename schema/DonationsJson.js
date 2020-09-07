@@ -9,6 +9,7 @@ type DonationsJson implements Node {
   cash:             Boolean
   detail:           String
   report:           String
+  amount:           Int
   date:             String
 }
 `;

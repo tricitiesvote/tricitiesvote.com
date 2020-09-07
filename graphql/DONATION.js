@@ -12,6 +12,7 @@ const DONATION = `
     detail
     report
     date
+    amount
   }
 `;
 

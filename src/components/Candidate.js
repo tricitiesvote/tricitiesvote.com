@@ -138,9 +138,28 @@ export const pageQuery = graphql`
           name
           city
           type
+          donations_count
           total_donated
           total_cash
           total_in_kind
+        }
+        donations {
+          id
+          candidate {
+            id
+            name
+          }
+          donor {
+            id
+            name
+          }
+          donation_type
+          party
+          cash
+          detail
+          report
+          amount
+          date
         }
       }
     }
@@ -169,26 +188,5 @@ export const pageQuery = graphql`
     engagement
     uuid
     hide
-  }
-
-  fragment DonationDetails on DonationsJson {
-    donor_slug
-    donor_name
-    donation_type
-    donor_city
-    party
-    type
-    amount
-    date
-    report
-    candidate {
-      uuid
-      fields {
-        slug
-      }
-      name
-      party
-      image
-    }
   }
 `;

@@ -2,7 +2,6 @@
 const fs = require('fs');
 const soda = require('soda-js');
 const _ = require('lodash');
-const short = require('short-uuid');
 
 // https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye/data
 const consumer = new soda.Consumer('data.wa.gov');
@@ -51,14 +50,8 @@ consumer
   .on('success', function(rows) {
     rows.forEach((row, i) => {
       const date = Date.parse(row.receipt_date);
-      let shortdate
-      try {
-        shortdate = new Date(date).toISOString().split('T')[0];
-      } catch (error) {
-        shortdate = `2020-${i}`;
-      }
       const donationId = slug(
-        `${row.filer_id}-${row.contributor_name}-${shortdate}`
+        `${row.filer_id}-${row.contributor_name}-${row.election_year}-${i}`
       );
       const donorId = slug(row.contributor_name);
       const candId = row.filer_id;
@@ -120,33 +113,37 @@ consumer
           total_cash: cash_amt,
           total_in_kind: in_kind_amt,
           donors: [donorId],
-          donations: [donationId],
+          donations: [],
         };
+        candFund.donations.push(donationId);
         candFundraising.push(candFund);
       }
 
       if (_.findKey(donors, { id: donorId })) {
         const key = _.findKey(donors, { id: donorId });
         const original = donors[key];
-        original.donations += 1;
+        original.donations_count += 1;
         original.total_donated += amount;
         original.total_cash += cash_amt;
         original.total_in_kind += in_kind_amt;
         if (!_.includes(original.funded, candId)) {
           original.funded.push(candId);
         }
+        original.donations.push(donationId);
       } else {
         const donor = {
           id: donorId,
           name: contribName,
           city: contribCity,
           type: row.code,
+          donations_count: 1,
           total_donated: amount,
           total_cash: cash_amt,
           total_in_kind: in_kind_amt,
           funded: [candId],
-          donations: [donationId],
+          donations: [],
         };
+        donor.donations.push(donationId);
         donors.push(donor);
       }
 
@@ -156,9 +153,7 @@ consumer
         original.total_donated += amount;
         original.total_cash += cash_amt;
         original.total_in_kind += in_kind_amt;
-        if (!_.includes(original.donations, donationId)) {
-          original.donations.push(donationId);
-        }
+        original.donations.push(donationId);
       } else {
         const candDonor = {
           id: candDonorId,
@@ -169,8 +164,9 @@ consumer
           total_donated: amount,
           total_cash: cash_amt,
           total_in_kind: in_kind_amt,
-          donations: [donationId],
+          donations: [],
         };
+        candDonor.donations.push(donationId);
         candDonors.push(candDonor);
       }
 
@@ -180,9 +176,7 @@ consumer
         original.total_donated += amount;
         original.total_cash += cash_amt;
         original.total_in_kind += in_kind_amt;
-        if (!_.includes(original.donations, donationId)) {
-          original.donations.push(donationId);
-        }
+        original.donations.push(donationId);
       } else {
         const candDonorType = {
           id: donorTypeId,
@@ -191,8 +185,9 @@ consumer
           total_donated: amount,
           total_cash: cash_amt,
           total_in_kind: in_kind_amt,
-          donations: [donationId],
+          donations: [],
         };
+        candDonorType.donations.push(donationId);
         candDonorTypes.push(candDonorType);
       }
 
