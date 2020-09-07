@@ -142,24 +142,15 @@ export const pageQuery = graphql`
           total_donated
           total_cash
           total_in_kind
-        }
-        donations {
-          id
-          candidate {
-            id
-            name
+          donations {
+            donation_type
+            party
+            cash
+            detail
+            report
+            amount
+            date
           }
-          donor {
-            id
-            name
-          }
-          donation_type
-          party
-          cash
-          detail
-          report
-          amount
-          date
         }
       }
     }

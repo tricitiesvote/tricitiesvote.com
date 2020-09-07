@@ -2,9 +2,14 @@ const DONATION = `
   fragment DonationDetails on DonationsJson {
     id
     candidate {
-      ...CandidateDetails
+      name
+      uuid
     }
-    donor
+    donor {
+      name
+      id
+      city
+    }
     electionyear
     donation_type
     party

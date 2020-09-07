@@ -12,7 +12,12 @@ exports.onCreateNode = helpers => {
 exports.createSchemaCustomization = helpers => {
   const { actions } = helpers;
   const { createTypes } = actions;
-  createTypes(SchemaCustomization);
+  try {
+    createTypes(SchemaCustomization);
+  }
+  catch (error) {
+    console.log(error);
+  }
 };
 
 exports.createPages = async ({
@@ -24,6 +29,7 @@ exports.createPages = async ({
 
   if (results.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
+    console.log(results.errors);
   }
 
   const allCandidates = results.data.candidates.edges;
