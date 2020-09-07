@@ -32,6 +32,7 @@ const RaceListMini = props => {
                 slug={candidate.fields.slug}
                 image={candidate.image}
                 engagement={candidate.fields.engagement_html}
+                fundraising={candidate.fields.fundraising}
               />
             ))}
           </div>

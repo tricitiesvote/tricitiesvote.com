@@ -6,6 +6,19 @@ import CandidateExcerpt from './CandidateExcerpt';
 import CandidateLetters from './CandidateLetters';
 import CandidateArticles from './CandidateArticles';
 import CandidateEngagement from './CandidateEngagement';
+import CandidateDonorSummary from './CandidateDonorSummary';
+
+const usd = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
+
+const md = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  day: 'numeric',
+});
 
 const Candidate = props => {
   // TODO: re-add { donors } and var donorsHtml
@@ -75,9 +88,7 @@ const Candidate = props => {
         ) : (
           <CandidateBody body={body_excerpt_html} />
         )}
-        <pre>
-          <code>{JSON.stringify(fundraising, null, 2)}</code>
-        </pre>
+        <CandidateDonorSummary fundraising={fundraising} />
       </div>
       <div className="info">
         <CandidateInfo

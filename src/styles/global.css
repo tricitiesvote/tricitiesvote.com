@@ -1485,3 +1485,18 @@ span.note {
     width: 100%;
   }
 }
+
+.why-plus {
+  opacity: 0.5;
+  cursor: help;
+}
+
+.donation-event li span {
+  margin-right: 0;
+}
+
+.donor-summary p {
+  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
