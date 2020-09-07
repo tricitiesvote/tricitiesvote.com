@@ -1,24 +1,18 @@
 import path from 'path';
-import Promise from 'bluebird';
-// const { createFilePath } = require(`gatsby-source-filesystem`);
-// const { nextTick } = require('process');
-// const GatsbySchema = require('./gatsby-schema.js');
-import buildSlugs from './node/buildSlugs';
-import buildMarkdown from './node/buildMarkdown';
+import { buildCandidateFields, buildMarkdown, buildSlugs } from './node';
 import SchemaCustomization from './schema';
 import GraphQLSchema from './graphql';
 
-const buildBits = [buildSlugs, buildMarkdown];
+const buildBits = [buildSlugs, buildMarkdown, buildCandidateFields];
 
 exports.onCreateNode = helpers => {
   buildBits.forEach(bit => bit.onCreateNode(helpers));
 };
 
 exports.createSchemaCustomization = helpers => {
-  const { actions, error } = helpers;
+  const { actions } = helpers;
   const { createTypes } = actions;
   createTypes(SchemaCustomization);
-  if (error) console.warn(error);
 };
 
 exports.createPages = async ({
@@ -31,8 +25,6 @@ exports.createPages = async ({
   if (results.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
   }
-
-  // console.log(results);
 
   const allCandidates = results.data.candidates.edges;
   const allGuides = results.data.guides.edges;
@@ -60,7 +52,6 @@ exports.createPages = async ({
   });
 
   allRaces.forEach(race => {
-    // console.log(JSON.stringify(guide))
     createPage({
       path: `/${race.node.fields.slug}/`,
       component: path.resolve('./src/templates/RacePage.js'),
@@ -71,7 +62,6 @@ exports.createPages = async ({
   });
 
   allGuides.forEach(guide => {
-    // console.log(JSON.stringify(guide))
     createPage({
       path: `/${guide.node.fields.slug}/`,
       component: path.resolve('./src/templates/GuidePage.js'),

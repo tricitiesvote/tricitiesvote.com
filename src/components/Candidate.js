@@ -37,6 +37,7 @@ const Candidate = props => {
     lettersyes_html_nowrap,
     lettersno_html_nowrap,
     articles_html_nowrap,
+    fundraising,
   } = fields;
 
   const url = `/${slug}`;
@@ -74,6 +75,9 @@ const Candidate = props => {
         ) : (
           <CandidateBody body={body_excerpt_html} />
         )}
+        <pre>
+          <code>{JSON.stringify(fundraising, null, 2)}</code>
+        </pre>
       </div>
       <div className="info">
         <CandidateInfo
@@ -123,6 +127,22 @@ export const pageQuery = graphql`
       bio_html_nowrap
       articles_html_nowrap
       body_html_nowrap
+      fundraising {
+        id
+        unique_donors
+        total_raised
+        total_cash
+        total_in_kind
+        donors {
+          id
+          name
+          city
+          type
+          total_donated
+          total_cash
+          total_in_kind
+        }
+      }
     }
     name
     electionyear

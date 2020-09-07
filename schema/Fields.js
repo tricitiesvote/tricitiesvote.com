@@ -18,6 +18,7 @@ type Fields {
   bio_html_nowrap:         String
   articles_html_nowrap:    String
   body_html_nowrap:        String
+  fundraising:             CandidateFundraisingJson @link(by: "id", from: "fundraising")
 }
 `;
 

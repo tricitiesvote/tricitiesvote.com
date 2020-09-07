@@ -17,6 +17,9 @@ const CANDIDATE = `
       bio_html_nowrap
       articles_html_nowrap
       body_html_nowrap
+      fundraising {
+        ...CandidateFundraisingDetails
+      }
     }
     name
     electionyear

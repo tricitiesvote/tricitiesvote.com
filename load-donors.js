@@ -2,6 +2,7 @@
 const fs = require('fs');
 const soda = require('soda-js');
 const _ = require('lodash');
+const short = require('short-uuid');
 
 // https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye/data
 const consumer = new soda.Consumer('data.wa.gov');
@@ -27,7 +28,7 @@ const writeData = dataSet => {
     const jsonData = JSON.stringify(data, null, 2);
     const path = `./data/donations/${name}.json`;
     fs.writeFileSync(path, jsonData);
-    console.log(data.length, `items written to ${path}`);
+    // console.log(data.length, `items written to ${path}`);
   });
 };
 
@@ -48,9 +49,17 @@ consumer
   )
   .getRows()
   .on('success', function(rows) {
-    rows.forEach(row => {
+    rows.forEach((row, i) => {
       const date = Date.parse(row.receipt_date);
-      const donationId = slug(`${row.filer_id}-${row.code}`);
+      let shortdate
+      try {
+        shortdate = new Date(date).toISOString().split('T')[0];
+      } catch (error) {
+        shortdate = `2020-${i}`;
+      }
+      const donationId = slug(
+        `${row.filer_id}-${row.contributor_name}-${shortdate}`
+      );
       const donorId = slug(row.contributor_name);
       const candId = row.filer_id;
       const candFundId = slug(`${candId}-funding`);
@@ -98,6 +107,7 @@ consumer
         original.total_raised += amount;
         original.total_cash += cash_amt;
         original.total_in_kind += in_kind_amt;
+        original.donations.push(donationId);
         if (!_.includes(original.donors, donorId)) {
           original.donors.push(donorId);
         }
@@ -110,6 +120,7 @@ consumer
           total_cash: cash_amt,
           total_in_kind: in_kind_amt,
           donors: [donorId],
+          donations: [donationId],
         };
         candFundraising.push(candFund);
       }
@@ -134,6 +145,7 @@ consumer
           total_cash: cash_amt,
           total_in_kind: in_kind_amt,
           funded: [candId],
+          donations: [donationId],
         };
         donors.push(donor);
       }

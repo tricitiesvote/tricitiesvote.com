@@ -26,7 +26,6 @@ const CandidatesJson = `
     articles:         String
     engagement:       String
     office:           OfficesJson
-    fundraising:      CandidateFundraisingJson @link(by: "candidate", from: "uuid")
   }`;
 
 export default CandidatesJson;

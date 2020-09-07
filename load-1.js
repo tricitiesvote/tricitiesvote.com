@@ -70,7 +70,6 @@ consumer
             pdc_url: `https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=${row.filer_id}&election_year=2020`,
             candidate_filer_id: row.filer_id,
             candidate_fullname: _.startCase(_.lowerCase(row.filer_name)),
-            candidate_fullname: row.filer_name,
             candidate_firstname: _.startCase(_.lowerCase(row.first_name)),
             candidate_lastname: _.startCase(_.lowerCase(row.last_name)),
             office: _.startCase(_.lowerCase(row.office)),

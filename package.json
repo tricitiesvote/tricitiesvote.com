@@ -22,7 +22,8 @@
     "fuzzysort": "^1.1.4",
     "husky": "^4.2.3",
     "lint-staged": "^10.3.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "short-uuid": "^4.0.1"
   },
   "license": "MIT",
   "main": "n/a",

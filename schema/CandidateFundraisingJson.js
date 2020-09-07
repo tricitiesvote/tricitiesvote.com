@@ -1,4 +1,4 @@
-const CandidateDonorsJson = `
+const CandidateFundraisingJson = `
 type CandidateFundraisingJson implements Node {
   id:               String
   candidate:        CandidatesJson @link(by: "uuid", from: "candidate")
@@ -10,4 +10,4 @@ type CandidateFundraisingJson implements Node {
 }
 `;
 
-export default CandidateDonorsJson;
+export default CandidateFundraisingJson;

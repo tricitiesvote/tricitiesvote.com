@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 const fs = require('fs');
 // const Fuse = require('fuse.js');
 const fuzzysort = require('fuzzysort');
