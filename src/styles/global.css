@@ -1528,7 +1528,8 @@ span.note {
 
 .donor-summary .donor.show-details li {
   display: inline-block;
-  width: 230px;
+  width: 144px;
+  font-size: 13px;
 }
 
 .donation-event span {
