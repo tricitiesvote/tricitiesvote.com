@@ -13,9 +13,9 @@ const Guide = props => {
 
   return (
     <div className="guide" key={data.uuid}>
-      <pre>
+      {/* <pre>
         <code>{JSON.stringify(dedupedRaces, null, 2)}</code>
-      </pre>
+      </pre> */}
       {dedupedRaces.region ? <h1>{dedupedRaces.region}</h1> : ''}
       {mini ? (
         <RaceListMini data={dedupedRaces} />
