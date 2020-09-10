@@ -7,7 +7,7 @@ const Nav = () => {
       query={graphql`
         query {
           allGuidesJson(
-            filter: { electionyear: { eq: "2020" }, type: { eq: "primary" } }
+            filter: { electionyear: { eq: "2020" }, type: { eq: "general" } }
           ) {
             edges {
               node {

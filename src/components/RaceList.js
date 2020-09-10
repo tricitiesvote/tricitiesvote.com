@@ -45,7 +45,7 @@ export default RaceList;
 //     allGuidesJson(
 //       filter: {
 //         electionyear: {eq: "2020"},
-//         type: {eq: "primary"}
+//         type: {eq: "general"}
 //       }
 //     ) {
 //       edges {

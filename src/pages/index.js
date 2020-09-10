@@ -64,7 +64,7 @@ export const pageQuery = graphql`
     }
 
     allGuidesJson(
-      filter: { electionyear: { eq: "2020" }, type: { eq: "primary" } }
+      filter: { electionyear: { eq: "2020" }, type: { eq: "general" } }
     ) {
       edges {
         node {
