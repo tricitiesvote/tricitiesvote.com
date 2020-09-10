@@ -37,7 +37,7 @@ export const pageQuery = graphql`
     allRacesJson(
       filter: {
         electionyear: { eq: "2020" }
-        type: { eq: "primary" }
+        type: { eq: "general" }
         fields: { slug: { eq: $slug } }
       }
     ) {
