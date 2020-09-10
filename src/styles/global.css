@@ -1528,8 +1528,8 @@ span.note {
 
 .donor-summary .donor.show-details li {
   display: inline-block;
-  width: 144px;
-  font-size: 13px;
+  grid-template-columns: 1fr;
+  font-size: 12px;
 }
 
 .donation-event span {
@@ -1554,6 +1554,21 @@ span.note {
 .donor-summary ul p {
   font-size: 15px;
   position: relative;
+}
+
+.donor-list {
+  display: grid;
+  grid-template: 1fr 1fr 1fr;
+}
+
+.donor {
+  margin: 0 0 10px 0;
+  width: 280px;
+  display: inline-grid;
+}
+
+.donor:nth-child(even) {
+  margin-left: 10px;
 }
 
 .toggle-details {
@@ -1593,9 +1608,15 @@ span.note {
 /* general election css */
 
 @media screen and (min-width: 900px) {
+
   .races-collection {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .guide-page .races-collection {
+    grid-template-columns: 1fr;
+    display: block;
   }
 
   .container-candidate.container-candidate-mini {
@@ -1603,12 +1624,16 @@ span.note {
   }
 }
 
-
 @media screen and (min-width: 800px) {
 
   .races-collection {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .guide-page .races-collection {
+    grid-template-columns: 1fr;
+    display: block;
   }
 
   .container-candidate.container-candidate-mini {
@@ -1618,6 +1643,11 @@ span.note {
 }
 
 @media screen and (max-width: 800px) {
+
+  .guide-page .races-collection {
+    grid-template-columns: 1fr;
+    display: block;
+  }
 
   .races-collection {
     display: grid;
@@ -1635,4 +1665,11 @@ span.note {
     display: grid;
     grid-template-columns: 1fr;
   }
+}
+
+.candidate-content {
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 20px;
 }

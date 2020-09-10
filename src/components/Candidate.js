@@ -7,6 +7,7 @@ import CandidateLetters from './CandidateLetters';
 import CandidateArticles from './CandidateArticles';
 import CandidateEngagement from './CandidateEngagement';
 import CandidateDonorSummary from './CandidateDonorSummary';
+import CandidateDonorSummaryMini from './CandidateDonorSummaryMini';
 
 const usd = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -83,12 +84,15 @@ const Candidate = props => {
         ) : (
           ''
         )}
-        {fullsize ? (
-          <CandidateBody body={body_html} />
-        ) : (
-          <CandidateBody body={body_excerpt_html} />
-        )}
-        <CandidateDonorSummary fundraising={fundraising} />
+        {!fullsize ? (
+          <div>
+            <CandidateBody body={body_excerpt_html} />
+            <CandidateDonorSummaryMini fundraising={fundraising} />
+            <p><Link to={url}>See full candidate donor details »</Link></p>
+          </div>
+      ) : (
+        ''
+      )}
       </div>
       <div className="info">
         <CandidateInfo
@@ -105,6 +109,13 @@ const Candidate = props => {
           pamphlet={pamphlet_url}
         />
       </div>
+      {fullsize ? (
+        <div className="candidate-content">
+          <CandidateBody body={body_html} />
+          <CandidateDonorSummary fundraising={fundraising} />
+        </div>
+      ) : ( ''
+      )}
     </div>
   );
 };

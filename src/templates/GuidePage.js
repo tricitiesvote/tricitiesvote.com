@@ -12,7 +12,7 @@ const GuidePage = ({ data }) => {
 
   return (
     <DefaultLayout>
-      <div className="guide" key={data.uuid}>
+      <div className="guide-page guide" key={data.uuid}>
         {/* <pre><code>{JSON.stringify(data, null, 2)}</code></pre> */}
         <h1>{region}</h1>
         <RaceList data={races} />
