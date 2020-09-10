@@ -26,6 +26,7 @@ class SiteIndex extends React.Component {
             <br /> 2020 Election
           </h1>
           <h2>
+            (COMING SOON)<br />
             A nonpartisan community-driven collection
             <br /> of information to help you decide.
           </h2>
@@ -41,11 +42,11 @@ class SiteIndex extends React.Component {
             <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
             the latest updates.
           </p>
-          <p><strong>Media:</strong> Please feel free to use this site for research<br/> or data analysis. Just attribute tricitiesvote.com</p>
+          {/* <p><strong>Media:</strong> Please feel free to use this site for research<br/> or data analysis. Just attribute tricitiesvote.com</p> */}
         </div>
-        {guides.map(guide => (
+        {/* {guides.map(guide => (
           <Guide data={guide} mini="true" />
-        ))}
+        ))} */}
 
         <ContactInline page="https://tricitiesvote.com" />
       </DefaultLayout>
