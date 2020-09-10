@@ -24,7 +24,7 @@ export default props => {
         <meta property="og:url" content="https://tricitiesvote.com" />
         <meta
           property="og:image"
-          content="https://tricitiesvote.com/images/tcv.png"
+          content="https://tricitiesvote.com/images/tcv-general.png"
         />
         <title>
           {pageTitle ? `${pageTitle} — ` : ''}
