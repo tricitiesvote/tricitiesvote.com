@@ -79,10 +79,10 @@ raceIds.forEach((raceId, index) => {
 
     // write candidate data
     const candidateData = JSON.stringify(candidates, null, 2);
-    fs.writeFileSync('./data/pamphletCandidates.json', candidateData);
+    fs.writeFileSync('./output/pamphletCandidates.json', candidateData);
     console.log(
       candidates.length,
-      'items written to data/pamphletCandidates.json'
+      'items written to output/pamphletCandidates.json'
     );
   });
 });

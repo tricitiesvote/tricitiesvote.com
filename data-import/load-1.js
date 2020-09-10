@@ -87,8 +87,11 @@ consumer
 
     // write candidate data
     const candidateData = JSON.stringify(candidates, null, 2);
-    fs.writeFileSync('./data/pdcCandidates.json', candidateData);
-    console.log(candidates.length, 'items written to data/pdcCandidates.json');
+    fs.writeFileSync('./output/pdcCandidates.json', candidateData);
+    console.log(
+      candidates.length,
+      'items written to output/pdcCandidates.json'
+    );
   })
   .on('error', function(error) {
     console.error(error);

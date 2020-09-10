@@ -5,11 +5,11 @@ const fuzzysort = require('fuzzysort');
 const _ = require('lodash');
 
 // read and parse pamphlet data
-const pamphletCandidates = fs.readFileSync('./data/pamphletCandidates.json');
+const pamphletCandidates = fs.readFileSync('./output/pamphletCandidates.json');
 const pamphletData = JSON.parse(pamphletCandidates);
 
 // read and parse pdc data
-const pdcCandidates = fs.readFileSync('./data/pdcCandidates.json');
+const pdcCandidates = fs.readFileSync('./output/pdcCandidates.json');
 const pdcData = JSON.parse(pdcCandidates);
 
 // const data = [];
@@ -59,12 +59,12 @@ for (const pamphletRecord of pamphletData) {
     // data.push(merged);
     const candidateData = JSON.stringify(merged, null, 2);
     fs.writeFileSync(
-      `./data/candidates/${merged.electionyear}-${merged.slug}.json`,
+      `./output/${merged.electionyear}-${merged.slug}.json`,
       candidateData
     );
     console.log(
       '⚪️',
-      `/data/candidates/${merged.electionyear}-${merged.slug}.json`
+      `./output/${merged.electionyear}-${merged.slug}.json`
     );
   } else {
     const unmerged = {
@@ -89,12 +89,12 @@ for (const pamphletRecord of pamphletData) {
     };
     const candidateData = JSON.stringify(unmerged, null, 2);
     fs.writeFileSync(
-      `./data/candidates/${unmerged.electionyear}-${unmerged.slug}.json`,
+      `./output/${unmerged.electionyear}-${unmerged.slug}.json`,
       candidateData
     );
     console.log(
       '🔴',
-      `/data/candidates/${unmerged.electionyear}-${unmerged.slug}.json`
+      `./output/${unmerged.electionyear}-${unmerged.slug}.json`
     );
   }
 }

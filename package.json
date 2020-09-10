@@ -23,7 +23,8 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.3.0",
     "prettier": "^1.19.1",
-    "short-uuid": "^4.0.1"
+    "short-uuid": "^4.0.1",
+    "turndown": "^6.0.0"
   },
   "license": "MIT",
   "main": "n/a",
