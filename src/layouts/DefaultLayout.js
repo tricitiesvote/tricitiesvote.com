@@ -15,7 +15,7 @@ export default props => {
         <meta name="keywords" content="" />
         <meta name="author" content="Tri-Cities Vote" />
         <meta property="og:site_name" content="Tri-Cities Vote" />
-        <meta property="og:title" content="Tri-Cities Vote: Primary Guide" />
+        <meta property="og:title" content="Tri-Cities Vote: 2020 Election" />
         <meta
           property="og:description"
           content="A nonpartisan community-driven collection of information to help you decide."
