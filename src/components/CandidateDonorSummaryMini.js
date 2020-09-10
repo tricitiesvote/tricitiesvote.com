@@ -13,7 +13,7 @@ const CandidateDonorSummaryMini = props => {
   const { fundraising } = props;
   // console.log(props);
   const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
-  console.log(donorsSorted);
+  // console.log(donorsSorted);
   return (
     <div className="donor-summary">
       <p>
@@ -25,7 +25,7 @@ const CandidateDonorSummaryMini = props => {
         >
           +
         </span>{' '}
-        unique donors.
+        unique donors.{' '}
         <span className="cash-vs-in-kind">
           ({usd.format(fundraising.total_cash)} in cash,{' '}
           {usd.format(fundraising.total_in_kind)} in kind)
