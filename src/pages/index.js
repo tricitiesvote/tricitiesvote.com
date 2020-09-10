@@ -41,6 +41,7 @@ class SiteIndex extends React.Component {
             <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
             the latest updates.
           </p>
+          <p><strong>Media:</strong> Please feel free to use this site for research<br/> or data analysis. Just attribute tricitiesvote.com</p>
         </div>
         {guides.map(guide => (
           <Guide data={guide} mini="true" />
