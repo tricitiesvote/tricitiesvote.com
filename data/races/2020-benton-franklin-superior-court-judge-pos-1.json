@@ -2,13 +2,9 @@
   "electionyear": "2020",
   "uuid": "61-Bzdzqs",
   "office": "Benton-Franklin Superior Court Judge Pos 1",
-  "type": "primary",
+  "type": "general",
   "candidates": [
-    "AJAXS--336",
-    "talesha-tali-sams",
     "BROWS  337",
-    "BROWB--336",
-    "PETED  338",
-    "SANTS  301"
+    "PETED  338"
   ]
 }

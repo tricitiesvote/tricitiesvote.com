@@ -1284,6 +1284,13 @@ li span {
   text-align: center;
 }
 
+.container-candidate-large .engagement h4, .donor-summary h3 {
+  padding-top: 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 18px;
+}
+
 .index .engagement {
   border-top: 1px solid #eee;
   margin-top: 20px;
@@ -1345,6 +1352,12 @@ span.note {
   display: inline-block;
   margin: 5px;
   padding: 0;
+}
+
+.helptext {
+  font-size: 13px !important;
+  color: #777;
+  margin-bottom: 20px;
 }
 
 
@@ -1483,5 +1496,142 @@ span.note {
   .container-candidate.container-candidate-mini {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     width: 100%;
+  }
+}
+
+.why-plus {
+  opacity: 0.5;
+  cursor: help;
+}
+
+.donation-event {
+  margin-left: 10px;
+}
+
+.donation-event li span {
+  margin-right: 0;
+}
+
+.donor-summary p {
+  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.container-candidate-large .donor-summary p {
+  font-size: 15px;
+}
+
+.donor-summary .donor li {
+  display: none;
+}
+
+.donor-summary .donor.show-details li {
+  display: inline-block;
+  width: 230px;
+}
+
+.donation-event span {
+  margin-right: 5px;
+}
+
+.donor button {
+  border: 1px solid #fafafa;
+  background-color: transparent;
+  color: #777;
+  display: inline-block;
+}
+
+.donor-summary ul {
+  padding-left: 15px;
+}
+
+.donor-summary p {
+  font-size: 14px;
+}
+
+.donor-summary ul p {
+  font-size: 15px;
+  position: relative;
+}
+
+.toggle-details {
+  /* transform: rotate(90deg); */
+  transition: .5s all;
+}
+
+.toggle-details:before {
+  content: "▶";
+  color: #53bce4;
+  position: absolute;
+  left: -25px;
+  top: -10px;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.toggle-details:before:before {
+  content: "show details";
+}
+
+.toggle-details:before {
+  transform: rotate(0deg);
+  transition: .2s all;
+}
+
+.show-details .toggle-details:before {
+  transform: rotate(90deg);
+  transition: .2s all;
+}
+
+.show-details .toggle-details:before:before {
+  content: "hide details"
+}
+
+/* general election css */
+
+@media screen and (min-width: 900px) {
+  .races-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .container-candidate.container-candidate-mini {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media screen and (min-width: 800px) {
+
+  .races-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .container-candidate.container-candidate-mini {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+
+  .races-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .container-candidate.container-candidate-mini {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  .races-collection {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }

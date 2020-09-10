@@ -22,7 +22,7 @@ const CandidateInfo = props => {
   const url = `/${slug}`;
 
   return (
-    <fragment>
+    <>
       <CandidateImage slug={slug} name={name} image={image} />
       <h5 className="candidate-image-name">
         <Link to={url}>{name}</Link>
@@ -39,7 +39,7 @@ const CandidateInfo = props => {
         pamphlet={pamphlet}
         notes={notes}
       />
-    </fragment>
+    </>
   );
 };
 

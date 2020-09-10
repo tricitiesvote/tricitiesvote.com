@@ -2,13 +2,10 @@
   "electionyear": "2020",
   "uuid": "L1gJcN-zE",
   "office": "Benton County Commissioner Pos 1",
-  "type": "primary",
+  "type": "general",
   "hide": false,
   "candidates": [
     "RAFFJ--352",
-    "LANDD  352",
-    "SMARJ--352",
-    "ALVAM  352",
     "DELVJ  352"
   ]
 }

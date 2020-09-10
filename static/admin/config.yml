@@ -58,7 +58,7 @@ collections:
             ],
         }
       - { name: email, label: Email, required: false }
-      - { name: statement, label: Statement, required: false }
+      - { name: statement, label: Statement, widget: markdown, required: false }
       - { name: website, label: Website, required: false }
       - { name: facebook, label: Facebook, required: false }
       - { name: twitter, label: Twitter, required: false }

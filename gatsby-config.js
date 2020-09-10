@@ -37,8 +37,36 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/data/donors`,
+        path: `${__dirname}/data/donations/candidate-fundraising.json`,
+        name: `candidateFundraising`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/donations/candidate-donors.json`,
+        name: `candidateDonors`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/donations/donor-types.json`,
+        name: `candidateDonorTypes`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/donations/donors.json`,
         name: `donors`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/donations/donations.json`,
+        name: `donations`,
       },
     },
     {
@@ -87,15 +115,15 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        manualInit: true,
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        htmlTitle: 'vote.triciti.es admin',
-      },
-    },
+    // `gatsby-transformer-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-netlify-cms`,
+    //   options: {
+    //     manualInit: true,
+    //     modulePath: `${__dirname}/src/cms/cms.js`,
+    //     htmlTitle: 'vote.triciti.es admin',
+    //   },
+    // },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,

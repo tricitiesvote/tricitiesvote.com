@@ -6,6 +6,19 @@ import CandidateExcerpt from './CandidateExcerpt';
 import CandidateLetters from './CandidateLetters';
 import CandidateArticles from './CandidateArticles';
 import CandidateEngagement from './CandidateEngagement';
+import CandidateDonorSummary from './CandidateDonorSummary';
+
+const usd = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
+
+const md = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  day: 'numeric',
+});
 
 const Candidate = props => {
   // TODO: re-add { donors } and var donorsHtml
@@ -37,6 +50,7 @@ const Candidate = props => {
     lettersyes_html_nowrap,
     lettersno_html_nowrap,
     articles_html_nowrap,
+    fundraising,
   } = fields;
 
   const url = `/${slug}`;
@@ -74,6 +88,7 @@ const Candidate = props => {
         ) : (
           <CandidateBody body={body_excerpt_html} />
         )}
+        <CandidateDonorSummary fundraising={fundraising} />
       </div>
       <div className="info">
         <CandidateInfo
@@ -123,6 +138,32 @@ export const pageQuery = graphql`
       bio_html_nowrap
       articles_html_nowrap
       body_html_nowrap
+      fundraising {
+        id
+        unique_donors
+        total_raised
+        total_cash
+        total_in_kind
+        donors {
+          id
+          name
+          city
+          type
+          donations_count
+          total_donated
+          total_cash
+          total_in_kind
+          donations {
+            donation_type
+            party
+            cash
+            detail
+            report
+            amount
+            date
+          }
+        }
+      }
     }
     name
     electionyear
