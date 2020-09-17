@@ -20,7 +20,7 @@ const fixurl = url => {
   return url;
 };
 
-exports.loadPamphletCandidates = async => {
+exports.loadPamphletCandidates = () => {
   // https://voter.votewa.gov/elections/candidate.ashx?e=865&r=57373&la=&c=
   // https://voter.votewa.gov/elections/candidate.ashx?e={{election_id}}&r={{race_id}}&la=&c=
 
@@ -87,5 +87,6 @@ exports.loadPamphletCandidates = async => {
     });
   };
 
+  console.log('hi');
   return pamphletCandidates;
 };

@@ -3,7 +3,9 @@ const loadPamphletCandidates = require('./loadPamphletCandidates');
 const loadUserCandidates = require('./loadUserCandidates');
 const loadPdcCandidates = require('./loadPdcCandidates');
 
-const loadCandidateData = () => {
+// get the data
+
+const main = () => {
   const loadData = [
     loadPamphletCandidates,
     loadUserCandidates,
@@ -18,9 +20,7 @@ const loadCandidateData = () => {
 
 // format all the data
 // merge all the data
-// -- user-edited trumps
+// -- user-edited wins
 // write all the data
 
-loadCandidateData();
-
-
+main();
