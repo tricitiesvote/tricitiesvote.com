@@ -31,57 +31,45 @@ module.exports = new Promise((resolve, reject) => {
 
         // check to see if we already have the candidate
         if (!_.includes(filer_ids, row.filer_id)) {
-          // console.log(row.first_name)
-          // const candidate;
-          // TODO this is such a big hack
-          // if (row.first_name === 'LOWELL' && row.last_name === 'PECK') { row.first_name = 'BRAD' }
-          if (row.first_name === 'BRADLEY' && row.last_name === 'KLIPPERT') {
-            row.first_name = 'BRAD';
-          }
-          if (row.first_name === 'MATTHEW' && row.last_name === 'BEATON') {
-            row.first_name = 'MATT';
-          }
-          if (row.first_name === 'RODNEY' && row.last_name === 'MULLEN') {
-            row.first_name = 'ROCKY';
-          }
-          if (row.filer_id === 'LANDD  352') {
-            row.filer_name = 'Donnie Landsman';
-          }
-          if (row.filer_id === 'MCKAW  337') {
-            row.filer_name = 'Will McKay';
-            row.first_name = 'Will';
-          }
-          if (row.filer_name === 'MULLEN RODNEY J (RODNEY MULLEN)') {
-            row.filer_name = 'ROCKY MULLEN';
-          }
-          if (row.filer_id === 'JENKW2-350') {
-            row.first_name = 'William';
-            row.last_name = 'Jenkin';
-          }
-          if (row.filer_id === 'AJAXS--336') {
-            row.first_name = 'Shelley';
-            row.last_name = 'Ajax';
-          }
-          if (row.filer_id === 'JENKW  350') {
-            const candidate = '';
-          } else {
-            const candidate = {
-              pdc_url: `https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=${row.filer_id}&election_year=2020`,
-              candidate_filer_id: row.filer_id,
-              candidate_fullname: _.startCase(_.lowerCase(row.filer_name)),
-              candidate_firstname: _.startCase(_.lowerCase(row.first_name)),
-              candidate_lastname: _.startCase(_.lowerCase(row.last_name)),
-              office: _.startCase(_.lowerCase(row.office)),
-              district: parseInt(row.legislative_district, 10),
-              position: parseInt(row.position, 10),
-              county: _.startCase(_.lowerCase(row.jurisdiction_county)),
-              party: _.startCase(_.lowerCase(row.party)),
-              election_year: row.election_year,
-            };
-            filer_ids.push(row.filer_id);
-            pdcCandidates.push(candidate);
-            // console.log(candidate.candidate_fullname);
-          }
+
+          const candidateNames = {
+            'BEAVJ  337': 'James "Jim" Beaver',
+            'DELVJ  352': 'Jerome Delvin',
+            'WALSM  362': 'Maureen Walsh',
+            'MULLR  301': 'Rocky Mullen',
+            'RUDES  504': 'Skyler Rude',
+            'BOEHM  336': 'Matt Boehnke',
+            'KLIPB  336': 'Brad Klippert',
+            'DOZIP  361': 'Perry Dozier',
+            'REGES  354': 'Shir Regev',
+            'RESED--362': 'Danielle Garbe Reser',
+            'CHVAF--362': 'Frances Chvatal',
+            'KLICM--362': 'Mark Klicker',
+            'PERAA--301': 'Ana Ruiz Peralta',
+            'LANDD  352': 'Donnie Landsman',
+            'PETED  338': 'Dave Petersen',
+            'LEHRK--302': 'Kim Lehrman',
+            'RAFFJ--352': 'Justin Raffa',
+            'BROWS  337': 'Sharon Brown',
+            'MCKAW  337': 'Will McKay',
+            'PECKL  301': 'Brad Peck',
+            'COBUC--814': 'Carly Coburn',
+          };
+
+          const candidate = {
+            pdc_url: `https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=${row.filer_id}&election_year=2020`,
+            candidate_filer_id: row.filer_id,
+            candidate_fullname: candidateNames[row.filer_id],
+            office: _.startCase(_.lowerCase(row.office)),
+            district: parseInt(row.legislative_district, 10),
+            position: parseInt(row.position, 10),
+            county: _.startCase(_.lowerCase(row.jurisdiction_county)),
+            party: _.startCase(_.lowerCase(row.party)),
+            election_year: row.election_year,
+          };
+          filer_ids.push(row.filer_id);
+          pdcCandidates.push(candidate);
+          // console.log(candidate.candidate_fullname);
         }
       }
       resolve(pdcCandidates);
