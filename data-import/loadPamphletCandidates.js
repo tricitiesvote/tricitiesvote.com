@@ -20,7 +20,7 @@ const fixurl = url => {
   return url;
 };
 
-exports.loadPamphletCandidates = () => {
+module.exports = () => {
   // https://voter.votewa.gov/elections/candidate.ashx?e=865&r=57373&la=&c=
   // https://voter.votewa.gov/elections/candidate.ashx?e={{election_id}}&r={{race_id}}&la=&c=
 
@@ -68,7 +68,7 @@ exports.loadPamphletCandidates = () => {
         const imageUrl = `${imageUrlPath}-${newFilename}`;
         const saveImageAs = `${saveImagePath}-${newFilename}`;
         fs.writeFileSync(saveImageAs, buf);
-        console.log(`🌠 ${imageUrl}`);
+        // console.log(`🌠 ${imageUrl}`);
 
         const candidate = {
           candidate_ballot_id: item.statement.BallotID,
@@ -87,6 +87,5 @@ exports.loadPamphletCandidates = () => {
     });
   };
 
-  console.log('hi');
   return pamphletCandidates;
 };

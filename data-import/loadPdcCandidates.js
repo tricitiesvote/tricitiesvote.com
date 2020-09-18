@@ -2,7 +2,7 @@
 const soda = require('soda-js');
 const _ = require('lodash');
 
-exports.loadPdcCandidates = () => new Promise((resolve, reject) => {
+module.exports = new Promise((resolve, reject) => {
   // https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye/data
   const consumer = new soda.Consumer('data.wa.gov');
 
@@ -80,12 +80,13 @@ exports.loadPdcCandidates = () => new Promise((resolve, reject) => {
             };
             filer_ids.push(row.filer_id);
             pdcCandidates.push(candidate);
+            // console.log(candidate.candidate_fullname);
           }
         }
-      };
+      }
       resolve(pdcCandidates);
     })
     .on('error', function(error) {
-      reject(error)
+      reject(error);
     });
 });
