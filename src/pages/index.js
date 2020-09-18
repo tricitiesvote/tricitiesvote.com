@@ -25,19 +25,18 @@ class SiteIndex extends React.Component {
             Tri-Cities Vote:
             <br /> 2020 Election
           </h1>
-          <h2>
-            (COMING SOON)<br />
-            A nonpartisan community-driven collection
-            <br /> of information to help you decide.
+          <h2>COMING MID-SEPTEMBER</h2>
+          <h2>A nonpartisan community-driven collection
+            <br /> of information to help you decide
           </h2>
-          <h2>
+          {/* <h2>
             <Link to="/benton">Benton County »</Link>
             <Link to="/franklin">Franklin County »</Link>
-          </h2>
-          <p>
+          </h2> */}
+          {/* <p>
             Get a quick overview of all of our area’s local
             <br /> candidates in elimination races below.
-          </p>
+          </p> */}
           <p>
             <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
             the latest updates.
@@ -48,7 +47,7 @@ class SiteIndex extends React.Component {
           <Guide data={guide} mini="true" />
         ))} */}
 
-        <ContactInline page="https://tricitiesvote.com" />
+        {/* <ContactInline page="https://tricitiesvote.com" /> */}
       </DefaultLayout>
     );
   }

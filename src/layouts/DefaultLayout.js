@@ -38,7 +38,7 @@ export default props => {
         <body className={bodyClass} />
       </Helmet>
       <main>
-        <Nav />
+        {/* <Nav /> */}
         {/* <Link to="/">Home</Link> */}
         {children}
       </main>
