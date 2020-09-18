@@ -16,21 +16,23 @@ const main = () => {
   Promise.all(loadData).then(values => {
     // console.log(values);
     const [pamphletCandidates, userCandidates, pdcCandidates] = values;
-    console.log(pdcCandidates);
-    // console.log('pamphlet candidates', pamphletCandidates);
-    // for (const pamphletCandidate of pamphletCandidates) {
-    //   console.log('\nPamphlet candidate:');
-    //   console.log(pamphletCandidate.candidate_ballot_name);
-    // }
-    // for (const userCandidate of userCandidates) {
-    //   console.log('\nUser-defined candidate:');
-    //   console.log(userCandidate.name);
-    // }
+    // console.log(pdcCandidates);
+    console.log('pamphlet candidates', pamphletCandidates);
+    for (const pamphletCandidate of pamphletCandidates) {
+      console.log(
+        'Pamphlet candidate:',
+        pamphletCandidate.candidate_ballot_name
+      );
+    }
+    for (const userCandidate of userCandidates) {
+      console.log('User-defined candidate:', userCandidate.name);
+    }
 
-    // for (const pdcCandidate of pdcCandidates) {
-    //   console.log('\nPDC candidate:');
-    //   console.log(pdcCandidate.candidate_fullname);
-    // }
+    for (const pdcCandidate of pdcCandidates) {
+      if (pdcCandidate.candidate_fullname) {
+        console.log('PDC candidate:', pdcCandidate.candidate_fullname);
+      }
+    }
   });
 };
 
