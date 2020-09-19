@@ -19,6 +19,8 @@ module.exports = new Promise((resolve, reject) => {
         jurisdiction_county = 'BENTON' OR 
         jurisdiction_county = 'FRANKLIN' OR 
         legislative_district = '16' OR 
+        legislative_district = '08' OR 
+        legislative_district = '09' OR
         legislative_district = '8' OR 
         legislative_district = '9'
         )
@@ -26,6 +28,7 @@ module.exports = new Promise((resolve, reject) => {
     )
     .getRows()
     .on('success', function(rows) {
+      console.log(rows);
       for (const row of rows) {
         // console.log(row);
 
@@ -33,7 +36,7 @@ module.exports = new Promise((resolve, reject) => {
         if (!_.includes(filer_ids, row.filer_id)) {
 
           const candidateNames = {
-            'BEAVJ  337': 'James "Jim" Beaver',
+            'BEAVJ  337': 'James R. Beaver',
             'DELVJ  352': 'Jerome Delvin',
             'WALSM  362': 'Maureen Walsh',
             'MULLR  301': 'Rocky Mullen',
@@ -54,6 +57,9 @@ module.exports = new Promise((resolve, reject) => {
             'MCKAW  337': 'Will McKay',
             'PECKL  301': 'Brad Peck',
             'COBUC--814': 'Carly Coburn',
+            'STANL--354': 'Larry Stanley',
+            'DYE M  347': 'Mary Dye',
+            'BORDB--163': 'Brett Borden',
           };
 
           const candidate = {
