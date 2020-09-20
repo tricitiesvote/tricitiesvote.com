@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { orderBy } from 'lodash';
-import DonationDetails from './DonationDetails';
 import { StaticQuery } from 'gatsby';
+import DonationDetails from './DonationDetails';
 
 const usd = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -22,7 +22,7 @@ const CandidateDonorSummary = props => {
     e.target.parentElement.parentElement.classList.toggle('show-details');
   };
 
-  if (!fundraising || fundraising.donors.length < 1) return '';
+  if (!fundraising || fundraising.donors.length === 0) return '';
   const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
   // console.log(donorsSorted);
   return (
@@ -51,20 +51,21 @@ const CandidateDonorSummary = props => {
         {donorsSorted && donorsSorted.length > 0
           ? donorsSorted.map(donor => (
               <ul key={donor.id} className="donor">
-                <p>
+              <p>
                   <button
-                    title="Show/hide details"
-                    className="toggle-details"
-                    onClick={e => handleClick(e)}
-                  ></button>
+                  type="button"
+                  title="Show/hide details"
+                  className="toggle-details"
+                  onClick={e => handleClick(e)}
+                />
                   {donor.name} ({usd.format(donor.total_donated)})
                 </p>
-                {donor.donations && donor.donations.length > 0
+              {donor.donations && donor.donations.length > 0
                   ? donor.donations.map(donation => (
                       <DonationDetails key={donation.id} donation={donation} />
                     ))
                   : ''}
-              </ul>
+            </ul>
             ))
           : ''}
       </div>

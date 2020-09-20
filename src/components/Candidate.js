@@ -22,11 +22,12 @@ const md = new Intl.DateTimeFormat('en-US', {
 });
 
 const Candidate = props => {
+  console.log(props);
   // TODO: re-add { donors } and var donorsHtml
   const { fullsize } = props;
   const { data } = props;
   const {
-    id,
+    uuid,
     name,
     image,
     email,
@@ -57,8 +58,10 @@ const Candidate = props => {
   const url = `/${slug}`;
 
   return (
-    <div className="candidate" key={id}>
-      {/* <pre><code>{JSON.stringify(props,null,2)}</code></pre> */}
+    <div className="candidate" key={uuid}>
+      {/* <pre>
+        <code>{JSON.stringify(props, null, 2)}</code>
+      </pre> */}
       <div className="details">
         <h5>
           <Link to={url}>{name}</Link>
@@ -133,7 +136,6 @@ export const pageQuery = graphql`
     region
     uuid
   }
-
   fragment CandidateDetails on CandidatesJson {
     fields {
       slug
@@ -168,6 +170,10 @@ export const pageQuery = graphql`
           total_cash
           total_in_kind
           donations {
+            candidate {
+              name
+              uuid
+            }
             donation_type
             party
             cash
