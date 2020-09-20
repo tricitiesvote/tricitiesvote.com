@@ -40,7 +40,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "load": "node load-1.js && node load-2.js && node load-3.js"
+    "load": "node load"
   },
   "dependencies": {
     "@babel/core": "^7.11.6",
