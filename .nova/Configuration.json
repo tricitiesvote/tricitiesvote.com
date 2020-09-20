@@ -1,0 +1,5 @@
+{
+  "apexskier.eslint.config.fixOnSave" : "Enable",
+  "workspace.preview_type" : "custom",
+  "workspace.preview_url" : "http:\/\/localhost:8000"
+}
