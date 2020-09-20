@@ -116,14 +116,14 @@ module.exports = {
       },
     },
     // `gatsby-transformer-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-netlify-cms`,
-    //   options: {
-    //     manualInit: true,
-    //     modulePath: `${__dirname}/src/cms/cms.js`,
-    //     htmlTitle: 'vote.triciti.es admin',
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        manualInit: true,
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        htmlTitle: 'vote.triciti.es admin',
+      },
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,

@@ -12,6 +12,9 @@ const usd = new Intl.NumberFormat('en-US', {
 const CandidateDonorSummaryMini = props => {
   const { fundraising } = props;
   // console.log(props);
+  if (!fundraising) {
+    return '';
+  }
   const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
   // console.log(donorsSorted);
   return (
