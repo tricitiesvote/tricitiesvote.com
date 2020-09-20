@@ -28,7 +28,6 @@ module.exports = new Promise((resolve, reject) => {
     )
     .getRows()
     .on('success', function(rows) {
-      console.log(rows);
       for (const row of rows) {
         // console.log(row);
 
