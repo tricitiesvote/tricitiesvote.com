@@ -26,7 +26,8 @@ class SiteIndex extends React.Component {
             <br /> 2020 Election
           </h1>
           <h2>
-            (COMING SOON)<br />
+            (COMING SOON)
+            <br />
             A nonpartisan community-driven collection
             <br /> of information to help you decide.
           </h2>
