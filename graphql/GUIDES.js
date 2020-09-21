@@ -1,5 +1,7 @@
-const CANDIDATES = `
-  guides: allGuidesJson(limit: 1000) {
+const GUIDES = `
+  guides: allGuidesJson(
+    filter: { electionyear: { eq: "2020" }, type: { eq: "general" } }
+  ) {
     edges {
       node {
         fields {
@@ -16,4 +18,4 @@ const CANDIDATES = `
   }
 `;
 
-export default CANDIDATES;
+export default GUIDES;

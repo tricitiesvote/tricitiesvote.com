@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable react/jsx-indent */
+import React from 'react';
 import { orderBy } from 'lodash';
-import { StaticQuery } from 'gatsby';
 import DonationDetails from './DonationDetails';
 
 const usd = new Intl.NumberFormat('en-US', {
@@ -10,17 +10,13 @@ const usd = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 20,
 });
 
+const handleClick = e => {
+  e.target.parentElement.parentElement.classList.toggle('show-details');
+};
+
 const CandidateDonorSummary = props => {
   const { fundraising } = props;
   // console.log(props);
-
-  const [state, setState] = useState({
-    showDetails: false,
-  });
-
-  const handleClick = e => {
-    e.target.parentElement.parentElement.classList.toggle('show-details');
-  };
 
   if (!fundraising || fundraising.donors.length === 0) return '';
   const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
@@ -51,21 +47,22 @@ const CandidateDonorSummary = props => {
         {donorsSorted && donorsSorted.length > 0
           ? donorsSorted.map(donor => (
               <ul key={donor.id} className="donor">
-              <p>
+                <p>
                   <button
-                  type="button"
-                  title="Show/hide details"
-                  className="toggle-details"
-                  onClick={e => handleClick(e)}
-                />
+                    aria-label="show/hide details"
+                    type="button"
+                    title="Show/hide details"
+                    className="toggle-details"
+                    onClick={e => handleClick(e)}
+                  />
                   {donor.name} ({usd.format(donor.total_donated)})
                 </p>
-              {donor.donations && donor.donations.length > 0
+                {donor.donations && donor.donations.length > 0
                   ? donor.donations.map(donation => (
                       <DonationDetails key={donation.id} donation={donation} />
                     ))
                   : ''}
-            </ul>
+              </ul>
             ))
           : ''}
       </div>

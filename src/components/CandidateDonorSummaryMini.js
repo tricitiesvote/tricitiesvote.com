@@ -1,6 +1,4 @@
 import React from 'react';
-import { orderBy } from 'lodash';
-import DonationDetailsMini from './DonationDetails';
 
 const usd = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -15,8 +13,6 @@ const CandidateDonorSummaryMini = props => {
   if (!fundraising) {
     return '';
   }
-  const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
-  // console.log(donorsSorted);
   return (
     <div className="donor-summary">
       <p>

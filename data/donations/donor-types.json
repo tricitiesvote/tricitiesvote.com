@@ -4638,13 +4638,14 @@
     "id": "mullr-301-business",
     "candidate": "MULLR  301",
     "donor_type": "Business",
-    "total_donated": 2000,
-    "total_cash": 2000,
+    "total_donated": 3000,
+    "total_cash": 3000,
     "total_in_kind": 0,
     "donations": [
       "mullr-301-baisch-vegetation-management-inc-2020-1243",
       "mullr-301-flying-w-farms-inc-2020-3311",
-      "mullr-301-dove-financial-services-llc-2020-3393"
+      "mullr-301-dove-financial-services-llc-2020-3393",
+      "mullr-301-coulee-flats-dairy-2020-4743"
     ]
   },
   {
@@ -4857,8 +4858,8 @@
     "id": "mullr-301-individual",
     "candidate": "MULLR  301",
     "donor_type": "Individual",
-    "total_donated": 6975,
-    "total_cash": 6975,
+    "total_donated": 9625,
+    "total_cash": 9625,
     "total_in_kind": 0,
     "donations": [
       "mullr-301-bauman-stephen-2020-1563",
@@ -4869,7 +4870,14 @@
       "mullr-301-andres-michelle-2020-2504",
       "mullr-301-mcirvin-len-2020-3708",
       "mullr-301-middleton-bill-2020-3881",
-      "mullr-301-heinen-kevin-2020-4259"
+      "mullr-301-heinen-kevin-2020-4259",
+      "mullr-301-mcfee-josh-2020-4741",
+      "mullr-301-vander-meulen-case-2020-4742",
+      "mullr-301-ryce-jason-2020-4744",
+      "mullr-301-dockstader-allinda-2020-4745",
+      "mullr-301-rogers-alan-2020-4746",
+      "mullr-301-cardenas-lupe-2020-4747",
+      "mullr-301-hayes-rhody-2020-4748"
     ]
   },
   {

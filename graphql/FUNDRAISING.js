@@ -6,7 +6,7 @@ const CANDIDATE_FUNDRAISING = `
     total_cash
     total_in_kind
     donors {
-      ...DonorDetails
+      ...CandidateDonorDetails
     }
     donations {
       ...DonationDetails

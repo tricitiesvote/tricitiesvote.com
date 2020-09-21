@@ -45174,5 +45174,133 @@
     "donations": [
       "baums-301-hayes-farms-2020-4739"
     ]
+  },
+  {
+    "id": "mcfee-josh",
+    "name": "Mcfee Josh",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "MULLR  301"
+    ],
+    "donations": [
+      "mullr-301-mcfee-josh-2020-4741"
+    ]
+  },
+  {
+    "id": "vander-meulen-case",
+    "name": "Vander Meulen Case",
+    "city": "Mesa",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "MULLR  301"
+    ],
+    "donations": [
+      "mullr-301-vander-meulen-case-2020-4742"
+    ]
+  },
+  {
+    "id": "coulee-flats-dairy",
+    "name": "Coulee Flats Dairy",
+    "city": "Mesa",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "MULLR  301"
+    ],
+    "donations": [
+      "mullr-301-coulee-flats-dairy-2020-4743"
+    ]
+  },
+  {
+    "id": "ryce-jason",
+    "name": "Ryce Jason",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "MULLR  301"
+    ],
+    "donations": [
+      "mullr-301-ryce-jason-2020-4744"
+    ]
+  },
+  {
+    "id": "dockstader-allinda",
+    "name": "Dockstader Allinda",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "MULLR  301"
+    ],
+    "donations": [
+      "mullr-301-dockstader-allinda-2020-4745"
+    ]
+  },
+  {
+    "id": "rogers-alan",
+    "name": "Rogers Alan",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "MULLR  301"
+    ],
+    "donations": [
+      "mullr-301-rogers-alan-2020-4746"
+    ]
+  },
+  {
+    "id": "cardenas-lupe",
+    "name": "Cardenas Lupe",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "MULLR  301"
+    ],
+    "donations": [
+      "mullr-301-cardenas-lupe-2020-4747"
+    ]
+  },
+  {
+    "id": "hayes-rhody",
+    "name": "Hayes Rhody",
+    "city": "Mesa",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "MULLR  301"
+    ],
+    "donations": [
+      "mullr-301-hayes-rhody-2020-4748"
+    ]
   }
 ]

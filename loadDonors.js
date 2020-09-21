@@ -47,7 +47,7 @@ consumer
   `
   )
   .getRows()
-  .on('success', function(rows) {
+  .on('success', function (rows) {
     rows.forEach((row, i) => {
       const date = Date.parse(row.receipt_date);
       const donationId = slug(
@@ -101,8 +101,8 @@ consumer
         original.total_cash += cash_amt;
         original.total_in_kind += in_kind_amt;
         original.donations.push(donationId);
-        if (!_.includes(original.donors, donorId)) {
-          original.donors.push(donorId);
+        if (!_.includes(original.donors, candDonorId)) {
+          original.donors.push(candDonorId);
         }
       } else {
         const candFund = {
@@ -112,12 +112,15 @@ consumer
           total_raised: amount,
           total_cash: cash_amt,
           total_in_kind: in_kind_amt,
-          donors: [donorId],
+          donors: [candDonorId],
           donations: [],
         };
         candFund.donations.push(donationId);
         candFundraising.push(candFund);
       }
+
+      // need to somehow nest donors' totals by candidate,
+      // and group donors donation by candidate
 
       if (_.findKey(donors, { id: donorId })) {
         const key = _.findKey(donors, { id: donorId });
@@ -190,9 +193,8 @@ consumer
         candDonorType.donations.push(donationId);
         candDonorTypes.push(candDonorType);
       }
-      
     });
-    
+
     const dataSet = [
       { data: donations, name: 'donations' },
       { data: candFundraising, name: 'candidate-fundraising' },

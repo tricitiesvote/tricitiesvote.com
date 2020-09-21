@@ -2,6 +2,7 @@ import CANDIDATE from './CANDIDATE';
 import CANDIDATES from './CANDIDATES';
 import DONATION from './DONATION';
 import DONOR from './DONOR';
+import CANDIDATE_DONOR from './CANDIDATE_DONOR';
 // import DONOR_TYPE from './DONOR_TYPE';
 import FUNDRAISING from './FUNDRAISING';
 import GUIDES from './GUIDES';
@@ -16,6 +17,7 @@ const GraphQLSchema = `
   ${CANDIDATE}
   ${RACE}
   ${FUNDRAISING}
+  ${CANDIDATE_DONOR}
   ${DONOR}
   ${DONATION}
   {

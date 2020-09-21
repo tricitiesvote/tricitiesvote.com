@@ -1,5 +1,6 @@
 import CandidateFundraisingJson from './CandidateFundraisingJson';
 import CandidateDonorTypesJson from './CandidateDonorTypesJson';
+import CandidateDonorsJson from './CandidateDonorsJson';
 import CandidatesJson from './CandidatesJson';
 import DonationsJson from './DonationsJson';
 import DonorsJson from './DonorsJson';
@@ -14,6 +15,8 @@ const SchemaCustomization = `
 ${CandidateFundraisingJson}
 
 ${CandidateDonorTypesJson}
+
+${CandidateDonorsJson}
 
 ${CandidatesJson}
 

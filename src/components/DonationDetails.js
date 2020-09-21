@@ -19,7 +19,7 @@ const DonationDetails = props => {
     <li className="donation-event">
       {donation.report ? (
         <a href={donation.report} title={donation.detail}>
-          <span role="image" aria-label="report">
+          <span role="img" aria-label="report">
             🧾
           </span>{' '}
           {usd.format(donation.amount)} on {md.format(donation.date)}

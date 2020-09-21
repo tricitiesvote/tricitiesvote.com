@@ -31,7 +31,6 @@ const main = () => {
         const candidate = {
           name: guideC.candidate_ballot_name,
           slug: slugify(guideC.candidate_ballot_name, { lower: true, strict: true }),
-          website: guideC.website,
           email: guideC.email,
           pamphlet_url: guideC.pamphlet_url,
         };
@@ -46,6 +45,18 @@ const main = () => {
           candidate.statement =       userCs[c].statement;
           candidate.electionyear =    userCs[c].electionyear;
           candidate.office =          userCs[c].office;
+          candidate.articles =        userCs[c].articles;
+          candidate.bio =             userCs[c].bio;
+          candidate.engagement =      userCs[c].engagement;
+          candidate.hide =            userCs[c].hide;
+          candidate.incumbent =       userCs[c].incumbent;
+          candidate.instagram =       userCs[c].instagram;
+          candidate.lettersyes =      userCs[c].lettersyes;
+          candidate.lettersno =       userCs[c].lettersno;
+          candidate.twitter =         userCs[c].twitter;
+          candidate.youtube =         userCs[c].youtube;
+          candidate.website =         userCs[c].website;
+          candidate.office =          userCs[c].office;
         }
         
         // handle candidates not in user set
@@ -54,6 +65,7 @@ const main = () => {
           
           candidate.image =           guideC.image;
           candidate.statement =       guideC.statement;
+          candidate.website =         guideC.website,
           
           // find candidates in PDC set to flesh out details
           if (_.findKey(pdcCs, { candidate_fullname: name })) {

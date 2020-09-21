@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import CandidateInfo from './CandidateInfo';
 import CandidateBody from './CandidateBody';
 import CandidateExcerpt from './CandidateExcerpt';
@@ -8,18 +8,7 @@ import CandidateArticles from './CandidateArticles';
 import CandidateEngagement from './CandidateEngagement';
 import CandidateDonorSummary from './CandidateDonorSummary';
 import CandidateDonorSummaryMini from './CandidateDonorSummaryMini';
-
-const usd = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0,
-});
-
-const md = new Intl.DateTimeFormat('en-US', {
-  month: 'short',
-  day: 'numeric',
-});
+import CANDIDATE from '../../graphql/CANDIDATE';
 
 const Candidate = props => {
   console.log(props);
@@ -128,87 +117,4 @@ const Candidate = props => {
 
 export default Candidate;
 
-export const pageQuery = graphql`
-  fragment OfficeDetails on OfficesJson {
-    title
-    job
-    position
-    region
-    uuid
-  }
-  fragment CandidateDetails on CandidatesJson {
-    fields {
-      slug
-      body_html
-      bio_html
-      lettersyes_html
-      lettersno_html
-      articles_html
-      engagement_html
-      statement_html
-      statement_excerpt_html
-      body_excerpt_html
-      bio_excerpt_html
-      lettersyes_html_nowrap
-      lettersno_html_nowrap
-      bio_html_nowrap
-      articles_html_nowrap
-      body_html_nowrap
-      fundraising {
-        id
-        unique_donors
-        total_raised
-        total_cash
-        total_in_kind
-        donors {
-          id
-          name
-          city
-          type
-          donations_count
-          total_donated
-          total_cash
-          total_in_kind
-          donations {
-            candidate {
-              name
-              uuid
-            }
-            donation_type
-            party
-            cash
-            detail
-            report
-            amount
-            date
-          }
-        }
-      }
-    }
-    name
-    electionyear
-    office {
-      ...OfficeDetails
-    }
-    party
-    incumbent
-    yearsin
-    image
-    statement
-    email
-    website
-    facebook
-    twitter
-    instagram
-    youtube
-    pdc_url
-    pamphlet_url
-    bio
-    lettersyes
-    lettersno
-    articles
-    engagement
-    uuid
-    hide
-  }
-`;
+export const pageQuery = CANDIDATE;

@@ -43,11 +43,16 @@ class SiteIndex extends React.Component {
             <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
             the latest updates.
           </p>
-          {/* <p><strong>Media:</strong> Please feel free to use this site for research<br/> or data analysis. Just attribute tricitiesvote.com</p> */}
+          <p>
+            <strong>Media:</strong> Please feel free to use this site for
+            research
+            <br /> reference, and data analysis. Just attribute
+            tricitiesvote.com
+          </p>
         </div>
-        {/* {guides.map(guide => (
+        {guides.map(guide => (
           <Guide data={guide} mini="true" />
-        ))} */}
+        ))}
 
         <ContactInline page="https://tricitiesvote.com" />
       </DefaultLayout>
@@ -57,6 +62,7 @@ class SiteIndex extends React.Component {
 
 export default SiteIndex;
 
+// copied from graphql/GUIDES
 export const pageQuery = graphql`
   query {
     site {
@@ -64,8 +70,7 @@ export const pageQuery = graphql`
         title
       }
     }
-
-    allGuidesJson(
+    guides: allGuidesJson(
       filter: { electionyear: { eq: "2020" }, type: { eq: "general" } }
     ) {
       edges {

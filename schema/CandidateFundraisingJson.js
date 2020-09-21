@@ -6,7 +6,7 @@ type CandidateFundraisingJson implements Node {
   total_raised:     Int
   total_cash:       Int
   total_in_kind:    Int
-  donors:           [DonorsJson] @link(by: "id", from: "donors")
+  donors:           [CandidateDonorsJson] @link(by: "id", from: "donors")
   donations:        [DonationsJson] @link
 }
 `;

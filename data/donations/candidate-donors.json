@@ -41903,5 +41903,109 @@
     "donations": [
       "baums-301-anonymous-contributions-2020-4740"
     ]
+  },
+  {
+    "id": "mullr-301-mcfee-josh",
+    "donor": "mcfee-josh",
+    "candidate": "MULLR  301",
+    "name": "Mcfee Josh",
+    "city": "Pasco",
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-mcfee-josh-2020-4741"
+    ]
+  },
+  {
+    "id": "mullr-301-vander-meulen-case",
+    "donor": "vander-meulen-case",
+    "candidate": "MULLR  301",
+    "name": "Vander Meulen Case",
+    "city": "Mesa",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-vander-meulen-case-2020-4742"
+    ]
+  },
+  {
+    "id": "mullr-301-coulee-flats-dairy",
+    "donor": "coulee-flats-dairy",
+    "candidate": "MULLR  301",
+    "name": "Coulee Flats Dairy",
+    "city": "Mesa",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-coulee-flats-dairy-2020-4743"
+    ]
+  },
+  {
+    "id": "mullr-301-ryce-jason",
+    "donor": "ryce-jason",
+    "candidate": "MULLR  301",
+    "name": "Ryce Jason",
+    "city": "Pasco",
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-ryce-jason-2020-4744"
+    ]
+  },
+  {
+    "id": "mullr-301-dockstader-allinda",
+    "donor": "dockstader-allinda",
+    "candidate": "MULLR  301",
+    "name": "Dockstader Allinda",
+    "city": "Pasco",
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-dockstader-allinda-2020-4745"
+    ]
+  },
+  {
+    "id": "mullr-301-rogers-alan",
+    "donor": "rogers-alan",
+    "candidate": "MULLR  301",
+    "name": "Rogers Alan",
+    "city": "Pasco",
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-rogers-alan-2020-4746"
+    ]
+  },
+  {
+    "id": "mullr-301-cardenas-lupe",
+    "donor": "cardenas-lupe",
+    "candidate": "MULLR  301",
+    "name": "Cardenas Lupe",
+    "city": "Pasco",
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-cardenas-lupe-2020-4747"
+    ]
+  },
+  {
+    "id": "mullr-301-hayes-rhody",
+    "donor": "hayes-rhody",
+    "candidate": "MULLR  301",
+    "name": "Hayes Rhody",
+    "city": "Mesa",
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "donations": [
+      "mullr-301-hayes-rhody-2020-4748"
+    ]
   }
 ]

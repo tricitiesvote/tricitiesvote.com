@@ -57324,5 +57324,101 @@
     "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100999685",
     "amount": 200,
     "date": 1600326000000
+  },
+  {
+    "id": "mullr-301-mcfee-josh-2020-4741",
+    "candidate": "MULLR  301",
+    "donor": "mcfee-josh",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100999707",
+    "amount": 500,
+    "date": 1600326000000
+  },
+  {
+    "id": "mullr-301-vander-meulen-case-2020-4742",
+    "candidate": "MULLR  301",
+    "donor": "vander-meulen-case",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100999707",
+    "amount": 1000,
+    "date": 1600153200000
+  },
+  {
+    "id": "mullr-301-coulee-flats-dairy-2020-4743",
+    "candidate": "MULLR  301",
+    "donor": "coulee-flats-dairy",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100999707",
+    "amount": 1000,
+    "date": 1600153200000
+  },
+  {
+    "id": "mullr-301-ryce-jason-2020-4744",
+    "candidate": "MULLR  301",
+    "donor": "ryce-jason",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100999707",
+    "amount": 100,
+    "date": 1600326000000
+  },
+  {
+    "id": "mullr-301-dockstader-allinda-2020-4745",
+    "candidate": "MULLR  301",
+    "donor": "dockstader-allinda",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100999707",
+    "amount": 250,
+    "date": 1600326000000
+  },
+  {
+    "id": "mullr-301-rogers-alan-2020-4746",
+    "candidate": "MULLR  301",
+    "donor": "rogers-alan",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100999707",
+    "amount": 200,
+    "date": 1600326000000
+  },
+  {
+    "id": "mullr-301-cardenas-lupe-2020-4747",
+    "candidate": "MULLR  301",
+    "donor": "cardenas-lupe",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100999707",
+    "amount": 100,
+    "date": 1600326000000
+  },
+  {
+    "id": "mullr-301-hayes-rhody-2020-4748",
+    "candidate": "MULLR  301",
+    "donor": "hayes-rhody",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=100999707",
+    "amount": 500,
+    "date": 1600326000000
   }
 ]
