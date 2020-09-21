@@ -65,7 +65,7 @@ const main = () => {
           
           candidate.image =           guideC.image;
           candidate.statement =       guideC.statement;
-          candidate.website =         guideC.website,
+          candidate.website =         guideC.website;
           
           // find candidates in PDC set to flesh out details
           if (_.findKey(pdcCs, { candidate_fullname: name })) {
