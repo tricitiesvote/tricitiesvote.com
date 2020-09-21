@@ -11,7 +11,7 @@ class SiteIndex extends React.Component {
   render() {
     const { data } = this.props;
     const siteTitle = data.site.siteMetadata.title;
-    const guides = data.allGuidesJson.edges;
+    const guides = data.guides.edges;
 
     return (
       <DefaultLayout

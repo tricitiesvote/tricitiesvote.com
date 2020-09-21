@@ -1,14 +1,16 @@
 {
+  "facebook": "https://www.facebook.com/reprude/",
+  "party": "Republican",
   "name": "Skyler Rude",
   "slug": "skyler-rude",
-  "website": "http://www.skylerrude.com",
-  "email": "",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=866#/candidates/60377/1532803",
-  "image": "/images/candidates/skyler-rude.jpeg",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=RUDES  504&election_year=2020",
-  "uuid": "RUDES  504",
-  "party": "Republican",
   "statement": "**Elected Experience**  \nState Representative (2019 – present); Chairman, State Committeeman, and Precinct Committee Officer for Walla Walla County Republican Party  \n  \n**Other Professional Experience**  \nLegislative Assistant serving the 16th district in the Washington State Senate (2017-18) and Washington State House of Representatives (2015-16); Insurance Agent (2009-2014); Telecommunications (2005-2009)  \n  \n**Education**  \nWalla Walla Community College, Western Governor’s University  \n  \n**Community Service**  \nWalla Walla Parks, Recreation and Urban Forestry Advisory Board; Columbia Basin College Paramedic Program Advisory Board; various voluntary legislative service including the House Bipartisan Working Group (co-founder), Joint Higher Education Committee, Community College Counselors Task Force, Legislative Nuclear Working Group, and the House Remote Testimony Task Force  \n  \n**Statement**  \nSkyler was born, raised and educated in Walla Walla County. His lifelong connection to our district, his unique experience at the Legislature, and his energy and passion for innovative ideas make him the ideal candidate to continue representing us. Skyler’s priorities include high quality educational opportunities for all Washington children, a healthy business climate that allows businesses to recover and thrive, and improved services for our most vulnerable populations. As our State Representative, Skyler’s collaborative approach has helped ensure our communities and families have a seat at the table when decisions are made in Olympia.",
   "electionyear": "2020",
-  "office": "State Representative"
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=865#/candidates/57300/45475",
+  "lettersyes": "[Skyler Rude’s endorsement page](https://www.skylerrude.com/copy-of-endorsements)",
+  "website": "http://www.skylerrude.com",
+  "image": "/images/candidates/skyler-rude.jpeg",
+  "uuid": "RUDES  504",
+  "office": "State Representative",
+  "email": "",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=RUDES  504&election_year=2020"
 }
