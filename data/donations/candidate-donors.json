@@ -3632,11 +3632,12 @@
     "candidate": "DOZIP  361",
     "name": "Harwood Donald",
     "city": "Walla Walla",
-    "total_donated": 50,
-    "total_cash": 50,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "donations": [
-      "dozip-361-harwood-donald-2020-268"
+      "dozip-361-harwood-donald-2020-268",
+      "dozip-361-harwood-donald-2020-4772"
     ]
   },
   {
@@ -5010,11 +5011,12 @@
     "candidate": "RAFFJ--352",
     "name": "Murphy Hines Corinne",
     "city": "Selah",
-    "total_donated": 50,
-    "total_cash": 50,
+    "total_donated": 75,
+    "total_cash": 75,
     "total_in_kind": 0,
     "donations": [
-      "raffj-352-murphy-hines-corinne-2020-369"
+      "raffj-352-murphy-hines-corinne-2020-369",
+      "raffj-352-murphy-hines-corinne-2020-4752"
     ]
   },
   {
@@ -5548,11 +5550,12 @@
     "candidate": "DOZIP  361",
     "name": "Conover Larry",
     "city": "Waitsburg",
-    "total_donated": 100,
-    "total_cash": 100,
+    "total_donated": 250,
+    "total_cash": 250,
     "total_in_kind": 0,
     "donations": [
-      "dozip-361-conover-larry-2020-408"
+      "dozip-361-conover-larry-2020-408",
+      "dozip-361-conover-larry-2020-4769"
     ]
   },
   {
@@ -7042,11 +7045,12 @@
     "candidate": "DOZIP  361",
     "name": "Buckley Mike",
     "city": "Walla Walla",
-    "total_donated": 125,
-    "total_cash": 125,
+    "total_donated": 250,
+    "total_cash": 250,
     "total_in_kind": 0,
     "donations": [
-      "dozip-361-buckley-mike-2020-525"
+      "dozip-361-buckley-mike-2020-525",
+      "dozip-361-buckley-mike-2020-4766"
     ]
   },
   {
@@ -7055,11 +7059,12 @@
     "candidate": "DOZIP  361",
     "name": "Buckley Sandra",
     "city": "Walla Walla",
-    "total_donated": 125,
-    "total_cash": 125,
+    "total_donated": 250,
+    "total_cash": 250,
     "total_in_kind": 0,
     "donations": [
-      "dozip-361-buckley-sandra-2020-526"
+      "dozip-361-buckley-sandra-2020-526",
+      "dozip-361-buckley-sandra-2020-4767"
     ]
   },
   {
@@ -12822,11 +12827,12 @@
     "candidate": "DOZIP  361",
     "name": "Danforth Barbara",
     "city": "Walla Walla",
-    "total_donated": 100,
-    "total_cash": 100,
+    "total_donated": 200,
+    "total_cash": 200,
     "total_in_kind": 0,
     "donations": [
-      "dozip-361-danforth-barbara-2020-1028"
+      "dozip-361-danforth-barbara-2020-1028",
+      "dozip-361-danforth-barbara-2020-4763"
     ]
   },
   {
@@ -20841,11 +20847,12 @@
     "candidate": "RAFFJ--352",
     "name": "Bowers Tanya",
     "city": "Pasco",
-    "total_donated": 100,
-    "total_cash": 100,
+    "total_donated": 200,
+    "total_cash": 200,
     "total_in_kind": 0,
     "donations": [
-      "raffj-352-bowers-tanya-2020-1890"
+      "raffj-352-bowers-tanya-2020-1890",
+      "raffj-352-bowers-tanya-2020-4758"
     ]
   },
   {
@@ -20880,13 +20887,14 @@
     "candidate": "RAFFJ--352",
     "name": "Buckner Rosanna",
     "city": "Coulee City",
-    "total_donated": 150,
-    "total_cash": 150,
+    "total_donated": 175,
+    "total_cash": 175,
     "total_in_kind": 0,
     "donations": [
       "raffj-352-buckner-rosanna-2020-1893",
       "raffj-352-buckner-rosanna-2020-4148",
-      "raffj-352-buckner-rosanna-2020-4274"
+      "raffj-352-buckner-rosanna-2020-4274",
+      "raffj-352-buckner-rosanna-2020-4757"
     ]
   },
   {
@@ -21234,11 +21242,12 @@
     "candidate": "RAFFJ--352",
     "name": "Burdick Boyce Dr",
     "city": "Richland",
-    "total_donated": 500,
-    "total_cash": 500,
+    "total_donated": 1000,
+    "total_cash": 1000,
     "total_in_kind": 0,
     "donations": [
-      "raffj-352-burdick-boyce-dr-2020-1919"
+      "raffj-352-burdick-boyce-dr-2020-1919",
+      "raffj-352-burdick-boyce-dr-2020-4755"
     ]
   },
   {
@@ -24771,11 +24780,12 @@
     "candidate": "RAFFJ--352",
     "name": "Mehard J Howard",
     "city": "Vancouver",
-    "total_donated": 200,
-    "total_cash": 200,
+    "total_donated": 250,
+    "total_cash": 250,
     "total_in_kind": 0,
     "donations": [
-      "raffj-352-mehard-j-howard-2020-2267"
+      "raffj-352-mehard-j-howard-2020-2267",
+      "raffj-352-mehard-j-howard-2020-4759"
     ]
   },
   {
@@ -24784,11 +24794,12 @@
     "candidate": "RAFFJ--352",
     "name": "Mehard Karen",
     "city": "Vancouver",
-    "total_donated": 200,
-    "total_cash": 200,
+    "total_donated": 250,
+    "total_cash": 250,
     "total_in_kind": 0,
     "donations": [
-      "raffj-352-mehard-karen-2020-2268"
+      "raffj-352-mehard-karen-2020-2268",
+      "raffj-352-mehard-karen-2020-4760"
     ]
   },
   {
@@ -26809,11 +26820,12 @@
     "candidate": "DOZIP  361",
     "name": "Kimball Gale",
     "city": "Walla Walla",
-    "total_donated": 100,
-    "total_cash": 100,
+    "total_donated": 400,
+    "total_cash": 400,
     "total_in_kind": 0,
     "donations": [
-      "dozip-361-kimball-gale-2020-2475"
+      "dozip-361-kimball-gale-2020-2475",
+      "dozip-361-kimball-gale-2020-4774"
     ]
   },
   {
@@ -33197,11 +33209,12 @@
     "candidate": "DOZIP  361",
     "name": "Hamilton Jory",
     "city": "Kirland",
-    "total_donated": 100,
-    "total_cash": 100,
+    "total_donated": 200,
+    "total_cash": 200,
     "total_in_kind": 0,
     "donations": [
-      "dozip-361-hamilton-jory-2020-3323"
+      "dozip-361-hamilton-jory-2020-3323",
+      "dozip-361-hamilton-jory-2020-4762"
     ]
   },
   {
@@ -36853,11 +36866,12 @@
     "candidate": "RAFFJ--352",
     "name": "Jecha Larry",
     "city": "Richland",
-    "total_donated": 50,
-    "total_cash": 50,
+    "total_donated": 150,
+    "total_cash": 150,
     "total_in_kind": 0,
     "donations": [
-      "raffj-352-jecha-larry-2020-3788"
+      "raffj-352-jecha-larry-2020-3788",
+      "raffj-352-jecha-larry-2020-4750"
     ]
   },
   {
@@ -36866,11 +36880,12 @@
     "candidate": "RAFFJ--352",
     "name": "Jecha Mary",
     "city": "Richland",
-    "total_donated": 50,
-    "total_cash": 50,
+    "total_donated": 150,
+    "total_cash": 150,
     "total_in_kind": 0,
     "donations": [
-      "raffj-352-jecha-mary-2020-3789"
+      "raffj-352-jecha-mary-2020-3789",
+      "raffj-352-jecha-mary-2020-4751"
     ]
   },
   {
@@ -41609,12 +41624,13 @@
     "candidate": "RAFFJ--352",
     "name": "Anonymous Contributions",
     "city": "",
-    "total_donated": 59,
-    "total_cash": 59,
+    "total_donated": 159,
+    "total_cash": 159,
     "total_in_kind": 0,
     "donations": [
       "raffj-352-anonymous-contributions-2020-4660",
-      "raffj-352-anonymous-contributions-2020-4686"
+      "raffj-352-anonymous-contributions-2020-4686",
+      "raffj-352-anonymous-contributions-2020-4749"
     ]
   },
   {
@@ -42006,6 +42022,201 @@
     "total_in_kind": 0,
     "donations": [
       "mullr-301-hayes-rhody-2020-4748"
+    ]
+  },
+  {
+    "id": "raffj-352-doyle-anne",
+    "donor": "doyle-anne",
+    "candidate": "RAFFJ--352",
+    "name": "Doyle Anne",
+    "city": "Kennewick",
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "donations": [
+      "raffj-352-doyle-anne-2020-4753"
+    ]
+  },
+  {
+    "id": "raffj-352-sue-frost-dba-rickey-land-cattle-company",
+    "donor": "sue-frost-dba-rickey-land-cattle-company",
+    "candidate": "RAFFJ--352",
+    "name": "Sue Frost Dba Rickey Land Cattle Company",
+    "city": "Kennewick",
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "donations": [
+      "raffj-352-sue-frost-dba-rickey-land-cattle-company-2020-4754"
+    ]
+  },
+  {
+    "id": "raffj-352-international-union-of-operating-engineers-local-302",
+    "donor": "international-union-of-operating-engineers-local-302",
+    "candidate": "RAFFJ--352",
+    "name": "International Union Of Operating Engineers Local 302",
+    "city": "Bothell",
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "donations": [
+      "raffj-352-international-union-of-operating-engineers-local-302-2020-4756"
+    ]
+  },
+  {
+    "id": "raffj-352-solomon-oblath-noah",
+    "donor": "solomon-oblath-noah",
+    "candidate": "RAFFJ--352",
+    "name": "Solomon Oblath Noah",
+    "city": "Richland",
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "donations": [
+      "raffj-352-solomon-oblath-noah-2020-4761"
+    ]
+  },
+  {
+    "id": "dozip-361-hamada-alan",
+    "donor": "hamada-alan",
+    "candidate": "DOZIP  361",
+    "name": "Hamada Alan",
+    "city": "Touchet",
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-hamada-alan-2020-4764"
+    ]
+  },
+  {
+    "id": "dozip-361-hamada-debbie",
+    "donor": "hamada-debbie",
+    "candidate": "DOZIP  361",
+    "name": "Hamada Debbie",
+    "city": "Touchet",
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-hamada-debbie-2020-4765"
+    ]
+  },
+  {
+    "id": "dozip-361-mcgregor-linda",
+    "donor": "mcgregor-linda",
+    "candidate": "DOZIP  361",
+    "name": "Mcgregor Linda",
+    "city": "Pullman",
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-mcgregor-linda-2020-4768"
+    ]
+  },
+  {
+    "id": "dozip-361-nw-dairymens-political-education-committee",
+    "donor": "nw-dairymens-political-education-committee",
+    "candidate": "DOZIP  361",
+    "name": "Nw Dairymens Political Education Committee",
+    "city": "Seattle",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-nw-dairymens-political-education-committee-2020-4770"
+    ]
+  },
+  {
+    "id": "dozip-361-naiop-washington-state-pac",
+    "donor": "naiop-washington-state-pac",
+    "candidate": "DOZIP  361",
+    "name": "Naiop Washington State Pac",
+    "city": "Seattle",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-naiop-washington-state-pac-2020-4771"
+    ]
+  },
+  {
+    "id": "dozip-361-grape-pac",
+    "donor": "grape-pac",
+    "candidate": "DOZIP  361",
+    "name": "Grape Pac",
+    "city": "Cashmere",
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-grape-pac-2020-4773"
+    ]
+  },
+  {
+    "id": "dozip-361-mcgregor-alexander",
+    "donor": "mcgregor-alexander",
+    "candidate": "DOZIP  361",
+    "name": "Mcgregor Alexander",
+    "city": "Pullman",
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-mcgregor-alexander-2020-4775"
+    ]
+  },
+  {
+    "id": "baums-301-air-trac-inc",
+    "donor": "air-trac-inc",
+    "candidate": "BAUMS--301",
+    "name": "Air Trac Inc",
+    "city": "Pasco",
+    "total_donated": 300,
+    "total_cash": 300,
+    "total_in_kind": 0,
+    "donations": [
+      "baums-301-air-trac-inc-2020-4776"
+    ]
+  },
+  {
+    "id": "peted-338-daly-john",
+    "donor": "daly-john",
+    "candidate": "PETED  338",
+    "name": "Daly John",
+    "city": "Richland",
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "donations": [
+      "peted-338-daly-john-2020-4777"
+    ]
+  },
+  {
+    "id": "peted-338-docken-curt",
+    "donor": "docken-curt",
+    "candidate": "PETED  338",
+    "name": "Docken Curt",
+    "city": "Olympia",
+    "total_donated": 37,
+    "total_cash": 37,
+    "total_in_kind": 0,
+    "donations": [
+      "peted-338-docken-curt-2020-4778"
+    ]
+  },
+  {
+    "id": "peted-338-docken-lonetta",
+    "donor": "docken-lonetta",
+    "candidate": "PETED  338",
+    "name": "Docken Lonetta",
+    "city": "Olympia",
+    "total_donated": 37,
+    "total_cash": 37,
+    "total_in_kind": 0,
+    "donations": [
+      "peted-338-docken-lonetta-2020-4779"
     ]
   }
 ]

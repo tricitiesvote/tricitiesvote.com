@@ -400,9 +400,9 @@
   {
     "id": "dozip-361-funding",
     "candidate": "DOZIP  361",
-    "unique_donors": 313,
-    "total_raised": 80520,
-    "total_cash": 78770,
+    "unique_donors": 327,
+    "total_raised": 84570,
+    "total_cash": 82820,
     "total_in_kind": 1750,
     "donors": [
       "dozip-361-czebotar-jerry",
@@ -660,7 +660,14 @@
       "dozip-361-the-boeing-company-pac",
       "dozip-361-lampson-kate",
       "dozip-361-nims-daniel",
-      "dozip-361-small-contributions"
+      "dozip-361-small-contributions",
+      "dozip-361-hamada-alan",
+      "dozip-361-hamada-debbie",
+      "dozip-361-mcgregor-linda",
+      "dozip-361-nw-dairymens-political-education-committee",
+      "dozip-361-naiop-washington-state-pac",
+      "dozip-361-grape-pac",
+      "dozip-361-mcgregor-alexander"
     ],
     "donations": [
       "dozip-361-czebotar-jerry-2020-11",
@@ -975,7 +982,21 @@
       "dozip-361-small-contributions-2020-4632",
       "dozip-361-small-contributions-2020-4636",
       "dozip-361-small-contributions-2020-4666",
-      "dozip-361-small-contributions-2020-4695"
+      "dozip-361-small-contributions-2020-4695",
+      "dozip-361-hamilton-jory-2020-4762",
+      "dozip-361-danforth-barbara-2020-4763",
+      "dozip-361-hamada-alan-2020-4764",
+      "dozip-361-hamada-debbie-2020-4765",
+      "dozip-361-buckley-mike-2020-4766",
+      "dozip-361-buckley-sandra-2020-4767",
+      "dozip-361-mcgregor-linda-2020-4768",
+      "dozip-361-conover-larry-2020-4769",
+      "dozip-361-nw-dairymens-political-education-committee-2020-4770",
+      "dozip-361-naiop-washington-state-pac-2020-4771",
+      "dozip-361-harwood-donald-2020-4772",
+      "dozip-361-grape-pac-2020-4773",
+      "dozip-361-kimball-gale-2020-4774",
+      "dozip-361-mcgregor-alexander-2020-4775"
     ]
   },
   {
@@ -5322,9 +5343,9 @@
   {
     "id": "raffj-352-funding",
     "candidate": "RAFFJ--352",
-    "unique_donors": 411,
-    "total_raised": 52839,
-    "total_cash": 51162,
+    "unique_donors": 424,
+    "total_raised": 55039,
+    "total_cash": 53362,
     "total_in_kind": 1677,
     "donors": [
       "raffj-352-wiley-steven",
@@ -5645,7 +5666,11 @@
       "raffj-352-stipe-edward",
       "raffj-352-wright-kenny",
       "raffj-352-fulton-susie",
-      "raffj-352-laborers-local-348-ssf"
+      "raffj-352-laborers-local-348-ssf",
+      "raffj-352-doyle-anne",
+      "raffj-352-sue-frost-dba-rickey-land-cattle-company",
+      "raffj-352-international-union-of-operating-engineers-local-302",
+      "raffj-352-solomon-oblath-noah"
     ],
     "donations": [
       "raffj-352-wiley-steven-2020-329",
@@ -6058,7 +6083,20 @@
       "raffj-352-fulton-susie-2020-4731",
       "raffj-352-beary-mickey-2020-4732",
       "raffj-352-ledbetter-timothy-2020-4733",
-      "raffj-352-laborers-local-348-ssf-2020-4734"
+      "raffj-352-laborers-local-348-ssf-2020-4734",
+      "raffj-352-anonymous-contributions-2020-4749",
+      "raffj-352-jecha-larry-2020-4750",
+      "raffj-352-jecha-mary-2020-4751",
+      "raffj-352-murphy-hines-corinne-2020-4752",
+      "raffj-352-doyle-anne-2020-4753",
+      "raffj-352-sue-frost-dba-rickey-land-cattle-company-2020-4754",
+      "raffj-352-burdick-boyce-dr-2020-4755",
+      "raffj-352-international-union-of-operating-engineers-local-302-2020-4756",
+      "raffj-352-buckner-rosanna-2020-4757",
+      "raffj-352-bowers-tanya-2020-4758",
+      "raffj-352-mehard-j-howard-2020-4759",
+      "raffj-352-mehard-karen-2020-4760",
+      "raffj-352-solomon-oblath-noah-2020-4761"
     ]
   },
   {
@@ -7045,9 +7083,9 @@
   {
     "id": "peted-338-funding",
     "candidate": "PETED  338",
-    "unique_donors": 96,
-    "total_raised": 27375,
-    "total_cash": 25135,
+    "unique_donors": 99,
+    "total_raised": 27549,
+    "total_cash": 25309,
     "total_in_kind": 2240,
     "donors": [
       "peted-338-petersen-david",
@@ -7136,7 +7174,10 @@
       "peted-338-dunlap-bryan",
       "peted-338-mcpartland-bryce",
       "peted-338-dave-l-petersen-dave-petersen",
-      "peted-338-small-contributions"
+      "peted-338-small-contributions",
+      "peted-338-daly-john",
+      "peted-338-docken-curt",
+      "peted-338-docken-lonetta"
     ],
     "donations": [
       "peted-338-petersen-david-2020-1077",
@@ -7234,7 +7275,10 @@
       "peted-338-dave-l-petersen-dave-petersen-2020-4531",
       "peted-338-small-contributions-2020-4532",
       "peted-338-small-contributions-2020-4618",
-      "peted-338-small-contributions-2020-4623"
+      "peted-338-small-contributions-2020-4623",
+      "peted-338-daly-john-2020-4777",
+      "peted-338-docken-curt-2020-4778",
+      "peted-338-docken-lonetta-2020-4779"
     ]
   },
   {
@@ -8143,9 +8187,9 @@
   {
     "id": "baums-301-funding",
     "candidate": "BAUMS--301",
-    "unique_donors": 12,
-    "total_raised": 4750,
-    "total_cash": 4750,
+    "unique_donors": 13,
+    "total_raised": 5050,
+    "total_cash": 5050,
     "total_in_kind": 0,
     "donors": [
       "baums-301-coulee-flats-dairy-llc",
@@ -8159,7 +8203,8 @@
       "baums-301-peters-amy-ms",
       "baums-301-peters-trenton-mr",
       "baums-301-hayes-farms",
-      "baums-301-anonymous-contributions"
+      "baums-301-anonymous-contributions",
+      "baums-301-air-trac-inc"
     ],
     "donations": [
       "baums-301-coulee-flats-dairy-llc-2020-2356",
@@ -8173,7 +8218,8 @@
       "baums-301-peters-amy-ms-2020-4737",
       "baums-301-peters-trenton-mr-2020-4738",
       "baums-301-hayes-farms-2020-4739",
-      "baums-301-anonymous-contributions-2020-4740"
+      "baums-301-anonymous-contributions-2020-4740",
+      "baums-301-air-trac-inc-2020-4776"
     ]
   },
   {

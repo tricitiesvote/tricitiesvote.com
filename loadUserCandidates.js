@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = () => {
-  const candidatePath = 'data/candidates';
+  const candidatePath = 'data/candidates/';
   const candidateFiles = fs.readdirSync(candidatePath);
   const userCandidates = [];
 

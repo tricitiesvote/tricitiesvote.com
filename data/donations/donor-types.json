@@ -193,8 +193,8 @@
     "id": "dozip-361-individual",
     "candidate": "DOZIP  361",
     "donor_type": "Individual",
-    "total_donated": 48515,
-    "total_cash": 48515,
+    "total_donated": 50065,
+    "total_cash": 50065,
     "total_in_kind": 0,
     "donations": [
       "dozip-361-czebotar-jerry-2020-11",
@@ -449,7 +449,18 @@
       "dozip-361-carlen-diana-2020-4250",
       "dozip-361-mercer-robert-2020-4256",
       "dozip-361-lampson-kate-2020-4265",
-      "dozip-361-nims-daniel-2020-4266"
+      "dozip-361-nims-daniel-2020-4266",
+      "dozip-361-hamilton-jory-2020-4762",
+      "dozip-361-danforth-barbara-2020-4763",
+      "dozip-361-hamada-alan-2020-4764",
+      "dozip-361-hamada-debbie-2020-4765",
+      "dozip-361-buckley-mike-2020-4766",
+      "dozip-361-buckley-sandra-2020-4767",
+      "dozip-361-mcgregor-linda-2020-4768",
+      "dozip-361-conover-larry-2020-4769",
+      "dozip-361-harwood-donald-2020-4772",
+      "dozip-361-kimball-gale-2020-4774",
+      "dozip-361-mcgregor-alexander-2020-4775"
     ]
   },
   {
@@ -3134,8 +3145,8 @@
     "id": "raffj-352-individual",
     "candidate": "RAFFJ--352",
     "donor_type": "Individual",
-    "total_donated": 47398,
-    "total_cash": 47353,
+    "total_donated": 48498,
+    "total_cash": 48453,
     "total_in_kind": 45,
     "donations": [
       "raffj-352-wiley-steven-2020-329",
@@ -3538,7 +3549,17 @@
       "raffj-352-wright-kenny-2020-4730",
       "raffj-352-fulton-susie-2020-4731",
       "raffj-352-beary-mickey-2020-4732",
-      "raffj-352-ledbetter-timothy-2020-4733"
+      "raffj-352-ledbetter-timothy-2020-4733",
+      "raffj-352-jecha-larry-2020-4750",
+      "raffj-352-jecha-mary-2020-4751",
+      "raffj-352-murphy-hines-corinne-2020-4752",
+      "raffj-352-doyle-anne-2020-4753",
+      "raffj-352-burdick-boyce-dr-2020-4755",
+      "raffj-352-buckner-rosanna-2020-4757",
+      "raffj-352-bowers-tanya-2020-4758",
+      "raffj-352-mehard-j-howard-2020-4759",
+      "raffj-352-mehard-karen-2020-4760",
+      "raffj-352-solomon-oblath-noah-2020-4761"
     ]
   },
   {
@@ -4289,8 +4310,8 @@
     "id": "peted-338-individual",
     "candidate": "PETED  338",
     "donor_type": "Individual",
-    "total_donated": 23376,
-    "total_cash": 21150,
+    "total_donated": 23550,
+    "total_cash": 21324,
     "total_in_kind": 2226,
     "donations": [
       "peted-338-petersen-david-2020-1077",
@@ -4377,7 +4398,10 @@
       "peted-338-becker-jen-2020-4284",
       "peted-338-ratcliffe-justin-2020-4301",
       "peted-338-dunlap-bryan-2020-4307",
-      "peted-338-mcpartland-bryce-2020-4308"
+      "peted-338-mcpartland-bryce-2020-4308",
+      "peted-338-daly-john-2020-4777",
+      "peted-338-docken-curt-2020-4778",
+      "peted-338-docken-lonetta-2020-4779"
     ]
   },
   {
@@ -5000,8 +5024,8 @@
     "id": "dozip-361-political-action-committee",
     "candidate": "DOZIP  361",
     "donor_type": "Political Action Committee",
-    "total_donated": 18250,
-    "total_cash": 18250,
+    "total_donated": 20750,
+    "total_cash": 20750,
     "total_in_kind": 0,
     "donations": [
       "dozip-361-washington-assocation-of-realtors-political-affairs-council-2020-2056",
@@ -5024,7 +5048,10 @@
       "dozip-361-far-west-agribusiness-assoc-2020-4238",
       "dozip-361-washington-medical-political-action-cmte-2020-4240",
       "dozip-361-consumer-fireworks-safety-asn-2020-4254",
-      "dozip-361-the-boeing-company-pac-2020-4264"
+      "dozip-361-the-boeing-company-pac-2020-4264",
+      "dozip-361-nw-dairymens-political-education-committee-2020-4770",
+      "dozip-361-naiop-washington-state-pac-2020-4771",
+      "dozip-361-grape-pac-2020-4773"
     ]
   },
   {
@@ -5284,13 +5311,14 @@
     "id": "raffj-352-political-action-committee",
     "candidate": "RAFFJ--352",
     "donor_type": "Political Action Committee",
-    "total_donated": 2500,
-    "total_cash": 2500,
+    "total_donated": 3000,
+    "total_cash": 3000,
     "total_in_kind": 0,
     "donations": [
       "raffj-352-ibew-local-union-112-pac-2020-2800",
       "raffj-352-plumbers-steamfitters-local-union-598-political-action-committee-2020-4296",
-      "raffj-352-laborers-local-348-ssf-2020-4734"
+      "raffj-352-laborers-local-348-ssf-2020-4734",
+      "raffj-352-international-union-of-operating-engineers-local-302-2020-4756"
     ]
   },
   {
@@ -5576,14 +5604,15 @@
     "id": "raffj-352-other",
     "candidate": "RAFFJ--352",
     "donor_type": "Other",
-    "total_donated": 59,
-    "total_cash": 59,
+    "total_donated": 159,
+    "total_cash": 159,
     "total_in_kind": 0,
     "donations": [
       "raffj-352-correction-to-contributions-2020-4434",
       "raffj-352-justin-j-raffa-justin-raffa-2020-4616",
       "raffj-352-anonymous-contributions-2020-4660",
-      "raffj-352-anonymous-contributions-2020-4686"
+      "raffj-352-anonymous-contributions-2020-4686",
+      "raffj-352-anonymous-contributions-2020-4749"
     ]
   },
   {
@@ -5876,6 +5905,28 @@
     "donations": [
       "baums-301-stephen-bauman-2020-4710",
       "baums-301-anonymous-contributions-2020-4740"
+    ]
+  },
+  {
+    "id": "raffj-352-business",
+    "candidate": "RAFFJ--352",
+    "donor_type": "Business",
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "donations": [
+      "raffj-352-sue-frost-dba-rickey-land-cattle-company-2020-4754"
+    ]
+  },
+  {
+    "id": "baums-301-political-action-committee",
+    "candidate": "BAUMS--301",
+    "donor_type": "Political Action Committee",
+    "total_donated": 300,
+    "total_cash": 300,
+    "total_in_kind": 0,
+    "donations": [
+      "baums-301-air-trac-inc-2020-4776"
     ]
   }
 ]

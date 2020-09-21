@@ -37,6 +37,7 @@ const main = () => {
         
         // if candidate is in the user set
         if (_.findKey(userCs, { name })) {
+          console.log('user match')
           const c = _.findKey(userCs, { name });
           candidate.image =           userCs[c].image;
           candidate.pdc_url =         userCs[c].pdc_url;
@@ -53,14 +54,17 @@ const main = () => {
           candidate.instagram =       userCs[c].instagram;
           candidate.lettersyes =      userCs[c].lettersyes;
           candidate.lettersno =       userCs[c].lettersno;
+          candidate.facebook =        userCs[c].facebook;
           candidate.twitter =         userCs[c].twitter;
           candidate.youtube =         userCs[c].youtube;
           candidate.website =         userCs[c].website;
           candidate.office =          userCs[c].office;
+          // console.log(candidate);
         }
         
         // handle candidates not in user set
         if (!_.findKey(userCs, { name })) {
+          console.log('no match');
           const c = _.findKey(userCs, { name });
           
           candidate.image =           guideC.image;
@@ -97,7 +101,7 @@ const main = () => {
     mergeCandidate.then(candidates => {
       for (const item of candidates) {
         const candidateData = JSON.stringify(item, null, 2);
-        const filePath = `data/candidates/${item.electionyear}-${item.slug}.json`
+        const filePath = `data/candidates-new/${item.electionyear}-${item.slug}.json`
         fs.writeFileSync(filePath, candidateData);
         console.log((chalk.green('💾', filePath)));
       }
