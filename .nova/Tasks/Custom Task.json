@@ -1,0 +1,15 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "npm install"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "cd tricitiesvote.com\nnpm start"
+    }
+  },
+  "identifier" : "A7BA5B0E-DC1E-4B9B-981B-A29C72A2FE3D",
+  "openLogOnRun" : "start",
+  "persistent" : true
+}
