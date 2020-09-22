@@ -1,14 +1,16 @@
 {
+  "party": "",
   "name": "Dan Newhouse",
   "slug": "dan-newhouse",
-  "email": "Dan@DanNewhouse.com",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=866#/candidates/60262/1532733",
-  "image": "/images/candidates/dan-newhouse-original.png",
-  "pdc_url": "",
-  "uuid": "NEWHOUSE",
-  "party": "",
+  "donors": "Reported raised $782,280.27",
+  "pdc": "https://www.fec.gov/data/candidate/H4WA04104/?cycle=2020",
   "statement": "**Elected Experience**  \nCentral Washington’s Representative in Congress since 2015. Washington State House of Representatives 2003-2009.\n\n**Other Professional Experience**  \nWashington State Department of Agriculture Director, 2009-2013. Operates a 750-acre farm near Sunnyside where he grows hops, tree fruit, grapes, and alfalfa.\n\n**Education**  \nBachelor of Science, Agricultural Economics, Washington State University. Graduate of the AgForestry Leadership Program.\n\n**Community Service  \n**Past President, Hop Growers of America, Hop Growers of Washington, and Yakima County Farm Bureau. Former member of the Columbia River Task Force and Central Washington Fair Board. Current NRA member.\n\n**Statement**  \nDan Newhouse is a champion for us in Congress. He solves problems and stands up against reckless spending. True to his word, the first bill Dan signed onto in Congress was a Constitutional Balanced Budget Amendment. Newhouse pushes government to live within its means and cuts red tape so jobs can grow. When COVID-19 hit our nation, Newhouse fought for resources for health care providers, job creators, and small businesses, while holding China accountable for its deception.\n\nA third-generation family farmer, Dan understands agriculture is the backbone of our economy. He recognizes the best land-use decisions come from local leaders and landowners, not federal bureaucrats.\n\nNewhouse knows the issues that make Central Washington unique. He's keeping the Federal government accountable to clean up Hanford. He’s an expert on water issues and is making the Yakima and Columbia Basin Projects a reality. He's advancing forest management to reduce risk of wildfires, and he’s protecting our clean, renewable hydropower to ensure dams and salmon can continue to coexist.\n\nDan votes to ensure health care is accessible, affordable, and decisions are between a patient and doctor. Newhouse is a champion for our veterans. He wrote the law to make sure no veteran is ever denied emergency medical care.\n\nTo seniors: Dan will protect Social Security. You paid into the system, and Newhouse will help ensure the government keeps its promise to you.\n\nMost candidates say the right things, but Dan Newhouse has a proven track record backing up his words. He's been commended by business groups, Second Amendment supporters, pro-life organizations, and land rights advocates for his commitment to pro-jobs policies, traditional values, and individual liberty. He brings conservative Central Washington values to Washington, DC. Please vote to keep Republican Dan Newhouse working for us in Congress.",
   "electionyear": "2020",
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=866#/candidates/60262/1532733",
+  "website": "http://www.dannewhouse.com",
+  "image": "/images/candidates/dan-newhouse-original.png",
+  "uuid": "NEWHOUSE",
   "office": "",
-  "website": "http://www.dannewhouse.com"
+  "email": "Dan@DanNewhouse.com",
+  "pdc_url": ""
 }
