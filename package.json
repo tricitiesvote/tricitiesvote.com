@@ -41,7 +41,8 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "load": "node loadCandidates",
-    "donors": "node loadDonors"
+    "pdc": "node loadDonorsPDC",
+    "fec": "node loadDonorsFEC"
   },
   "dependencies": {
     "@babel/core": "^7.11.6",
