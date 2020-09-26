@@ -14,8 +14,7 @@ exports.createSchemaCustomization = helpers => {
   const { createTypes } = actions;
   try {
     createTypes(SchemaCustomization);
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
   }
 };
@@ -35,7 +34,6 @@ exports.createPages = async ({
   const allCandidates = results.data.candidates.edges;
   const allGuides = results.data.guides.edges;
   const allRaces = results.data.races.edges;
-  const allNotes = results.data.notes.edges;
 
   allCandidates.forEach(candidate => {
     createPage({
@@ -43,16 +41,6 @@ exports.createPages = async ({
       component: path.resolve('./src/templates/CandidatePage.js'),
       context: {
         slug: candidate.node.fields.slug,
-      },
-    });
-  });
-
-  allNotes.forEach(note => {
-    createPage({
-      path: `/${note.node.candidate.fields.slug}/notes`,
-      component: path.resolve('./src/templates/NotesPage.js'),
-      context: {
-        slug: note.node.candidate.fields.slug,
       },
     });
   });

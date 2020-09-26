@@ -6,6 +6,24 @@ require("dotenv").config({ path: `.env` });
 console.log(process.env.FEC_API_KEY);
 // 
 // // https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye/data
+
+
+function _requestForOffset(path, offset) {
+     return superagent.get(`https://api.example.com/${path}`).query({offset});
+}
+
+async function getAllPages() {
+    const limit = 50;
+    let offset = 0, total;
+    do {
+        const response = await _requestForOffset("listings/active", offset);
+        total = response.body.total;
+        offset += limit;
+    } 
+    while(offset < total);
+}
+
+
 // const consumer = new soda.Consumer('data.wa.gov');
 // 
 // const donations = [];

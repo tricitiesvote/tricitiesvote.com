@@ -1,6 +1,5 @@
 const OfficesJson = `
 type OfficesJson implements Node {
-  fields:           Fields
   title:            String
   job:              String
   position:         String

@@ -72,6 +72,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/data/compare`,
+        name: `compare`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/assets`,
         name: `assets`,
       },
@@ -124,6 +131,7 @@ module.exports = {
         htmlTitle: 'vote.triciti.es admin',
       },
     },
+    `gatsby-transformer-csv`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
