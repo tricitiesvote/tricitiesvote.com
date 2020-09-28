@@ -37,6 +37,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/data/compare`,
+        name: `compare`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/data/donations/candidate-fundraising.json`,
         name: `candidateFundraising`,
       },
@@ -67,13 +74,6 @@ module.exports = {
       options: {
         path: `${__dirname}/data/donations/donations.json`,
         name: `donations`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/data/compare`,
-        name: `compare`,
       },
     },
     {
