@@ -1,0 +1,11 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "cd ~\/dev\/tricitiesvote.com\nnpm start"
+    }
+  },
+  "identifier" : "AA799E38-B902-45D5-A06B-73F92BC9CF1E",
+  "openLogOnRun" : "start",
+  "persistent" : true
+}
