@@ -24,7 +24,11 @@ exports.createPages = async ({
   graphql,
   reporter,
 }) => {
-  const results = await graphql(GraphQLSchema);
+  try {
+    const results = await graphql(GraphQLSchema);
+  } catch (error) {
+    console.log(error);
+  }
 
   if (results.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
