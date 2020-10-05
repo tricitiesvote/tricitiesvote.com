@@ -1,16 +1,17 @@
 {
+  "facebook": "https://www.facebook.com/shir.regev",
+  "party": "Democrat",
   "name": "Shir Regev",
   "slug": "shir-regev",
-  "email": "shir@atthetablewithshir.com",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=866#/candidates/60476/1532995",
-  "image": "/images/candidates/shir-regev.jpeg",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=REGES  354&election_year=2020",
-  "uuid": "REGES  354",
-  "party": "Democrat",
   "statement": "**Elected Experience**  \nNone\n\n**Other Professional Experience**  \nSenior Health Physics Technician (Hanford, HAMTC), United States Navy (Electronics Technician Second Class/Surface Warfare, Operation Enduring Freedom), United States Peace Corps (Regional Youth Officer, Kunene North Region, Namibia).\n\n**Education**  \nKamiakin High school 1992; Washington State University 1994 BA Foreign Languages and Literature (Cum Laude)\n\n**Community Service**  \nVolunteer 2nd Harvest Tri-Cities, Volunteer/Director at various runs (Camp Patriot Fourth of July Run, Badger Mountain Challenge, and Columbia River Classic), Certified Jewish Lay Religious Leader, and Volunteer Love Army Tri-Cities.\n\n**Statement**  \nI believe that we are all Washington. This means we deserve to go through life unafraid, that it’s our right to be treated fairly, and respected. This means we believe in the value of all work, whether it’s behind the desk, behind the register, or at the packing plant. We all deserve a living wage which keeps us sheltered, fed and secure. This means we believe in affordable healthcare for all. This means we believe in science and education. We believe real progress leaves no one behind and know we are stronger together. If you agree, vote for Shir Regev.",
   "electionyear": "2020",
-  "office": "State Representative",
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=866#/candidates/60476/1532995",
   "lettersyes": "[Sheila Dwyer](https://www.tri-cityherald.com/opinion/letters-to-the-editor/article244616532.html?utm_campaign=Tri-Cities%20Daily&utm_medium=email&utm_source=Revue%20newsletter), [Shir Regev’s endorsement page](https://www.atthetablewithshir.com/endorsements)",
-  "facebook": "https://www.facebook.com/shir.regev",
-  "website": "http://www.atthetablewithshir.com"
+  "website": "http://www.atthetablewithshir.com",
+  "image": "/images/candidates/shir-regev.jpeg",
+  "uuid": "REGES  354",
+  "office": "State Representative",
+  "email": "shir@atthetablewithshir.com",
+  "engagement": "- ✅ [NWPB/LWV Debate](https://www.nwpb.org/2020/10/01/icymi-watch-night-two-of-the-benton-franklin-counties-debate/)",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=REGES  354&election_year=2020"
 }
