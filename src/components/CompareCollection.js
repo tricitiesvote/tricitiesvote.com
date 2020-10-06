@@ -1,9 +1,9 @@
 import React from 'react';
-import CompareStatement from './CompareStatement';
+import CompareStatements from './CompareStatements';
 
 const CompareCollection = props => {
   return (
     // map CompareStatements
-    <CompareStatement />
+    <CompareStatements />
   );
 };

@@ -1,35 +1,26 @@
 import React from 'react';
-import CompareCandidateStatement from './CompareCandidateStatement';
+import { BradPeck, KimLehrman } from './candidates';
+import { StrongA, StrongB, LeanA, LeanB } from './statements';
 
 const CompareStatements = props => {
   
   return (
     <tr>
       <th>Statement A</th>
-        <td className="strong-a">
-          <CompareCandidateStatement 
-            jurisdiction="" position="" name="" lastname="" image="" comment=""
-          />
-        </td>
-        <td className="lean-a">
-          <CompareCandidateStatement 
-            jurisdiction="" position="" name="" lastname="" image="" comment=""
-        />
-        </td>
-        <td className="lean-b">
-          <CompareCandidateStatement 
-            jurisdiction="" position="" name="" lastname="" image="" comment=""
-        />
-        </td>
-        <td className="strong-b">
-          <CompareCandidateStatement 
-            jurisdiction="" position="" name="" lastname="" image="" comment=""
-        />
-        </td>
+      <StrongA>
+        <BradPeck says="hello" />
+      </StrongA>
+      <LeanA>
+        <KimLehrman says="howdy" />
+      </LeanA>
+      <LeanB>
+      </LeanB>
+      <StrongB>
+      </StrongB>
       <th>Statement B</th>
-    </tr>
+    </tr>    
   )
-  
+
 }
 
 export default CompareStatements;

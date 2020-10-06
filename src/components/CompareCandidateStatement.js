@@ -2,7 +2,7 @@ import React from 'react';
 
 const CompareCandidateStatement = props => {
   const { jurisdiction, position, name, lastname, image, comment } = props;
-  const posClass = `pos ${jurisdiction} ${position}`
+  const posClass = `pos ${position}`
   return (
     <div className={posClass}>
       <img alt={name} src={image} />

@@ -6,9 +6,6 @@ const CompareHeader = () => {
     <div className="tw-compare-o-tron">
       <h1>
         <span className="fire-up">Let's fire up the ole</span>
-        <span className="tw-logo">
-          TUMBLEW<span className="twe">E</span>I<span className="twr">R</span>D
-        </span>
         <span className="tw-sub">Candidate Compare-o-Tron™</span>
       </h1>
       <CompareKey />
