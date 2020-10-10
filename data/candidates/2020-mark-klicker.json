@@ -1,17 +1,17 @@
 {
+  "facebook": "https://www.facebook.com/KlickerForRep/",
+  "party": "Republican",
   "name": "Mark Klicker",
   "slug": "mark-klicker",
-  "email": "",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=866#/candidates/60378/1532807",
-  "image": "/images/candidates/mark-klicker.jpeg",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=KLICM--362&election_year=2020",
-  "uuid": "KLICM--362",
-  "party": "Republican",
   "statement": "**Elected Experience**  \nNo information submitted\n\n**Other Professional Experience  \n**_Current:_ Owner - Urban, Farm and Forest Group (forest management);  Realtor - Northwest First Realtors Farm & Ranch. _Previous:_ Founder/owner - Klicker Enterprises (asphalt sealer/repair company)  Owner/operator - AOK Klicker Cherries; Regional state director - Washington Farm Bureau.\n\n**Education  \n**Graduate Walla Walla Community College\n\n**Community Service  \n**_Past: _ President, Walla Walla County Farm Bureau, Mill Creek Watershed Fire Protection Committee, Co-Chair Walla Walla High School Track Project, Jubilee Christian Academy, Community Advisory Committee – Walla Walla Union Bulletin. _Present:_  County Chairman - Voluntary Stewardship Program, board member - Fort Walla Walla Museum, NW Blues Stewardship Admin Group\n\n**Statement  \n**With my strong experience in the agriculture and business industry I understand how to help get our economy moving again. My top priorities include small business recovery, create tax incentives (_not_ tax increases), control government spending and reduce unneeded regulation while making sure we protect our schools and essentials and maintaining a safe and healthy work place. Over the last 35 years I have worked tirelessly to build relationships and find solutions to solving difficult issues with those of different views while maintaining my stance on the values I hold. I will do the same when representing the 16th district.",
   "electionyear": "2020",
-  "office": "State Representative",
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=866#/candidates/60378/1532807",
   "lettersyes": "[Chad Redfield](https://www.tri-cityherald.com/opinion/letters-to-the-editor/article244453512.html), [Kent McMullen](https://www.tri-cityherald.com/opinion/letters-to-the-editor/article244477992.html), [Mark Klicker’s endorsement page](https://www.klickerforrep.com/endorsements)",
-  "engagement": "- ☑️ tricitiesvote.com A/B (pending)\n",
-  "facebook": "https://www.facebook.com/KlickerForRep/",
-  "website": "http://klickerforrep.com"
+  "website": "http://klickerforrep.com",
+  "image": "/images/candidates/mark-klicker.jpeg",
+  "uuid": "KLICM--362",
+  "office": "State Representative",
+  "email": "",
+  "engagement": "- ☑️ tricitiesvote.com A/B (pending)\n- ✅ [Vote for Business forum] (https://www.youtube.com/watch?v=FfH0J18aSYs&feature=emb_logo)",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=KLICM--362&election_year=2020"
 }
