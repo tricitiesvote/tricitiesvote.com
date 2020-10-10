@@ -11,7 +11,7 @@ import CandidateDonorSummaryMini from './CandidateDonorSummaryMini';
 import CANDIDATE from '../../graphql/CANDIDATE';
 
 const Candidate = props => {
-  console.log(props);
+  // console.log(props);
   // TODO: re-add { donors } and var donorsHtml
   const { fullsize } = props;
   const { data } = props;

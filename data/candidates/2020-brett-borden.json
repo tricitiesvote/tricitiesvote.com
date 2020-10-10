@@ -1,16 +1,17 @@
 {
+  "facebook": "https://www.facebook.com/bordenforliberty",
+  "party": "",
   "name": "Brett Borden",
   "slug": "brett-borden",
-  "email": "brett.borden@lpwa.org",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=866#/candidates/60479/1533002",
-  "image": "/images/candidates/brett-borden.jpeg",
-  "pdc_url": "",
-  "uuid": "brett-borden",
-  "party": "",
   "statement": "**Elected Experience**  \nTreasurer, Libertarian Party of Washington  \n  \n**Other Professional Experience**  \nBrett has experience as a local business owner, bookkeeper, and bookseller. He currently works in manufacturing.  \n  \n**Education**  \nSocial Studies program, Eastern Washington University  \n  \n**Community Service**  \nAmerican Civil Liberties Union of Washington, past member of the Pullman Chamber of Commerce and Sons of Norway Sol-Land Lodge #2-086 (Kennewick). Past business supporter of events for Palouse Pride, Pullman Civic Theatre, Community Action Center of Whitman, and KRFP Radio Free Moscow.  \n  \n**Statement**  \n\nAs a liberty-loving citizen of southeastern Washington, I demand a state government that keeps its hands off the freedoms we cherish. All citizens have a natural right to be left alone and make their own choices as adults.  \n  \nI pledge to stand firmly on the side of the People against government overreach in all forms. My legislative priorities include criminal justice reform and ensuring small business owners and farmers get a fair shake. I also support electoral reforms so our elected leaders better represent the will of voters. Please join me in pursuit of a _free_ and _just_ Washington!",
   "electionyear": "2020",
-  "office": "",
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=866#/candidates/60479/1533002",
   "lettersyes": "[Brett Borden’s endorsement page](https://bordenforliberty.com/supporters)",
-  "facebook": "https://www.facebook.com/bordenforliberty",
-  "website": "http://bordenforliberty.com"
+  "website": "http://bordenforliberty.com",
+  "image": "/images/candidates/brett-borden.jpeg",
+  "uuid": "brett-borden",
+  "office": "",
+  "email": "brett.borden@lpwa.org",
+  "engagement": "- ✅ tricitiesvote.com A/B 🎉\n- ✅ [Vote for Business forum](https://www.youtube.com/watch?v=82DgPbOkeTE&feature=emb_logo)",
+  "pdc_url": ""
 }
