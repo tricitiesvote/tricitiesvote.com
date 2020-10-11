@@ -1,5 +1,5 @@
 import React from 'react';
-import { StrongA, LeanA, LeanB, StrongB } from '../statements';
+import { StrongA, LeanA, LeanB, StrongB, NoResponse } from '../statements';
 import {
   BradKlippert,
   BradPeck,
@@ -68,6 +68,10 @@ const CompareLegislators = () => {
       <BradKlippert/>
       </StrongB>
       <th>The economic hit from COVID-19 is just a bump in the long road towards a balanced budget. We’ve prepared for this, and should not be making drastic changes to the Washington budget.</th>
+      <NoResponse>
+        <BradKlippert />
+        <FrancesChvatal />
+      </NoResponse>
     </tr>
     <tr>
       <th>Governor Inslee should call a special legislative session to address foreseen state budget deficits as soon as possible.</th>
