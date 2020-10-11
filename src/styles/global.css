@@ -225,7 +225,9 @@ p, p br, section li, section dl, .candidate-links li, .headline-container a {
   margin: 0 0 10px 0;
   line-height: 1.2;
 }
-
+strong {
+  font-weight: 600;
+}
 strong br {
   display: none;
 }
