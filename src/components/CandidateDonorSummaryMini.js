@@ -16,19 +16,15 @@ const CandidateDonorSummaryMini = props => {
   return (
     <div className="donor-summary">
       <p>
-        Reported raised {usd.format(fundraising.total_raised)} from{' '}
-        {fundraising.unique_donors}
+        Reported raised <strong>{usd.format(fundraising.total_raised)}</strong> from{' '}
+        <strong>{fundraising.unique_donors}</strong>
         <span
           className="why-plus"
           title="Why 'plus'? Sometimes multiple very small individual contributions are lumped together in one batch."
         >
           +
         </span>{' '}
-        unique donors.{' '}
-        <span className="cash-vs-in-kind">
-          ({usd.format(fundraising.total_cash)} in cash,{' '}
-          {usd.format(fundraising.total_in_kind)} in kind)
-        </span>
+        unique donors.
       </p>
     </div>
   );

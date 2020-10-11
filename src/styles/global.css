@@ -693,6 +693,7 @@ td, th {
   border: 0px;
   outline: 0px;
   margin: 0;
+  vertical-align: top;
 }
 
 .pos {
@@ -706,69 +707,90 @@ td, th {
   border-style: solid;
 }
 
-.pos-1 img {
+.wa8-rep1
+.wa8-rep2
+.wa9-rep1
+.wa16-rep1
+
+.wa16-rep2
+.wa16-senator
+
+.pos-1 img, .wa8-rep1 img {
   border-color: #89db8b;
   background-color: #89db8b;
 }
 
-.pos-2 img {
+.pos-2 img, .wa8-rep2 img {
   border-color: #94e3d9;
   background-color: #94e3d9;
 }
 
-.pos-5 img {
+.pos-3 img, .wa9-rep1 img {
   border-color: #FFC328;
   background-color: #FFC328;
 }
 
-.pos-6 img {
+.pos-4 img, .wa16-rep1 img {
   border-color: #e196f5;
   background-color: #e196f5;
 }
 
-.pos-7 img {
-  border-color: #89db8b;
+.pos-5 img, .wa16-rep2 img {
+  border-color: #6f7fd1;
+  background-color: #6f7fd1;
+}
+
+.pos-6 img, .wa16-senator img {
+  border-color: #ef9b9b;
+  background-color: #ef9b9b;
+}
+
+.pos-1 .more, .wa8-rep1 .more {
   background-color: #89db8b;
 }
 
-.pos-1 .more {
-  background-color: #89db8b;
-}
-
-.pos-2 .more {
+.pos-2 .more, .wa8-rep2 .more {
   background-color: #94e3d9;
 }
 
-.pos-5 .more {
+.pos-3 .more, .wa9-rep1 .more {
   background-color: #FFC328;
 }
 
-.pos-6 .more {
+.pos-4 .more, .wa16-rep1 .more {
   background-color: #e196f5;
 }
 
-.pos-7 .more {
-  background-color: #89db8b;
+.pos-5 .more, .wa16-rep2 .more {
+  background-color: #6f7fd1;
 }
 
-.pos-1.color-key {
+.pos-6 .more, .wa16-senator .more {
+  background-color: #ef9b9b
+} 
+
+.pos-1.color-key, .wa8-rep1.color-key {
   border: 2px solid #89db8b;
 }
 
-.pos-2.color-key {
+.pos-2.color-key, .wa8-rep2.color-key {
   border: 2px solid #94e3d9;
 }
 
-.pos-5.color-key {
+.pos-3.color-key, .wa9-rep1.color-key {
   border: 2px solid #FFC328;
 }
 
-.pos-6.color-key {
+.pos-4.color-key, .wa16-rep1.color-key {
   border: 2px solid #e196f5;
 }
 
-.pos-7.color-key {
-  border: 2px solid #89db8b;
+.pos-5.color-key, .wa16-rep2.color-key {
+  border: 2px solid #6f7fd1;
+}
+
+.pos-6.color-key, .wa16-senator.color-key {
+  border: 2px solid #ef9b9b;
 }
 
 .color-key {
@@ -904,6 +926,7 @@ td, th {
   border-bottom: 1px solid #eee;
   border-left: 1px solid #eee;
   border-top: 0px;
+  vertical-align: top;
 }
 
 td:nth-child(4), th:nth-child(4) {
@@ -935,7 +958,7 @@ th:first-of-type {
 }
 
 .pos h5 {
-  margin: 0;
+  margin: -6px 0 0 0;
   padding: 0;
   font-size: 10px;
   font-weight: 500;
@@ -1085,9 +1108,11 @@ th:first-of-type {
     overflow-x: auto;
     display: block;
   }
+  
   td, th {
   padding: 2px;
   }
+  
   th:first-of-type, th:last-of-type {
     width: 220px;
   }
