@@ -1,7 +1,7 @@
 import React from 'react';
 import CompareCandidateStatement from '../CompareCandidateStatement';
 
-const BradPeck = ({ says, spec }) => {
+const BradPeck = ({ says, spec, mini }) => {
   return (
     <CompareCandidateStatement
       position="franklin-1"
@@ -10,6 +10,7 @@ const BradPeck = ({ says, spec }) => {
       last="Peck"
       image="/images/candidates/brad-peck.jpeg"
       comment={says}
+      mini={mini}
     />
   );
 };

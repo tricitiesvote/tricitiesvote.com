@@ -765,37 +765,79 @@ td, th {
 } 
 
 .pos-1.color-key, .wa8-rep1.color-key, .franklin-1.color-key {
-  border: 2px solid #89db8b;
+  border: 3px solid #89db8b;
 }
 
 .pos-2.color-key, .wa8-rep2.color-key, .franklin-2.color-key {
-  border: 2px solid #6f7fd1;
+  border: 3px solid #6f7fd1;
 }
 
 .pos-3.color-key, .wa9-rep1.color-key, .benton-1.color-key {
-  border: 2px solid #FFC328;
+  border: 3px solid #FFC328;
 }
 
 .pos-4.color-key, .wa16-rep1.color-key, .benton-3.color-key {
-  border: 2px solid #e196f5;
+  border: 3px solid #e196f5;
 }
 
 .pos-5.color-key, .wa16-rep2.color-key {
-  border: 2px solid #94e3d9;
+  border: 3px solid #94e3d9;
 }
 
 .pos-6.color-key, .wa16-senator.color-key {
-  border: 2px solid #ef9b9b;
+  border: 3px solid #ef9b9b;
 }
 
 .color-key {
-  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
-  font-size: 12px;
-  padding: 2px 7px;
+  padding: 0px 38px;
+  height: 30px;
   border-radius: 50px;
   position: relative;
-  top: -2px;
-  margin-right: 3px;
+  display: inline-block;
+  margin: 0 10px 10px 0;
+}
+
+.color-key .pos {
+  position: absolute;
+}
+
+.color-key span {
+  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 100px;
+}
+
+.color-key span:first-of-type {
+  font-size: 14px;
+  margin-bottom: -2px;
+}
+
+.color-key span:last-of-type {
+  font-size: 9px;
+}
+
+.color-key .pos img {
+  width: 30px;
+  height: 30px;
+}
+
+.color-key .pos:first-of-type {
+  left: -6px;
+  top: -5px;
+}
+
+.color-key .pos:last-of-type {
+  right: -6px;
+  top: -5px;
+}
+
+.color-key .pos h5 {
+  display: none;
 }
 
 .pos.bc {

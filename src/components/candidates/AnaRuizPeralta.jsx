@@ -1,7 +1,7 @@
 import React from 'react';
 import CompareCandidateStatement from '../CompareCandidateStatement';
 
-const AnaRuizPeralta = ({ says }) => {
+const AnaRuizPeralta = ({ says, mini }) => {
   return (
     <CompareCandidateStatement
       position="franklin-2"
@@ -9,6 +9,7 @@ const AnaRuizPeralta = ({ says }) => {
       last="Peralta"
       image="/images/candidates/ana-ruiz-peralta.jpeg"
       comment={says}
+      mini={mini}
     />
   );
 };
