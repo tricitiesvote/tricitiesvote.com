@@ -50,12 +50,13 @@ const CompareLegislators = () => {
           <StrongA>
             <BradKlippert />
             <MarkKlicker />
-            <MattBoehnke spec="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <BrettBorden says="My concern with stimulus packages for businesses is the tendency for them to favor big businesses that don't need it while leaving independents in the rain and the people holding the check." />
-            <MaryDye spec="true" />
-            <SkylerRude spec="true" />
+            <MaryDye spec="true" dnr="true" />
+            <SkylerRude spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <DanielleGarbeReser says="Businesses and our local economies need stimulus support to recover from an economic catastrophe of this scale." />
@@ -79,11 +80,11 @@ const CompareLegislators = () => {
             <p>
               COVID-19 is a once-in-a-generation sea change. We should shore up
               the damage using the state’s Rainy Day Fund, and prepare our
-              budget for a 'new normal.'
+              budget for a ‘new normal.’
             </p>
           </th>
           <StrongA>
-            <MaryDye spec="true" />
+            <MaryDye spec="true" dnr="true" />
             <ShirRegev says="Please see the above answer. I will add that by helping keep Washington families afloat now, it will save the state more money in the long term by preventing a run on assistance programs." />
           </StrongA>
           <LeanA>
@@ -92,14 +93,15 @@ const CompareLegislators = () => {
             <DanielleGarbeReser says="COVID-19 has resulted in significant budgetary changes.  We may need to rely partially on our reserves, but that will not be enough alone to adapt to the challenges we face in the future. " />
             <LarryStanley />
             <MarkKlicker />
-            <MattBoehnke spec="true" />
-            <SkylerRude spec="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <SkylerRude spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <FrancesChvatal says="Decisions must be considered in light of current revenue reports and the impact of a CARES 2 package" />
           </LeanB>
           <StrongB>
             <BradKlippert />
+            <PerryDozier spec="true" dnr="true" />
           </StrongB>
           <th>
             <p>
@@ -120,9 +122,10 @@ const CompareLegislators = () => {
             <BradKlippert />
             <DanielleGarbeReser says="I agree with Republicans that we should have a special session to start this work as soon as possible." />
             <MarkKlicker />
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
-            <SkylerRude spec="true" />
+            <MaryDye spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <FrancesChvatal says="Decisions must be considered in light of current revenue reports and the impact of a CARES 2 package." />
@@ -147,37 +150,6 @@ const CompareLegislators = () => {
         <tr>
           <th>
             <p>
-              If we must make cuts on education, spending should be reduced on
-              higher education subsidies like tuition assistance.
-            </p>
-          </th>
-          <StrongA>
-            <LarryStanley />
-            <SkylerRude spec="true" />
-          </StrongA>
-          <LeanA>
-            <BradKlippert />
-            <BrettBorden />
-            <CarlyCoburn />
-            <DanielleGarbeReser says="Both ends of the education spectrum are key to our economic development and recovery.  We get such a high return on investment with our early learning programs that I want to protect and support them." />
-            <FrancesChvatal says="If at all possible, I would like to advocate against any cuts to education. Our children and young adults should not bear the burden of this pandemic and budget shortfall." />
-            <MarkKlicker />
-            <ShirRegev says="There is no good answer, but if forced to choose, we need to ensure our Pre-K children have the tools they need survive and thrive. Let's make sure they get to the place where we need to worry about their tuition." />
-          </LeanA>
-          <LeanB />
-          <StrongB>
-            <MattBoehnke spec="true" />
-          </StrongB>
-          <th>
-            <p>
-              If we must make cuts on education, spending should be reduced on
-              early learning.{' '}
-            </p>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <p>
               By incentivizing manufacturing, health care, and agricultural
               industries in our state, we create a competitive job market, and a
               vibrant creative economy will occur naturally.
@@ -187,8 +159,9 @@ const CompareLegislators = () => {
             <BradKlippert />
             <CarlyCoburn />
             <MarkKlicker />
-            <MattBoehnke spec="true" />
-            <SkylerRude spec="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <BrettBorden />
@@ -215,12 +188,13 @@ const CompareLegislators = () => {
           <StrongA>
             <BradKlippert />
             <MarkKlicker />
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <MaryDye spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <DanielleGarbeReser says="Our communities value security. Everyone deserves fair and equitable treatment by law enforcement. We need to prioritize community engagement and hold our police to high but fair standards." />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <FrancesChvatal />
@@ -258,13 +232,14 @@ const CompareLegislators = () => {
           </LeanA>
           <LeanB>
             <DanielleGarbeReser says="We can always improve training building off the standards for accredited police programs." />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
           </LeanB>
           <StrongB>
             <BradKlippert />
             <MarkKlicker />
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <PerryDozier spec="true" dnr="true" />
+            <MaryDye spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
           </StrongB>
           <th>
             <p>
@@ -289,7 +264,7 @@ const CompareLegislators = () => {
           </StrongA>
           <LeanA>
             <LarryStanley />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <BrettBorden says="Public entities should consult health officials, but private entities should be able to do what is necessary for their livelihoods unencumbered by the State." />
@@ -297,8 +272,9 @@ const CompareLegislators = () => {
           </LeanB>
           <StrongB>
             <BradKlippert />
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <MaryDye spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongB>
           <th>
             <p>
@@ -320,14 +296,15 @@ const CompareLegislators = () => {
             <BradKlippert />
             <BrettBorden />
             <MarkKlicker />
-            <MattBoehnke spec="true" />
+            <MattBoehnke spec="true" dnr="true" />
             <ShirRegev says="Surprise! I do feel local communities have the largest stake in making things succeed. The state should be able to step in though where there is a noticeable downward trend." />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <DanielleGarbeReser says="The state should set standards and local communities should have flexibility to respond to local needs." />
             <LarryStanley />
-            <MaryDye spec="true" />
+            <MaryDye spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <CarlyCoburn />
@@ -355,11 +332,12 @@ const CompareLegislators = () => {
             </p>
           </th>
           <StrongA>
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <MaryDye spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <BradKlippert />
+            <PerryDozier spec="true" dnr="true" />
           </LeanA>
           <LeanB />
           <StrongB>
@@ -403,7 +381,8 @@ const CompareLegislators = () => {
             <LarryStanley />
           </LeanB>
           <StrongB>
-            <MattBoehnke spec="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongB>
           <th>
             <p>
@@ -432,11 +411,11 @@ const CompareLegislators = () => {
             <BradKlippert />
             <BrettBorden />
             <MarkKlicker />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </LeanB>
-          <StrongB>
-            <MattBoehnke spec="true" />
-          </StrongB>
+          <StrongB />
           <th>
             <p>
               While COVID-19 is impacting communities now, it is important to
@@ -454,15 +433,16 @@ const CompareLegislators = () => {
             </p>
           </th>
           <StrongA>
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <MaryDye spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <BradKlippert />
             <BrettBorden says="I am generally supportive of more local control over education and school choice, though recognize that funding this way can open the door to disparate results based on geography and wealth." />
             <DanielleGarbeReser says="Post the McCleary decision we are at better parity.  Our focus going forward needs to be on the flexibility our communities want to pass the levies that make sense for each district." />
             <MarkKlicker />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <CarlyCoburn />
@@ -488,11 +468,12 @@ const CompareLegislators = () => {
           <StrongA>
             <BradKlippert />
             <MarkKlicker />
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <MaryDye spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongA>
           <LeanA>
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <BrettBorden />
@@ -514,51 +495,19 @@ const CompareLegislators = () => {
         <tr>
           <th>
             <p>
-              Prioritizing environmental sustainability and resiliency are
-              essential to responsible legislating.
-            </p>
-          </th>
-          <StrongA>
-            <DanielleGarbeReser says="I believe we use our taxpayer dollars more wisely for the long run when we keep sustainability and resiliency at the forefront of our decision making." />
-            <LarryStanley />
-            <ShirRegev />
-          </StrongA>
-          <LeanA>
-            <BradKlippert />
-            <BrettBorden />
-            <CarlyCoburn />
-            <FrancesChvatal />
-          </LeanA>
-          <LeanB>
-            <MarkKlicker says="Prioritizing for forest management for wildfire protection would be an important necessity if there is a budget for it. Funds for things such as the new green deal or studies for saving the Orca's is not a necessity." />
-            <SkylerRude spec="true" />
-          </LeanB>
-          <StrongB>
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
-          </StrongB>
-          <th>
-            <p>
-              Prioritizing environmental sustainability and resiliency is
-              something we only need to look at if there is budget for it.
-            </p>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <p>
               We have an abundance of open, natural spaces and we need to focus
               on economic development over conservation or sustainability.
             </p>
           </th>
           <StrongA>
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <MaryDye spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <BradKlippert />
             <MarkKlicker />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <BrettBorden says="I support opening up public lands to an even greater extent and devolving control to the people for common usage. After all, it is our public land." />
@@ -585,19 +534,20 @@ const CompareLegislators = () => {
             </p>
           </th>
           <StrongA>
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <MaryDye spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <BradKlippert />
             <BrettBorden says="While I am running on a platform dedicated to individual liberties and will not stray from this commitment, it is important to be able to listen and discuss issues with anybody and be open to what they are saying." />
             <MarkKlicker says="It's important to seek opinions and perspectives from others and I will do just that.  However my decisions will be made based upon the needs and concerns of the people in the district." />
+            <PerryDozier spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <CarlyCoburn />
             <DanielleGarbeReser says="I will bring my experience as an Eastern Washingtonian to the legislature and will keep an open mind to listen to all sides and use data, science, and experts to finalize my views." />
             <FrancesChvatal />
-            <SkylerRude spec="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <SkylerRude spec="true" dnr="true" />
           </LeanB>
           <StrongB>
             <LarryStanley />
@@ -613,57 +563,23 @@ const CompareLegislators = () => {
         <tr>
           <th>
             <p>
-              Open public engagement can be disorganized, noisy, and vulnerable
-              to being hijacked by vocal minority opinions. Sometimes hard
-              decisions must be made behind closed doors so that leaders can
-              make decisions without fear of retribution.
-            </p>
-          </th>
-          <StrongA>
-            <MattBoehnke spec="true" />
-          </StrongA>
-          <LeanA>
-            <SkylerRude spec="true" />
-          </LeanA>
-          <LeanB>
-            <BradKlippert />
-          </LeanB>
-          <StrongB>
-            <BrettBorden />
-            <CarlyCoburn />
-            <DanielleGarbeReser says="Transparency is a key value of mine and needs to be prioritized as we make decisions using taxpayer resources and affecting everyone’s lives and livelihoods." />
-            <FrancesChvatal />
-            <LarryStanley />
-            <MarkKlicker />
-            <ShirRegev />
-          </StrongB>
-          <th>
-            <p>
-              State legislators are hired by the people and for the people, and
-              should be transparent about as many decisions as possible.
-            </p>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <p>
               State legislature dedicates a large amount of resources to ensure
               healthy communication, and works hard at educating the public on
               how to use what exists.
             </p>
           </th>
-          <StrongA>
-            <MattBoehnke spec="true" />
-          </StrongA>
+          <StrongA />
           <LeanA>
             <BradKlippert />
             <BrettBorden />
             <FrancesChvatal />
+            <MattBoehnke spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <DanielleGarbeReser says="Communication must improve. Even with funding limitations in this budget cycle, we can use free methods to connect with more residents." />
             <MarkKlicker />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </LeanB>
           <StrongB>
             <CarlyCoburn />
@@ -688,13 +604,14 @@ const CompareLegislators = () => {
           <StrongA>
             <BradKlippert />
             <MarkKlicker />
-            <MattBoehnke spec="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <BrettBorden says="Transportation is one of these areas where we throw increasing gobs of money at the problem with little to show for it. While (A) is important, we have not been getting our money's worth and that must be examined." />
             <DanielleGarbeReser says="In the 16th LD, we have major repair and infrastructure needs that need to take priority in a tough budget environment." />
             <CarlyCoburn />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
           </LeanA>
           <LeanB>
             <FrancesChvatal />
@@ -713,12 +630,12 @@ const CompareLegislators = () => {
         <tr>
           <th>
             <p>
-              The Joint Transportation Committee released the following
-              Feasibility Study in June 2020 (bit.ly/3bNbVvI). I stand with 70%
-              of those surveyed in support of the proposed East-West interstate
-              passenger rail system that increases inter-connectivity between
-              Southeastern Washington and the rest of the State, while reducing
-              carbon emissions.
+              I stand with 70% of those surveyed in support of the{' '}
+              <a href="http://leg.wa.gov/JTC/Meetings/Documents/Agendas/2020%20Agendas/Jun%2023%20Meeting/DraftFinalReport_EastWestPassengerRail.pdf">
+                proposed passenger rail system
+              </a>{' '}
+              that increases inter-connectivity between Southeastern WA and the
+              rest of the State, while reducing carbon emissions.
             </p>
           </th>
           <StrongA>
@@ -734,28 +651,27 @@ const CompareLegislators = () => {
             <BradKlippert />
             <BrettBorden />
             <MarkKlicker />
+            <MattBoehnke spec="true" dnr="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </LeanB>
-          <StrongB>
-            <MattBoehnke spec="true" />
-            <SkylerRude spec="true" />
-          </StrongB>
+          <StrongB />
           <th>
             <p>
-              The Joint Transportation Committee has released the following
-              Feasibility Study in June 2020 (bit.ly/3bNbVvI). The proposed
-              East-West interstate passenger rail system comes at too high an
-              upfront cost to Washingtonians, for what low ridership is
-              eventually expected. The state has higher priorities for its
-              transportation budget, and I support focused funding on the
-              interstate road system in which citizens have already heavily
-              invested.
+              The{' '}
+              <a href="http://leg.wa.gov/JTC/Meetings/Documents/Agendas/2020%20Agendas/Jun%2023%20Meeting/DraftFinalReport_EastWestPassengerRail.pdf">
+                proposed passenger rail system
+              </a>{' '}
+              comes at too high an upfront cost. The state has higher priorities
+              for its transportation budget, and I support focused funding on
+              the interstate road system.
             </p>
           </th>
         </tr>
         <tr>
           <th>
             <p>
-              The city has a role to play in cost of living and affordable
+              The state has a role to play in cost of living and affordable
               housing.
             </p>
           </th>
@@ -770,12 +686,13 @@ const CompareLegislators = () => {
           </LeanA>
           <LeanB>
             <BradKlippert />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </LeanB>
           <StrongB>
             <BrettBorden says="The key being that the market needs to actually be open. Heavy regulations like zoning block the construction of new housing and enables NIMBY elitism that leaves us with artificially restricted, expensive housing." />
             <MarkKlicker />
-            <MattBoehnke spec="true" />
           </StrongB>
           <th>
             <p>
@@ -801,13 +718,14 @@ const CompareLegislators = () => {
           </LeanA>
           <LeanB>
             <DanielleGarbeReser says="The state can provide guidance, but our local areas need to be the driving force behind what works for each county in partnership with our market players." />
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
+            <MattBoehnke spec="true" dnr="true" />
           </LeanB>
           <StrongB>
             <BradKlippert />
             <BrettBorden />
             <MarkKlicker />
-            <MattBoehnke spec="true" />
+            <PerryDozier spec="true" dnr="true" />
           </StrongB>
           <th>
             <p>
@@ -819,27 +737,29 @@ const CompareLegislators = () => {
         <tr>
           <th>
             <p>
-              We have ceded far too much in allowing our society to be shaped by
-              LGBTQ+ ‘identity politics.’
+              We need to be cautious when it comes to going too far shaping our
+              society in response to LGBTQ+ ‘identity politics.’
             </p>
           </th>
           <StrongA>
             <BradKlippert />
             <DanielleGarbeReser />
             <MarkKlicker says="I believe we are all equal and and no person of color, race or sexual identification should be discriminated against or given special privileges." />
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <MaryDye spec="true" dnr="true" />
           </StrongA>
-          <LeanA />
+          <LeanA>
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
+          </LeanA>
           <LeanB>
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
           </LeanB>
           <StrongB>
             <BrettBorden />
             <CarlyCoburn />
             <FrancesChvatal />
             <LarryStanley />
-            <ShirRegev says="This district elects a man who make's it his life's work to legislate my community away. How do you think it makes any other member of the LGBTQ community feel when he advocates for discrimination from the House floor?" />
+            <ShirRegev says="This district elects a man who makes it his life's work to legislate my community away. How do you think it makes any other member of the LGBTQ community feel when he advocates for discrimination from the House floor?" />
           </StrongB>
           <th>
             <p>
@@ -860,15 +780,16 @@ const CompareLegislators = () => {
             </p>
           </th>
           <StrongA>
-            <MaryDye spec="true" />
-            <MattBoehnke spec="true" />
+            <MaryDye spec="true" dnr="true" />
           </StrongA>
           <LeanA>
             <BradKlippert />
             <MarkKlicker />
+            <MattBoehnke spec="true" dnr="true" />
+            <PerryDozier spec="true" dnr="true" />
           </LeanA>
           <LeanB>
-            <SkylerRude spec="true" />
+            <SkylerRude spec="true" dnr="true" />
           </LeanB>
           <StrongB>
             <BrettBorden says="Meaningful justice reform measures are my #1 priority." />
