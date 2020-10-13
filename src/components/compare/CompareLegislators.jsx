@@ -356,9 +356,6 @@ const CompareLegislators = () => {
               voting systems).
             </p>
           </th>
-          <NoResponse>
-            <FrancesChvatal says="I do not have adequate information to make an informed answer." />
-          </NoResponse>
         </tr>
         <tr>
           <th>
