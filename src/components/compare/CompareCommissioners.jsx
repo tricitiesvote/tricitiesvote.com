@@ -39,11 +39,11 @@ const CompareLegislators = () => {
             judgment, and beliefs.
           </th>
           <StrongA>
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </StrongA>
           <LeanA>
             <BradPeck
-              spec="true"
+              spec
               says="Responsible decision making balances your own knowledge and experience with the advice and counsel of others. Every decision varies. Timely decisions do not always permit the amount of desired coordination."
             />
           </LeanA>
@@ -72,16 +72,16 @@ const CompareLegislators = () => {
           <LeanA>
             <JustinRaffa says="Benton County has the same challenges of systemic racism that face our entire country. Limitations on a Commissioner's authority over county law enforcement and the justice system requires cooperation between agencies." />
             <BradPeck
-              spec="true"
+              spec
               says="I have no tolerance for racism, system or otherwise. As a public official I feel an added responsibility to stand against racism anywhere in our community."
             />
           </LeanA>
           <LeanB>
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </LeanB>
           <StrongB>
             <JeromeDelvin
-              spec="true"
+              spec
               says="I don't believe in the term ‘systemic racism.’ Is there still racism yes, but our country has involved in a more just society and law enforcement should not automatically be seen as racist."
             />
           </StrongB>
@@ -90,7 +90,6 @@ const CompareLegislators = () => {
             enforcement, justice, or public health systems with trying to ‘fix’
             it.
           </th>
-          <NoResponse />
         </tr>
         <tr>
           <th>
@@ -100,25 +99,27 @@ const CompareLegislators = () => {
           <StrongA />
           <LeanA>
             <JeromeDelvin
-              spec="true"
+              spec
               says="I always strive for a better community in diversity and my record show's that."
             />
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </LeanA>
-          <LeanB />
+          <LeanB>
+            <BradPeck
+              spec
+              says="We need to hear from all affected audiences and need officials who know how to listen. Character, skill, and effort are the traits we need in our public servants."
+            />
+          </LeanB>
           <StrongB>
             <AnaRuizPeralta />
             <JustinRaffa says="By actively engaging the community and seeking to develop collaborative policies with representatives from our diverse communities of color, Benton County can help champion issues of equity in our local government." />
             <KimLehrman />
           </StrongB>
           <th>
-            We must take greater steps to ensure that all voices have a seat the
+            We must take greater steps to ensure all voices have a seat at the
             table when deciding major issues, especially underserved and
             underrepresented people.
           </th>
-          <NoResponse>
-            <BradPeck says="We need to hear from all affected audiences and need officials who know how to listen. Character, skill, and effort are the traits we need in our public servants." />
-          </NoResponse>
         </tr>
         <tr>
           <th>
@@ -134,10 +135,10 @@ const CompareLegislators = () => {
           <LeanA>
             <JeromeDelvin says="I will continue to work on mental health and addiction issues as a commissioner." />
             <BradPeck
-              spec="true"
+              spec
               says="It is actually a Washington state responsibility often delegated to counties without the required funding. I support increasing our budget for expanded mental health services, especially within the local justice system."
             />
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </LeanA>
           <LeanB />
           <StrongB />
@@ -159,13 +160,13 @@ const CompareLegislators = () => {
             <AnaRuizPeralta />
             <JustinRaffa says="The county has an opportunity to leverage its position and help inspire a shared vision with our local jurisdictions by taking the lead to create a regional strategy in combating homelessness." />
             <BradPeck
-              spec="true"
+              spec
               says="The county has a major role to play, along with many other local governments and agencies."
             />
           </LeanA>
           <LeanB>
             <JeromeDelvin says="Our county has a strong human service department and is always partnering with advocates and resource providers." />
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </LeanB>
           <StrongB />
           <th>
@@ -188,9 +189,9 @@ const CompareLegislators = () => {
           </StrongA>
           <LeanA />
           <LeanB>
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
             <JeromeDelvin
-              spec="true"
+              spec
               says="I agree with parts of both statements. We should always be looking at institutions for improvement of service and use of tax monies. May mean joint efforts or each county to provide what they believe for their residents."
             />
           </LeanB>
@@ -213,20 +214,25 @@ const CompareLegislators = () => {
             <JustinRaffa says="I will work to ensure that BFHD is adequately funded well into the future and help improve its community education around the importance of public health. Today, the agency remains understaffed and under-resourced." />
             <KimLehrman />
           </StrongA>
-          <LeanA />
+          <LeanA>
+            <BradPeck
+              spec
+              says="The counties have provided more funding than the health district has used...and more funds are available. I have supported statewide efforts to ensure the state legislature provides adequate funding for public health."
+            />
+            <JeromeDelvin
+              spec
+              says="Benton County has not reduced funding from the county but the state has cut funding to health districts. I am working within the current and future county budget for more funding for our health district."
+            />
+          </LeanA>
           <LeanB />
           <StrongB>
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </StrongB>
           <th>
             The role of the Benton-Franklin Health District in the COVID-19
             response demonstrates that their funding reductions over the past
             several years were justified.
           </th>
-          <NoResponse>
-            <BradPeck says="The counties have provided more funding than the health district has used...and more funds are available. I have supported statewide efforts to ensure the state legislature provides adequate funding for public health." />
-            <JeromeDelvin says="Benton County has not reduced funding from the county but the state has cut funding to health districts. I am working within the current and future county budget for more funding for our health district." />
-          </NoResponse>
         </tr>
         <tr>
           <th>
@@ -242,16 +248,16 @@ const CompareLegislators = () => {
           <LeanA />
           <LeanB>
             <BradPeck
-              spec="true"
+              spec
               says="It’s been more than a century since we had a pandemic of this proportion. We must learn from this experience without compromising our readiness for other, more likely emergencies."
             />
             <JeromeDelvin
-              spec="true"
+              spec
               says="The county was prepared for the pandemic as any other government agency in our state and country. Weakness were exposed throughout our country."
             />
           </LeanB>
           <StrongB>
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </StrongB>
           <th>
             COVID-19 turned out to be much less severe than the early
@@ -270,20 +276,24 @@ const CompareLegislators = () => {
           </LeanA>
           <LeanB>
             <AnaRuizPeralta />
+            <JeromeDelvin
+              spec
+              says="The county works with the cities on urban growth boundaries along with other interested parties. There is a balance to be sure on growth. I do work with home builders and developers."
+            />
+            <BradPeck
+              spec
+              says="In-fill of available lands is highly desirable. Careful expansion of Urban Growth Areas is unavoidable. Balancing the two obligations is responsible and realistic. "
+            />
           </LeanB>
           <StrongB>
             <KimLehrman />
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </StrongB>
           <th>
             Because development is essential for our economy and affordable
             housing, the County should prioritize working with developers to
             expand property availability regardless of location.
           </th>
-          <NoResponse>
-            <JeromeDelvin says="The county works with the cities on urban growth boundaries along with other interested parties. There is a balance to be sure on growth. I do work with home builders and developers." />
-            <BradPeck says="In-fill of available lands is highly desirable. Careful expansion of Urban Growth Areas is unavoidable. Balancing the two obligations is responsible and realistic. " />
-          </NoResponse>
         </tr>
         <tr>
           <th>
@@ -293,10 +303,14 @@ const CompareLegislators = () => {
           <StrongA />
           <LeanA>
             <BradPeck
-              spec="true"
+              spec
               says="Development and conservation are not mutually exclusive. I do not support unregulated development, but recognize the economic value of responsible development. With careful planning we can have the benefits of both."
             />
-            <RockyMullen spec="true" dnr="true" />
+            <JeromeDelvin
+              spec
+              says="Again, a balance is needed for both. The bottom line is the quality of life for our residents. I have worked with groups to preserve natural areas such as ridge-lines."
+            />
+            <RockyMullen spec dnr />
           </LeanA>
           <LeanB>
             <AnaRuizPeralta />
@@ -309,9 +323,6 @@ const CompareLegislators = () => {
             The natural environment is crucial to quality of life and economic
             prosperity.
           </th>
-          <NoResponse>
-            <JeromeDelvin says="Again, a balance is needed for both. The bottom line is the quality of life for our residents. I have worked with groups to preserve natural areas such as ridge-lines." />
-          </NoResponse>
         </tr>
         <tr>
           <th>
@@ -319,14 +330,14 @@ const CompareLegislators = () => {
           </th>
           <StrongA>
             <JeromeDelvin
-              spec="true"
+              spec
               says="The climate has been and will always change and we must work and adapt to the changes."
             />
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </StrongA>
           <LeanA>
             <BradPeck
-              spec="true"
+              spec
               says="I agree the climate is changing. I don’t believe local efforts are providing meaning results. National efforts to influence the gross polluters of the world are a better investment."
             />
           </LeanA>
@@ -349,9 +360,13 @@ const CompareLegislators = () => {
           <StrongA />
           <LeanA>
             <JeromeDelvin says="I am always looking for better ways for community engagement but I am very transparent." />
+            <BradPeck
+              spec
+              says="Every county action is done in open public recorded meetings with ample opportunity to comment. I support evening meetings rather than daytime business hour meetings as a way to increase public participation."
+            />
           </LeanA>
           <LeanB>
-            <RockyMullen spec="true" dnr="true" />
+            <RockyMullen spec dnr />
           </LeanB>
           <StrongB>
             <AnaRuizPeralta />
@@ -362,9 +377,6 @@ const CompareLegislators = () => {
             The county should do a much better job of being transparent and
             engaging the community in the decision making process.
           </th>
-          <NoResponse>
-            <BradPeck says="Every county action is done in open public recorded meetings with ample opportunity to comment. I support evening meetings rather than daytime business hour meetings as a way to increase public participation." />
-          </NoResponse>
         </tr>
       </tbody>
     </table>

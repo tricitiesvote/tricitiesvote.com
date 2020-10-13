@@ -9,6 +9,7 @@ import DavePetersen from './DavePetersen';
 import DougMcKinley from './DougMcKinley';
 import FrancesChvatal from './FrancesChvatal';
 import JeromeDelvin from './JeromeDelvin';
+import JimBeaver from './JimBeaver';
 import JustinRaffa from './JustinRaffa';
 import KimLehrman from './KimLehrman';
 import LarryStanley from './LarryStanley';
@@ -20,6 +21,7 @@ import RockyMullen from './RockyMullen';
 import SharonBrown from './SharonBrown';
 import ShirRegev from './ShirRegev';
 import SkylerRude from './SkylerRude';
+import WillMcKay from './WillMcKay';
 
 export {
   AnaRuizPeralta,
@@ -33,6 +35,7 @@ export {
   DougMcKinley,
   FrancesChvatal,
   JeromeDelvin,
+  JimBeaver,
   JustinRaffa,
   KimLehrman,
   LarryStanley,
@@ -43,5 +46,6 @@ export {
   RockyMullen,
   SharonBrown,
   ShirRegev,
-  SkylerRude
-}
+  SkylerRude,
+  WillMcKay,
+};

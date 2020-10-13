@@ -17,8 +17,7 @@ import {
 const CompareLegislatorsKey = () => {
   return (
     <>
-      <p>Opponents have matching colors:</p>
-      <div>
+      <div className="color-key-set">
         <div className="color-key wa8-rep1">
           <span>8th LD Rep 1</span>
           <BradKlippert mini />
@@ -50,13 +49,28 @@ const CompareLegislatorsKey = () => {
           <span>Rude vs. Coburn</span>
         </div>
         <div className="color-key wa16-senator">
-          <span>16th LD Sen</span>
+          <span>16th LD Senator</span>
           <DanielleGarbeReser mini />
           <PerryDozier mini spec dnr />
           <span>Reser vs. Dozier</span>
         </div>
       </div>
-      <p>Click their faces—they might have more to say.</p>
+      {/* <p>
+        Opponents have matching colors. Click their faces—they might have more to say.
+      </p> */}
+      <p>
+        Perry Dozier, Skyler Rude, Mary Dye, and Matt Boehnke did not complete
+        our Q&A despite numerous attempts on our part. These candidates’
+        positions were speculated to the best of our ability based on comments,
+        traditional party positions, publicly available information, and
+        consultations with engaged citizens.
+      </p>
+      {/* <div className="">
+          <PerryDozier mini spec dnr />
+          <SkylerRude mini spec dnr />
+          <MaryDye mini spec dnr />
+          <MattBoehnke mini spec dnr />
+        </div> */}
     </>
   );
 };
