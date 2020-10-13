@@ -29,12 +29,12 @@ header nav {
   font-family: "Iowan Old Style", "Apple Garamond", "Palatino", "Georgia", "Times New Roman", serif;
   line-height: 1.4em;
   font-weight: normal; 
-  margin: 10px auto;
+  margin: 0 10px 10px 10px;
+  display: inline-block;
+  max-width: 450px;
 }
 .tw-compare-o-tron {
   margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #02BEE8;
 }
 .tw-compare-o-tron p, .fire-up {
   display: block;
@@ -42,12 +42,6 @@ header nav {
   font-family: "Iowan Old Style", "Apple Garamond", "Palatino", "Georgia", "Times New Roman", serif;
   line-height: 1.4em;
   font-weight: normal;
-}
-.tw-compare-o-tron p {
-  max-width: 670px;
-  margin: 0 auto 10px auto;
-  display: block;
-  text-align: left
 }
 .fire-up {
   font-style: italic;
@@ -815,7 +809,7 @@ td, th {
   position: relative;
   display: block;
   text-align: center;
-  width: 115px;
+  width: 100px;
 }
 
 .color-key span:first-of-type {
@@ -844,10 +838,6 @@ td, th {
 
 .color-key .pos h5 {
   display: none;
-}
-
-.color-key-set {
-  margin: 10px;
 }
 
 .pos.bc {
@@ -1797,10 +1787,10 @@ td {
 
 
 /* temporary */
-
+/* 
 body {
-  background: #fff !important;
-}
+  background: #fff;
+} */
 /* 
 .pos h5 {
   display: none;
