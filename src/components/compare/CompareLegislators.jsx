@@ -17,7 +17,7 @@ import {
 
 const CompareLegislators = () => {
   return (
-    <table>
+    <table className="ld8rep1 ld8rep2 ld9rep1 ld16rep1 ld16rep2 ld16senator">
       <tbody>
         <tr className="key">
           <th>A</th>

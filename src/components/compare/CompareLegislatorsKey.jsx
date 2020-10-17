@@ -32,6 +32,7 @@ const CompareLegislatorsKey = () => {
   {/* function handleChange(e) {
     props.onChange(e);
   } */}
+  const table = document.querySelector('table');
   const hornSound = new Audio('https://app.tumbleweird.org/sounds/horn.mp3');
   hornSound.volume = 0.01;
   
@@ -45,9 +46,20 @@ const CompareLegislatorsKey = () => {
       ...state,
       [target.name]: value,
     });
+    
+    if (table && target.checked) {
+      console.log(table.classList);
+      console.log(target.name);
+      table.classList.add(target.name);
+    } 
+    if (table && !target.checked) {
+      console.log(target.name);
+      console.log(table.classList);
+      table.classList.remove(target.name);
+    }
+    
   };
-  
-  
+
   return (
     <>
       <div className="color-key-set">
@@ -68,7 +80,7 @@ const CompareLegislatorsKey = () => {
         <label className="color-key-container">
           <input
             type="checkbox"
-            name="8th LD Rep 2"
+            name="ld8rep2"
             onChange={handleChange}
             checked={state.ld8rep2}
           />
@@ -82,7 +94,7 @@ const CompareLegislatorsKey = () => {
         <label className="color-key-container">
           <input
             type="checkbox"
-            name="9th LD Rep 1"
+            name="ld9rep1"
             onChange={handleChange}
             checked={state.ld9rep1}
           />
@@ -96,7 +108,7 @@ const CompareLegislatorsKey = () => {
         <label className="color-key-container">
           <input
             type="checkbox"
-            name="16th LD Rep 1"
+            name="ld16rep1"
             onChange={handleChange}
             checked={state.ld16rep1}
           />
@@ -110,7 +122,7 @@ const CompareLegislatorsKey = () => {
         <label className="color-key-container">
           <input
             type="checkbox"
-            name="16th LD Rep 2"
+            name="ld16rep2"
             onChange={handleChange}
             checked={state.ld16rep2}
           />
@@ -124,7 +136,7 @@ const CompareLegislatorsKey = () => {
         <label className="color-key-container">
           <input
             type="checkbox"
-            name="16th LD Senator"
+            name="ld16senator"
             onChange={handleChange}
             checked={state.ld16senator}
           />

@@ -1784,7 +1784,13 @@ td {
   z-index: 100;
 }
 
+tbody .wa8-rep1, tbody .wa8-rep2, tbody .wa9-rep1, tbody .wa16-rep1, tbody .wa16-rep2, tbody .wa16-senator {
+  display: none;
+}
 
+.ld8rep1 tbody .wa8-rep1, .ld8rep2 tbody .wa8-rep2, .ld9rep1 tbody .wa9-rep1, .ld16rep1 tbody .wa16-rep1, .ld16rep2 tbody .wa16-rep2, .ld16senator tbody .wa16-senator {
+  display: inline-block;
+}
 
 /* temporary */
 /* 
@@ -1806,3 +1812,6 @@ th p {
 .no-response {
   display: none;
 } */
+
+
+
