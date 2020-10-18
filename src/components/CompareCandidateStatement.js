@@ -16,8 +16,10 @@ const CompareCandidateStatement = props => {
   }
 
   const handleClick = () => {
-    const candidate = document.querySelector(`#${id}`);
-    candidate.classList.toggle('show');
+    if (document) {
+      const candidate = document.querySelector(`#${id}`);
+      candidate.classList.toggle('show');
+    }
   };
 
   return (

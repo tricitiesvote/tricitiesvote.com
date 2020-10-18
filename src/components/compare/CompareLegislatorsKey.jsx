@@ -27,7 +27,11 @@ const CompareLegislatorsKey = () => {
   // function handleChange(e) {
   //  props.onChange(e);
   // }
-  const table = document.querySelector('table');
+  if (document) {
+    const table = document.querySelector('table');
+  } else {
+    const table = null;
+  }
   const hornSound = new Audio('https://app.tumbleweird.org/sounds/horn.mp3');
   hornSound.volume = 0.01;
 
@@ -42,12 +46,12 @@ const CompareLegislatorsKey = () => {
       [target.name]: value,
     });
 
-    if (table && target.checked) {
+    if (document && table && target.checked) {
       console.log(table.classList);
       console.log(target.name);
       table.classList.add(target.name);
     }
-    if (table && !target.checked) {
+    if (document && table && !target.checked) {
       console.log(target.name);
       console.log(table.classList);
       table.classList.remove(target.name);
