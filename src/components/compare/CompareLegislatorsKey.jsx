@@ -53,14 +53,8 @@ const CompareLegislatorsKey = () => {
             onChange={handleChange}
             checked={state.ld8rep1}
           />
-          <div
-            className={
-              state.ld8rep1 === true
-                ? 'color-key wa8-rep1 show'
-                : 'color-key wa8-rep1 hide'
-            }
-          >
-            <span>8th LD Rep 1</span>
+          <div className="color-key wa8-rep1">
+            <span>LD 8 Rep 1</span>
             <BradKlippert mini />
             <ShirRegev mini />
             <span>Klippert vs. Regev</span>
@@ -74,7 +68,7 @@ const CompareLegislatorsKey = () => {
             checked={state.ld8rep2}
           />
           <div className="color-key wa8-rep2">
-            <span>8th LD Rep 2</span>
+            <span>LD 8 Rep 2</span>
             <MattBoehnke mini spec dnr />
             <LarryStanley mini />
             <span>Boehnke vs. Stanley</span>
@@ -88,7 +82,7 @@ const CompareLegislatorsKey = () => {
             checked={state.ld9rep1}
           />
           <div className="color-key wa9-rep1">
-            <span>9th LD Rep 1</span>
+            <span>LD 9 Rep 1</span>
             <BrettBorden mini />
             <MaryDye mini spec dnr />
             <span>Borden vs. Dye</span>
@@ -102,7 +96,7 @@ const CompareLegislatorsKey = () => {
             checked={state.ld16rep1}
           />
           <div className="color-key wa16-rep1">
-            <span>16th LD Rep 1</span>
+            <span>LD 16 Rep 1</span>
             <FrancesChvatal mini />
             <MarkKlicker mini />
             <span>Borden vs. Dye</span>
@@ -116,7 +110,7 @@ const CompareLegislatorsKey = () => {
             checked={state.ld16rep2}
           />
           <div className="color-key wa16-rep2">
-            <span>16th LD Rep 2</span>
+            <span>LD 16 Rep 2</span>
             <SkylerRude mini spec dnr />
             <CarlyCoburn mini />
             <span>Rude vs. Coburn</span>
@@ -130,7 +124,7 @@ const CompareLegislatorsKey = () => {
             checked={state.ld16senator}
           />
           <div className="color-key wa16-senator">
-            <span>16th LD Senator</span>
+            <span>LD 16 Senator</span>
             <DanielleGarbeReser mini />
             <PerryDozier mini spec dnr />
             <span>Reser vs. Dozier</span>

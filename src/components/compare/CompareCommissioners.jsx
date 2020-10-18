@@ -1,5 +1,5 @@
 import React from 'react';
-import { StrongA, LeanA, LeanB, StrongB, NoResponse } from '../statements';
+import { StrongA, LeanA, LeanB, StrongB } from '../statements';
 import {
   AnaRuizPeralta,
   BradPeck,
@@ -11,7 +11,7 @@ import {
 
 const CompareLegislators = () => {
   return (
-    <table>
+    <table className="franklin1 franklin2 benton1">
       <tbody>
         <tr className="key">
           <th>A</th>
