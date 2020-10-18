@@ -710,6 +710,10 @@ td, th {
   border-style: solid;
 }
 
+tbody .pos img, .close {
+  cursor: pointer;
+}
+
 .pos-1 img, .wa8-rep1 img, .franklin-1 img {
   border-color: #89db8b;
   background-color: #89db8b;
