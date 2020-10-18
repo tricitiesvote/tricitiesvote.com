@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import _ from 'lodash';
 
 const CompareCandidateStatement = props => {
@@ -20,7 +20,7 @@ const CompareCandidateStatement = props => {
     console.log('cssId', cssId);
     const candidate =
       typeof document !== `undefined` ? document.querySelector(cssId) : null;
-    if (typeof document !== `undefined`) {
+    if (candidate) {
       candidate.classList.toggle('show');
     }
   };
