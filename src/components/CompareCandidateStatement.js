@@ -20,7 +20,9 @@ const CompareCandidateStatement = props => {
     console.log('cssId', cssId);
     const candidate =
       typeof document !== `undefined` ? document.querySelector(cssId) : null;
-    candidate.classList.toggle('show');
+    if (typeof document !== `undefined`) {
+      candidate.classList.toggle('show');
+    }
   };
 
   return (
