@@ -29,7 +29,7 @@ const CompareCandidateStatement = props => {
       {!mini ? (
         <div className="more" onClick={handleClick}>
           <span className="close" />
-          <p className="comment" onClick={handleClick}>
+          <p className="says" onClick={handleClick}>
             {comment}
           </p>
         </div>
