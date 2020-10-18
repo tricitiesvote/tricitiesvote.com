@@ -1602,6 +1602,9 @@ td .more, .no-response .more {
   td .more, .no-response .more { 
     z-index: 1;
   }
+  .pos.show .close, .pos.show img {
+    z-index: 1000;
+  }
 }
 
 
