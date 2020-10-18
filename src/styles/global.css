@@ -40,16 +40,19 @@ header nav {
 }
 .tw-compare-o-tron p, .fire-up {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Iowan Old Style", "Apple Garamond", "Palatino", "Georgia", "Times New Roman", serif;
-  line-height: 1.9em;
-  font-weight: normal;
+  line-height: 1.4em;
 }
+
 .fire-up {
   font-style: italic;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 .tw-compare-o-tron p {
-  margin: 10px;
+  max-width: 450px;
+  margin: 10px auto;
 }
 .tw-compare-o-tron h1 {
   font-size: 20px;
@@ -1625,7 +1628,9 @@ td .more, .no-response .more {
   h1 {
     padding-top: 10px;
   }
-
+  .tw-compare-o-tron p {
+    margin: 10px;
+  }
   .candidate .details {
     grid-column: 1;
     grid-row: 2;
