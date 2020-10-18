@@ -35,6 +35,8 @@ header nav {
 }
 .tw-compare-o-tron {
   margin-bottom: 20px;
+  position: static;
+  z-index: 0;
 }
 .tw-compare-o-tron p, .fire-up {
   display: block;
@@ -910,6 +912,8 @@ td .more, .no-response .more {
 
 .more p {
   margin: 0;
+  position: relative;
+  z-index: 100;
 }
 
 .pos.show .more {
@@ -941,24 +945,24 @@ td .more, .no-response .more {
 
 td:nth-of-type(-n+2) .more {
   left: -10px;
-  padding: 15px 40px 15px 80px;
+  padding: 15px 40px 15px 60px;
   text-align: left;
   border-radius: 30px 10px 10px 10px;
 }
 
 td:nth-of-type(n+3) .more {
   right: -10px;
-  padding: 15px 80px 15px 40px;
+  padding: 15px 60px 15px 40px;
   text-align: left;
   border-radius: 10px 30px 10px 10px;
 }
 
 td:nth-of-type(-n+2) .dnr .more {
-  width: 150px;
+  width: 110px;
 }
 
 td:nth-of-type(n+3) .dnr .more {
-  width: 150px;
+  width: 110px;
 }
 
 td:nth-of-type(-n+2) .close {
@@ -1595,7 +1599,12 @@ td .more, .no-response .more {
   z-index: 10;
 }
 
+/* disabling mobile full-screen styles for now */
+/* 
 @media screen and (max-width: 500px) {
+  table {
+    position: relative;
+  }
   .show .pos { 
     z-index: 1;
   }
@@ -1604,8 +1613,8 @@ td .more, .no-response .more {
   }
   /* .pos.show .close, .pos.show img {
     z-index: 1000;
-  } */
-}
+  }
+} */ 
 
 
 
@@ -1687,7 +1696,7 @@ td .more, .no-response .more {
   }
   
   p, section li, section dl, section a, .headline-container a {
-    font-size: 14px;
+    font-size: 12px;
   }
   
   .guide {
@@ -1745,7 +1754,7 @@ td .more, .no-response .more {
   }
   
   th:first-of-type, th:last-of-type {
-    width: 220px;
+    width: 200px;
   }
   td:nth-child(4), th:nth-child(4) {
     border-left: 2px solid #eee;
@@ -1763,11 +1772,10 @@ td .more, .no-response .more {
 
   .pos h5 {
     font-size: 8px;
-    
   }
 
   td .more, .no-response .more {
-  font-size: 14px
+  font-size: 13px
   }
   
   th {
@@ -1775,7 +1783,7 @@ td .more, .no-response .more {
   }
 
   th {
-    width: 220px;
+    width: 200px;
   }
 
   .key th {
@@ -1786,7 +1794,15 @@ td .more, .no-response .more {
     font-size: 15px;
   }
   
-  .show.pos img {
+  /* alternative mobile styles */
+  
+  td .more, .no-response .more {
+    position: absolute;
+    width: 120px;
+  }
+  
+  /* disabling mobile styles for now */ 
+  /* .show.pos img {
     width: 60px;
     height: 60px;
     position: fixed;
@@ -1882,7 +1898,7 @@ td .more, .no-response .more {
     cursor: pointer;
     text-align: center;
     line-height: 1;
-  }
+  } */
 }
 
 
