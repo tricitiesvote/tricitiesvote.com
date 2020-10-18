@@ -44,7 +44,8 @@ const CompareLegislatorsKey = () => {
   };
 
   return (
-    <>
+    <div className="compare-key">
+      <h2 className="which-compare-o-tron">State Legislators</h2>
       <div className="color-key-set">
         <label className="color-key-container">
           <input
@@ -131,9 +132,10 @@ const CompareLegislatorsKey = () => {
           </div>
         </label>
       </div>
-      {/* <p>
-        Opponents have matching colors. Click their faces—they might have more to say.
-      </p> */}
+      <p>
+        Opponents have matching colors. Click their faces—they might have more
+        to say.
+      </p>
       <p>
         Perry Dozier, Skyler Rude, Mary Dye, and Matt Boehnke did not complete
         our Q&A despite numerous attempts on our part. These candidates’
@@ -141,13 +143,7 @@ const CompareLegislatorsKey = () => {
         traditional party positions, publicly available information, and
         consultations with engaged citizens.
       </p>
-      {/* <div className="">
-          <PerryDozier mini spec dnr />
-          <SkylerRude mini spec dnr />
-          <MaryDye mini spec dnr />
-          <MattBoehnke mini spec dnr />
-        </div> */}
-    </>
+    </div>
   );
 };
 

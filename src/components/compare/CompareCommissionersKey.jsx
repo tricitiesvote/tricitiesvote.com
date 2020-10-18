@@ -35,7 +35,8 @@ const CompareLegislatorsKey = () => {
   };
 
   return (
-    <>
+    <div className="compare-key">
+      <h2 className="which-compare-o-tron">County Commissioners</h2>
       <div className="color-key-set">
         <label className="color-key-container">
           <input
@@ -80,9 +81,10 @@ const CompareLegislatorsKey = () => {
           </div>
         </label>
       </div>
-      {/* <p>
-        Opponents have matching colors. Click their faces—they might have more to say.
-      </p> */}
+      <p>
+        Opponents have matching colors. Click their faces—they might have more
+        to say.
+      </p>
       <p>
         Rocky Mullen did not complete our Q&A despite numerous attempts on our
         part. Brad Peck and Jerome Delvin commented but did not choose A/B
@@ -92,7 +94,7 @@ const CompareLegislatorsKey = () => {
         engaged citizens. Neither Will McKay nor Jim Beaver responded, so we
         skipped both.
       </p>
-    </>
+    </div>
   );
 };
 

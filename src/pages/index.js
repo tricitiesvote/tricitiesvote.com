@@ -30,22 +30,17 @@ class SiteIndex extends React.Component {
             <br /> of information to help you decide.
           </h2>
           <h2>
+            <Link to="/compare-legislators">Compare legislators »</Link>
+            <Link to="/compare-commissioners">Compare commissioners »</Link>
+            <br />
             <Link to="/benton">Benton County »</Link>
             <Link to="/franklin">Franklin County »</Link>
           </h2>
           <p>
-            Get a quick overview of all of our area’s local
-            <br /> candidates in elimination races below.
-          </p>
-          <p>
+            Literally working on this right now.
+            <br />
             <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
             the latest updates.
-          </p>
-          <p>
-            <strong>Media:</strong> Please feel free to use this site for
-            research
-            <br /> reference, and data analysis. Just attribute
-            tricitiesvote.com
           </p>
         </div>
         {guides.map(guide => (

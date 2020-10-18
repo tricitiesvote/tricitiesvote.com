@@ -24,9 +24,8 @@ const Nav = () => {
       `}
       render={data => (
         <nav>
-          {data.allGuidesJson.edges.map(guide => (
-            <Link to={`/${guide.node.fields.slug}`}>{guide.node.region}</Link>
-          ))}
+          <Link to="/compare-legislators">Legislators »</Link>
+          <Link to="/compare-commissioners">Commissioners »</Link>
         </nav>
       )}
     />
