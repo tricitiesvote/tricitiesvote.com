@@ -24,31 +24,21 @@ const CompareLegislatorsKey = () => {
     ld16senator: true,
   });
 
-  // function handleChange(e) {
-  //  props.onChange(e);
-  // }
   const table =
     typeof document !== `undefined` ? document.querySelector(`table`) : null;
 
   const handleChange = e => {
     const { target } = e;
-    // console.log(target.classList);
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    console.log('value is', value);
-    console.log('checked is', target.checked);
     setState({
       ...state,
       [target.name]: value,
     });
 
     if (table && target.checked) {
-      console.log(table.classList);
-      console.log(target.name);
       table.classList.add(target.name);
     }
     if (table && !target.checked) {
-      console.log(target.name);
-      console.log(table.classList);
       table.classList.remove(target.name);
     }
   };

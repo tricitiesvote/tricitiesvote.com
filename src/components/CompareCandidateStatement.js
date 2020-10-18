@@ -17,6 +17,7 @@ const CompareCandidateStatement = props => {
   }
 
   const handleClick = () => {
+    console.log('cssId', cssId);
     const candidate =
       typeof document !== `undefined` ? document.querySelector(cssId) : null;
     candidate.classList.toggle('show');
