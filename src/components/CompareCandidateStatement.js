@@ -4,6 +4,7 @@ import _ from 'lodash';
 const CompareCandidateStatement = props => {
   const { position, name, last, image, comment, spec, dnr, mini } = props;
   const id = _.uniqueId('candidate_');
+  const cssId = `#${id}`;
   let posClass;
   if (spec && dnr) {
     posClass = `pos ${position} speculation dnr`;
@@ -17,7 +18,7 @@ const CompareCandidateStatement = props => {
 
   const handleClick = () => {
     const candidate =
-      typeof document !== `undefined` ? document.querySelector(`#${id}`) : null;
+      typeof document !== `undefined` ? document.querySelector(cssId) : null;
     candidate.classList.toggle('show');
   };
 
