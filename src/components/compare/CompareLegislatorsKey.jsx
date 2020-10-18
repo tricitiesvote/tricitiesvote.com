@@ -14,31 +14,26 @@ import {
   SkylerRude,
 } from '../candidates';
 
-
-
 const CompareLegislatorsKey = () => {
-  
-  
   const [state, setState] = useState({
     ld8rep1: true,
     ld8rep2: true,
     ld9rep1: true,
     ld16rep1: true,
     ld16rep2: true,
-    ld16senator: true
-  })
-  
-  
-  {/* function handleChange(e) {
-    props.onChange(e);
-  } */}
+    ld16senator: true,
+  });
+
+  // function handleChange(e) {
+  //  props.onChange(e);
+  // }
   const table = document.querySelector('table');
   const hornSound = new Audio('https://app.tumbleweird.org/sounds/horn.mp3');
   hornSound.volume = 0.01;
-  
+
   const handleChange = e => {
     const { target } = e;
-    {/* console.log(target.classList); */}
+    // console.log(target.classList);
     const value = target.type === 'checkbox' ? target.checked : target.value;
     console.log('value is', value);
     console.log('checked is', target.checked);
@@ -46,18 +41,17 @@ const CompareLegislatorsKey = () => {
       ...state,
       [target.name]: value,
     });
-    
+
     if (table && target.checked) {
       console.log(table.classList);
       console.log(target.name);
       table.classList.add(target.name);
-    } 
+    }
     if (table && !target.checked) {
       console.log(target.name);
       console.log(table.classList);
       table.classList.remove(target.name);
     }
-    
   };
 
   return (
@@ -70,7 +64,13 @@ const CompareLegislatorsKey = () => {
             onChange={handleChange}
             checked={state.ld8rep1}
           />
-          <div className={state.ld8rep1 === true ? 'color-key wa8-rep1 show' : 'color-key wa8-rep1 hide'}>
+          <div
+            className={
+              state.ld8rep1 === true
+                ? 'color-key wa8-rep1 show'
+                : 'color-key wa8-rep1 hide'
+            }
+          >
             <span>8th LD Rep 1</span>
             <BradKlippert mini />
             <ShirRegev mini />

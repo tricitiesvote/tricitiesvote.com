@@ -1,5 +1,5 @@
 import React from 'react';
-import { StrongA, LeanA, LeanB, StrongB, NoResponse } from '../statements';
+import { StrongA, LeanA, LeanB, StrongB } from '../statements';
 import {
   BradKlippert,
   BrettBorden,
