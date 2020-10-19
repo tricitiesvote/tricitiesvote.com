@@ -17,8 +17,8 @@ const RacePage = ({ data }) => {
   return (
     <DefaultLayout
       pageTitle={race.office.title}
-      preview={`https://tricitiesvote.com/images/${race.fields.slug}.png`}
-      url={`https://tricitiesvote.com/${race.fields.slug}`}
+      preview={`${race.fields.slug}.png`}
+      url={race.fields.slug}
     >
       <div className="guide">
         {/* <pre><code>{JSON.stringify(race, null, 2)}</code></pre> */}
