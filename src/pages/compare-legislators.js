@@ -5,7 +5,11 @@ import CompareLegislators from '../components/compare/CompareLegislators';
 import CompareLegislatorsKey from '../components/compare/CompareLegislatorsKey';
 
 export default () => (
-  <DefaultLayout title="Compare Legislators">
+  <DefaultLayout
+    pageTitle="Legislator Candidate Compare-o-Tron™"
+    preview="compare-legislators.png"
+    url="compare-legislators"
+  >
     <CompareHeader>
       <CompareLegislatorsKey office="all" />
     </CompareHeader>

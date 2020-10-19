@@ -5,7 +5,11 @@ import CompareCommissioners from '../components/compare/CompareCommissioners';
 import CompareCommissionersKey from '../components/compare/CompareCommissionersKey';
 
 export default () => (
-  <DefaultLayout title="Compare Legislators">
+  <DefaultLayout
+    pageTitle="Commissioner Candidate Compare-o-Tron™"
+    preview="compare-commissioners.png"
+    url="compare-commissioners"
+  >
     <CompareHeader>
       <CompareCommissionersKey office="all" />
     </CompareHeader>
