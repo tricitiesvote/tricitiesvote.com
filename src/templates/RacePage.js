@@ -17,7 +17,7 @@ const RacePage = ({ data }) => {
   return (
     <DefaultLayout
       pageTitle={race.office.title}
-      preview={`${race.fields.slug}.png`}
+      preview={`https://tricitiesvote.com/images/${race.fields.slug}.png`}
       url={race.fields.slug}
     >
       <div className="guide">

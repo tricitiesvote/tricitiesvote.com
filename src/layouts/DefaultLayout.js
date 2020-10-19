@@ -30,10 +30,7 @@ export default props => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://tricitiesvote.com/${url}`} />
         {preview ? (
-          <meta
-            property="og:image"
-            content={`https://tricitiesvote.com/images/${preview}`}
-          />
+          <meta property="og:image" content={preview} />
         ) : (
           <meta
             property="og:image"
