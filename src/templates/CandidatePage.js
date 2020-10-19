@@ -14,7 +14,7 @@ const CandidatePage = ({ data }) => {
       location={location}
       pageTitle={candidate.name}
       bodyClass="candidate-page"
-      preview={candidate.image}
+      preview={`https://tricitiesvote.com${candidate.image}.png`}
       url={candidate.fields.slug}
     >
       <div className="container-candidate-large">
