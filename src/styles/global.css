@@ -1557,11 +1557,11 @@ td {
   z-index: 1;
 }
 
-tbody .wa8-rep1, tbody .wa8-rep2, tbody .wa9-rep1, tbody .wa16-rep1, tbody .wa16-rep2, tbody .wa16-senator {
+tbody .wa8-rep1, tbody .wa8-rep2, tbody .wa9-rep1, tbody .wa16-rep1, tbody .wa16-rep2, tbody .wa16-senator, tbody .franklin-1, tbody .franklin-2, tbody .benton-1, tbody .benton-3 {
   display: none;
 }
 
-.ld8rep1 tbody .wa8-rep1, .ld8rep2 tbody .wa8-rep2, .ld9rep1 tbody .wa9-rep1, .ld16rep1 tbody .wa16-rep1, .ld16rep2 tbody .wa16-rep2, .ld16senator tbody .wa16-senator {
+.ld8rep1 tbody .wa8-rep1, .ld8rep2 tbody .wa8-rep2, .ld9rep1 tbody .wa9-rep1, .ld16rep1 tbody .wa16-rep1, .ld16rep2 tbody .wa16-rep2, .ld16senator tbody .wa16-senator, .franklin1 tbody .franklin-1, .franklin2 tbody .franklin-2, .benton1 tbody .benton-1, .benton3 tbody .benton-3 {
   display: inline-block;
 }
 

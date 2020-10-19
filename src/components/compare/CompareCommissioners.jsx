@@ -9,9 +9,19 @@ import {
   RockyMullen,
 } from '../candidates';
 
-const CompareLegislators = () => {
+const CompareLegislators = props => {
+  const { office } = props;
+
+  let classes = office;
+
+  if (office !== 'all') {
+    classes = office;
+  } else {
+    classes = 'franklin1 franklin2 benton1';
+  }
+
   return (
-    <table className="franklin1 franklin2 benton1">
+    <table className={classes}>
       <tbody>
         <tr className="key">
           <th>A</th>

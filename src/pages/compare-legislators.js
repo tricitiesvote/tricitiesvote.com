@@ -7,8 +7,8 @@ import CompareLegislatorsKey from '../components/compare/CompareLegislatorsKey';
 export default () => (
   <DefaultLayout title="Compare Legislators">
     <CompareHeader>
-      <CompareLegislatorsKey />
+      <CompareLegislatorsKey office="all" />
     </CompareHeader>
-    <CompareLegislators />
+    <CompareLegislators office="all" />
   </DefaultLayout>
 );

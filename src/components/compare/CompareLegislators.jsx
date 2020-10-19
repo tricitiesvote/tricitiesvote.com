@@ -15,9 +15,19 @@ import {
   SkylerRude,
 } from '../candidates';
 
-const CompareLegislators = () => {
+const CompareLegislators = props => {
+  const { office } = props;
+
+  let classes = office;
+
+  if (office !== 'all') {
+    classes = office;
+  } else {
+    classes = 'ld8rep1 ld8rep2 ld9rep1 ld16rep1 ld16rep2 ld16senator';
+  }
+
   return (
-    <table className="ld8rep1 ld8rep2 ld9rep1 ld16rep1 ld16rep2 ld16senator">
+    <table className={classes}>
       <tbody>
         <tr className="key">
           <th>A</th>
