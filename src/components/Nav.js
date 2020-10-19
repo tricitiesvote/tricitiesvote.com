@@ -24,8 +24,9 @@ const Nav = () => {
       `}
       render={data => (
         <nav>
-          <Link to="/compare-legislators">Legislators »</Link>
-          <Link to="/compare-commissioners">Commissioners »</Link>
+          <Link to="/">Home</Link>
+          <Link to="/compare-legislators">Legislators</Link>
+          <Link to="/compare-commissioners">Commissioners</Link>
         </nav>
       )}
     />
