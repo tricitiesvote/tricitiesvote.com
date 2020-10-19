@@ -3,8 +3,9 @@ import { graphql } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import Candidate from '../components/Candidate';
 import ContactInline from '../components/ContactInline';
+import '../styles/preview.css';
 
-const CandidatePage = ({ data }) => {
+const CandidatePagePreview = ({ data }) => {
   // const { edges } = data
   const { allCandidatesJson, location } = data;
   const candidate = allCandidatesJson.edges[0].node;
@@ -13,8 +14,7 @@ const CandidatePage = ({ data }) => {
     <DefaultLayout
       location={location}
       pageTitle={candidate.name}
-      bodyClass="candidate-page"
-      preview={candidate.image}
+      bodyClass="candidate-page preview-page"
     >
       <div className="container-candidate-large">
         <Candidate data={candidate} fullsize="true" />
@@ -26,7 +26,7 @@ const CandidatePage = ({ data }) => {
   );
 };
 
-export default CandidatePage;
+export default CandidatePagePreview;
 
 export const pageQuery = graphql`
   query($slug: String!) {

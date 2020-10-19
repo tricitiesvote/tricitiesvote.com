@@ -3,9 +3,10 @@ import { graphql, Link } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import Race from '../components/Race';
 import ContactInline from '../components/ContactInline';
+import '../styles/preview.css';
 // import _ from 'lodash';
 
-const RacePage = ({ data }) => {
+const RacePagePreview = ({ data }) => {
   const { allRacesJson } = data;
   const race = allRacesJson.edges[0].node;
   // TODO: make 'region' consistent across data sets
@@ -15,11 +16,7 @@ const RacePage = ({ data }) => {
   // const region_url = _.kebabCase(allRacesJson.edges[0].node.office.region);
 
   return (
-    <DefaultLayout
-      pageTitle={race.office.title}
-      preview={`https://tricitiesvote.com/images/${race.fields.slug}.png`}
-      url={`https://tricitiesvote.com/${race.fields.slug}`}
-    >
+    <DefaultLayout bodyClass="preview-page">
       <div className="guide">
         {/* <pre><code>{JSON.stringify(race, null, 2)}</code></pre> */}
         <section className="race" key={race.uuid}>
@@ -34,7 +31,7 @@ const RacePage = ({ data }) => {
   );
 };
 
-export default RacePage;
+export default RacePagePreview;
 
 export const pageQuery = graphql`
   query($slug: String!) {

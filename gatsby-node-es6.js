@@ -14,8 +14,7 @@ exports.createSchemaCustomization = helpers => {
   const { createTypes } = actions;
   try {
     createTypes(SchemaCustomization);
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
   }
 };
@@ -47,6 +46,16 @@ exports.createPages = async ({
     });
   });
 
+  allCandidates.forEach(candidate => {
+    createPage({
+      path: `/${candidate.node.fields.slug}/preview`,
+      component: path.resolve('./src/templates/CandidatePagePreview.js'),
+      context: {
+        slug: candidate.node.fields.slug,
+      },
+    });
+  });
+
   allNotes.forEach(note => {
     createPage({
       path: `/${note.node.candidate.fields.slug}/notes`,
@@ -61,6 +70,16 @@ exports.createPages = async ({
     createPage({
       path: `/${race.node.fields.slug}/`,
       component: path.resolve('./src/templates/RacePage.js'),
+      context: {
+        slug: race.node.fields.slug,
+      },
+    });
+  });
+
+  allRaces.forEach(race => {
+    createPage({
+      path: `/${race.node.fields.slug}/preview`,
+      component: path.resolve('./src/templates/RacePagePreview.js'),
       context: {
         slug: race.node.fields.slug,
       },
