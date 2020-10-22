@@ -750,7 +750,6 @@ const CompareLegislators = props => {
           </th>
           <StrongA>
             <BradKlippert />
-            <DanielleGarbeReser />
             <MarkKlicker says="I believe we are all equal and and no person of color, race or sexual identification should be discriminated against or given special privileges." />
             <MaryDye spec="true" dnr="true" />
           </StrongA>
@@ -762,6 +761,7 @@ const CompareLegislators = props => {
             <SkylerRude spec="true" dnr="true" />
           </LeanB>
           <StrongB>
+            <DanielleGarbeReser />
             <BrettBorden />
             <CarlyCoburn />
             <FrancesChvatal />
