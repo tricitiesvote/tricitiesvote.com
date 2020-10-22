@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import _ from 'lodash';
 import CandidateMini from './CandidateMini';
 
 const RaceListMini = props => {
   const { data } = props;
-  console.log('racelistmini data', data);
 
   // (!_.find(races { office}, { office: { title: race.office.title } })
 
@@ -15,7 +13,15 @@ const RaceListMini = props => {
         <section className="race" key={race.node.id}>
           <Link to={`/${race.node.fields.slug}`}>
             <h2>{race.node.office.title}</h2>
-            <span className="note">🟡 🟢 Compare candidates »</span>
+            <span className="note">
+              <span role="img" aria-label="yellow-dot">
+                🟡
+              </span>{' '}
+              <span role="img" aria-label="green-dot">
+                🟢
+              </span>{' '}
+              Compare candidates »
+            </span>
           </Link>
           <div className="container-candidate container-candidate-mini">
             {race.node.candidates.map(candidate => (
