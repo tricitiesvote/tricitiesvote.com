@@ -1905,7 +1905,8 @@ td .more, .no-response .more {
       margin: 10px auto;
       text-align: center;
   }
-  @media screen and (max-width: 500px) {
+}
+@media screen and (max-width: 500px) {
   .candidate img {
       margin: 10px auto;
       display: block;
