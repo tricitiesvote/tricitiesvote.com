@@ -25,20 +25,78 @@ class SiteIndex extends React.Component {
             A nonpartisan community-driven collection
             <br /> of information to help you decide.
           </h2>
-          <h2>
-            <Link to="/compare-legislators">Compare legislators »</Link>
-            <Link to="/compare-commissioners">Compare commissioners »</Link>
-            <br />
-            <Link to="/benton">Benton County »</Link>
-            <Link to="/franklin">Franklin County »</Link>
-          </h2>
           <p>
-            Literally working on this right now.
-            <br />
             <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
-            the latest updates.
+            weekdaily news updates.
           </p>
         </div>
+        <div className="howto">
+          <h1>How to use this guide</h1>
+          <div className="intro-container">
+            <div>
+              <img src="/images/compare-two.jpg" />
+              <h3>
+                Research candidates’ views,
+                <br /> donors, and endorsements
+              </h3>
+              <p>
+                We’ve collected links to regional questionnaires, interviews,
+                forums, and written endorsements, plus donor data for all
+                Washington State PDC candidates. (We’ll get FEC data next time
+                around.) You can compare side by side or look at each candidate
+                and see their donor details.
+              </p>
+              <p>
+                <a href="/about">Read more about our team and our approach</a>.
+              </p>
+            </div>
+            <div>
+              <img src="/images/compare.png" />
+              <h3>
+                Quickly compare candidate
+                <br /> leanings on top issues
+              </h3>
+              <p>
+                Our A/B questionnaire is based on top issues identified by the
+                public and candidates themselves in primary questionnaires.
+              </p>
+              <p>
+                Our process is imperfect, but it’s intended to be nonpartisan
+                and impartial while mirroring the messiness of being an elected
+                official and a voter, where nearly all decisions are choices
+                between two options you didn’t come up with.{' '}
+              </p>
+            </div>
+            <div>
+              <img src="/images/comment.jpg" />
+              <h3>
+                Click candidates‘ faces for
+                <br /> their additional comments
+              </h3>
+              <p>
+                We painstakingly worked to encourage all candidates to
+                participate. Our process is rigorous and some chose not to.
+              </p>
+              <p>
+                We have done our best to speculate on the positions of
+                candidates who did not answer to the best of our ability based
+                on comments, traditional party positions, publicly available
+                information, and input from engaged citizens.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="intro">
+          <h2>
+            <Link to="/compare-legislators">
+              Compare all area legislators »
+            </Link>
+            <Link to="/compare-commissioners">
+              Compare all area commissioners »
+            </Link>
+          </h2>
+        </div>
+        <h1>Candidate engagement overview</h1>
         <RaceListMini data={races} />
 
         <ContactInline page="https://tricitiesvote.com" />

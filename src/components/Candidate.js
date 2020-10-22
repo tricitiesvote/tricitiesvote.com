@@ -39,9 +39,11 @@ const Candidate = props => {
     statement_excerpt_html,
     lettersyes_html_nowrap,
     lettersno_html_nowrap,
-    articles_html_nowrap,
+    articles_html,
     fundraising,
   } = fields;
+
+  console.log(fields);
 
   const url = `/${slug}`;
 
@@ -71,11 +73,7 @@ const Candidate = props => {
             yes={lettersyes_html_nowrap}
             no={lettersno_html_nowrap}
           />
-          {articles_html_nowrap ? (
-            <CandidateArticles articles={articles_html_nowrap} />
-          ) : (
-            ''
-          )}
+          {articles_html ? <CandidateArticles articles={articles_html} /> : ''}
           {!fullsize ? (
             <div>
               <CandidateBody body={body_excerpt_html} />

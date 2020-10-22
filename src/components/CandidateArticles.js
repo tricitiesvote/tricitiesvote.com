@@ -4,13 +4,12 @@ const CandidateArticles = props => {
   const { articles } = props;
 
   return (
-    <ul className="news">
-      <li
-        dangerouslySetInnerHTML={{
-          __html: articles,
-        }}
-      />
-    </ul>
+    <div
+      className="news"
+      dangerouslySetInnerHTML={{
+        __html: articles,
+      }}
+    />
   );
 };
 

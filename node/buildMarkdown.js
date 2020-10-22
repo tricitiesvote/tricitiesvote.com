@@ -2,7 +2,11 @@ const remark = require('remark');
 const remarkHTML = require('remark-html');
 const truncate = require('truncate-html');
 
-exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = helpers => {
+  // console.log(helpers);
+
+  const { node, actions } = helpers;
+
   const { createNodeField } = actions;
   const markdownFields = [
     {
@@ -20,7 +24,7 @@ exports.onCreateNode = ({ node, actions }) => {
     {
       name: 'articles',
       data: node.articles,
-      wrap: false,
+      wrap: true,
       excerpt: false,
     },
     {
@@ -63,7 +67,10 @@ exports.onCreateNode = ({ node, actions }) => {
 
     // console.log(excerpt)
 
+    // console.log(fieldData);
+
     if (fieldData) {
+      // console.log('hi');
       const wrapValue = remark()
         .use(remarkHTML)
         .processSync(fieldData)
@@ -76,9 +83,10 @@ exports.onCreateNode = ({ node, actions }) => {
         .slice(3)
         .slice(0, -5); // remove <p> and </p>
 
-      if (wrapValue && wrap) {
+      if (wrap) {
         // create new node at:
         // fields { fieldName_html }
+        // console.log('wrap', fieldName, wrapValue);
         createNodeField({
           name: `${fieldName}_html`,
           node,
@@ -86,9 +94,10 @@ exports.onCreateNode = ({ node, actions }) => {
         });
       }
 
-      if (noWrapValue && !wrap) {
+      if (!wrap) {
         // create new unwrapped node at:
         // fields { fieldName_html_nowrap }
+        // console.log('nowrap', fieldName, noWrapValue);
         createNodeField({
           name: `${fieldName}_html_nowrap`,
           node,
@@ -98,7 +107,7 @@ exports.onCreateNode = ({ node, actions }) => {
 
       // console.log(excerpt)
 
-      if (wrapValue && excerpt > 0) {
+      if (excerpt > 0) {
         const excerptValue = truncate(wrapValue, excerpt, {
           reserveLastWord: true,
         });

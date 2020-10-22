@@ -351,7 +351,7 @@ article p {
   line-height: 1.4em;
 }
 
-.content p, .candidate p {
+.content p, .candidate p, .intro-container p {
   font-family: "Iowan Old Style", "Apple Garamond", "Palatino", "Georgia", "Times New Roman", serif;
 }
 
@@ -1160,7 +1160,7 @@ span.note {
 
 .intro { 
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 .intro h1 {
@@ -1202,6 +1202,43 @@ span.note {
 }
 
 
+.intro-container {
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  margin: 10px;
+}
+
+.intro-container div {
+  margin: 20px;
+}
+
+.intro-container div img {
+  width: 100%;
+}
+
+.intro-container h3, p {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.intro-container img {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  background-color: rgba(83,187,228,.1);
+}
+
+.intro-container p {
+  font-size: 14px;
+}
+
+.intro-container h3 br {
+  display: none;
+}
+
+.howto {
+  background: rgba(83,187,228,.1);
+}
+
 @media screen and (max-width: 500px) {
   .intro br {
     display: none;
@@ -1228,15 +1265,34 @@ span.note {
   }
 
   .intro h1 {
-    font-size: 36px !important;
+    font-size: 36px;
   }
 
   .intro h2 {
-  font-size: 18px;
-  margin: 10px;
+    font-size: 18px;
+    margin: 10px 20px;
   }
   .intro p {
     margin-bottom: 10px;
+  }
+  .intro h1 span {
+    float: none;
+    display: block;
+    text-align: center;
+    margin: 0 ;
+    position: relative;
+    left: 5px;
+  }
+  .intro h1 {
+    text-align: center; 
+    margin: 0 auto;
+    width: auto;
+  }
+  .intro h1 br {
+    display: block;
+  }
+  .howto h1 {
+    padding-top: 40px;
   }
 }
 
@@ -1773,6 +1829,31 @@ td .more, .no-response .more {
     position: absolute;
     width: 120px;
   }
+  .intro-container {
+    grid-template-columns: 1fr;
+    display: grid;
+    margin: 10px;
+  }
+  .intro-container p {
+    width: 80%;
+    margin: 10px auto;
+  }
+  .intro-container div img {
+    width: 50%;
+    margin: 10px auto;
+    display: block
+  }
+  .intro-container h3 {
+    text-align: center;
+  }
+  .intro-container div {
+    margin: 0 0 20px 0;
+    padding: 10px;
+  }
+  .intro-container h3 br {
+    display: block;
+  }
+  
 }
 
 @media screen and (max-width: 480px) {
@@ -1812,14 +1893,79 @@ td .more, .no-response .more {
     right: 0px;
     top: 0px
   }
+  
+  
+  element.style {
+      /* padding: 0; */
+      /* height: 100px; */
+      /* width: 100px; */
+  }
+  .candidate.candidate-mini img {
+      display: block;
+      margin: 10px auto;
+      text-align: center;
+  }
+  @media screen and (max-width: 500px)
+  .candidate img {
+      margin: 10px auto;
+      display: block;
+  }
+  .candidate img {
+      margin: 5px 15px 10px 5px;
+  }
+  .candidate img, .pos img {
+      border-radius: 100px;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -o-object-position: 0% 10%;
+      object-position: 0% 10%;
+  }
+  .candidate {
+    padding: 5px;
+    margin: 2px;
+  }
+  .candidate h5 a {
+    font-size: 16px;
+  }
+  .candidate h4 {
+    font-size: 14px;
+  }
+  .candidate li, .index .engagement li, .candidate li a {
+    font-size: 11px;
+  }
+  .candidate img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .index .engagement ul {
+    margin: 3px;
+  }
+  .donor-summary p {
+    font-size: 12px;
+  }
+  .index .race {
+    margin-bottom: 0px;
+  }
+  .race h2 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .note {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .intro h1 {
+    font-size: 28px;
+  }
 }
 
 /* temporary */
 /* 
 body {
   background: #fff;
-} */
-/* 
+}
+
 .pos h5 {
   display: none;
 }
