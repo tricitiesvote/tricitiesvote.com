@@ -5,28 +5,20 @@ import CandidateMini from './CandidateMini';
 
 const RaceListMini = props => {
   const { data } = props;
-
-  const races = [];
-
-  data.forEach(race => {
-    // eslint-disable-next-line prettier/prettier
-    if (!_.find(races, race)) {
-      races.push(race);
-    }
-  });
+  console.log('racelistmini data', data);
 
   // (!_.find(races { office}, { office: { title: race.office.title } })
 
   return (
-    <div className="races-collection" key={data.id}>
-      {races.map(race => (
-        <section className="race" key={race.id}>
-          <Link to={`/${race.fields.slug}`}>
-            <h2>{race.office.title}</h2>
-            <span className="note">See more details »</span>
+    <div className="races-collection">
+      {data.map(race => (
+        <section className="race" key={race.node.id}>
+          <Link to={`/${race.node.fields.slug}`}>
+            <h2>{race.node.office.title}</h2>
+            <span className="note">🟡 🟢 Compare candidates »</span>
           </Link>
           <div className="container-candidate container-candidate-mini">
-            {race.candidates.map(candidate => (
+            {race.node.candidates.map(candidate => (
               <CandidateMini
                 name={candidate.name}
                 slug={candidate.fields.slug}

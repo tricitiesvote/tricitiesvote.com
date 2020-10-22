@@ -2,7 +2,8 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 // import _ from 'lodash'
 import DefaultLayout from '../layouts/DefaultLayout';
-import Guide from '../components/Guide';
+// import Guide from '../components/Guide';
+import RaceListMini from '../components/RaceListMini';
 import ContactInline from '../components/ContactInline';
 
 // collect Candidates in Races, collect Races in Guides
@@ -10,13 +11,12 @@ import ContactInline from '../components/ContactInline';
 class SiteIndex extends React.Component {
   render() {
     const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title;
-    const guides = data.guides.edges;
+    const races = data.races.edges;
 
     return (
       <DefaultLayout
         location={data.location}
-        title={siteTitle}
+        title="Tri-Cities Vote"
         bodyClass="index"
       >
         <div className="intro">
@@ -43,9 +43,7 @@ class SiteIndex extends React.Component {
             the latest updates.
           </p>
         </div>
-        {guides.map(guide => (
-          <Guide data={guide} mini="true" />
-        ))}
+        <RaceListMini data={races} />
 
         <ContactInline page="https://tricitiesvote.com" />
       </DefaultLayout>
@@ -58,25 +56,35 @@ export default SiteIndex;
 // copied from graphql/GUIDES
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    guides: allGuidesJson(
+    races: allRacesJson(
       filter: { electionyear: { eq: "2020" }, type: { eq: "general" } }
+      sort: { fields: office___title, order: ASC }
     ) {
       edges {
         node {
           fields {
             slug
           }
-          races {
-            ...RaceDetails
+          office {
+            title
+            region
           }
-          electionyear
-          type
-          region
+          candidates {
+            fields {
+              slug
+              engagement_html
+              fundraising {
+                total_raised
+                unique_donors
+                total_in_kind
+                total_cash
+              }
+              slug
+            }
+            image
+            id
+            name
+          }
         }
       }
     }
