@@ -26,6 +26,7 @@ const RaceListMini = props => {
           <div className="container-candidate container-candidate-mini">
             {race.node.candidates.map(candidate => (
               <CandidateMini
+                key={candidate.uuid}
                 name={candidate.name}
                 slug={candidate.fields.slug}
                 image={candidate.image}
