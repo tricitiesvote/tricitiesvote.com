@@ -1905,13 +1905,13 @@ td .more, .no-response .more {
       margin: 10px auto;
       text-align: center;
   }
-  @media screen and (max-width: 500px)
+  @media screen and (max-width: 500px) {
   .candidate img {
       margin: 10px auto;
       display: block;
   }
   .candidate img {
-      margin: 5px 15px 10px 5px;
+    margin: 5px auto 10px auto;
   }
   .candidate img, .pos img {
       border-radius: 100px;
@@ -1933,7 +1933,7 @@ td .more, .no-response .more {
   .candidate li, .index .engagement li, .candidate li a {
     font-size: 11px;
   }
-  .candidate img {
+  .index .candidate img {
     max-width: 100px;
     max-height: 100px;
   }
