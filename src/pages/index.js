@@ -40,14 +40,13 @@ class SiteIndex extends React.Component {
                 <br /> donors, and endorsements
               </h3>
               <p>
+                <strong>Dang near everything on this site is a link.</strong>{' '}
                 We’ve collected links to regional questionnaires, interviews,
                 forums, and written endorsements, plus donor data for all
                 Washington State PDC candidates. (We’ll get FEC data next time
                 around.) You can compare side by side or look at each candidate
-                and see their donor details.
-              </p>
-              <p>
-                <a href="/about">Read more about our team and our approach</a>.
+                and see their donor details. You can drill all the way down to
+                the candidate’s PDC filing.
               </p>
             </div>
             <div>
@@ -65,6 +64,7 @@ class SiteIndex extends React.Component {
                 and impartial while mirroring the messiness of being an elected
                 official and a voter, where nearly all decisions are choices
                 between two options you didn’t come up with.{' '}
+                <a href="/about">Read more about our team and our approach</a>.
               </p>
             </div>
             <div>
