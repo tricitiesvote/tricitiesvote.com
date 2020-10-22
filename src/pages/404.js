@@ -6,7 +6,7 @@ import DefaultLayout from '../layouts/DefaultLayout';
 class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props;
-    const siteTitle = 'Tri-Cities Vote';
+    const siteTitle = data.site.siteMetadata.title;
 
     return (
       <DefaultLayout location={data.location} title={siteTitle}>
@@ -18,3 +18,13 @@ class NotFoundPage extends React.Component {
 }
 
 export default NotFoundPage;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

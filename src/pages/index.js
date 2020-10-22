@@ -15,8 +15,8 @@ class SiteIndex extends React.Component {
 
     return (
       <DefaultLayout
-        location={data.location}
         title="Tri-Cities Vote"
+        location={data.location}
         bodyClass="index"
       >
         <div className="intro">
@@ -56,6 +56,11 @@ export default SiteIndex;
 // copied from graphql/GUIDES
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     races: allRacesJson(
       filter: { electionyear: { eq: "2020" }, type: { eq: "general" } }
       sort: { fields: office___title, order: ASC }
