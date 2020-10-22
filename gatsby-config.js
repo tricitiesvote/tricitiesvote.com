@@ -124,7 +124,6 @@ module.exports = {
         htmlTitle: 'vote.triciti.es admin',
       },
     },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     // `gatsby-plugin-feed`,

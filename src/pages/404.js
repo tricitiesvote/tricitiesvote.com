@@ -1,11 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 
 import DefaultLayout from '../layouts/DefaultLayout';
 
 class NotFoundPage extends React.Component {
   render() {
-    const { data } = this.props;
     const siteTitle = 'Tri-Cities Vote';
 
     return (
