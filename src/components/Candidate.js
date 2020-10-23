@@ -43,7 +43,7 @@ const Candidate = props => {
     fundraising,
   } = fields;
 
-  console.log(fields);
+  // console.log(fields);
 
   const url = `/${slug}`;
 
