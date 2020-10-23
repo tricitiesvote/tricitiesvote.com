@@ -55,9 +55,9 @@
     "name": "Childrens Campaign Fund",
     "city": "Seattle",
     "type": "Political Action Committee",
-    "donations_count": 5,
-    "total_donated": 3500,
-    "total_cash": 3500,
+    "donations_count": 6,
+    "total_donated": 4500,
+    "total_cash": 4500,
     "total_in_kind": 0,
     "funded": [
       "WALSM  362",
@@ -71,7 +71,8 @@
       "boehm-336-childrens-campaign-fund-2020-3356",
       "resed-362-childrens-campaign-fund-2020-3598",
       "reges-354-childrens-campaign-fund-2020-3723",
-      "rudes-504-childrens-campaign-fund-2020-4421"
+      "rudes-504-childrens-campaign-fund-2020-4421",
+      "resed-362-childrens-campaign-fund-2020-5794"
     ]
   },
   {
@@ -113,16 +114,17 @@
     "name": "Davis Glynn",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 750,
-    "total_cash": 750,
+    "donations_count": 3,
+    "total_donated": 850,
+    "total_cash": 850,
     "total_in_kind": 0,
     "funded": [
       "DOZIP  361"
     ],
     "donations": [
       "dozip-361-davis-glynn-2020-6",
-      "dozip-361-davis-glynn-2020-2545"
+      "dozip-361-davis-glynn-2020-2545",
+      "dozip-361-davis-glynn-2020-5760"
     ]
   },
   {
@@ -447,9 +449,9 @@
     "name": "Ledford Donna",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 500,
-    "total_cash": 500,
+    "donations_count": 3,
+    "total_donated": 750,
+    "total_cash": 750,
     "total_in_kind": 0,
     "funded": [
       "DOZIP  361",
@@ -457,7 +459,8 @@
     ],
     "donations": [
       "dozip-361-ledford-donna-2020-26",
-      "klicm-362-ledford-donna-2020-1397"
+      "klicm-362-ledford-donna-2020-1397",
+      "dozip-361-ledford-donna-2020-5922"
     ]
   },
   {
@@ -970,9 +973,9 @@
     "name": "Iverson John",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 7,
-    "total_donated": 140,
-    "total_cash": 140,
+    "donations_count": 8,
+    "total_donated": 155,
+    "total_cash": 155,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -984,7 +987,8 @@
       "resed-362-iverson-john-2020-2285",
       "resed-362-iverson-john-2020-3242",
       "resed-362-iverson-john-2020-3494",
-      "resed-362-iverson-john-2020-4792"
+      "resed-362-iverson-john-2020-4792",
+      "resed-362-iverson-john-2020-5829"
     ]
   },
   {
@@ -1120,9 +1124,9 @@
     "name": "Nichols Paula",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 255,
-    "total_cash": 220,
+    "donations_count": 6,
+    "total_donated": 305,
+    "total_cash": 270,
     "total_in_kind": 35,
     "funded": [
       "RESED--362"
@@ -1132,7 +1136,8 @@
       "resed-362-nichols-paula-2020-1175",
       "resed-362-nichols-paula-2020-1823",
       "resed-362-nichols-paula-2020-2023",
-      "resed-362-nichols-paula-2020-4436"
+      "resed-362-nichols-paula-2020-4436",
+      "resed-362-nichols-paula-2020-5802"
     ]
   },
   {
@@ -1205,9 +1210,9 @@
     "name": "Trenary Jean",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 22,
-    "total_donated": 2115,
-    "total_cash": 2115,
+    "donations_count": 23,
+    "total_donated": 2140,
+    "total_cash": 2140,
     "total_in_kind": 0,
     "funded": [
       "RESED--362",
@@ -1235,7 +1240,8 @@
       "resed-362-trenary-jean-2020-4155",
       "chvaf-362-trenary-jean-2020-4487",
       "chvaf-362-trenary-jean-2020-4489",
-      "chvaf-362-trenary-jean-2020-5246"
+      "chvaf-362-trenary-jean-2020-5246",
+      "resed-362-trenary-jean-2020-5855"
     ]
   },
   {
@@ -1271,9 +1277,9 @@
     "name": "Anderson Lisa",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 4,
-    "total_donated": 370,
-    "total_cash": 370,
+    "donations_count": 5,
+    "total_donated": 410,
+    "total_cash": 410,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -1282,7 +1288,8 @@
       "resed-362-anderson-lisa-2020-70",
       "resed-362-anderson-lisa-2020-3248",
       "resed-362-anderson-lisa-2020-3417",
-      "resed-362-anderson-lisa-2020-3497"
+      "resed-362-anderson-lisa-2020-3497",
+      "resed-362-anderson-lisa-2020-5830"
     ]
   },
   {
@@ -1341,16 +1348,17 @@
     "name": "Van Oppen Peter",
     "city": "Yarrow Point",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 1250,
-    "total_cash": 1250,
+    "donations_count": 3,
+    "total_donated": 1500,
+    "total_cash": 1500,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-van-oppen-peter-2020-74",
-      "resed-362-van-oppen-peter-2020-3415"
+      "resed-362-van-oppen-peter-2020-3415",
+      "resed-362-van-oppen-peter-2020-5791"
     ]
   },
   {
@@ -1506,9 +1514,9 @@
     "name": "Blair Cabasco Megan",
     "city": "Manchester Center",
     "type": "Individual",
-    "donations_count": 6,
-    "total_donated": 225,
-    "total_cash": 225,
+    "donations_count": 7,
+    "total_donated": 245,
+    "total_cash": 245,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -1519,7 +1527,8 @@
       "resed-362-blair-cabasco-megan-2020-2250",
       "resed-362-blair-cabasco-megan-2020-3215",
       "resed-362-blair-cabasco-megan-2020-3516",
-      "resed-362-blair-cabasco-megan-2020-4781"
+      "resed-362-blair-cabasco-megan-2020-4781",
+      "resed-362-blair-cabasco-megan-2020-5809"
     ]
   },
   {
@@ -1543,9 +1552,9 @@
     "name": "Gunshefski Linda",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 23,
-    "total_donated": 2970,
-    "total_cash": 2970,
+    "donations_count": 24,
+    "total_donated": 3020,
+    "total_cash": 3020,
     "total_in_kind": 0,
     "funded": [
       "RESED--362",
@@ -1575,7 +1584,8 @@
       "chvaf-362-gunshefski-linda-2020-3791",
       "resed-362-gunshefski-linda-2020-4085",
       "resed-362-gunshefski-linda-2020-4748",
-      "chvaf-362-gunshefski-linda-2020-4936"
+      "chvaf-362-gunshefski-linda-2020-4936",
+      "resed-362-gunshefski-linda-2020-5803"
     ]
   },
   {
@@ -1729,9 +1739,9 @@
     "name": "Hernandez Norma",
     "city": "College Place",
     "type": "Individual",
-    "donations_count": 16,
-    "total_donated": 865,
-    "total_cash": 865,
+    "donations_count": 17,
+    "total_donated": 915,
+    "total_cash": 915,
     "total_in_kind": 0,
     "funded": [
       "RESED--362",
@@ -1754,7 +1764,8 @@
       "chvaf-362-hernandez-norma-2020-4501",
       "resed-362-hernandez-norma-2020-4618",
       "resed-362-hernandez-norma-2020-4899",
-      "resed-362-hernandez-norma-2020-5131"
+      "resed-362-hernandez-norma-2020-5131",
+      "resed-362-hernandez-norma-2020-5863"
     ]
   },
   {
@@ -1779,16 +1790,17 @@
     "name": "Moss Sabrina",
     "city": "Bothell",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 350,
-    "total_cash": 350,
+    "donations_count": 3,
+    "total_donated": 375,
+    "total_cash": 375,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-moss-sabrina-2020-98",
-      "resed-362-moss-sabrina-2020-4843"
+      "resed-362-moss-sabrina-2020-4843",
+      "resed-362-moss-sabrina-2020-5795"
     ]
   },
   {
@@ -1866,9 +1878,9 @@
     "name": "Metcalf Lindenburger Dorothy",
     "city": "Lake Forest Park",
     "type": "Individual",
-    "donations_count": 15,
-    "total_donated": 1975,
-    "total_cash": 1225,
+    "donations_count": 16,
+    "total_donated": 2000,
+    "total_cash": 1250,
     "total_in_kind": 750,
     "funded": [
       "RESED--362"
@@ -1888,7 +1900,8 @@
       "resed-362-metcalf-lindenburger-dorothy-2020-3518",
       "resed-362-metcalf-lindenburger-dorothy-2020-4788",
       "resed-362-metcalf-lindenburger-dorothy-2020-4857",
-      "resed-362-metcalf-lindenburger-dorothy-2020-5171"
+      "resed-362-metcalf-lindenburger-dorothy-2020-5171",
+      "resed-362-metcalf-lindenburger-dorothy-2020-5825"
     ]
   },
   {
@@ -1896,9 +1909,9 @@
     "name": "Sandberg Jacqueline",
     "city": "Spokane Valley",
     "type": "Individual",
-    "donations_count": 10,
-    "total_donated": 675,
-    "total_cash": 675,
+    "donations_count": 11,
+    "total_donated": 775,
+    "total_cash": 775,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -1913,7 +1926,8 @@
       "resed-362-sandberg-jacqueline-2020-4039",
       "resed-362-sandberg-jacqueline-2020-4676",
       "resed-362-sandberg-jacqueline-2020-4848",
-      "resed-362-sandberg-jacqueline-2020-5183"
+      "resed-362-sandberg-jacqueline-2020-5183",
+      "resed-362-sandberg-jacqueline-2020-5812"
     ]
   },
   {
@@ -2363,9 +2377,9 @@
     "name": "Bennett James",
     "city": "Palm Coast",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 1009,
-    "total_cash": 1009,
+    "donations_count": 4,
+    "total_donated": 1059,
+    "total_cash": 1059,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -2373,7 +2387,8 @@
     "donations": [
       "resed-362-bennett-james-2020-131",
       "resed-362-bennett-james-2020-1560",
-      "resed-362-bennett-james-2020-1561"
+      "resed-362-bennett-james-2020-1561",
+      "resed-362-bennett-james-2020-5797"
     ]
   },
   {
@@ -2657,9 +2672,9 @@
     "name": "Williams Tracy",
     "city": "Spokane",
     "type": "Individual",
-    "donations_count": 16,
-    "total_donated": 749,
-    "total_cash": 749,
+    "donations_count": 17,
+    "total_donated": 849,
+    "total_cash": 849,
     "total_in_kind": 0,
     "funded": [
       "RESED--362",
@@ -2682,7 +2697,8 @@
       "resed-362-williams-tracy-2020-4160",
       "resed-362-williams-tracy-2020-4409",
       "chvaf-362-williams-tracy-2020-4494",
-      "resed-362-williams-tracy-2020-4893"
+      "resed-362-williams-tracy-2020-4893",
+      "chvaf-362-williams-tracy-2020-5887"
     ]
   },
   {
@@ -2774,9 +2790,9 @@
     "name": "Ralph Adrianne",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 1768,
-    "total_cash": 1768,
+    "donations_count": 6,
+    "total_donated": 2000,
+    "total_cash": 2000,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -2786,7 +2802,8 @@
       "resed-362-ralph-adrianne-2020-2027",
       "resed-362-ralph-adrianne-2020-2028",
       "resed-362-ralph-adrianne-2020-2170",
-      "resed-362-ralph-adrianne-2020-5125"
+      "resed-362-ralph-adrianne-2020-5125",
+      "resed-362-ralph-adrianne-2020-5851"
     ]
   },
   {
@@ -2945,15 +2962,16 @@
     "name": "Balmer Connie",
     "city": "Bellevue",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 125,
-    "total_cash": 125,
+    "donations_count": 2,
+    "total_donated": 375,
+    "total_cash": 375,
     "total_in_kind": 0,
     "funded": [
       "BOEHM  336"
     ],
     "donations": [
-      "boehm-336-balmer-connie-2020-166"
+      "boehm-336-balmer-connie-2020-166",
+      "boehm-336-balmer-connie-2020-5960"
     ]
   },
   {
@@ -2979,9 +2997,9 @@
     "name": "Chevron",
     "city": "Concord",
     "type": "Business",
-    "donations_count": 3,
-    "total_donated": 2000,
-    "total_cash": 2000,
+    "donations_count": 4,
+    "total_donated": 3000,
+    "total_cash": 3000,
     "total_in_kind": 0,
     "funded": [
       "BOEHM  336",
@@ -2990,7 +3008,8 @@
     "donations": [
       "boehm-336-chevron-2020-168",
       "rudes-504-chevron-2020-998",
-      "rudes-504-chevron-2020-3633"
+      "rudes-504-chevron-2020-3633",
+      "rudes-504-chevron-2020-5877"
     ]
   },
   {
@@ -3205,9 +3224,9 @@
     "name": "Leavitt Noah",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 13,
-    "total_donated": 864,
-    "total_cash": 864,
+    "donations_count": 14,
+    "total_donated": 964,
+    "total_cash": 964,
     "total_in_kind": 0,
     "funded": [
       "RESED--362",
@@ -3227,7 +3246,8 @@
       "resed-362-leavitt-noah-2020-3411",
       "resed-362-leavitt-noah-2020-3534",
       "resed-362-leavitt-noah-2020-4420",
-      "resed-362-leavitt-noah-2020-4882"
+      "resed-362-leavitt-noah-2020-4882",
+      "resed-362-leavitt-noah-2020-5820"
     ]
   },
   {
@@ -3251,9 +3271,9 @@
     "name": "Northam Jennifer",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 13,
-    "total_donated": 666,
-    "total_cash": 622,
+    "donations_count": 14,
+    "total_donated": 687,
+    "total_cash": 643,
     "total_in_kind": 44,
     "funded": [
       "RESED--362"
@@ -3271,7 +3291,8 @@
       "resed-362-northam-jennifer-2020-3925",
       "resed-362-northam-jennifer-2020-4156",
       "resed-362-northam-jennifer-2020-4752",
-      "resed-362-northam-jennifer-2020-4872"
+      "resed-362-northam-jennifer-2020-4872",
+      "resed-362-northam-jennifer-2020-5847"
     ]
   },
   {
@@ -3365,12 +3386,12 @@
       "chvaf-362-chvatal-frances-2020-4718",
       "cobuc-814-chvatal-frances-2020-5273",
       "cobuc-814-chvatal-frances-2020-5277",
-      "chvaf-362-chvatal-frances-2020-5413",
-      "chvaf-362-chvatal-frances-2020-5414",
-      "chvaf-362-chvatal-frances-2020-5415",
-      "chvaf-362-chvatal-frances-2020-5416",
-      "chvaf-362-chvatal-frances-2020-5417",
-      "chvaf-362-chvatal-frances-2020-5418"
+      "chvaf-362-chvatal-frances-2020-5407",
+      "chvaf-362-chvatal-frances-2020-5408",
+      "chvaf-362-chvatal-frances-2020-5409",
+      "chvaf-362-chvatal-frances-2020-5410",
+      "chvaf-362-chvatal-frances-2020-5411",
+      "chvaf-362-chvatal-frances-2020-5412"
     ]
   },
   {
@@ -3394,9 +3415,9 @@
     "name": "Charnholm Anne Marie",
     "city": "Salem",
     "type": "Individual",
-    "donations_count": 4,
-    "total_donated": 142,
-    "total_cash": 142,
+    "donations_count": 5,
+    "total_donated": 167,
+    "total_cash": 167,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -3405,7 +3426,8 @@
       "resed-362-charnholm-anne-marie-2020-188",
       "resed-362-charnholm-anne-marie-2020-1222",
       "resed-362-charnholm-anne-marie-2020-1827",
-      "resed-362-charnholm-anne-marie-2020-3136"
+      "resed-362-charnholm-anne-marie-2020-3136",
+      "resed-362-charnholm-anne-marie-2020-5857"
     ]
   },
   {
@@ -3684,15 +3706,16 @@
     "name": "Dahle Stephanie",
     "city": "Spokane",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 2,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-dahle-stephanie-2020-207"
+      "resed-362-dahle-stephanie-2020-207",
+      "resed-362-dahle-stephanie-2020-5835"
     ]
   },
   {
@@ -4087,17 +4110,19 @@
     "name": "Delta Dental Of Washington",
     "city": "Seattle",
     "type": "Business",
-    "donations_count": 2,
-    "total_donated": 2000,
-    "total_cash": 2000,
+    "donations_count": 3,
+    "total_donated": 3000,
+    "total_cash": 3000,
     "total_in_kind": 0,
     "funded": [
       "RUDES  504",
-      "DOZIP  361"
+      "DOZIP  361",
+      "KLICM--362"
     ],
     "donations": [
       "rudes-504-delta-dental-of-washington-2020-231",
-      "dozip-361-delta-dental-of-washington-2020-5430"
+      "dozip-361-delta-dental-of-washington-2020-5424",
+      "klicm-362-delta-dental-of-washington-2020-5953"
     ]
   },
   {
@@ -4463,9 +4488,9 @@
     "name": "Washington Forest Protection Association",
     "city": "Olympia",
     "type": "Political Action Committee",
-    "donations_count": 2,
-    "total_donated": 1000,
-    "total_cash": 1000,
+    "donations_count": 3,
+    "total_donated": 1500,
+    "total_cash": 1500,
     "total_in_kind": 0,
     "funded": [
       "BOEHM  336",
@@ -4473,7 +4498,8 @@
     ],
     "donations": [
       "boehm-336-washington-forest-protection-association-2020-254",
-      "dozip-361-washington-forest-protection-association-2020-2579"
+      "dozip-361-washington-forest-protection-association-2020-2579",
+      "boehm-336-washington-forest-protection-association-2020-5782"
     ]
   },
   {
@@ -5273,9 +5299,9 @@
     "name": "Baker Carl",
     "city": "West Richland",
     "type": "Individual",
-    "donations_count": 16,
-    "total_donated": 455,
-    "total_cash": 455,
+    "donations_count": 17,
+    "total_donated": 491,
+    "total_cash": 491,
     "total_in_kind": 0,
     "funded": [
       "CHVAF--362",
@@ -5298,7 +5324,8 @@
       "resed-362-baker-carl-2020-3443",
       "reges-354-baker-carl-2020-3713",
       "reges-354-baker-carl-2020-3859",
-      "chvaf-362-baker-carl-2020-4314"
+      "chvaf-362-baker-carl-2020-4314",
+      "reges-354-baker-carl-2020-5907"
     ]
   },
   {
@@ -5569,9 +5596,9 @@
     "name": "Fraser Ann",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 20,
-    "total_donated": 378,
-    "total_cash": 378,
+    "donations_count": 22,
+    "total_donated": 398,
+    "total_cash": 398,
     "total_in_kind": 0,
     "funded": [
       "CHVAF--362",
@@ -5599,7 +5626,9 @@
       "reges-354-fraser-ann-2020-4472",
       "reges-354-fraser-ann-2020-4725",
       "reges-354-fraser-ann-2020-5072",
-      "reges-354-fraser-ann-2020-5205"
+      "reges-354-fraser-ann-2020-5205",
+      "resed-362-fraser-ann-2020-5869",
+      "reges-354-fraser-ann-2020-5890"
     ]
   },
   {
@@ -5652,9 +5681,9 @@
     "name": "Johannesen Judith",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 58,
-    "total_donated": 1445,
-    "total_cash": 1445,
+    "donations_count": 60,
+    "total_donated": 1490,
+    "total_cash": 1490,
     "total_in_kind": 0,
     "funded": [
       "CHVAF--362",
@@ -5722,7 +5751,9 @@
       "resed-362-johannesen-judith-2020-5166",
       "reges-354-johannesen-judith-2020-5201",
       "chvaf-362-johannesen-judith-2020-5243",
-      "cobuc-814-johannesen-judith-2020-5271"
+      "cobuc-814-johannesen-judith-2020-5271",
+      "chvaf-362-johannesen-judith-2020-5886",
+      "reges-354-johannesen-judith-2020-5893"
     ]
   },
   {
@@ -5730,9 +5761,9 @@
     "name": "Rose Elaine",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 199,
-    "total_cash": 199,
+    "donations_count": 7,
+    "total_donated": 299,
+    "total_cash": 299,
     "total_in_kind": 0,
     "funded": [
       "CHVAF--362",
@@ -5744,7 +5775,9 @@
       "resed-362-rose-elaine-2020-608",
       "resed-362-rose-elaine-2020-1846",
       "cobuc-814-rose-elaine-2020-2957",
-      "resed-362-rose-elaine-2020-3209"
+      "resed-362-rose-elaine-2020-3209",
+      "resed-362-rose-elaine-2020-5822",
+      "resed-362-rose-elaine-2020-5852"
     ]
   },
   {
@@ -6889,9 +6922,9 @@
     "name": "Pemco Mutual Insurance Company",
     "city": "Seattle",
     "type": "Business",
-    "donations_count": 2,
-    "total_donated": 550,
-    "total_cash": 550,
+    "donations_count": 3,
+    "total_donated": 850,
+    "total_cash": 850,
     "total_in_kind": 0,
     "funded": [
       "RUDES  504",
@@ -6899,7 +6932,8 @@
     ],
     "donations": [
       "rudes-504-pemco-mutual-insurance-company-2020-396",
-      "boehm-336-pemco-mutual-insurance-company-2020-1936"
+      "boehm-336-pemco-mutual-insurance-company-2020-1936",
+      "boehm-336-pemco-mutual-insurance-company-2020-5958"
     ]
   },
   {
@@ -7204,18 +7238,20 @@
     "name": "Waca Pac",
     "city": "Seattle",
     "type": "Political Action Committee",
-    "donations_count": 3,
-    "total_donated": 1500,
-    "total_cash": 1500,
+    "donations_count": 4,
+    "total_donated": 2000,
+    "total_cash": 2000,
     "total_in_kind": 0,
     "funded": [
       "RUDES  504",
-      "BOEHM  336"
+      "BOEHM  336",
+      "DOZIP  361"
     ],
     "donations": [
       "rudes-504-waca-pac-2020-418",
       "boehm-336-waca-pac-2020-451",
-      "boehm-336-waca-pac-2020-5257"
+      "boehm-336-waca-pac-2020-5257",
+      "dozip-361-waca-pac-2020-5941"
     ]
   },
   {
@@ -7304,15 +7340,16 @@
     "name": "Kalispell Tribal Economic Authority",
     "city": "Airway Heights",
     "type": "Business",
-    "donations_count": 1,
-    "total_donated": 500,
-    "total_cash": 500,
+    "donations_count": 2,
+    "total_donated": 1000,
+    "total_cash": 1000,
     "total_in_kind": 0,
     "funded": [
       "RUDES  504"
     ],
     "donations": [
-      "rudes-504-kalispell-tribal-economic-authority-2020-426"
+      "rudes-504-kalispell-tribal-economic-authority-2020-426",
+      "rudes-504-kalispell-tribal-economic-authority-2020-5880"
     ]
   },
   {
@@ -7654,7 +7691,7 @@
     ],
     "donations": [
       "boehm-336-sabey-corporation-2020-449",
-      "dozip-361-sabey-corporation-2020-5425"
+      "dozip-361-sabey-corporation-2020-5419"
     ]
   },
   {
@@ -8241,21 +8278,23 @@
     "name": "Puyallup Tribe Of Indians",
     "city": "Tacoma",
     "type": "Political Action Committee",
-    "donations_count": 5,
-    "total_donated": 5000,
-    "total_cash": 5000,
+    "donations_count": 6,
+    "total_donated": 6000,
+    "total_cash": 6000,
     "total_in_kind": 0,
     "funded": [
       "RUDES  504",
       "KLIPB  336",
-      "JENKW2-350"
+      "JENKW2-350",
+      "BOEHM  336"
     ],
     "donations": [
       "rudes-504-puyallup-tribe-of-indians-2020-488",
       "rudes-504-puyallup-tribe-of-indians-2020-489",
       "klipb-336-puyallup-tribe-of-indians-2020-515",
       "jenkw-2-350-puyallup-tribe-of-indians-2020-946",
-      "klipb-336-puyallup-tribe-of-indians-2020-5759"
+      "klipb-336-puyallup-tribe-of-indians-2020-5940",
+      "boehm-336-puyallup-tribe-of-indians-2020-5959"
     ]
   },
   {
@@ -9576,15 +9615,16 @@
     "name": "Abella Nancy",
     "city": "Washington",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 250,
-    "total_cash": 250,
+    "donations_count": 2,
+    "total_donated": 759,
+    "total_cash": 759,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-abella-nancy-2020-578"
+      "resed-362-abella-nancy-2020-578",
+      "resed-362-abella-nancy-2020-5827"
     ]
   },
   {
@@ -9762,9 +9802,9 @@
     "name": "Matthews Melanie",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 6,
-    "total_donated": 485,
-    "total_cash": 485,
+    "donations_count": 8,
+    "total_donated": 685,
+    "total_cash": 685,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -9775,7 +9815,9 @@
       "resed-362-matthews-melanie-2020-3265",
       "resed-362-matthews-melanie-2020-3506",
       "resed-362-matthews-melanie-2020-4751",
-      "resed-362-matthews-melanie-2020-5150"
+      "resed-362-matthews-melanie-2020-5150",
+      "resed-362-matthews-melanie-2020-5838",
+      "resed-362-matthews-melanie-2020-5846"
     ]
   },
   {
@@ -9803,9 +9845,9 @@
     "name": "Atchison Terry",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 250,
-    "total_cash": 250,
+    "donations_count": 6,
+    "total_donated": 300,
+    "total_cash": 300,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -9815,7 +9857,8 @@
       "resed-362-atchison-terry-2020-1717",
       "resed-362-atchison-terry-2020-1814",
       "resed-362-atchison-terry-2020-3513",
-      "resed-362-atchison-terry-2020-4776"
+      "resed-362-atchison-terry-2020-4776",
+      "resed-362-atchison-terry-2020-5796"
     ]
   },
   {
@@ -10066,9 +10109,9 @@
     "name": "Alvarado Jackson Antonia",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 6,
-    "total_donated": 466,
-    "total_cash": 466,
+    "donations_count": 7,
+    "total_donated": 566,
+    "total_cash": 566,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -10079,7 +10122,8 @@
       "resed-362-alvarado-jackson-antonia-2020-2289",
       "resed-362-alvarado-jackson-antonia-2020-3263",
       "resed-362-alvarado-jackson-antonia-2020-3485",
-      "resed-362-alvarado-jackson-antonia-2020-3910"
+      "resed-362-alvarado-jackson-antonia-2020-3910",
+      "resed-362-alvarado-jackson-antonia-2020-5800"
     ]
   },
   {
@@ -10110,16 +10154,17 @@
     "name": "Grant Kathryn",
     "city": "Washington",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 75,
-    "total_cash": 75,
+    "donations_count": 3,
+    "total_donated": 125,
+    "total_cash": 125,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-grant-kathryn-2020-623",
-      "resed-362-grant-kathryn-2020-4852"
+      "resed-362-grant-kathryn-2020-4852",
+      "resed-362-grant-kathryn-2020-5842"
     ]
   },
   {
@@ -10244,9 +10289,9 @@
     "name": "Teamsters Local 839 Ssf",
     "city": "Pasco",
     "type": "Self",
-    "donations_count": 3,
-    "total_donated": 1500,
-    "total_cash": 1500,
+    "donations_count": 4,
+    "total_donated": 2000,
+    "total_cash": 2000,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -10254,7 +10299,8 @@
     "donations": [
       "resed-362-teamsters-local-839-ssf-2020-634",
       "resed-362-teamsters-local-839-ssf-2020-2374",
-      "resed-362-teamsters-local-839-ssf-2020-3895"
+      "resed-362-teamsters-local-839-ssf-2020-3895",
+      "resed-362-teamsters-local-839-ssf-2020-5874"
     ]
   },
   {
@@ -10526,15 +10572,16 @@
     "name": "Hsieh Patty",
     "city": "Washington",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 125,
+    "total_cash": 125,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-hsieh-patty-2020-653"
+      "resed-362-hsieh-patty-2020-653",
+      "resed-362-hsieh-patty-2020-5828"
     ]
   },
   {
@@ -10733,9 +10780,9 @@
     "name": "Kagi Ruth",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 300,
-    "total_cash": 300,
+    "donations_count": 4,
+    "total_donated": 400,
+    "total_cash": 400,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -10743,7 +10790,8 @@
     "donations": [
       "resed-362-kagi-ruth-2020-665",
       "resed-362-kagi-ruth-2020-798",
-      "resed-362-kagi-ruth-2020-2348"
+      "resed-362-kagi-ruth-2020-2348",
+      "resed-362-kagi-ruth-2020-5858"
     ]
   },
   {
@@ -10802,9 +10850,9 @@
     "name": "Erickson Ceil",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 250,
-    "total_cash": 250,
+    "donations_count": 4,
+    "total_donated": 400,
+    "total_cash": 400,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -10812,7 +10860,8 @@
     "donations": [
       "resed-362-erickson-ceil-2020-670",
       "resed-362-erickson-ceil-2020-4623",
-      "resed-362-erickson-ceil-2020-5128"
+      "resed-362-erickson-ceil-2020-5128",
+      "resed-362-erickson-ceil-2020-5862"
     ]
   },
   {
@@ -10869,17 +10918,19 @@
     "name": "Copeland Jason",
     "city": "Mountain View",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 791,
-    "total_cash": 791,
+    "donations_count": 4,
+    "total_donated": 891,
+    "total_cash": 891,
     "total_in_kind": 0,
     "funded": [
-      "RESED--362"
+      "RESED--362",
+      "KLICM--362"
     ],
     "donations": [
       "resed-362-copeland-jason-2020-674",
       "resed-362-copeland-jason-2020-3147",
-      "resed-362-copeland-jason-2020-3467"
+      "resed-362-copeland-jason-2020-3467",
+      "klicm-362-copeland-jason-2020-5955"
     ]
   },
   {
@@ -11127,9 +11178,9 @@
     "name": "Maillard Caroline",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 9,
-    "total_donated": 982,
-    "total_cash": 982,
+    "donations_count": 10,
+    "total_donated": 1182,
+    "total_cash": 1182,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -11143,7 +11194,8 @@
       "resed-362-maillard-caroline-2020-4043",
       "resed-362-maillard-caroline-2020-4426",
       "resed-362-maillard-caroline-2020-4668",
-      "resed-362-maillard-caroline-2020-5186"
+      "resed-362-maillard-caroline-2020-5186",
+      "resed-362-maillard-caroline-2020-5843"
     ]
   },
   {
@@ -11483,9 +11535,9 @@
     "name": "Sonnichsen Shirley",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 10,
-    "total_donated": 216,
-    "total_cash": 216,
+    "donations_count": 11,
+    "total_donated": 234,
+    "total_cash": 234,
     "total_in_kind": 0,
     "funded": [
       "REGES  354",
@@ -11501,7 +11553,8 @@
       "reges-354-sonnichsen-shirley-2020-3714",
       "reges-354-sonnichsen-shirley-2020-3857",
       "reges-354-sonnichsen-shirley-2020-4480",
-      "reges-354-sonnichsen-shirley-2020-4732"
+      "reges-354-sonnichsen-shirley-2020-4732",
+      "reges-354-sonnichsen-shirley-2020-5903"
     ]
   },
   {
@@ -12137,9 +12190,9 @@
     "name": "Weiss Susan",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 255,
-    "total_cash": 255,
+    "donations_count": 4,
+    "total_donated": 355,
+    "total_cash": 355,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -12147,7 +12200,8 @@
     "donations": [
       "resed-362-weiss-susan-2020-765",
       "resed-362-weiss-susan-2020-4438",
-      "resed-362-weiss-susan-2020-4794"
+      "resed-362-weiss-susan-2020-4794",
+      "resed-362-weiss-susan-2020-5788"
     ]
   },
   {
@@ -12627,16 +12681,17 @@
     "name": "Kornze Neil",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 260,
-    "total_cash": 260,
+    "donations_count": 3,
+    "total_donated": 310,
+    "total_cash": 310,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-kornze-neil-2020-799",
-      "resed-362-kornze-neil-2020-3141"
+      "resed-362-kornze-neil-2020-3141",
+      "resed-362-kornze-neil-2020-5837"
     ]
   },
   {
@@ -12843,15 +12898,16 @@
     "name": "Flannery Michael",
     "city": "Spokane",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 125,
-    "total_cash": 125,
+    "donations_count": 2,
+    "total_donated": 175,
+    "total_cash": 175,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-flannery-michael-2020-813"
+      "resed-362-flannery-michael-2020-813",
+      "resed-362-flannery-michael-2020-5856"
     ]
   },
   {
@@ -13250,15 +13306,16 @@
     "name": "Metcalf Lindenburger Jason",
     "city": "Lake Forest Park",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 125,
+    "total_cash": 125,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-metcalf-lindenburger-jason-2020-839"
+      "resed-362-metcalf-lindenburger-jason-2020-839",
+      "resed-362-metcalf-lindenburger-jason-2020-5811"
     ]
   },
   {
@@ -13935,9 +13992,9 @@
     "name": "Vaughn Cynthia",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 4,
-    "total_donated": 433,
-    "total_cash": 433,
+    "donations_count": 5,
+    "total_donated": 483,
+    "total_cash": 483,
     "total_in_kind": 0,
     "funded": [
       "REGES  354",
@@ -13947,7 +14004,8 @@
       "reges-354-vaughn-cynthia-2020-906",
       "raffj-352-vaughn-cynthia-2020-2433",
       "reges-354-vaughn-cynthia-2020-3856",
-      "reges-354-vaughn-cynthia-2020-3969"
+      "reges-354-vaughn-cynthia-2020-3969",
+      "reges-354-vaughn-cynthia-2020-5906"
     ]
   },
   {
@@ -14597,7 +14655,7 @@
       "resed-362-profesionales-bilingues-2020-3019",
       "resed-362-profesionales-bilingues-2020-4638",
       "resed-362-profesionales-bilingues-2020-4639",
-      "resed-362-profesionales-bilingues-2020-5407"
+      "resed-362-profesionales-bilingues-2020-5916"
     ]
   },
   {
@@ -14755,9 +14813,9 @@
     "name": "Kissel Jeffrey",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 75,
-    "total_cash": 75,
+    "donations_count": 4,
+    "total_donated": 145,
+    "total_cash": 145,
     "total_in_kind": 0,
     "funded": [
       "RAFFJ--352"
@@ -14765,7 +14823,8 @@
     "donations": [
       "raffj-352-kissel-jeffrey-2020-963",
       "raffj-352-kissel-jeffrey-2020-4711",
-      "raffj-352-kissel-jeffrey-2020-5326"
+      "raffj-352-kissel-jeffrey-2020-5326",
+      "raffj-352-kissel-jeffrey-2020-5930"
     ]
   },
   {
@@ -15158,9 +15217,9 @@
     "name": "Andrews Smith Kathy",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 200,
-    "total_cash": 200,
+    "donations_count": 4,
+    "total_donated": 212,
+    "total_cash": 212,
     "total_in_kind": 0,
     "funded": [
       "RAFFJ--352",
@@ -15169,7 +15228,8 @@
     "donations": [
       "raffj-352-andrews-smith-kathy-2020-987",
       "raffj-352-andrews-smith-kathy-2020-3300",
-      "reges-354-andrews-smith-kathy-2020-5376"
+      "reges-354-andrews-smith-kathy-2020-5376",
+      "reges-354-andrews-smith-kathy-2020-5902"
     ]
   },
   {
@@ -15494,7 +15554,7 @@
     ],
     "donations": [
       "dozip-361-vinti-connie-2020-1032",
-      "dozip-361-vinti-connie-2020-5426"
+      "dozip-361-vinti-connie-2020-5420"
     ]
   },
   {
@@ -16184,15 +16244,16 @@
     "name": "Ballmer Connie",
     "city": "Bellevue",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 500,
-    "total_cash": 500,
+    "donations_count": 2,
+    "total_donated": 750,
+    "total_cash": 750,
     "total_in_kind": 0,
     "funded": [
       "RUDES  504"
     ],
     "donations": [
-      "rudes-504-ballmer-connie-2020-1078"
+      "rudes-504-ballmer-connie-2020-1078",
+      "rudes-504-ballmer-connie-2020-5879"
     ]
   },
   {
@@ -16643,16 +16704,17 @@
     "name": "Clark Paula",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 3,
+    "total_donated": 75,
+    "total_cash": 75,
     "total_in_kind": 0,
     "funded": [
       "RAFFJ--352"
     ],
     "donations": [
       "raffj-352-clark-paula-2020-1108",
-      "raffj-352-clark-paula-2020-3310"
+      "raffj-352-clark-paula-2020-3310",
+      "raffj-352-clark-paula-2020-5926"
     ]
   },
   {
@@ -18219,9 +18281,9 @@
     "name": "Tamura Theresa",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 463,
-    "total_cash": 463,
+    "donations_count": 4,
+    "total_donated": 713,
+    "total_cash": 713,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -18229,7 +18291,8 @@
     "donations": [
       "resed-362-tamura-theresa-2020-1242",
       "resed-362-tamura-theresa-2020-1550",
-      "resed-362-tamura-theresa-2020-4403"
+      "resed-362-tamura-theresa-2020-4403",
+      "resed-362-tamura-theresa-2020-5859"
     ]
   },
   {
@@ -18237,9 +18300,9 @@
     "name": "See Gayle",
     "city": "College Place",
     "type": "Individual",
-    "donations_count": 15,
-    "total_donated": 342,
-    "total_cash": 342,
+    "donations_count": 16,
+    "total_donated": 358,
+    "total_cash": 358,
     "total_in_kind": 0,
     "funded": [
       "RESED--362",
@@ -18261,7 +18324,8 @@
       "resed-362-see-gayle-2020-3407",
       "chvaf-362-see-gayle-2020-3613",
       "chvaf-362-see-gayle-2020-4791",
-      "resed-362-see-gayle-2020-4825"
+      "resed-362-see-gayle-2020-4825",
+      "chvaf-362-see-gayle-2020-5884"
     ]
   },
   {
@@ -20468,7 +20532,7 @@
       "ajaxs-336-shelley-ann-ajax-2020-3983",
       "ajaxs-336-shelley-ann-ajax-2020-3984",
       "ajaxs-336-shelley-ann-ajax-2020-3985",
-      "ajaxs-336-shelley-ann-ajax-2020-5506"
+      "ajaxs-336-shelley-ann-ajax-2020-5500"
     ]
   },
   {
@@ -21022,9 +21086,9 @@
     "name": "Handy Evan",
     "city": "Dpo",
     "type": "Individual",
-    "donations_count": 4,
-    "total_donated": 266,
-    "total_cash": 266,
+    "donations_count": 5,
+    "total_donated": 316,
+    "total_cash": 316,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -21033,7 +21097,8 @@
       "resed-362-handy-evan-2020-1463",
       "resed-362-handy-evan-2020-4617",
       "resed-362-handy-evan-2020-4861",
-      "resed-362-handy-evan-2020-5164"
+      "resed-362-handy-evan-2020-5164",
+      "resed-362-handy-evan-2020-5813"
     ]
   },
   {
@@ -21391,16 +21456,17 @@
     "name": "Richman Karyn",
     "city": "Washington",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 161,
-    "total_cash": 161,
+    "donations_count": 3,
+    "total_donated": 186,
+    "total_cash": 186,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-richman-karyn-2020-1511",
-      "resed-362-richman-karyn-2020-3542"
+      "resed-362-richman-karyn-2020-3542",
+      "resed-362-richman-karyn-2020-5815"
     ]
   },
   {
@@ -21408,16 +21474,17 @@
     "name": "Mcclellan Victoria",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 214,
-    "total_cash": 214,
+    "donations_count": 3,
+    "total_donated": 314,
+    "total_cash": 314,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-mcclellan-victoria-2020-1512",
-      "resed-362-mcclellan-victoria-2020-2161"
+      "resed-362-mcclellan-victoria-2020-2161",
+      "resed-362-mcclellan-victoria-2020-5814"
     ]
   },
   {
@@ -21927,9 +21994,9 @@
     "name": "Casperson Aiden",
     "city": "Pasco",
     "type": "Individual",
-    "donations_count": 4,
-    "total_donated": 200,
-    "total_cash": 200,
+    "donations_count": 5,
+    "total_donated": 250,
+    "total_cash": 250,
     "total_in_kind": 0,
     "funded": [
       "COBUC--814"
@@ -21938,7 +22005,8 @@
       "cobuc-814-casperson-aiden-2020-1571",
       "cobuc-814-casperson-aiden-2020-3260",
       "cobuc-814-casperson-aiden-2020-3529",
-      "cobuc-814-casperson-aiden-2020-4787"
+      "cobuc-814-casperson-aiden-2020-4787",
+      "cobuc-814-casperson-aiden-2020-5755"
     ]
   },
   {
@@ -21962,9 +22030,9 @@
     "name": "Peasley Judy",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 7,
-    "total_donated": 360,
-    "total_cash": 360,
+    "donations_count": 8,
+    "total_donated": 410,
+    "total_cash": 410,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -21976,7 +22044,8 @@
       "resed-362-peasley-judy-2020-2235",
       "resed-362-peasley-judy-2020-3240",
       "resed-362-peasley-judy-2020-3487",
-      "resed-362-peasley-judy-2020-4753"
+      "resed-362-peasley-judy-2020-4753",
+      "resed-362-peasley-judy-2020-5805"
     ]
   },
   {
@@ -22413,9 +22482,9 @@
     "name": "Bergstrom Ted",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 525,
-    "total_cash": 525,
+    "donations_count": 5,
+    "total_donated": 825,
+    "total_cash": 825,
     "total_in_kind": 0,
     "funded": [
       "RESED--362",
@@ -22424,7 +22493,9 @@
     "donations": [
       "resed-362-bergstrom-ted-2020-1627",
       "chvaf-362-bergstrom-ted-2020-3792",
-      "resed-362-bergstrom-ted-2020-3934"
+      "resed-362-bergstrom-ted-2020-3934",
+      "resed-362-bergstrom-ted-2020-5834",
+      "chvaf-362-bergstrom-ted-2020-5882"
     ]
   },
   {
@@ -22622,9 +22693,9 @@
     "name": "Baker Steve",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 500,
-    "total_cash": 500,
+    "donations_count": 3,
+    "total_donated": 625,
+    "total_cash": 625,
     "total_in_kind": 0,
     "funded": [
       "REGES  354",
@@ -22632,7 +22703,8 @@
     ],
     "donations": [
       "reges-354-baker-steve-2020-1651",
-      "raffj-352-baker-steve-2020-5089"
+      "raffj-352-baker-steve-2020-5089",
+      "raffj-352-baker-steve-2020-5931"
     ]
   },
   {
@@ -22640,9 +22712,9 @@
     "name": "Barrett Khylee",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 6,
+    "total_donated": 120,
+    "total_cash": 120,
     "total_in_kind": 0,
     "funded": [
       "REGES  354"
@@ -22652,7 +22724,8 @@
       "reges-354-barrett-khylee-2020-1745",
       "reges-354-barrett-khylee-2020-3034",
       "reges-354-barrett-khylee-2020-4505",
-      "reges-354-barrett-khylee-2020-4726"
+      "reges-354-barrett-khylee-2020-4726",
+      "reges-354-barrett-khylee-2020-5889"
     ]
   },
   {
@@ -22660,9 +22733,9 @@
     "name": "Miller Ted",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 4,
-    "total_donated": 1100,
-    "total_cash": 1100,
+    "donations_count": 5,
+    "total_donated": 1150,
+    "total_cash": 1150,
     "total_in_kind": 0,
     "funded": [
       "REGES  354",
@@ -22672,7 +22745,8 @@
       "reges-354-miller-ted-2020-1653",
       "raffj-352-miller-ted-2020-3000",
       "raffj-352-miller-ted-2020-4367",
-      "reges-354-miller-ted-2020-4466"
+      "reges-354-miller-ted-2020-4466",
+      "reges-354-miller-ted-2020-5892"
     ]
   },
   {
@@ -22946,16 +23020,17 @@
     "name": "Saunders Kathleen",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 115,
-    "total_cash": 115,
+    "donations_count": 3,
+    "total_donated": 165,
+    "total_cash": 165,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-saunders-kathleen-2020-1676",
-      "resed-362-saunders-kathleen-2020-1793"
+      "resed-362-saunders-kathleen-2020-1793",
+      "resed-362-saunders-kathleen-2020-5823"
     ]
   },
   {
@@ -23264,9 +23339,9 @@
     "name": "Reidel Stephen",
     "city": "Benton City",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 6,
+    "total_donated": 120,
+    "total_cash": 120,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -23276,7 +23351,8 @@
       "resed-362-reidel-stephen-2020-1792",
       "resed-362-reidel-stephen-2020-2215",
       "resed-362-reidel-stephen-2020-3458",
-      "resed-362-reidel-stephen-2020-4761"
+      "resed-362-reidel-stephen-2020-4761",
+      "resed-362-reidel-stephen-2020-5793"
     ]
   },
   {
@@ -23300,9 +23376,9 @@
     "name": "Viavant Peter",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 200,
-    "total_cash": 200,
+    "donations_count": 4,
+    "total_donated": 250,
+    "total_cash": 250,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -23310,7 +23386,8 @@
     "donations": [
       "resed-362-viavant-peter-2020-1719",
       "resed-362-viavant-peter-2020-4661",
-      "resed-362-viavant-peter-2020-5198"
+      "resed-362-viavant-peter-2020-5198",
+      "resed-362-viavant-peter-2020-5807"
     ]
   },
   {
@@ -23383,9 +23460,9 @@
     "name": "Alin Simone",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 75,
-    "total_cash": 75,
+    "donations_count": 6,
+    "total_donated": 90,
+    "total_cash": 90,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -23395,7 +23472,8 @@
       "resed-362-alin-simone-2020-1801",
       "resed-362-alin-simone-2020-2229",
       "resed-362-alin-simone-2020-3482",
-      "resed-362-alin-simone-2020-4744"
+      "resed-362-alin-simone-2020-4744",
+      "resed-362-alin-simone-2020-5789"
     ]
   },
   {
@@ -23624,12 +23702,13 @@
     "name": "Wireman Michael",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 7,
-    "total_donated": 159,
-    "total_cash": 159,
+    "donations_count": 10,
+    "total_donated": 227,
+    "total_cash": 227,
     "total_in_kind": 0,
     "funded": [
-      "REGES  354"
+      "REGES  354",
+      "RAFFJ--352"
     ],
     "donations": [
       "reges-354-wireman-michael-2020-1752",
@@ -23638,7 +23717,10 @@
       "reges-354-wireman-michael-2020-4503",
       "reges-354-wireman-michael-2020-4729",
       "reges-354-wireman-michael-2020-5060",
-      "reges-354-wireman-michael-2020-5372"
+      "reges-354-wireman-michael-2020-5372",
+      "reges-354-wireman-michael-2020-5896",
+      "reges-354-wireman-michael-2020-5898",
+      "raffj-352-wireman-michael-2020-5936"
     ]
   },
   {
@@ -23828,9 +23910,9 @@
     "name": "Rolfe Kimberly",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 179,
-    "total_cash": 179,
+    "donations_count": 6,
+    "total_donated": 208,
+    "total_cash": 208,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -23840,7 +23922,8 @@
       "resed-362-rolfe-kimberly-2020-3227",
       "resed-362-rolfe-kimberly-2020-3267",
       "resed-362-rolfe-kimberly-2020-3390",
-      "resed-362-rolfe-kimberly-2020-3524"
+      "resed-362-rolfe-kimberly-2020-3524",
+      "resed-362-rolfe-kimberly-2020-5845"
     ]
   },
   {
@@ -25117,7 +25200,7 @@
       "alvam-352-michael-alvarez-2020-3685",
       "alvam-352-michael-alvarez-2020-4542",
       "alvam-352-michael-alvarez-2020-4543",
-      "alvam-352-michael-alvarez-2020-5527"
+      "alvam-352-michael-alvarez-2020-5521"
     ]
   },
   {
@@ -25341,16 +25424,17 @@
     "name": "Houghton Rebecca",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 154,
-    "total_cash": 154,
+    "donations_count": 3,
+    "total_donated": 254,
+    "total_cash": 254,
     "total_in_kind": 0,
     "funded": [
       "REGES  354"
     ],
     "donations": [
       "reges-354-houghton-rebecca-2020-1948",
-      "reges-354-houghton-rebecca-2020-5381"
+      "reges-354-houghton-rebecca-2020-5381",
+      "reges-354-houghton-rebecca-2020-5905"
     ]
   },
   {
@@ -25891,15 +25975,16 @@
     "name": "Mulkerin Kathleen",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 60,
-    "total_cash": 60,
+    "donations_count": 2,
+    "total_donated": 85,
+    "total_cash": 85,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-mulkerin-kathleen-2020-2008"
+      "resed-362-mulkerin-kathleen-2020-2008",
+      "resed-362-mulkerin-kathleen-2020-5799"
     ]
   },
   {
@@ -27125,9 +27210,9 @@
     "name": "Cress John",
     "city": "College Place",
     "type": "Individual",
-    "donations_count": 4,
-    "total_donated": 80,
-    "total_cash": 80,
+    "donations_count": 5,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -27136,7 +27221,8 @@
       "resed-362-cress-john-2020-2129",
       "resed-362-cress-john-2020-3216",
       "resed-362-cress-john-2020-3517",
-      "resed-362-cress-john-2020-4783"
+      "resed-362-cress-john-2020-4783",
+      "resed-362-cress-john-2020-5810"
     ]
   },
   {
@@ -27336,9 +27422,9 @@
     "name": "Bragstad Ruth",
     "city": "Arden Hills",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 60,
-    "total_cash": 60,
+    "donations_count": 6,
+    "total_donated": 67,
+    "total_cash": 67,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -27348,7 +27434,8 @@
       "resed-362-bragstad-ruth-2020-2217",
       "resed-362-bragstad-ruth-2020-3180",
       "resed-362-bragstad-ruth-2020-3459",
-      "resed-362-bragstad-ruth-2020-4762"
+      "resed-362-bragstad-ruth-2020-4762",
+      "resed-362-bragstad-ruth-2020-5818"
     ]
   },
   {
@@ -27356,9 +27443,9 @@
     "name": "Carben Rachel",
     "city": "Chimacum",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 291,
-    "total_cash": 291,
+    "donations_count": 6,
+    "total_donated": 316,
+    "total_cash": 316,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -27368,7 +27455,8 @@
       "resed-362-carben-rachel-2020-3199",
       "resed-362-carben-rachel-2020-3201",
       "resed-362-carben-rachel-2020-3379",
-      "resed-362-carben-rachel-2020-3466"
+      "resed-362-carben-rachel-2020-3466",
+      "resed-362-carben-rachel-2020-5849"
     ]
   },
   {
@@ -28162,9 +28250,9 @@
     "name": "Badalamente Richard",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 4,
-    "total_donated": 130,
-    "total_cash": 130,
+    "donations_count": 5,
+    "total_donated": 140,
+    "total_cash": 140,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -28173,7 +28261,8 @@
       "resed-362-badalamente-richard-2020-2238",
       "resed-362-badalamente-richard-2020-4591",
       "resed-362-badalamente-richard-2020-4816",
-      "resed-362-badalamente-richard-2020-5137"
+      "resed-362-badalamente-richard-2020-5137",
+      "resed-362-badalamente-richard-2020-5801"
     ]
   },
   {
@@ -28346,16 +28435,17 @@
     "name": "Wa State 16th Legislative District Democrats",
     "city": "Kennewick",
     "type": "Party",
-    "donations_count": 2,
-    "total_donated": 4750,
-    "total_cash": 4750,
+    "donations_count": 3,
+    "total_donated": 9500,
+    "total_cash": 9500,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-wa-state-16th-legislative-district-democrats-2020-2256",
-      "resed-362-wa-state-16th-legislative-district-democrats-2020-5242"
+      "resed-362-wa-state-16th-legislative-district-democrats-2020-5242",
+      "resed-362-wa-state-16th-legislative-district-democrats-2020-5875"
     ]
   },
   {
@@ -30092,16 +30182,17 @@
     "name": "Holmes Mitzi",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 125,
-    "total_cash": 125,
+    "donations_count": 3,
+    "total_donated": 165,
+    "total_cash": 165,
     "total_in_kind": 0,
     "funded": [
       "RAFFJ--352"
     ],
     "donations": [
       "raffj-352-holmes-mitzi-2020-2474",
-      "raffj-352-holmes-mitzi-2020-5005"
+      "raffj-352-holmes-mitzi-2020-5005",
+      "raffj-352-holmes-mitzi-2020-5934"
     ]
   },
   {
@@ -31835,16 +31926,17 @@
     "name": "Glant Bruce",
     "city": "Mercer Island",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 150,
-    "total_cash": 150,
+    "donations_count": 3,
+    "total_donated": 350,
+    "total_cash": 350,
     "total_in_kind": 0,
     "funded": [
       "REGES  354"
     ],
     "donations": [
       "reges-354-glant-bruce-2020-2616",
-      "reges-354-glant-bruce-2020-3656"
+      "reges-354-glant-bruce-2020-3656",
+      "reges-354-glant-bruce-2020-5894"
     ]
   },
   {
@@ -31868,15 +31960,17 @@
     "name": "Garcia Danica",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 175,
+    "total_cash": 175,
     "total_in_kind": 0,
     "funded": [
-      "LEHRK--302"
+      "LEHRK--302",
+      "RAFFJ--352"
     ],
     "donations": [
-      "lehrk-302-garcia-danica-2020-2621"
+      "lehrk-302-garcia-danica-2020-2621",
+      "raffj-352-garcia-danica-2020-5923"
     ]
   },
   {
@@ -33590,7 +33684,7 @@
     "donations": [
       "raffj-352-gephart-wiley-julie-2020-2793",
       "raffj-352-gephart-wiley-julie-2020-4333",
-      "raffj-352-gephart-wiley-julie-2020-5419"
+      "raffj-352-gephart-wiley-julie-2020-5413"
     ]
   },
   {
@@ -33607,7 +33701,7 @@
     ],
     "donations": [
       "raffj-352-wiley-h-steven-2020-2794",
-      "raffj-352-wiley-h-steven-2020-5420"
+      "raffj-352-wiley-h-steven-2020-5414"
     ]
   },
   {
@@ -34130,7 +34224,7 @@
     ],
     "donations": [
       "resed-362-tangent-media-group-2020-2846",
-      "resed-362-tangent-media-group-2020-5412"
+      "resed-362-tangent-media-group-2020-5915"
     ]
   },
   {
@@ -35180,15 +35274,16 @@
     "name": "Rodriquez Jennifer",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 500,
-    "total_cash": 500,
+    "donations_count": 2,
+    "total_donated": 1000,
+    "total_cash": 1000,
     "total_in_kind": 0,
     "funded": [
       "RAFFJ--352"
     ],
     "donations": [
-      "raffj-352-rodriquez-jennifer-2020-2997"
+      "raffj-352-rodriquez-jennifer-2020-2997",
+      "raffj-352-rodriquez-jennifer-2020-5968"
     ]
   },
   {
@@ -36228,15 +36323,16 @@
     "name": "Wa State Tree Fruit Association",
     "city": "Olympia",
     "type": "Political Action Committee",
-    "donations_count": 1,
-    "total_donated": 1000,
-    "total_cash": 1000,
+    "donations_count": 2,
+    "total_donated": 1500,
+    "total_cash": 1500,
     "total_in_kind": 0,
     "funded": [
       "DOZIP  361"
     ],
     "donations": [
-      "dozip-361-wa-state-tree-fruit-association-2020-3118"
+      "dozip-361-wa-state-tree-fruit-association-2020-3118",
+      "dozip-361-wa-state-tree-fruit-association-2020-5943"
     ]
   },
   {
@@ -36636,15 +36732,16 @@
     "name": "Johnson Judith",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 25,
-    "total_cash": 25,
+    "donations_count": 2,
+    "total_donated": 50,
+    "total_cash": 50,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-johnson-judith-2020-3181"
+      "resed-362-johnson-judith-2020-3181",
+      "resed-362-johnson-judith-2020-5819"
     ]
   },
   {
@@ -36799,16 +36896,17 @@
     "name": "Wellman Lisa",
     "city": "Mercer Island",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 200,
-    "total_cash": 200,
+    "donations_count": 3,
+    "total_donated": 250,
+    "total_cash": 250,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-wellman-lisa-2020-3203",
-      "resed-362-wellman-lisa-2020-4889"
+      "resed-362-wellman-lisa-2020-4889",
+      "resed-362-wellman-lisa-2020-5853"
     ]
   },
   {
@@ -36848,9 +36946,9 @@
     "name": "Aft Washington Cope",
     "city": "Tukwila",
     "type": "Self",
-    "donations_count": 2,
-    "total_donated": 750,
-    "total_cash": 750,
+    "donations_count": 3,
+    "total_donated": 1250,
+    "total_cash": 1250,
     "total_in_kind": 0,
     "funded": [
       "RESED--362",
@@ -36858,7 +36956,8 @@
     ],
     "donations": [
       "resed-362-aft-washington-cope-2020-3212",
-      "chvaf-362-aft-washington-cope-2020-4334"
+      "chvaf-362-aft-washington-cope-2020-4334",
+      "resed-362-aft-washington-cope-2020-5966"
     ]
   },
   {
@@ -37145,16 +37244,17 @@
     "name": "Campion Tom",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 1500,
-    "total_cash": 1500,
+    "donations_count": 3,
+    "total_donated": 2000,
+    "total_cash": 2000,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-campion-tom-2020-3270",
-      "resed-362-campion-tom-2020-3271"
+      "resed-362-campion-tom-2020-3271",
+      "resed-362-campion-tom-2020-5839"
     ]
   },
   {
@@ -37162,9 +37262,9 @@
     "name": "Lawhead Terry",
     "city": "Waitsburg",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 66,
-    "total_cash": 66,
+    "donations_count": 4,
+    "total_donated": 91,
+    "total_cash": 91,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -37172,7 +37272,8 @@
     "donations": [
       "resed-362-lawhead-terry-2020-3275",
       "resed-362-lawhead-terry-2020-4199",
-      "resed-362-lawhead-terry-2020-4627"
+      "resed-362-lawhead-terry-2020-4627",
+      "resed-362-lawhead-terry-2020-5864"
     ]
   },
   {
@@ -37262,9 +37363,9 @@
     "name": "Weisskopf Gene",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 150,
-    "total_cash": 150,
+    "donations_count": 3,
+    "total_donated": 200,
+    "total_cash": 200,
     "total_in_kind": 0,
     "funded": [
       "RESED--362",
@@ -37272,7 +37373,8 @@
     ],
     "donations": [
       "resed-362-weisskopf-gene-2020-3290",
-      "reges-354-weisskopf-gene-2020-5210"
+      "reges-354-weisskopf-gene-2020-5210",
+      "reges-354-weisskopf-gene-2020-5904"
     ]
   },
   {
@@ -37845,15 +37947,16 @@
     "name": "Pse Seiu 1948",
     "city": "Auburn",
     "type": "Union",
-    "donations_count": 1,
-    "total_donated": 500,
-    "total_cash": 500,
+    "donations_count": 2,
+    "total_donated": 1000,
+    "total_cash": 1000,
     "total_in_kind": 0,
     "funded": [
       "BOEHM  336"
     ],
     "donations": [
-      "boehm-336-pse-seiu-1948-2020-3357"
+      "boehm-336-pse-seiu-1948-2020-3357",
+      "boehm-336-pse-seiu-1948-2020-5962"
     ]
   },
   {
@@ -38252,16 +38355,17 @@
     "name": "Elkins Jeanne",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 200,
-    "total_cash": 200,
+    "donations_count": 3,
+    "total_donated": 250,
+    "total_cash": 250,
     "total_in_kind": 0,
     "funded": [
       "REGES  354"
     ],
     "donations": [
       "reges-354-elkins-jeanne-2020-3442",
-      "reges-354-elkins-jeanne-2020-4464"
+      "reges-354-elkins-jeanne-2020-4464",
+      "reges-354-elkins-jeanne-2020-5895"
     ]
   },
   {
@@ -38832,16 +38936,17 @@
     "name": "Vargas Ynez",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 75,
-    "total_cash": 75,
+    "donations_count": 3,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-vargas-ynez-2020-3545",
-      "resed-362-vargas-ynez-2020-4025"
+      "resed-362-vargas-ynez-2020-4025",
+      "resed-362-vargas-ynez-2020-5816"
     ]
   },
   {
@@ -39238,15 +39343,16 @@
     "name": "Ibew Local 77 Pac",
     "city": "Seatac",
     "type": "Self",
-    "donations_count": 1,
-    "total_donated": 1000,
-    "total_cash": 1000,
+    "donations_count": 2,
+    "total_donated": 1500,
+    "total_cash": 1500,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-ibew-local-77-pac-2020-3599"
+      "resed-362-ibew-local-77-pac-2020-3599",
+      "resed-362-ibew-local-77-pac-2020-5871"
     ]
   },
   {
@@ -39557,7 +39663,7 @@
     "donations": [
       "dozip-361-hampton-lumber-2020-3649",
       "boehm-336-hampton-lumber-2020-5261",
-      "dozip-361-hampton-lumber-2020-5423"
+      "dozip-361-hampton-lumber-2020-5417"
     ]
   },
   {
@@ -41901,15 +42007,16 @@
     "name": "Wa Federation Of State Employees Ssf",
     "city": "Olympia",
     "type": "Other",
-    "donations_count": 1,
-    "total_donated": 1000,
-    "total_cash": 1000,
+    "donations_count": 2,
+    "total_donated": 2000,
+    "total_cash": 2000,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-wa-federation-of-state-employees-ssf-2020-3955"
+      "resed-362-wa-federation-of-state-employees-ssf-2020-3955",
+      "resed-362-wa-federation-of-state-employees-ssf-2020-5964"
     ]
   },
   {
@@ -42030,15 +42137,16 @@
     "name": "Hansen Daniel",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 200,
+    "total_cash": 200,
     "total_in_kind": 0,
     "funded": [
       "REGES  354"
     ],
     "donations": [
-      "reges-354-hansen-daniel-2020-3966"
+      "reges-354-hansen-daniel-2020-3966",
+      "reges-354-hansen-daniel-2020-5909"
     ]
   },
   {
@@ -42481,9 +42589,9 @@
     "name": "Baker Bernice",
     "city": "College Place",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 60,
-    "total_cash": 60,
+    "donations_count": 4,
+    "total_donated": 110,
+    "total_cash": 110,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
@@ -42491,7 +42599,8 @@
     "donations": [
       "resed-362-baker-bernice-2020-4027",
       "resed-362-baker-bernice-2020-4418",
-      "resed-362-baker-bernice-2020-4650"
+      "resed-362-baker-bernice-2020-4650",
+      "resed-362-baker-bernice-2020-5817"
     ]
   },
   {
@@ -43566,15 +43675,16 @@
     "name": "Perkins George",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 2,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
       "RAFFJ--352"
     ],
     "donations": [
-      "raffj-352-perkins-george-2020-4149"
+      "raffj-352-perkins-george-2020-4149",
+      "raffj-352-perkins-george-2020-5967"
     ]
   },
   {
@@ -46221,15 +46331,16 @@
     "name": "Avant Diane",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 150,
+    "total_cash": 150,
     "total_in_kind": 0,
     "funded": [
       "RAFFJ--352"
     ],
     "donations": [
-      "raffj-352-avant-diane-2020-4569"
+      "raffj-352-avant-diane-2020-4569",
+      "raffj-352-avant-diane-2020-5933"
     ]
   },
   {
@@ -46689,16 +46800,17 @@
     "name": "Stairet Linda",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 3,
+    "total_donated": 75,
+    "total_cash": 75,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
       "resed-362-stairet-linda-2020-4666",
-      "resed-362-stairet-linda-2020-5178"
+      "resed-362-stairet-linda-2020-5178",
+      "resed-362-stairet-linda-2020-5806"
     ]
   },
   {
@@ -46854,15 +46966,16 @@
     "name": "Gutierrez Kenney Phyllis",
     "city": "Edmonds",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 300,
+    "total_cash": 300,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-gutierrez-kenney-phyllis-2020-4692"
+      "resed-362-gutierrez-kenney-phyllis-2020-4692",
+      "resed-362-gutierrez-kenney-phyllis-2020-5804"
     ]
   },
   {
@@ -46934,9 +47047,9 @@
     "name": "Schmittroth Frank",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 299,
-    "total_cash": 0,
+    "donations_count": 4,
+    "total_donated": 430,
+    "total_cash": 131,
     "total_in_kind": 299,
     "funded": [
       "REGES  354"
@@ -46944,7 +47057,8 @@
     "donations": [
       "reges-354-schmittroth-frank-2020-4703",
       "reges-354-schmittroth-frank-2020-4704",
-      "reges-354-schmittroth-frank-2020-4719"
+      "reges-354-schmittroth-frank-2020-4719",
+      "reges-354-schmittroth-frank-2020-5901"
     ]
   },
   {
@@ -47308,15 +47422,16 @@
     "name": "Lightner Shannon",
     "city": "Chicago",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 25,
-    "total_cash": 25,
+    "donations_count": 2,
+    "total_donated": 75,
+    "total_cash": 75,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-lightner-shannon-2020-4829"
+      "resed-362-lightner-shannon-2020-4829",
+      "resed-362-lightner-shannon-2020-5865"
     ]
   },
   {
@@ -47388,15 +47503,16 @@
     "name": "Smith Stephen",
     "city": "Arlington",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 150,
+    "total_cash": 150,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-smith-stephen-2020-4838"
+      "resed-362-smith-stephen-2020-4838",
+      "resed-362-smith-stephen-2020-5867"
     ]
   },
   {
@@ -47612,15 +47728,16 @@
     "name": "Hunt Sam",
     "city": "Olympia",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 46,
-    "total_cash": 46,
+    "donations_count": 2,
+    "total_donated": 146,
+    "total_cash": 146,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-hunt-sam-2020-4878"
+      "resed-362-hunt-sam-2020-4878",
+      "resed-362-hunt-sam-2020-5808"
     ]
   },
   {
@@ -48799,15 +48916,17 @@
     "name": "Wise Barbara",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 2,
+    "total_donated": 150,
+    "total_cash": 150,
     "total_in_kind": 0,
     "funded": [
-      "RAFFJ--352"
+      "RAFFJ--352",
+      "REGES  354"
     ],
     "donations": [
-      "raffj-352-wise-barbara-2020-5029"
+      "raffj-352-wise-barbara-2020-5029",
+      "reges-354-wise-barbara-2020-5908"
     ]
   },
   {
@@ -49553,15 +49672,16 @@
     "name": "Chacon Alma",
     "city": "Wenatchee",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 2,
+    "total_donated": 101,
+    "total_cash": 101,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-chacon-alma-2020-5116"
+      "resed-362-chacon-alma-2020-5116",
+      "resed-362-chacon-alma-2020-5840"
     ]
   },
   {
@@ -49937,15 +50057,16 @@
     "name": "Pinette Babs",
     "city": "Seattle",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 2,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-pinette-babs-2020-5194"
+      "resed-362-pinette-babs-2020-5194",
+      "resed-362-pinette-babs-2020-5850"
     ]
   },
   {
@@ -49953,15 +50074,16 @@
     "name": "Rose Janis",
     "city": "Lynnwood",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 25,
-    "total_cash": 25,
+    "donations_count": 2,
+    "total_donated": 75,
+    "total_cash": 75,
     "total_in_kind": 0,
     "funded": [
       "RESED--362"
     ],
     "donations": [
-      "resed-362-rose-janis-2020-5195"
+      "resed-362-rose-janis-2020-5195",
+      "resed-362-rose-janis-2020-5866"
     ]
   },
   {
@@ -50469,19 +50591,21 @@
     "name": "Washington Electric Cooperative Pac",
     "city": "Olympia",
     "type": "Political Action Committee",
-    "donations_count": 3,
-    "total_donated": 1500,
-    "total_cash": 1500,
+    "donations_count": 4,
+    "total_donated": 1750,
+    "total_cash": 1750,
     "total_in_kind": 0,
     "funded": [
       "BOEHM  336",
       "DOZIP  361",
-      "RUDES  504"
+      "RUDES  504",
+      "KLICM--362"
     ],
     "donations": [
       "boehm-336-washington-electric-cooperative-pac-2020-5265",
       "dozip-361-washington-electric-cooperative-pac-2020-5310",
-      "rudes-504-washington-electric-cooperative-pac-2020-5324"
+      "rudes-504-washington-electric-cooperative-pac-2020-5324",
+      "klicm-362-washington-electric-cooperative-pac-2020-5956"
     ]
   },
   {
@@ -50761,15 +50885,19 @@
     "name": "Gun Owners Action League",
     "city": "Bellevue",
     "type": "Political Action Committee",
-    "donations_count": 1,
-    "total_donated": 150,
-    "total_cash": 150,
+    "donations_count": 3,
+    "total_donated": 450,
+    "total_cash": 450,
     "total_in_kind": 0,
     "funded": [
-      "DOZIP  361"
+      "DOZIP  361",
+      "BOEHM  336",
+      "KLICM--362"
     ],
     "donations": [
-      "dozip-361-gun-owners-action-league-2020-5311"
+      "dozip-361-gun-owners-action-league-2020-5311",
+      "boehm-336-gun-owners-action-league-2020-5785",
+      "klicm-362-gun-owners-action-league-2020-5951"
     ]
   },
   {
@@ -50873,15 +51001,17 @@
     "name": "Claybrook Mary",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 25,
-    "total_cash": 25,
+    "donations_count": 2,
+    "total_donated": 35,
+    "total_cash": 35,
     "total_in_kind": 0,
     "funded": [
-      "RAFFJ--352"
+      "RAFFJ--352",
+      "REGES  354"
     ],
     "donations": [
-      "raffj-352-claybrook-mary-2020-5325"
+      "raffj-352-claybrook-mary-2020-5325",
+      "reges-354-claybrook-mary-2020-5899"
     ]
   },
   {
@@ -51305,15 +51435,17 @@
     "name": "Murray Christopher",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 39,
-    "total_cash": 39,
+    "donations_count": 2,
+    "total_donated": 139,
+    "total_cash": 139,
     "total_in_kind": 0,
     "funded": [
-      "REGES  354"
+      "REGES  354",
+      "RAFFJ--352"
     ],
     "donations": [
-      "reges-354-murray-christopher-2020-5387"
+      "reges-354-murray-christopher-2020-5387",
+      "raffj-352-murray-christopher-2020-5928"
     ]
   },
   {
@@ -51461,25 +51593,6 @@
     ]
   },
   {
-    "id": "rogue-lobster",
-    "name": "Rogue Lobster",
-    "city": "Walla Walla",
-    "type": "Other",
-    "donations_count": 4,
-    "total_donated": 400,
-    "total_cash": 0,
-    "total_in_kind": 400,
-    "funded": [
-      "RESED--362"
-    ],
-    "donations": [
-      "resed-362-rogue-lobster-2020-5408",
-      "resed-362-rogue-lobster-2020-5409",
-      "resed-362-rogue-lobster-2020-5410",
-      "resed-362-rogue-lobster-2020-5411"
-    ]
-  },
-  {
     "id": "beechinor-jason",
     "name": "Beechinor Jason",
     "city": "Walla Walla",
@@ -51492,7 +51605,7 @@
       "DOZIP  361"
     ],
     "donations": [
-      "dozip-361-beechinor-jason-2020-5421"
+      "dozip-361-beechinor-jason-2020-5415"
     ]
   },
   {
@@ -51508,7 +51621,7 @@
       "DOZIP  361"
     ],
     "donations": [
-      "dozip-361-beechinor-sarah-2020-5422"
+      "dozip-361-beechinor-sarah-2020-5416"
     ]
   },
   {
@@ -51524,7 +51637,7 @@
       "DOZIP  361"
     ],
     "donations": [
-      "dozip-361-hayden-ray-anne-2020-5424"
+      "dozip-361-hayden-ray-anne-2020-5418"
     ]
   },
   {
@@ -51540,7 +51653,7 @@
       "DOZIP  361"
     ],
     "donations": [
-      "dozip-361-ray-e-l-2020-5427"
+      "dozip-361-ray-e-l-2020-5421"
     ]
   },
   {
@@ -51556,7 +51669,7 @@
       "DOZIP  361"
     ],
     "donations": [
-      "dozip-361-neibaur-vicki-2020-5428"
+      "dozip-361-neibaur-vicki-2020-5422"
     ]
   },
   {
@@ -51572,7 +51685,7 @@
       "DOZIP  361"
     ],
     "donations": [
-      "dozip-361-chervron-policy-govt-publ-affairs-2020-5429"
+      "dozip-361-chervron-policy-govt-publ-affairs-2020-5423"
     ]
   },
   {
@@ -51593,16 +51706,16 @@
       "REGES  354"
     ],
     "donations": [
-      "jenkw-350-correction-to-contributions-2020-5431",
-      "raffj-352-correction-to-contributions-2020-5432",
-      "cobuc-814-correction-to-contributions-2020-5433",
-      "cobuc-814-correction-to-contributions-2020-5434",
-      "cobuc-814-correction-to-contributions-2020-5435",
-      "ajaxs-336-correction-to-contributions-2020-5436",
-      "chvaf-362-correction-to-contributions-2020-5437",
-      "chvaf-362-correction-to-contributions-2020-5438",
-      "reges-354-correction-to-contributions-2020-5439",
-      "reges-354-correction-to-contributions-2020-5440"
+      "jenkw-350-correction-to-contributions-2020-5425",
+      "raffj-352-correction-to-contributions-2020-5426",
+      "cobuc-814-correction-to-contributions-2020-5427",
+      "cobuc-814-correction-to-contributions-2020-5428",
+      "cobuc-814-correction-to-contributions-2020-5429",
+      "ajaxs-336-correction-to-contributions-2020-5430",
+      "chvaf-362-correction-to-contributions-2020-5431",
+      "chvaf-362-correction-to-contributions-2020-5432",
+      "reges-354-correction-to-contributions-2020-5433",
+      "reges-354-correction-to-contributions-2020-5434"
     ]
   },
   {
@@ -51622,12 +51735,12 @@
       "LEHRK--302"
     ],
     "donations": [
-      "peraa-301-correction-refund-from-vendor-2020-5441",
-      "cobuc-814-correction-refund-from-vendor-2020-5442",
-      "cobuc-814-correction-refund-from-vendor-2020-5443",
-      "chvaf-362-correction-refund-from-vendor-2020-5444",
-      "klicm-362-correction-refund-from-vendor-2020-5445",
-      "lehrk-302-correction-refund-from-vendor-2020-5446"
+      "peraa-301-correction-refund-from-vendor-2020-5435",
+      "cobuc-814-correction-refund-from-vendor-2020-5436",
+      "cobuc-814-correction-refund-from-vendor-2020-5437",
+      "chvaf-362-correction-refund-from-vendor-2020-5438",
+      "klicm-362-correction-refund-from-vendor-2020-5439",
+      "lehrk-302-correction-refund-from-vendor-2020-5440"
     ]
   },
   {
@@ -51635,9 +51748,9 @@
     "name": "Small Contributions",
     "city": "",
     "type": "Other",
-    "donations_count": 249,
-    "total_donated": 14598,
-    "total_cash": 14598,
+    "donations_count": 256,
+    "total_donated": 14983,
+    "total_cash": 14983,
     "total_in_kind": 0,
     "funded": [
       "DOZIP  361",
@@ -51653,258 +51766,266 @@
       "LUSIJ--336",
       "SANTS  301",
       "LEHRK--302",
-      "SMARJ--352"
+      "SMARJ--352",
+      "MULLR  301"
     ],
     "donations": [
-      "dozip-361-small-contributions-2020-5447",
-      "resed-362-small-contributions-2020-5448",
+      "dozip-361-small-contributions-2020-5441",
+      "resed-362-small-contributions-2020-5442",
+      "resed-362-small-contributions-2020-5443",
+      "resed-362-small-contributions-2020-5444",
+      "resed-362-small-contributions-2020-5445",
+      "resed-362-small-contributions-2020-5446",
       "resed-362-small-contributions-2020-5449",
       "resed-362-small-contributions-2020-5450",
-      "resed-362-small-contributions-2020-5451",
-      "resed-362-small-contributions-2020-5452",
-      "resed-362-small-contributions-2020-5455",
-      "resed-362-small-contributions-2020-5456",
-      "dozip-361-small-contributions-2020-5457",
-      "jenkw-2-350-small-contributions-2020-5461",
-      "klicm-362-small-contributions-2020-5462",
-      "chvaf-362-small-contributions-2020-5464",
-      "dozip-361-small-contributions-2020-5465",
-      "dozip-361-small-contributions-2020-5466",
-      "peraa-301-small-contributions-2020-5467",
-      "peraa-301-small-contributions-2020-5468",
+      "dozip-361-small-contributions-2020-5451",
+      "jenkw-2-350-small-contributions-2020-5455",
+      "klicm-362-small-contributions-2020-5456",
+      "chvaf-362-small-contributions-2020-5458",
+      "dozip-361-small-contributions-2020-5459",
+      "dozip-361-small-contributions-2020-5460",
+      "peraa-301-small-contributions-2020-5461",
+      "peraa-301-small-contributions-2020-5462",
+      "resed-362-small-contributions-2020-5464",
+      "resed-362-small-contributions-2020-5465",
+      "resed-362-small-contributions-2020-5466",
+      "resed-362-small-contributions-2020-5467",
+      "reges-354-small-contributions-2020-5468",
+      "resed-362-small-contributions-2020-5469",
       "resed-362-small-contributions-2020-5470",
-      "resed-362-small-contributions-2020-5471",
-      "resed-362-small-contributions-2020-5472",
-      "resed-362-small-contributions-2020-5473",
-      "reges-354-small-contributions-2020-5474",
-      "resed-362-small-contributions-2020-5475",
-      "resed-362-small-contributions-2020-5476",
-      "chvaf-362-small-contributions-2020-5477",
-      "dozip-361-small-contributions-2020-5479",
-      "dozip-361-small-contributions-2020-5480",
-      "dozip-361-small-contributions-2020-5481",
-      "dozip-361-small-contributions-2020-5482",
-      "resed-362-small-contributions-2020-5483",
+      "chvaf-362-small-contributions-2020-5471",
+      "dozip-361-small-contributions-2020-5473",
+      "dozip-361-small-contributions-2020-5474",
+      "dozip-361-small-contributions-2020-5475",
+      "dozip-361-small-contributions-2020-5476",
+      "resed-362-small-contributions-2020-5477",
+      "resed-362-small-contributions-2020-5478",
+      "resed-362-small-contributions-2020-5479",
+      "reges-354-small-contributions-2020-5480",
+      "resed-362-small-contributions-2020-5481",
+      "resed-362-small-contributions-2020-5482",
+      "dozip-361-small-contributions-2020-5483",
       "resed-362-small-contributions-2020-5484",
       "resed-362-small-contributions-2020-5485",
-      "reges-354-small-contributions-2020-5486",
+      "resed-362-small-contributions-2020-5486",
       "resed-362-small-contributions-2020-5487",
       "resed-362-small-contributions-2020-5488",
-      "dozip-361-small-contributions-2020-5489",
+      "resed-362-small-contributions-2020-5489",
       "resed-362-small-contributions-2020-5490",
       "resed-362-small-contributions-2020-5491",
       "resed-362-small-contributions-2020-5492",
-      "resed-362-small-contributions-2020-5493",
-      "resed-362-small-contributions-2020-5494",
-      "resed-362-small-contributions-2020-5495",
-      "resed-362-small-contributions-2020-5496",
-      "resed-362-small-contributions-2020-5497",
-      "resed-362-small-contributions-2020-5498",
+      "chvaf-362-small-contributions-2020-5493",
+      "chvaf-362-small-contributions-2020-5494",
+      "chvaf-362-small-contributions-2020-5495",
+      "chvaf-362-small-contributions-2020-5497",
+      "chvaf-362-small-contributions-2020-5498",
       "chvaf-362-small-contributions-2020-5499",
-      "chvaf-362-small-contributions-2020-5500",
-      "chvaf-362-small-contributions-2020-5501",
-      "chvaf-362-small-contributions-2020-5503",
-      "chvaf-362-small-contributions-2020-5504",
-      "chvaf-362-small-contributions-2020-5505",
-      "jenkw-2-350-small-contributions-2020-5507",
-      "dozip-361-small-contributions-2020-5508",
-      "resed-362-small-contributions-2020-5509",
-      "dozip-361-small-contributions-2020-5510",
-      "cobuc-814-small-contributions-2020-5511",
-      "chvaf-362-small-contributions-2020-5512",
-      "chvaf-362-small-contributions-2020-5513",
-      "klicm-362-small-contributions-2020-5514",
-      "reges-354-small-contributions-2020-5515",
-      "reges-354-small-contributions-2020-5516",
-      "resed-362-small-contributions-2020-5517",
-      "resed-362-small-contributions-2020-5518",
-      "cobuc-814-small-contributions-2020-5519",
-      "peted-338-small-contributions-2020-5521",
-      "resed-362-small-contributions-2020-5522",
-      "chvaf-362-small-contributions-2020-5523",
-      "chvaf-362-small-contributions-2020-5524",
-      "chvaf-362-small-contributions-2020-5525",
+      "jenkw-2-350-small-contributions-2020-5501",
+      "dozip-361-small-contributions-2020-5502",
+      "resed-362-small-contributions-2020-5503",
+      "dozip-361-small-contributions-2020-5504",
+      "cobuc-814-small-contributions-2020-5505",
+      "chvaf-362-small-contributions-2020-5506",
+      "chvaf-362-small-contributions-2020-5507",
+      "klicm-362-small-contributions-2020-5508",
+      "reges-354-small-contributions-2020-5509",
+      "reges-354-small-contributions-2020-5510",
+      "resed-362-small-contributions-2020-5511",
+      "resed-362-small-contributions-2020-5512",
+      "cobuc-814-small-contributions-2020-5513",
+      "peted-338-small-contributions-2020-5515",
+      "resed-362-small-contributions-2020-5516",
+      "chvaf-362-small-contributions-2020-5517",
+      "chvaf-362-small-contributions-2020-5518",
+      "chvaf-362-small-contributions-2020-5519",
+      "resed-362-small-contributions-2020-5520",
+      "klicm-362-small-contributions-2020-5523",
       "resed-362-small-contributions-2020-5526",
-      "klicm-362-small-contributions-2020-5529",
+      "resed-362-small-contributions-2020-5527",
+      "chvaf-362-small-contributions-2020-5528",
+      "browb-336-small-contributions-2020-5529",
+      "lusij-336-small-contributions-2020-5530",
+      "lusij-336-small-contributions-2020-5531",
       "resed-362-small-contributions-2020-5532",
       "resed-362-small-contributions-2020-5533",
-      "chvaf-362-small-contributions-2020-5534",
-      "browb-336-small-contributions-2020-5535",
-      "lusij-336-small-contributions-2020-5536",
-      "lusij-336-small-contributions-2020-5537",
+      "klicm-362-small-contributions-2020-5534",
+      "klicm-362-small-contributions-2020-5535",
+      "resed-362-small-contributions-2020-5536",
+      "resed-362-small-contributions-2020-5537",
       "resed-362-small-contributions-2020-5538",
-      "resed-362-small-contributions-2020-5539",
-      "klicm-362-small-contributions-2020-5540",
-      "klicm-362-small-contributions-2020-5541",
+      "reges-354-small-contributions-2020-5539",
+      "resed-362-small-contributions-2020-5540",
+      "resed-362-small-contributions-2020-5541",
       "resed-362-small-contributions-2020-5542",
-      "resed-362-small-contributions-2020-5543",
-      "resed-362-small-contributions-2020-5544",
-      "reges-354-small-contributions-2020-5545",
-      "resed-362-small-contributions-2020-5546",
-      "resed-362-small-contributions-2020-5547",
-      "resed-362-small-contributions-2020-5548",
-      "dozip-361-small-contributions-2020-5550",
-      "jenkw-2-350-small-contributions-2020-5552",
-      "lusij-336-small-contributions-2020-5553",
-      "cobuc-814-small-contributions-2020-5554",
+      "dozip-361-small-contributions-2020-5544",
+      "jenkw-2-350-small-contributions-2020-5546",
+      "lusij-336-small-contributions-2020-5547",
+      "cobuc-814-small-contributions-2020-5548",
+      "resed-362-small-contributions-2020-5550",
+      "resed-362-small-contributions-2020-5551",
+      "resed-362-small-contributions-2020-5552",
+      "peted-338-small-contributions-2020-5554",
+      "resed-362-small-contributions-2020-5555",
       "resed-362-small-contributions-2020-5556",
-      "resed-362-small-contributions-2020-5557",
-      "resed-362-small-contributions-2020-5558",
-      "peted-338-small-contributions-2020-5560",
-      "resed-362-small-contributions-2020-5561",
-      "resed-362-small-contributions-2020-5562",
-      "klicm-362-small-contributions-2020-5563",
-      "chvaf-362-small-contributions-2020-5564",
-      "klicm-362-small-contributions-2020-5565",
-      "chvaf-362-small-contributions-2020-5567",
-      "chvaf-362-small-contributions-2020-5568",
-      "dozip-361-small-contributions-2020-5569",
-      "sants-301-small-contributions-2020-5570",
-      "cobuc-814-small-contributions-2020-5571",
-      "sants-301-small-contributions-2020-5572",
-      "resed-362-small-contributions-2020-5574",
-      "resed-362-small-contributions-2020-5575",
-      "lehrk-302-small-contributions-2020-5576",
-      "peraa-301-small-contributions-2020-5578",
-      "sants-301-small-contributions-2020-5579",
-      "peraa-301-small-contributions-2020-5580",
-      "cobuc-814-small-contributions-2020-5581",
-      "cobuc-814-small-contributions-2020-5582",
-      "cobuc-814-small-contributions-2020-5583",
-      "chvaf-362-small-contributions-2020-5584",
-      "resed-362-small-contributions-2020-5585",
-      "chvaf-362-small-contributions-2020-5587",
-      "klicm-362-small-contributions-2020-5588",
-      "chvaf-362-small-contributions-2020-5589",
+      "klicm-362-small-contributions-2020-5557",
+      "chvaf-362-small-contributions-2020-5558",
+      "klicm-362-small-contributions-2020-5559",
+      "chvaf-362-small-contributions-2020-5561",
+      "chvaf-362-small-contributions-2020-5562",
+      "dozip-361-small-contributions-2020-5563",
+      "sants-301-small-contributions-2020-5564",
+      "cobuc-814-small-contributions-2020-5565",
+      "sants-301-small-contributions-2020-5566",
+      "resed-362-small-contributions-2020-5568",
+      "resed-362-small-contributions-2020-5569",
+      "lehrk-302-small-contributions-2020-5570",
+      "peraa-301-small-contributions-2020-5572",
+      "sants-301-small-contributions-2020-5573",
+      "peraa-301-small-contributions-2020-5574",
+      "cobuc-814-small-contributions-2020-5575",
+      "cobuc-814-small-contributions-2020-5576",
+      "cobuc-814-small-contributions-2020-5577",
+      "chvaf-362-small-contributions-2020-5578",
+      "resed-362-small-contributions-2020-5579",
+      "chvaf-362-small-contributions-2020-5581",
+      "klicm-362-small-contributions-2020-5582",
+      "chvaf-362-small-contributions-2020-5583",
+      "lusij-336-small-contributions-2020-5584",
+      "sants-301-small-contributions-2020-5586",
+      "lusij-336-small-contributions-2020-5588",
+      "lusij-336-small-contributions-2020-5589",
       "lusij-336-small-contributions-2020-5590",
-      "sants-301-small-contributions-2020-5592",
-      "lusij-336-small-contributions-2020-5594",
-      "lusij-336-small-contributions-2020-5595",
-      "lusij-336-small-contributions-2020-5596",
-      "dozip-361-small-contributions-2020-5597",
-      "lehrk-302-small-contributions-2020-5598",
-      "lehrk-302-small-contributions-2020-5599",
-      "chvaf-362-small-contributions-2020-5600",
-      "peraa-301-small-contributions-2020-5601",
-      "sants-301-small-contributions-2020-5602",
-      "chvaf-362-small-contributions-2020-5608",
-      "peraa-301-small-contributions-2020-5609",
-      "dozip-361-small-contributions-2020-5610",
-      "cobuc-814-small-contributions-2020-5611",
-      "cobuc-814-small-contributions-2020-5612",
-      "lehrk-302-small-contributions-2020-5613",
+      "dozip-361-small-contributions-2020-5591",
+      "lehrk-302-small-contributions-2020-5592",
+      "lehrk-302-small-contributions-2020-5593",
+      "chvaf-362-small-contributions-2020-5594",
+      "peraa-301-small-contributions-2020-5595",
+      "sants-301-small-contributions-2020-5596",
+      "chvaf-362-small-contributions-2020-5602",
+      "peraa-301-small-contributions-2020-5603",
+      "dozip-361-small-contributions-2020-5604",
+      "cobuc-814-small-contributions-2020-5605",
+      "cobuc-814-small-contributions-2020-5606",
+      "lehrk-302-small-contributions-2020-5607",
+      "reges-354-small-contributions-2020-5610",
+      "chvaf-362-small-contributions-2020-5612",
+      "chvaf-362-small-contributions-2020-5613",
+      "reges-354-small-contributions-2020-5615",
       "reges-354-small-contributions-2020-5616",
-      "chvaf-362-small-contributions-2020-5618",
-      "chvaf-362-small-contributions-2020-5619",
-      "reges-354-small-contributions-2020-5621",
-      "reges-354-small-contributions-2020-5622",
-      "lusij-336-small-contributions-2020-5623",
-      "cobuc-814-small-contributions-2020-5624",
-      "resed-362-small-contributions-2020-5625",
-      "cobuc-814-small-contributions-2020-5627",
-      "jenkw-2-350-small-contributions-2020-5628",
-      "chvaf-362-small-contributions-2020-5629",
-      "sants-301-small-contributions-2020-5630",
+      "lusij-336-small-contributions-2020-5617",
+      "cobuc-814-small-contributions-2020-5618",
+      "resed-362-small-contributions-2020-5619",
+      "cobuc-814-small-contributions-2020-5621",
+      "jenkw-2-350-small-contributions-2020-5622",
+      "chvaf-362-small-contributions-2020-5623",
+      "sants-301-small-contributions-2020-5624",
+      "klicm-362-small-contributions-2020-5627",
+      "cobuc-814-small-contributions-2020-5628",
+      "jenkw-2-350-small-contributions-2020-5629",
+      "cobuc-814-small-contributions-2020-5632",
       "klicm-362-small-contributions-2020-5633",
-      "cobuc-814-small-contributions-2020-5634",
-      "jenkw-2-350-small-contributions-2020-5635",
-      "cobuc-814-small-contributions-2020-5638",
-      "klicm-362-small-contributions-2020-5639",
-      "chvaf-362-small-contributions-2020-5640",
-      "resed-362-small-contributions-2020-5641",
-      "resed-362-small-contributions-2020-5642",
-      "lusij-336-small-contributions-2020-5643",
-      "smarj-352-small-contributions-2020-5644",
-      "reges-354-small-contributions-2020-5646",
-      "lehrk-302-small-contributions-2020-5647",
-      "lehrk-302-small-contributions-2020-5648",
-      "smarj-352-small-contributions-2020-5649",
-      "cobuc-814-small-contributions-2020-5650",
-      "lusij-336-small-contributions-2020-5652",
-      "cobuc-814-small-contributions-2020-5653",
-      "reges-354-small-contributions-2020-5656",
-      "lehrk-302-small-contributions-2020-5657",
-      "reges-354-small-contributions-2020-5658",
-      "chvaf-362-small-contributions-2020-5659",
-      "chvaf-362-small-contributions-2020-5661",
-      "chvaf-362-small-contributions-2020-5663",
-      "klicm-362-small-contributions-2020-5664",
-      "peraa-301-small-contributions-2020-5665",
-      "jenkw-2-350-small-contributions-2020-5666",
+      "chvaf-362-small-contributions-2020-5634",
+      "resed-362-small-contributions-2020-5635",
+      "resed-362-small-contributions-2020-5636",
+      "lusij-336-small-contributions-2020-5637",
+      "smarj-352-small-contributions-2020-5638",
+      "reges-354-small-contributions-2020-5640",
+      "lehrk-302-small-contributions-2020-5641",
+      "lehrk-302-small-contributions-2020-5642",
+      "smarj-352-small-contributions-2020-5643",
+      "cobuc-814-small-contributions-2020-5644",
+      "lusij-336-small-contributions-2020-5646",
+      "cobuc-814-small-contributions-2020-5647",
+      "reges-354-small-contributions-2020-5650",
+      "lehrk-302-small-contributions-2020-5651",
+      "reges-354-small-contributions-2020-5652",
+      "chvaf-362-small-contributions-2020-5653",
+      "chvaf-362-small-contributions-2020-5655",
+      "chvaf-362-small-contributions-2020-5657",
+      "klicm-362-small-contributions-2020-5658",
+      "peraa-301-small-contributions-2020-5659",
+      "jenkw-2-350-small-contributions-2020-5660",
+      "peraa-301-small-contributions-2020-5661",
+      "chvaf-362-small-contributions-2020-5662",
+      "jenkw-2-350-small-contributions-2020-5663",
+      "jenkw-2-350-small-contributions-2020-5664",
+      "chvaf-362-small-contributions-2020-5665",
+      "cobuc-814-small-contributions-2020-5666",
       "peraa-301-small-contributions-2020-5667",
-      "chvaf-362-small-contributions-2020-5668",
-      "jenkw-2-350-small-contributions-2020-5669",
-      "jenkw-2-350-small-contributions-2020-5670",
-      "chvaf-362-small-contributions-2020-5671",
-      "cobuc-814-small-contributions-2020-5672",
-      "peraa-301-small-contributions-2020-5673",
-      "reges-354-small-contributions-2020-5674",
-      "reges-354-small-contributions-2020-5675",
-      "reges-354-small-contributions-2020-5676",
-      "klicm-362-small-contributions-2020-5678",
-      "lehrk-302-small-contributions-2020-5679",
-      "chvaf-362-small-contributions-2020-5680",
-      "resed-362-small-contributions-2020-5681",
-      "resed-362-small-contributions-2020-5683",
-      "peted-338-small-contributions-2020-5684",
-      "jenkw-2-350-small-contributions-2020-5687",
-      "jenkw-2-350-small-contributions-2020-5688",
-      "dozip-361-small-contributions-2020-5689",
+      "reges-354-small-contributions-2020-5668",
+      "reges-354-small-contributions-2020-5669",
+      "reges-354-small-contributions-2020-5670",
+      "klicm-362-small-contributions-2020-5672",
+      "lehrk-302-small-contributions-2020-5673",
+      "chvaf-362-small-contributions-2020-5674",
+      "resed-362-small-contributions-2020-5675",
+      "resed-362-small-contributions-2020-5677",
+      "peted-338-small-contributions-2020-5678",
+      "jenkw-2-350-small-contributions-2020-5681",
+      "jenkw-2-350-small-contributions-2020-5682",
+      "dozip-361-small-contributions-2020-5683",
+      "peraa-301-small-contributions-2020-5684",
+      "resed-362-small-contributions-2020-5685",
+      "peraa-301-small-contributions-2020-5686",
+      "peraa-301-small-contributions-2020-5687",
+      "lehrk-302-small-contributions-2020-5689",
       "peraa-301-small-contributions-2020-5690",
-      "resed-362-small-contributions-2020-5691",
-      "peraa-301-small-contributions-2020-5692",
-      "peraa-301-small-contributions-2020-5693",
-      "lehrk-302-small-contributions-2020-5695",
-      "peraa-301-small-contributions-2020-5696",
-      "peraa-301-small-contributions-2020-5697",
-      "cobuc-814-small-contributions-2020-5698",
-      "chvaf-362-small-contributions-2020-5699",
-      "peraa-301-small-contributions-2020-5700",
-      "resed-362-small-contributions-2020-5701",
-      "dozip-361-small-contributions-2020-5703",
-      "peraa-301-small-contributions-2020-5704",
-      "chvaf-362-small-contributions-2020-5706",
-      "reges-354-small-contributions-2020-5707",
-      "cobuc-814-small-contributions-2020-5709",
-      "cobuc-814-small-contributions-2020-5710",
-      "peraa-301-small-contributions-2020-5711",
-      "resed-362-small-contributions-2020-5712",
+      "peraa-301-small-contributions-2020-5691",
+      "cobuc-814-small-contributions-2020-5692",
+      "chvaf-362-small-contributions-2020-5693",
+      "peraa-301-small-contributions-2020-5694",
+      "resed-362-small-contributions-2020-5695",
+      "dozip-361-small-contributions-2020-5697",
+      "peraa-301-small-contributions-2020-5698",
+      "chvaf-362-small-contributions-2020-5700",
+      "reges-354-small-contributions-2020-5701",
+      "cobuc-814-small-contributions-2020-5703",
+      "cobuc-814-small-contributions-2020-5704",
+      "peraa-301-small-contributions-2020-5705",
+      "resed-362-small-contributions-2020-5706",
+      "resed-362-small-contributions-2020-5707",
+      "resed-362-small-contributions-2020-5708",
+      "resed-362-small-contributions-2020-5709",
+      "resed-362-small-contributions-2020-5711",
+      "peraa-301-small-contributions-2020-5712",
       "resed-362-small-contributions-2020-5713",
-      "resed-362-small-contributions-2020-5714",
-      "resed-362-small-contributions-2020-5715",
-      "resed-362-small-contributions-2020-5717",
-      "peraa-301-small-contributions-2020-5718",
-      "resed-362-small-contributions-2020-5719",
-      "peted-338-small-contributions-2020-5720",
-      "lehrk-302-small-contributions-2020-5721",
-      "chvaf-362-small-contributions-2020-5725",
-      "reges-354-small-contributions-2020-5726",
-      "reges-354-small-contributions-2020-5727",
+      "peted-338-small-contributions-2020-5714",
+      "lehrk-302-small-contributions-2020-5715",
+      "chvaf-362-small-contributions-2020-5719",
+      "reges-354-small-contributions-2020-5720",
+      "reges-354-small-contributions-2020-5721",
+      "lehrk-302-small-contributions-2020-5723",
+      "reges-354-small-contributions-2020-5724",
+      "reges-354-small-contributions-2020-5725",
+      "dozip-361-small-contributions-2020-5726",
+      "lehrk-302-small-contributions-2020-5727",
+      "lehrk-302-small-contributions-2020-5728",
       "lehrk-302-small-contributions-2020-5729",
-      "reges-354-small-contributions-2020-5730",
-      "reges-354-small-contributions-2020-5731",
-      "dozip-361-small-contributions-2020-5732",
-      "lehrk-302-small-contributions-2020-5733",
-      "lehrk-302-small-contributions-2020-5734",
-      "lehrk-302-small-contributions-2020-5735",
-      "lehrk-302-small-contributions-2020-5736",
-      "dozip-361-small-contributions-2020-5737",
-      "cobuc-814-small-contributions-2020-5738",
-      "reges-354-small-contributions-2020-5739",
+      "lehrk-302-small-contributions-2020-5730",
+      "dozip-361-small-contributions-2020-5731",
+      "cobuc-814-small-contributions-2020-5732",
+      "reges-354-small-contributions-2020-5733",
+      "klicm-362-small-contributions-2020-5736",
+      "dozip-361-small-contributions-2020-5738",
+      "resed-362-small-contributions-2020-5739",
+      "resed-362-small-contributions-2020-5740",
       "klicm-362-small-contributions-2020-5742",
-      "dozip-361-small-contributions-2020-5744",
-      "resed-362-small-contributions-2020-5745",
-      "resed-362-small-contributions-2020-5746",
-      "klicm-362-small-contributions-2020-5748",
-      "chvaf-362-small-contributions-2020-5749",
-      "resed-362-small-contributions-2020-5750",
-      "lehrk-302-small-contributions-2020-5751",
-      "reges-354-small-contributions-2020-5752",
-      "cobuc-814-small-contributions-2020-5753",
-      "cobuc-814-small-contributions-2020-5754",
-      "reges-354-small-contributions-2020-5755",
-      "cobuc-814-small-contributions-2020-5756",
-      "cobuc-814-small-contributions-2020-5757"
+      "chvaf-362-small-contributions-2020-5743",
+      "resed-362-small-contributions-2020-5744",
+      "lehrk-302-small-contributions-2020-5745",
+      "reges-354-small-contributions-2020-5746",
+      "cobuc-814-small-contributions-2020-5747",
+      "cobuc-814-small-contributions-2020-5748",
+      "reges-354-small-contributions-2020-5749",
+      "cobuc-814-small-contributions-2020-5750",
+      "cobuc-814-small-contributions-2020-5751",
+      "lehrk-302-small-contributions-2020-5757",
+      "mullr-301-small-contributions-2020-5767",
+      "peted-338-small-contributions-2020-5768",
+      "resed-362-small-contributions-2020-5876",
+      "reges-354-small-contributions-2020-5910",
+      "dozip-361-small-contributions-2020-5949",
+      "klicm-362-small-contributions-2020-5957"
     ]
   },
   {
@@ -51929,34 +52050,34 @@
       "KLICM--362"
     ],
     "donations": [
-      "rudes-504-miscellaneous-receipts-2020-5453",
-      "klipb-336-miscellaneous-receipts-2020-5454",
-      "rudes-504-miscellaneous-receipts-2020-5458",
-      "klipb-336-miscellaneous-receipts-2020-5463",
-      "sants-301-miscellaneous-receipts-2020-5469",
-      "klipb-336-miscellaneous-receipts-2020-5478",
-      "klipb-336-miscellaneous-receipts-2020-5502",
-      "klipb-336-miscellaneous-receipts-2020-5530",
-      "klipb-336-miscellaneous-receipts-2020-5531",
-      "lehrk-302-miscellaneous-receipts-2020-5551",
-      "boehm-336-miscellaneous-receipts-2020-5566",
-      "brows-337-miscellaneous-receipts-2020-5573",
-      "sants-301-miscellaneous-receipts-2020-5577",
-      "klipb-336-miscellaneous-receipts-2020-5603",
-      "brows-337-miscellaneous-receipts-2020-5604",
-      "chvaf-362-miscellaneous-receipts-2020-5607",
-      "boehm-336-miscellaneous-receipts-2020-5620",
-      "klipb-336-miscellaneous-receipts-2020-5631",
-      "peraa-301-miscellaneous-receipts-2020-5637",
-      "cobuc-814-miscellaneous-receipts-2020-5651",
-      "klicm-362-miscellaneous-receipts-2020-5662",
+      "rudes-504-miscellaneous-receipts-2020-5447",
+      "klipb-336-miscellaneous-receipts-2020-5448",
+      "rudes-504-miscellaneous-receipts-2020-5452",
+      "klipb-336-miscellaneous-receipts-2020-5457",
+      "sants-301-miscellaneous-receipts-2020-5463",
+      "klipb-336-miscellaneous-receipts-2020-5472",
+      "klipb-336-miscellaneous-receipts-2020-5496",
+      "klipb-336-miscellaneous-receipts-2020-5524",
+      "klipb-336-miscellaneous-receipts-2020-5525",
+      "lehrk-302-miscellaneous-receipts-2020-5545",
+      "boehm-336-miscellaneous-receipts-2020-5560",
+      "brows-337-miscellaneous-receipts-2020-5567",
+      "sants-301-miscellaneous-receipts-2020-5571",
+      "klipb-336-miscellaneous-receipts-2020-5597",
+      "brows-337-miscellaneous-receipts-2020-5598",
+      "chvaf-362-miscellaneous-receipts-2020-5601",
+      "boehm-336-miscellaneous-receipts-2020-5614",
+      "klipb-336-miscellaneous-receipts-2020-5625",
+      "peraa-301-miscellaneous-receipts-2020-5631",
+      "cobuc-814-miscellaneous-receipts-2020-5645",
+      "klicm-362-miscellaneous-receipts-2020-5656",
+      "sants-301-miscellaneous-receipts-2020-5696",
       "sants-301-miscellaneous-receipts-2020-5702",
-      "sants-301-miscellaneous-receipts-2020-5708",
-      "klipb-336-miscellaneous-receipts-2020-5722",
-      "brows-337-miscellaneous-receipts-2020-5723",
-      "brows-337-miscellaneous-receipts-2020-5740",
-      "lehrk-302-miscellaneous-receipts-2020-5741",
-      "klipb-336-miscellaneous-receipts-2020-5743"
+      "klipb-336-miscellaneous-receipts-2020-5716",
+      "brows-337-miscellaneous-receipts-2020-5717",
+      "brows-337-miscellaneous-receipts-2020-5734",
+      "lehrk-302-miscellaneous-receipts-2020-5735",
+      "klipb-336-miscellaneous-receipts-2020-5737"
     ]
   },
   {
@@ -51979,26 +52100,26 @@
       "MCKAW  338"
     ],
     "donations": [
-      "boehm-336-anonymous-contributions-2020-5459",
-      "boehm-336-anonymous-contributions-2020-5460",
-      "klicm-362-anonymous-contributions-2020-5528",
-      "delvj-352-anonymous-contributions-2020-5606",
-      "raffj-352-anonymous-contributions-2020-5615",
-      "baums-301-anonymous-contributions-2020-5617",
-      "klicm-362-anonymous-contributions-2020-5632",
-      "klicm-362-anonymous-contributions-2020-5645",
-      "raffj-352-anonymous-contributions-2020-5654",
-      "reges-354-anonymous-contributions-2020-5655",
-      "landd-352-anonymous-contributions-2020-5660",
-      "reges-354-anonymous-contributions-2020-5677",
-      "landd-352-anonymous-contributions-2020-5685",
-      "mckaw-338-anonymous-contributions-2020-5686",
-      "raffj-352-anonymous-contributions-2020-5694",
-      "raffj-352-anonymous-contributions-2020-5705",
-      "baums-301-anonymous-contributions-2020-5716",
-      "mckaw-338-anonymous-contributions-2020-5724",
-      "raffj-352-anonymous-contributions-2020-5728",
-      "mckaw-338-anonymous-contributions-2020-5747"
+      "boehm-336-anonymous-contributions-2020-5453",
+      "boehm-336-anonymous-contributions-2020-5454",
+      "klicm-362-anonymous-contributions-2020-5522",
+      "delvj-352-anonymous-contributions-2020-5600",
+      "raffj-352-anonymous-contributions-2020-5609",
+      "baums-301-anonymous-contributions-2020-5611",
+      "klicm-362-anonymous-contributions-2020-5626",
+      "klicm-362-anonymous-contributions-2020-5639",
+      "raffj-352-anonymous-contributions-2020-5648",
+      "reges-354-anonymous-contributions-2020-5649",
+      "landd-352-anonymous-contributions-2020-5654",
+      "reges-354-anonymous-contributions-2020-5671",
+      "landd-352-anonymous-contributions-2020-5679",
+      "mckaw-338-anonymous-contributions-2020-5680",
+      "raffj-352-anonymous-contributions-2020-5688",
+      "raffj-352-anonymous-contributions-2020-5699",
+      "baums-301-anonymous-contributions-2020-5710",
+      "mckaw-338-anonymous-contributions-2020-5718",
+      "raffj-352-anonymous-contributions-2020-5722",
+      "mckaw-338-anonymous-contributions-2020-5741"
     ]
   },
   {
@@ -52014,7 +52135,7 @@
       "RAFFJ--352"
     ],
     "donations": [
-      "raffj-352-justin-j-raffa-justin-raffa-2020-5520"
+      "raffj-352-justin-j-raffa-justin-raffa-2020-5514"
     ]
   },
   {
@@ -52030,7 +52151,7 @@
       "MCKAW  338"
     ],
     "donations": [
-      "mckaw-338-will-mc-kay-william-d-mc-kay-jr-2020-5549"
+      "mckaw-338-will-mc-kay-william-d-mc-kay-jr-2020-5543"
     ]
   },
   {
@@ -52046,7 +52167,7 @@
       "MULLR  301"
     ],
     "donations": [
-      "mullr-301-mullen-rodney-j-rodney-mullen-2020-5555"
+      "mullr-301-mullen-rodney-j-rodney-mullen-2020-5549"
     ]
   },
   {
@@ -52062,7 +52183,7 @@
       "PETED  338"
     ],
     "donations": [
-      "peted-338-dave-l-petersen-dave-petersen-2020-5559"
+      "peted-338-dave-l-petersen-dave-petersen-2020-5553"
     ]
   },
   {
@@ -52078,7 +52199,7 @@
       "BEATM  301"
     ],
     "donations": [
-      "beatm-301-matt-beaton-2020-5586"
+      "beatm-301-matt-beaton-2020-5580"
     ]
   },
   {
@@ -52094,9 +52215,9 @@
       "LUSIJ--336"
     ],
     "donations": [
-      "lusij-336-joe-lusignan-2020-5591",
-      "lusij-336-joe-lusignan-2020-5593",
-      "lusij-336-joe-lusignan-2020-5636"
+      "lusij-336-joe-lusignan-2020-5585",
+      "lusij-336-joe-lusignan-2020-5587",
+      "lusij-336-joe-lusignan-2020-5630"
     ]
   },
   {
@@ -52112,7 +52233,7 @@
       "BEAVJ  337"
     ],
     "donations": [
-      "beavj-337-beaver-james-r-james-beaver-2020-5605"
+      "beavj-337-beaver-james-r-james-beaver-2020-5599"
     ]
   },
   {
@@ -52128,8 +52249,8 @@
       "PECKL  301"
     ],
     "donations": [
-      "peckl-301-peck-lowell-b-brad-peck-2020-5614",
-      "peckl-301-peck-lowell-b-brad-peck-2020-5626"
+      "peckl-301-peck-lowell-b-brad-peck-2020-5608",
+      "peckl-301-peck-lowell-b-brad-peck-2020-5620"
     ]
   },
   {
@@ -52145,23 +52266,7 @@
       "BAUMS--301"
     ],
     "donations": [
-      "baums-301-stephen-bauman-2020-5682"
-    ]
-  },
-  {
-    "id": "gun-owners-action-league-of-wa",
-    "name": "Gun Owners Action League Of Wa",
-    "city": "Bellevue",
-    "type": "Political Action Committee",
-    "donations_count": 1,
-    "total_donated": 150,
-    "total_cash": 150,
-    "total_in_kind": 0,
-    "funded": [
-      "KLIPB  336"
-    ],
-    "donations": [
-      "klipb-336-gun-owners-action-league-of-wa-2020-5758"
+      "baums-301-stephen-bauman-2020-5676"
     ]
   },
   {
@@ -52177,7 +52282,7 @@
       "BOEHM  336"
     ],
     "donations": [
-      "boehm-336-bayer-us-llc-2020-5760"
+      "boehm-336-bayer-us-llc-2020-5752"
     ]
   },
   {
@@ -52193,7 +52298,7 @@
       "BOEHM  336"
     ],
     "donations": [
-      "boehm-336-fair-vote-washington-pac-2020-5761"
+      "boehm-336-fair-vote-washington-pac-2020-5753"
     ]
   },
   {
@@ -52209,7 +52314,1326 @@
       "BOEHM  336"
     ],
     "donations": [
-      "boehm-336-stand-for-children-washington-pac-2020-5762"
+      "boehm-336-stand-for-children-washington-pac-2020-5754"
+    ]
+  },
+  {
+    "id": "loveland-victoria",
+    "name": "Loveland Victoria",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "LEHRK--302"
+    ],
+    "donations": [
+      "lehrk-302-loveland-victoria-2020-5756"
+    ]
+  },
+  {
+    "id": "opp-larnie",
+    "name": "Opp Larnie",
+    "city": "Walla Walla",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 900,
+    "total_cash": 900,
+    "total_in_kind": 0,
+    "funded": [
+      "DOZIP  361",
+      "KLICM--362"
+    ],
+    "donations": [
+      "dozip-361-opp-larnie-2020-5758",
+      "klicm-362-opp-larnie-2020-5759"
+    ]
+  },
+  {
+    "id": "schoesler-mark",
+    "name": "Schoesler Mark",
+    "city": "Ritzville",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "DOZIP  361"
+    ],
+    "donations": [
+      "dozip-361-schoesler-mark-2020-5761"
+    ]
+  },
+  {
+    "id": "kelts-donald",
+    "name": "Kelts Donald",
+    "city": "Kent",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "DOZIP  361"
+    ],
+    "donations": [
+      "dozip-361-kelts-donald-2020-5762"
+    ]
+  },
+  {
+    "id": "olsen-fred-jr",
+    "name": "Olsen Fred Jr",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "PETED  338"
+    ],
+    "donations": [
+      "peted-338-olsen-fred-jr-2020-5763"
+    ]
+  },
+  {
+    "id": "meras-erika",
+    "name": "Meras Erika",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "PETED  338"
+    ],
+    "donations": [
+      "peted-338-meras-erika-2020-5764"
+    ]
+  },
+  {
+    "id": "williams-christine",
+    "name": "Williams Christine",
+    "city": "Langley",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 75,
+    "total_cash": 75,
+    "total_in_kind": 0,
+    "funded": [
+      "DOZIP  361"
+    ],
+    "donations": [
+      "dozip-361-williams-christine-2020-5765"
+    ]
+  },
+  {
+    "id": "koenen-mark",
+    "name": "Koenen Mark",
+    "city": "Seattle",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "KLICM--362"
+    ],
+    "donations": [
+      "klicm-362-koenen-mark-2020-5766"
+    ]
+  },
+  {
+    "id": "ayers-kevin",
+    "name": "Ayers Kevin",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-ayers-kevin-2020-5769"
+    ]
+  },
+  {
+    "id": "johnson-brian",
+    "name": "Johnson Brian",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-johnson-brian-2020-5770"
+    ]
+  },
+  {
+    "id": "mid-columbia-eyecare-center-inc",
+    "name": "Mid Columbia Eyecare Center Inc",
+    "city": "Pasco",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-mid-columbia-eyecare-center-inc-2020-5771"
+    ]
+  },
+  {
+    "id": "center-vision-contact-lens-clinic",
+    "name": "Center Vision Contact Lens Clinic",
+    "city": "Kennewick",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-center-vision-contact-lens-clinic-2020-5772"
+    ]
+  },
+  {
+    "id": "columbia-point-vision-clinic",
+    "name": "Columbia Point Vision Clinic",
+    "city": "Richland",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-columbia-point-vision-clinic-2020-5773"
+    ]
+  },
+  {
+    "id": "pasco-vision-clinic",
+    "name": "Pasco Vision Clinic",
+    "city": "Pasco",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 300,
+    "total_cash": 300,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-pasco-vision-clinic-2020-5774"
+    ]
+  },
+  {
+    "id": "tri-city-eyes-pllc",
+    "name": "Tri City Eyes Pllc",
+    "city": "Richland",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 300,
+    "total_cash": 300,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-tri-city-eyes-pllc-2020-5775"
+    ]
+  },
+  {
+    "id": "eyecare-association-of-west-richland",
+    "name": "Eyecare Association Of West Richland",
+    "city": "West Richland",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-eyecare-association-of-west-richland-2020-5776"
+    ]
+  },
+  {
+    "id": "washington-vision-therapy-center",
+    "name": "Washington Vision Therapy Center",
+    "city": "Kennewick",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-washington-vision-therapy-center-2020-5777"
+    ]
+  },
+  {
+    "id": "washington-state-fraternal-order-of-police",
+    "name": "Washington State Fraternal Order Of Police",
+    "city": "Kennewick",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-washington-state-fraternal-order-of-police-2020-5778"
+    ]
+  },
+  {
+    "id": "robertson-aric",
+    "name": "Robertson Aric",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-robertson-aric-2020-5779"
+    ]
+  },
+  {
+    "id": "travis-donald",
+    "name": "Travis Donald",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-travis-donald-2020-5780"
+    ]
+  },
+  {
+    "id": "winkel-laura",
+    "name": "Winkel Laura",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-winkel-laura-2020-5781"
+    ]
+  },
+  {
+    "id": "desert-valley-eye-care",
+    "name": "Desert Valley Eye Care",
+    "city": "Kennewick",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-desert-valley-eye-care-2020-5783"
+    ]
+  },
+  {
+    "id": "grandridge-eye-clinic",
+    "name": "Grandridge Eye Clinic",
+    "city": "Kennewick",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 400,
+    "total_cash": 400,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-grandridge-eye-clinic-2020-5784"
+    ]
+  },
+  {
+    "id": "depew-kenneth",
+    "name": "Depew Kenneth",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-depew-kenneth-2020-5786"
+    ]
+  },
+  {
+    "id": "depew-martha",
+    "name": "Depew Martha",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-depew-martha-2020-5787"
+    ]
+  },
+  {
+    "id": "zenger-obrien-linda",
+    "name": "Zenger Obrien Linda",
+    "city": "Prosser",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 10,
+    "total_cash": 10,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-zenger-obrien-linda-2020-5790"
+    ]
+  },
+  {
+    "id": "garske-jeana",
+    "name": "Garske Jeana",
+    "city": "Walla Walla",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-garske-jeana-2020-5792"
+    ]
+  },
+  {
+    "id": "holm-cynthia",
+    "name": "Holm Cynthia",
+    "city": "Walla Walla",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-holm-cynthia-2020-5798"
+    ]
+  },
+  {
+    "id": "leweling-tara",
+    "name": "Leweling Tara",
+    "city": "Evanston",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-leweling-tara-2020-5821"
+    ]
+  },
+  {
+    "id": "carlyle-reuven",
+    "name": "Carlyle Reuven",
+    "city": "Seattle",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-carlyle-reuven-2020-5824"
+    ]
+  },
+  {
+    "id": "wright-kimberly",
+    "name": "Wright Kimberly",
+    "city": "Seattle",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 201,
+    "total_cash": 201,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-wright-kimberly-2020-5826",
+      "resed-362-wright-kimberly-2020-5854"
+    ]
+  },
+  {
+    "id": "anderson-sheila",
+    "name": "Anderson Sheila",
+    "city": "Seattle",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-anderson-sheila-2020-5831"
+    ]
+  },
+  {
+    "id": "bergeron-gail",
+    "name": "Bergeron Gail",
+    "city": "Battle Ground",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 35,
+    "total_cash": 35,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-bergeron-gail-2020-5832",
+      "resed-362-bergeron-gail-2020-5833"
+    ]
+  },
+  {
+    "id": "knowles-shareen",
+    "name": "Knowles Shareen",
+    "city": "Walla Walla",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-knowles-shareen-2020-5836"
+    ]
+  },
+  {
+    "id": "espy-matthew",
+    "name": "Espy Matthew",
+    "city": "San Diego",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-espy-matthew-2020-5841"
+    ]
+  },
+  {
+    "id": "mcdowell-laura",
+    "name": "Mcdowell Laura",
+    "city": "Olympia",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-mcdowell-laura-2020-5844"
+    ]
+  },
+  {
+    "id": "bardsley-riannon",
+    "name": "Bardsley Riannon",
+    "city": "Bellingham",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-bardsley-riannon-2020-5848"
+    ]
+  },
+  {
+    "id": "gatton-kathy",
+    "name": "Gatton Kathy",
+    "city": "Woodinville",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-gatton-kathy-2020-5860"
+    ]
+  },
+  {
+    "id": "hormel-gretchen",
+    "name": "Hormel Gretchen",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 35,
+    "total_cash": 35,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-hormel-gretchen-2020-5861"
+    ]
+  },
+  {
+    "id": "peterson-jim",
+    "name": "Peterson Jim",
+    "city": "Walla Walla",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-peterson-jim-2020-5868"
+    ]
+  },
+  {
+    "id": "paust-kirsten",
+    "name": "Paust Kirsten",
+    "city": "Edmonds",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 150,
+    "total_cash": 150,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-paust-kirsten-2020-5870"
+    ]
+  },
+  {
+    "id": "wa-st-nurses-assn-pac",
+    "name": "Wa St Nurses Assn Pac",
+    "city": "Seattle",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-wa-st-nurses-assn-pac-2020-5872"
+    ]
+  },
+  {
+    "id": "wa-electric-cooperatives-pac",
+    "name": "Wa Electric Cooperatives Pac",
+    "city": "Olympia",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-wa-electric-cooperatives-pac-2020-5873"
+    ]
+  },
+  {
+    "id": "washington-federation-of-state-employees",
+    "name": "Washington Federation Of State Employees",
+    "city": "Olympia",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "RUDES  504"
+    ],
+    "donations": [
+      "rudes-504-washington-federation-of-state-employees-2020-5878"
+    ]
+  },
+  {
+    "id": "washington-chiropractic-trust",
+    "name": "Washington Chiropractic Trust",
+    "city": "Seattle",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "RUDES  504"
+    ],
+    "donations": [
+      "rudes-504-washington-chiropractic-trust-2020-5881"
+    ]
+  },
+  {
+    "id": "korimerla-praveen",
+    "name": "Korimerla Praveen",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "CHVAF--362"
+    ],
+    "donations": [
+      "chvaf-362-korimerla-praveen-2020-5883"
+    ]
+  },
+  {
+    "id": "hancock-jason",
+    "name": "Hancock Jason",
+    "city": "Walla Walla",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "CHVAF--362"
+    ],
+    "donations": [
+      "chvaf-362-hancock-jason-2020-5885"
+    ]
+  },
+  {
+    "id": "jon-a-campbell-architect-pllc",
+    "name": "Jon A Campbell Architect Pllc",
+    "city": "Walla Walla",
+    "type": "Other",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-jon-a-campbell-architect-pllc-2020-5888"
+    ]
+  },
+  {
+    "id": "boehme-nathaniel",
+    "name": "Boehme Nathaniel",
+    "city": "Portland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "REGES  354"
+    ],
+    "donations": [
+      "reges-354-boehme-nathaniel-2020-5891"
+    ]
+  },
+  {
+    "id": "lewis-jerry",
+    "name": "Lewis Jerry",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "REGES  354"
+    ],
+    "donations": [
+      "reges-354-lewis-jerry-2020-5897"
+    ]
+  },
+  {
+    "id": "whittier-adam",
+    "name": "Whittier Adam",
+    "city": "Richand",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 25,
+    "total_cash": 25,
+    "total_in_kind": 0,
+    "funded": [
+      "REGES  354"
+    ],
+    "donations": [
+      "reges-354-whittier-adam-2020-5900"
+    ]
+  },
+  {
+    "id": "rehm-daniel-mr",
+    "name": "Rehm Daniel Mr",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "BAUMS--301"
+    ],
+    "donations": [
+      "baums-301-rehm-daniel-mr-2020-5911"
+    ]
+  },
+  {
+    "id": "smiley-tiffany-ms",
+    "name": "Smiley Tiffany Ms",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "BAUMS--301"
+    ],
+    "donations": [
+      "baums-301-smiley-tiffany-ms-2020-5912"
+    ]
+  },
+  {
+    "id": "petersen-steve",
+    "name": "Petersen Steve",
+    "city": "Rawlins",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "PETED  338"
+    ],
+    "donations": [
+      "peted-338-petersen-steve-2020-5913"
+    ]
+  },
+  {
+    "id": "petersen-elissia",
+    "name": "Petersen Elissia",
+    "city": "Rawlins",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "PETED  338"
+    ],
+    "donations": [
+      "peted-338-petersen-elissia-2020-5914"
+    ]
+  },
+  {
+    "id": "rogue-lobster",
+    "name": "Rogue Lobster",
+    "city": "Walla Walla",
+    "type": "Other",
+    "donations_count": 4,
+    "total_donated": 400,
+    "total_cash": 0,
+    "total_in_kind": 400,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-rogue-lobster-2020-5917",
+      "resed-362-rogue-lobster-2020-5918",
+      "resed-362-rogue-lobster-2020-5919",
+      "resed-362-rogue-lobster-2020-5920"
+    ]
+  },
+  {
+    "id": "vandonge-mark",
+    "name": "Vandonge Mark",
+    "city": "Walla Walla",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 816,
+    "total_cash": 0,
+    "total_in_kind": 816,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-vandonge-mark-2020-5921"
+    ]
+  },
+  {
+    "id": "jones-guy",
+    "name": "Jones Guy",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "RAFFJ--352"
+    ],
+    "donations": [
+      "raffj-352-jones-guy-2020-5924"
+    ]
+  },
+  {
+    "id": "dabler-allison",
+    "name": "Dabler Allison",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 35,
+    "total_cash": 35,
+    "total_in_kind": 0,
+    "funded": [
+      "RAFFJ--352"
+    ],
+    "donations": [
+      "raffj-352-dabler-allison-2020-5925"
+    ]
+  },
+  {
+    "id": "sundquist-mary",
+    "name": "Sundquist Mary",
+    "city": "Yakima",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RAFFJ--352"
+    ],
+    "donations": [
+      "raffj-352-sundquist-mary-2020-5927"
+    ]
+  },
+  {
+    "id": "harper-laura",
+    "name": "Harper Laura",
+    "city": "Lacey",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RAFFJ--352"
+    ],
+    "donations": [
+      "raffj-352-harper-laura-2020-5929"
+    ]
+  },
+  {
+    "id": "johnson-ron",
+    "name": "Johnson Ron",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "RAFFJ--352"
+    ],
+    "donations": [
+      "raffj-352-johnson-ron-2020-5932"
+    ]
+  },
+  {
+    "id": "finch-charity",
+    "name": "Finch Charity",
+    "city": "Yakima",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 25,
+    "total_cash": 25,
+    "total_in_kind": 0,
+    "funded": [
+      "RAFFJ--352"
+    ],
+    "donations": [
+      "raffj-352-finch-charity-2020-5935"
+    ]
+  },
+  {
+    "id": "overtuf-doug",
+    "name": "Overtuf Doug",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "DELVJ  352"
+    ],
+    "donations": [
+      "delvj-352-overtuf-doug-2020-5937"
+    ]
+  },
+  {
+    "id": "council-of-police-pac",
+    "name": "Council Of Police Pac",
+    "city": "Olympia",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "KLIPB  336"
+    ],
+    "donations": [
+      "klipb-336-council-of-police-pac-2020-5938"
+    ]
+  },
+  {
+    "id": "boss-patrick",
+    "name": "Boss Patrick",
+    "city": "Moses Lake",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "DELVJ  352"
+    ],
+    "donations": [
+      "delvj-352-boss-patrick-2020-5939"
+    ]
+  },
+  {
+    "id": "carney-badley-spellman-ps",
+    "name": "Carney Badley Spellman Ps",
+    "city": "Seattle",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "DOZIP  361"
+    ],
+    "donations": [
+      "dozip-361-carney-badley-spellman-ps-2020-5942"
+    ]
+  },
+  {
+    "id": "gun-owners-action-league-of-wa",
+    "name": "Gun Owners Action League Of Wa",
+    "city": "Bellevue",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 150,
+    "total_cash": 150,
+    "total_in_kind": 0,
+    "funded": [
+      "KLIPB  336"
+    ],
+    "donations": [
+      "klipb-336-gun-owners-action-league-of-wa-2020-5944"
+    ]
+  },
+  {
+    "id": "mader-edie",
+    "name": "Mader Edie",
+    "city": "Pullman",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "DOZIP  361"
+    ],
+    "donations": [
+      "dozip-361-mader-edie-2020-5945"
+    ]
+  },
+  {
+    "id": "mader-steve",
+    "name": "Mader Steve",
+    "city": "Pullman",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "DOZIP  361"
+    ],
+    "donations": [
+      "dozip-361-mader-steve-2020-5946"
+    ]
+  },
+  {
+    "id": "pse-seiu-1948-political-fund-campaign",
+    "name": "Pse Seiu 1948 Political Fund Campaign",
+    "city": "Auburn",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "DOZIP  361"
+    ],
+    "donations": [
+      "dozip-361-pse-seiu-1948-political-fund-campaign-2020-5947"
+    ]
+  },
+  {
+    "id": "revell-steve",
+    "name": "Revell Steve",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "DOZIP  361"
+    ],
+    "donations": [
+      "dozip-361-revell-steve-2020-5948"
+    ]
+  },
+  {
+    "id": "west-coast-seafood-processors-assocation-pac",
+    "name": "West Coast Seafood Processors Assocation Pac",
+    "city": "Portland",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "KLICM--362"
+    ],
+    "donations": [
+      "klicm-362-west-coast-seafood-processors-assocation-pac-2020-5950"
+    ]
+  },
+  {
+    "id": "evergreen-capital-trust",
+    "name": "Evergreen Capital Trust",
+    "city": "Sumner",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "KLICM--362"
+    ],
+    "donations": [
+      "klicm-362-evergreen-capital-trust-2020-5952"
+    ]
+  },
+  {
+    "id": "hospitals-for-a-healthy-future-pac",
+    "name": "Hospitals For A Healthy Future Pac",
+    "city": "Seattle",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "KLICM--362"
+    ],
+    "donations": [
+      "klicm-362-hospitals-for-a-healthy-future-pac-2020-5954"
+    ]
+  },
+  {
+    "id": "chevron-policy-publ-affairs",
+    "name": "Chevron Policy Publ Affairs",
+    "city": "San Ramon",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "BOEHM  336"
+    ],
+    "donations": [
+      "boehm-336-chevron-policy-publ-affairs-2020-5961"
+    ]
+  },
+  {
+    "id": "cultivating-leadership-pac",
+    "name": "Cultivating Leadership Pac",
+    "city": "Seattle",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-cultivating-leadership-pac-2020-5963"
+    ]
+  },
+  {
+    "id": "inlandboatsmens-union-psr-defense-committee",
+    "name": "Inlandboatsmens Union Psr Defense Committee",
+    "city": "Seattle",
+    "type": "Other",
+    "donations_count": 1,
+    "total_donated": 300,
+    "total_cash": 300,
+    "total_in_kind": 0,
+    "funded": [
+      "RESED--362"
+    ],
+    "donations": [
+      "resed-362-inlandboatsmens-union-psr-defense-committee-2020-5965"
+    ]
+  },
+  {
+    "id": "welch-jessica-ms",
+    "name": "Welch Jessica Ms",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "BAUMS--301"
+    ],
+    "donations": [
+      "baums-301-welch-jessica-ms-2020-5969"
+    ]
+  },
+  {
+    "id": "deichman-joann",
+    "name": "Deichman Joann",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 150,
+    "total_cash": 150,
+    "total_in_kind": 0,
+    "funded": [
+      "RAFFJ--352"
+    ],
+    "donations": [
+      "raffj-352-deichman-joann-2020-5970"
+    ]
+  },
+  {
+    "id": "watts-darla-ms",
+    "name": "Watts Darla Ms",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "MCKAW  338"
+    ],
+    "donations": [
+      "mckaw-338-watts-darla-ms-2020-5971"
+    ]
+  },
+  {
+    "id": "watts-loren-mr",
+    "name": "Watts Loren Mr",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "MCKAW  338"
+    ],
+    "donations": [
+      "mckaw-338-watts-loren-mr-2020-5972"
     ]
   }
 ]

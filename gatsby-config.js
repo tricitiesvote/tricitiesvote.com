@@ -126,6 +126,7 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-offline`,
     // `gatsby-plugin-feed`,
     // {
     //   resolve: `gatsby-plugin-manifest`,

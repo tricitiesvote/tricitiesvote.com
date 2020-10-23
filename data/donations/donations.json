@@ -65048,85 +65048,7 @@
     "date": 1602226800000
   },
   {
-    "id": "resed-362-profesionales-bilingues-2020-5407",
-    "candidate": "RESED--362",
-    "donor": "profesionales-bilingues",
-    "electionyear": "2020",
-    "donation_type": "Other",
-    "party": "Democratic",
-    "cash": false,
-    "detail": "TRANSLATION SERVICES",
-    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101006487",
-    "amount": 36,
-    "date": 1601276400000
-  },
-  {
-    "id": "resed-362-rogue-lobster-2020-5408",
-    "candidate": "RESED--362",
-    "donor": "rogue-lobster",
-    "electionyear": "2020",
-    "donation_type": "Other",
-    "party": "Democratic",
-    "cash": false,
-    "detail": "SUBVENDOR: ADAM KIRTLEY-BAND MEMBER-- LIVE MUSIC",
-    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101006487",
-    "amount": 100,
-    "date": 1601622000000
-  },
-  {
-    "id": "resed-362-rogue-lobster-2020-5409",
-    "candidate": "RESED--362",
-    "donor": "rogue-lobster",
-    "electionyear": "2020",
-    "donation_type": "Other",
-    "party": "Democratic",
-    "cash": false,
-    "detail": "SUBVENDOR: LIBBY MILLER-BAND MEMBER-- LIVE MUSIC",
-    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101006487",
-    "amount": 100,
-    "date": 1601622000000
-  },
-  {
-    "id": "resed-362-rogue-lobster-2020-5410",
-    "candidate": "RESED--362",
-    "donor": "rogue-lobster",
-    "electionyear": "2020",
-    "donation_type": "Other",
-    "party": "Democratic",
-    "cash": false,
-    "detail": "SUBVENDOR: JR VAN SLYKE-BAND MEMBER-- LIVE MUSIC",
-    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101006487",
-    "amount": 100,
-    "date": 1601622000000
-  },
-  {
-    "id": "resed-362-rogue-lobster-2020-5411",
-    "candidate": "RESED--362",
-    "donor": "rogue-lobster",
-    "electionyear": "2020",
-    "donation_type": "Other",
-    "party": "Democratic",
-    "cash": false,
-    "detail": "SUBVENDOR: JERRY YOKEL-BAND MEMBER-- LIVE MUSIC",
-    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101006487",
-    "amount": 100,
-    "date": 1601622000000
-  },
-  {
-    "id": "resed-362-tangent-media-group-2020-5412",
-    "candidate": "RESED--362",
-    "donor": "tangent-media-group",
-    "electionyear": "2020",
-    "donation_type": "Other",
-    "party": "Democratic",
-    "cash": false,
-    "detail": "FILMING AND EDITING OF FUNDRAISER VIDEO",
-    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101006487",
-    "amount": 975,
-    "date": 1598943600000
-  },
-  {
-    "id": "chvaf-362-chvatal-frances-2020-5413",
+    "id": "chvaf-362-chvatal-frances-2020-5407",
     "candidate": "CHVAF--362",
     "donor": "chvatal-frances",
     "electionyear": "2020",
@@ -65139,7 +65061,7 @@
     "date": 1600930800000
   },
   {
-    "id": "chvaf-362-chvatal-frances-2020-5414",
+    "id": "chvaf-362-chvatal-frances-2020-5408",
     "candidate": "CHVAF--362",
     "donor": "chvatal-frances",
     "electionyear": "2020",
@@ -65152,7 +65074,7 @@
     "date": 1601449200000
   },
   {
-    "id": "chvaf-362-chvatal-frances-2020-5415",
+    "id": "chvaf-362-chvatal-frances-2020-5409",
     "candidate": "CHVAF--362",
     "donor": "chvatal-frances",
     "electionyear": "2020",
@@ -65165,7 +65087,7 @@
     "date": 1601449200000
   },
   {
-    "id": "chvaf-362-chvatal-frances-2020-5416",
+    "id": "chvaf-362-chvatal-frances-2020-5410",
     "candidate": "CHVAF--362",
     "donor": "chvatal-frances",
     "electionyear": "2020",
@@ -65178,7 +65100,7 @@
     "date": 1601449200000
   },
   {
-    "id": "chvaf-362-chvatal-frances-2020-5417",
+    "id": "chvaf-362-chvatal-frances-2020-5411",
     "candidate": "CHVAF--362",
     "donor": "chvatal-frances",
     "electionyear": "2020",
@@ -65191,7 +65113,7 @@
     "date": 1602486000000
   },
   {
-    "id": "chvaf-362-chvatal-frances-2020-5418",
+    "id": "chvaf-362-chvatal-frances-2020-5412",
     "candidate": "CHVAF--362",
     "donor": "chvatal-frances",
     "electionyear": "2020",
@@ -65204,7 +65126,7 @@
     "date": 1602486000000
   },
   {
-    "id": "raffj-352-gephart-wiley-julie-2020-5419",
+    "id": "raffj-352-gephart-wiley-julie-2020-5413",
     "candidate": "RAFFJ--352",
     "donor": "gephart-wiley-julie",
     "electionyear": "2020",
@@ -65216,7 +65138,7 @@
     "date": 1601794800000
   },
   {
-    "id": "raffj-352-wiley-h-steven-2020-5420",
+    "id": "raffj-352-wiley-h-steven-2020-5414",
     "candidate": "RAFFJ--352",
     "donor": "wiley-h-steven",
     "electionyear": "2020",
@@ -65228,7 +65150,7 @@
     "date": 1601794800000
   },
   {
-    "id": "dozip-361-beechinor-jason-2020-5421",
+    "id": "dozip-361-beechinor-jason-2020-5415",
     "candidate": "DOZIP  361",
     "donor": "beechinor-jason",
     "electionyear": "2020",
@@ -65240,7 +65162,7 @@
     "date": 1601881200000
   },
   {
-    "id": "dozip-361-beechinor-sarah-2020-5422",
+    "id": "dozip-361-beechinor-sarah-2020-5416",
     "candidate": "DOZIP  361",
     "donor": "beechinor-sarah",
     "electionyear": "2020",
@@ -65252,7 +65174,7 @@
     "date": 1601881200000
   },
   {
-    "id": "dozip-361-hampton-lumber-2020-5423",
+    "id": "dozip-361-hampton-lumber-2020-5417",
     "candidate": "DOZIP  361",
     "donor": "hampton-lumber",
     "electionyear": "2020",
@@ -65264,7 +65186,7 @@
     "date": 1601881200000
   },
   {
-    "id": "dozip-361-hayden-ray-anne-2020-5424",
+    "id": "dozip-361-hayden-ray-anne-2020-5418",
     "candidate": "DOZIP  361",
     "donor": "hayden-ray-anne",
     "electionyear": "2020",
@@ -65276,7 +65198,7 @@
     "date": 1601881200000
   },
   {
-    "id": "dozip-361-sabey-corporation-2020-5425",
+    "id": "dozip-361-sabey-corporation-2020-5419",
     "candidate": "DOZIP  361",
     "donor": "sabey-corporation",
     "electionyear": "2020",
@@ -65288,7 +65210,7 @@
     "date": 1601881200000
   },
   {
-    "id": "dozip-361-vinti-connie-2020-5426",
+    "id": "dozip-361-vinti-connie-2020-5420",
     "candidate": "DOZIP  361",
     "donor": "vinti-connie",
     "electionyear": "2020",
@@ -65300,7 +65222,7 @@
     "date": 1601881200000
   },
   {
-    "id": "dozip-361-ray-e-l-2020-5427",
+    "id": "dozip-361-ray-e-l-2020-5421",
     "candidate": "DOZIP  361",
     "donor": "ray-e-l",
     "electionyear": "2020",
@@ -65312,7 +65234,7 @@
     "date": 1601881200000
   },
   {
-    "id": "dozip-361-neibaur-vicki-2020-5428",
+    "id": "dozip-361-neibaur-vicki-2020-5422",
     "candidate": "DOZIP  361",
     "donor": "neibaur-vicki",
     "electionyear": "2020",
@@ -65324,7 +65246,7 @@
     "date": 1601881200000
   },
   {
-    "id": "dozip-361-chervron-policy-govt-publ-affairs-2020-5429",
+    "id": "dozip-361-chervron-policy-govt-publ-affairs-2020-5423",
     "candidate": "DOZIP  361",
     "donor": "chervron-policy-govt-publ-affairs",
     "electionyear": "2020",
@@ -65336,7 +65258,7 @@
     "date": 1601881200000
   },
   {
-    "id": "dozip-361-delta-dental-of-washington-2020-5430",
+    "id": "dozip-361-delta-dental-of-washington-2020-5424",
     "candidate": "DOZIP  361",
     "donor": "delta-dental-of-washington",
     "electionyear": "2020",
@@ -65348,7 +65270,7 @@
     "date": 1601881200000
   },
   {
-    "id": "jenkw-350-correction-to-contributions-2020-5431",
+    "id": "jenkw-350-correction-to-contributions-2020-5425",
     "candidate": "JENKW  350",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65361,7 +65283,7 @@
     "date": 1564383600000
   },
   {
-    "id": "raffj-352-correction-to-contributions-2020-5432",
+    "id": "raffj-352-correction-to-contributions-2020-5426",
     "candidate": "RAFFJ--352",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65374,7 +65296,7 @@
     "date": 1592118000000
   },
   {
-    "id": "cobuc-814-correction-to-contributions-2020-5433",
+    "id": "cobuc-814-correction-to-contributions-2020-5427",
     "candidate": "COBUC--814",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65387,7 +65309,7 @@
     "date": 1591772400000
   },
   {
-    "id": "cobuc-814-correction-to-contributions-2020-5434",
+    "id": "cobuc-814-correction-to-contributions-2020-5428",
     "candidate": "COBUC--814",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65400,7 +65322,7 @@
     "date": 1597820400000
   },
   {
-    "id": "cobuc-814-correction-to-contributions-2020-5435",
+    "id": "cobuc-814-correction-to-contributions-2020-5429",
     "candidate": "COBUC--814",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65413,7 +65335,7 @@
     "date": 1597820400000
   },
   {
-    "id": "ajaxs-336-correction-to-contributions-2020-5436",
+    "id": "ajaxs-336-correction-to-contributions-2020-5430",
     "candidate": "AJAXS--336",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65426,7 +65348,7 @@
     "date": 1592463600000
   },
   {
-    "id": "chvaf-362-correction-to-contributions-2020-5437",
+    "id": "chvaf-362-correction-to-contributions-2020-5431",
     "candidate": "CHVAF--362",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65439,7 +65361,7 @@
     "date": 1591772400000
   },
   {
-    "id": "chvaf-362-correction-to-contributions-2020-5438",
+    "id": "chvaf-362-correction-to-contributions-2020-5432",
     "candidate": "CHVAF--362",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65452,7 +65374,7 @@
     "date": 1591167600000
   },
   {
-    "id": "reges-354-correction-to-contributions-2020-5439",
+    "id": "reges-354-correction-to-contributions-2020-5433",
     "candidate": "REGES  354",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65465,7 +65387,7 @@
     "date": 1594278000000
   },
   {
-    "id": "reges-354-correction-to-contributions-2020-5440",
+    "id": "reges-354-correction-to-contributions-2020-5434",
     "candidate": "REGES  354",
     "donor": "correction-to-contributions",
     "electionyear": "2020",
@@ -65478,7 +65400,7 @@
     "date": 1601794800000
   },
   {
-    "id": "peraa-301-correction-refund-from-vendor-2020-5441",
+    "id": "peraa-301-correction-refund-from-vendor-2020-5435",
     "candidate": "PERAA--301",
     "donor": "correction-refund-from-vendor",
     "electionyear": "2020",
@@ -65491,7 +65413,7 @@
     "date": 1594969200000
   },
   {
-    "id": "cobuc-814-correction-refund-from-vendor-2020-5442",
+    "id": "cobuc-814-correction-refund-from-vendor-2020-5436",
     "candidate": "COBUC--814",
     "donor": "correction-refund-from-vendor",
     "electionyear": "2020",
@@ -65504,7 +65426,7 @@
     "date": 1597993200000
   },
   {
-    "id": "cobuc-814-correction-refund-from-vendor-2020-5443",
+    "id": "cobuc-814-correction-refund-from-vendor-2020-5437",
     "candidate": "COBUC--814",
     "donor": "correction-refund-from-vendor",
     "electionyear": "2020",
@@ -65517,7 +65439,7 @@
     "date": 1597993200000
   },
   {
-    "id": "chvaf-362-correction-refund-from-vendor-2020-5444",
+    "id": "chvaf-362-correction-refund-from-vendor-2020-5438",
     "candidate": "CHVAF--362",
     "donor": "correction-refund-from-vendor",
     "electionyear": "2020",
@@ -65530,7 +65452,7 @@
     "date": 1586242800000
   },
   {
-    "id": "klicm-362-correction-refund-from-vendor-2020-5445",
+    "id": "klicm-362-correction-refund-from-vendor-2020-5439",
     "candidate": "KLICM--362",
     "donor": "correction-refund-from-vendor",
     "electionyear": "2020",
@@ -65543,7 +65465,7 @@
     "date": 1596610800000
   },
   {
-    "id": "lehrk-302-correction-refund-from-vendor-2020-5446",
+    "id": "lehrk-302-correction-refund-from-vendor-2020-5440",
     "candidate": "LEHRK--302",
     "donor": "correction-refund-from-vendor",
     "electionyear": "2020",
@@ -65556,7 +65478,7 @@
     "date": 1595833200000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5447",
+    "id": "dozip-361-small-contributions-2020-5441",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65569,7 +65491,7 @@
     "date": 1580889600000
   },
   {
-    "id": "resed-362-small-contributions-2020-5448",
+    "id": "resed-362-small-contributions-2020-5442",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65582,7 +65504,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5449",
+    "id": "resed-362-small-contributions-2020-5443",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65595,7 +65517,7 @@
     "date": 1580457600000
   },
   {
-    "id": "resed-362-small-contributions-2020-5450",
+    "id": "resed-362-small-contributions-2020-5444",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65608,7 +65530,7 @@
     "date": 1580112000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5451",
+    "id": "resed-362-small-contributions-2020-5445",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65621,7 +65543,7 @@
     "date": 1580371200000
   },
   {
-    "id": "resed-362-small-contributions-2020-5452",
+    "id": "resed-362-small-contributions-2020-5446",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65634,7 +65556,7 @@
     "date": null
   },
   {
-    "id": "rudes-504-miscellaneous-receipts-2020-5453",
+    "id": "rudes-504-miscellaneous-receipts-2020-5447",
     "candidate": "RUDES  504",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -65647,7 +65569,7 @@
     "date": 1545120000000
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5454",
+    "id": "klipb-336-miscellaneous-receipts-2020-5448",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -65660,7 +65582,7 @@
     "date": 1579766400000
   },
   {
-    "id": "resed-362-small-contributions-2020-5455",
+    "id": "resed-362-small-contributions-2020-5449",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65673,7 +65595,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5456",
+    "id": "resed-362-small-contributions-2020-5450",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65686,7 +65608,7 @@
     "date": null
   },
   {
-    "id": "dozip-361-small-contributions-2020-5457",
+    "id": "dozip-361-small-contributions-2020-5451",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65699,7 +65621,7 @@
     "date": 1580976000000
   },
   {
-    "id": "rudes-504-miscellaneous-receipts-2020-5458",
+    "id": "rudes-504-miscellaneous-receipts-2020-5452",
     "candidate": "RUDES  504",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -65712,7 +65634,7 @@
     "date": 1558422000000
   },
   {
-    "id": "boehm-336-anonymous-contributions-2020-5459",
+    "id": "boehm-336-anonymous-contributions-2020-5453",
     "candidate": "BOEHM  336",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -65725,7 +65647,7 @@
     "date": 1569394800000
   },
   {
-    "id": "boehm-336-anonymous-contributions-2020-5460",
+    "id": "boehm-336-anonymous-contributions-2020-5454",
     "candidate": "BOEHM  336",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -65738,7 +65660,7 @@
     "date": 1569394800000
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5461",
+    "id": "jenkw-2-350-small-contributions-2020-5455",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65751,7 +65673,7 @@
     "date": 1586242800000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5462",
+    "id": "klicm-362-small-contributions-2020-5456",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65764,7 +65686,7 @@
     "date": 1585551600000
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5463",
+    "id": "klipb-336-miscellaneous-receipts-2020-5457",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -65777,7 +65699,7 @@
     "date": 1561618800000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5464",
+    "id": "chvaf-362-small-contributions-2020-5458",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65790,7 +65712,7 @@
     "date": null
   },
   {
-    "id": "dozip-361-small-contributions-2020-5465",
+    "id": "dozip-361-small-contributions-2020-5459",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65803,7 +65725,7 @@
     "date": 1585551600000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5466",
+    "id": "dozip-361-small-contributions-2020-5460",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65816,7 +65738,7 @@
     "date": 1582272000000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5467",
+    "id": "peraa-301-small-contributions-2020-5461",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65829,7 +65751,7 @@
     "date": 1589180400000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5468",
+    "id": "peraa-301-small-contributions-2020-5462",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65842,7 +65764,7 @@
     "date": 1588057200000
   },
   {
-    "id": "sants-301-miscellaneous-receipts-2020-5469",
+    "id": "sants-301-miscellaneous-receipts-2020-5463",
     "candidate": "SANTS  301",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -65855,7 +65777,7 @@
     "date": 1588230000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5470",
+    "id": "resed-362-small-contributions-2020-5464",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65868,7 +65790,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5471",
+    "id": "resed-362-small-contributions-2020-5465",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65881,7 +65803,7 @@
     "date": 1583481600000
   },
   {
-    "id": "resed-362-small-contributions-2020-5472",
+    "id": "resed-362-small-contributions-2020-5466",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65894,7 +65816,7 @@
     "date": 1584342000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5473",
+    "id": "resed-362-small-contributions-2020-5467",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65907,7 +65829,7 @@
     "date": null
   },
   {
-    "id": "reges-354-small-contributions-2020-5474",
+    "id": "reges-354-small-contributions-2020-5468",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65920,7 +65842,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5475",
+    "id": "resed-362-small-contributions-2020-5469",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65933,7 +65855,7 @@
     "date": 1583395200000
   },
   {
-    "id": "resed-362-small-contributions-2020-5476",
+    "id": "resed-362-small-contributions-2020-5470",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65946,7 +65868,7 @@
     "date": null
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5477",
+    "id": "chvaf-362-small-contributions-2020-5471",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65959,7 +65881,7 @@
     "date": null
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5478",
+    "id": "klipb-336-miscellaneous-receipts-2020-5472",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -65972,7 +65894,7 @@
     "date": 1572505200000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5479",
+    "id": "dozip-361-small-contributions-2020-5473",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65985,7 +65907,7 @@
     "date": 1580457600000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5480",
+    "id": "dozip-361-small-contributions-2020-5474",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -65998,7 +65920,7 @@
     "date": 1580198400000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5481",
+    "id": "dozip-361-small-contributions-2020-5475",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66011,7 +65933,7 @@
     "date": 1583395200000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5482",
+    "id": "dozip-361-small-contributions-2020-5476",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66024,7 +65946,7 @@
     "date": 1581580800000
   },
   {
-    "id": "resed-362-small-contributions-2020-5483",
+    "id": "resed-362-small-contributions-2020-5477",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66037,7 +65959,7 @@
     "date": 1580976000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5484",
+    "id": "resed-362-small-contributions-2020-5478",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66050,7 +65972,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5485",
+    "id": "resed-362-small-contributions-2020-5479",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66063,7 +65985,7 @@
     "date": null
   },
   {
-    "id": "reges-354-small-contributions-2020-5486",
+    "id": "reges-354-small-contributions-2020-5480",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66076,7 +65998,7 @@
     "date": 1583395200000
   },
   {
-    "id": "resed-362-small-contributions-2020-5487",
+    "id": "resed-362-small-contributions-2020-5481",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66089,7 +66011,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5488",
+    "id": "resed-362-small-contributions-2020-5482",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66102,7 +66024,7 @@
     "date": 1582185600000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5489",
+    "id": "dozip-361-small-contributions-2020-5483",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66115,7 +66037,7 @@
     "date": 1583481600000
   },
   {
-    "id": "resed-362-small-contributions-2020-5490",
+    "id": "resed-362-small-contributions-2020-5484",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66128,7 +66050,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5491",
+    "id": "resed-362-small-contributions-2020-5485",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66141,7 +66063,7 @@
     "date": 1591254000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5492",
+    "id": "resed-362-small-contributions-2020-5486",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66154,7 +66076,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5493",
+    "id": "resed-362-small-contributions-2020-5487",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66167,7 +66089,7 @@
     "date": 1581667200000
   },
   {
-    "id": "resed-362-small-contributions-2020-5494",
+    "id": "resed-362-small-contributions-2020-5488",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66180,7 +66102,7 @@
     "date": 1581580800000
   },
   {
-    "id": "resed-362-small-contributions-2020-5495",
+    "id": "resed-362-small-contributions-2020-5489",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66193,7 +66115,7 @@
     "date": 1582790400000
   },
   {
-    "id": "resed-362-small-contributions-2020-5496",
+    "id": "resed-362-small-contributions-2020-5490",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66206,7 +66128,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5497",
+    "id": "resed-362-small-contributions-2020-5491",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66219,7 +66141,7 @@
     "date": 1582185600000
   },
   {
-    "id": "resed-362-small-contributions-2020-5498",
+    "id": "resed-362-small-contributions-2020-5492",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66232,7 +66154,7 @@
     "date": 1582531200000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5499",
+    "id": "chvaf-362-small-contributions-2020-5493",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66245,7 +66167,7 @@
     "date": null
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5500",
+    "id": "chvaf-362-small-contributions-2020-5494",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66258,7 +66180,7 @@
     "date": 1584342000000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5501",
+    "id": "chvaf-362-small-contributions-2020-5495",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66271,7 +66193,7 @@
     "date": 1584428400000
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5502",
+    "id": "klipb-336-miscellaneous-receipts-2020-5496",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -66284,7 +66206,7 @@
     "date": 1595833200000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5503",
+    "id": "chvaf-362-small-contributions-2020-5497",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66297,7 +66219,7 @@
     "date": 1583395200000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5504",
+    "id": "chvaf-362-small-contributions-2020-5498",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66310,7 +66232,7 @@
     "date": 1583222400000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5505",
+    "id": "chvaf-362-small-contributions-2020-5499",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66323,7 +66245,7 @@
     "date": 1585292400000
   },
   {
-    "id": "ajaxs-336-shelley-ann-ajax-2020-5506",
+    "id": "ajaxs-336-shelley-ann-ajax-2020-5500",
     "candidate": "AJAXS--336",
     "donor": "shelley-ann-ajax",
     "electionyear": "2020",
@@ -66336,7 +66258,7 @@
     "date": 1590735600000
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5507",
+    "id": "jenkw-2-350-small-contributions-2020-5501",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66349,7 +66271,7 @@
     "date": 1595660400000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5508",
+    "id": "dozip-361-small-contributions-2020-5502",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66362,7 +66284,7 @@
     "date": 1589266800000
   },
   {
-    "id": "resed-362-small-contributions-2020-5509",
+    "id": "resed-362-small-contributions-2020-5503",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66375,7 +66297,7 @@
     "date": null
   },
   {
-    "id": "dozip-361-small-contributions-2020-5510",
+    "id": "dozip-361-small-contributions-2020-5504",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66388,7 +66310,7 @@
     "date": 1580112000000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5511",
+    "id": "cobuc-814-small-contributions-2020-5505",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66401,7 +66323,7 @@
     "date": null
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5512",
+    "id": "chvaf-362-small-contributions-2020-5506",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66414,7 +66336,7 @@
     "date": null
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5513",
+    "id": "chvaf-362-small-contributions-2020-5507",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66427,7 +66349,7 @@
     "date": 1595314800000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5514",
+    "id": "klicm-362-small-contributions-2020-5508",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66440,7 +66362,7 @@
     "date": 1595833200000
   },
   {
-    "id": "reges-354-small-contributions-2020-5515",
+    "id": "reges-354-small-contributions-2020-5509",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66453,7 +66375,7 @@
     "date": 1591340400000
   },
   {
-    "id": "reges-354-small-contributions-2020-5516",
+    "id": "reges-354-small-contributions-2020-5510",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66466,7 +66388,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5517",
+    "id": "resed-362-small-contributions-2020-5511",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66479,7 +66401,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5518",
+    "id": "resed-362-small-contributions-2020-5512",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66492,7 +66414,7 @@
     "date": null
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5519",
+    "id": "cobuc-814-small-contributions-2020-5513",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66505,7 +66427,7 @@
     "date": 1591167600000
   },
   {
-    "id": "raffj-352-justin-j-raffa-justin-raffa-2020-5520",
+    "id": "raffj-352-justin-j-raffa-justin-raffa-2020-5514",
     "candidate": "RAFFJ--352",
     "donor": "justin-j-raffa-justin-raffa",
     "electionyear": "2020",
@@ -66518,7 +66440,7 @@
     "date": 1592290800000
   },
   {
-    "id": "peted-338-small-contributions-2020-5521",
+    "id": "peted-338-small-contributions-2020-5515",
     "candidate": "PETED  338",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66531,7 +66453,7 @@
     "date": 1592204400000
   },
   {
-    "id": "resed-362-small-contributions-2020-5522",
+    "id": "resed-362-small-contributions-2020-5516",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66544,7 +66466,7 @@
     "date": 1590735600000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5523",
+    "id": "chvaf-362-small-contributions-2020-5517",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66557,7 +66479,7 @@
     "date": 1592550000000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5524",
+    "id": "chvaf-362-small-contributions-2020-5518",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66570,7 +66492,7 @@
     "date": null
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5525",
+    "id": "chvaf-362-small-contributions-2020-5519",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66583,7 +66505,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5526",
+    "id": "resed-362-small-contributions-2020-5520",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66596,7 +66518,7 @@
     "date": 1591167600000
   },
   {
-    "id": "alvam-352-michael-alvarez-2020-5527",
+    "id": "alvam-352-michael-alvarez-2020-5521",
     "candidate": "ALVAM  352",
     "donor": "michael-alvarez",
     "electionyear": "2020",
@@ -66609,7 +66531,7 @@
     "date": 1590476400000
   },
   {
-    "id": "klicm-362-anonymous-contributions-2020-5528",
+    "id": "klicm-362-anonymous-contributions-2020-5522",
     "candidate": "KLICM--362",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -66622,7 +66544,7 @@
     "date": 1591340400000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5529",
+    "id": "klicm-362-small-contributions-2020-5523",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66635,7 +66557,7 @@
     "date": 1591340400000
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5530",
+    "id": "klipb-336-miscellaneous-receipts-2020-5524",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -66648,7 +66570,7 @@
     "date": 1577347200000
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5531",
+    "id": "klipb-336-miscellaneous-receipts-2020-5525",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -66661,7 +66583,7 @@
     "date": 1577779200000
   },
   {
-    "id": "resed-362-small-contributions-2020-5532",
+    "id": "resed-362-small-contributions-2020-5526",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66674,7 +66596,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5533",
+    "id": "resed-362-small-contributions-2020-5527",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66687,7 +66609,7 @@
     "date": null
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5534",
+    "id": "chvaf-362-small-contributions-2020-5528",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66700,7 +66622,7 @@
     "date": 1592722800000
   },
   {
-    "id": "browb-336-small-contributions-2020-5535",
+    "id": "browb-336-small-contributions-2020-5529",
     "candidate": "BROWB--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66713,7 +66635,7 @@
     "date": 1589698800000
   },
   {
-    "id": "lusij-336-small-contributions-2020-5536",
+    "id": "lusij-336-small-contributions-2020-5530",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66726,7 +66648,7 @@
     "date": 1592118000000
   },
   {
-    "id": "lusij-336-small-contributions-2020-5537",
+    "id": "lusij-336-small-contributions-2020-5531",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66739,7 +66661,7 @@
     "date": 1592290800000
   },
   {
-    "id": "resed-362-small-contributions-2020-5538",
+    "id": "resed-362-small-contributions-2020-5532",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66752,7 +66674,7 @@
     "date": 1586934000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5539",
+    "id": "resed-362-small-contributions-2020-5533",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66765,7 +66687,7 @@
     "date": null
   },
   {
-    "id": "klicm-362-small-contributions-2020-5540",
+    "id": "klicm-362-small-contributions-2020-5534",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66778,7 +66700,7 @@
     "date": 1590476400000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5541",
+    "id": "klicm-362-small-contributions-2020-5535",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66791,7 +66713,7 @@
     "date": 1590562800000
   },
   {
-    "id": "resed-362-small-contributions-2020-5542",
+    "id": "resed-362-small-contributions-2020-5536",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66804,7 +66726,7 @@
     "date": 1586415600000
   },
   {
-    "id": "resed-362-small-contributions-2020-5543",
+    "id": "resed-362-small-contributions-2020-5537",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66817,7 +66739,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5544",
+    "id": "resed-362-small-contributions-2020-5538",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66830,7 +66752,7 @@
     "date": null
   },
   {
-    "id": "reges-354-small-contributions-2020-5545",
+    "id": "reges-354-small-contributions-2020-5539",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66843,7 +66765,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5546",
+    "id": "resed-362-small-contributions-2020-5540",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66856,7 +66778,7 @@
     "date": 1587970800000
   },
   {
-    "id": "resed-362-small-contributions-2020-5547",
+    "id": "resed-362-small-contributions-2020-5541",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66869,7 +66791,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5548",
+    "id": "resed-362-small-contributions-2020-5542",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66882,7 +66804,7 @@
     "date": 1595574000000
   },
   {
-    "id": "mckaw-338-will-mc-kay-william-d-mc-kay-jr-2020-5549",
+    "id": "mckaw-338-will-mc-kay-william-d-mc-kay-jr-2020-5543",
     "candidate": "MCKAW  338",
     "donor": "will-mc-kay-william-d-mc-kay-jr",
     "electionyear": "2020",
@@ -66895,7 +66817,7 @@
     "date": 1589526000000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5550",
+    "id": "dozip-361-small-contributions-2020-5544",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66908,7 +66830,7 @@
     "date": 1590476400000
   },
   {
-    "id": "lehrk-302-miscellaneous-receipts-2020-5551",
+    "id": "lehrk-302-miscellaneous-receipts-2020-5545",
     "candidate": "LEHRK--302",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -66921,7 +66843,7 @@
     "date": 1595833200000
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5552",
+    "id": "jenkw-2-350-small-contributions-2020-5546",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66934,7 +66856,7 @@
     "date": 1587970800000
   },
   {
-    "id": "lusij-336-small-contributions-2020-5553",
+    "id": "lusij-336-small-contributions-2020-5547",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66947,7 +66869,7 @@
     "date": 1590908400000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5554",
+    "id": "cobuc-814-small-contributions-2020-5548",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66960,7 +66882,7 @@
     "date": 1595401200000
   },
   {
-    "id": "mullr-301-mullen-rodney-j-rodney-mullen-2020-5555",
+    "id": "mullr-301-mullen-rodney-j-rodney-mullen-2020-5549",
     "candidate": "MULLR  301",
     "donor": "mullen-rodney-j-rodney-mullen",
     "electionyear": "2020",
@@ -66973,7 +66895,7 @@
     "date": 1589180400000
   },
   {
-    "id": "resed-362-small-contributions-2020-5556",
+    "id": "resed-362-small-contributions-2020-5550",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66986,7 +66908,7 @@
     "date": 1586242800000
   },
   {
-    "id": "resed-362-small-contributions-2020-5557",
+    "id": "resed-362-small-contributions-2020-5551",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -66999,7 +66921,7 @@
     "date": 1586502000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5558",
+    "id": "resed-362-small-contributions-2020-5552",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67012,7 +66934,7 @@
     "date": null
   },
   {
-    "id": "peted-338-dave-l-petersen-dave-petersen-2020-5559",
+    "id": "peted-338-dave-l-petersen-dave-petersen-2020-5553",
     "candidate": "PETED  338",
     "donor": "dave-l-petersen-dave-petersen",
     "electionyear": "2020",
@@ -67025,7 +66947,7 @@
     "date": 1582099200000
   },
   {
-    "id": "peted-338-small-contributions-2020-5560",
+    "id": "peted-338-small-contributions-2020-5554",
     "candidate": "PETED  338",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67038,7 +66960,7 @@
     "date": 1582358400000
   },
   {
-    "id": "resed-362-small-contributions-2020-5561",
+    "id": "resed-362-small-contributions-2020-5555",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67051,7 +66973,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5562",
+    "id": "resed-362-small-contributions-2020-5556",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67064,7 +66986,7 @@
     "date": null
   },
   {
-    "id": "klicm-362-small-contributions-2020-5563",
+    "id": "klicm-362-small-contributions-2020-5557",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67077,7 +66999,7 @@
     "date": 1591081200000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5564",
+    "id": "chvaf-362-small-contributions-2020-5558",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67090,7 +67012,7 @@
     "date": 1582963200000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5565",
+    "id": "klicm-362-small-contributions-2020-5559",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67103,7 +67025,7 @@
     "date": 1590735600000
   },
   {
-    "id": "boehm-336-miscellaneous-receipts-2020-5566",
+    "id": "boehm-336-miscellaneous-receipts-2020-5560",
     "candidate": "BOEHM  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -67116,7 +67038,7 @@
     "date": 1547798400000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5567",
+    "id": "chvaf-362-small-contributions-2020-5561",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67129,7 +67051,7 @@
     "date": 1582876800000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5568",
+    "id": "chvaf-362-small-contributions-2020-5562",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67142,7 +67064,7 @@
     "date": null
   },
   {
-    "id": "dozip-361-small-contributions-2020-5569",
+    "id": "dozip-361-small-contributions-2020-5563",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67155,7 +67077,7 @@
     "date": 1583910000000
   },
   {
-    "id": "sants-301-small-contributions-2020-5570",
+    "id": "sants-301-small-contributions-2020-5564",
     "candidate": "SANTS  301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67168,7 +67090,7 @@
     "date": 1588748400000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5571",
+    "id": "cobuc-814-small-contributions-2020-5565",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67181,7 +67103,7 @@
     "date": null
   },
   {
-    "id": "sants-301-small-contributions-2020-5572",
+    "id": "sants-301-small-contributions-2020-5566",
     "candidate": "SANTS  301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67194,7 +67116,7 @@
     "date": 1590908400000
   },
   {
-    "id": "brows-337-miscellaneous-receipts-2020-5573",
+    "id": "brows-337-miscellaneous-receipts-2020-5567",
     "candidate": "BROWS  337",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -67207,7 +67129,7 @@
     "date": 1591686000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5574",
+    "id": "resed-362-small-contributions-2020-5568",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67220,7 +67142,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5575",
+    "id": "resed-362-small-contributions-2020-5569",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67233,7 +67155,7 @@
     "date": 1589526000000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5576",
+    "id": "lehrk-302-small-contributions-2020-5570",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67246,7 +67168,7 @@
     "date": 1589094000000
   },
   {
-    "id": "sants-301-miscellaneous-receipts-2020-5577",
+    "id": "sants-301-miscellaneous-receipts-2020-5571",
     "candidate": "SANTS  301",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -67259,7 +67181,7 @@
     "date": 1590908400000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5578",
+    "id": "peraa-301-small-contributions-2020-5572",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67272,7 +67194,7 @@
     "date": 1590130800000
   },
   {
-    "id": "sants-301-small-contributions-2020-5579",
+    "id": "sants-301-small-contributions-2020-5573",
     "candidate": "SANTS  301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67285,7 +67207,7 @@
     "date": 1590649200000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5580",
+    "id": "peraa-301-small-contributions-2020-5574",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67298,7 +67220,7 @@
     "date": 1590130800000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5581",
+    "id": "cobuc-814-small-contributions-2020-5575",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67311,7 +67233,7 @@
     "date": 1588316400000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5582",
+    "id": "cobuc-814-small-contributions-2020-5576",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67324,7 +67246,7 @@
     "date": null
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5583",
+    "id": "cobuc-814-small-contributions-2020-5577",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67337,7 +67259,7 @@
     "date": 1590562800000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5584",
+    "id": "chvaf-362-small-contributions-2020-5578",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67350,7 +67272,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5585",
+    "id": "resed-362-small-contributions-2020-5579",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67363,7 +67285,7 @@
     "date": 1588662000000
   },
   {
-    "id": "beatm-301-matt-beaton-2020-5586",
+    "id": "beatm-301-matt-beaton-2020-5580",
     "candidate": "BEATM  301",
     "donor": "matt-beaton",
     "electionyear": "2020",
@@ -67376,7 +67298,7 @@
     "date": 1588662000000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5587",
+    "id": "chvaf-362-small-contributions-2020-5581",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67389,7 +67311,7 @@
     "date": 1586156400000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5588",
+    "id": "klicm-362-small-contributions-2020-5582",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67402,7 +67324,7 @@
     "date": 1590908400000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5589",
+    "id": "chvaf-362-small-contributions-2020-5583",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67415,7 +67337,7 @@
     "date": 1587625200000
   },
   {
-    "id": "lusij-336-small-contributions-2020-5590",
+    "id": "lusij-336-small-contributions-2020-5584",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67428,7 +67350,7 @@
     "date": 1589266800000
   },
   {
-    "id": "lusij-336-joe-lusignan-2020-5591",
+    "id": "lusij-336-joe-lusignan-2020-5585",
     "candidate": "LUSIJ--336",
     "donor": "joe-lusignan",
     "electionyear": "2020",
@@ -67441,7 +67363,7 @@
     "date": 1587970800000
   },
   {
-    "id": "sants-301-small-contributions-2020-5592",
+    "id": "sants-301-small-contributions-2020-5586",
     "candidate": "SANTS  301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67454,7 +67376,7 @@
     "date": 1590130800000
   },
   {
-    "id": "lusij-336-joe-lusignan-2020-5593",
+    "id": "lusij-336-joe-lusignan-2020-5587",
     "candidate": "LUSIJ--336",
     "donor": "joe-lusignan",
     "electionyear": "2020",
@@ -67467,7 +67389,7 @@
     "date": 1574409600000
   },
   {
-    "id": "lusij-336-small-contributions-2020-5594",
+    "id": "lusij-336-small-contributions-2020-5588",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67480,7 +67402,7 @@
     "date": 1589266800000
   },
   {
-    "id": "lusij-336-small-contributions-2020-5595",
+    "id": "lusij-336-small-contributions-2020-5589",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67493,7 +67415,7 @@
     "date": 1590130800000
   },
   {
-    "id": "lusij-336-small-contributions-2020-5596",
+    "id": "lusij-336-small-contributions-2020-5590",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67506,7 +67428,7 @@
     "date": 1590130800000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5597",
+    "id": "dozip-361-small-contributions-2020-5591",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67519,7 +67441,7 @@
     "date": 1589180400000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5598",
+    "id": "lehrk-302-small-contributions-2020-5592",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67532,7 +67454,7 @@
     "date": 1590130800000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5599",
+    "id": "lehrk-302-small-contributions-2020-5593",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67545,7 +67467,7 @@
     "date": 1590822000000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5600",
+    "id": "chvaf-362-small-contributions-2020-5594",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67558,7 +67480,7 @@
     "date": null
   },
   {
-    "id": "peraa-301-small-contributions-2020-5601",
+    "id": "peraa-301-small-contributions-2020-5595",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67571,7 +67493,7 @@
     "date": 1587452400000
   },
   {
-    "id": "sants-301-small-contributions-2020-5602",
+    "id": "sants-301-small-contributions-2020-5596",
     "candidate": "SANTS  301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67584,7 +67506,7 @@
     "date": 1580976000000
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5603",
+    "id": "klipb-336-miscellaneous-receipts-2020-5597",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -67597,7 +67519,7 @@
     "date": 1589958000000
   },
   {
-    "id": "brows-337-miscellaneous-receipts-2020-5604",
+    "id": "brows-337-miscellaneous-receipts-2020-5598",
     "candidate": "BROWS  337",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -67610,7 +67532,7 @@
     "date": 1591945200000
   },
   {
-    "id": "beavj-337-beaver-james-r-james-beaver-2020-5605",
+    "id": "beavj-337-beaver-james-r-james-beaver-2020-5599",
     "candidate": "BEAVJ  337",
     "donor": "beaver-james-r-james-beaver",
     "electionyear": "2020",
@@ -67623,7 +67545,7 @@
     "date": 1589180400000
   },
   {
-    "id": "delvj-352-anonymous-contributions-2020-5606",
+    "id": "delvj-352-anonymous-contributions-2020-5600",
     "candidate": "DELVJ  352",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -67636,7 +67558,7 @@
     "date": 1591945200000
   },
   {
-    "id": "chvaf-362-miscellaneous-receipts-2020-5607",
+    "id": "chvaf-362-miscellaneous-receipts-2020-5601",
     "candidate": "CHVAF--362",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -67649,7 +67571,7 @@
     "date": 1586242800000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5608",
+    "id": "chvaf-362-small-contributions-2020-5602",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67662,7 +67584,7 @@
     "date": null
   },
   {
-    "id": "peraa-301-small-contributions-2020-5609",
+    "id": "peraa-301-small-contributions-2020-5603",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67675,7 +67597,7 @@
     "date": 1600239600000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5610",
+    "id": "dozip-361-small-contributions-2020-5604",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67688,7 +67610,7 @@
     "date": 1589180400000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5611",
+    "id": "cobuc-814-small-contributions-2020-5605",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67701,7 +67623,7 @@
     "date": null
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5612",
+    "id": "cobuc-814-small-contributions-2020-5606",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67714,7 +67636,7 @@
     "date": null
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5613",
+    "id": "lehrk-302-small-contributions-2020-5607",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67727,7 +67649,7 @@
     "date": 1593068400000
   },
   {
-    "id": "peckl-301-peck-lowell-b-brad-peck-2020-5614",
+    "id": "peckl-301-peck-lowell-b-brad-peck-2020-5608",
     "candidate": "PECKL  301",
     "donor": "peck-lowell-b-brad-peck",
     "electionyear": "2020",
@@ -67740,7 +67662,7 @@
     "date": 1589180400000
   },
   {
-    "id": "raffj-352-anonymous-contributions-2020-5615",
+    "id": "raffj-352-anonymous-contributions-2020-5609",
     "candidate": "RAFFJ--352",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -67753,7 +67675,7 @@
     "date": 1593241200000
   },
   {
-    "id": "reges-354-small-contributions-2020-5616",
+    "id": "reges-354-small-contributions-2020-5610",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67766,7 +67688,7 @@
     "date": null
   },
   {
-    "id": "baums-301-anonymous-contributions-2020-5617",
+    "id": "baums-301-anonymous-contributions-2020-5611",
     "candidate": "BAUMS--301",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -67779,7 +67701,7 @@
     "date": 1600326000000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5618",
+    "id": "chvaf-362-small-contributions-2020-5612",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67792,7 +67714,7 @@
     "date": null
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5619",
+    "id": "chvaf-362-small-contributions-2020-5613",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67805,7 +67727,7 @@
     "date": 1590908400000
   },
   {
-    "id": "boehm-336-miscellaneous-receipts-2020-5620",
+    "id": "boehm-336-miscellaneous-receipts-2020-5614",
     "candidate": "BOEHM  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -67818,7 +67740,7 @@
     "date": 1552633200000
   },
   {
-    "id": "reges-354-small-contributions-2020-5621",
+    "id": "reges-354-small-contributions-2020-5615",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67831,7 +67753,7 @@
     "date": 1593327600000
   },
   {
-    "id": "reges-354-small-contributions-2020-5622",
+    "id": "reges-354-small-contributions-2020-5616",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67844,7 +67766,7 @@
     "date": null
   },
   {
-    "id": "lusij-336-small-contributions-2020-5623",
+    "id": "lusij-336-small-contributions-2020-5617",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67857,7 +67779,7 @@
     "date": 1594969200000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5624",
+    "id": "cobuc-814-small-contributions-2020-5618",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67870,7 +67792,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5625",
+    "id": "resed-362-small-contributions-2020-5619",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67883,7 +67805,7 @@
     "date": 1592895600000
   },
   {
-    "id": "peckl-301-peck-lowell-b-brad-peck-2020-5626",
+    "id": "peckl-301-peck-lowell-b-brad-peck-2020-5620",
     "candidate": "PECKL  301",
     "donor": "peck-lowell-b-brad-peck",
     "electionyear": "2020",
@@ -67896,7 +67818,7 @@
     "date": 1590303600000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5627",
+    "id": "cobuc-814-small-contributions-2020-5621",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67909,7 +67831,7 @@
     "date": null
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5628",
+    "id": "jenkw-2-350-small-contributions-2020-5622",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67922,7 +67844,7 @@
     "date": 1593759600000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5629",
+    "id": "chvaf-362-small-contributions-2020-5623",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67935,7 +67857,7 @@
     "date": null
   },
   {
-    "id": "sants-301-small-contributions-2020-5630",
+    "id": "sants-301-small-contributions-2020-5624",
     "candidate": "SANTS  301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67948,7 +67870,7 @@
     "date": 1585551600000
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5631",
+    "id": "klipb-336-miscellaneous-receipts-2020-5625",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -67961,7 +67883,7 @@
     "date": 1593068400000
   },
   {
-    "id": "klicm-362-anonymous-contributions-2020-5632",
+    "id": "klicm-362-anonymous-contributions-2020-5626",
     "candidate": "KLICM--362",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -67974,7 +67896,7 @@
     "date": 1592204400000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5633",
+    "id": "klicm-362-small-contributions-2020-5627",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -67987,7 +67909,7 @@
     "date": 1592204400000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5634",
+    "id": "cobuc-814-small-contributions-2020-5628",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68000,7 +67922,7 @@
     "date": 1591254000000
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5635",
+    "id": "jenkw-2-350-small-contributions-2020-5629",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68013,7 +67935,7 @@
     "date": 1593154800000
   },
   {
-    "id": "lusij-336-joe-lusignan-2020-5636",
+    "id": "lusij-336-joe-lusignan-2020-5630",
     "candidate": "LUSIJ--336",
     "donor": "joe-lusignan",
     "electionyear": "2020",
@@ -68026,7 +67948,7 @@
     "date": 1591772400000
   },
   {
-    "id": "peraa-301-miscellaneous-receipts-2020-5637",
+    "id": "peraa-301-miscellaneous-receipts-2020-5631",
     "candidate": "PERAA--301",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -68039,7 +67961,7 @@
     "date": 1594969200000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5638",
+    "id": "cobuc-814-small-contributions-2020-5632",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68052,7 +67974,7 @@
     "date": 1592290800000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5639",
+    "id": "klicm-362-small-contributions-2020-5633",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68065,7 +67987,7 @@
     "date": 1586156400000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5640",
+    "id": "chvaf-362-small-contributions-2020-5634",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68078,7 +68000,7 @@
     "date": 1597734000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5641",
+    "id": "resed-362-small-contributions-2020-5635",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68091,7 +68013,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5642",
+    "id": "resed-362-small-contributions-2020-5636",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68104,7 +68026,7 @@
     "date": 1597388400000
   },
   {
-    "id": "lusij-336-small-contributions-2020-5643",
+    "id": "lusij-336-small-contributions-2020-5637",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68117,7 +68039,7 @@
     "date": 1594882800000
   },
   {
-    "id": "smarj-352-small-contributions-2020-5644",
+    "id": "smarj-352-small-contributions-2020-5638",
     "candidate": "SMARJ--352",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68130,7 +68052,7 @@
     "date": 1592204400000
   },
   {
-    "id": "klicm-362-anonymous-contributions-2020-5645",
+    "id": "klicm-362-anonymous-contributions-2020-5639",
     "candidate": "KLICM--362",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -68143,7 +68065,7 @@
     "date": 1595314800000
   },
   {
-    "id": "reges-354-small-contributions-2020-5646",
+    "id": "reges-354-small-contributions-2020-5640",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68156,7 +68078,7 @@
     "date": null
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5647",
+    "id": "lehrk-302-small-contributions-2020-5641",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68169,7 +68091,7 @@
     "date": 1593673200000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5648",
+    "id": "lehrk-302-small-contributions-2020-5642",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68182,7 +68104,7 @@
     "date": 1597906800000
   },
   {
-    "id": "smarj-352-small-contributions-2020-5649",
+    "id": "smarj-352-small-contributions-2020-5643",
     "candidate": "SMARJ--352",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68195,7 +68117,7 @@
     "date": 1593500400000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5650",
+    "id": "cobuc-814-small-contributions-2020-5644",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68208,7 +68130,7 @@
     "date": 1597561200000
   },
   {
-    "id": "cobuc-814-miscellaneous-receipts-2020-5651",
+    "id": "cobuc-814-miscellaneous-receipts-2020-5645",
     "candidate": "COBUC--814",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -68221,7 +68143,7 @@
     "date": 1597993200000
   },
   {
-    "id": "lusij-336-small-contributions-2020-5652",
+    "id": "lusij-336-small-contributions-2020-5646",
     "candidate": "LUSIJ--336",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68234,7 +68156,7 @@
     "date": 1595919600000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5653",
+    "id": "cobuc-814-small-contributions-2020-5647",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68247,7 +68169,7 @@
     "date": 1594191600000
   },
   {
-    "id": "raffj-352-anonymous-contributions-2020-5654",
+    "id": "raffj-352-anonymous-contributions-2020-5648",
     "candidate": "RAFFJ--352",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -68260,7 +68182,7 @@
     "date": 1600239600000
   },
   {
-    "id": "reges-354-anonymous-contributions-2020-5655",
+    "id": "reges-354-anonymous-contributions-2020-5649",
     "candidate": "REGES  354",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -68273,7 +68195,7 @@
     "date": 1594710000000
   },
   {
-    "id": "reges-354-small-contributions-2020-5656",
+    "id": "reges-354-small-contributions-2020-5650",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68286,7 +68208,7 @@
     "date": null
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5657",
+    "id": "lehrk-302-small-contributions-2020-5651",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68299,7 +68221,7 @@
     "date": 1597906800000
   },
   {
-    "id": "reges-354-small-contributions-2020-5658",
+    "id": "reges-354-small-contributions-2020-5652",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68312,7 +68234,7 @@
     "date": null
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5659",
+    "id": "chvaf-362-small-contributions-2020-5653",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68325,7 +68247,7 @@
     "date": null
   },
   {
-    "id": "landd-352-anonymous-contributions-2020-5660",
+    "id": "landd-352-anonymous-contributions-2020-5654",
     "candidate": "LANDD  352",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -68338,7 +68260,7 @@
     "date": 1595142000000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5661",
+    "id": "chvaf-362-small-contributions-2020-5655",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68351,7 +68273,7 @@
     "date": 1594364400000
   },
   {
-    "id": "klicm-362-miscellaneous-receipts-2020-5662",
+    "id": "klicm-362-miscellaneous-receipts-2020-5656",
     "candidate": "KLICM--362",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -68364,7 +68286,7 @@
     "date": 1596610800000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5663",
+    "id": "chvaf-362-small-contributions-2020-5657",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68377,7 +68299,7 @@
     "date": 1595919600000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5664",
+    "id": "klicm-362-small-contributions-2020-5658",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68390,7 +68312,7 @@
     "date": 1596438000000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5665",
+    "id": "peraa-301-small-contributions-2020-5659",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68403,7 +68325,7 @@
     "date": 1592982000000
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5666",
+    "id": "jenkw-2-350-small-contributions-2020-5660",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68416,7 +68338,7 @@
     "date": 1595746800000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5667",
+    "id": "peraa-301-small-contributions-2020-5661",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68429,7 +68351,7 @@
     "date": 1595919600000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5668",
+    "id": "chvaf-362-small-contributions-2020-5662",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68442,7 +68364,7 @@
     "date": null
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5669",
+    "id": "jenkw-2-350-small-contributions-2020-5663",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68455,7 +68377,7 @@
     "date": 1596438000000
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5670",
+    "id": "jenkw-2-350-small-contributions-2020-5664",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68468,7 +68390,7 @@
     "date": 1594623600000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5671",
+    "id": "chvaf-362-small-contributions-2020-5665",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68481,7 +68403,7 @@
     "date": null
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5672",
+    "id": "cobuc-814-small-contributions-2020-5666",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68494,7 +68416,7 @@
     "date": 1595919600000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5673",
+    "id": "peraa-301-small-contributions-2020-5667",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68507,7 +68429,7 @@
     "date": 1594278000000
   },
   {
-    "id": "reges-354-small-contributions-2020-5674",
+    "id": "reges-354-small-contributions-2020-5668",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68520,7 +68442,7 @@
     "date": null
   },
   {
-    "id": "reges-354-small-contributions-2020-5675",
+    "id": "reges-354-small-contributions-2020-5669",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68533,7 +68455,7 @@
     "date": null
   },
   {
-    "id": "reges-354-small-contributions-2020-5676",
+    "id": "reges-354-small-contributions-2020-5670",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68546,7 +68468,7 @@
     "date": null
   },
   {
-    "id": "reges-354-anonymous-contributions-2020-5677",
+    "id": "reges-354-anonymous-contributions-2020-5671",
     "candidate": "REGES  354",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -68559,7 +68481,7 @@
     "date": 1594018800000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5678",
+    "id": "klicm-362-small-contributions-2020-5672",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68572,7 +68494,7 @@
     "date": 1594623600000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5679",
+    "id": "lehrk-302-small-contributions-2020-5673",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68585,7 +68507,7 @@
     "date": 1599202800000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5680",
+    "id": "chvaf-362-small-contributions-2020-5674",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68598,7 +68520,7 @@
     "date": 1599289200000
   },
   {
-    "id": "resed-362-small-contributions-2020-5681",
+    "id": "resed-362-small-contributions-2020-5675",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68611,7 +68533,7 @@
     "date": null
   },
   {
-    "id": "baums-301-stephen-bauman-2020-5682",
+    "id": "baums-301-stephen-bauman-2020-5676",
     "candidate": "BAUMS--301",
     "donor": "stephen-bauman",
     "electionyear": "2020",
@@ -68624,7 +68546,7 @@
     "date": 1599202800000
   },
   {
-    "id": "resed-362-small-contributions-2020-5683",
+    "id": "resed-362-small-contributions-2020-5677",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68637,7 +68559,7 @@
     "date": null
   },
   {
-    "id": "peted-338-small-contributions-2020-5684",
+    "id": "peted-338-small-contributions-2020-5678",
     "candidate": "PETED  338",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68650,7 +68572,7 @@
     "date": 1594191600000
   },
   {
-    "id": "landd-352-anonymous-contributions-2020-5685",
+    "id": "landd-352-anonymous-contributions-2020-5679",
     "candidate": "LANDD  352",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -68663,7 +68585,7 @@
     "date": 1594537200000
   },
   {
-    "id": "mckaw-338-anonymous-contributions-2020-5686",
+    "id": "mckaw-338-anonymous-contributions-2020-5680",
     "candidate": "MCKAW  338",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -68676,7 +68598,7 @@
     "date": 1601362800000
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5687",
+    "id": "jenkw-2-350-small-contributions-2020-5681",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68689,7 +68611,7 @@
     "date": 1594278000000
   },
   {
-    "id": "jenkw-2-350-small-contributions-2020-5688",
+    "id": "jenkw-2-350-small-contributions-2020-5682",
     "candidate": "JENKW2-350",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68702,7 +68624,7 @@
     "date": 1594105200000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5689",
+    "id": "dozip-361-small-contributions-2020-5683",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68715,7 +68637,7 @@
     "date": 1599634800000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5690",
+    "id": "peraa-301-small-contributions-2020-5684",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68728,7 +68650,7 @@
     "date": 1601535600000
   },
   {
-    "id": "resed-362-small-contributions-2020-5691",
+    "id": "resed-362-small-contributions-2020-5685",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68741,7 +68663,7 @@
     "date": 1596178800000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5692",
+    "id": "peraa-301-small-contributions-2020-5686",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68754,7 +68676,7 @@
     "date": null
   },
   {
-    "id": "peraa-301-small-contributions-2020-5693",
+    "id": "peraa-301-small-contributions-2020-5687",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68767,7 +68689,7 @@
     "date": 1601103600000
   },
   {
-    "id": "raffj-352-anonymous-contributions-2020-5694",
+    "id": "raffj-352-anonymous-contributions-2020-5688",
     "candidate": "RAFFJ--352",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -68780,7 +68702,7 @@
     "date": 1602054000000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5695",
+    "id": "lehrk-302-small-contributions-2020-5689",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68793,7 +68715,7 @@
     "date": 1600239600000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5696",
+    "id": "peraa-301-small-contributions-2020-5690",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68806,7 +68728,7 @@
     "date": 1594537200000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5697",
+    "id": "peraa-301-small-contributions-2020-5691",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68819,7 +68741,7 @@
     "date": null
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5698",
+    "id": "cobuc-814-small-contributions-2020-5692",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68832,7 +68754,7 @@
     "date": 1598079600000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5699",
+    "id": "chvaf-362-small-contributions-2020-5693",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68845,7 +68767,7 @@
     "date": null
   },
   {
-    "id": "peraa-301-small-contributions-2020-5700",
+    "id": "peraa-301-small-contributions-2020-5694",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68858,7 +68780,7 @@
     "date": 1594105200000
   },
   {
-    "id": "resed-362-small-contributions-2020-5701",
+    "id": "resed-362-small-contributions-2020-5695",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68871,7 +68793,7 @@
     "date": null
   },
   {
-    "id": "sants-301-miscellaneous-receipts-2020-5702",
+    "id": "sants-301-miscellaneous-receipts-2020-5696",
     "candidate": "SANTS  301",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -68884,7 +68806,7 @@
     "date": 1593500400000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5703",
+    "id": "dozip-361-small-contributions-2020-5697",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68897,7 +68819,7 @@
     "date": 1598511600000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5704",
+    "id": "peraa-301-small-contributions-2020-5698",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68910,7 +68832,7 @@
     "date": 1601362800000
   },
   {
-    "id": "raffj-352-anonymous-contributions-2020-5705",
+    "id": "raffj-352-anonymous-contributions-2020-5699",
     "candidate": "RAFFJ--352",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -68923,7 +68845,7 @@
     "date": 1599634800000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5706",
+    "id": "chvaf-362-small-contributions-2020-5700",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68936,7 +68858,7 @@
     "date": 1598338800000
   },
   {
-    "id": "reges-354-small-contributions-2020-5707",
+    "id": "reges-354-small-contributions-2020-5701",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68949,7 +68871,7 @@
     "date": 1597474800000
   },
   {
-    "id": "sants-301-miscellaneous-receipts-2020-5708",
+    "id": "sants-301-miscellaneous-receipts-2020-5702",
     "candidate": "SANTS  301",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -68962,7 +68884,7 @@
     "date": 1598857200000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5709",
+    "id": "cobuc-814-small-contributions-2020-5703",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68975,7 +68897,7 @@
     "date": 1599202800000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5710",
+    "id": "cobuc-814-small-contributions-2020-5704",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -68988,7 +68910,7 @@
     "date": 1599375600000
   },
   {
-    "id": "peraa-301-small-contributions-2020-5711",
+    "id": "peraa-301-small-contributions-2020-5705",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69001,7 +68923,7 @@
     "date": 1600758000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5712",
+    "id": "resed-362-small-contributions-2020-5706",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69014,7 +68936,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5713",
+    "id": "resed-362-small-contributions-2020-5707",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69027,7 +68949,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5714",
+    "id": "resed-362-small-contributions-2020-5708",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69040,7 +68962,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5715",
+    "id": "resed-362-small-contributions-2020-5709",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69053,7 +68975,7 @@
     "date": null
   },
   {
-    "id": "baums-301-anonymous-contributions-2020-5716",
+    "id": "baums-301-anonymous-contributions-2020-5710",
     "candidate": "BAUMS--301",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -69066,7 +68988,7 @@
     "date": 1601103600000
   },
   {
-    "id": "resed-362-small-contributions-2020-5717",
+    "id": "resed-362-small-contributions-2020-5711",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69079,7 +69001,7 @@
     "date": null
   },
   {
-    "id": "peraa-301-small-contributions-2020-5718",
+    "id": "peraa-301-small-contributions-2020-5712",
     "candidate": "PERAA--301",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69092,7 +69014,7 @@
     "date": null
   },
   {
-    "id": "resed-362-small-contributions-2020-5719",
+    "id": "resed-362-small-contributions-2020-5713",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69105,7 +69027,7 @@
     "date": null
   },
   {
-    "id": "peted-338-small-contributions-2020-5720",
+    "id": "peted-338-small-contributions-2020-5714",
     "candidate": "PETED  338",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69118,7 +69040,7 @@
     "date": 1601449200000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5721",
+    "id": "lehrk-302-small-contributions-2020-5715",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69131,7 +69053,7 @@
     "date": 1594969200000
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5722",
+    "id": "klipb-336-miscellaneous-receipts-2020-5716",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -69144,7 +69066,7 @@
     "date": 1600844400000
   },
   {
-    "id": "brows-337-miscellaneous-receipts-2020-5723",
+    "id": "brows-337-miscellaneous-receipts-2020-5717",
     "candidate": "BROWS  337",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -69157,7 +69079,7 @@
     "date": 1596610800000
   },
   {
-    "id": "mckaw-338-anonymous-contributions-2020-5724",
+    "id": "mckaw-338-anonymous-contributions-2020-5718",
     "candidate": "MCKAW  338",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -69170,7 +69092,7 @@
     "date": 1601276400000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5725",
+    "id": "chvaf-362-small-contributions-2020-5719",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69183,7 +69105,7 @@
     "date": 1597561200000
   },
   {
-    "id": "reges-354-small-contributions-2020-5726",
+    "id": "reges-354-small-contributions-2020-5720",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69196,7 +69118,7 @@
     "date": null
   },
   {
-    "id": "reges-354-small-contributions-2020-5727",
+    "id": "reges-354-small-contributions-2020-5721",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69209,7 +69131,7 @@
     "date": null
   },
   {
-    "id": "raffj-352-anonymous-contributions-2020-5728",
+    "id": "raffj-352-anonymous-contributions-2020-5722",
     "candidate": "RAFFJ--352",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -69222,7 +69144,7 @@
     "date": 1601103600000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5729",
+    "id": "lehrk-302-small-contributions-2020-5723",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69235,7 +69157,7 @@
     "date": 1600758000000
   },
   {
-    "id": "reges-354-small-contributions-2020-5730",
+    "id": "reges-354-small-contributions-2020-5724",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69248,7 +69170,7 @@
     "date": null
   },
   {
-    "id": "reges-354-small-contributions-2020-5731",
+    "id": "reges-354-small-contributions-2020-5725",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69261,7 +69183,7 @@
     "date": 1601794800000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5732",
+    "id": "dozip-361-small-contributions-2020-5726",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69274,7 +69196,7 @@
     "date": 1595228400000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5733",
+    "id": "lehrk-302-small-contributions-2020-5727",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69287,7 +69209,7 @@
     "date": 1601362800000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5734",
+    "id": "lehrk-302-small-contributions-2020-5728",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69300,7 +69222,7 @@
     "date": 1601794800000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5735",
+    "id": "lehrk-302-small-contributions-2020-5729",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69313,7 +69235,7 @@
     "date": 1601967600000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5736",
+    "id": "lehrk-302-small-contributions-2020-5730",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69326,7 +69248,7 @@
     "date": 1602226800000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5737",
+    "id": "dozip-361-small-contributions-2020-5731",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69339,7 +69261,7 @@
     "date": 1601535600000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5738",
+    "id": "cobuc-814-small-contributions-2020-5732",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69352,7 +69274,7 @@
     "date": 1601449200000
   },
   {
-    "id": "reges-354-small-contributions-2020-5739",
+    "id": "reges-354-small-contributions-2020-5733",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69365,7 +69287,7 @@
     "date": null
   },
   {
-    "id": "brows-337-miscellaneous-receipts-2020-5740",
+    "id": "brows-337-miscellaneous-receipts-2020-5734",
     "candidate": "BROWS  337",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -69378,7 +69300,7 @@
     "date": 1601881200000
   },
   {
-    "id": "lehrk-302-miscellaneous-receipts-2020-5741",
+    "id": "lehrk-302-miscellaneous-receipts-2020-5735",
     "candidate": "LEHRK--302",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -69391,7 +69313,7 @@
     "date": 1602054000000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5742",
+    "id": "klicm-362-small-contributions-2020-5736",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69404,7 +69326,7 @@
     "date": 1600239600000
   },
   {
-    "id": "klipb-336-miscellaneous-receipts-2020-5743",
+    "id": "klipb-336-miscellaneous-receipts-2020-5737",
     "candidate": "KLIPB  336",
     "donor": "miscellaneous-receipts",
     "electionyear": "2020",
@@ -69417,7 +69339,7 @@
     "date": 1598770800000
   },
   {
-    "id": "dozip-361-small-contributions-2020-5744",
+    "id": "dozip-361-small-contributions-2020-5738",
     "candidate": "DOZIP  361",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69430,7 +69352,7 @@
     "date": 1601881200000
   },
   {
-    "id": "resed-362-small-contributions-2020-5745",
+    "id": "resed-362-small-contributions-2020-5739",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69443,7 +69365,7 @@
     "date": 1598857200000
   },
   {
-    "id": "resed-362-small-contributions-2020-5746",
+    "id": "resed-362-small-contributions-2020-5740",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69456,7 +69378,7 @@
     "date": null
   },
   {
-    "id": "mckaw-338-anonymous-contributions-2020-5747",
+    "id": "mckaw-338-anonymous-contributions-2020-5741",
     "candidate": "MCKAW  338",
     "donor": "anonymous-contributions",
     "electionyear": "2020",
@@ -69469,7 +69391,7 @@
     "date": 1602226800000
   },
   {
-    "id": "klicm-362-small-contributions-2020-5748",
+    "id": "klicm-362-small-contributions-2020-5742",
     "candidate": "KLICM--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69482,7 +69404,7 @@
     "date": 1600844400000
   },
   {
-    "id": "chvaf-362-small-contributions-2020-5749",
+    "id": "chvaf-362-small-contributions-2020-5743",
     "candidate": "CHVAF--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69495,7 +69417,7 @@
     "date": 1602054000000
   },
   {
-    "id": "resed-362-small-contributions-2020-5750",
+    "id": "resed-362-small-contributions-2020-5744",
     "candidate": "RESED--362",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69508,7 +69430,7 @@
     "date": 1596610800000
   },
   {
-    "id": "lehrk-302-small-contributions-2020-5751",
+    "id": "lehrk-302-small-contributions-2020-5745",
     "candidate": "LEHRK--302",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69521,7 +69443,7 @@
     "date": 1601103600000
   },
   {
-    "id": "reges-354-small-contributions-2020-5752",
+    "id": "reges-354-small-contributions-2020-5746",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69534,7 +69456,7 @@
     "date": 1602399600000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5753",
+    "id": "cobuc-814-small-contributions-2020-5747",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69547,7 +69469,7 @@
     "date": 1596092400000
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5754",
+    "id": "cobuc-814-small-contributions-2020-5748",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69560,7 +69482,7 @@
     "date": 1596524400000
   },
   {
-    "id": "reges-354-small-contributions-2020-5755",
+    "id": "reges-354-small-contributions-2020-5749",
     "candidate": "REGES  354",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69573,7 +69495,7 @@
     "date": null
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5756",
+    "id": "cobuc-814-small-contributions-2020-5750",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69586,7 +69508,7 @@
     "date": null
   },
   {
-    "id": "cobuc-814-small-contributions-2020-5757",
+    "id": "cobuc-814-small-contributions-2020-5751",
     "candidate": "COBUC--814",
     "donor": "small-contributions",
     "electionyear": "2020",
@@ -69599,31 +69521,7 @@
     "date": 1596438000000
   },
   {
-    "id": "klipb-336-gun-owners-action-league-of-wa-2020-5758",
-    "candidate": "KLIPB  336",
-    "donor": "gun-owners-action-league-of-wa",
-    "electionyear": "2020",
-    "donation_type": "Political Action Committee",
-    "party": "Non Partisan",
-    "cash": true,
-    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101007743",
-    "amount": 150,
-    "date": 1603782000000
-  },
-  {
-    "id": "klipb-336-puyallup-tribe-of-indians-2020-5759",
-    "candidate": "KLIPB  336",
-    "donor": "puyallup-tribe-of-indians",
-    "electionyear": "2020",
-    "donation_type": "Political Action Committee",
-    "party": "Non Partisan",
-    "cash": true,
-    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101007743",
-    "amount": 1000,
-    "date": 1603782000000
-  },
-  {
-    "id": "boehm-336-bayer-us-llc-2020-5760",
+    "id": "boehm-336-bayer-us-llc-2020-5752",
     "candidate": "BOEHM  336",
     "donor": "bayer-us-llc",
     "electionyear": "2020",
@@ -69635,7 +69533,7 @@
     "date": 1602745200000
   },
   {
-    "id": "boehm-336-fair-vote-washington-pac-2020-5761",
+    "id": "boehm-336-fair-vote-washington-pac-2020-5753",
     "candidate": "BOEHM  336",
     "donor": "fair-vote-washington-pac",
     "electionyear": "2020",
@@ -69647,7 +69545,7 @@
     "date": 1602745200000
   },
   {
-    "id": "boehm-336-stand-for-children-washington-pac-2020-5762",
+    "id": "boehm-336-stand-for-children-washington-pac-2020-5754",
     "candidate": "BOEHM  336",
     "donor": "stand-for-children-washington-pac",
     "electionyear": "2020",
@@ -69657,5 +69555,2635 @@
     "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101007839",
     "amount": 500,
     "date": 1602745200000
+  },
+  {
+    "id": "cobuc-814-casperson-aiden-2020-5755",
+    "candidate": "COBUC--814",
+    "donor": "casperson-aiden",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101007904",
+    "amount": 50,
+    "date": 1602399600000
+  },
+  {
+    "id": "lehrk-302-loveland-victoria-2020-5756",
+    "candidate": "LEHRK--302",
+    "donor": "loveland-victoria",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101007990",
+    "amount": 100,
+    "date": 1602745200000
+  },
+  {
+    "id": "lehrk-302-small-contributions-2020-5757",
+    "candidate": "LEHRK--302",
+    "donor": "small-contributions",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 3  persons.",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101007986",
+    "amount": 60,
+    "date": 1602572400000
+  },
+  {
+    "id": "dozip-361-opp-larnie-2020-5758",
+    "candidate": "DOZIP  361",
+    "donor": "opp-larnie",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008124",
+    "amount": 400,
+    "date": 1603004400000
+  },
+  {
+    "id": "klicm-362-opp-larnie-2020-5759",
+    "candidate": "KLICM--362",
+    "donor": "opp-larnie",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008140",
+    "amount": 500,
+    "date": 1603004400000
+  },
+  {
+    "id": "dozip-361-davis-glynn-2020-5760",
+    "candidate": "DOZIP  361",
+    "donor": "davis-glynn",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008121",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "dozip-361-schoesler-mark-2020-5761",
+    "candidate": "DOZIP  361",
+    "donor": "schoesler-mark",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008122",
+    "amount": 100,
+    "date": 1602918000000
+  },
+  {
+    "id": "dozip-361-kelts-donald-2020-5762",
+    "candidate": "DOZIP  361",
+    "donor": "kelts-donald",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008121",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "peted-338-olsen-fred-jr-2020-5763",
+    "candidate": "PETED  338",
+    "donor": "olsen-fred-jr",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Non Partisan",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008151",
+    "amount": 250,
+    "date": 1602831600000
+  },
+  {
+    "id": "peted-338-meras-erika-2020-5764",
+    "candidate": "PETED  338",
+    "donor": "meras-erika",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Non Partisan",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008151",
+    "amount": 250,
+    "date": 1602831600000
+  },
+  {
+    "id": "dozip-361-williams-christine-2020-5765",
+    "candidate": "DOZIP  361",
+    "donor": "williams-christine",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008124",
+    "amount": 75,
+    "date": 1603004400000
+  },
+  {
+    "id": "klicm-362-koenen-mark-2020-5766",
+    "candidate": "KLICM--362",
+    "donor": "koenen-mark",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008139",
+    "amount": 1000,
+    "date": 1602918000000
+  },
+  {
+    "id": "mullr-301-small-contributions-2020-5767",
+    "candidate": "MULLR  301",
+    "donor": "small-contributions",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Republican",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 2  persons.",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008152",
+    "amount": 50,
+    "date": 1602745200000
+  },
+  {
+    "id": "peted-338-small-contributions-2020-5768",
+    "candidate": "PETED  338",
+    "donor": "small-contributions",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Non Partisan",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 1  persons.",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008151",
+    "amount": 10,
+    "date": 1602918000000
+  },
+  {
+    "id": "boehm-336-ayers-kevin-2020-5769",
+    "candidate": "BOEHM  336",
+    "donor": "ayers-kevin",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 200,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-johnson-brian-2020-5770",
+    "candidate": "BOEHM  336",
+    "donor": "johnson-brian",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 100,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-mid-columbia-eyecare-center-inc-2020-5771",
+    "candidate": "BOEHM  336",
+    "donor": "mid-columbia-eyecare-center-inc",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 200,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-center-vision-contact-lens-clinic-2020-5772",
+    "candidate": "BOEHM  336",
+    "donor": "center-vision-contact-lens-clinic",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 500,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-columbia-point-vision-clinic-2020-5773",
+    "candidate": "BOEHM  336",
+    "donor": "columbia-point-vision-clinic",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 250,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-pasco-vision-clinic-2020-5774",
+    "candidate": "BOEHM  336",
+    "donor": "pasco-vision-clinic",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 300,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-tri-city-eyes-pllc-2020-5775",
+    "candidate": "BOEHM  336",
+    "donor": "tri-city-eyes-pllc",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 300,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-eyecare-association-of-west-richland-2020-5776",
+    "candidate": "BOEHM  336",
+    "donor": "eyecare-association-of-west-richland",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 200,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-washington-vision-therapy-center-2020-5777",
+    "candidate": "BOEHM  336",
+    "donor": "washington-vision-therapy-center",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 100,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-washington-state-fraternal-order-of-police-2020-5778",
+    "candidate": "BOEHM  336",
+    "donor": "washington-state-fraternal-order-of-police",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 500,
+    "date": 1602486000000
+  },
+  {
+    "id": "boehm-336-robertson-aric-2020-5779",
+    "candidate": "BOEHM  336",
+    "donor": "robertson-aric",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 100,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-travis-donald-2020-5780",
+    "candidate": "BOEHM  336",
+    "donor": "travis-donald",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 100,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-winkel-laura-2020-5781",
+    "candidate": "BOEHM  336",
+    "donor": "winkel-laura",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 50,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-washington-forest-protection-association-2020-5782",
+    "candidate": "BOEHM  336",
+    "donor": "washington-forest-protection-association",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 500,
+    "date": 1602486000000
+  },
+  {
+    "id": "boehm-336-desert-valley-eye-care-2020-5783",
+    "candidate": "BOEHM  336",
+    "donor": "desert-valley-eye-care",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 100,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-grandridge-eye-clinic-2020-5784",
+    "candidate": "BOEHM  336",
+    "donor": "grandridge-eye-clinic",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 400,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-gun-owners-action-league-2020-5785",
+    "candidate": "BOEHM  336",
+    "donor": "gun-owners-action-league",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 150,
+    "date": 1602486000000
+  },
+  {
+    "id": "boehm-336-depew-kenneth-2020-5786",
+    "candidate": "BOEHM  336",
+    "donor": "depew-kenneth",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 50,
+    "date": 1602745200000
+  },
+  {
+    "id": "boehm-336-depew-martha-2020-5787",
+    "candidate": "BOEHM  336",
+    "donor": "depew-martha",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008222",
+    "amount": 50,
+    "date": 1602745200000
+  },
+  {
+    "id": "resed-362-weiss-susan-2020-5788",
+    "candidate": "RESED--362",
+    "donor": "weiss-susan",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-alin-simone-2020-5789",
+    "candidate": "RESED--362",
+    "donor": "alin-simone",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 15,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-zenger-obrien-linda-2020-5790",
+    "candidate": "RESED--362",
+    "donor": "zenger-obrien-linda",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 10,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-van-oppen-peter-2020-5791",
+    "candidate": "RESED--362",
+    "donor": "van-oppen-peter",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 250,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-garske-jeana-2020-5792",
+    "candidate": "RESED--362",
+    "donor": "garske-jeana",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-reidel-stephen-2020-5793",
+    "candidate": "RESED--362",
+    "donor": "reidel-stephen",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 20,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-childrens-campaign-fund-2020-5794",
+    "candidate": "RESED--362",
+    "donor": "childrens-campaign-fund",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008287",
+    "amount": 1000,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-moss-sabrina-2020-5795",
+    "candidate": "RESED--362",
+    "donor": "moss-sabrina",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-atchison-terry-2020-5796",
+    "candidate": "RESED--362",
+    "donor": "atchison-terry",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-bennett-james-2020-5797",
+    "candidate": "RESED--362",
+    "donor": "bennett-james",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-holm-cynthia-2020-5798",
+    "candidate": "RESED--362",
+    "donor": "holm-cynthia",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-mulkerin-kathleen-2020-5799",
+    "candidate": "RESED--362",
+    "donor": "mulkerin-kathleen",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-alvarado-jackson-antonia-2020-5800",
+    "candidate": "RESED--362",
+    "donor": "alvarado-jackson-antonia",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-badalamente-richard-2020-5801",
+    "candidate": "RESED--362",
+    "donor": "badalamente-richard",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 10,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-nichols-paula-2020-5802",
+    "candidate": "RESED--362",
+    "donor": "nichols-paula",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-gunshefski-linda-2020-5803",
+    "candidate": "RESED--362",
+    "donor": "gunshefski-linda",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-gutierrez-kenney-phyllis-2020-5804",
+    "candidate": "RESED--362",
+    "donor": "gutierrez-kenney-phyllis",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 200,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-peasley-judy-2020-5805",
+    "candidate": "RESED--362",
+    "donor": "peasley-judy",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-stairet-linda-2020-5806",
+    "candidate": "RESED--362",
+    "donor": "stairet-linda",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-viavant-peter-2020-5807",
+    "candidate": "RESED--362",
+    "donor": "viavant-peter",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-hunt-sam-2020-5808",
+    "candidate": "RESED--362",
+    "donor": "hunt-sam",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-blair-cabasco-megan-2020-5809",
+    "candidate": "RESED--362",
+    "donor": "blair-cabasco-megan",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 20,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-cress-john-2020-5810",
+    "candidate": "RESED--362",
+    "donor": "cress-john",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 20,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-metcalf-lindenburger-jason-2020-5811",
+    "candidate": "RESED--362",
+    "donor": "metcalf-lindenburger-jason",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-sandberg-jacqueline-2020-5812",
+    "candidate": "RESED--362",
+    "donor": "sandberg-jacqueline",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-handy-evan-2020-5813",
+    "candidate": "RESED--362",
+    "donor": "handy-evan",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-mcclellan-victoria-2020-5814",
+    "candidate": "RESED--362",
+    "donor": "mcclellan-victoria",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-richman-karyn-2020-5815",
+    "candidate": "RESED--362",
+    "donor": "richman-karyn",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-vargas-ynez-2020-5816",
+    "candidate": "RESED--362",
+    "donor": "vargas-ynez",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-baker-bernice-2020-5817",
+    "candidate": "RESED--362",
+    "donor": "baker-bernice",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-bragstad-ruth-2020-5818",
+    "candidate": "RESED--362",
+    "donor": "bragstad-ruth",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 7,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-johnson-judith-2020-5819",
+    "candidate": "RESED--362",
+    "donor": "johnson-judith",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-leavitt-noah-2020-5820",
+    "candidate": "RESED--362",
+    "donor": "leavitt-noah",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-leweling-tara-2020-5821",
+    "candidate": "RESED--362",
+    "donor": "leweling-tara",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-rose-elaine-2020-5822",
+    "candidate": "RESED--362",
+    "donor": "rose-elaine",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-saunders-kathleen-2020-5823",
+    "candidate": "RESED--362",
+    "donor": "saunders-kathleen",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-carlyle-reuven-2020-5824",
+    "candidate": "RESED--362",
+    "donor": "carlyle-reuven",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-metcalf-lindenburger-dorothy-2020-5825",
+    "candidate": "RESED--362",
+    "donor": "metcalf-lindenburger-dorothy",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-wright-kimberly-2020-5826",
+    "candidate": "RESED--362",
+    "donor": "wright-kimberly",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-abella-nancy-2020-5827",
+    "candidate": "RESED--362",
+    "donor": "abella-nancy",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 509,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-hsieh-patty-2020-5828",
+    "candidate": "RESED--362",
+    "donor": "hsieh-patty",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-iverson-john-2020-5829",
+    "candidate": "RESED--362",
+    "donor": "iverson-john",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 15,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-anderson-lisa-2020-5830",
+    "candidate": "RESED--362",
+    "donor": "anderson-lisa",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 40,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-anderson-sheila-2020-5831",
+    "candidate": "RESED--362",
+    "donor": "anderson-sheila",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-bergeron-gail-2020-5832",
+    "candidate": "RESED--362",
+    "donor": "bergeron-gail",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-bergeron-gail-2020-5833",
+    "candidate": "RESED--362",
+    "donor": "bergeron-gail",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 10,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-bergstrom-ted-2020-5834",
+    "candidate": "RESED--362",
+    "donor": "bergstrom-ted",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 150,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-dahle-stephanie-2020-5835",
+    "candidate": "RESED--362",
+    "donor": "dahle-stephanie",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-knowles-shareen-2020-5836",
+    "candidate": "RESED--362",
+    "donor": "knowles-shareen",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-kornze-neil-2020-5837",
+    "candidate": "RESED--362",
+    "donor": "kornze-neil",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-matthews-melanie-2020-5838",
+    "candidate": "RESED--362",
+    "donor": "matthews-melanie",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-campion-tom-2020-5839",
+    "candidate": "RESED--362",
+    "donor": "campion-tom",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 500,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-chacon-alma-2020-5840",
+    "candidate": "RESED--362",
+    "donor": "chacon-alma",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 51,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-espy-matthew-2020-5841",
+    "candidate": "RESED--362",
+    "donor": "espy-matthew",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-grant-kathryn-2020-5842",
+    "candidate": "RESED--362",
+    "donor": "grant-kathryn",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-maillard-caroline-2020-5843",
+    "candidate": "RESED--362",
+    "donor": "maillard-caroline",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 200,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-mcdowell-laura-2020-5844",
+    "candidate": "RESED--362",
+    "donor": "mcdowell-laura",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-rolfe-kimberly-2020-5845",
+    "candidate": "RESED--362",
+    "donor": "rolfe-kimberly",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 29,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-matthews-melanie-2020-5846",
+    "candidate": "RESED--362",
+    "donor": "matthews-melanie",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-northam-jennifer-2020-5847",
+    "candidate": "RESED--362",
+    "donor": "northam-jennifer",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 21,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-bardsley-riannon-2020-5848",
+    "candidate": "RESED--362",
+    "donor": "bardsley-riannon",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-carben-rachel-2020-5849",
+    "candidate": "RESED--362",
+    "donor": "carben-rachel",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-pinette-babs-2020-5850",
+    "candidate": "RESED--362",
+    "donor": "pinette-babs",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-ralph-adrianne-2020-5851",
+    "candidate": "RESED--362",
+    "donor": "ralph-adrianne",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 232,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-rose-elaine-2020-5852",
+    "candidate": "RESED--362",
+    "donor": "rose-elaine",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-wellman-lisa-2020-5853",
+    "candidate": "RESED--362",
+    "donor": "wellman-lisa",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-wright-kimberly-2020-5854",
+    "candidate": "RESED--362",
+    "donor": "wright-kimberly",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 101,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-trenary-jean-2020-5855",
+    "candidate": "RESED--362",
+    "donor": "trenary-jean",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-flannery-michael-2020-5856",
+    "candidate": "RESED--362",
+    "donor": "flannery-michael",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008287",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-charnholm-anne-marie-2020-5857",
+    "candidate": "RESED--362",
+    "donor": "charnholm-anne-marie",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-kagi-ruth-2020-5858",
+    "candidate": "RESED--362",
+    "donor": "kagi-ruth",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-tamura-theresa-2020-5859",
+    "candidate": "RESED--362",
+    "donor": "tamura-theresa",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 250,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-gatton-kathy-2020-5860",
+    "candidate": "RESED--362",
+    "donor": "gatton-kathy",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-hormel-gretchen-2020-5861",
+    "candidate": "RESED--362",
+    "donor": "hormel-gretchen",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 35,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-erickson-ceil-2020-5862",
+    "candidate": "RESED--362",
+    "donor": "erickson-ceil",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 150,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-hernandez-norma-2020-5863",
+    "candidate": "RESED--362",
+    "donor": "hernandez-norma",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-lawhead-terry-2020-5864",
+    "candidate": "RESED--362",
+    "donor": "lawhead-terry",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-lightner-shannon-2020-5865",
+    "candidate": "RESED--362",
+    "donor": "lightner-shannon",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-rose-janis-2020-5866",
+    "candidate": "RESED--362",
+    "donor": "rose-janis",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-smith-stephen-2020-5867",
+    "candidate": "RESED--362",
+    "donor": "smith-stephen",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-peterson-jim-2020-5868",
+    "candidate": "RESED--362",
+    "donor": "peterson-jim",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 1000,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-fraser-ann-2020-5869",
+    "candidate": "RESED--362",
+    "donor": "fraser-ann",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 10,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-paust-kirsten-2020-5870",
+    "candidate": "RESED--362",
+    "donor": "paust-kirsten",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 150,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-ibew-local-77-pac-2020-5871",
+    "candidate": "RESED--362",
+    "donor": "ibew-local-77-pac",
+    "electionyear": "2020",
+    "donation_type": "Self",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008287",
+    "amount": 500,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-wa-st-nurses-assn-pac-2020-5872",
+    "candidate": "RESED--362",
+    "donor": "wa-st-nurses-assn-pac",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008287",
+    "amount": 250,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-wa-electric-cooperatives-pac-2020-5873",
+    "candidate": "RESED--362",
+    "donor": "wa-electric-cooperatives-pac",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008287",
+    "amount": 500,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-teamsters-local-839-ssf-2020-5874",
+    "candidate": "RESED--362",
+    "donor": "teamsters-local-839-ssf",
+    "electionyear": "2020",
+    "donation_type": "Self",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008287",
+    "amount": 500,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-wa-state-16th-legislative-district-democrats-2020-5875",
+    "candidate": "RESED--362",
+    "donor": "wa-state-16th-legislative-district-democrats",
+    "electionyear": "2020",
+    "donation_type": "Party",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008287",
+    "amount": 4750,
+    "date": 1602831600000
+  },
+  {
+    "id": "resed-362-small-contributions-2020-5876",
+    "candidate": "RESED--362",
+    "donor": "small-contributions",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 2  persons.",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008285",
+    "amount": 50,
+    "date": 1602572400000
+  },
+  {
+    "id": "rudes-504-chevron-2020-5877",
+    "candidate": "RUDES  504",
+    "donor": "chevron",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008401",
+    "amount": 1000,
+    "date": 1603090800000
+  },
+  {
+    "id": "rudes-504-washington-federation-of-state-employees-2020-5878",
+    "candidate": "RUDES  504",
+    "donor": "washington-federation-of-state-employees",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008401",
+    "amount": 1000,
+    "date": 1603090800000
+  },
+  {
+    "id": "rudes-504-ballmer-connie-2020-5879",
+    "candidate": "RUDES  504",
+    "donor": "ballmer-connie",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008401",
+    "amount": 250,
+    "date": 1603090800000
+  },
+  {
+    "id": "rudes-504-kalispell-tribal-economic-authority-2020-5880",
+    "candidate": "RUDES  504",
+    "donor": "kalispell-tribal-economic-authority",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008401",
+    "amount": 500,
+    "date": 1603090800000
+  },
+  {
+    "id": "rudes-504-washington-chiropractic-trust-2020-5881",
+    "candidate": "RUDES  504",
+    "donor": "washington-chiropractic-trust",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008401",
+    "amount": 500,
+    "date": 1603090800000
+  },
+  {
+    "id": "chvaf-362-bergstrom-ted-2020-5882",
+    "candidate": "CHVAF--362",
+    "donor": "bergstrom-ted",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008498",
+    "amount": 150,
+    "date": 1602572400000
+  },
+  {
+    "id": "chvaf-362-korimerla-praveen-2020-5883",
+    "candidate": "CHVAF--362",
+    "donor": "korimerla-praveen",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008498",
+    "amount": 500,
+    "date": 1602658800000
+  },
+  {
+    "id": "chvaf-362-see-gayle-2020-5884",
+    "candidate": "CHVAF--362",
+    "donor": "see-gayle",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008498",
+    "amount": 16,
+    "date": 1602831600000
+  },
+  {
+    "id": "chvaf-362-hancock-jason-2020-5885",
+    "candidate": "CHVAF--362",
+    "donor": "hancock-jason",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008498",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "chvaf-362-johannesen-judith-2020-5886",
+    "candidate": "CHVAF--362",
+    "donor": "johannesen-judith",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008498",
+    "amount": 20,
+    "date": 1602918000000
+  },
+  {
+    "id": "chvaf-362-williams-tracy-2020-5887",
+    "candidate": "CHVAF--362",
+    "donor": "williams-tracy",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008498",
+    "amount": 100,
+    "date": 1602918000000
+  },
+  {
+    "id": "resed-362-jon-a-campbell-architect-pllc-2020-5888",
+    "candidate": "RESED--362",
+    "donor": "jon-a-campbell-architect-pllc",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008562",
+    "amount": 1000,
+    "date": 1603090800000
+  },
+  {
+    "id": "reges-354-barrett-khylee-2020-5889",
+    "candidate": "REGES  354",
+    "donor": "barrett-khylee",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 20,
+    "date": 1602486000000
+  },
+  {
+    "id": "reges-354-fraser-ann-2020-5890",
+    "candidate": "REGES  354",
+    "donor": "fraser-ann",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 10,
+    "date": 1602486000000
+  },
+  {
+    "id": "reges-354-boehme-nathaniel-2020-5891",
+    "candidate": "REGES  354",
+    "donor": "boehme-nathaniel",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "reges-354-miller-ted-2020-5892",
+    "candidate": "REGES  354",
+    "donor": "miller-ted",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "reges-354-johannesen-judith-2020-5893",
+    "candidate": "REGES  354",
+    "donor": "johannesen-judith",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "reges-354-glant-bruce-2020-5894",
+    "candidate": "REGES  354",
+    "donor": "glant-bruce",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 200,
+    "date": 1602572400000
+  },
+  {
+    "id": "reges-354-elkins-jeanne-2020-5895",
+    "candidate": "REGES  354",
+    "donor": "elkins-jeanne",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 50,
+    "date": 1603004400000
+  },
+  {
+    "id": "reges-354-wireman-michael-2020-5896",
+    "candidate": "REGES  354",
+    "donor": "wireman-michael",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 18,
+    "date": 1602486000000
+  },
+  {
+    "id": "reges-354-lewis-jerry-2020-5897",
+    "candidate": "REGES  354",
+    "donor": "lewis-jerry",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 50,
+    "date": 1602486000000
+  },
+  {
+    "id": "reges-354-wireman-michael-2020-5898",
+    "candidate": "REGES  354",
+    "donor": "wireman-michael",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 25,
+    "date": 1602745200000
+  },
+  {
+    "id": "reges-354-claybrook-mary-2020-5899",
+    "candidate": "REGES  354",
+    "donor": "claybrook-mary",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 10,
+    "date": 1602831600000
+  },
+  {
+    "id": "reges-354-whittier-adam-2020-5900",
+    "candidate": "REGES  354",
+    "donor": "whittier-adam",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "reges-354-schmittroth-frank-2020-5901",
+    "candidate": "REGES  354",
+    "donor": "schmittroth-frank",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 131,
+    "date": 1602486000000
+  },
+  {
+    "id": "reges-354-andrews-smith-kathy-2020-5902",
+    "candidate": "REGES  354",
+    "donor": "andrews-smith-kathy",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 12,
+    "date": 1602658800000
+  },
+  {
+    "id": "reges-354-sonnichsen-shirley-2020-5903",
+    "candidate": "REGES  354",
+    "donor": "sonnichsen-shirley",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 18,
+    "date": 1602831600000
+  },
+  {
+    "id": "reges-354-weisskopf-gene-2020-5904",
+    "candidate": "REGES  354",
+    "donor": "weisskopf-gene",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "reges-354-houghton-rebecca-2020-5905",
+    "candidate": "REGES  354",
+    "donor": "houghton-rebecca",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 100,
+    "date": 1602831600000
+  },
+  {
+    "id": "reges-354-vaughn-cynthia-2020-5906",
+    "candidate": "REGES  354",
+    "donor": "vaughn-cynthia",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "reges-354-baker-carl-2020-5907",
+    "candidate": "REGES  354",
+    "donor": "baker-carl",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 36,
+    "date": 1603004400000
+  },
+  {
+    "id": "reges-354-wise-barbara-2020-5908",
+    "candidate": "REGES  354",
+    "donor": "wise-barbara",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 100,
+    "date": 1602745200000
+  },
+  {
+    "id": "reges-354-hansen-daniel-2020-5909",
+    "candidate": "REGES  354",
+    "donor": "hansen-daniel",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 100,
+    "date": 1603004400000
+  },
+  {
+    "id": "reges-354-small-contributions-2020-5910",
+    "candidate": "REGES  354",
+    "donor": "small-contributions",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 5  persons.",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008623",
+    "amount": 115,
+    "date": null
+  },
+  {
+    "id": "baums-301-rehm-daniel-mr-2020-5911",
+    "candidate": "BAUMS--301",
+    "donor": "rehm-daniel-mr",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008692",
+    "amount": 1000,
+    "date": 1603090800000
+  },
+  {
+    "id": "baums-301-smiley-tiffany-ms-2020-5912",
+    "candidate": "BAUMS--301",
+    "donor": "smiley-tiffany-ms",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008692",
+    "amount": 200,
+    "date": 1603090800000
+  },
+  {
+    "id": "peted-338-petersen-steve-2020-5913",
+    "candidate": "PETED  338",
+    "donor": "petersen-steve",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Non Partisan",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008725",
+    "amount": 50,
+    "date": 1603090800000
+  },
+  {
+    "id": "peted-338-petersen-elissia-2020-5914",
+    "candidate": "PETED  338",
+    "donor": "petersen-elissia",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Non Partisan",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008725",
+    "amount": 50,
+    "date": 1603090800000
+  },
+  {
+    "id": "resed-362-tangent-media-group-2020-5915",
+    "candidate": "RESED--362",
+    "donor": "tangent-media-group",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": false,
+    "detail": "FILMING AND EDITING OF FUNDRAISER VIDEO",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008857",
+    "amount": 975,
+    "date": 1598943600000
+  },
+  {
+    "id": "resed-362-profesionales-bilingues-2020-5916",
+    "candidate": "RESED--362",
+    "donor": "profesionales-bilingues",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": false,
+    "detail": "TRANSLATION SERVICES",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008857",
+    "amount": 36,
+    "date": 1601276400000
+  },
+  {
+    "id": "resed-362-rogue-lobster-2020-5917",
+    "candidate": "RESED--362",
+    "donor": "rogue-lobster",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": false,
+    "detail": "SUBVENDOR: ADAM KIRTLEY-BAND MEMBER-- LIVE MUSIC",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008857",
+    "amount": 100,
+    "date": 1601622000000
+  },
+  {
+    "id": "resed-362-rogue-lobster-2020-5918",
+    "candidate": "RESED--362",
+    "donor": "rogue-lobster",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": false,
+    "detail": "SUBVENDOR: LIBBY MILLER-BAND MEMBER-- LIVE MUSIC",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008857",
+    "amount": 100,
+    "date": 1601622000000
+  },
+  {
+    "id": "resed-362-rogue-lobster-2020-5919",
+    "candidate": "RESED--362",
+    "donor": "rogue-lobster",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": false,
+    "detail": "SUBVENDOR: JR VAN SLYKE-BAND MEMBER-- LIVE MUSIC",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008857",
+    "amount": 100,
+    "date": 1601622000000
+  },
+  {
+    "id": "resed-362-rogue-lobster-2020-5920",
+    "candidate": "RESED--362",
+    "donor": "rogue-lobster",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": false,
+    "detail": "SUBVENDOR: JERRY YOKEL-BAND MEMBER-- LIVE MUSIC",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008857",
+    "amount": 100,
+    "date": 1601622000000
+  },
+  {
+    "id": "resed-362-vandonge-mark-2020-5921",
+    "candidate": "RESED--362",
+    "donor": "vandonge-mark",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": false,
+    "detail": "INKINDED PHOTOSHOOT WITH DIGITAL FILES",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008857",
+    "amount": 816,
+    "date": 1602313200000
+  },
+  {
+    "id": "dozip-361-ledford-donna-2020-5922",
+    "candidate": "DOZIP  361",
+    "donor": "ledford-donna",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101008876",
+    "amount": 250,
+    "date": 1603090800000
+  },
+  {
+    "id": "raffj-352-garcia-danica-2020-5923",
+    "candidate": "RAFFJ--352",
+    "donor": "garcia-danica",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009016",
+    "amount": 75,
+    "date": 1602918000000
+  },
+  {
+    "id": "raffj-352-jones-guy-2020-5924",
+    "candidate": "RAFFJ--352",
+    "donor": "jones-guy",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009016",
+    "amount": 250,
+    "date": 1603004400000
+  },
+  {
+    "id": "raffj-352-dabler-allison-2020-5925",
+    "candidate": "RAFFJ--352",
+    "donor": "dabler-allison",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009013",
+    "amount": 35,
+    "date": 1602745200000
+  },
+  {
+    "id": "raffj-352-clark-paula-2020-5926",
+    "candidate": "RAFFJ--352",
+    "donor": "clark-paula",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009014",
+    "amount": 25,
+    "date": 1602831600000
+  },
+  {
+    "id": "raffj-352-sundquist-mary-2020-5927",
+    "candidate": "RAFFJ--352",
+    "donor": "sundquist-mary",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009014",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "raffj-352-murray-christopher-2020-5928",
+    "candidate": "RAFFJ--352",
+    "donor": "murray-christopher",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009016",
+    "amount": 100,
+    "date": 1602918000000
+  },
+  {
+    "id": "raffj-352-harper-laura-2020-5929",
+    "candidate": "RAFFJ--352",
+    "donor": "harper-laura",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009014",
+    "amount": 50,
+    "date": 1602831600000
+  },
+  {
+    "id": "raffj-352-kissel-jeffrey-2020-5930",
+    "candidate": "RAFFJ--352",
+    "donor": "kissel-jeffrey",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009013",
+    "amount": 70,
+    "date": 1602745200000
+  },
+  {
+    "id": "raffj-352-baker-steve-2020-5931",
+    "candidate": "RAFFJ--352",
+    "donor": "baker-steve",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009013",
+    "amount": 125,
+    "date": 1602745200000
+  },
+  {
+    "id": "raffj-352-johnson-ron-2020-5932",
+    "candidate": "RAFFJ--352",
+    "donor": "johnson-ron",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009013",
+    "amount": 50,
+    "date": 1602745200000
+  },
+  {
+    "id": "raffj-352-avant-diane-2020-5933",
+    "candidate": "RAFFJ--352",
+    "donor": "avant-diane",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009013",
+    "amount": 50,
+    "date": 1602745200000
+  },
+  {
+    "id": "raffj-352-holmes-mitzi-2020-5934",
+    "candidate": "RAFFJ--352",
+    "donor": "holmes-mitzi",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009014",
+    "amount": 40,
+    "date": 1602831600000
+  },
+  {
+    "id": "raffj-352-finch-charity-2020-5935",
+    "candidate": "RAFFJ--352",
+    "donor": "finch-charity",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009016",
+    "amount": 25,
+    "date": 1603090800000
+  },
+  {
+    "id": "raffj-352-wireman-michael-2020-5936",
+    "candidate": "RAFFJ--352",
+    "donor": "wireman-michael",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009013",
+    "amount": 25,
+    "date": 1602745200000
+  },
+  {
+    "id": "delvj-352-overtuf-doug-2020-5937",
+    "candidate": "DELVJ  352",
+    "donor": "overtuf-doug",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009090",
+    "amount": 250,
+    "date": 1603263600000
+  },
+  {
+    "id": "klipb-336-council-of-police-pac-2020-5938",
+    "candidate": "KLIPB  336",
+    "donor": "council-of-police-pac",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Non Partisan",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009110",
+    "amount": 500,
+    "date": 1603263600000
+  },
+  {
+    "id": "delvj-352-boss-patrick-2020-5939",
+    "candidate": "DELVJ  352",
+    "donor": "boss-patrick",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009093",
+    "amount": 250,
+    "date": 1603263600000
+  },
+  {
+    "id": "klipb-336-puyallup-tribe-of-indians-2020-5940",
+    "candidate": "KLIPB  336",
+    "donor": "puyallup-tribe-of-indians",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Non Partisan",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009124",
+    "amount": 1000,
+    "date": 1603090800000
+  },
+  {
+    "id": "dozip-361-waca-pac-2020-5941",
+    "candidate": "DOZIP  361",
+    "donor": "waca-pac",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009129",
+    "amount": 500,
+    "date": 1603177200000
+  },
+  {
+    "id": "dozip-361-carney-badley-spellman-ps-2020-5942",
+    "candidate": "DOZIP  361",
+    "donor": "carney-badley-spellman-ps",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009129",
+    "amount": 1000,
+    "date": 1603177200000
+  },
+  {
+    "id": "dozip-361-wa-state-tree-fruit-association-2020-5943",
+    "candidate": "DOZIP  361",
+    "donor": "wa-state-tree-fruit-association",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009129",
+    "amount": 500,
+    "date": 1603177200000
+  },
+  {
+    "id": "klipb-336-gun-owners-action-league-of-wa-2020-5944",
+    "candidate": "KLIPB  336",
+    "donor": "gun-owners-action-league-of-wa",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Non Partisan",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009124",
+    "amount": 150,
+    "date": 1603090800000
+  },
+  {
+    "id": "dozip-361-mader-edie-2020-5945",
+    "candidate": "DOZIP  361",
+    "donor": "mader-edie",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009129",
+    "amount": 250,
+    "date": 1603177200000
+  },
+  {
+    "id": "dozip-361-mader-steve-2020-5946",
+    "candidate": "DOZIP  361",
+    "donor": "mader-steve",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009129",
+    "amount": 250,
+    "date": 1603177200000
+  },
+  {
+    "id": "dozip-361-pse-seiu-1948-political-fund-campaign-2020-5947",
+    "candidate": "DOZIP  361",
+    "donor": "pse-seiu-1948-political-fund-campaign",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009129",
+    "amount": 500,
+    "date": 1603177200000
+  },
+  {
+    "id": "dozip-361-revell-steve-2020-5948",
+    "candidate": "DOZIP  361",
+    "donor": "revell-steve",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009129",
+    "amount": 250,
+    "date": 1603177200000
+  },
+  {
+    "id": "dozip-361-small-contributions-2020-5949",
+    "candidate": "DOZIP  361",
+    "donor": "small-contributions",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Republican",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 2  persons.",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009129",
+    "amount": 50,
+    "date": 1603177200000
+  },
+  {
+    "id": "klicm-362-west-coast-seafood-processors-assocation-pac-2020-5950",
+    "candidate": "KLICM--362",
+    "donor": "west-coast-seafood-processors-assocation-pac",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009146",
+    "amount": 500,
+    "date": 1603263600000
+  },
+  {
+    "id": "klicm-362-gun-owners-action-league-2020-5951",
+    "candidate": "KLICM--362",
+    "donor": "gun-owners-action-league",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009146",
+    "amount": 150,
+    "date": 1603263600000
+  },
+  {
+    "id": "klicm-362-evergreen-capital-trust-2020-5952",
+    "candidate": "KLICM--362",
+    "donor": "evergreen-capital-trust",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009146",
+    "amount": 500,
+    "date": 1603263600000
+  },
+  {
+    "id": "klicm-362-delta-dental-of-washington-2020-5953",
+    "candidate": "KLICM--362",
+    "donor": "delta-dental-of-washington",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009146",
+    "amount": 1000,
+    "date": 1603263600000
+  },
+  {
+    "id": "klicm-362-hospitals-for-a-healthy-future-pac-2020-5954",
+    "candidate": "KLICM--362",
+    "donor": "hospitals-for-a-healthy-future-pac",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009146",
+    "amount": 1000,
+    "date": 1603263600000
+  },
+  {
+    "id": "klicm-362-copeland-jason-2020-5955",
+    "candidate": "KLICM--362",
+    "donor": "copeland-jason",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009134",
+    "amount": 100,
+    "date": 1603177200000
+  },
+  {
+    "id": "klicm-362-washington-electric-cooperative-pac-2020-5956",
+    "candidate": "KLICM--362",
+    "donor": "washington-electric-cooperative-pac",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009146",
+    "amount": 250,
+    "date": 1603263600000
+  },
+  {
+    "id": "klicm-362-small-contributions-2020-5957",
+    "candidate": "KLICM--362",
+    "donor": "small-contributions",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Republican",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 2  persons.",
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009146",
+    "amount": 50,
+    "date": 1603263600000
+  },
+  {
+    "id": "boehm-336-pemco-mutual-insurance-company-2020-5958",
+    "candidate": "BOEHM  336",
+    "donor": "pemco-mutual-insurance-company",
+    "electionyear": "2020",
+    "donation_type": "Business",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009350",
+    "amount": 300,
+    "date": 1603090800000
+  },
+  {
+    "id": "boehm-336-puyallup-tribe-of-indians-2020-5959",
+    "candidate": "BOEHM  336",
+    "donor": "puyallup-tribe-of-indians",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009350",
+    "amount": 1000,
+    "date": 1603090800000
+  },
+  {
+    "id": "boehm-336-balmer-connie-2020-5960",
+    "candidate": "BOEHM  336",
+    "donor": "balmer-connie",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009350",
+    "amount": 250,
+    "date": 1603090800000
+  },
+  {
+    "id": "boehm-336-chevron-policy-publ-affairs-2020-5961",
+    "candidate": "BOEHM  336",
+    "donor": "chevron-policy-publ-affairs",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009350",
+    "amount": 1000,
+    "date": 1603090800000
+  },
+  {
+    "id": "boehm-336-pse-seiu-1948-2020-5962",
+    "candidate": "BOEHM  336",
+    "donor": "pse-seiu-1948",
+    "electionyear": "2020",
+    "donation_type": "Union",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009350",
+    "amount": 500,
+    "date": 1603090800000
+  },
+  {
+    "id": "resed-362-cultivating-leadership-pac-2020-5963",
+    "candidate": "RESED--362",
+    "donor": "cultivating-leadership-pac",
+    "electionyear": "2020",
+    "donation_type": "Political Action Committee",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009362",
+    "amount": 1000,
+    "date": 1603177200000
+  },
+  {
+    "id": "resed-362-wa-federation-of-state-employees-ssf-2020-5964",
+    "candidate": "RESED--362",
+    "donor": "wa-federation-of-state-employees-ssf",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009362",
+    "amount": 1000,
+    "date": 1603177200000
+  },
+  {
+    "id": "resed-362-inlandboatsmens-union-psr-defense-committee-2020-5965",
+    "candidate": "RESED--362",
+    "donor": "inlandboatsmens-union-psr-defense-committee",
+    "electionyear": "2020",
+    "donation_type": "Other",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009362",
+    "amount": 300,
+    "date": 1603177200000
+  },
+  {
+    "id": "resed-362-aft-washington-cope-2020-5966",
+    "candidate": "RESED--362",
+    "donor": "aft-washington-cope",
+    "electionyear": "2020",
+    "donation_type": "Self",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009362",
+    "amount": 500,
+    "date": 1603177200000
+  },
+  {
+    "id": "raffj-352-perkins-george-2020-5967",
+    "candidate": "RAFFJ--352",
+    "donor": "perkins-george",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009644",
+    "amount": 50,
+    "date": 1603263600000
+  },
+  {
+    "id": "raffj-352-rodriquez-jennifer-2020-5968",
+    "candidate": "RAFFJ--352",
+    "donor": "rodriquez-jennifer",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009644",
+    "amount": 500,
+    "date": 1603263600000
+  },
+  {
+    "id": "baums-301-welch-jessica-ms-2020-5969",
+    "candidate": "BAUMS--301",
+    "donor": "welch-jessica-ms",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009645",
+    "amount": 50,
+    "date": 1603177200000
+  },
+  {
+    "id": "raffj-352-deichman-joann-2020-5970",
+    "candidate": "RAFFJ--352",
+    "donor": "deichman-joann",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Democratic",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009639",
+    "amount": 150,
+    "date": 1603350000000
+  },
+  {
+    "id": "mckaw-338-watts-darla-ms-2020-5971",
+    "candidate": "MCKAW  338",
+    "donor": "watts-darla-ms",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009716",
+    "amount": 500,
+    "date": 1603177200000
+  },
+  {
+    "id": "mckaw-338-watts-loren-mr-2020-5972",
+    "candidate": "MCKAW  338",
+    "donor": "watts-loren-mr",
+    "electionyear": "2020",
+    "donation_type": "Individual",
+    "party": "Republican",
+    "cash": true,
+    "report": "https://web.pdc.wa.gov/rptimg/default.aspx?batchnumber=101009716",
+    "amount": 500,
+    "date": 1603177200000
   }
 ]
