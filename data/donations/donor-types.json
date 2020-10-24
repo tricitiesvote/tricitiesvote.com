@@ -120,8 +120,8 @@
     "id": "dozip-361-individual",
     "candidate": "DOZIP  361",
     "donor_type": "Individual",
-    "total_donated": 60110,
-    "total_cash": 60110,
+    "total_donated": 60210,
+    "total_cash": 60210,
     "total_in_kind": 0,
     "donations": [
       "dozip-361-davis-glynn-2020-6",
@@ -443,7 +443,8 @@
       "dozip-361-ledford-donna-2020-5922",
       "dozip-361-mader-edie-2020-5945",
       "dozip-361-mader-steve-2020-5946",
-      "dozip-361-revell-steve-2020-5948"
+      "dozip-361-revell-steve-2020-5948",
+      "dozip-361-laib-shane-2020-5973"
     ]
   },
   {
@@ -3149,8 +3150,8 @@
     "id": "reges-354-individual",
     "candidate": "REGES  354",
     "donor_type": "Individual",
-    "total_donated": 23104,
-    "total_cash": 22533,
+    "total_donated": 23364,
+    "total_cash": 22793,
     "total_in_kind": 571,
     "donations": [
       "reges-354-shir-regev-2020-281",
@@ -3478,7 +3479,12 @@
       "reges-354-vaughn-cynthia-2020-5906",
       "reges-354-baker-carl-2020-5907",
       "reges-354-wise-barbara-2020-5908",
-      "reges-354-hansen-daniel-2020-5909"
+      "reges-354-hansen-daniel-2020-5909",
+      "reges-354-veysey-wendy-2020-5974",
+      "reges-354-wireman-michael-2020-5975",
+      "reges-354-murray-christopher-2020-5976",
+      "reges-354-mikaelian-shanna-2020-5978",
+      "reges-354-glant-bruce-2020-5979"
     ]
   },
   {
@@ -6218,8 +6224,8 @@
     "id": "baums-301-individual",
     "candidate": "BAUMS--301",
     "donor_type": "Individual",
-    "total_donated": 20272,
-    "total_cash": 13040,
+    "total_donated": 20322,
+    "total_cash": 13090,
     "total_in_kind": 7232,
     "donations": [
       "baums-301-benjamin-charlotte-ms-2020-1893",
@@ -6266,7 +6272,8 @@
       "baums-301-easterday-cody-mr-2020-5405",
       "baums-301-rehm-daniel-mr-2020-5911",
       "baums-301-smiley-tiffany-ms-2020-5912",
-      "baums-301-welch-jessica-ms-2020-5969"
+      "baums-301-welch-jessica-ms-2020-5969",
+      "baums-301-fifer-kristen-ms-2020-5980"
     ]
   },
   {
@@ -6362,14 +6369,15 @@
     "id": "reges-354-party",
     "candidate": "REGES  354",
     "donor_type": "Party",
-    "total_donated": 2620,
-    "total_cash": 1250,
+    "total_donated": 3620,
+    "total_cash": 2250,
     "total_in_kind": 1370,
     "donations": [
       "reges-354-washington-state-democrats-2020-2635",
       "reges-354-washington-state-democrats-2020-2636",
       "reges-354-benton-county-democratic-central-committee-2020-2643",
-      "reges-354-8th-legislative-district-democratic-committee-2020-2912"
+      "reges-354-8th-legislative-district-democratic-committee-2020-2912",
+      "reges-354-8th-legislative-district-democratic-committee-2020-5977"
     ]
   },
   {
@@ -6698,15 +6706,17 @@
     "id": "peckl-301-individual",
     "candidate": "PECKL  301",
     "donor_type": "Individual",
-    "total_donated": 1700,
-    "total_cash": 1700,
+    "total_donated": 2950,
+    "total_cash": 2950,
     "total_in_kind": 0,
     "donations": [
       "peckl-301-conner-kelly-m-2020-4313",
       "peckl-301-sheurerman-richard-2020-5323",
       "peckl-301-musser-harold-2020-5365",
       "peckl-301-tippett-bob-2020-5385",
-      "peckl-301-musser-scott-2020-5389"
+      "peckl-301-musser-scott-2020-5389",
+      "peckl-301-ray-ed-2020-5981",
+      "peckl-301-materola-david-2020-5982"
     ]
   },
   {

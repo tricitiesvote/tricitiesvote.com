@@ -20269,8 +20269,8 @@
     "candidate": "REGES  354",
     "name": "Wireman Michael",
     "city": "Richland",
-    "total_donated": 202,
-    "total_cash": 202,
+    "total_donated": 227,
+    "total_cash": 227,
     "total_in_kind": 0,
     "donations": [
       "reges-354-wireman-michael-2020-1752",
@@ -20281,7 +20281,8 @@
       "reges-354-wireman-michael-2020-5060",
       "reges-354-wireman-michael-2020-5372",
       "reges-354-wireman-michael-2020-5896",
-      "reges-354-wireman-michael-2020-5898"
+      "reges-354-wireman-michael-2020-5898",
+      "reges-354-wireman-michael-2020-5975"
     ]
   },
   {
@@ -27824,13 +27825,14 @@
     "candidate": "REGES  354",
     "name": "Glant Bruce",
     "city": "Mercer Island",
-    "total_donated": 350,
-    "total_cash": 350,
+    "total_donated": 450,
+    "total_cash": 450,
     "total_in_kind": 0,
     "donations": [
       "reges-354-glant-bruce-2020-2616",
       "reges-354-glant-bruce-2020-3656",
-      "reges-354-glant-bruce-2020-5894"
+      "reges-354-glant-bruce-2020-5894",
+      "reges-354-glant-bruce-2020-5979"
     ]
   },
   {
@@ -30660,11 +30662,12 @@
     "candidate": "REGES  354",
     "name": "8th Legislative District Democratic Committee",
     "city": "Richland",
-    "total_donated": 250,
-    "total_cash": 250,
+    "total_donated": 1250,
+    "total_cash": 1250,
     "total_in_kind": 0,
     "donations": [
-      "reges-354-8th-legislative-district-democratic-committee-2020-2912"
+      "reges-354-8th-legislative-district-democratic-committee-2020-2912",
+      "reges-354-8th-legislative-district-democratic-committee-2020-5977"
     ]
   },
   {
@@ -47617,11 +47620,12 @@
     "candidate": "REGES  354",
     "name": "Mikaelian Shanna",
     "city": "Renton",
-    "total_donated": 50,
-    "total_cash": 50,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "donations": [
-      "reges-354-mikaelian-shanna-2020-5371"
+      "reges-354-mikaelian-shanna-2020-5371",
+      "reges-354-mikaelian-shanna-2020-5978"
     ]
   },
   {
@@ -47709,11 +47713,12 @@
     "candidate": "REGES  354",
     "name": "Murray Christopher",
     "city": "Richland",
-    "total_donated": 39,
-    "total_cash": 39,
+    "total_donated": 74,
+    "total_cash": 74,
     "total_in_kind": 0,
     "donations": [
-      "reges-354-murray-christopher-2020-5387"
+      "reges-354-murray-christopher-2020-5387",
+      "reges-354-murray-christopher-2020-5976"
     ]
   },
   {
@@ -50250,6 +50255,71 @@
     "total_in_kind": 0,
     "donations": [
       "mckaw-338-watts-loren-mr-2020-5972"
+    ]
+  },
+  {
+    "id": "dozip-361-laib-shane",
+    "donor": "laib-shane",
+    "candidate": "DOZIP  361",
+    "name": "Laib Shane",
+    "city": "Walla Walla",
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "donations": [
+      "dozip-361-laib-shane-2020-5973"
+    ]
+  },
+  {
+    "id": "reges-354-veysey-wendy",
+    "donor": "veysey-wendy",
+    "candidate": "REGES  354",
+    "name": "Veysey Wendy",
+    "city": "Kennewick",
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "donations": [
+      "reges-354-veysey-wendy-2020-5974"
+    ]
+  },
+  {
+    "id": "baums-301-fifer-kristen-ms",
+    "donor": "fifer-kristen-ms",
+    "candidate": "BAUMS--301",
+    "name": "Fifer Kristen Ms",
+    "city": "Pasco",
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "donations": [
+      "baums-301-fifer-kristen-ms-2020-5980"
+    ]
+  },
+  {
+    "id": "peckl-301-ray-ed",
+    "donor": "ray-ed",
+    "candidate": "PECKL  301",
+    "name": "Ray Ed",
+    "city": "Pasco",
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "donations": [
+      "peckl-301-ray-ed-2020-5981"
+    ]
+  },
+  {
+    "id": "peckl-301-materola-david",
+    "donor": "materola-david",
+    "candidate": "PECKL  301",
+    "name": "Materola David",
+    "city": "Pasco",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "peckl-301-materola-david-2020-5982"
     ]
   }
 ]

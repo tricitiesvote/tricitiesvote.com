@@ -33,7 +33,6 @@ module.exports = new Promise((resolve, reject) => {
 
         // check to see if we already have the candidate
         if (!_.includes(filer_ids, row.filer_id)) {
-
           const candidateNames = {
             'BEAVJ  337': 'James R. Beaver',
             'DELVJ  352': 'Jerome Delvin',
@@ -53,7 +52,7 @@ module.exports = new Promise((resolve, reject) => {
             'LEHRK--302': 'Kim Lehrman',
             'RAFFJ--352': 'Justin Raffa',
             'BROWS  337': 'Sharon Brown',
-            'MCKAW  337': 'Will McKay',
+            'MCKAW  338': 'Will McKay',
             'PECKL  301': 'Brad Peck',
             'COBUC--814': 'Carly Coburn',
             'STANL--354': 'Larry Stanley',

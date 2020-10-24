@@ -372,9 +372,9 @@
   {
     "id": "dozip-361-funding",
     "candidate": "DOZIP  361",
-    "unique_donors": 428,
-    "total_raised": 137350,
-    "total_cash": 130600,
+    "unique_donors": 429,
+    "total_raised": 137450,
+    "total_cash": 130700,
     "total_in_kind": 6750,
     "donors": [
       "dozip-361-davis-glynn",
@@ -710,7 +710,8 @@
       "dozip-361-mader-edie",
       "dozip-361-mader-steve",
       "dozip-361-pse-seiu-1948-political-fund-campaign",
-      "dozip-361-revell-steve"
+      "dozip-361-revell-steve",
+      "dozip-361-laib-shane"
     ],
     "donations": [
       "dozip-361-davis-glynn-2020-6",
@@ -1140,7 +1141,8 @@
       "dozip-361-mader-steve-2020-5946",
       "dozip-361-pse-seiu-1948-political-fund-campaign-2020-5947",
       "dozip-361-revell-steve-2020-5948",
-      "dozip-361-small-contributions-2020-5949"
+      "dozip-361-small-contributions-2020-5949",
+      "dozip-361-laib-shane-2020-5973"
     ]
   },
   {
@@ -5502,9 +5504,9 @@
   {
     "id": "reges-354-funding",
     "candidate": "REGES  354",
-    "unique_donors": 363,
-    "total_raised": 32041,
-    "total_cash": 30100,
+    "unique_donors": 369,
+    "total_raised": 33301,
+    "total_cash": 31360,
     "total_in_kind": 1941,
     "donors": [
       "reges-354-shir-regev",
@@ -5683,7 +5685,8 @@
       "reges-354-lewis-jerry",
       "reges-354-claybrook-mary",
       "reges-354-whittier-adam",
-      "reges-354-wise-barbara"
+      "reges-354-wise-barbara",
+      "reges-354-veysey-wendy"
     ],
     "donations": [
       "reges-354-shir-regev-2020-281",
@@ -6048,7 +6051,13 @@
       "reges-354-baker-carl-2020-5907",
       "reges-354-wise-barbara-2020-5908",
       "reges-354-hansen-daniel-2020-5909",
-      "reges-354-small-contributions-2020-5910"
+      "reges-354-small-contributions-2020-5910",
+      "reges-354-veysey-wendy-2020-5974",
+      "reges-354-wireman-michael-2020-5975",
+      "reges-354-murray-christopher-2020-5976",
+      "reges-354-8th-legislative-district-democratic-committee-2020-5977",
+      "reges-354-mikaelian-shanna-2020-5978",
+      "reges-354-glant-bruce-2020-5979"
     ]
   },
   {
@@ -9845,9 +9854,9 @@
   {
     "id": "baums-301-funding",
     "candidate": "BAUMS--301",
-    "unique_donors": 58,
-    "total_raised": 27672,
-    "total_cash": 18440,
+    "unique_donors": 59,
+    "total_raised": 27722,
+    "total_cash": 18490,
     "total_in_kind": 9232,
     "donors": [
       "baums-301-benjamin-charlotte-ms",
@@ -9903,7 +9912,8 @@
       "baums-301-stephen-bauman",
       "baums-301-rehm-daniel-mr",
       "baums-301-smiley-tiffany-ms",
-      "baums-301-welch-jessica-ms"
+      "baums-301-welch-jessica-ms",
+      "baums-301-fifer-kristen-ms"
     ],
     "donations": [
       "baums-301-benjamin-charlotte-ms-2020-1893",
@@ -9963,7 +9973,8 @@
       "baums-301-anonymous-contributions-2020-5710",
       "baums-301-rehm-daniel-mr-2020-5911",
       "baums-301-smiley-tiffany-ms-2020-5912",
-      "baums-301-welch-jessica-ms-2020-5969"
+      "baums-301-welch-jessica-ms-2020-5969",
+      "baums-301-fifer-kristen-ms-2020-5980"
     ]
   },
   {
@@ -10010,9 +10021,9 @@
   {
     "id": "peckl-301-funding",
     "candidate": "PECKL  301",
-    "unique_donors": 8,
-    "total_raised": 4091,
-    "total_cash": 4091,
+    "unique_donors": 10,
+    "total_raised": 5341,
+    "total_cash": 5341,
     "total_in_kind": 0,
     "donors": [
       "peckl-301-conner-kelly-m",
@@ -10021,7 +10032,9 @@
       "peckl-301-musser-harold",
       "peckl-301-tippett-bob",
       "peckl-301-musser-scott",
-      "peckl-301-peck-lowell-b-brad-peck"
+      "peckl-301-peck-lowell-b-brad-peck",
+      "peckl-301-ray-ed",
+      "peckl-301-materola-david"
     ],
     "donations": [
       "peckl-301-conner-kelly-m-2020-4313",
@@ -10031,7 +10044,9 @@
       "peckl-301-tippett-bob-2020-5385",
       "peckl-301-musser-scott-2020-5389",
       "peckl-301-peck-lowell-b-brad-peck-2020-5608",
-      "peckl-301-peck-lowell-b-brad-peck-2020-5620"
+      "peckl-301-peck-lowell-b-brad-peck-2020-5620",
+      "peckl-301-ray-ed-2020-5981",
+      "peckl-301-materola-david-2020-5982"
     ]
   }
 ]

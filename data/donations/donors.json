@@ -468,15 +468,17 @@
     "name": "Ray Ed",
     "city": "Pasco",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 350,
+    "total_cash": 350,
     "total_in_kind": 0,
     "funded": [
-      "DOZIP  361"
+      "DOZIP  361",
+      "PECKL  301"
     ],
     "donations": [
-      "dozip-361-ray-ed-2020-27"
+      "dozip-361-ray-ed-2020-27",
+      "peckl-301-ray-ed-2020-5981"
     ]
   },
   {
@@ -15956,15 +15958,17 @@
     "name": "Laib Shane",
     "city": "Walla Walla",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 2,
+    "total_donated": 150,
+    "total_cash": 150,
     "total_in_kind": 0,
     "funded": [
-      "RUDES  504"
+      "RUDES  504",
+      "DOZIP  361"
     ],
     "donations": [
-      "rudes-504-laib-shane-2020-1057"
+      "rudes-504-laib-shane-2020-1057",
+      "dozip-361-laib-shane-2020-5973"
     ]
   },
   {
@@ -23702,9 +23706,9 @@
     "name": "Wireman Michael",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 10,
-    "total_donated": 227,
-    "total_cash": 227,
+    "donations_count": 11,
+    "total_donated": 252,
+    "total_cash": 252,
     "total_in_kind": 0,
     "funded": [
       "REGES  354",
@@ -23720,7 +23724,8 @@
       "reges-354-wireman-michael-2020-5372",
       "reges-354-wireman-michael-2020-5896",
       "reges-354-wireman-michael-2020-5898",
-      "raffj-352-wireman-michael-2020-5936"
+      "raffj-352-wireman-michael-2020-5936",
+      "reges-354-wireman-michael-2020-5975"
     ]
   },
   {
@@ -31926,9 +31931,9 @@
     "name": "Glant Bruce",
     "city": "Mercer Island",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 350,
-    "total_cash": 350,
+    "donations_count": 4,
+    "total_donated": 450,
+    "total_cash": 450,
     "total_in_kind": 0,
     "funded": [
       "REGES  354"
@@ -31936,7 +31941,8 @@
     "donations": [
       "reges-354-glant-bruce-2020-2616",
       "reges-354-glant-bruce-2020-3656",
-      "reges-354-glant-bruce-2020-5894"
+      "reges-354-glant-bruce-2020-5894",
+      "reges-354-glant-bruce-2020-5979"
     ]
   },
   {
@@ -34709,15 +34715,16 @@
     "name": "8th Legislative District Democratic Committee",
     "city": "Richland",
     "type": "Party",
-    "donations_count": 1,
-    "total_donated": 250,
-    "total_cash": 250,
+    "donations_count": 2,
+    "total_donated": 1250,
+    "total_cash": 1250,
     "total_in_kind": 0,
     "funded": [
       "REGES  354"
     ],
     "donations": [
-      "reges-354-8th-legislative-district-democratic-committee-2020-2912"
+      "reges-354-8th-legislative-district-democratic-committee-2020-2912",
+      "reges-354-8th-legislative-district-democratic-committee-2020-5977"
     ]
   },
   {
@@ -51371,15 +51378,16 @@
     "name": "Mikaelian Shanna",
     "city": "Renton",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 2,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
       "REGES  354"
     ],
     "donations": [
-      "reges-354-mikaelian-shanna-2020-5371"
+      "reges-354-mikaelian-shanna-2020-5371",
+      "reges-354-mikaelian-shanna-2020-5978"
     ]
   },
   {
@@ -51435,9 +51443,9 @@
     "name": "Murray Christopher",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 139,
-    "total_cash": 139,
+    "donations_count": 3,
+    "total_donated": 174,
+    "total_cash": 174,
     "total_in_kind": 0,
     "funded": [
       "REGES  354",
@@ -51445,7 +51453,8 @@
     ],
     "donations": [
       "reges-354-murray-christopher-2020-5387",
-      "raffj-352-murray-christopher-2020-5928"
+      "raffj-352-murray-christopher-2020-5928",
+      "reges-354-murray-christopher-2020-5976"
     ]
   },
   {
@@ -53634,6 +53643,54 @@
     ],
     "donations": [
       "mckaw-338-watts-loren-mr-2020-5972"
+    ]
+  },
+  {
+    "id": "veysey-wendy",
+    "name": "Veysey Wendy",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "REGES  354"
+    ],
+    "donations": [
+      "reges-354-veysey-wendy-2020-5974"
+    ]
+  },
+  {
+    "id": "fifer-kristen-ms",
+    "name": "Fifer Kristen Ms",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "BAUMS--301"
+    ],
+    "donations": [
+      "baums-301-fifer-kristen-ms-2020-5980"
+    ]
+  },
+  {
+    "id": "materola-david",
+    "name": "Materola David",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "PECKL  301"
+    ],
+    "donations": [
+      "peckl-301-materola-david-2020-5982"
     ]
   }
 ]
