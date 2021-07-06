@@ -10,12 +10,14 @@ module.exports = () => {
     candidateFiles.length > 0 &&
     !(candidateFiles.length === 1 && candidateFiles[0] === '.DS_Store')
   ) {
-    console.log('candidateFiles.length', candidateFiles.length);
-    console.log('candidateFiles[0]', candidateFiles[0]);
+    // console.log('candidateFiles.length', candidateFiles.length);
+    // console.log('candidateFiles[0]', candidateFiles[0]);
     candidateFiles.forEach(file => {
-      const fileData = fs.readFileSync(path.join(candidatePath, file));
-      const candidateData = JSON.parse(fileData.toString());
-      userCandidates.push(candidateData);
+      if (file.endsWith('json')) {
+        const fileData = fs.readFileSync(path.join(candidatePath, file));
+        const candidateData = JSON.parse(fileData.toString());
+        userCandidates.push(candidateData);
+      }
     });
   }
 

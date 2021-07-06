@@ -35,10 +35,10 @@ module.exports = () => {
     61241, // Kenn council 1
     61243, // Kenn council 3
     61244, // Kenn council 4
-    61248, // Rich council 1
-    61249, // Rich council 2
     61271, // Kenn schools 1
     61272, // Kenn schools 2
+    61248, // Rich council 1
+    61249, // Rich council 2
     61278, // Rich schools 1
   ];
 
@@ -65,8 +65,9 @@ module.exports = () => {
 
         for (const item of data) {
           const statement_md = markdownify.turndown(item.statement.Statement);
-          const pamphletUrl = `${webUrl +
-            electionId}#\/candidates\/${raceId}\/${item.statement.BallotID}`;
+          const pamphletUrl = `${webUrl + electionId}#/candidates/${raceId}/${
+            item.statement.BallotID
+          }`;
           const name = asciify.foldReplacing(item.statement.BallotName);
           // if (name === "Douglas E. McKinley") name = "Doug McKinley"
           // let photo = `data:image/png;base64,${item.statement.Photo}`
@@ -81,7 +82,9 @@ module.exports = () => {
             const saveImageAs = `${saveImagePath}${newFilename}`;
             imageUrl = `${imageUrlPath}${newFilename}`;
             fs.writeFileSync(saveImageAs, buf);
-            console.log(`🌠 ${saveImagePath}${newFilename}`);
+            console.log('🌠', 'Adding photo', `${newFilename}`);
+          } else {
+            console.log('❌', '', `No photo for ${name}`);
           }
 
           const candidate = {
@@ -94,7 +97,11 @@ module.exports = () => {
             image: imageUrl,
           };
           pamphletCandidates.push(candidate);
-          console.log(candidate.candidate_ballot_name);
+          console.log(
+            '➕',
+            '',
+            `${candidate.candidate_ballot_name} candidate data`
+          );
         }
         if (err) {
           console.log(err);

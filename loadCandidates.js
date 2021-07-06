@@ -39,7 +39,7 @@ const main = () => {
 
         // if candidate is in the user set
         if (_.findKey(userCs, { name })) {
-          console.log('user match');
+          console.log('✅', '', `User data match for ${name} `);
           const c = _.findKey(userCs, { name });
           candidate.image = userCs[c].image;
           candidate.pdc_url = userCs[c].pdc_url;
@@ -66,7 +66,7 @@ const main = () => {
 
         // handle candidates not in user set
         if (!_.findKey(userCs, { name })) {
-          console.log('no match');
+          // console.log('❌', '', `No user data for ${name} `);
           const c = _.findKey(userCs, { name });
 
           candidate.image = guideC.image;
@@ -75,6 +75,7 @@ const main = () => {
 
           // find candidates in PDC set to flesh out details
           if (_.findKey(pdcCs, { candidate_fullname: name })) {
+            console.log('➕', '', `Adding data for ${name}`);
             const p = _.findKey(pdcCs, { candidate_fullname: name });
 
             candidate.pdc_url = pdcCs[p].pdc_url;
@@ -87,7 +88,11 @@ const main = () => {
           // handle candidates not in PDC set
           if (!_.findKey(pdcCs, { candidate_fullname: name })) {
             console.warn(
-              chalk.red(name, '— Add uuid, party, office, and pdc_url manually')
+              chalk.red(
+                '⛔️',
+                name,
+                ' — Add uuid, party, office, pdc_url manually'
+              )
             );
             candidate.pdc_url = '';
             candidate.uuid = '';
@@ -106,8 +111,8 @@ const main = () => {
       for (const item of candidates) {
         const candidateData = JSON.stringify(item, null, 2);
         const filePath = `data/candidates-new/${item.electionyear}-${item.slug}.json`;
-        fs.writeFileSync(filePath, candidateData);
         console.log(chalk.green('💾', filePath));
+        fs.writeFileSync(filePath, candidateData);
       }
     });
   });
