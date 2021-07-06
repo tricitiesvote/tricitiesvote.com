@@ -15,14 +15,11 @@ module.exports = new Promise((resolve, reject) => {
     .limit(10000)
     .where(
       `
-      election_year = '2020' AND (
-        jurisdiction_county = 'BENTON' OR 
-        jurisdiction_county = 'FRANKLIN' OR 
-        legislative_district = '16' OR 
-        legislative_district = '08' OR 
-        legislative_district = '09' OR
-        legislative_district = '8' OR 
-        legislative_district = '9'
+      election_year = '2021' AND (
+        jurisdiction = 'CITY OF RICHLAND' OR
+        jurisdiction = 'CITY OF KENNEWICK' OR
+        jurisdiction = 'CITY OF WEST RICHLAND' OR
+        jurisdiction = 'CITY OF PASCO'
         )
     `
     )
@@ -35,29 +32,6 @@ module.exports = new Promise((resolve, reject) => {
         if (!_.includes(filer_ids, row.filer_id)) {
           const candidateNames = {
             'BEAVJ  337': 'James R. Beaver',
-            'DELVJ  352': 'Jerome Delvin',
-            'WALSM  362': 'Maureen Walsh',
-            'MULLR  301': 'Rocky Mullen',
-            'RUDES  504': 'Skyler Rude',
-            'BOEHM  336': 'Matt Boehnke',
-            'KLIPB  336': 'Brad Klippert',
-            'DOZIP  361': 'Perry Dozier',
-            'REGES  354': 'Shir Regev',
-            'RESED--362': 'Danielle Garbe Reser',
-            'CHVAF--362': 'Frances Chvatal',
-            'KLICM--362': 'Mark Klicker',
-            'PERAA--301': 'Ana Ruiz Peralta',
-            'LANDD  352': 'Donnie Landsman',
-            'PETED  338': 'Dave Petersen',
-            'LEHRK--302': 'Kim Lehrman',
-            'RAFFJ--352': 'Justin Raffa',
-            'BROWS  337': 'Sharon Brown',
-            'MCKAW  338': 'Will McKay',
-            'PECKL  301': 'Brad Peck',
-            'COBUC--814': 'Carly Coburn',
-            'STANL--354': 'Larry Stanley',
-            'DYE M  347': 'Mary Dye',
-            'BORDB--163': 'Brett Borden',
           };
 
           const candidate = {
@@ -73,7 +47,7 @@ module.exports = new Promise((resolve, reject) => {
           };
           filer_ids.push(row.filer_id);
           pdcCandidates.push(candidate);
-          // console.log(candidate.candidate_fullname);
+          console.log(candidate.candidate_fullname);
         }
       }
       resolve(pdcCandidates);
