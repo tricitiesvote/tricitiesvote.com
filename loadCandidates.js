@@ -39,7 +39,7 @@ const main = () => {
 
         // if candidate is in the user set
         if (_.findKey(userCs, { name })) {
-          console.log('✅', '', `User data match for ${name} `);
+          // console.log('✅', `User data match for ${name} `);
           const c = _.findKey(userCs, { name });
           candidate.image = userCs[c].image;
           candidate.pdc_url = userCs[c].pdc_url;
@@ -66,7 +66,7 @@ const main = () => {
 
         // handle candidates not in user set
         if (!_.findKey(userCs, { name })) {
-          // console.log('❌', '', `No user data for ${name} `);
+          // console.log('❌', `No user data for ${name} `);
           const c = _.findKey(userCs, { name });
 
           candidate.image = guideC.image;
@@ -75,7 +75,7 @@ const main = () => {
 
           // find candidates in PDC set to flesh out details
           if (_.findKey(pdcCs, { candidate_fullname: name })) {
-            console.log('➕', '', `Adding data for ${name}`);
+            console.log('➕', `Adding data for ${name}`);
             const p = _.findKey(pdcCs, { candidate_fullname: name });
 
             candidate.pdc_url = pdcCs[p].pdc_url;
@@ -87,12 +87,9 @@ const main = () => {
 
           // handle candidates not in PDC set
           if (!_.findKey(pdcCs, { candidate_fullname: name })) {
+            // console.log('candidate_fullname', name, 'not found');
             console.warn(
-              chalk.red(
-                '⛔️',
-                name,
-                ' — Add uuid, party, office, pdc_url manually'
-              )
+              chalk.red('⛔️', name, '— Add uuid to loadPdcCandidates.js')
             );
             candidate.pdc_url = '';
             candidate.uuid = '';

@@ -9,6 +9,49 @@ module.exports = new Promise((resolve, reject) => {
   const pdcCandidates = [];
   const filer_ids = [];
 
+  const candidateNames = {
+    'PHILA  301': 'Amy Phillips',
+    'BYRDA--353': 'Audra Byrd',
+    'MCKAW  337': 'Bill McKay',
+    // bob thompson
+    'ANDEB--503': 'Brandon Anderson',
+    'MEEHB--336': 'Bryan Meehan-Verhei',
+    'FITZC--352': 'Chauné Fitzgerald',
+    'GARCD--352': 'Danica Garcia',
+    'NIELD--150': 'David Nielsen',
+    'BRITD  336': 'Don Britain',
+    // elijah stanfield
+    // erin steinert
+    // gabe galbraith
+    'BULLG--338': 'Gary Bullert',
+    'WIREE  352': 'Ginger Wireman', // not added
+    'CRAWG--338': 'Gretl Crawford',
+    'CLEAH  352': 'Heather Cleary',
+    'BROWI--307': 'Irving Brown, Sr.',
+    // jacob finkbeiner
+    // james langford
+    'LOHRJ--336': 'Jason Lohr',
+    'JONEJH 352': 'Jhoanna Jones',
+    'KENNJ--302': 'John Kennedy',
+    // john trumbo
+    'MORAK  353': 'Kate Moran', // not added
+    'SHORK--336': 'Ken Short',
+    'PERAL  337': 'Leo Perales',
+    'ANDEL--337': 'Loren Anderson', // not added
+    'BORIM--517': 'Marianne Boring',
+    'VALEM--338': 'Micah Valentine',
+    'ALVAM  352': 'Michael Alvarez', // not added
+    'ANDRM--301': 'Michelle Andres',
+    // mike luzzo
+    'TORRN--301': 'Nikki Torres',
+    'LUKSR  352': 'Ryan Lukson',
+    'RODGS--639': 'Scott Rodgers',
+    'LEE SR 337': 'Steve Lee', // not added
+    // steven martinez
+    // theresa richardson
+    // uby creek
+  };
+
   consumer
     .query()
     .withDataset('7qr9-q2c9') // campaign finance reports
@@ -30,38 +73,6 @@ module.exports = new Promise((resolve, reject) => {
 
         // check to see if we already have the candidate
         if (!_.includes(filer_ids, row.filer_id)) {
-          const candidateNames = {
-            'ALVAM  352': 'Michael Alvarez',
-            'PHILA  301': 'Amy Phillips',
-            'BYRDA--353': 'Audra Byrd',
-            'GARCD--352': 'Danica Garcia',
-            'NIELD--150': 'David Nielsen',
-            'BULLG--338': 'Gary Bullert',
-            'CLEAH  352': 'Heather Cleary',
-            'BROWI--307': 'Irving Brown, Sr.',
-            'KENNJ--302': 'John Kennedy',
-            'PERAL  337': 'Leo Perales',
-            'VALEM--338': 'Micah Valentine',
-            'ANDRM--301': 'Michelle Andres',
-            'TORRN--301': 'Nikki Torres',
-            'RODGS--639': 'Scott Rodgers',
-            'FITZC--352': 'Chauné Fitzgerald',
-            // 'FITZC--352': "CHAUNE' FITZGERALD",
-            'SHORK--336': 'Ken Short',
-            'LEE SR 337': 'Steve Lee',
-            'BRITD  336': 'Don Britain',
-            'MCKAW  337': 'Bill McKay',
-            'WIREE  352': 'Ginger Wireman',
-            'LUKSR  352': 'Ryan Lukson',
-            'LOHRJ--336': 'Jason Lohr',
-            'MEEHB--336': 'Bryan Meehan-Verhei',
-            'CRAWG--338': 'Gretl Crawford',
-            'ANDEL--337': 'Loren Anderson',
-            'JONEJH 352': 'Jhoanna R. Jones',
-            'BORIM--517': 'Marianne Boring',
-            'MORAK  353': 'Kate Moran',
-          };
-
           const candidate = {
             pdc_url: `https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=${row.filer_id}&election_year=2021`,
             candidate_filer_id: row.filer_id,
@@ -76,11 +87,11 @@ module.exports = new Promise((resolve, reject) => {
           };
           filer_ids.push(row.filer_id);
           pdcCandidates.push(candidate);
-          console.log(
-            '📇',
-            candidate.candidate_filer_id,
-            candidate.candidate_fullname
-          );
+          // console.log(
+          //   '📇',
+          //   candidate.candidate_filer_id,
+          //   candidate.candidate_fullname
+          // );
         }
       }
       resolve(pdcCandidates);

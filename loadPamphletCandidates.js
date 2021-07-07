@@ -57,7 +57,7 @@ module.exports = () => {
       const raceUrl = `${apiUrl + electionId}&r=${raceId}&la=&c=${
         countyIds[i]
       }`;
-      console.log('raceUrl', raceUrl);
+      // console.log('raceUrl', raceUrl);
       const site = fermata.json(raceUrl);
 
       site.get(function(err, data) {
@@ -68,8 +68,18 @@ module.exports = () => {
           const pamphletUrl = `${webUrl + electionId}#/candidates/${raceId}/${
             item.statement.BallotID
           }`;
-          const name = asciify.foldReplacing(item.statement.BallotName);
-          // if (name === "Douglas E. McKinley") name = "Doug McKinley"
+          let name = asciify.foldReplacing(item.statement.BallotName);
+          if (name === "CHAUNE' FITZGERALD") name = 'Chauné Fitzgerald';
+          if (name === 'Jhoanna R. Jones') name = 'Jhoanna Jones';
+          if (name === 'Amy Freeman Phillips') name = 'Amy Phillips';
+          if (name === 'John H. Trumbo') name = 'John Trumbo';
+          if (name === 'MIKE LUZZO') name = 'Mike Luzzo';
+          if (name === 'THERESA RICHARDSON') name = 'Theresa Richardson';
+          if (name === 'Leo A. Perales') name = 'Leo Perales';
+          if (name === 'Steven X Martinez') name = 'Steven Martinez';
+          if (name === 'Irving L. Brown Sr.') name = 'Irving Brown, Sr.';
+          if (name === 'Scott E. Rodgers') name = 'Scott Rodgers';
+          if (name === 'UBY CREEK') name = 'Uby Creek';
           // let photo = `data:image/png;base64,${item.statement.Photo}`
           // console.log('photo', item.statement.Photo);
 
@@ -81,10 +91,12 @@ module.exports = () => {
             const newFilename = `${filename}-original.png`;
             const saveImageAs = `${saveImagePath}${newFilename}`;
             imageUrl = `${imageUrlPath}${newFilename}`;
-            fs.writeFileSync(saveImageAs, buf);
-            console.log('🌠', 'Adding photo', `${newFilename}`);
+            // TODO: re-enable photo write
+            // fs.writeFileSync(saveImageAs, buf);
+
+            // console.log('🌠', 'Adding photo', `${newFilename}`);
           } else {
-            console.log('❌', '', `No photo for ${name}`);
+            console.log('❌', `No photo for ${name}`);
           }
 
           const candidate = {
