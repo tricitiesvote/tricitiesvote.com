@@ -1,12 +1,10 @@
 backend:
   name: github
   repo: tumbleweird/tricitiesvote.com
-  branch: master
+  branch: '2021'
 
 local_backend: true
-
-publish-mode: editorial_workflow
-
+publish_mode: editorial_workflow
 media_folder: 'static/images'
 public_folder: 'images'
 
@@ -86,7 +84,7 @@ collections:
     fields:
       - { 
         name: title, label: 'Candidate name', required: true
-      }
+        }
       - {
           name: candidate,
           label: Candidate,
@@ -263,5 +261,5 @@ collections:
         searchFields: ['electionyear', 'office', 'type'],
         valueField: 'uuid',
         displayFields: ['electionyear', 'office', 'type'],
-      }
-      
+        }
+
