@@ -33,21 +33,19 @@ const writeData = dataSet => {
 
 consumer
   .query()
-  .withDataset('kv7h-kjye') // donors
+  // .withDataset('kv7h-kjye') // donors 2020 data?
+  .withDataset('2jwd-akfb') // donors 2021 data?
   .limit(10000)
   .where(
     `
-    election_year = '2020' AND (
+    election_year = '2021' AND (
       jurisdiction_county = 'BENTON' OR 
-      jurisdiction_county = 'FRANKLIN' OR 
-      legislative_district = '16' OR 
-      legislative_district = '8' OR 
-      legislative_district = '9'
+      jurisdiction_county = 'FRANKLIN'
       )
   `
   )
   .getRows()
-  .on('success', function (rows) {
+  .on('success', function(rows) {
     rows.forEach((row, i) => {
       const date = Date.parse(row.receipt_date);
       const donationId = slug(

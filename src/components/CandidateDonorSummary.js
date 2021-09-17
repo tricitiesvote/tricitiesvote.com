@@ -15,10 +15,12 @@ const handleClick = e => {
 };
 
 const CandidateDonorSummary = props => {
+  console.log('candidateDonorSummary props', props);
   const { fundraising } = props;
   // console.log(props);
 
-  if (!fundraising || fundraising.donors.length === 0) return '';
+  if (!fundraising || fundraising.donors.length === 0)
+    return <h1>fundddd{fundraising}</h1>;
   const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
   // console.log(donorsSorted);
   return (

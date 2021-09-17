@@ -107,7 +107,8 @@ const main = () => {
     mergeCandidate.then(candidates => {
       for (const item of candidates) {
         const candidateData = JSON.stringify(item, null, 2);
-        const filePath = `data/candidates-new/${item.electionyear}-${item.slug}.json`;
+        // const filePath = `data/candidates-new/${item.electionyear}-${item.slug}.json`;
+        const filePath = `data/candidates/${item.electionyear}-${item.slug}.json`;
         console.log(chalk.green('💾', filePath));
         fs.writeFileSync(filePath, candidateData);
       }

@@ -26,7 +26,8 @@ module.exports = () => {
   // https://voter.votewa.gov/elections/candidate.ashx?e=870&r=61241&la=&c=03
   // https://voter.votewa.gov/elections/candidate.ashx?e={{election_id}}&r={{race_id}}&la=&c=
 
-  const electionId = '870';
+  const electionId = '870'; // 2021 primary
+  // const electionId = '871'; // 2021 general
 
   const apiUrl = `https://voter.votewa.gov/elections/candidate.ashx?e=`;
   const webUrl = `https://voter.votewa.gov/genericvoterguide.aspx?e=`;
@@ -80,8 +81,8 @@ module.exports = () => {
           if (name === 'Irving L. Brown Sr.') name = 'Irving Brown, Sr.';
           if (name === 'Scott E. Rodgers') name = 'Scott Rodgers';
           if (name === 'UBY CREEK') name = 'Uby Creek';
-          // let photo = `data:image/png;base64,${item.statement.Photo}`
-          // console.log('photo', item.statement.Photo);
+          let photo = `data:image/png;base64,${item.statement.Photo}`
+          // console.log('photo for', name, photo);
 
           // Get images base64, convert to file, save it
           let imageUrl = '';
@@ -91,10 +92,10 @@ module.exports = () => {
             const newFilename = `${filename}-original.png`;
             const saveImageAs = `${saveImagePath}${newFilename}`;
             imageUrl = `${imageUrlPath}${newFilename}`;
+            
             // TODO: re-enable photo write
-            // fs.writeFileSync(saveImageAs, buf);
-
-            // console.log('🌠', 'Adding photo', `${newFilename}`);
+            fs.writeFileSync(saveImageAs, buf);
+            console.log('🌠', 'Adding photo', `${newFilename}`);
           } else {
             console.log('❌', `No photo for ${name}`);
           }
