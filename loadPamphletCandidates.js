@@ -26,26 +26,43 @@ module.exports = () => {
   // https://voter.votewa.gov/elections/candidate.ashx?e=870&r=61241&la=&c=03
   // https://voter.votewa.gov/elections/candidate.ashx?e={{election_id}}&r={{race_id}}&la=&c=
 
-  const electionId = '870'; // 2021 primary
-  // const electionId = '871'; // 2021 general
+  const electionId = '871'; // 2021 general
 
   const apiUrl = `https://voter.votewa.gov/elections/candidate.ashx?e=`;
   const webUrl = `https://voter.votewa.gov/genericvoterguide.aspx?e=`;
 
   const bentonRaceIds = [
-    61241, // Kenn council 1
-    61243, // Kenn council 3
-    61244, // Kenn council 4
-    61271, // Kenn schools 1
-    61272, // Kenn schools 2
-    61248, // Rich council 1
-    61249, // Rich council 2
-    61278, // Rich schools 1
+    // these ids have to be changed every primary/general election
+    66322, // Kennewick Council 1
+    66323, // Kennewick Council 2
+    66324, // Kennewick Council 3
+    66308, // Kennewick Council 4
+    66314, // Richland Council 1
+    66313, // Richland Council 2
+    66315, // Richland Council 3
+    66316, // Richland Council 4
+    66312, // Richland Council 7
+    66318, // West Richland Council 1
+    66317, // West Richland Council 2
+    66321, // West Richland Council 3
+    66319, // West Richland Council 4
+    66320, // West Richland Mayor
+    68357, // Kennewick Schools 1
+    68358, // Kennewick Schools 2
+    68367, // Richland Schools 1
+    68366, // Richland Schools 2
+    68368, // Richland Schools 3
   ];
 
   const franklinRaceIds = [
-    63782, // Pasco schools 5
-    63786, // Pasco council 3
+    // these ids have to be changed every primary/general election
+    66435, // Pasco Council 1
+    66436, // Pasco Council 3
+    66437, // Pasco Council 4
+    66438, // Pasco Council 6
+    68476, // Pasco School Director 3
+    68478, // Pasco School Director 4
+    68477, // Pasco School Director 5 
   ];
 
   const countyIds = ['03', '11'];
@@ -71,6 +88,7 @@ module.exports = () => {
           }`;
           let name = asciify.foldReplacing(item.statement.BallotName);
           if (name === "CHAUNE' FITZGERALD") name = 'Chauné Fitzgerald';
+          if (name === "BRENT GERRY") name = 'Brent Gerry';
           if (name === 'Jhoanna R. Jones') name = 'Jhoanna Jones';
           if (name === 'Amy Freeman Phillips') name = 'Amy Phillips';
           if (name === 'John H. Trumbo') name = 'John Trumbo';
@@ -79,6 +97,7 @@ module.exports = () => {
           if (name === 'Leo A. Perales') name = 'Leo Perales';
           if (name === 'Steven X Martinez') name = 'Steven Martinez';
           if (name === 'Irving L. Brown Sr.') name = 'Irving Brown, Sr.';
+          if (name === 'LOREN ANDERSON') name = 'Loren Anderson';
           if (name === 'Scott E. Rodgers') name = 'Scott Rodgers';
           if (name === 'UBY CREEK') name = 'Uby Creek';
           let photo = `data:image/png;base64,${item.statement.Photo}`
@@ -94,8 +113,8 @@ module.exports = () => {
             imageUrl = `${imageUrlPath}${newFilename}`;
             
             // TODO: re-enable photo write
-            fs.writeFileSync(saveImageAs, buf);
-            console.log('🌠', 'Adding photo', `${newFilename}`);
+            // fs.writeFileSync(saveImageAs, buf);
+            // console.log('🌠', 'Adding photo', `${newFilename}`);
           } else {
             console.log('❌', `No photo for ${name}`);
           }

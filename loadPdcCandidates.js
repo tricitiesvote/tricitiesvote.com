@@ -10,13 +10,16 @@ module.exports = new Promise((resolve, reject) => {
   const filer_ids = [];
 
   const candidateNames = {
-    'PHILA  301': 'Amy Phillips',
+    'PHILA  301': 'Amy Phillips', // says not listed?
     'BYRDA--353': 'Audra Byrd',
     'MCKAW  337': 'Bill McKay',
-    // bob thompson
+    'BARAB  301': 'Blanche Barajas',
     'ANDEB--503': 'Brandon Anderson',
+    'GERRB  353': 'Brent Gerry',
     'MEEHB--336': 'Bryan Meehan-Verhei',
     'FITZC--352': 'Chauné Fitzgerald',
+    'MALOC  301': 'Craig Maloney',
+    'LEDEC--219': 'Cynthia Ledesma',
     'GARCD--352': 'Danica Garcia',
     'NIELD--150': 'David Nielsen',
     'BRITD  336': 'Don Britain',
@@ -36,20 +39,30 @@ module.exports = new Promise((resolve, reject) => {
     // john trumbo
     'MORAK  353': 'Kate Moran', // not added
     'SHORK--336': 'Ken Short',
+    'STANL--354': 'Larry Stanley',
     'PERAL  337': 'Leo Perales',
     'ANDEL--337': 'Loren Anderson', // not added
     'BORIM--517': 'Marianne Boring',
     'VALEM--338': 'Micah Valentine',
     'ALVAM  352': 'Michael Alvarez', // not added
-    'ANDRM--301': 'Michelle Andres',
+    'ANDRM--301': 'Michelle Andres', // says not added
     // mike luzzo
     'TORRN--301': 'Nikki Torres',
+    'SERRS  301': 'Pete Serrano',
+    'BLOOR  353': 'Richard Bloom',
     'LUKSR  352': 'Ryan Lukson',
-    'RODGS--639': 'Scott Rodgers',
+    'KENTS  352': 'Sandra Kent',
+    'RICHT--352': 'Theresa Richardson',
+    'RODGS--639': 'Scott Rodgers', // says not added??
+    'SIMMS--301': 'Steve Simmons',
     'LEE SR 337': 'Steve Lee', // not added
+    'CHRIS  301': 'Steve Christensen',
+    
     // steven martinez
     // theresa richardson
     // uby creek
+    
+    
   };
 
   consumer

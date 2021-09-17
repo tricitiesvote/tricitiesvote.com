@@ -34,7 +34,10 @@ class SiteIndex extends React.Component {
           <h1>How to use this guide</h1>
           <div className="intro-container">
             <div>
-              <img src="/images/compare-two.jpg" />
+              <img
+                src="/images/compare-two.jpg"
+                alt="comparing two candidates"
+              />
               <h3>
                 Research candidates’ views,
                 <br /> donors, and endorsements
@@ -50,7 +53,7 @@ class SiteIndex extends React.Component {
               </p>
             </div>
             <div>
-              <img src="/images/compare.png" />
+              <img src="/images/compare.png" alt="compare all candidates" />
               <h3>
                 Quickly compare candidate
                 <br /> leanings on top issues
@@ -68,7 +71,10 @@ class SiteIndex extends React.Component {
               </p>
             </div>
             <div>
-              <img src="/images/comment.jpg" />
+              <img
+                src="/images/comment.jpg"
+                alt="additional comments from candidates"
+              />
               <h3>
                 Click candidates‘ faces for
                 <br /> their additional comments
