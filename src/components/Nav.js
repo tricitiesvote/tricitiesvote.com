@@ -8,7 +8,7 @@ const Nav = () => {
       <Link to="/kennewick">Kennewick</Link>
       <Link to="/pasco">Pasco</Link>
       <Link to="/richland">Richland</Link>
-      <Link to="/westrichland">W. Richland</Link>
+      <Link to="/west-richland">West Richland</Link>
     </nav>
   );
 };

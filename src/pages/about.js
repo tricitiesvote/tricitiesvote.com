@@ -6,7 +6,7 @@ export default () => (
     <div className="page">
       <h1>About tricitiesvote.com</h1>
       <p>
-        Last year, I had several conversations with people who don’t normally
+        Starting in recent years, I’ve had several conversations with people who don’t normally
         vote in local elections. Based on that input, some ideas from Davin
         Diaz, and a lot more feedback from folks along the way, a few of us put
         together{' '}
@@ -16,18 +16,17 @@ export default () => (
         .
       </p>
       <p>
-        This year, that guide’s become a much larger group effort—now as ‘the
+        In 2020, that guide became a much larger group effort—now as ‘the
         tricitiesvote.com guide’.
       </p>
       <p>
-        I want to give a huge thanks to Erik Rotness, Kristi Shumway, Jeff
-        Kissel, Reka Robinson, Leo A Perales, Steven Ghan, Davin Diaz, Jenneke
-        Heerink, Sarah Avenir, John Roach, Sara Quinn, Ted Miller, and the long
+        I want to give a huge thanks to Sara Quinn, Erik Rotness, Ted Miller, Kristi Shumway, Jeff
+        Kissel, Reka Robinson, Justin Raffa, Steven Ghan, Davin Diaz, Jenneke
+        Heerink, Sarah Avenir, John Roach,  and the long
         list of people who’ve contributed input and feedback along the way.
       </p>
       <p>
-        We’re hoping to grow the process and increase the range of people
-        involved next year.
+        We’re always working to sustainably grow the process and increase the range of people involved.
       </p>
       <p>
         Based on feedback so far, voters tend to love the tricitiesvote.com
