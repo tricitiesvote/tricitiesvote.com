@@ -146,6 +146,7 @@ collections:
               { label: 'Superior Court Judge', value: 'Superior Court Judge' },
               { label: 'U.S. House', value: 'U.S. House' },
               { label: 'U.S. Senate', value: 'U.S. Senate' },
+              { label: 'Mayor', value: 'Mayor' },
             ],
         }
       - {
@@ -160,6 +161,7 @@ collections:
               { label: 'Representative', value: 'Representative' },
               { label: 'Senator', value: 'Senator' },
               { label: 'Judge', value: 'Judge' },
+              { label: 'Mayor', value: 'Mayor' },
             ],
           required: true,
         }
