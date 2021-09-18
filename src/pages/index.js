@@ -19,15 +19,14 @@ class SiteIndex extends React.Component {
           <h1>
             <span>🗳</span>
             Tri-Cities Vote:
-            <br /> 2020 Election
+            <br /> 2021 Election
           </h1>
           <h2>
             A nonpartisan community-driven collection
             <br /> of information to help you decide.
           </h2>
           <p>
-            <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
-            weekdaily news updates.
+            <a href="mailto:adamavenir@hey.com">Reach out</a> to get involved
           </p>
         </div>
         <div className="howto">
@@ -59,15 +58,13 @@ class SiteIndex extends React.Component {
                 <br /> leanings on top issues
               </h3>
               <p>
-                Our A/B questionnaire is based on top issues identified by the
-                public and candidates themselves in primary questionnaires.
-              </p>
-              <p>
-                Our process is imperfect, but it’s intended to be nonpartisan
-                and impartial while mirroring the messiness of being an elected
+                Our A/B questionnaire is based on top issues identified over
+                recent years by the public and candidates themselves. Our
+                process is imperfect, but it’s intended to be nonpartisan and
+                impartial while mirroring the messiness of being an elected
                 official and a voter, where nearly all decisions are choices
                 between two options you didn’t come up with.{' '}
-                <a href="/about">Read more about our team and our approach</a>.
+                <a href="/about">Read more about our approach</a>.
               </p>
             </div>
             <div>

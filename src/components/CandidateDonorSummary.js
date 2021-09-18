@@ -20,7 +20,7 @@ const CandidateDonorSummary = props => {
   // console.log(props);
 
   if (!fundraising || fundraising.donors.length === 0)
-    return <h1>fundddd{fundraising}</h1>;
+    return <p>No fundraising data reported</p>;
   const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
   // console.log(donorsSorted);
   return (
