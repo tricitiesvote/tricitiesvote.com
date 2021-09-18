@@ -4,6 +4,8 @@ const CandidateEngagement = props => {
   const { engagement } = props;
 
   return (
+    <>
+    { engagement ? ( 
     <div className="engagement">
       <h4>Engagement:</h4>
       <div
@@ -12,6 +14,8 @@ const CandidateEngagement = props => {
         }}
       />
     </div>
+    ) : ('') }
+    </>
   );
 };
 

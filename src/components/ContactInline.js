@@ -13,8 +13,7 @@ const ContactInline = props => {
       <h2 id="feedback">Have feedback?</h2>
       <p>
         This site is a community effort maintained by volunteers. If you see
-        something inaccurate or information missing, let us know asap. Email us
-        at <a href="mailto:guide@triciti.es">guide@triciti.es</a>
+        something inaccurate or information missing, <a href="adamavenir@hey.com">let us know asap</a>.
       </p>
       {/* <input type="hidden" id="fieldPage" name="page" value={page} />
       <fieldset>
