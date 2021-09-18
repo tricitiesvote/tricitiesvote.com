@@ -14,7 +14,7 @@ class SiteIndex extends React.Component {
     const races = data.races.edges;
 
     return (
-      <DefaultLayout title="Tri-Cities Vote" bodyClass="index">
+      <DefaultLayout title="Tri-Cities Vote" bodyClass="index" url="">
         <div className="intro">
           <h1>
             <span>🗳</span>
@@ -150,3 +150,4 @@ export const pageQuery = graphql`
     }
   }
 `;
+
