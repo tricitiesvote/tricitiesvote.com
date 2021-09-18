@@ -16,8 +16,8 @@ export default () => (
         .
       </p>
       <p>
-        In 2020, that guide became a much larger group effort—now as ‘the
-        tricitiesvote.com guide’.
+        In 2020, that guide became <a href="https://2020.tricitiesvote.com">a much larger group effort—now as ‘the
+        tricitiesvote.com guide’</a>.
       </p>
       <p>
         I want to give a huge thanks to Sara Quinn, Erik Rotness, Ted Miller, Kristi Shumway, Jeff
