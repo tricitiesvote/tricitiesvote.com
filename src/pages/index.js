@@ -19,22 +19,25 @@ class SiteIndex extends React.Component {
           <h1>
             <span>🗳</span>
             Tri-Cities Vote:
-            <br /> 2020 Election
+            <br /> 2021 Election
           </h1>
           <h2>
             A nonpartisan community-driven collection
             <br /> of information to help you decide.
           </h2>
+          <p>If things seem missing that’s because they are.<br/>Hold your horses cos we’re still working on it. 🐴 </p>
           <p>
-            <a href="http://tricitiesdaily.com">Follow Tri-Cities Daily</a> for
-            weekdaily news updates.
+            <a href="mailto:adamavenir@hey.com">Reach out</a> to get involved.
           </p>
         </div>
         <div className="howto">
-          <h1>How to use this guide</h1>
+          <h1>How you’ll be able to use this guide when it’s ready</h1>
           <div className="intro-container">
             <div>
-              <img src="/images/compare-two.jpg" />
+              <img
+                src="/images/compare-two.jpg"
+                alt="comparing two candidates"
+              />
               <h3>
                 Research candidates’ views,
                 <br /> donors, and endorsements
@@ -50,25 +53,26 @@ class SiteIndex extends React.Component {
               </p>
             </div>
             <div>
-              <img src="/images/compare.png" />
+              <img src="/images/compare.png" alt="compare all candidates" />
               <h3>
                 Quickly compare candidate
                 <br /> leanings on top issues
               </h3>
               <p>
-                Our A/B questionnaire is based on top issues identified by the
-                public and candidates themselves in primary questionnaires.
-              </p>
-              <p>
-                Our process is imperfect, but it’s intended to be nonpartisan
-                and impartial while mirroring the messiness of being an elected
+                Our A/B questionnaire is based on top issues identified over
+                recent years by the public and candidates themselves. Our
+                process is imperfect, but it’s intended to be nonpartisan and
+                impartial while mirroring the messiness of being an elected
                 official and a voter, where nearly all decisions are choices
                 between two options you didn’t come up with.{' '}
-                <a href="/about">Read more about our team and our approach</a>.
+                <a href="/about">Read more about our approach</a>.
               </p>
             </div>
             <div>
-              <img src="/images/comment.jpg" />
+              <img
+                src="/images/comment.jpg"
+                alt="additional comments from candidates"
+              />
               <h3>
                 Click candidates‘ faces for
                 <br /> their additional comments
@@ -86,7 +90,7 @@ class SiteIndex extends React.Component {
             </div>
           </div>
         </div>
-        <div className="intro">
+        {/* <div className="intro">
           <h2>
             <Link to="/compare-legislators">
               Compare all area legislators »
@@ -96,7 +100,7 @@ class SiteIndex extends React.Component {
             </Link>
           </h2>
         </div>
-        <h1>Candidate engagement overview</h1>
+        <h1>Candidate engagement overview</h1> */}
         <RaceListMini data={races} />
 
         <ContactInline page="https://tricitiesvote.com" />
@@ -111,7 +115,7 @@ export default SiteIndex;
 export const pageQuery = graphql`
   query {
     races: allRacesJson(
-      filter: { electionyear: { eq: "2020" }, type: { eq: "general" } }
+      filter: { electionyear: { eq: "2021" }, type: { eq: "general" } }
       sort: { fields: office___title, order: ASC }
     ) {
       edges {

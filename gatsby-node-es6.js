@@ -17,13 +17,17 @@ const truncate = require('truncate-html');
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
+  // build slug contents for Guides
   if (node.internal.type === 'GuidesJson') {
-    const region = node.region.slice(0, node.region.indexOf(' '));
+    // TODO for county years
+    // this clumsy snippet slices 'county' off of the end of counties 
+    // const region = node.region.slice(0, node.region.indexOf(' '));
     createNodeField({
       node,
       name: `slug`,
-      value: _.kebabCase(region),
+      value: _.kebabCase(node.region),
     });
+    console.log('guide slug for', node.region,  _.kebabCase(node.region));
   }
 
   // build slug contents for Races
@@ -174,7 +178,7 @@ exports.createSchemaCustomization = helpers => {
   try {
     createTypes(SchemaCustomization);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -187,7 +191,7 @@ exports.createPages = async ({
 
   if (results.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
-    console.log(results.errors);
+    // console.log(results.errors);
   }
 
   const allCandidates = results.data.candidates.edges;

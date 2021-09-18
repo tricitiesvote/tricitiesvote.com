@@ -34,41 +34,41 @@ module.exports = {
         name: `guides`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/data/donations/candidate-fundraising.json`,
-        name: `candidateFundraising`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/data/donations/candidate-donors.json`,
-        name: `candidateDonors`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/data/donations/donor-types.json`,
-        name: `candidateDonorTypes`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/data/donations/donors.json`,
-        name: `donors`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/data/donations/donations.json`,
-        name: `donations`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/data/donations/candidate-fundraising.json`,
+    //     name: `candidateFundraising`,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/data/donations/candidate-donors.json`,
+    //     name: `candidateDonors`,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/data/donations/donor-types.json`,
+    //     name: `candidateDonorTypes`,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/data/donations/donors.json`,
+    //     name: `donors`,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/data/donations/donations.json`,
+    //     name: `donations`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

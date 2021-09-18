@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 const CandidateLetters = props => {
   const { yes, no } = props;
@@ -23,13 +22,6 @@ const CandidateLetters = props => {
             __html: no,
           }}
         />
-      ) : (
-        ''
-      )}
-      {!no && !yes ? (
-        <li className="yes">
-          No letters yet. <Link to="/letters">Write one</Link>.
-        </li>
       ) : (
         ''
       )}

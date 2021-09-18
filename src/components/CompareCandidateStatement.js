@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 const handleClick = e => {
   e.currentTarget.classList.toggle('show');
@@ -19,7 +19,14 @@ const CompareCandidateStatement = props => {
   }
 
   return (
-    <div className={posClass} onClick={handleClick}>
+    <div
+      className={posClass}
+      onClick={handleClick}
+      onKeyPress={handleClick}
+      role="switch"
+      tabIndex="0"
+      aria-checked="false"
+    >
       <img alt={name} src={image} />
       <h5>{last}</h5>
       {!mini ? (

@@ -9,20 +9,73 @@ module.exports = new Promise((resolve, reject) => {
   const pdcCandidates = [];
   const filer_ids = [];
 
+  const candidateNames = {
+    'PHILA  301': 'Amy Phillips', // says not listed?
+    'BYRDA--353': 'Audra Byrd',
+    'MCKAW  337': 'Bill McKay',
+    'BARAB  301': 'Blanche Barajas',
+    'ANDEB--503': 'Brandon Anderson',
+    'GERRB  353': 'Brent Gerry',
+    'MEEHB--336': 'Bryan Meehan-Verhei',
+    'FITZC--352': 'Chauné Fitzgerald',
+    'MALOC  301': 'Craig Maloney',
+    'LEDEC--219': 'Cynthia Ledesma',
+    'GARCD--352': 'Danica Garcia',
+    'NIELD--150': 'David Nielsen',
+    'BRITD  336': 'Don Britain',
+    // elijah stanfield
+    // erin steinert
+    // gabe galbraith
+    'BULLG--338': 'Gary Bullert',
+    'WIREE  352': 'Ginger Wireman', // not added
+    'CRAWG--338': 'Gretl Crawford',
+    'CLEAH  352': 'Heather Cleary',
+    'BROWI--307': 'Irving Brown, Sr.',
+    // jacob finkbeiner
+    // james langford
+    'LOHRJ--336': 'Jason Lohr',
+    'JONEJH 352': 'Jhoanna Jones',
+    'KENNJ--302': 'John Kennedy',
+    // john trumbo
+    'MORAK  353': 'Kate Moran', // not added
+    'SHORK--336': 'Ken Short',
+    'STANL--354': 'Larry Stanley',
+    'PERAL  337': 'Leo Perales',
+    'ANDEL--337': 'Loren Anderson', // not added
+    'BORIM--517': 'Marianne Boring',
+    'VALEM--338': 'Micah Valentine',
+    'ALVAM  352': 'Michael Alvarez', // not added
+    'ANDRM--301': 'Michelle Andres', // says not added
+    // mike luzzo
+    'TORRN--301': 'Nikki Torres',
+    'SERRS  301': 'Pete Serrano',
+    'BLOOR  353': 'Richard Bloom',
+    'LUKSR  352': 'Ryan Lukson',
+    'KENTS  352': 'Sandra Kent',
+    'RICHT--352': 'Theresa Richardson',
+    'RODGS--639': 'Scott Rodgers', // says not added??
+    'SIMMS--301': 'Steve Simmons',
+    'LEE SR 337': 'Steve Lee', // not added
+    'CHRIS  301': 'Steve Christensen',
+    
+    // steven martinez
+    // theresa richardson
+    // uby creek
+    
+    
+  };
+
   consumer
     .query()
     .withDataset('7qr9-q2c9') // campaign finance reports
     .limit(10000)
     .where(
       `
-      election_year = '2020' AND (
-        jurisdiction_county = 'BENTON' OR 
-        jurisdiction_county = 'FRANKLIN' OR 
-        legislative_district = '16' OR 
-        legislative_district = '08' OR 
-        legislative_district = '09' OR
-        legislative_district = '8' OR 
-        legislative_district = '9'
+      election_year = '2021' AND (
+        jurisdiction = 'CITY OF RICHLAND' OR
+        jurisdiction = 'CITY OF KENNEWICK' OR
+        jurisdiction = 'CITY OF WEST RICHLAND' OR
+        jurisdiction = 'CITY OF PASCO'
         )
     `
     )
@@ -33,36 +86,10 @@ module.exports = new Promise((resolve, reject) => {
 
         // check to see if we already have the candidate
         if (!_.includes(filer_ids, row.filer_id)) {
-          const candidateNames = {
-            'BEAVJ  337': 'James R. Beaver',
-            'DELVJ  352': 'Jerome Delvin',
-            'WALSM  362': 'Maureen Walsh',
-            'MULLR  301': 'Rocky Mullen',
-            'RUDES  504': 'Skyler Rude',
-            'BOEHM  336': 'Matt Boehnke',
-            'KLIPB  336': 'Brad Klippert',
-            'DOZIP  361': 'Perry Dozier',
-            'REGES  354': 'Shir Regev',
-            'RESED--362': 'Danielle Garbe Reser',
-            'CHVAF--362': 'Frances Chvatal',
-            'KLICM--362': 'Mark Klicker',
-            'PERAA--301': 'Ana Ruiz Peralta',
-            'LANDD  352': 'Donnie Landsman',
-            'PETED  338': 'Dave Petersen',
-            'LEHRK--302': 'Kim Lehrman',
-            'RAFFJ--352': 'Justin Raffa',
-            'BROWS  337': 'Sharon Brown',
-            'MCKAW  338': 'Will McKay',
-            'PECKL  301': 'Brad Peck',
-            'COBUC--814': 'Carly Coburn',
-            'STANL--354': 'Larry Stanley',
-            'DYE M  347': 'Mary Dye',
-            'BORDB--163': 'Brett Borden',
-          };
-
           const candidate = {
-            pdc_url: `https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=${row.filer_id}&election_year=2020`,
+            pdc_url: `https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=${row.filer_id}&election_year=2021`,
             candidate_filer_id: row.filer_id,
+            // is this tied to the name lookup?
             candidate_fullname: candidateNames[row.filer_id],
             office: _.startCase(_.lowerCase(row.office)),
             district: parseInt(row.legislative_district, 10),
@@ -73,7 +100,11 @@ module.exports = new Promise((resolve, reject) => {
           };
           filer_ids.push(row.filer_id);
           pdcCandidates.push(candidate);
-          // console.log(candidate.candidate_fullname);
+          // console.log(
+          //   '📇',
+          //   candidate.candidate_filer_id,
+          //   candidate.candidate_fullname
+          // );
         }
       }
       resolve(pdcCandidates);
