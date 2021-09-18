@@ -28,7 +28,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     allGuidesJson(
       filter: {
-        electionyear: { eq: "2020" }
+        electionyear: { eq: "2021" }
         type: { eq: "general" }
         fields: { slug: { eq: $slug } }
       }

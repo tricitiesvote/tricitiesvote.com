@@ -205,15 +205,15 @@ exports.createPages = async ({
     });
   });
 
-  // allCandidates.forEach(candidate => {
-  //   createPage({
-  //     path: `/${candidate.node.fields.slug}/preview`,
-  //     component: path.resolve('./src/templates/CandidatePagePreview.js'),
-  //     context: {
-  //       slug: candidate.node.fields.slug,
-  //     },
-  //   });
-  // });
+  allCandidates.forEach(candidate => {
+    createPage({
+      path: `/${candidate.node.fields.slug}/preview`,
+      component: path.resolve('./src/templates/CandidatePagePreview.js'),
+      context: {
+        slug: candidate.node.fields.slug,
+      },
+    });
+  });
 
   allNotes.forEach(note => {
     createPage({
@@ -225,25 +225,25 @@ exports.createPages = async ({
     });
   });
 
-  // allRaces.forEach(race => {
-  //   createPage({
-  //     path: `/${race.node.fields.slug}/`,
-  //     component: path.resolve('./src/templates/RacePage.js'),
-  //     context: {
-  //       slug: race.node.fields.slug,
-  //     },
-  //   });
-  // });
+  allRaces.forEach(race => {
+    createPage({
+      path: `/${race.node.fields.slug}/`,
+      component: path.resolve('./src/templates/RacePage.js'),
+      context: {
+        slug: race.node.fields.slug,
+      },
+    });
+  });
 
-  // allRaces.forEach(race => {
-  //   createPage({
-  //     path: `/${race.node.fields.slug}/preview`,
-  //     component: path.resolve('./src/templates/RacePagePreview.js'),
-  //     context: {
-  //       slug: race.node.fields.slug,
-  //     },
-  //   });
-  // });
+  allRaces.forEach(race => {
+    createPage({
+      path: `/${race.node.fields.slug}/preview`,
+      component: path.resolve('./src/templates/RacePagePreview.js'),
+      context: {
+        slug: race.node.fields.slug,
+      },
+    });
+  });
 
   allGuides.forEach(guide => {
     createPage({
