@@ -15,7 +15,7 @@ const handleClick = e => {
 };
 
 const CandidateDonorSummary = props => {
-  console.log('candidateDonorSummary props', props);
+  // console.log('candidateDonorSummary props', props);
   const { fundraising } = props;
   // console.log(props);
 

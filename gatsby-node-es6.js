@@ -174,7 +174,7 @@ exports.createSchemaCustomization = helpers => {
   try {
     createTypes(SchemaCustomization);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -187,7 +187,7 @@ exports.createPages = async ({
 
   if (results.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
-    console.log(results.errors);
+    // console.log(results.errors);
   }
 
   const allCandidates = results.data.candidates.edges;
