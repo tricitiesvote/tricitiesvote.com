@@ -56,7 +56,8 @@ const CompareCouncil = ({data}) => {
   
   // iterate through a/b
   for (const abQ of abQSet) {
-    const qname = "question_" + abQ.id;
+    const qId = "question_" + abQ.id;
+    const cId = qname + "c";
     // console.log('abQ.id', abQ.id)
     const strongA = [ ];
     const leanA = [ ];
@@ -66,18 +67,18 @@ const CompareCouncil = ({data}) => {
       const candidate = {
         name: candidateAnswers.node.candidate.name,
         img: candidateAnswers.node.candidate.image,
-        comment: candidateAnswers.node.[qname + "c"]
+        comment: candidateAnswers.node[cId]
       }
-      if (candidateAnswers.node.[qname] === "1") {
+      if (candidateAnswers.node[qId] === "1") {
         strongA.push(candidate);
       }
-      if (candidateAnswers.node.[qname] === "2") {
+      if (candidateAnswers.node[qId] === "2") {
         leanA.push(candidate);
       }
-      if (candidateAnswers.node.[qname] === "3") {
+      if (candidateAnswers.node[qId] === "3") {
         leanB.push(candidate);
       }
-      if (candidateAnswers.node.[qname] === "5") {
+      if (candidateAnswers.node[qId] === "5") {
         strongB.push(candidate);
       }
     }
