@@ -1,5 +1,3 @@
-// problem is in the ...candidateDetails bit
-
 const COUNCIL_ANSWERS = `
 councilAnswers: allCouncilAnswersCsv {
   edges {

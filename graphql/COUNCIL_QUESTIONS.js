@@ -1,5 +1,5 @@
 const COUNCIL_QUESTIONS = `
-councilQuestions: allCouncilQuestionsCsv {
+councilQuestions: allCouncilQuestionsCsv(limit: 1000) {
   edges {
     node {
       question

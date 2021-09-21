@@ -36,6 +36,15 @@ module.exports = {
         name: `guides`,
       },
     },
+    
+    // {
+    //   resolve: `gatsby-transformer-csv`,
+    //   options: {
+    //     path: `${__dirname}/data/questionnaires`
+    //   },
+    // },
+    // TODO ^^ this seems to be sufficient for this set of data
+    
     {
       resolve: `gatsby-transformer-csv`,
       options: {
