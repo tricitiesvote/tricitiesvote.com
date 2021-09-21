@@ -10,6 +10,10 @@ import NoteFields from './NoteFields';
 import NotesJson from './NotesJson';
 import OfficesJson from './OfficesJson';
 import RacesJson from './RacesJson';
+import CouncilAnswersCsv from './CouncilAnswersCsv';
+import CouncilQuestionsCsv from './CouncilQuestionsCsv';
+import SchoolAnswersCsv from './SchoolAnswersCsv';
+import SchoolQuestionsCsv from './SchoolQuestionsCsv';
 
 const SchemaCustomization = `
 ${CandidateFundraisingJson}
@@ -35,6 +39,14 @@ ${NotesJson}
 ${OfficesJson}
 
 ${RacesJson}
+
+${CouncilAnswersCsv}
+
+${CouncilQuestionsCsv}
+
+${SchoolAnswersCsv}
+
+${SchoolQuestionsCsv}
 `;
 
 export default SchemaCustomization;

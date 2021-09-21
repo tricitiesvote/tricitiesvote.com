@@ -11,6 +11,10 @@ import OFFICE from './OFFICE';
 import OFFICES from './OFFICES';
 import RACE from './RACE';
 import RACES from './RACES';
+import SCHOOL_ANSWERS from './SCHOOL_ANSWERS';
+import COUNCIL_QUESTIONS from './COUNCIL_QUESTIONS';
+import COUNCIL_ANSWERS from './COUNCIL_ANSWERS';
+import SCHOOL_QUESTIONS from './SCHOOL_QUESTIONS';
 
 const GraphQLSchema = `
   ${OFFICE}
@@ -26,6 +30,10 @@ const GraphQLSchema = `
     ${NOTES}
     ${RACES}
     ${GUIDES}
+    ${COUNCIL_QUESTIONS}
+    ${COUNCIL_ANSWERS}
+    ${SCHOOL_QUESTIONS}
+    ${SCHOOL_ANSWERS}
   }
 `;
 

@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: tumbleweird/tricitiesvote.com
-  branch: 'master'
+  branch: 'autoguide'
 
 local_backend: true
 publish_mode: editorial_workflow

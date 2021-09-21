@@ -170,6 +170,20 @@ exports.onCreateNode = ({ node, actions }) => {
       value: _.kebabCase(_.lowerCase(`${node.uuid}-funding`)),
     });
   }
+  if (node.internal.type === 'CandidatesJson' && node.uuid) {
+    createNodeField({
+      node,
+      name: `school_answers`,
+      value: node.uuid,
+    });
+  }
+  if (node.internal.type === 'CandidatesJson' && node.uuid) {
+    createNodeField({
+      node,
+      name: `council_answers`,
+      value: node.uuid,
+    });
+  }
 };
 
 exports.createSchemaCustomization = helpers => {
