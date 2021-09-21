@@ -1,5 +1,6 @@
 import React from 'react';
 import { StrongA, LeanA, LeanB, StrongB } from './statements';
+import CompareCandidateStatement from './CompareCandidateStatement';
 
 const CompareRowAB = ({statementA, statementB, response}) => {
   return (
@@ -9,22 +10,46 @@ const CompareRowAB = ({statementA, statementB, response}) => {
       </th>
       <StrongA>
         {response.strongA.map(face => (
-          <img width="30px" height="30px" src={face.img} title={face.comment} />
+          <CompareCandidateStatement
+            name={face.name}
+            last={face.name.split(" ").pop()}
+            image={face.img}
+            comment={face.comment}
+            mini
+          />
         ))}
       </StrongA>
       <LeanA>
         {response.leanA.map(face => (
-          <img width="30px" height="30px" src={face.img} title={face.comment} />
+          <CompareCandidateStatement
+            name={face.name}
+            last={face.name.split(" ").pop()}
+            image={face.img}
+            comment={face.comment}
+            mini
+          />
         ))}
       </LeanA>
       <LeanB>
         {response.leanB.map(face => (
-          <img width="30px" height="30px" src={face.img} title={face.comment} />
+          <CompareCandidateStatement
+            name={face.name}
+            last={face.name.split(" ").pop()}
+            image={face.img}
+            comment={face.comment}
+            mini
+          />
         ))}
       </LeanB>
       <StrongB>
         {response.strongB.map(face => (
-          <img width="30px" height="30px" src={face.img} title={face.comment} />
+          <CompareCandidateStatement
+            name={face.name}
+            last={face.name.split(" ").pop()}
+            image={face.img}
+            comment={face.comment}
+            mini
+          />
         ))}
       </StrongB>
       <th>
@@ -36,6 +61,21 @@ const CompareRowAB = ({statementA, statementB, response}) => {
 
 export default CompareRowAB;
 
+// position="franklin-2"
+// mini={mini}
+// spec={spec}
+// dnr={dnr}
+
+// <CompareCandidateStatement
+//   position="franklin-2"
+//   name="Ana Ruiz Peralta"
+//   last="Peralta"
+//   image={face.img}
+//   comment={says}
+//   mini={mini}
+//   spec={spec}
+//   dnr={dnr}
+// />
 
 // <BrettBorden says="My concern with stimulus packages for businesses is the tendency for them to favor big businesses that don't need it while leaving independents in the rain and the people holding the check." />
 // <MaryDye spec="true" dnr="true" />
