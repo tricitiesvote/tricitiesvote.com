@@ -19,14 +19,59 @@ const CompareCouncil = ({data}) => {
   console.log('questions', questions);
   console.log('answers', answers);
   
+  const abQSet = [ ];  // a/b questions
+  const tfQSet = [ ];  // true/false questions
+  const oQSet  = [ ];  // open-ended questions
+
+  const tfASet = [ ];  // true/false answers
+  const oASet  = [ ];  // open-ended answers
+  const cSet   = [ ];  // a/b comments
+  
   for (const question of questions) {
     const q = question.node;
-    console.log(q.type);
+    if (q.type === 'Open') {
+      oQSet.push(q)
+    }
     if (q.type === 'AB') {
-      console.log('Statement A:', q.statementA);
-      console.log('Statement B:', q.statementB);
+      abQSet.push(q)
+    }
+    if (q.type === 'TF') {
+      tfQSet.push(q)
     }
   }
+  
+  // can we match a question with the answer?
+  // make a list of question objects
+  // make a list of answer objects
+  
+  // make a list of the questions in the answer set 
+  // match up questions in answer set to question descriptions?
+  
+  // iterate through answers
+  // build one row 
+  
+  const rowData = [];
+  
+  // iterate through a/b
+  for (const abQ of abQSet) {
+    const qname = "question_" + abQ.id;
+    const abASet = [ ];  // a/b answers
+    for (const candidateAnswers of answers) {
+      abASet.push({
+        name: candidateAnswers.node.candidate.name,
+        img: candidateAnswers.node.candidate.img,
+        answer: candidateAnswers.node.[qname],
+        comment: candidateAnswers.node.[qname + "c"]
+      })
+    }
+    rowData.push({
+      [abQ.id]: abASet
+    })
+
+    console.log('rowData', rowData);
+    // console.log(name, answer, comment);
+  }
+  
   
   return (
     <DefaultLayout
