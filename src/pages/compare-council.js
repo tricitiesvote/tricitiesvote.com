@@ -2,7 +2,7 @@ import React from 'react';
 import DefaultLayout from '../layouts/DefaultLayout';
 import CompareHeader from '../components/CompareHeader';
 import _ from 'lodash';
-// import CompareRowAB from '../components/compare/CompareRowAB';
+import CompareRowAB from '../components/compare/CompareRowAB';
 // <CompareRowAB candidates questions />
 // import CompareLegislators from '../components/compare/CompareLegislators';
 // import CompareLegislatorsKey from '../components/compare/CompareKey';
@@ -57,7 +57,7 @@ const CompareCouncil = ({data}) => {
   // iterate through a/b
   for (const abQ of abQSet) {
     const qId = "question_" + abQ.id;
-    const cId = qname + "c";
+    const cId = qId + "c";
     // console.log('abQ.id', abQ.id)
     const strongA = [ ];
     const leanA = [ ];
@@ -106,14 +106,23 @@ const CompareCouncil = ({data}) => {
       preview="compare-temp.png"
       url="compare-temp"
     >
-    {rowData.map(row => (
-      <>
-        <h1>{row.statementA} — OR — {row.statementB}</h1>
-        <pre><code>{JSON.stringify(row.response, null, 2)}</code></pre>
-        
-        <hr />
-      </>
-    ))}
+    <table>
+      <thead>
+        <tr>
+          <th>Statement A</th>
+          <th>Strong A</th>
+          <th>Lean A</th>
+          <th>Lean B</th>
+          <th>Strong B</th>
+          <th>Statement B</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rowData.map(row => (
+          <CompareRowAB statementA={row.statementA} statementB={row.statementB} response={row.response} />
+        ))}
+      </tbody>
+    </table>
       
     </DefaultLayout>
   );
