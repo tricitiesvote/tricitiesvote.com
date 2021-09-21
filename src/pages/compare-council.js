@@ -1,6 +1,7 @@
 import React from 'react';
 import DefaultLayout from '../layouts/DefaultLayout';
 import CompareHeader from '../components/CompareHeader';
+import _ from 'lodash';
 // import CompareRowAB from '../components/compare/CompareRowAB';
 // <CompareRowAB candidates questions />
 // import CompareLegislators from '../components/compare/CompareLegislators';
@@ -16,8 +17,8 @@ const CompareCouncil = ({data}) => {
   const questions = allCouncilQuestionsCsv.edges;
   const answers = allCouncilAnswersCsv.edges;
   
-  console.log('questions', questions);
-  console.log('answers', answers);
+  // console.log('questions', questions);
+  // console.log('answers', answers);
   
   const abQSet = [ ];  // a/b questions
   const tfQSet = [ ];  // true/false questions
@@ -34,6 +35,7 @@ const CompareCouncil = ({data}) => {
     }
     if (q.type === 'AB') {
       abQSet.push(q)
+      // console.log('q', q)
     }
     if (q.type === 'TF') {
       tfQSet.push(q)
@@ -55,20 +57,44 @@ const CompareCouncil = ({data}) => {
   // iterate through a/b
   for (const abQ of abQSet) {
     const qname = "question_" + abQ.id;
-    const abASet = [ ];  // a/b answers
+    // console.log('abQ.id', abQ.id)
+    const strongA = [ ];
+    const leanA = [ ];
+    const leanB = [ ];
+    const strongB = [ ];
     for (const candidateAnswers of answers) {
-      abASet.push({
+      const candidate = {
         name: candidateAnswers.node.candidate.name,
-        img: candidateAnswers.node.candidate.img,
-        answer: candidateAnswers.node.[qname],
+        img: candidateAnswers.node.candidate.image,
         comment: candidateAnswers.node.[qname + "c"]
-      })
+      }
+      if (candidateAnswers.node.[qname] === "1") {
+        strongA.push(candidate);
+      }
+      if (candidateAnswers.node.[qname] === "2") {
+        leanA.push(candidate);
+      }
+      if (candidateAnswers.node.[qname] === "3") {
+        leanB.push(candidate);
+      }
+      if (candidateAnswers.node.[qname] === "5") {
+        strongB.push(candidate);
+      }
     }
+    // console.log('abQ.id', abQ.id)
     rowData.push({
-      [abQ.id]: abASet
+      question: abQ.id,
+      statementA: abQ.statementA,
+      statementB: abQ.statementB,
+      response: {
+        strongA,
+        leanA,
+        leanB,
+        strongB
+      }
     })
 
-    console.log('rowData', rowData);
+    // console.log('rowData', rowData);
     // console.log(name, answer, comment);
   }
   
@@ -79,7 +105,14 @@ const CompareCouncil = ({data}) => {
       preview="compare-temp.png"
       url="compare-temp"
     >
-    
+    {rowData.map(row => (
+      <>
+        <h1>{row.statementA} — OR — {row.statementB}</h1>
+        <pre><code>{JSON.stringify(row.response, null, 2)}</code></pre>
+        
+        <hr />
+      </>
+    ))}
       
     </DefaultLayout>
   );
