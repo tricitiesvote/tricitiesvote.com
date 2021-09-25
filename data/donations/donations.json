@@ -13399,33 +13399,7 @@
     "date": 1629442800000
   },
   {
-    "id": "richt-352-theresa-ann-richardson-theresa-richardson-2021-1039",
-    "candidate": "RICHT--352",
-    "donor": "theresa-ann-richardson-theresa-richardson",
-    "electionyear": "2021",
-    "donation_type": "Other",
-    "party": "",
-    "cash": true,
-    "detail": "Candidates Personal Funds - Does not include candidate loans",
-    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110042402",
-    "amount": 1449,
-    "date": 1621839600000
-  },
-  {
-    "id": "richt-352-theresa-ann-richardson-theresa-richardson-2021-1040",
-    "candidate": "RICHT--352",
-    "donor": "theresa-ann-richardson-theresa-richardson",
-    "electionyear": "2021",
-    "donation_type": "Other",
-    "party": "",
-    "cash": true,
-    "detail": "Candidates Personal Funds - Does not include candidate loans",
-    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110042403",
-    "amount": 3550,
-    "date": 1621839600000
-  },
-  {
-    "id": "crawg-338-goffard-jason-mr-2021-1041",
+    "id": "crawg-338-goffard-jason-mr-2021-1039",
     "candidate": "CRAWG--338",
     "donor": "goffard-jason-mr",
     "electionyear": "2021",
@@ -13438,7 +13412,7 @@
     "date": 1629874800000
   },
   {
-    "id": "crawg-338-guse-eugene-mr-2021-1042",
+    "id": "crawg-338-guse-eugene-mr-2021-1040",
     "candidate": "CRAWG--338",
     "donor": "guse-eugene-mr",
     "electionyear": "2021",
@@ -13451,7 +13425,7 @@
     "date": 1629615600000
   },
   {
-    "id": "birdm-352-smalley-kristi-2021-1043",
+    "id": "birdm-352-smalley-kristi-2021-1041",
     "candidate": "BIRDM--352",
     "donor": "smalley-kristi",
     "electionyear": "2021",
@@ -13464,7 +13438,7 @@
     "date": 1626505200000
   },
   {
-    "id": "birdm-352-small-contributions-2021-1044",
+    "id": "birdm-352-small-contributions-2021-1042",
     "candidate": "BIRDM--352",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -13477,7 +13451,7 @@
     "date": 1629702000000
   },
   {
-    "id": "birdm-352-brady-colton-2021-1045",
+    "id": "birdm-352-brady-colton-2021-1043",
     "candidate": "BIRDM--352",
     "donor": "brady-colton",
     "electionyear": "2021",
@@ -13490,7 +13464,7 @@
     "date": 1629702000000
   },
   {
-    "id": "birdm-352-sprowl-jason-2021-1046",
+    "id": "birdm-352-sprowl-jason-2021-1044",
     "candidate": "BIRDM--352",
     "donor": "sprowl-jason",
     "electionyear": "2021",
@@ -13503,7 +13477,7 @@
     "date": 1629702000000
   },
   {
-    "id": "birdm-352-barney-kathy-2021-1047",
+    "id": "birdm-352-barney-kathy-2021-1045",
     "candidate": "BIRDM--352",
     "donor": "barney-kathy",
     "electionyear": "2021",
@@ -13516,7 +13490,7 @@
     "date": 1629702000000
   },
   {
-    "id": "birdm-352-everitt-heidi-2021-1048",
+    "id": "birdm-352-everitt-heidi-2021-1046",
     "candidate": "BIRDM--352",
     "donor": "everitt-heidi",
     "electionyear": "2021",
@@ -13529,7 +13503,7 @@
     "date": 1629702000000
   },
   {
-    "id": "gerrb-353-keck-roy-2021-1049",
+    "id": "gerrb-353-keck-roy-2021-1047",
     "candidate": "GERRB  353",
     "donor": "keck-roy",
     "electionyear": "2021",
@@ -13542,7 +13516,7 @@
     "date": 1622012400000
   },
   {
-    "id": "gerrb-353-majetich-ben-2021-1050",
+    "id": "gerrb-353-majetich-ben-2021-1048",
     "candidate": "GERRB  353",
     "donor": "majetich-ben",
     "electionyear": "2021",
@@ -13555,7 +13529,7 @@
     "date": 1628751600000
   },
   {
-    "id": "torrn-301-anonymous-contributions-2021-1051",
+    "id": "torrn-301-anonymous-contributions-2021-1049",
     "candidate": "TORRN--301",
     "donor": "anonymous-contributions",
     "electionyear": "2021",
@@ -13568,7 +13542,7 @@
     "date": 1629183600000
   },
   {
-    "id": "torrn-301-tri-cities-insurance-professionals-llc-2021-1052",
+    "id": "torrn-301-tri-cities-insurance-professionals-llc-2021-1050",
     "candidate": "TORRN--301",
     "donor": "tri-cities-insurance-professionals-llc",
     "electionyear": "2021",
@@ -13581,7 +13555,7 @@
     "date": 1629788400000
   },
   {
-    "id": "van-m-619-walsh-ricky-2021-1053",
+    "id": "van-m-619-walsh-ricky-2021-1051",
     "candidate": "VAN-M--619",
     "donor": "walsh-ricky",
     "electionyear": "2021",
@@ -13594,7 +13568,7 @@
     "date": 1629788400000
   },
   {
-    "id": "lohrj-336-small-contributions-2021-1054",
+    "id": "lohrj-336-small-contributions-2021-1052",
     "candidate": "LOHRJ--336",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -13607,7 +13581,7 @@
     "date": 1629961200000
   },
   {
-    "id": "lohrj-336-arpaia-kerani-2021-1055",
+    "id": "lohrj-336-arpaia-kerani-2021-1053",
     "candidate": "LOHRJ--336",
     "donor": "arpaia-kerani",
     "electionyear": "2021",
@@ -13620,7 +13594,7 @@
     "date": 1629788400000
   },
   {
-    "id": "lohrj-336-small-contributions-2021-1056",
+    "id": "lohrj-336-small-contributions-2021-1054",
     "candidate": "LOHRJ--336",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -13633,7 +13607,7 @@
     "date": 1630306800000
   },
   {
-    "id": "gerrb-353-gerry-brent-w-2021-1057",
+    "id": "gerrb-353-gerry-brent-w-2021-1055",
     "candidate": "GERRB  353",
     "donor": "gerry-brent-w",
     "electionyear": "2021",
@@ -13646,7 +13620,7 @@
     "date": 1621234800000
   },
   {
-    "id": "gerrb-353-4-m-consulting-llc-2021-1058",
+    "id": "gerrb-353-4-m-consulting-llc-2021-1056",
     "candidate": "GERRB  353",
     "donor": "4-m-consulting-llc",
     "electionyear": "2021",
@@ -13659,7 +13633,7 @@
     "date": 1628665200000
   },
   {
-    "id": "andel-337-anonymous-contributions-2021-1059",
+    "id": "andel-337-anonymous-contributions-2021-1057",
     "candidate": "ANDEL--337",
     "donor": "anonymous-contributions",
     "electionyear": "2021",
@@ -13672,7 +13646,7 @@
     "date": 1630047600000
   },
   {
-    "id": "steie-138-goatley-amy-2021-1060",
+    "id": "steie-138-goatley-amy-2021-1058",
     "candidate": "STEIE--138",
     "donor": "goatley-amy",
     "electionyear": "2021",
@@ -13685,7 +13659,7 @@
     "date": 1629961200000
   },
   {
-    "id": "steie-138-smith-rik-2021-1061",
+    "id": "steie-138-smith-rik-2021-1059",
     "candidate": "STEIE--138",
     "donor": "smith-rik",
     "electionyear": "2021",
@@ -13698,7 +13672,7 @@
     "date": 1629874800000
   },
   {
-    "id": "steie-138-ruiz-ana-m-2021-1062",
+    "id": "steie-138-ruiz-ana-m-2021-1060",
     "candidate": "STEIE--138",
     "donor": "ruiz-ana-m",
     "electionyear": "2021",
@@ -13711,7 +13685,7 @@
     "date": 1629788400000
   },
   {
-    "id": "shork-336-short-donald-2021-1063",
+    "id": "shork-336-short-donald-2021-1061",
     "candidate": "SHORK--336",
     "donor": "short-donald",
     "electionyear": "2021",
@@ -13724,7 +13698,7 @@
     "date": 1629961200000
   },
   {
-    "id": "shork-336-short-donald-2021-1064",
+    "id": "shork-336-short-donald-2021-1062",
     "candidate": "SHORK--336",
     "donor": "short-donald",
     "electionyear": "2021",
@@ -13737,7 +13711,7 @@
     "date": 1629961200000
   },
   {
-    "id": "shork-336-mercedes-ana-2021-1065",
+    "id": "shork-336-mercedes-ana-2021-1063",
     "candidate": "SHORK--336",
     "donor": "mercedes-ana",
     "electionyear": "2021",
@@ -13750,7 +13724,7 @@
     "date": 1629961200000
   },
   {
-    "id": "shork-336-mercedes-ana-2021-1066",
+    "id": "shork-336-mercedes-ana-2021-1064",
     "candidate": "SHORK--336",
     "donor": "mercedes-ana",
     "electionyear": "2021",
@@ -13763,7 +13737,7 @@
     "date": 1629961200000
   },
   {
-    "id": "jonejh-352-henderson-jodi-2021-1067",
+    "id": "jonejh-352-henderson-jodi-2021-1065",
     "candidate": "JONEJH 352",
     "donor": "henderson-jodi",
     "electionyear": "2021",
@@ -13776,7 +13750,7 @@
     "date": 1629615600000
   },
   {
-    "id": "crawg-338-labaef-mike-mr-2021-1068",
+    "id": "crawg-338-labaef-mike-mr-2021-1066",
     "candidate": "CRAWG--338",
     "donor": "labaef-mike-mr",
     "electionyear": "2021",
@@ -13789,7 +13763,7 @@
     "date": 1630047600000
   },
   {
-    "id": "birdm-352-jeppson-denae-2021-1069",
+    "id": "birdm-352-jeppson-denae-2021-1067",
     "candidate": "BIRDM--352",
     "donor": "jeppson-denae",
     "electionyear": "2021",
@@ -13802,7 +13776,7 @@
     "date": 1629442800000
   },
   {
-    "id": "birdm-352-tucker-brok-2021-1070",
+    "id": "birdm-352-tucker-brok-2021-1068",
     "candidate": "BIRDM--352",
     "donor": "tucker-brok",
     "electionyear": "2021",
@@ -13815,7 +13789,7 @@
     "date": 1629874800000
   },
   {
-    "id": "birdm-352-reberger-kevin-2021-1071",
+    "id": "birdm-352-reberger-kevin-2021-1069",
     "candidate": "BIRDM--352",
     "donor": "reberger-kevin",
     "electionyear": "2021",
@@ -13828,7 +13802,7 @@
     "date": 1629788400000
   },
   {
-    "id": "birdm-352-hester-kelly-2021-1072",
+    "id": "birdm-352-hester-kelly-2021-1070",
     "candidate": "BIRDM--352",
     "donor": "hester-kelly",
     "electionyear": "2021",
@@ -13841,7 +13815,7 @@
     "date": 1629529200000
   },
   {
-    "id": "birdm-352-bock-amy-2021-1073",
+    "id": "birdm-352-bock-amy-2021-1071",
     "candidate": "BIRDM--352",
     "donor": "bock-amy",
     "electionyear": "2021",
@@ -13854,7 +13828,7 @@
     "date": 1629615600000
   },
   {
-    "id": "torrn-301-arnott-shane-2021-1074",
+    "id": "torrn-301-arnott-shane-2021-1072",
     "candidate": "TORRN--301",
     "donor": "arnott-shane",
     "electionyear": "2021",
@@ -13867,7 +13841,7 @@
     "date": 1630047600000
   },
   {
-    "id": "garcd-352-myjake-nicole-2021-1075",
+    "id": "garcd-352-myjake-nicole-2021-1073",
     "candidate": "GARCD--352",
     "donor": "myjake-nicole",
     "electionyear": "2021",
@@ -13880,7 +13854,7 @@
     "date": 1629702000000
   },
   {
-    "id": "garcd-352-small-contributions-2021-1076",
+    "id": "garcd-352-small-contributions-2021-1074",
     "candidate": "GARCD--352",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -13893,7 +13867,7 @@
     "date": 1629961200000
   },
   {
-    "id": "garcd-352-fontana-sharon-2021-1077",
+    "id": "garcd-352-fontana-sharon-2021-1075",
     "candidate": "GARCD--352",
     "donor": "fontana-sharon",
     "electionyear": "2021",
@@ -13906,7 +13880,7 @@
     "date": 1630134000000
   },
   {
-    "id": "garcd-352-moore-hamilton-patricia-2021-1078",
+    "id": "garcd-352-moore-hamilton-patricia-2021-1076",
     "candidate": "GARCD--352",
     "donor": "moore-hamilton-patricia",
     "electionyear": "2021",
@@ -13919,7 +13893,7 @@
     "date": 1630047600000
   },
   {
-    "id": "sancm-350-clements-alexis-2021-1079",
+    "id": "sancm-350-clements-alexis-2021-1077",
     "candidate": "SANCM  350",
     "donor": "clements-alexis",
     "electionyear": "2021",
@@ -13932,7 +13906,7 @@
     "date": 1629788400000
   },
   {
-    "id": "sancm-350-national-womens-political-caucus-of-wa-2021-1080",
+    "id": "sancm-350-national-womens-political-caucus-of-wa-2021-1078",
     "candidate": "SANCM  350",
     "donor": "national-womens-political-caucus-of-wa",
     "electionyear": "2021",
@@ -13945,7 +13919,7 @@
     "date": 1629874800000
   },
   {
-    "id": "sancm-350-reisman-mark-2021-1081",
+    "id": "sancm-350-reisman-mark-2021-1079",
     "candidate": "SANCM  350",
     "donor": "reisman-mark",
     "electionyear": "2021",
@@ -13958,7 +13932,7 @@
     "date": 1629788400000
   },
   {
-    "id": "grigb-352-bock-amy-2021-1082",
+    "id": "grigb-352-bock-amy-2021-1080",
     "candidate": "GRIGB--352",
     "donor": "bock-amy",
     "electionyear": "2021",
@@ -13971,7 +13945,7 @@
     "date": 1629874800000
   },
   {
-    "id": "grigb-352-reberger-kevin-2021-1083",
+    "id": "grigb-352-reberger-kevin-2021-1081",
     "candidate": "GRIGB--352",
     "donor": "reberger-kevin",
     "electionyear": "2021",
@@ -13984,7 +13958,7 @@
     "date": 1630047600000
   },
   {
-    "id": "grigb-352-hester-kelly-50-2021-1084",
+    "id": "grigb-352-hester-kelly-50-2021-1082",
     "candidate": "GRIGB--352",
     "donor": "hester-kelly-50",
     "electionyear": "2021",
@@ -13997,7 +13971,7 @@
     "date": 1629874800000
   },
   {
-    "id": "grigb-352-tucker-brock-2021-1085",
+    "id": "grigb-352-tucker-brock-2021-1083",
     "candidate": "GRIGB--352",
     "donor": "tucker-brock",
     "electionyear": "2021",
@@ -14010,7 +13984,7 @@
     "date": 1630047600000
   },
   {
-    "id": "fitzc-352-murray-christopher-2021-1086",
+    "id": "fitzc-352-murray-christopher-2021-1084",
     "candidate": "FITZC--352",
     "donor": "murray-christopher",
     "electionyear": "2021",
@@ -14023,7 +13997,7 @@
     "date": 1630220400000
   },
   {
-    "id": "birdm-352-clark-dana-2021-1087",
+    "id": "birdm-352-clark-dana-2021-1085",
     "candidate": "BIRDM--352",
     "donor": "clark-dana",
     "electionyear": "2021",
@@ -14036,7 +14010,7 @@
     "date": 1630393200000
   },
   {
-    "id": "crawg-338-singh-mini-ms-2021-1088",
+    "id": "crawg-338-singh-mini-ms-2021-1086",
     "candidate": "CRAWG--338",
     "donor": "singh-mini-ms",
     "electionyear": "2021",
@@ -14049,7 +14023,7 @@
     "date": 1630393200000
   },
   {
-    "id": "crawg-338-rabe-felicity-ms-2021-1089",
+    "id": "crawg-338-rabe-felicity-ms-2021-1087",
     "candidate": "CRAWG--338",
     "donor": "rabe-felicity-ms",
     "electionyear": "2021",
@@ -14062,7 +14036,7 @@
     "date": 1630393200000
   },
   {
-    "id": "crawg-338-fife-dennis-mr-2021-1090",
+    "id": "crawg-338-fife-dennis-mr-2021-1088",
     "candidate": "CRAWG--338",
     "donor": "fife-dennis-mr",
     "electionyear": "2021",
@@ -14075,7 +14049,7 @@
     "date": 1630393200000
   },
   {
-    "id": "torrn-301-small-contributions-2021-1091",
+    "id": "torrn-301-small-contributions-2021-1089",
     "candidate": "TORRN--301",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14088,7 +14062,7 @@
     "date": 1630393200000
   },
   {
-    "id": "torrn-301-mulkerin-kathy-2021-1092",
+    "id": "torrn-301-mulkerin-kathy-2021-1090",
     "candidate": "TORRN--301",
     "donor": "mulkerin-kathy",
     "electionyear": "2021",
@@ -14101,7 +14075,7 @@
     "date": 1630393200000
   },
   {
-    "id": "torrn-301-rumsey-rosie-2021-1093",
+    "id": "torrn-301-rumsey-rosie-2021-1091",
     "candidate": "TORRN--301",
     "donor": "rumsey-rosie",
     "electionyear": "2021",
@@ -14114,7 +14088,7 @@
     "date": 1630393200000
   },
   {
-    "id": "crawg-338-small-contributions-2021-1094",
+    "id": "crawg-338-small-contributions-2021-1092",
     "candidate": "CRAWG--338",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14127,7 +14101,7 @@
     "date": 1630393200000
   },
   {
-    "id": "andel-337-small-contributions-2021-1095",
+    "id": "andel-337-small-contributions-2021-1093",
     "candidate": "ANDEL--337",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14140,7 +14114,7 @@
     "date": 1629270000000
   },
   {
-    "id": "andel-337-small-contributions-2021-1096",
+    "id": "andel-337-small-contributions-2021-1094",
     "candidate": "ANDEL--337",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14153,7 +14127,7 @@
     "date": 1630393200000
   },
   {
-    "id": "andel-337-small-contributions-2021-1097",
+    "id": "andel-337-small-contributions-2021-1095",
     "candidate": "ANDEL--337",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14166,7 +14140,7 @@
     "date": 1630479600000
   },
   {
-    "id": "shork-336-slack-james-2021-1098",
+    "id": "shork-336-slack-james-2021-1096",
     "candidate": "SHORK--336",
     "donor": "slack-james",
     "electionyear": "2021",
@@ -14179,7 +14153,7 @@
     "date": 1630566000000
   },
   {
-    "id": "shork-336-palmer-mary-2021-1099",
+    "id": "shork-336-palmer-mary-2021-1097",
     "candidate": "SHORK--336",
     "donor": "palmer-mary",
     "electionyear": "2021",
@@ -14192,7 +14166,7 @@
     "date": 1630566000000
   },
   {
-    "id": "grigb-352-home-depot-2021-1100",
+    "id": "grigb-352-home-depot-2021-1098",
     "candidate": "GRIGB--352",
     "donor": "home-depot",
     "electionyear": "2021",
@@ -14205,7 +14179,7 @@
     "date": 1629183600000
   },
   {
-    "id": "grigb-352-buildasign-com-2021-1101",
+    "id": "grigb-352-buildasign-com-2021-1099",
     "candidate": "GRIGB--352",
     "donor": "buildasign-com",
     "electionyear": "2021",
@@ -14218,7 +14192,7 @@
     "date": 1628319600000
   },
   {
-    "id": "grigb-352-free-linda-2021-1102",
+    "id": "grigb-352-free-linda-2021-1100",
     "candidate": "GRIGB--352",
     "donor": "free-linda",
     "electionyear": "2021",
@@ -14231,7 +14205,7 @@
     "date": 1630998000000
   },
   {
-    "id": "garcd-352-small-contributions-2021-1103",
+    "id": "garcd-352-small-contributions-2021-1101",
     "candidate": "GARCD--352",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14244,7 +14218,7 @@
     "date": 1630393200000
   },
   {
-    "id": "garcd-352-murray-chris-2021-1104",
+    "id": "garcd-352-murray-chris-2021-1102",
     "candidate": "GARCD--352",
     "donor": "murray-chris",
     "electionyear": "2021",
@@ -14257,7 +14231,7 @@
     "date": 1630306800000
   },
   {
-    "id": "garcd-352-doran-nancy-2021-1105",
+    "id": "garcd-352-doran-nancy-2021-1103",
     "candidate": "GARCD--352",
     "donor": "doran-nancy",
     "electionyear": "2021",
@@ -14270,7 +14244,7 @@
     "date": 1630825200000
   },
   {
-    "id": "garcd-352-childers-christopher-2021-1106",
+    "id": "garcd-352-childers-christopher-2021-1104",
     "candidate": "GARCD--352",
     "donor": "childers-christopher",
     "electionyear": "2021",
@@ -14283,7 +14257,7 @@
     "date": 1630825200000
   },
   {
-    "id": "garcd-352-colley-kriste-2021-1107",
+    "id": "garcd-352-colley-kriste-2021-1105",
     "candidate": "GARCD--352",
     "donor": "colley-kriste",
     "electionyear": "2021",
@@ -14296,7 +14270,7 @@
     "date": 1630738800000
   },
   {
-    "id": "garcd-352-hall-jim-2021-1108",
+    "id": "garcd-352-hall-jim-2021-1106",
     "candidate": "GARCD--352",
     "donor": "hall-jim",
     "electionyear": "2021",
@@ -14309,7 +14283,7 @@
     "date": 1630738800000
   },
   {
-    "id": "garcd-352-rothwell-pamela-2021-1109",
+    "id": "garcd-352-rothwell-pamela-2021-1107",
     "candidate": "GARCD--352",
     "donor": "rothwell-pamela",
     "electionyear": "2021",
@@ -14322,7 +14296,7 @@
     "date": 1630566000000
   },
   {
-    "id": "garcd-352-haller-alisa-2021-1110",
+    "id": "garcd-352-haller-alisa-2021-1108",
     "candidate": "GARCD--352",
     "donor": "haller-alisa",
     "electionyear": "2021",
@@ -14335,7 +14309,7 @@
     "date": 1630738800000
   },
   {
-    "id": "garcd-352-vance-lisbeth-2021-1111",
+    "id": "garcd-352-vance-lisbeth-2021-1109",
     "candidate": "GARCD--352",
     "donor": "vance-lisbeth",
     "electionyear": "2021",
@@ -14348,7 +14322,7 @@
     "date": 1630825200000
   },
   {
-    "id": "garcd-352-williams-molly-2021-1112",
+    "id": "garcd-352-williams-molly-2021-1110",
     "candidate": "GARCD--352",
     "donor": "williams-molly",
     "electionyear": "2021",
@@ -14361,7 +14335,7 @@
     "date": 1630393200000
   },
   {
-    "id": "gerrb-353-dunn-patrick-w-2021-1113",
+    "id": "gerrb-353-dunn-patrick-w-2021-1111",
     "candidate": "GERRB  353",
     "donor": "dunn-patrick-w",
     "electionyear": "2021",
@@ -14374,7 +14348,7 @@
     "date": 1630652400000
   },
   {
-    "id": "vanne-352-vann-mary-2021-1114",
+    "id": "vanne-352-vann-mary-2021-1112",
     "candidate": "VANNE--352",
     "donor": "vann-mary",
     "electionyear": "2021",
@@ -14387,7 +14361,7 @@
     "date": 1630566000000
   },
   {
-    "id": "vanne-352-white-skye-2021-1115",
+    "id": "vanne-352-white-skye-2021-1113",
     "candidate": "VANNE--352",
     "donor": "white-skye",
     "electionyear": "2021",
@@ -14400,7 +14374,7 @@
     "date": 1629097200000
   },
   {
-    "id": "vanne-352-vann-john-2021-1116",
+    "id": "vanne-352-vann-john-2021-1114",
     "candidate": "VANNE--352",
     "donor": "vann-john",
     "electionyear": "2021",
@@ -14413,7 +14387,7 @@
     "date": 1628492400000
   },
   {
-    "id": "wiree-352-szostek-stephanie-2021-1117",
+    "id": "wiree-352-szostek-stephanie-2021-1115",
     "candidate": "WIREE  352",
     "donor": "szostek-stephanie",
     "electionyear": "2021",
@@ -14426,7 +14400,7 @@
     "date": 1630047600000
   },
   {
-    "id": "wiree-352-baird-brian-2021-1118",
+    "id": "wiree-352-baird-brian-2021-1116",
     "candidate": "WIREE  352",
     "donor": "baird-brian",
     "electionyear": "2021",
@@ -14439,7 +14413,7 @@
     "date": 1630047600000
   },
   {
-    "id": "morak-353-small-contributions-2021-1119",
+    "id": "morak-353-small-contributions-2021-1117",
     "candidate": "MORAK  353",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14452,7 +14426,7 @@
     "date": 1630306800000
   },
   {
-    "id": "morak-353-plumbers-steamfitters-local-union-598-pac-2021-1120",
+    "id": "morak-353-plumbers-steamfitters-local-union-598-pac-2021-1118",
     "candidate": "MORAK  353",
     "donor": "plumbers-steamfitters-local-union-598-pac",
     "electionyear": "2021",
@@ -14465,7 +14439,7 @@
     "date": 1629442800000
   },
   {
-    "id": "morak-353-slovic-lillian-2021-1121",
+    "id": "morak-353-slovic-lillian-2021-1119",
     "candidate": "MORAK  353",
     "donor": "slovic-lillian",
     "electionyear": "2021",
@@ -14478,7 +14452,7 @@
     "date": 1630134000000
   },
   {
-    "id": "morak-353-slovic-robert-2021-1122",
+    "id": "morak-353-slovic-robert-2021-1120",
     "candidate": "MORAK  353",
     "donor": "slovic-robert",
     "electionyear": "2021",
@@ -14491,7 +14465,7 @@
     "date": 1630134000000
   },
   {
-    "id": "morak-353-reuther-richard-2021-1123",
+    "id": "morak-353-reuther-richard-2021-1121",
     "candidate": "MORAK  353",
     "donor": "reuther-richard",
     "electionyear": "2021",
@@ -14504,7 +14478,7 @@
     "date": 1630047600000
   },
   {
-    "id": "fitzc-352-sardinas-paula-2021-1124",
+    "id": "fitzc-352-sardinas-paula-2021-1122",
     "candidate": "FITZC--352",
     "donor": "sardinas-paula",
     "electionyear": "2021",
@@ -14517,7 +14491,7 @@
     "date": 1630911600000
   },
   {
-    "id": "fitzc-352-nicholson-erik-2021-1125",
+    "id": "fitzc-352-nicholson-erik-2021-1123",
     "candidate": "FITZC--352",
     "donor": "nicholson-erik",
     "electionyear": "2021",
@@ -14530,7 +14504,7 @@
     "date": 1630911600000
   },
   {
-    "id": "fitzc-352-doran-nancy-2021-1126",
+    "id": "fitzc-352-doran-nancy-2021-1124",
     "candidate": "FITZC--352",
     "donor": "doran-nancy",
     "electionyear": "2021",
@@ -14543,7 +14517,7 @@
     "date": 1630911600000
   },
   {
-    "id": "britd-336-mosley-john-2021-1127",
+    "id": "britd-336-mosley-john-2021-1125",
     "candidate": "BRITD  336",
     "donor": "mosley-john",
     "electionyear": "2021",
@@ -14556,7 +14530,7 @@
     "date": 1630393200000
   },
   {
-    "id": "britd-336-parish-paul-2021-1128",
+    "id": "britd-336-parish-paul-2021-1126",
     "candidate": "BRITD  336",
     "donor": "parish-paul",
     "electionyear": "2021",
@@ -14569,7 +14543,7 @@
     "date": 1630738800000
   },
   {
-    "id": "rodgs-639-small-contributions-2021-1129",
+    "id": "rodgs-639-small-contributions-2021-1127",
     "candidate": "RODGS--639",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14582,7 +14556,7 @@
     "date": null
   },
   {
-    "id": "rodgs-639-scott-e-rodgers-2021-1130",
+    "id": "rodgs-639-scott-e-rodgers-2021-1128",
     "candidate": "RODGS--639",
     "donor": "scott-e-rodgers",
     "electionyear": "2021",
@@ -14595,7 +14569,7 @@
     "date": 1626764400000
   },
   {
-    "id": "rodgs-639-tracy-christopher-mr-2021-1131",
+    "id": "rodgs-639-tracy-christopher-mr-2021-1129",
     "candidate": "RODGS--639",
     "donor": "tracy-christopher-mr",
     "electionyear": "2021",
@@ -14608,7 +14582,7 @@
     "date": 1630393200000
   },
   {
-    "id": "rodgs-639-tracy-jane-ms-2021-1132",
+    "id": "rodgs-639-tracy-jane-ms-2021-1130",
     "candidate": "RODGS--639",
     "donor": "tracy-jane-ms",
     "electionyear": "2021",
@@ -14621,7 +14595,7 @@
     "date": 1630393200000
   },
   {
-    "id": "rodgs-639-masulonis-john-2021-1133",
+    "id": "rodgs-639-masulonis-john-2021-1131",
     "candidate": "RODGS--639",
     "donor": "masulonis-john",
     "electionyear": "2021",
@@ -14634,7 +14608,7 @@
     "date": 1630652400000
   },
   {
-    "id": "rodgs-639-moran-kate-2021-1134",
+    "id": "rodgs-639-moran-kate-2021-1132",
     "candidate": "RODGS--639",
     "donor": "moran-kate",
     "electionyear": "2021",
@@ -14647,7 +14621,7 @@
     "date": 1630479600000
   },
   {
-    "id": "rodgs-639-carlson-heather-2021-1135",
+    "id": "rodgs-639-carlson-heather-2021-1133",
     "candidate": "RODGS--639",
     "donor": "carlson-heather",
     "electionyear": "2021",
@@ -14660,7 +14634,7 @@
     "date": 1630998000000
   },
   {
-    "id": "rodgs-639-levy-gregory-2021-1136",
+    "id": "rodgs-639-levy-gregory-2021-1134",
     "candidate": "RODGS--639",
     "donor": "levy-gregory",
     "electionyear": "2021",
@@ -14673,7 +14647,7 @@
     "date": 1630393200000
   },
   {
-    "id": "rodgs-639-rose-jason-2021-1137",
+    "id": "rodgs-639-rose-jason-2021-1135",
     "candidate": "RODGS--639",
     "donor": "rose-jason",
     "electionyear": "2021",
@@ -14686,7 +14660,7 @@
     "date": 1630911600000
   },
   {
-    "id": "rodgs-639-brown-christine-2021-1138",
+    "id": "rodgs-639-brown-christine-2021-1136",
     "candidate": "RODGS--639",
     "donor": "brown-christine",
     "electionyear": "2021",
@@ -14699,7 +14673,7 @@
     "date": 1630825200000
   },
   {
-    "id": "rodgs-639-turney-diane-2021-1139",
+    "id": "rodgs-639-turney-diane-2021-1137",
     "candidate": "RODGS--639",
     "donor": "turney-diane",
     "electionyear": "2021",
@@ -14712,7 +14686,7 @@
     "date": 1630479600000
   },
   {
-    "id": "rodgs-639-tucker-skylar-2021-1140",
+    "id": "rodgs-639-tucker-skylar-2021-1138",
     "candidate": "RODGS--639",
     "donor": "tucker-skylar",
     "electionyear": "2021",
@@ -14725,7 +14699,7 @@
     "date": 1630479600000
   },
   {
-    "id": "rodgs-639-ross-stu-2021-1141",
+    "id": "rodgs-639-ross-stu-2021-1139",
     "candidate": "RODGS--639",
     "donor": "ross-stu",
     "electionyear": "2021",
@@ -14738,7 +14712,7 @@
     "date": 1630393200000
   },
   {
-    "id": "rodgs-639-bauer-linda-2021-1142",
+    "id": "rodgs-639-bauer-linda-2021-1140",
     "candidate": "RODGS--639",
     "donor": "bauer-linda",
     "electionyear": "2021",
@@ -14751,7 +14725,7 @@
     "date": 1630393200000
   },
   {
-    "id": "rodgs-639-dunlop-sheila-2021-1143",
+    "id": "rodgs-639-dunlop-sheila-2021-1141",
     "candidate": "RODGS--639",
     "donor": "dunlop-sheila",
     "electionyear": "2021",
@@ -14764,7 +14738,7 @@
     "date": 1630393200000
   },
   {
-    "id": "rodgs-639-unterseher-reginald-2021-1144",
+    "id": "rodgs-639-unterseher-reginald-2021-1142",
     "candidate": "RODGS--639",
     "donor": "unterseher-reginald",
     "electionyear": "2021",
@@ -14777,7 +14751,7 @@
     "date": 1630393200000
   },
   {
-    "id": "rodgs-639-patterson-erin-2021-1145",
+    "id": "rodgs-639-patterson-erin-2021-1143",
     "candidate": "RODGS--639",
     "donor": "patterson-erin",
     "electionyear": "2021",
@@ -14790,7 +14764,7 @@
     "date": 1630479600000
   },
   {
-    "id": "rodgs-639-mallon-diane-2021-1146",
+    "id": "rodgs-639-mallon-diane-2021-1144",
     "candidate": "RODGS--639",
     "donor": "mallon-diane",
     "electionyear": "2021",
@@ -14803,7 +14777,7 @@
     "date": 1630393200000
   },
   {
-    "id": "rodgs-639-scott-david-2021-1147",
+    "id": "rodgs-639-scott-david-2021-1145",
     "candidate": "RODGS--639",
     "donor": "scott-david",
     "electionyear": "2021",
@@ -14816,33 +14790,7 @@
     "date": 1630393200000
   },
   {
-    "id": "phila-301-simpson-antohony-p-2021-1148",
-    "candidate": "PHILA  301",
-    "donor": "simpson-antohony-p",
-    "electionyear": "2021",
-    "donation_type": "Individual",
-    "party": "",
-    "cash": true,
-    "detail": "",
-    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110045679",
-    "amount": 150,
-    "date": 1629183600000
-  },
-  {
-    "id": "phila-301-duzan-carole-l-2021-1149",
-    "candidate": "PHILA  301",
-    "donor": "duzan-carole-l",
-    "electionyear": "2021",
-    "donation_type": "Individual",
-    "party": "",
-    "cash": true,
-    "detail": "",
-    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110045679",
-    "amount": 150,
-    "date": 1629183600000
-  },
-  {
-    "id": "sancm-350-wa-state-democrats-2021-1150",
+    "id": "sancm-350-wa-state-democrats-2021-1146",
     "candidate": "SANCM  350",
     "donor": "wa-state-democrats",
     "electionyear": "2021",
@@ -14855,7 +14803,7 @@
     "date": 1629270000000
   },
   {
-    "id": "browi-307-small-contributions-2021-1151",
+    "id": "browi-307-small-contributions-2021-1147",
     "candidate": "BROWI--307",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14868,7 +14816,7 @@
     "date": 1628406000000
   },
   {
-    "id": "browi-307-anonymous-contributions-2021-1152",
+    "id": "browi-307-anonymous-contributions-2021-1148",
     "candidate": "BROWI--307",
     "donor": "anonymous-contributions",
     "electionyear": "2021",
@@ -14881,7 +14829,7 @@
     "date": 1628578800000
   },
   {
-    "id": "browi-307-anonymous-contributions-2021-1153",
+    "id": "browi-307-anonymous-contributions-2021-1149",
     "candidate": "BROWI--307",
     "donor": "anonymous-contributions",
     "electionyear": "2021",
@@ -14894,7 +14842,7 @@
     "date": 1628578800000
   },
   {
-    "id": "torrn-301-miscellaneous-receipts-2021-1154",
+    "id": "torrn-301-miscellaneous-receipts-2021-1150",
     "candidate": "TORRN--301",
     "donor": "miscellaneous-receipts",
     "electionyear": "2021",
@@ -14907,7 +14855,7 @@
     "date": 1629097200000
   },
   {
-    "id": "chrij-336-sahota-pritam-2021-1155",
+    "id": "chrij-336-sahota-pritam-2021-1151",
     "candidate": "CHRIJ--336",
     "donor": "sahota-pritam",
     "electionyear": "2021",
@@ -14920,7 +14868,7 @@
     "date": 1630220400000
   },
   {
-    "id": "garcd-352-washington-state-democratic-central-committee-2021-1156",
+    "id": "garcd-352-washington-state-democratic-central-committee-2021-1152",
     "candidate": "GARCD--352",
     "donor": "washington-state-democratic-central-committee",
     "electionyear": "2021",
@@ -14933,7 +14881,7 @@
     "date": 1628578800000
   },
   {
-    "id": "garcd-352-soto-murphy-consuelo-2021-1157",
+    "id": "garcd-352-soto-murphy-consuelo-2021-1153",
     "candidate": "GARCD--352",
     "donor": "soto-murphy-consuelo",
     "electionyear": "2021",
@@ -14946,7 +14894,7 @@
     "date": 1627801200000
   },
   {
-    "id": "jonejh-352-jones-candy-2021-1158",
+    "id": "jonejh-352-jones-candy-2021-1154",
     "candidate": "JONEJH 352",
     "donor": "jones-candy",
     "electionyear": "2021",
@@ -14959,7 +14907,7 @@
     "date": 1630393200000
   },
   {
-    "id": "steie-138-small-contributions-2021-1159",
+    "id": "steie-138-small-contributions-2021-1155",
     "candidate": "STEIE--138",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -14972,7 +14920,7 @@
     "date": 1630998000000
   },
   {
-    "id": "steie-138-dwyer-sheila-2021-1160",
+    "id": "steie-138-dwyer-sheila-2021-1156",
     "candidate": "STEIE--138",
     "donor": "dwyer-sheila",
     "electionyear": "2021",
@@ -14985,7 +14933,7 @@
     "date": 1630998000000
   },
   {
-    "id": "steie-138-kissel-jeffrey-2021-1161",
+    "id": "steie-138-kissel-jeffrey-2021-1157",
     "candidate": "STEIE--138",
     "donor": "kissel-jeffrey",
     "electionyear": "2021",
@@ -14998,7 +14946,7 @@
     "date": 1630998000000
   },
   {
-    "id": "steie-138-small-contributions-2021-1162",
+    "id": "steie-138-small-contributions-2021-1158",
     "candidate": "STEIE--138",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -15011,7 +14959,7 @@
     "date": 1631084400000
   },
   {
-    "id": "steie-138-winston-lesley-2021-1163",
+    "id": "steie-138-winston-lesley-2021-1159",
     "candidate": "STEIE--138",
     "donor": "winston-lesley",
     "electionyear": "2021",
@@ -15024,7 +14972,7 @@
     "date": 1631084400000
   },
   {
-    "id": "steie-138-henscheid-kristy-2021-1164",
+    "id": "steie-138-henscheid-kristy-2021-1160",
     "candidate": "STEIE--138",
     "donor": "henscheid-kristy",
     "electionyear": "2021",
@@ -15037,7 +14985,7 @@
     "date": 1631257200000
   },
   {
-    "id": "steie-138-washington-education-association-political-action-commitee-2021-1165",
+    "id": "steie-138-washington-education-association-political-action-commitee-2021-1161",
     "candidate": "STEIE--138",
     "donor": "washington-education-association-political-action-commitee",
     "electionyear": "2021",
@@ -15050,7 +14998,7 @@
     "date": 1631257200000
   },
   {
-    "id": "steie-138-brown-christine-2021-1166",
+    "id": "steie-138-brown-christine-2021-1162",
     "candidate": "STEIE--138",
     "donor": "brown-christine",
     "electionyear": "2021",
@@ -15063,7 +15011,7 @@
     "date": 1631170800000
   },
   {
-    "id": "steie-138-wolbrecht-tiffany-s-2021-1167",
+    "id": "steie-138-wolbrecht-tiffany-s-2021-1163",
     "candidate": "STEIE--138",
     "donor": "wolbrecht-tiffany-s",
     "electionyear": "2021",
@@ -15076,7 +15024,7 @@
     "date": 1631257200000
   },
   {
-    "id": "steie-138-santschi-bonnie-2021-1168",
+    "id": "steie-138-santschi-bonnie-2021-1164",
     "candidate": "STEIE--138",
     "donor": "santschi-bonnie",
     "electionyear": "2021",
@@ -15089,7 +15037,7 @@
     "date": 1631170800000
   },
   {
-    "id": "steie-138-hamilton-tessa-2021-1169",
+    "id": "steie-138-hamilton-tessa-2021-1165",
     "candidate": "STEIE--138",
     "donor": "hamilton-tessa",
     "electionyear": "2021",
@@ -15102,7 +15050,7 @@
     "date": 1631170800000
   },
   {
-    "id": "steie-138-fellman-nellie-2021-1170",
+    "id": "steie-138-fellman-nellie-2021-1166",
     "candidate": "STEIE--138",
     "donor": "fellman-nellie",
     "electionyear": "2021",
@@ -15115,7 +15063,7 @@
     "date": 1631170800000
   },
   {
-    "id": "steie-138-carlson-heather-2021-1171",
+    "id": "steie-138-carlson-heather-2021-1167",
     "candidate": "STEIE--138",
     "donor": "carlson-heather",
     "electionyear": "2021",
@@ -15128,7 +15076,7 @@
     "date": 1631257200000
   },
   {
-    "id": "steie-138-teamsters-local-839-2021-1172",
+    "id": "steie-138-teamsters-local-839-2021-1168",
     "candidate": "STEIE--138",
     "donor": "teamsters-local-839",
     "electionyear": "2021",
@@ -15141,7 +15089,7 @@
     "date": 1631257200000
   },
   {
-    "id": "steie-138-shjerven-russell-2021-1173",
+    "id": "steie-138-shjerven-russell-2021-1169",
     "candidate": "STEIE--138",
     "donor": "shjerven-russell",
     "electionyear": "2021",
@@ -15154,7 +15102,7 @@
     "date": 1631257200000
   },
   {
-    "id": "morak-353-teamsters-local-839-2021-1174",
+    "id": "morak-353-teamsters-local-839-2021-1170",
     "candidate": "MORAK  353",
     "donor": "teamsters-local-839",
     "electionyear": "2021",
@@ -15167,7 +15115,7 @@
     "date": 1630652400000
   },
   {
-    "id": "morak-353-sharpe-martin-2021-1175",
+    "id": "morak-353-sharpe-martin-2021-1171",
     "candidate": "MORAK  353",
     "donor": "sharpe-martin",
     "electionyear": "2021",
@@ -15180,7 +15128,7 @@
     "date": 1631343600000
   },
   {
-    "id": "vanne-352-orrell-alice-2021-1176",
+    "id": "vanne-352-orrell-alice-2021-1172",
     "candidate": "VANNE--352",
     "donor": "orrell-alice",
     "electionyear": "2021",
@@ -15193,7 +15141,7 @@
     "date": 1631343600000
   },
   {
-    "id": "vanne-352-dann-mary-2021-1177",
+    "id": "vanne-352-dann-mary-2021-1173",
     "candidate": "VANNE--352",
     "donor": "dann-mary",
     "electionyear": "2021",
@@ -15206,7 +15154,7 @@
     "date": 1631257200000
   },
   {
-    "id": "wiree-352-fraser-ann-2021-1178",
+    "id": "wiree-352-fraser-ann-2021-1174",
     "candidate": "WIREE  352",
     "donor": "fraser-ann",
     "electionyear": "2021",
@@ -15219,7 +15167,7 @@
     "date": 1631257200000
   },
   {
-    "id": "vanne-352-vann-m-s-2021-1179",
+    "id": "vanne-352-vann-m-s-2021-1175",
     "candidate": "VANNE--352",
     "donor": "vann-m-s",
     "electionyear": "2021",
@@ -15232,7 +15180,7 @@
     "date": 1631170800000
   },
   {
-    "id": "vanne-352-garcia-danica-2021-1180",
+    "id": "vanne-352-garcia-danica-2021-1176",
     "candidate": "VANNE--352",
     "donor": "garcia-danica",
     "electionyear": "2021",
@@ -15245,7 +15193,7 @@
     "date": 1631170800000
   },
   {
-    "id": "vanne-352-mercedes-ruiz-ana-2021-1181",
+    "id": "vanne-352-mercedes-ruiz-ana-2021-1177",
     "candidate": "VANNE--352",
     "donor": "mercedes-ruiz-ana",
     "electionyear": "2021",
@@ -15258,7 +15206,7 @@
     "date": 1631170800000
   },
   {
-    "id": "vanne-352-tracy-chris-2021-1182",
+    "id": "vanne-352-tracy-chris-2021-1178",
     "candidate": "VANNE--352",
     "donor": "tracy-chris",
     "electionyear": "2021",
@@ -15271,7 +15219,7 @@
     "date": 1631170800000
   },
   {
-    "id": "vanne-352-tracy-jane-2021-1183",
+    "id": "vanne-352-tracy-jane-2021-1179",
     "candidate": "VANNE--352",
     "donor": "tracy-jane",
     "electionyear": "2021",
@@ -15284,7 +15232,7 @@
     "date": 1631170800000
   },
   {
-    "id": "vanne-352-coffman-kristin-2021-1184",
+    "id": "vanne-352-coffman-kristin-2021-1180",
     "candidate": "VANNE--352",
     "donor": "coffman-kristin",
     "electionyear": "2021",
@@ -15297,7 +15245,7 @@
     "date": 1631170800000
   },
   {
-    "id": "vanne-352-wiley-julie-2021-1185",
+    "id": "vanne-352-wiley-julie-2021-1181",
     "candidate": "VANNE--352",
     "donor": "wiley-julie",
     "electionyear": "2021",
@@ -15310,7 +15258,7 @@
     "date": 1631257200000
   },
   {
-    "id": "vanne-352-buczek-theresa-2021-1186",
+    "id": "vanne-352-buczek-theresa-2021-1182",
     "candidate": "VANNE--352",
     "donor": "buczek-theresa",
     "electionyear": "2021",
@@ -15323,7 +15271,7 @@
     "date": 1631257200000
   },
   {
-    "id": "vanne-352-wireman-eleanor-2021-1187",
+    "id": "vanne-352-wireman-eleanor-2021-1183",
     "candidate": "VANNE--352",
     "donor": "wireman-eleanor",
     "electionyear": "2021",
@@ -15336,7 +15284,7 @@
     "date": 1631516400000
   },
   {
-    "id": "vanne-352-lightner-lindsay-2021-1188",
+    "id": "vanne-352-lightner-lindsay-2021-1184",
     "candidate": "VANNE--352",
     "donor": "lightner-lindsay",
     "electionyear": "2021",
@@ -15349,7 +15297,7 @@
     "date": 1630911600000
   },
   {
-    "id": "vanne-352-rodgers-scott-2021-1189",
+    "id": "vanne-352-rodgers-scott-2021-1185",
     "candidate": "VANNE--352",
     "donor": "rodgers-scott",
     "electionyear": "2021",
@@ -15362,7 +15310,7 @@
     "date": 1631257200000
   },
   {
-    "id": "sancm-350-fisher-john-2021-1190",
+    "id": "sancm-350-fisher-john-2021-1186",
     "candidate": "SANCM  350",
     "donor": "fisher-john",
     "electionyear": "2021",
@@ -15375,7 +15323,7 @@
     "date": 1630825200000
   },
   {
-    "id": "sancm-350-lee-lorri-2021-1191",
+    "id": "sancm-350-lee-lorri-2021-1187",
     "candidate": "SANCM  350",
     "donor": "lee-lorri",
     "electionyear": "2021",
@@ -15388,7 +15336,7 @@
     "date": 1630825200000
   },
   {
-    "id": "sancm-350-andrews-candace-2021-1192",
+    "id": "sancm-350-andrews-candace-2021-1188",
     "candidate": "SANCM  350",
     "donor": "andrews-candace",
     "electionyear": "2021",
@@ -15401,7 +15349,7 @@
     "date": 1631257200000
   },
   {
-    "id": "garcd-352-teamsters-local-839-2021-1193",
+    "id": "garcd-352-teamsters-local-839-2021-1189",
     "candidate": "GARCD--352",
     "donor": "teamsters-local-839",
     "electionyear": "2021",
@@ -15414,7 +15362,7 @@
     "date": 1630998000000
   },
   {
-    "id": "garcd-352-sullivan-deanie-2021-1194",
+    "id": "garcd-352-sullivan-deanie-2021-1190",
     "candidate": "GARCD--352",
     "donor": "sullivan-deanie",
     "electionyear": "2021",
@@ -15427,7 +15375,7 @@
     "date": 1631257200000
   },
   {
-    "id": "garcd-352-dann-mary-2021-1195",
+    "id": "garcd-352-dann-mary-2021-1191",
     "candidate": "GARCD--352",
     "donor": "dann-mary",
     "electionyear": "2021",
@@ -15440,7 +15388,7 @@
     "date": 1631257200000
   },
   {
-    "id": "garcd-352-nicholson-erik-2021-1196",
+    "id": "garcd-352-nicholson-erik-2021-1192",
     "candidate": "GARCD--352",
     "donor": "nicholson-erik",
     "electionyear": "2021",
@@ -15453,7 +15401,7 @@
     "date": 1630998000000
   },
   {
-    "id": "garcd-352-scheele-trudi-2021-1197",
+    "id": "garcd-352-scheele-trudi-2021-1193",
     "candidate": "GARCD--352",
     "donor": "scheele-trudi",
     "electionyear": "2021",
@@ -15466,7 +15414,7 @@
     "date": 1630911600000
   },
   {
-    "id": "garcd-352-small-contributions-2021-1198",
+    "id": "garcd-352-small-contributions-2021-1194",
     "candidate": "GARCD--352",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -15479,7 +15427,7 @@
     "date": 1631430000000
   },
   {
-    "id": "garcd-352-cadwell-jillian-2021-1199",
+    "id": "garcd-352-cadwell-jillian-2021-1195",
     "candidate": "GARCD--352",
     "donor": "cadwell-jillian",
     "electionyear": "2021",
@@ -15492,7 +15440,7 @@
     "date": 1631430000000
   },
   {
-    "id": "garcd-352-albers-karen-2021-1200",
+    "id": "garcd-352-albers-karen-2021-1196",
     "candidate": "GARCD--352",
     "donor": "albers-karen",
     "electionyear": "2021",
@@ -15505,7 +15453,7 @@
     "date": 1630998000000
   },
   {
-    "id": "garcd-352-orrell-alice-2021-1201",
+    "id": "garcd-352-orrell-alice-2021-1197",
     "candidate": "GARCD--352",
     "donor": "orrell-alice",
     "electionyear": "2021",
@@ -15518,7 +15466,7 @@
     "date": 1631343600000
   },
   {
-    "id": "garcd-352-krieg-david-2021-1202",
+    "id": "garcd-352-krieg-david-2021-1198",
     "candidate": "GARCD--352",
     "donor": "krieg-david",
     "electionyear": "2021",
@@ -15531,7 +15479,7 @@
     "date": 1631430000000
   },
   {
-    "id": "garcd-352-lightner-lindsay-2021-1203",
+    "id": "garcd-352-lightner-lindsay-2021-1199",
     "candidate": "GARCD--352",
     "donor": "lightner-lindsay",
     "electionyear": "2021",
@@ -15544,7 +15492,7 @@
     "date": 1630911600000
   },
   {
-    "id": "garcd-352-boyd-yvonne-2021-1204",
+    "id": "garcd-352-boyd-yvonne-2021-1200",
     "candidate": "GARCD--352",
     "donor": "boyd-yvonne",
     "electionyear": "2021",
@@ -15557,7 +15505,7 @@
     "date": 1631343600000
   },
   {
-    "id": "garcd-352-gerber-bryan-2021-1205",
+    "id": "garcd-352-gerber-bryan-2021-1201",
     "candidate": "GARCD--352",
     "donor": "gerber-bryan",
     "electionyear": "2021",
@@ -15570,7 +15518,7 @@
     "date": 1631257200000
   },
   {
-    "id": "lohrj-336-international-union-of-operating-engineers-2021-1206",
+    "id": "lohrj-336-international-union-of-operating-engineers-2021-1202",
     "candidate": "LOHRJ--336",
     "donor": "international-union-of-operating-engineers",
     "electionyear": "2021",
@@ -15583,7 +15531,7 @@
     "date": 1630911600000
   },
   {
-    "id": "lohrj-336-seiu-healthcare-1199-nw-2021-1207",
+    "id": "lohrj-336-seiu-healthcare-1199-nw-2021-1203",
     "candidate": "LOHRJ--336",
     "donor": "seiu-healthcare-1199-nw",
     "electionyear": "2021",
@@ -15596,7 +15544,7 @@
     "date": 1630911600000
   },
   {
-    "id": "britd-336-ibew-local-union-112-2021-1208",
+    "id": "britd-336-ibew-local-union-112-2021-1204",
     "candidate": "BRITD  336",
     "donor": "ibew-local-union-112",
     "electionyear": "2021",
@@ -15609,7 +15557,7 @@
     "date": 1631257200000
   },
   {
-    "id": "britd-336-kennewick-union-fire-fighter-1296-2021-1209",
+    "id": "britd-336-kennewick-union-fire-fighter-1296-2021-1205",
     "candidate": "BRITD  336",
     "donor": "kennewick-union-fire-fighter-1296",
     "electionyear": "2021",
@@ -15622,7 +15570,7 @@
     "date": 1631257200000
   },
   {
-    "id": "shork-336-frost-s-fifer-2021-1210",
+    "id": "shork-336-frost-s-fifer-2021-1206",
     "candidate": "SHORK--336",
     "donor": "frost-s-fifer",
     "electionyear": "2021",
@@ -15635,7 +15583,7 @@
     "date": 1631257200000
   },
   {
-    "id": "shork-336-layman-brady-2021-1211",
+    "id": "shork-336-layman-brady-2021-1207",
     "candidate": "SHORK--336",
     "donor": "layman-brady",
     "electionyear": "2021",
@@ -15648,7 +15596,7 @@
     "date": 1631257200000
   },
   {
-    "id": "shork-336-layman-margaret-2021-1212",
+    "id": "shork-336-layman-margaret-2021-1208",
     "candidate": "SHORK--336",
     "donor": "layman-margaret",
     "electionyear": "2021",
@@ -15661,7 +15609,7 @@
     "date": 1631257200000
   },
   {
-    "id": "fitzc-352-small-contributions-2021-1213",
+    "id": "fitzc-352-small-contributions-2021-1209",
     "candidate": "FITZC--352",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -15674,7 +15622,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-tracy-chris-mr-2021-1214",
+    "id": "fitzc-352-tracy-chris-mr-2021-1210",
     "candidate": "FITZC--352",
     "donor": "tracy-chris-mr",
     "electionyear": "2021",
@@ -15687,7 +15635,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-regev-shir-2021-1215",
+    "id": "fitzc-352-regev-shir-2021-1211",
     "candidate": "FITZC--352",
     "donor": "regev-shir",
     "electionyear": "2021",
@@ -15700,7 +15648,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-calloway-melvin-2021-1216",
+    "id": "fitzc-352-calloway-melvin-2021-1212",
     "candidate": "FITZC--352",
     "donor": "calloway-melvin",
     "electionyear": "2021",
@@ -15713,7 +15661,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-hollowell-betty-l-mrs-2021-1217",
+    "id": "fitzc-352-hollowell-betty-l-mrs-2021-1213",
     "candidate": "FITZC--352",
     "donor": "hollowell-betty-l-mrs",
     "electionyear": "2021",
@@ -15726,7 +15674,7 @@
     "date": 1631084400000
   },
   {
-    "id": "fitzc-352-ruiz-ana-2021-1218",
+    "id": "fitzc-352-ruiz-ana-2021-1214",
     "candidate": "FITZC--352",
     "donor": "ruiz-ana",
     "electionyear": "2021",
@@ -15739,7 +15687,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-snyder-jon-2021-1219",
+    "id": "fitzc-352-snyder-jon-2021-1215",
     "candidate": "FITZC--352",
     "donor": "snyder-jon",
     "electionyear": "2021",
@@ -15752,7 +15700,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-miller-andrew-2021-1220",
+    "id": "fitzc-352-miller-andrew-2021-1216",
     "candidate": "FITZC--352",
     "donor": "miller-andrew",
     "electionyear": "2021",
@@ -15765,7 +15713,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-fontana-sharon-2021-1221",
+    "id": "fitzc-352-fontana-sharon-2021-1217",
     "candidate": "FITZC--352",
     "donor": "fontana-sharon",
     "electionyear": "2021",
@@ -15778,7 +15726,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-vann-clark-elizabeth-2021-1222",
+    "id": "fitzc-352-vann-clark-elizabeth-2021-1218",
     "candidate": "FITZC--352",
     "donor": "vann-clark-elizabeth",
     "electionyear": "2021",
@@ -15791,7 +15739,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-bribes-cheryl-2021-1223",
+    "id": "fitzc-352-bribes-cheryl-2021-1219",
     "candidate": "FITZC--352",
     "donor": "bribes-cheryl",
     "electionyear": "2021",
@@ -15804,7 +15752,7 @@
     "date": 1631084400000
   },
   {
-    "id": "fitzc-352-james-stephen-2021-1224",
+    "id": "fitzc-352-james-stephen-2021-1220",
     "candidate": "FITZC--352",
     "donor": "james-stephen",
     "electionyear": "2021",
@@ -15817,7 +15765,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-garcia-danica-2021-1225",
+    "id": "fitzc-352-garcia-danica-2021-1221",
     "candidate": "FITZC--352",
     "donor": "garcia-danica",
     "electionyear": "2021",
@@ -15830,7 +15778,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-anderson-chalis-2021-1226",
+    "id": "fitzc-352-anderson-chalis-2021-1222",
     "candidate": "FITZC--352",
     "donor": "anderson-chalis",
     "electionyear": "2021",
@@ -15843,7 +15791,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-mays-leah-2021-1227",
+    "id": "fitzc-352-mays-leah-2021-1223",
     "candidate": "FITZC--352",
     "donor": "mays-leah",
     "electionyear": "2021",
@@ -15856,7 +15804,7 @@
     "date": 1630998000000
   },
   {
-    "id": "fitzc-352-williams-kimberly-2021-1228",
+    "id": "fitzc-352-williams-kimberly-2021-1224",
     "candidate": "FITZC--352",
     "donor": "williams-kimberly",
     "electionyear": "2021",
@@ -15869,7 +15817,7 @@
     "date": 1630998000000
   },
   {
-    "id": "andrm-301-michelle-m-andres-michelle-andres-2021-1229",
+    "id": "andrm-301-michelle-m-andres-michelle-andres-2021-1225",
     "candidate": "ANDRM--301",
     "donor": "michelle-m-andres-michelle-andres",
     "electionyear": "2021",
@@ -15882,7 +15830,7 @@
     "date": 1630998000000
   },
   {
-    "id": "birdm-352-froehlich-julie-2021-1230",
+    "id": "birdm-352-froehlich-julie-2021-1226",
     "candidate": "BIRDM--352",
     "donor": "froehlich-julie",
     "electionyear": "2021",
@@ -15895,7 +15843,7 @@
     "date": 1630566000000
   },
   {
-    "id": "birdm-352-lawrence-george-2021-1231",
+    "id": "birdm-352-lawrence-george-2021-1227",
     "candidate": "BIRDM--352",
     "donor": "lawrence-george",
     "electionyear": "2021",
@@ -15908,7 +15856,7 @@
     "date": 1630998000000
   },
   {
-    "id": "birdm-352-bouchey-renee-2021-1232",
+    "id": "birdm-352-bouchey-renee-2021-1228",
     "candidate": "BIRDM--352",
     "donor": "bouchey-renee",
     "electionyear": "2021",
@@ -15921,7 +15869,7 @@
     "date": 1631084400000
   },
   {
-    "id": "birdm-352-johnson-mark-2021-1233",
+    "id": "birdm-352-johnson-mark-2021-1229",
     "candidate": "BIRDM--352",
     "donor": "johnson-mark",
     "electionyear": "2021",
@@ -15934,7 +15882,7 @@
     "date": 1630998000000
   },
   {
-    "id": "birdm-352-mcglothin-bryan-2021-1234",
+    "id": "birdm-352-mcglothin-bryan-2021-1230",
     "candidate": "BIRDM--352",
     "donor": "mcglothin-bryan",
     "electionyear": "2021",
@@ -15947,7 +15895,7 @@
     "date": 1631343600000
   },
   {
-    "id": "birdm-352-johnson-glenn-2021-1235",
+    "id": "birdm-352-johnson-glenn-2021-1231",
     "candidate": "BIRDM--352",
     "donor": "johnson-glenn",
     "electionyear": "2021",
@@ -15960,7 +15908,7 @@
     "date": 1631343600000
   },
   {
-    "id": "alvam-352-haler-lawrence-2021-1236",
+    "id": "alvam-352-haler-lawrence-2021-1232",
     "candidate": "ALVAM  352",
     "donor": "haler-lawrence",
     "electionyear": "2021",
@@ -15973,7 +15921,7 @@
     "date": 1631516400000
   },
   {
-    "id": "lohrj-336-teamsters-local-839-2021-1237",
+    "id": "lohrj-336-teamsters-local-839-2021-1233",
     "candidate": "LOHRJ--336",
     "donor": "teamsters-local-839",
     "electionyear": "2021",
@@ -15986,7 +15934,7 @@
     "date": 1631516400000
   },
   {
-    "id": "lohrj-336-kennewick-union-fire-fighters-2021-1238",
+    "id": "lohrj-336-kennewick-union-fire-fighters-2021-1234",
     "candidate": "LOHRJ--336",
     "donor": "kennewick-union-fire-fighters",
     "electionyear": "2021",
@@ -15999,7 +15947,7 @@
     "date": 1631516400000
   },
   {
-    "id": "lohrj-336-ibew-local-union-112-polictical-action-committee-contribution-account-2021-1239",
+    "id": "lohrj-336-ibew-local-union-112-polictical-action-committee-contribution-account-2021-1235",
     "candidate": "LOHRJ--336",
     "donor": "ibew-local-union-112-polictical-action-committee-contribution-account",
     "electionyear": "2021",
@@ -16012,7 +15960,7 @@
     "date": 1631516400000
   },
   {
-    "id": "lohrj-336-small-contributions-2021-1240",
+    "id": "lohrj-336-small-contributions-2021-1236",
     "candidate": "LOHRJ--336",
     "donor": "small-contributions",
     "electionyear": "2021",
@@ -16025,7 +15973,7 @@
     "date": 1631516400000
   },
   {
-    "id": "lohrj-336-raffa-justin-2021-1241",
+    "id": "lohrj-336-raffa-justin-2021-1237",
     "candidate": "LOHRJ--336",
     "donor": "raffa-justin",
     "electionyear": "2021",
@@ -16038,7 +15986,7 @@
     "date": 1631516400000
   },
   {
-    "id": "lohrj-336-sawyer-teresa-2021-1242",
+    "id": "lohrj-336-sawyer-teresa-2021-1238",
     "candidate": "LOHRJ--336",
     "donor": "sawyer-teresa",
     "electionyear": "2021",
@@ -16051,7 +15999,7 @@
     "date": 1631516400000
   },
   {
-    "id": "lohrj-336-johnson-lori-2021-1243",
+    "id": "lohrj-336-johnson-lori-2021-1239",
     "candidate": "LOHRJ--336",
     "donor": "johnson-lori",
     "electionyear": "2021",
@@ -16064,7 +16012,7 @@
     "date": 1631516400000
   },
   {
-    "id": "lohrj-336-lohr-jeremy-2021-1244",
+    "id": "lohrj-336-lohr-jeremy-2021-1240",
     "candidate": "LOHRJ--336",
     "donor": "lohr-jeremy",
     "electionyear": "2021",
@@ -16077,7 +16025,7 @@
     "date": 1631516400000
   },
   {
-    "id": "rodgs-639-teamsters-local-839-separate-segregated-fund-2021-1245",
+    "id": "rodgs-639-teamsters-local-839-separate-segregated-fund-2021-1241",
     "candidate": "RODGS--639",
     "donor": "teamsters-local-839-separate-segregated-fund",
     "electionyear": "2021",
@@ -16090,7 +16038,7 @@
     "date": 1631257200000
   },
   {
-    "id": "rodgs-639-fellman-nellie-2021-1246",
+    "id": "rodgs-639-fellman-nellie-2021-1242",
     "candidate": "RODGS--639",
     "donor": "fellman-nellie",
     "electionyear": "2021",
@@ -16103,7 +16051,7 @@
     "date": 1631430000000
   },
   {
-    "id": "rodgs-639-lorenzo-kerry-2021-1247",
+    "id": "rodgs-639-lorenzo-kerry-2021-1243",
     "candidate": "RODGS--639",
     "donor": "lorenzo-kerry",
     "electionyear": "2021",
@@ -16116,7 +16064,7 @@
     "date": 1631084400000
   },
   {
-    "id": "rodgs-639-shjerven-russell-d-2021-1248",
+    "id": "rodgs-639-shjerven-russell-d-2021-1244",
     "candidate": "RODGS--639",
     "donor": "shjerven-russell-d",
     "electionyear": "2021",
@@ -16129,7 +16077,7 @@
     "date": 1631430000000
   },
   {
-    "id": "rodgs-639-torelli-chuck-2021-1249",
+    "id": "rodgs-639-torelli-chuck-2021-1245",
     "candidate": "RODGS--639",
     "donor": "torelli-chuck",
     "electionyear": "2021",
@@ -16142,7 +16090,7 @@
     "date": 1631343600000
   },
   {
-    "id": "vanne-352-rogo-joel-2021-1250",
+    "id": "vanne-352-rogo-joel-2021-1246",
     "candidate": "VANNE--352",
     "donor": "rogo-joel",
     "electionyear": "2021",
@@ -16153,5 +16101,1253 @@
     "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048009",
     "amount": 100,
     "date": 1631775600000
+  },
+  {
+    "id": "morak-353-patel-stenoien-kavita-2021-1247",
+    "candidate": "MORAK  353",
+    "donor": "patel-stenoien-kavita",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048163",
+    "amount": 50,
+    "date": 1631170800000
+  },
+  {
+    "id": "morak-353-haack-shankari-2021-1248",
+    "candidate": "MORAK  353",
+    "donor": "haack-shankari",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048164",
+    "amount": 100,
+    "date": 1631602800000
+  },
+  {
+    "id": "steie-138-small-contributions-2021-1249",
+    "candidate": "STEIE--138",
+    "donor": "small-contributions",
+    "electionyear": "2021",
+    "donation_type": "Other",
+    "party": "",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 1 persons.",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048221",
+    "amount": 10,
+    "date": 1631689200000
+  },
+  {
+    "id": "steie-138-valiant-bob-2021-1250",
+    "candidate": "STEIE--138",
+    "donor": "valiant-bob",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048221",
+    "amount": 60,
+    "date": 1631689200000
+  },
+  {
+    "id": "steie-138-black-nicki-2021-1251",
+    "candidate": "STEIE--138",
+    "donor": "black-nicki",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048221",
+    "amount": 50,
+    "date": 1631689200000
+  },
+  {
+    "id": "andel-337-petitmermet-judith-ms-2021-1252",
+    "candidate": "ANDEL--337",
+    "donor": "petitmermet-judith-ms",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048290",
+    "amount": 50,
+    "date": 1631775600000
+  },
+  {
+    "id": "andel-337-petitmermet-thomas-mr-2021-1253",
+    "candidate": "ANDEL--337",
+    "donor": "petitmermet-thomas-mr",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048290",
+    "amount": 50,
+    "date": 1631775600000
+  },
+  {
+    "id": "shork-336-johnson-ranata-2021-1254",
+    "candidate": "SHORK--336",
+    "donor": "johnson-ranata",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048297",
+    "amount": 100,
+    "date": 1631775600000
+  },
+  {
+    "id": "shork-336-hollenbeck-trevor-2021-1255",
+    "candidate": "SHORK--336",
+    "donor": "hollenbeck-trevor",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048297",
+    "amount": 25,
+    "date": 1631775600000
+  },
+  {
+    "id": "vanne-352-berkowitz-debbie-2021-1256",
+    "candidate": "VANNE--352",
+    "donor": "berkowitz-debbie",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048403",
+    "amount": 50,
+    "date": 1631862000000
+  },
+  {
+    "id": "vanne-352-miller-kendall-2021-1257",
+    "candidate": "VANNE--352",
+    "donor": "miller-kendall",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048403",
+    "amount": 30,
+    "date": 1632034800000
+  },
+  {
+    "id": "vanne-352-mahoney-leiloni-2021-1258",
+    "candidate": "VANNE--352",
+    "donor": "mahoney-leiloni",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048403",
+    "amount": 30,
+    "date": 1631689200000
+  },
+  {
+    "id": "vanne-352-depaolo-austin-2021-1259",
+    "candidate": "VANNE--352",
+    "donor": "depaolo-austin",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048403",
+    "amount": 50,
+    "date": 1631862000000
+  },
+  {
+    "id": "wiree-352-murray-chris-2021-1260",
+    "candidate": "WIREE  352",
+    "donor": "murray-chris",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048407",
+    "amount": 100,
+    "date": 1631689200000
+  },
+  {
+    "id": "wiree-352-sanchez-maricela-2021-1261",
+    "candidate": "WIREE  352",
+    "donor": "sanchez-maricela",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048407",
+    "amount": 100,
+    "date": 1631689200000
+  },
+  {
+    "id": "wiree-352-cable-alison-2021-1262",
+    "candidate": "WIREE  352",
+    "donor": "cable-alison",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048407",
+    "amount": 50,
+    "date": 1631689200000
+  },
+  {
+    "id": "wiree-352-stoltzfus-susan-2021-1263",
+    "candidate": "WIREE  352",
+    "donor": "stoltzfus-susan",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048407",
+    "amount": 100,
+    "date": 1631516400000
+  },
+  {
+    "id": "wiree-352-knutson-kathryn-2021-1264",
+    "candidate": "WIREE  352",
+    "donor": "knutson-kathryn",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048407",
+    "amount": 50,
+    "date": 1632034800000
+  },
+  {
+    "id": "wiree-352-lee-steve-2021-1265",
+    "candidate": "WIREE  352",
+    "donor": "lee-steve",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048407",
+    "amount": 1000,
+    "date": 1631862000000
+  },
+  {
+    "id": "lohrj-336-small-contributions-2021-1266",
+    "candidate": "LOHRJ--336",
+    "donor": "small-contributions",
+    "electionyear": "2021",
+    "donation_type": "Other",
+    "party": "",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 1 persons.",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048408",
+    "amount": 5,
+    "date": 1631948400000
+  },
+  {
+    "id": "lohrj-336-gustafson-kurt-2021-1267",
+    "candidate": "LOHRJ--336",
+    "donor": "gustafson-kurt",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048409",
+    "amount": 100,
+    "date": 1631689200000
+  },
+  {
+    "id": "lohrj-336-ruiz-ana-mercedes-2021-1268",
+    "candidate": "LOHRJ--336",
+    "donor": "ruiz-ana-mercedes",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048409",
+    "amount": 50,
+    "date": 1631689200000
+  },
+  {
+    "id": "lohrj-336-ibew-local-191-cope-2021-1269",
+    "candidate": "LOHRJ--336",
+    "donor": "ibew-local-191-cope",
+    "electionyear": "2021",
+    "donation_type": "Union",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048410",
+    "amount": 900,
+    "date": 1632121200000
+  },
+  {
+    "id": "lohrj-336-pac-48-of-wa-2021-1270",
+    "candidate": "LOHRJ--336",
+    "donor": "pac-48-of-wa",
+    "electionyear": "2021",
+    "donation_type": "Union",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048410",
+    "amount": 1000,
+    "date": 1632121200000
+  },
+  {
+    "id": "lohrj-336-ibew-local-76-2021-1271",
+    "candidate": "LOHRJ--336",
+    "donor": "ibew-local-76",
+    "electionyear": "2021",
+    "donation_type": "Union",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048410",
+    "amount": 1000,
+    "date": 1632121200000
+  },
+  {
+    "id": "lohrj-336-frost-s-fifer-2021-1272",
+    "candidate": "LOHRJ--336",
+    "donor": "frost-s-fifer",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048410",
+    "amount": 1000,
+    "date": 1632121200000
+  },
+  {
+    "id": "lohrj-336-grimes-carrie-2021-1273",
+    "candidate": "LOHRJ--336",
+    "donor": "grimes-carrie",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048409",
+    "amount": 100,
+    "date": 1631689200000
+  },
+  {
+    "id": "lohrj-336-mcdaniel-diane-2021-1274",
+    "candidate": "LOHRJ--336",
+    "donor": "mcdaniel-diane",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048409",
+    "amount": 100,
+    "date": 1631689200000
+  },
+  {
+    "id": "garcd-352-small-contributions-2021-1275",
+    "candidate": "GARCD--352",
+    "donor": "small-contributions",
+    "electionyear": "2021",
+    "donation_type": "Other",
+    "party": "",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 1 persons.",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048608",
+    "amount": 10,
+    "date": 1631775600000
+  },
+  {
+    "id": "garcd-352-murray-chris-2021-1276",
+    "candidate": "GARCD--352",
+    "donor": "murray-chris",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048608",
+    "amount": 50,
+    "date": 1631689200000
+  },
+  {
+    "id": "garcd-352-buxton-kenneth-2021-1277",
+    "candidate": "GARCD--352",
+    "donor": "buxton-kenneth",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048608",
+    "amount": 250,
+    "date": 1631516400000
+  },
+  {
+    "id": "garcd-352-mercedes-ruiz-ana-2021-1278",
+    "candidate": "GARCD--352",
+    "donor": "mercedes-ruiz-ana",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048615",
+    "amount": 100,
+    "date": 1631862000000
+  },
+  {
+    "id": "garcd-352-reis-marsha-2021-1279",
+    "candidate": "GARCD--352",
+    "donor": "reis-marsha",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048615",
+    "amount": 1000,
+    "date": 1631862000000
+  },
+  {
+    "id": "garcd-352-miller-kendall-2021-1280",
+    "candidate": "GARCD--352",
+    "donor": "miller-kendall",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048612",
+    "amount": 30,
+    "date": 1631948400000
+  },
+  {
+    "id": "garcd-352-berkowitz-debbie-2021-1281",
+    "candidate": "GARCD--352",
+    "donor": "berkowitz-debbie",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048608",
+    "amount": 50,
+    "date": 1631862000000
+  },
+  {
+    "id": "garcd-352-jensen-mary-2021-1282",
+    "candidate": "GARCD--352",
+    "donor": "jensen-mary",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048608",
+    "amount": 100,
+    "date": 1631689200000
+  },
+  {
+    "id": "garcd-352-mahoney-leiloni-2021-1283",
+    "candidate": "GARCD--352",
+    "donor": "mahoney-leiloni",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048608",
+    "amount": 30,
+    "date": 1631689200000
+  },
+  {
+    "id": "garcd-352-miller-andy-2021-1284",
+    "candidate": "GARCD--352",
+    "donor": "miller-andy",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048608",
+    "amount": 100,
+    "date": 1631602800000
+  },
+  {
+    "id": "garcd-352-wireman-eleanor-2021-1285",
+    "candidate": "GARCD--352",
+    "donor": "wireman-eleanor",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048608",
+    "amount": 25,
+    "date": 1631516400000
+  },
+  {
+    "id": "garcd-352-painter-susan-2021-1286",
+    "candidate": "GARCD--352",
+    "donor": "painter-susan",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048615",
+    "amount": 20,
+    "date": 1631862000000
+  },
+  {
+    "id": "garcd-352-lugo-elizabeth-2021-1287",
+    "candidate": "GARCD--352",
+    "donor": "lugo-elizabeth",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048615",
+    "amount": 100,
+    "date": 1631862000000
+  },
+  {
+    "id": "garcd-352-rogo-joel-2021-1288",
+    "candidate": "GARCD--352",
+    "donor": "rogo-joel",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048615",
+    "amount": 100,
+    "date": 1631862000000
+  },
+  {
+    "id": "sancm-350-small-contributions-2021-1289",
+    "candidate": "SANCM  350",
+    "donor": "small-contributions",
+    "electionyear": "2021",
+    "donation_type": "Other",
+    "party": "",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 2 persons.",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048644",
+    "amount": 27,
+    "date": 1631430000000
+  },
+  {
+    "id": "sancm-350-cable-alison-2021-1290",
+    "candidate": "SANCM  350",
+    "donor": "cable-alison",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048644",
+    "amount": 50,
+    "date": 1631430000000
+  },
+  {
+    "id": "sancm-350-mercer-rachel-2021-1291",
+    "candidate": "SANCM  350",
+    "donor": "mercer-rachel",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048644",
+    "amount": 100,
+    "date": 1631430000000
+  },
+  {
+    "id": "sancm-350-espindola-norma-2021-1292",
+    "candidate": "SANCM  350",
+    "donor": "espindola-norma",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048644",
+    "amount": 100,
+    "date": 1631430000000
+  },
+  {
+    "id": "birdm-352-nemeth-eugene-2021-1293",
+    "candidate": "BIRDM--352",
+    "donor": "nemeth-eugene",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048686",
+    "amount": 100,
+    "date": 1631862000000
+  },
+  {
+    "id": "birdm-352-sprowl-jason-2021-1294",
+    "candidate": "BIRDM--352",
+    "donor": "sprowl-jason",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048686",
+    "amount": 51,
+    "date": 1631775600000
+  },
+  {
+    "id": "birdm-352-conner-angela-2021-1295",
+    "candidate": "BIRDM--352",
+    "donor": "conner-angela",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048686",
+    "amount": 50,
+    "date": 1631775600000
+  },
+  {
+    "id": "birdm-352-guyll-leanne-2021-1296",
+    "candidate": "BIRDM--352",
+    "donor": "guyll-leanne",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048686",
+    "amount": 50,
+    "date": 1631602800000
+  },
+  {
+    "id": "birdm-352-ornelas-jesus-2021-1297",
+    "candidate": "BIRDM--352",
+    "donor": "ornelas-jesus",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048686",
+    "amount": 257,
+    "date": 1631948400000
+  },
+  {
+    "id": "birdm-352-mcguire-jeremiah-2021-1298",
+    "candidate": "BIRDM--352",
+    "donor": "mcguire-jeremiah",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048686",
+    "amount": 50,
+    "date": 1631775600000
+  },
+  {
+    "id": "birdm-352-castillo-marisol-2021-1299",
+    "candidate": "BIRDM--352",
+    "donor": "castillo-marisol",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048686",
+    "amount": 50,
+    "date": 1631775600000
+  },
+  {
+    "id": "birdm-352-wetzel-james-2021-1300",
+    "candidate": "BIRDM--352",
+    "donor": "wetzel-james",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048686",
+    "amount": 100,
+    "date": 1631775600000
+  },
+  {
+    "id": "birdm-352-chapin-kristen-2021-1301",
+    "candidate": "BIRDM--352",
+    "donor": "chapin-kristen",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048686",
+    "amount": 30,
+    "date": 1631602800000
+  },
+  {
+    "id": "trumj-337-olson-tammy-ms-2021-1302",
+    "candidate": "TRUMJ  337",
+    "donor": "olson-tammy-ms",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048756",
+    "amount": 250,
+    "date": 1628665200000
+  },
+  {
+    "id": "trumj-337-jankelson-kimberly-ms-2021-1303",
+    "candidate": "TRUMJ  337",
+    "donor": "jankelson-kimberly-ms",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048756",
+    "amount": 500,
+    "date": 1628665200000
+  },
+  {
+    "id": "trumj-337-jankelson-michael-c-mr-2021-1304",
+    "candidate": "TRUMJ  337",
+    "donor": "jankelson-michael-c-mr",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048756",
+    "amount": 500,
+    "date": 1628665200000
+  },
+  {
+    "id": "trumj-337-jankelson-roland-mr-2021-1305",
+    "candidate": "TRUMJ  337",
+    "donor": "jankelson-roland-mr",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048756",
+    "amount": 500,
+    "date": 1628665200000
+  },
+  {
+    "id": "trumj-337-harmon-mike-mr-2021-1306",
+    "candidate": "TRUMJ  337",
+    "donor": "harmon-mike-mr",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048756",
+    "amount": 500,
+    "date": 1628665200000
+  },
+  {
+    "id": "trumj-337-richardson-mike-mr-2021-1307",
+    "candidate": "TRUMJ  337",
+    "donor": "richardson-mike-mr",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048756",
+    "amount": 500,
+    "date": 1628665200000
+  },
+  {
+    "id": "trumj-337-chavallo-jose-2021-1308",
+    "candidate": "TRUMJ  337",
+    "donor": "chavallo-jose",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048761",
+    "amount": 400,
+    "date": 1631602800000
+  },
+  {
+    "id": "chrij-336-john-eric-christenson-john-christenson-2021-1309",
+    "candidate": "CHRIJ--336",
+    "donor": "john-eric-christenson-john-christenson",
+    "electionyear": "2021",
+    "donation_type": "Self",
+    "party": "",
+    "cash": true,
+    "detail": "Candidates Personal Funds - Does not include candidate loans",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048807",
+    "amount": 300,
+    "date": 1632121200000
+  },
+  {
+    "id": "chrij-336-wiberg-suzan-i-2021-1310",
+    "candidate": "CHRIJ--336",
+    "donor": "wiberg-suzan-i",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048807",
+    "amount": 300,
+    "date": 1631602800000
+  },
+  {
+    "id": "britd-336-teamsters-local-839-2021-1311",
+    "candidate": "BRITD  336",
+    "donor": "teamsters-local-839",
+    "electionyear": "2021",
+    "donation_type": "Union",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048850",
+    "amount": 500,
+    "date": 1631862000000
+  },
+  {
+    "id": "crawg-338-thompson-phil-mr-2021-1312",
+    "candidate": "CRAWG--338",
+    "donor": "thompson-phil-mr",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048875",
+    "amount": 100,
+    "date": 1632121200000
+  },
+  {
+    "id": "fitzc-352-miller-kendall-2021-1313",
+    "candidate": "FITZC--352",
+    "donor": "miller-kendall",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048951",
+    "amount": 50,
+    "date": 1631430000000
+  },
+  {
+    "id": "fitzc-352-rogo-joel-2021-1314",
+    "candidate": "FITZC--352",
+    "donor": "rogo-joel",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048951",
+    "amount": 100,
+    "date": 1631516400000
+  },
+  {
+    "id": "fitzc-352-lakes-cynthia-2021-1315",
+    "candidate": "FITZC--352",
+    "donor": "lakes-cynthia",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048951",
+    "amount": 100,
+    "date": 1631602800000
+  },
+  {
+    "id": "fitzc-352-berkowitz-deborah-2021-1316",
+    "candidate": "FITZC--352",
+    "donor": "berkowitz-deborah",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048951",
+    "amount": 100,
+    "date": 1631602800000
+  },
+  {
+    "id": "andrm-301-small-contributions-2021-1317",
+    "candidate": "ANDRM--301",
+    "donor": "small-contributions",
+    "electionyear": "2021",
+    "donation_type": "Other",
+    "party": "",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 1 persons.",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048209",
+    "amount": 25,
+    "date": 1631602800000
+  },
+  {
+    "id": "andrm-301-brown-rm-2021-1318",
+    "candidate": "ANDRM--301",
+    "donor": "brown-rm",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048209",
+    "amount": 50,
+    "date": 1631602800000
+  },
+  {
+    "id": "andrm-301-campbell-lisa-2021-1319",
+    "candidate": "ANDRM--301",
+    "donor": "campbell-lisa",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110048209",
+    "amount": 50,
+    "date": 1631602800000
+  },
+  {
+    "id": "richt-352-theresa-ann-richardson-theresa-richardson-2021-1320",
+    "candidate": "RICHT--352",
+    "donor": "theresa-ann-richardson-theresa-richardson",
+    "electionyear": "2021",
+    "donation_type": "Self",
+    "party": "",
+    "cash": true,
+    "detail": "Candidates Personal Funds - Does not include candidate loans",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049010",
+    "amount": 3394,
+    "date": 1621839600000
+  },
+  {
+    "id": "richt-352-theresa-ann-richardson-theresa-richardson-2021-1321",
+    "candidate": "RICHT--352",
+    "donor": "theresa-ann-richardson-theresa-richardson",
+    "electionyear": "2021",
+    "donation_type": "Self",
+    "party": "",
+    "cash": true,
+    "detail": "Candidates Personal Funds - Does not include candidate loans",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049010",
+    "amount": 156,
+    "date": 1621839600000
+  },
+  {
+    "id": "richt-352-theresa-ann-richardson-theresa-richardson-2021-1322",
+    "candidate": "RICHT--352",
+    "donor": "theresa-ann-richardson-theresa-richardson",
+    "electionyear": "2021",
+    "donation_type": "Self",
+    "party": "",
+    "cash": true,
+    "detail": "Candidates Personal Funds - Does not include candidate loans",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049011",
+    "amount": 1314,
+    "date": 1621321200000
+  },
+  {
+    "id": "richt-352-theresa-ann-richardson-theresa-richardson-2021-1323",
+    "candidate": "RICHT--352",
+    "donor": "theresa-ann-richardson-theresa-richardson",
+    "electionyear": "2021",
+    "donation_type": "Self",
+    "party": "",
+    "cash": true,
+    "detail": "Candidates Personal Funds - Does not include candidate loans",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049011",
+    "amount": 134,
+    "date": 1621321200000
+  },
+  {
+    "id": "phila-301-franklin-county-republican-central-committee-2021-1324",
+    "candidate": "PHILA  301",
+    "donor": "franklin-county-republican-central-committee",
+    "electionyear": "2021",
+    "donation_type": "Party",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049015",
+    "amount": 1000,
+    "date": 1630998000000
+  },
+  {
+    "id": "phila-301-simpson-antohony-p-2021-1325",
+    "candidate": "PHILA  301",
+    "donor": "simpson-antohony-p",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049016",
+    "amount": 150,
+    "date": 1629183600000
+  },
+  {
+    "id": "phila-301-duzan-carole-l-2021-1326",
+    "candidate": "PHILA  301",
+    "donor": "duzan-carole-l",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049016",
+    "amount": 150,
+    "date": 1629183600000
+  },
+  {
+    "id": "richt-352-theresa-ann-richardson-theresa-richardson-2021-1327",
+    "candidate": "RICHT--352",
+    "donor": "theresa-ann-richardson-theresa-richardson",
+    "electionyear": "2021",
+    "donation_type": "Self",
+    "party": "",
+    "cash": true,
+    "detail": "Candidates Personal Funds - Does not include candidate loans",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049078",
+    "amount": 3550,
+    "date": 1621839600000
+  },
+  {
+    "id": "richt-352-theresa-ann-richardson-theresa-richardson-2021-1328",
+    "candidate": "RICHT--352",
+    "donor": "theresa-ann-richardson-theresa-richardson",
+    "electionyear": "2021",
+    "donation_type": "Self",
+    "party": "",
+    "cash": true,
+    "detail": "Candidates Personal Funds - Does not include candidate loans",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049079",
+    "amount": 1449,
+    "date": 1621321200000
+  },
+  {
+    "id": "andel-337-southwick-scott-mr-2021-1329",
+    "candidate": "ANDEL--337",
+    "donor": "southwick-scott-mr",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049214",
+    "amount": 100,
+    "date": 1631862000000
+  },
+  {
+    "id": "andel-337-fairchild-jeff-mr-2021-1330",
+    "candidate": "ANDEL--337",
+    "donor": "fairchild-jeff-mr",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049215",
+    "amount": 100,
+    "date": 1632294000000
+  },
+  {
+    "id": "andel-337-fairchild-lisa-ms-2021-1331",
+    "candidate": "ANDEL--337",
+    "donor": "fairchild-lisa-ms",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049215",
+    "amount": 100,
+    "date": 1632294000000
+  },
+  {
+    "id": "simms-301-franklin-county-republican-central-committee-2021-1332",
+    "candidate": "SIMMS--301",
+    "donor": "franklin-county-republican-central-committee",
+    "electionyear": "2021",
+    "donation_type": "Political Action Committee",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049282",
+    "amount": 1000,
+    "date": 1631862000000
+  },
+  {
+    "id": "rodgs-639-small-contributions-2021-1333",
+    "candidate": "RODGS--639",
+    "donor": "small-contributions",
+    "electionyear": "2021",
+    "donation_type": "Other",
+    "party": "",
+    "cash": true,
+    "detail": "Contributions of $25 or less contributed by: 2 persons.",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049370",
+    "amount": 50,
+    "date": 1631862000000
+  },
+  {
+    "id": "rodgs-639-rogo-d-pearse-2021-1334",
+    "candidate": "RODGS--639",
+    "donor": "rogo-d-pearse",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049370",
+    "amount": 50,
+    "date": 1632466800000
+  },
+  {
+    "id": "rodgs-639-rogo-joel-2021-1335",
+    "candidate": "RODGS--639",
+    "donor": "rogo-joel",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049370",
+    "amount": 50,
+    "date": 1632466800000
+  },
+  {
+    "id": "rodgs-639-consalvo-olson-caprice-2021-1336",
+    "candidate": "RODGS--639",
+    "donor": "consalvo-olson-caprice",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049370",
+    "amount": 100,
+    "date": 1632380400000
+  },
+  {
+    "id": "rodgs-639-miller-andy-2021-1337",
+    "candidate": "RODGS--639",
+    "donor": "miller-andy",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049370",
+    "amount": 250,
+    "date": 1631775600000
+  },
+  {
+    "id": "rodgs-639-sanders-tracie-2021-1338",
+    "candidate": "RODGS--639",
+    "donor": "sanders-tracie",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049369",
+    "amount": 50,
+    "date": 1631862000000
+  },
+  {
+    "id": "rodgs-639-moak-thomas-2021-1339",
+    "candidate": "RODGS--639",
+    "donor": "moak-thomas",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049370",
+    "amount": 100,
+    "date": 1631862000000
+  },
+  {
+    "id": "jonejh-352-intl-brotherhood-of-electrical-workers-local-112-2021-1340",
+    "candidate": "JONEJH 352",
+    "donor": "intl-brotherhood-of-electrical-workers-local-112",
+    "electionyear": "2021",
+    "donation_type": "Union",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049441",
+    "amount": 1000,
+    "date": 1631862000000
+  },
+  {
+    "id": "jonejh-352-wright-jacqui-2021-1341",
+    "candidate": "JONEJH 352",
+    "donor": "wright-jacqui",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049441",
+    "amount": 150,
+    "date": 1631862000000
+  },
+  {
+    "id": "jonejh-352-barnes-don-2021-1342",
+    "candidate": "JONEJH 352",
+    "donor": "barnes-don",
+    "electionyear": "2021",
+    "donation_type": "Individual",
+    "party": "",
+    "cash": true,
+    "detail": "",
+    "report": "https://apollo.pdc.wa.gov/public/registrations/finance-report/110049441",
+    "amount": 250,
+    "date": 1631862000000
   }
 ]

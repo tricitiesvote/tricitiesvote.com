@@ -61,11 +61,11 @@
       "grigb-352-larsen-heidi-2021-929",
       "grigb-352-ritchie-craig-2021-932",
       "grigb-352-bushman-sylvia-2021-960",
-      "grigb-352-bock-amy-2021-1082",
-      "grigb-352-reberger-kevin-2021-1083",
-      "grigb-352-hester-kelly-50-2021-1084",
-      "grigb-352-tucker-brock-2021-1085",
-      "grigb-352-free-linda-2021-1102"
+      "grigb-352-bock-amy-2021-1080",
+      "grigb-352-reberger-kevin-2021-1081",
+      "grigb-352-hester-kelly-50-2021-1082",
+      "grigb-352-tucker-brock-2021-1083",
+      "grigb-352-free-linda-2021-1100"
     ]
   },
   {
@@ -97,8 +97,8 @@
       "grigb-352-small-contributions-2021-888",
       "grigb-352-miscellaneous-receipts-2021-890",
       "grigb-352-miscellaneous-receipts-2021-975",
-      "grigb-352-home-depot-2021-1100",
-      "grigb-352-buildasign-com-2021-1101"
+      "grigb-352-home-depot-2021-1098",
+      "grigb-352-buildasign-com-2021-1099"
     ]
   },
   {
@@ -128,8 +128,8 @@
     "id": "lohrj-336-individual",
     "candidate": "LOHRJ--336",
     "donor_type": "Individual",
-    "total_donated": 5896,
-    "total_cash": 5896,
+    "total_donated": 7246,
+    "total_cash": 7246,
     "total_in_kind": 0,
     "donations": [
       "lohrj-336-schuurs-marieke-2021-3",
@@ -174,19 +174,24 @@
       "lohrj-336-arpaia-mary-2021-931",
       "lohrj-336-mosley-john-2021-948",
       "lohrj-336-ruiz-ana-mercedes-2021-1023",
-      "lohrj-336-arpaia-kerani-2021-1055",
-      "lohrj-336-raffa-justin-2021-1241",
-      "lohrj-336-sawyer-teresa-2021-1242",
-      "lohrj-336-johnson-lori-2021-1243",
-      "lohrj-336-lohr-jeremy-2021-1244"
+      "lohrj-336-arpaia-kerani-2021-1053",
+      "lohrj-336-raffa-justin-2021-1237",
+      "lohrj-336-sawyer-teresa-2021-1238",
+      "lohrj-336-johnson-lori-2021-1239",
+      "lohrj-336-lohr-jeremy-2021-1240",
+      "lohrj-336-gustafson-kurt-2021-1267",
+      "lohrj-336-ruiz-ana-mercedes-2021-1268",
+      "lohrj-336-frost-s-fifer-2021-1272",
+      "lohrj-336-grimes-carrie-2021-1273",
+      "lohrj-336-mcdaniel-diane-2021-1274"
     ]
   },
   {
     "id": "shork-336-individual",
     "candidate": "SHORK--336",
     "donor_type": "Individual",
-    "total_donated": 9170,
-    "total_cash": 9170,
+    "total_donated": 9295,
+    "total_cash": 9295,
     "total_in_kind": 0,
     "donations": [
       "shork-336-burleigh-kyle-2021-11",
@@ -251,15 +256,17 @@
       "shork-336-sansotta-dominic-2021-977",
       "shork-336-bohlander-jordan-2021-978",
       "shork-336-johnson-cassandra-2021-979",
-      "shork-336-short-donald-2021-1063",
-      "shork-336-short-donald-2021-1064",
-      "shork-336-mercedes-ana-2021-1065",
-      "shork-336-mercedes-ana-2021-1066",
-      "shork-336-slack-james-2021-1098",
-      "shork-336-palmer-mary-2021-1099",
-      "shork-336-frost-s-fifer-2021-1210",
-      "shork-336-layman-brady-2021-1211",
-      "shork-336-layman-margaret-2021-1212"
+      "shork-336-short-donald-2021-1061",
+      "shork-336-short-donald-2021-1062",
+      "shork-336-mercedes-ana-2021-1063",
+      "shork-336-mercedes-ana-2021-1064",
+      "shork-336-slack-james-2021-1096",
+      "shork-336-palmer-mary-2021-1097",
+      "shork-336-frost-s-fifer-2021-1206",
+      "shork-336-layman-brady-2021-1207",
+      "shork-336-layman-margaret-2021-1208",
+      "shork-336-johnson-ranata-2021-1254",
+      "shork-336-hollenbeck-trevor-2021-1255"
     ]
   },
   {
@@ -289,8 +296,8 @@
     "id": "lohrj-336-other",
     "candidate": "LOHRJ--336",
     "donor_type": "Other",
-    "total_donated": 561,
-    "total_cash": 561,
+    "total_donated": 566,
+    "total_cash": 566,
     "total_in_kind": 0,
     "donations": [
       "lohrj-336-jason-gabriel-allen-lohr-jason-lohr-2021-18",
@@ -305,9 +312,10 @@
       "lohrj-336-small-contributions-2021-894",
       "lohrj-336-small-contributions-2021-947",
       "lohrj-336-small-contributions-2021-1022",
+      "lohrj-336-small-contributions-2021-1052",
       "lohrj-336-small-contributions-2021-1054",
-      "lohrj-336-small-contributions-2021-1056",
-      "lohrj-336-small-contributions-2021-1240"
+      "lohrj-336-small-contributions-2021-1236",
+      "lohrj-336-small-contributions-2021-1266"
     ]
   },
   {
@@ -440,8 +448,8 @@
     "id": "vanne-352-individual",
     "candidate": "VANNE--352",
     "donor_type": "Individual",
-    "total_donated": 5775,
-    "total_cash": 5235,
+    "total_donated": 5935,
+    "total_cash": 5395,
     "total_in_kind": 540,
     "donations": [
       "vanne-352-campbell-jane-2021-37",
@@ -505,23 +513,27 @@
       "vanne-352-hamilton-tessa-2021-938",
       "vanne-352-painter-susan-2021-939",
       "vanne-352-mercedes-ruiz-ana-2021-994",
-      "vanne-352-vann-mary-2021-1114",
-      "vanne-352-white-skye-2021-1115",
-      "vanne-352-vann-john-2021-1116",
-      "vanne-352-orrell-alice-2021-1176",
-      "vanne-352-dann-mary-2021-1177",
-      "vanne-352-vann-m-s-2021-1179",
-      "vanne-352-garcia-danica-2021-1180",
-      "vanne-352-mercedes-ruiz-ana-2021-1181",
-      "vanne-352-tracy-chris-2021-1182",
-      "vanne-352-tracy-jane-2021-1183",
-      "vanne-352-coffman-kristin-2021-1184",
-      "vanne-352-wiley-julie-2021-1185",
-      "vanne-352-buczek-theresa-2021-1186",
-      "vanne-352-wireman-eleanor-2021-1187",
-      "vanne-352-lightner-lindsay-2021-1188",
-      "vanne-352-rodgers-scott-2021-1189",
-      "vanne-352-rogo-joel-2021-1250"
+      "vanne-352-vann-mary-2021-1112",
+      "vanne-352-white-skye-2021-1113",
+      "vanne-352-vann-john-2021-1114",
+      "vanne-352-orrell-alice-2021-1172",
+      "vanne-352-dann-mary-2021-1173",
+      "vanne-352-vann-m-s-2021-1175",
+      "vanne-352-garcia-danica-2021-1176",
+      "vanne-352-mercedes-ruiz-ana-2021-1177",
+      "vanne-352-tracy-chris-2021-1178",
+      "vanne-352-tracy-jane-2021-1179",
+      "vanne-352-coffman-kristin-2021-1180",
+      "vanne-352-wiley-julie-2021-1181",
+      "vanne-352-buczek-theresa-2021-1182",
+      "vanne-352-wireman-eleanor-2021-1183",
+      "vanne-352-lightner-lindsay-2021-1184",
+      "vanne-352-rodgers-scott-2021-1185",
+      "vanne-352-rogo-joel-2021-1246",
+      "vanne-352-berkowitz-debbie-2021-1256",
+      "vanne-352-miller-kendall-2021-1257",
+      "vanne-352-mahoney-leiloni-2021-1258",
+      "vanne-352-depaolo-austin-2021-1259"
     ]
   },
   {
@@ -549,8 +561,8 @@
       "britd-336-wannarachue-nikon-dr-2021-220",
       "britd-336-frost-sue-2021-787",
       "britd-336-patel-vijay-2021-993",
-      "britd-336-mosley-john-2021-1127",
-      "britd-336-parish-paul-2021-1128"
+      "britd-336-mosley-john-2021-1125",
+      "britd-336-parish-paul-2021-1126"
     ]
   },
   {
@@ -607,8 +619,8 @@
       "torrn-301-small-contributions-2021-555",
       "torrn-301-small-contributions-2021-620",
       "torrn-301-small-contributions-2021-662",
-      "torrn-301-anonymous-contributions-2021-1051",
-      "torrn-301-small-contributions-2021-1091"
+      "torrn-301-anonymous-contributions-2021-1049",
+      "torrn-301-small-contributions-2021-1089"
     ]
   },
   {
@@ -626,8 +638,8 @@
     "id": "crawg-338-individual",
     "candidate": "CRAWG--338",
     "donor_type": "Individual",
-    "total_donated": 9173,
-    "total_cash": 9173,
+    "total_donated": 9273,
+    "total_cash": 9273,
     "total_in_kind": 0,
     "donations": [
       "crawg-338-przybylski-jan-ms-2021-158",
@@ -653,12 +665,13 @@
       "crawg-338-cates-randall-mr-2021-664",
       "crawg-338-gimera-michael-mr-2021-711",
       "crawg-338-kirchhoff-terri-ms-2021-851",
-      "crawg-338-goffard-jason-mr-2021-1041",
-      "crawg-338-guse-eugene-mr-2021-1042",
-      "crawg-338-labaef-mike-mr-2021-1068",
-      "crawg-338-singh-mini-ms-2021-1088",
-      "crawg-338-rabe-felicity-ms-2021-1089",
-      "crawg-338-fife-dennis-mr-2021-1090"
+      "crawg-338-goffard-jason-mr-2021-1039",
+      "crawg-338-guse-eugene-mr-2021-1040",
+      "crawg-338-labaef-mike-mr-2021-1066",
+      "crawg-338-singh-mini-ms-2021-1086",
+      "crawg-338-rabe-felicity-ms-2021-1087",
+      "crawg-338-fife-dennis-mr-2021-1088",
+      "crawg-338-thompson-phil-mr-2021-1312"
     ]
   },
   {
@@ -691,7 +704,7 @@
       "lohrj-336-wa-education-association-pac-2021-791",
       "lohrj-336-ibew-332-education-fund-2021-792",
       "lohrj-336-nw-regional-council-of-smart-2021-895",
-      "lohrj-336-ibew-local-union-112-polictical-action-committee-contribution-account-2021-1239"
+      "lohrj-336-ibew-local-union-112-polictical-action-committee-contribution-account-2021-1235"
     ]
   },
   {
@@ -710,8 +723,8 @@
     "id": "wiree-352-individual",
     "candidate": "WIREE  352",
     "donor_type": "Individual",
-    "total_donated": 3217,
-    "total_cash": 3217,
+    "total_donated": 4617,
+    "total_cash": 4617,
     "total_in_kind": 0,
     "donations": [
       "wiree-352-watts-angela-2021-194",
@@ -767,9 +780,15 @@
       "wiree-352-fraser-ann-2021-940",
       "wiree-352-painter-susan-2021-990",
       "wiree-352-dihel-deb-2021-991",
-      "wiree-352-szostek-stephanie-2021-1117",
-      "wiree-352-baird-brian-2021-1118",
-      "wiree-352-fraser-ann-2021-1178"
+      "wiree-352-szostek-stephanie-2021-1115",
+      "wiree-352-baird-brian-2021-1116",
+      "wiree-352-fraser-ann-2021-1174",
+      "wiree-352-murray-chris-2021-1260",
+      "wiree-352-sanchez-maricela-2021-1261",
+      "wiree-352-cable-alison-2021-1262",
+      "wiree-352-stoltzfus-susan-2021-1263",
+      "wiree-352-knutson-kathryn-2021-1264",
+      "wiree-352-lee-steve-2021-1265"
     ]
   },
   {
@@ -807,10 +826,10 @@
       "torrn-301-bowers-tanya-2021-644",
       "torrn-301-ruiz-ana-2021-653",
       "torrn-301-chavallo-manuel-2021-663",
-      "torrn-301-arnott-shane-2021-1074",
-      "torrn-301-mulkerin-kathy-2021-1092",
-      "torrn-301-rumsey-rosie-2021-1093",
-      "torrn-301-miscellaneous-receipts-2021-1154"
+      "torrn-301-arnott-shane-2021-1072",
+      "torrn-301-mulkerin-kathy-2021-1090",
+      "torrn-301-rumsey-rosie-2021-1091",
+      "torrn-301-miscellaneous-receipts-2021-1150"
     ]
   },
   {
@@ -838,8 +857,8 @@
     "id": "steie-138-other",
     "candidate": "STEIE--138",
     "donor_type": "Other",
-    "total_donated": 1144,
-    "total_cash": 1144,
+    "total_donated": 1154,
+    "total_cash": 1154,
     "total_in_kind": 0,
     "donations": [
       "steie-138-small-contributions-2021-223",
@@ -864,8 +883,9 @@
       "steie-138-small-contributions-2021-972",
       "steie-138-small-contributions-2021-973",
       "steie-138-small-contributions-2021-1034",
-      "steie-138-small-contributions-2021-1159",
-      "steie-138-small-contributions-2021-1162"
+      "steie-138-small-contributions-2021-1155",
+      "steie-138-small-contributions-2021-1158",
+      "steie-138-small-contributions-2021-1249"
     ]
   },
   {
@@ -938,8 +958,8 @@
     "id": "lohrj-336-union",
     "candidate": "LOHRJ--336",
     "donor_type": "Union",
-    "total_donated": 9052,
-    "total_cash": 9052,
+    "total_donated": 11952,
+    "total_cash": 11952,
     "total_in_kind": 0,
     "donations": [
       "lohrj-336-teamsters-local-839-2021-241",
@@ -951,10 +971,13 @@
       "lohrj-336-ufcw-local-1439-2021-613",
       "lohrj-336-pac-48-of-wa-2021-619",
       "lohrj-336-richland-fire-fighters-iaff-local-1052-2021-1021",
-      "lohrj-336-international-union-of-operating-engineers-2021-1206",
-      "lohrj-336-seiu-healthcare-1199-nw-2021-1207",
-      "lohrj-336-teamsters-local-839-2021-1237",
-      "lohrj-336-kennewick-union-fire-fighters-2021-1238"
+      "lohrj-336-international-union-of-operating-engineers-2021-1202",
+      "lohrj-336-seiu-healthcare-1199-nw-2021-1203",
+      "lohrj-336-teamsters-local-839-2021-1233",
+      "lohrj-336-kennewick-union-fire-fighters-2021-1234",
+      "lohrj-336-ibew-local-191-cope-2021-1269",
+      "lohrj-336-pac-48-of-wa-2021-1270",
+      "lohrj-336-ibew-local-76-2021-1271"
     ]
   },
   {
@@ -1036,8 +1059,8 @@
     "id": "steie-138-individual",
     "candidate": "STEIE--138",
     "donor_type": "Individual",
-    "total_donated": 7868,
-    "total_cash": 7857,
+    "total_donated": 7978,
+    "total_cash": 7967,
     "total_in_kind": 11,
     "donations": [
       "steie-138-hanneman-nicole-2021-262",
@@ -1119,20 +1142,22 @@
       "steie-138-johnson-cassandra-2021-958",
       "steie-138-raffa-justin-2021-959",
       "steie-138-john-heather-2021-974",
-      "steie-138-goatley-amy-2021-1060",
-      "steie-138-smith-rik-2021-1061",
-      "steie-138-ruiz-ana-m-2021-1062",
-      "steie-138-dwyer-sheila-2021-1160",
-      "steie-138-kissel-jeffrey-2021-1161",
-      "steie-138-winston-lesley-2021-1163",
-      "steie-138-henscheid-kristy-2021-1164",
-      "steie-138-brown-christine-2021-1166",
-      "steie-138-wolbrecht-tiffany-s-2021-1167",
-      "steie-138-santschi-bonnie-2021-1168",
-      "steie-138-hamilton-tessa-2021-1169",
-      "steie-138-fellman-nellie-2021-1170",
-      "steie-138-carlson-heather-2021-1171",
-      "steie-138-shjerven-russell-2021-1173"
+      "steie-138-goatley-amy-2021-1058",
+      "steie-138-smith-rik-2021-1059",
+      "steie-138-ruiz-ana-m-2021-1060",
+      "steie-138-dwyer-sheila-2021-1156",
+      "steie-138-kissel-jeffrey-2021-1157",
+      "steie-138-winston-lesley-2021-1159",
+      "steie-138-henscheid-kristy-2021-1160",
+      "steie-138-brown-christine-2021-1162",
+      "steie-138-wolbrecht-tiffany-s-2021-1163",
+      "steie-138-santschi-bonnie-2021-1164",
+      "steie-138-hamilton-tessa-2021-1165",
+      "steie-138-fellman-nellie-2021-1166",
+      "steie-138-carlson-heather-2021-1167",
+      "steie-138-shjerven-russell-2021-1169",
+      "steie-138-valiant-bob-2021-1250",
+      "steie-138-black-nicki-2021-1251"
     ]
   },
   {
@@ -1150,7 +1175,7 @@
       "van-m-619-groeneweg-paul-mr-2021-708",
       "van-m-619-markley-greg-mr-2021-709",
       "van-m-619-reich-thomas-mr-2021-710",
-      "van-m-619-walsh-ricky-2021-1053"
+      "van-m-619-walsh-ricky-2021-1051"
     ]
   },
   {
@@ -1203,8 +1228,8 @@
     "id": "garcd-352-individual",
     "candidate": "GARCD--352",
     "donor_type": "Individual",
-    "total_donated": 11910,
-    "total_cash": 11810,
+    "total_donated": 13865,
+    "total_cash": 13765,
     "total_in_kind": 100,
     "donations": [
       "garcd-352-wasem-mike-2021-272",
@@ -1281,38 +1306,51 @@
       "garcd-352-thomas-hargunani-cynthia-2021-1029",
       "garcd-352-kunkle-sara-2021-1030",
       "garcd-352-seiler-gloria-2021-1031",
-      "garcd-352-myjake-nicole-2021-1075",
-      "garcd-352-fontana-sharon-2021-1077",
-      "garcd-352-moore-hamilton-patricia-2021-1078",
-      "garcd-352-murray-chris-2021-1104",
-      "garcd-352-doran-nancy-2021-1105",
-      "garcd-352-childers-christopher-2021-1106",
-      "garcd-352-colley-kriste-2021-1107",
-      "garcd-352-hall-jim-2021-1108",
-      "garcd-352-rothwell-pamela-2021-1109",
-      "garcd-352-haller-alisa-2021-1110",
-      "garcd-352-vance-lisbeth-2021-1111",
-      "garcd-352-williams-molly-2021-1112",
-      "garcd-352-soto-murphy-consuelo-2021-1157",
-      "garcd-352-sullivan-deanie-2021-1194",
-      "garcd-352-dann-mary-2021-1195",
-      "garcd-352-nicholson-erik-2021-1196",
-      "garcd-352-scheele-trudi-2021-1197",
-      "garcd-352-cadwell-jillian-2021-1199",
-      "garcd-352-albers-karen-2021-1200",
-      "garcd-352-orrell-alice-2021-1201",
-      "garcd-352-krieg-david-2021-1202",
-      "garcd-352-lightner-lindsay-2021-1203",
-      "garcd-352-boyd-yvonne-2021-1204",
-      "garcd-352-gerber-bryan-2021-1205"
+      "garcd-352-myjake-nicole-2021-1073",
+      "garcd-352-fontana-sharon-2021-1075",
+      "garcd-352-moore-hamilton-patricia-2021-1076",
+      "garcd-352-murray-chris-2021-1102",
+      "garcd-352-doran-nancy-2021-1103",
+      "garcd-352-childers-christopher-2021-1104",
+      "garcd-352-colley-kriste-2021-1105",
+      "garcd-352-hall-jim-2021-1106",
+      "garcd-352-rothwell-pamela-2021-1107",
+      "garcd-352-haller-alisa-2021-1108",
+      "garcd-352-vance-lisbeth-2021-1109",
+      "garcd-352-williams-molly-2021-1110",
+      "garcd-352-soto-murphy-consuelo-2021-1153",
+      "garcd-352-sullivan-deanie-2021-1190",
+      "garcd-352-dann-mary-2021-1191",
+      "garcd-352-nicholson-erik-2021-1192",
+      "garcd-352-scheele-trudi-2021-1193",
+      "garcd-352-cadwell-jillian-2021-1195",
+      "garcd-352-albers-karen-2021-1196",
+      "garcd-352-orrell-alice-2021-1197",
+      "garcd-352-krieg-david-2021-1198",
+      "garcd-352-lightner-lindsay-2021-1199",
+      "garcd-352-boyd-yvonne-2021-1200",
+      "garcd-352-gerber-bryan-2021-1201",
+      "garcd-352-murray-chris-2021-1276",
+      "garcd-352-buxton-kenneth-2021-1277",
+      "garcd-352-mercedes-ruiz-ana-2021-1278",
+      "garcd-352-reis-marsha-2021-1279",
+      "garcd-352-miller-kendall-2021-1280",
+      "garcd-352-berkowitz-debbie-2021-1281",
+      "garcd-352-jensen-mary-2021-1282",
+      "garcd-352-mahoney-leiloni-2021-1283",
+      "garcd-352-miller-andy-2021-1284",
+      "garcd-352-wireman-eleanor-2021-1285",
+      "garcd-352-painter-susan-2021-1286",
+      "garcd-352-lugo-elizabeth-2021-1287",
+      "garcd-352-rogo-joel-2021-1288"
     ]
   },
   {
     "id": "garcd-352-other",
     "candidate": "GARCD--352",
     "donor_type": "Other",
-    "total_donated": 1191,
-    "total_cash": 1191,
+    "total_donated": 1201,
+    "total_cash": 1201,
     "total_in_kind": 0,
     "donations": [
       "garcd-352-small-contributions-2021-273",
@@ -1330,9 +1368,10 @@
       "garcd-352-friends-of-elizabeth-vann-clark-2021-833",
       "garcd-352-small-contributions-2021-941",
       "garcd-352-small-contributions-2021-1025",
-      "garcd-352-small-contributions-2021-1076",
-      "garcd-352-small-contributions-2021-1103",
-      "garcd-352-small-contributions-2021-1198"
+      "garcd-352-small-contributions-2021-1074",
+      "garcd-352-small-contributions-2021-1101",
+      "garcd-352-small-contributions-2021-1194",
+      "garcd-352-small-contributions-2021-1275"
     ]
   },
   {
@@ -1424,8 +1463,8 @@
     "id": "andrm-301-other",
     "candidate": "ANDRM--301",
     "donor_type": "Other",
-    "total_donated": 8025,
-    "total_cash": 8025,
+    "total_donated": 8050,
+    "total_cash": 8050,
     "total_in_kind": 0,
     "donations": [
       "andrm-301-michelle-m-andres-michelle-andres-2021-351",
@@ -1434,29 +1473,32 @@
       "andrm-301-michelle-m-andres-michelle-andres-2021-635",
       "andrm-301-michelle-m-andres-michelle-andres-2021-801",
       "andrm-301-small-contributions-2021-887",
-      "andrm-301-michelle-m-andres-michelle-andres-2021-1032"
+      "andrm-301-michelle-m-andres-michelle-andres-2021-1032",
+      "andrm-301-small-contributions-2021-1317"
     ]
   },
   {
     "id": "andrm-301-individual",
     "candidate": "ANDRM--301",
     "donor_type": "Individual",
-    "total_donated": 450,
-    "total_cash": 450,
+    "total_donated": 550,
+    "total_cash": 550,
     "total_in_kind": 0,
     "donations": [
       "andrm-301-drewry-kris-2021-352",
       "andrm-301-drewry-dee-2021-353",
       "andrm-301-olsen-darryll-2021-446",
-      "andrm-301-leaumont-richard-2021-802"
+      "andrm-301-leaumont-richard-2021-802",
+      "andrm-301-brown-rm-2021-1318",
+      "andrm-301-campbell-lisa-2021-1319"
     ]
   },
   {
     "id": "morak-353-individual",
     "candidate": "MORAK  353",
     "donor_type": "Individual",
-    "total_donated": 2077,
-    "total_cash": 2077,
+    "total_donated": 2227,
+    "total_cash": 2227,
     "total_in_kind": 0,
     "donations": [
       "morak-353-tracy-jayne-2021-359",
@@ -1471,10 +1513,12 @@
       "morak-353-pew-elizabeth-2021-914",
       "morak-353-may-richard-2021-934",
       "morak-353-mercedes-ruiz-ana-2021-1033",
-      "morak-353-slovic-lillian-2021-1121",
-      "morak-353-slovic-robert-2021-1122",
-      "morak-353-reuther-richard-2021-1123",
-      "morak-353-sharpe-martin-2021-1175"
+      "morak-353-slovic-lillian-2021-1119",
+      "morak-353-slovic-robert-2021-1120",
+      "morak-353-reuther-richard-2021-1121",
+      "morak-353-sharpe-martin-2021-1171",
+      "morak-353-patel-stenoien-kavita-2021-1247",
+      "morak-353-haack-shankari-2021-1248"
     ]
   },
   {
@@ -1486,7 +1530,7 @@
     "total_in_kind": 0,
     "donations": [
       "crawg-338-small-contributions-2021-411",
-      "crawg-338-small-contributions-2021-1094"
+      "crawg-338-small-contributions-2021-1092"
     ]
   },
   {
@@ -1509,9 +1553,9 @@
     "total_in_kind": 0,
     "donations": [
       "browi-307-small-contributions-2021-442",
-      "browi-307-small-contributions-2021-1151",
-      "browi-307-anonymous-contributions-2021-1152",
-      "browi-307-anonymous-contributions-2021-1153"
+      "browi-307-small-contributions-2021-1147",
+      "browi-307-anonymous-contributions-2021-1148",
+      "browi-307-anonymous-contributions-2021-1149"
     ]
   },
   {
@@ -1561,8 +1605,8 @@
     "id": "britd-336-union",
     "candidate": "BRITD  336",
     "donor_type": "Union",
-    "total_donated": 6000,
-    "total_cash": 6000,
+    "total_donated": 6500,
+    "total_cash": 6500,
     "total_in_kind": 0,
     "donations": [
       "britd-336-plumbers-and-steamfitters-local-union-598-2021-465",
@@ -1570,8 +1614,9 @@
       "britd-336-ibew-local-union-112-2021-668",
       "britd-336-washington-education-association-2021-786",
       "britd-336-international-union-of-operating-engineers-local-302-2021-992",
-      "britd-336-ibew-local-union-112-2021-1208",
-      "britd-336-kennewick-union-fire-fighter-1296-2021-1209"
+      "britd-336-ibew-local-union-112-2021-1204",
+      "britd-336-kennewick-union-fire-fighter-1296-2021-1205",
+      "britd-336-teamsters-local-839-2021-1311"
     ]
   },
   {
@@ -1624,14 +1669,19 @@
     "id": "andel-337-individual",
     "candidate": "ANDEL--337",
     "donor_type": "Individual",
-    "total_donated": 795,
-    "total_cash": 795,
+    "total_donated": 1195,
+    "total_cash": 1195,
     "total_in_kind": 0,
     "donations": [
       "andel-337-anderson-brian-mr-2021-508",
       "andel-337-benjamin-charlotte-ms-2021-509",
       "andel-337-neal-louise-ms-2021-665",
-      "andel-337-neal-steve-mr-2021-666"
+      "andel-337-neal-steve-mr-2021-666",
+      "andel-337-petitmermet-judith-ms-2021-1252",
+      "andel-337-petitmermet-thomas-mr-2021-1253",
+      "andel-337-southwick-scott-mr-2021-1329",
+      "andel-337-fairchild-jeff-mr-2021-1330",
+      "andel-337-fairchild-lisa-ms-2021-1331"
     ]
   },
   {
@@ -1643,10 +1693,10 @@
     "total_in_kind": 0,
     "donations": [
       "andel-337-loren-anderson-2021-510",
-      "andel-337-anonymous-contributions-2021-1059",
-      "andel-337-small-contributions-2021-1095",
-      "andel-337-small-contributions-2021-1096",
-      "andel-337-small-contributions-2021-1097"
+      "andel-337-anonymous-contributions-2021-1057",
+      "andel-337-small-contributions-2021-1093",
+      "andel-337-small-contributions-2021-1094",
+      "andel-337-small-contributions-2021-1095"
     ]
   },
   {
@@ -1663,15 +1713,15 @@
       "fitzc-352-anonymous-contributions-2021-611",
       "fitzc-352-small-contributions-2021-827",
       "fitzc-352-small-contributions-2021-847",
-      "fitzc-352-small-contributions-2021-1213"
+      "fitzc-352-small-contributions-2021-1209"
     ]
   },
   {
     "id": "fitzc-352-individual",
     "candidate": "FITZC--352",
     "donor_type": "Individual",
-    "total_donated": 7963,
-    "total_cash": 7963,
+    "total_donated": 8313,
+    "total_cash": 8313,
     "total_in_kind": 0,
     "donations": [
       "fitzc-352-evans-carole-ms-2021-521",
@@ -1713,38 +1763,43 @@
       "fitzc-352-ellis-balone-geneva-2021-1036",
       "fitzc-352-thomas-cassandra-2021-1037",
       "fitzc-352-lakes-shanai-ms-2021-1038",
-      "fitzc-352-murray-christopher-2021-1086",
-      "fitzc-352-sardinas-paula-2021-1124",
-      "fitzc-352-nicholson-erik-2021-1125",
-      "fitzc-352-doran-nancy-2021-1126",
-      "fitzc-352-tracy-chris-mr-2021-1214",
-      "fitzc-352-regev-shir-2021-1215",
-      "fitzc-352-calloway-melvin-2021-1216",
-      "fitzc-352-hollowell-betty-l-mrs-2021-1217",
-      "fitzc-352-ruiz-ana-2021-1218",
-      "fitzc-352-snyder-jon-2021-1219",
-      "fitzc-352-miller-andrew-2021-1220",
-      "fitzc-352-fontana-sharon-2021-1221",
-      "fitzc-352-vann-clark-elizabeth-2021-1222",
-      "fitzc-352-bribes-cheryl-2021-1223",
-      "fitzc-352-james-stephen-2021-1224",
-      "fitzc-352-garcia-danica-2021-1225",
-      "fitzc-352-anderson-chalis-2021-1226",
-      "fitzc-352-mays-leah-2021-1227",
-      "fitzc-352-williams-kimberly-2021-1228"
+      "fitzc-352-murray-christopher-2021-1084",
+      "fitzc-352-sardinas-paula-2021-1122",
+      "fitzc-352-nicholson-erik-2021-1123",
+      "fitzc-352-doran-nancy-2021-1124",
+      "fitzc-352-tracy-chris-mr-2021-1210",
+      "fitzc-352-regev-shir-2021-1211",
+      "fitzc-352-calloway-melvin-2021-1212",
+      "fitzc-352-hollowell-betty-l-mrs-2021-1213",
+      "fitzc-352-ruiz-ana-2021-1214",
+      "fitzc-352-snyder-jon-2021-1215",
+      "fitzc-352-miller-andrew-2021-1216",
+      "fitzc-352-fontana-sharon-2021-1217",
+      "fitzc-352-vann-clark-elizabeth-2021-1218",
+      "fitzc-352-bribes-cheryl-2021-1219",
+      "fitzc-352-james-stephen-2021-1220",
+      "fitzc-352-garcia-danica-2021-1221",
+      "fitzc-352-anderson-chalis-2021-1222",
+      "fitzc-352-mays-leah-2021-1223",
+      "fitzc-352-williams-kimberly-2021-1224",
+      "fitzc-352-miller-kendall-2021-1313",
+      "fitzc-352-rogo-joel-2021-1314",
+      "fitzc-352-lakes-cynthia-2021-1315",
+      "fitzc-352-berkowitz-deborah-2021-1316"
     ]
   },
   {
     "id": "sancm-350-other",
     "candidate": "SANCM  350",
     "donor_type": "Other",
-    "total_donated": 155,
-    "total_cash": 155,
+    "total_donated": 182,
+    "total_cash": 182,
     "total_in_kind": 0,
     "donations": [
       "sancm-350-small-contributions-2021-547",
       "sancm-350-maricela-sanchez-2021-733",
-      "sancm-350-small-contributions-2021-980"
+      "sancm-350-small-contributions-2021-980",
+      "sancm-350-small-contributions-2021-1289"
     ]
   },
   {
@@ -1813,7 +1868,7 @@
     "total_in_kind": 0,
     "donations": [
       "morak-353-small-contributions-2021-596",
-      "morak-353-small-contributions-2021-1119"
+      "morak-353-small-contributions-2021-1117"
     ]
   },
   {
@@ -1922,7 +1977,7 @@
     "donations": [
       "torrn-301-columbia-river-walk-llc-2021-645",
       "torrn-301-eat-hot-tamales-2021-770",
-      "torrn-301-tri-cities-insurance-professionals-llc-2021-1052"
+      "torrn-301-tri-cities-insurance-professionals-llc-2021-1050"
     ]
   },
   {
@@ -1962,8 +2017,8 @@
     "id": "sancm-350-individual",
     "candidate": "SANCM  350",
     "donor_type": "Individual",
-    "total_donated": 2300,
-    "total_cash": 2300,
+    "total_donated": 2550,
+    "total_cash": 2550,
     "total_in_kind": 0,
     "donations": [
       "sancm-350-valadez-martin-2021-734",
@@ -1976,11 +2031,14 @@
       "sancm-350-lorenzo-javier-2021-987",
       "sancm-350-zenger-obrien-larry-2021-988",
       "sancm-350-del-naja-maria-2021-989",
-      "sancm-350-clements-alexis-2021-1079",
-      "sancm-350-reisman-mark-2021-1081",
-      "sancm-350-fisher-john-2021-1190",
-      "sancm-350-lee-lorri-2021-1191",
-      "sancm-350-andrews-candace-2021-1192"
+      "sancm-350-clements-alexis-2021-1077",
+      "sancm-350-reisman-mark-2021-1079",
+      "sancm-350-fisher-john-2021-1186",
+      "sancm-350-lee-lorri-2021-1187",
+      "sancm-350-andrews-candace-2021-1188",
+      "sancm-350-cable-alison-2021-1290",
+      "sancm-350-mercer-rachel-2021-1291",
+      "sancm-350-espindola-norma-2021-1292"
     ]
   },
   {
@@ -2002,15 +2060,15 @@
       "birdm-352-small-contributions-2021-763",
       "birdm-352-small-contributions-2021-764",
       "birdm-352-small-contributions-2021-769",
-      "birdm-352-small-contributions-2021-1044"
+      "birdm-352-small-contributions-2021-1042"
     ]
   },
   {
     "id": "birdm-352-individual",
     "candidate": "BIRDM--352",
     "donor_type": "Individual",
-    "total_donated": 4962,
-    "total_cash": 4962,
+    "total_donated": 5700,
+    "total_cash": 5700,
     "total_in_kind": 0,
     "donations": [
       "birdm-352-strickler-jerry-2021-751",
@@ -2044,34 +2102,44 @@
       "birdm-352-flake-amiula-2021-1014",
       "birdm-352-hendricks-sherry-2021-1015",
       "birdm-352-heppler-jaime-2021-1017",
-      "birdm-352-smalley-kristi-2021-1043",
-      "birdm-352-brady-colton-2021-1045",
-      "birdm-352-sprowl-jason-2021-1046",
-      "birdm-352-barney-kathy-2021-1047",
-      "birdm-352-everitt-heidi-2021-1048",
-      "birdm-352-jeppson-denae-2021-1069",
-      "birdm-352-tucker-brok-2021-1070",
-      "birdm-352-reberger-kevin-2021-1071",
-      "birdm-352-hester-kelly-2021-1072",
-      "birdm-352-bock-amy-2021-1073",
-      "birdm-352-clark-dana-2021-1087",
-      "birdm-352-froehlich-julie-2021-1230",
-      "birdm-352-lawrence-george-2021-1231",
-      "birdm-352-bouchey-renee-2021-1232",
-      "birdm-352-johnson-mark-2021-1233",
-      "birdm-352-mcglothin-bryan-2021-1234",
-      "birdm-352-johnson-glenn-2021-1235"
+      "birdm-352-smalley-kristi-2021-1041",
+      "birdm-352-brady-colton-2021-1043",
+      "birdm-352-sprowl-jason-2021-1044",
+      "birdm-352-barney-kathy-2021-1045",
+      "birdm-352-everitt-heidi-2021-1046",
+      "birdm-352-jeppson-denae-2021-1067",
+      "birdm-352-tucker-brok-2021-1068",
+      "birdm-352-reberger-kevin-2021-1069",
+      "birdm-352-hester-kelly-2021-1070",
+      "birdm-352-bock-amy-2021-1071",
+      "birdm-352-clark-dana-2021-1085",
+      "birdm-352-froehlich-julie-2021-1226",
+      "birdm-352-lawrence-george-2021-1227",
+      "birdm-352-bouchey-renee-2021-1228",
+      "birdm-352-johnson-mark-2021-1229",
+      "birdm-352-mcglothin-bryan-2021-1230",
+      "birdm-352-johnson-glenn-2021-1231",
+      "birdm-352-nemeth-eugene-2021-1293",
+      "birdm-352-sprowl-jason-2021-1294",
+      "birdm-352-conner-angela-2021-1295",
+      "birdm-352-guyll-leanne-2021-1296",
+      "birdm-352-ornelas-jesus-2021-1297",
+      "birdm-352-mcguire-jeremiah-2021-1298",
+      "birdm-352-castillo-marisol-2021-1299",
+      "birdm-352-wetzel-james-2021-1300",
+      "birdm-352-chapin-kristen-2021-1301"
     ]
   },
   {
     "id": "phila-301-party",
     "candidate": "PHILA  301",
     "donor_type": "Party",
-    "total_donated": 1000,
-    "total_cash": 1000,
+    "total_donated": 2000,
+    "total_cash": 2000,
     "total_in_kind": 0,
     "donations": [
-      "phila-301-franklin-county-republican-central-committee-2021-771"
+      "phila-301-franklin-county-republican-central-committee-2021-771",
+      "phila-301-franklin-county-republican-central-committee-2021-1324"
     ]
   },
   {
@@ -2097,8 +2165,8 @@
       "phila-301-garcia-chad-2021-774",
       "phila-301-mcbride-rhonda-2021-775",
       "phila-301-mcbride-robert-2021-776",
-      "phila-301-simpson-antohony-p-2021-1148",
-      "phila-301-duzan-carole-l-2021-1149"
+      "phila-301-simpson-antohony-p-2021-1325",
+      "phila-301-duzan-carole-l-2021-1326"
     ]
   },
   {
@@ -2138,32 +2206,38 @@
     "id": "rodgs-639-individual",
     "candidate": "RODGS--639",
     "donor_type": "Individual",
-    "total_donated": 2675,
-    "total_cash": 2675,
+    "total_donated": 3275,
+    "total_cash": 3275,
     "total_in_kind": 0,
     "donations": [
       "rodgs-639-correction-to-contributions-2021-820",
-      "rodgs-639-tracy-christopher-mr-2021-1131",
-      "rodgs-639-tracy-jane-ms-2021-1132",
-      "rodgs-639-masulonis-john-2021-1133",
-      "rodgs-639-moran-kate-2021-1134",
-      "rodgs-639-carlson-heather-2021-1135",
-      "rodgs-639-levy-gregory-2021-1136",
-      "rodgs-639-rose-jason-2021-1137",
-      "rodgs-639-brown-christine-2021-1138",
-      "rodgs-639-turney-diane-2021-1139",
-      "rodgs-639-tucker-skylar-2021-1140",
-      "rodgs-639-ross-stu-2021-1141",
-      "rodgs-639-bauer-linda-2021-1142",
-      "rodgs-639-dunlop-sheila-2021-1143",
-      "rodgs-639-unterseher-reginald-2021-1144",
-      "rodgs-639-patterson-erin-2021-1145",
-      "rodgs-639-mallon-diane-2021-1146",
-      "rodgs-639-scott-david-2021-1147",
-      "rodgs-639-fellman-nellie-2021-1246",
-      "rodgs-639-lorenzo-kerry-2021-1247",
-      "rodgs-639-shjerven-russell-d-2021-1248",
-      "rodgs-639-torelli-chuck-2021-1249"
+      "rodgs-639-tracy-christopher-mr-2021-1129",
+      "rodgs-639-tracy-jane-ms-2021-1130",
+      "rodgs-639-masulonis-john-2021-1131",
+      "rodgs-639-moran-kate-2021-1132",
+      "rodgs-639-carlson-heather-2021-1133",
+      "rodgs-639-levy-gregory-2021-1134",
+      "rodgs-639-rose-jason-2021-1135",
+      "rodgs-639-brown-christine-2021-1136",
+      "rodgs-639-turney-diane-2021-1137",
+      "rodgs-639-tucker-skylar-2021-1138",
+      "rodgs-639-ross-stu-2021-1139",
+      "rodgs-639-bauer-linda-2021-1140",
+      "rodgs-639-dunlop-sheila-2021-1141",
+      "rodgs-639-unterseher-reginald-2021-1142",
+      "rodgs-639-patterson-erin-2021-1143",
+      "rodgs-639-mallon-diane-2021-1144",
+      "rodgs-639-scott-david-2021-1145",
+      "rodgs-639-fellman-nellie-2021-1242",
+      "rodgs-639-lorenzo-kerry-2021-1243",
+      "rodgs-639-shjerven-russell-d-2021-1244",
+      "rodgs-639-torelli-chuck-2021-1245",
+      "rodgs-639-rogo-d-pearse-2021-1334",
+      "rodgs-639-rogo-joel-2021-1335",
+      "rodgs-639-consalvo-olson-caprice-2021-1336",
+      "rodgs-639-miller-andy-2021-1337",
+      "rodgs-639-sanders-tracie-2021-1338",
+      "rodgs-639-moak-thomas-2021-1339"
     ]
   },
   {
@@ -2197,7 +2271,7 @@
     "total_in_kind": 0,
     "donations": [
       "steie-138-washington-education-association-political-action-commitee-2021-844",
-      "steie-138-washington-education-association-political-action-commitee-2021-1165"
+      "steie-138-washington-education-association-political-action-commitee-2021-1161"
     ]
   },
   {
@@ -2273,26 +2347,29 @@
     "id": "jonejh-352-individual",
     "candidate": "JONEJH 352",
     "donor_type": "Individual",
-    "total_donated": 1770,
-    "total_cash": 850,
+    "total_donated": 2170,
+    "total_cash": 1250,
     "total_in_kind": 920,
     "donations": [
       "jonejh-352-izzo-sebbastian-2021-915",
       "jonejh-352-valadez-martin-2021-916",
       "jonejh-352-munn-john-2021-917",
-      "jonejh-352-henderson-jodi-2021-1067",
-      "jonejh-352-jones-candy-2021-1158"
+      "jonejh-352-henderson-jodi-2021-1065",
+      "jonejh-352-jones-candy-2021-1154",
+      "jonejh-352-wright-jacqui-2021-1341",
+      "jonejh-352-barnes-don-2021-1342"
     ]
   },
   {
     "id": "simms-301-political-action-committee",
     "candidate": "SIMMS--301",
     "donor_type": "Political Action Committee",
-    "total_donated": 1000,
-    "total_cash": 1000,
+    "total_donated": 2000,
+    "total_cash": 2000,
     "total_in_kind": 0,
     "donations": [
-      "simms-301-franklin-county-republican-central-committee-2021-918"
+      "simms-301-franklin-county-republican-central-committee-2021-918",
+      "simms-301-franklin-county-republican-central-committee-2021-1332"
     ]
   },
   {
@@ -2323,8 +2400,8 @@
     "id": "trumj-337-individual",
     "candidate": "TRUMJ  337",
     "donor_type": "Individual",
-    "total_donated": 2950,
-    "total_cash": 2950,
+    "total_donated": 6100,
+    "total_cash": 6100,
     "total_in_kind": 0,
     "donations": [
       "trumj-337-jankelson-roland-mr-2021-962",
@@ -2334,7 +2411,14 @@
       "trumj-337-olson-tammy-ms-2021-966",
       "trumj-337-harmon-mike-mr-2021-967",
       "trumj-337-earp-gary-mr-2021-968",
-      "trumj-337-lybbert-scott-mr-2021-969"
+      "trumj-337-lybbert-scott-mr-2021-969",
+      "trumj-337-olson-tammy-ms-2021-1302",
+      "trumj-337-jankelson-kimberly-ms-2021-1303",
+      "trumj-337-jankelson-michael-c-mr-2021-1304",
+      "trumj-337-jankelson-roland-mr-2021-1305",
+      "trumj-337-harmon-mike-mr-2021-1306",
+      "trumj-337-richardson-mike-mr-2021-1307",
+      "trumj-337-chavallo-jose-2021-1308"
     ]
   },
   {
@@ -2361,18 +2445,6 @@
     ]
   },
   {
-    "id": "richt-352-other",
-    "candidate": "RICHT--352",
-    "donor_type": "Other",
-    "total_donated": 4999,
-    "total_cash": 4999,
-    "total_in_kind": 0,
-    "donations": [
-      "richt-352-theresa-ann-richardson-theresa-richardson-2021-1039",
-      "richt-352-theresa-ann-richardson-theresa-richardson-2021-1040"
-    ]
-  },
-  {
     "id": "gerrb-353-individual",
     "candidate": "GERRB  353",
     "donor_type": "Individual",
@@ -2380,9 +2452,9 @@
     "total_cash": 1750,
     "total_in_kind": 0,
     "donations": [
-      "gerrb-353-keck-roy-2021-1049",
-      "gerrb-353-majetich-ben-2021-1050",
-      "gerrb-353-dunn-patrick-w-2021-1113"
+      "gerrb-353-keck-roy-2021-1047",
+      "gerrb-353-majetich-ben-2021-1048",
+      "gerrb-353-dunn-patrick-w-2021-1111"
     ]
   },
   {
@@ -2393,7 +2465,7 @@
     "total_cash": 0,
     "total_in_kind": 600,
     "donations": [
-      "gerrb-353-gerry-brent-w-2021-1057"
+      "gerrb-353-gerry-brent-w-2021-1055"
     ]
   },
   {
@@ -2404,7 +2476,7 @@
     "total_cash": 100,
     "total_in_kind": 0,
     "donations": [
-      "gerrb-353-4-m-consulting-llc-2021-1058"
+      "gerrb-353-4-m-consulting-llc-2021-1056"
     ]
   },
   {
@@ -2415,7 +2487,7 @@
     "total_cash": 100,
     "total_in_kind": 0,
     "donations": [
-      "sancm-350-national-womens-political-caucus-of-wa-2021-1080"
+      "sancm-350-national-womens-political-caucus-of-wa-2021-1078"
     ]
   },
   {
@@ -2426,19 +2498,20 @@
     "total_cash": 1250,
     "total_in_kind": 0,
     "donations": [
-      "morak-353-plumbers-steamfitters-local-union-598-pac-2021-1120",
-      "morak-353-teamsters-local-839-2021-1174"
+      "morak-353-plumbers-steamfitters-local-union-598-pac-2021-1118",
+      "morak-353-teamsters-local-839-2021-1170"
     ]
   },
   {
     "id": "rodgs-639-other",
     "candidate": "RODGS--639",
     "donor_type": "Other",
-    "total_donated": 145,
-    "total_cash": 145,
+    "total_donated": 195,
+    "total_cash": 195,
     "total_in_kind": 0,
     "donations": [
-      "rodgs-639-small-contributions-2021-1129"
+      "rodgs-639-small-contributions-2021-1127",
+      "rodgs-639-small-contributions-2021-1333"
     ]
   },
   {
@@ -2449,7 +2522,7 @@
     "total_cash": 150,
     "total_in_kind": 0,
     "donations": [
-      "rodgs-639-scott-e-rodgers-2021-1130"
+      "rodgs-639-scott-e-rodgers-2021-1128"
     ]
   },
   {
@@ -2460,18 +2533,19 @@
     "total_cash": 0,
     "total_in_kind": 21,
     "donations": [
-      "sancm-350-wa-state-democrats-2021-1150"
+      "sancm-350-wa-state-democrats-2021-1146"
     ]
   },
   {
     "id": "chrij-336-individual",
     "candidate": "CHRIJ--336",
     "donor_type": "Individual",
-    "total_donated": 250,
-    "total_cash": 250,
+    "total_donated": 550,
+    "total_cash": 550,
     "total_in_kind": 0,
     "donations": [
-      "chrij-336-sahota-pritam-2021-1155"
+      "chrij-336-sahota-pritam-2021-1151",
+      "chrij-336-wiberg-suzan-i-2021-1310"
     ]
   },
   {
@@ -2482,7 +2556,7 @@
     "total_cash": 0,
     "total_in_kind": 391,
     "donations": [
-      "garcd-352-washington-state-democratic-central-committee-2021-1156"
+      "garcd-352-washington-state-democratic-central-committee-2021-1152"
     ]
   },
   {
@@ -2493,7 +2567,7 @@
     "total_cash": 250,
     "total_in_kind": 0,
     "donations": [
-      "steie-138-teamsters-local-839-2021-1172"
+      "steie-138-teamsters-local-839-2021-1168"
     ]
   },
   {
@@ -2504,7 +2578,7 @@
     "total_cash": 250,
     "total_in_kind": 0,
     "donations": [
-      "garcd-352-teamsters-local-839-2021-1193"
+      "garcd-352-teamsters-local-839-2021-1189"
     ]
   },
   {
@@ -2515,7 +2589,7 @@
     "total_cash": 5000,
     "total_in_kind": 0,
     "donations": [
-      "andrm-301-michelle-m-andres-michelle-andres-2021-1229"
+      "andrm-301-michelle-m-andres-michelle-andres-2021-1225"
     ]
   },
   {
@@ -2526,7 +2600,7 @@
     "total_cash": 75,
     "total_in_kind": 0,
     "donations": [
-      "alvam-352-haler-lawrence-2021-1236"
+      "alvam-352-haler-lawrence-2021-1232"
     ]
   },
   {
@@ -2537,7 +2611,45 @@
     "total_cash": 250,
     "total_in_kind": 0,
     "donations": [
-      "rodgs-639-teamsters-local-839-separate-segregated-fund-2021-1245"
+      "rodgs-639-teamsters-local-839-separate-segregated-fund-2021-1241"
+    ]
+  },
+  {
+    "id": "chrij-336-self",
+    "candidate": "CHRIJ--336",
+    "donor_type": "Self",
+    "total_donated": 300,
+    "total_cash": 300,
+    "total_in_kind": 0,
+    "donations": [
+      "chrij-336-john-eric-christenson-john-christenson-2021-1309"
+    ]
+  },
+  {
+    "id": "richt-352-self",
+    "candidate": "RICHT--352",
+    "donor_type": "Self",
+    "total_donated": 9997,
+    "total_cash": 9997,
+    "total_in_kind": 0,
+    "donations": [
+      "richt-352-theresa-ann-richardson-theresa-richardson-2021-1320",
+      "richt-352-theresa-ann-richardson-theresa-richardson-2021-1321",
+      "richt-352-theresa-ann-richardson-theresa-richardson-2021-1322",
+      "richt-352-theresa-ann-richardson-theresa-richardson-2021-1323",
+      "richt-352-theresa-ann-richardson-theresa-richardson-2021-1327",
+      "richt-352-theresa-ann-richardson-theresa-richardson-2021-1328"
+    ]
+  },
+  {
+    "id": "jonejh-352-union",
+    "candidate": "JONEJH 352",
+    "donor_type": "Union",
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "donations": [
+      "jonejh-352-intl-brotherhood-of-electrical-workers-local-112-2021-1340"
     ]
   }
 ]
