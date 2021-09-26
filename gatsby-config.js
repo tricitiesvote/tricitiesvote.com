@@ -1,4 +1,4 @@
-const { typeNameFromDir } = require("gatsby-transformer-csv")
+const { typeNameFromDir } = require('gatsby-transformer-csv');
 
 module.exports = {
   siteMetadata: {
@@ -36,7 +36,7 @@ module.exports = {
         name: `guides`,
       },
     },
-    
+
     // {
     //   resolve: `gatsby-transformer-csv`,
     //   options: {
@@ -44,29 +44,29 @@ module.exports = {
     //   },
     // },
     // TODO ^^ this seems to be sufficient for this set of data
-    
+
     {
       resolve: `gatsby-transformer-csv`,
       options: {
-        path: `${__dirname}/data/questionnaires/school-questions.csv`
+        path: `${__dirname}/data/questionnaires/school-questions.csv`,
       },
     },
     {
       resolve: `gatsby-transformer-csv`,
       options: {
-        path: `${__dirname}/data/questionnaires/council-questions.csv`
+        path: `${__dirname}/data/questionnaires/council-questions.csv`,
       },
     },
     {
       resolve: `gatsby-transformer-csv`,
       options: {
-        path: `${__dirname}/data/questionnaires/school-answers.csv`
+        path: `${__dirname}/data/questionnaires/school-answers.csv`,
       },
     },
     {
       resolve: `gatsby-transformer-csv`,
       options: {
-        path: `${__dirname}/data/questionnaires/council-answers.csv`
+        path: `${__dirname}/data/questionnaires/council-answers.csv`,
       },
     },
     // {

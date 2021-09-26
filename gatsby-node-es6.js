@@ -301,6 +301,30 @@ exports.createPages = async ({
     });
   });
 
+  // TODO saved for more elegant use of single compare page
+  // TOOD the following could be compressed into one statement by getting the office from the slug
+  //   allGuides.forEach(guide => {
+  //     createPage({
+  //       path: `${guide.node.fields.slug}/council`,
+  //       component: path.resolve('./src/templates/ComparePage.js'),
+  //       context: {
+  //         office: 'council',
+  //         slug: guide.node.fields.slug,
+  //       },
+  //     });
+  //   });
+  //
+  //   allGuides.forEach(guide => {
+  //     createPage({
+  //       path: `${guide.node.fields.slug}/schools`,
+  //       component: path.resolve('./src/templates/ComparePage.js'),
+  //       context: {
+  //         office: 'schools',
+  //         slug: guide.node.fields.slug,
+  //       },
+  //     });
+  //   });
+
   allGuides.forEach(guide => {
     createPage({
       path: `/${guide.node.fields.slug}/`,

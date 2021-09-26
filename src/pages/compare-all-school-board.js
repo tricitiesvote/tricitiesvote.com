@@ -1,9 +1,8 @@
 import React from 'react';
-import _ from 'lodash';
 import DefaultLayout from '../layouts/DefaultLayout';
 import CompareTable from '../components/compare/CompareTable';
 
-const CompareSchoolBoardPage = ({ data }) => {
+const CompareAllSchoolBoard = ({ data }) => {
   const { allQs, allAs } = data;
 
   const questions = allQs.edges;
@@ -20,19 +19,8 @@ const CompareSchoolBoardPage = ({ data }) => {
   );
 };
 
-// filter by region
-// allCouncilAnswersCsv(
-//   filter: { region: { eq: "Kennewick" } }) {
-
-// filter by city and position
-// allCouncilAnswersCsv(
-//   filter: { region: { eq: "Kennewick" }, position: { eq: "1" } }) {
-
-// filter by provided slug
-// allCouncilAnswersCsv(filter: {candidate: {office: {fields: {slug: {eq: "kennewick-city-council-pos-1"}}}}}) {
-
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query {
     allQs: allSchoolQuestionsCsv {
       edges {
         node {
@@ -44,11 +32,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allAs: allSchoolAnswersCsv(
-      filter: {
-        candidate: { office: { fields: { regionslug: { eq: $slug } } } }
-      }
-    ) {
+    allAs: allSchoolAnswersCsv {
       edges {
         node {
           candidate {
@@ -86,4 +70,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default CompareSchoolBoardPage;
+export default CompareAllSchoolBoard;

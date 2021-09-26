@@ -1,13 +1,14 @@
 import React from 'react';
-import _ from 'lodash';
 import DefaultLayout from '../layouts/DefaultLayout';
 import CompareTable from '../components/compare/CompareTable';
 
-const CompareCouncil = ({ data }) => {
-  const { allCouncilQuestionsCsv, allCouncilAnswersCsv } = data;
+const CompareAllCouncil = ({ data }) => {
+  const { allQs, allAs } = data;
 
-  const questions = allCouncilQuestionsCsv.edges;
-  const answers = allCouncilAnswersCsv.edges;
+  console.log('data', data);
+
+  const questions = allQs.edges;
+  const answers = allAs.edges;
 
   return (
     <DefaultLayout
@@ -20,13 +21,9 @@ const CompareCouncil = ({ data }) => {
   );
 };
 
-// allCouncilAnswersCsv(
-//   filter: { region: { eq: "Kennewick" }, position: { eq: "1" } }
-// ) {
-
 export const pageQuery = graphql`
   query {
-    allCouncilQuestionsCsv {
+    allQs: allCouncilQuestionsCsv {
       edges {
         node {
           question
@@ -37,7 +34,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allCouncilAnswersCsv(filter: { region: { eq: "Richland" } }) {
+    allAs: allCouncilAnswersCsv {
       edges {
         node {
           candidate {
@@ -78,4 +75,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default CompareCouncil;
+export default CompareAllCouncil;

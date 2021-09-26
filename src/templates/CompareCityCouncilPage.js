@@ -4,10 +4,10 @@ import DefaultLayout from '../layouts/DefaultLayout';
 import CompareTable from '../components/compare/CompareTable';
 
 const CompareCityCouncilPage = ({ data }) => {
-  const { allCouncilQuestionsCsv, allCouncilAnswersCsv } = data;
+  const { allQs, allAs } = data;
 
-  const questions = allCouncilQuestionsCsv.edges;
-  const answers = allCouncilAnswersCsv.edges;
+  const questions = allQs.edges;
+  const answers = allAs.edges;
 
   return (
     <DefaultLayout
@@ -33,7 +33,7 @@ const CompareCityCouncilPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allCouncilQuestionsCsv {
+    allQs: allCouncilQuestionsCsv {
       edges {
         node {
           question
@@ -44,7 +44,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allCouncilAnswersCsv(
+    allAs: allCouncilAnswersCsv(
       filter: {
         candidate: { office: { fields: { regionslug: { eq: $slug } } } }
       }
