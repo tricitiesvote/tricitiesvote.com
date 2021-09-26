@@ -33,7 +33,7 @@ const CompareSchoolBoardPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allCouncilQuestionsCsv {
+    allSchoolQuestionsCsv {
       edges {
         node {
           question
