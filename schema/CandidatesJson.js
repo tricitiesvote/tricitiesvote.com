@@ -25,7 +25,7 @@ const CandidatesJson = `
     lettersno:        String
     articles:         String
     engagement:       String
-    office:           OfficesJson
+    office:           OfficesJson @link(by: "title", from: "office")
   }`;
 
 export default CandidatesJson;

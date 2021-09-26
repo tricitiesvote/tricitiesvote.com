@@ -34,7 +34,7 @@ collections:
           required: false,
           multiple: false,
           searchFields: ['title'],
-          valueField: 'office',
+          valueField: 'title',
           displayFields: ['title'],
         }
       - { name: incumbent, label: 'Incumbent?', widget: boolean, required: false }
@@ -170,7 +170,7 @@ collections:
   - name: races
     label: Election races
     label_singular: Election race
-    slug: '{{electionyear}}-{{office.title}}'
+    slug: '{{electionyear}}-{{office}}'
     folder: 'data/races'
     media_folder: '/{{media_folder}}/races'
     public_folder: '/{{public_folder}}/races'

@@ -5,6 +5,8 @@ schoolAnswers: allSchoolAnswersCsv(limit: 1000) {
       candidate {
         ...CandidateDetails
       }
+      region
+      position
       question_1
       question_10
       question_11

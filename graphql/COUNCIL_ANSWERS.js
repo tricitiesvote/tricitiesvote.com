@@ -5,6 +5,8 @@ councilAnswers: allCouncilAnswersCsv {
       candidate {
         ...CandidateDetails
       }
+      region
+      position
       question_1
       question_10
       question_10c
