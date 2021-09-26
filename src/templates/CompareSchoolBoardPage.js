@@ -63,9 +63,6 @@ export const pageQuery = graphql`
           region
           position
           question_1
-          question_11
-          question_10
-          question_12
           question_2
           question_2c
           question_3
@@ -80,6 +77,9 @@ export const pageQuery = graphql`
           question_7c
           question_8
           question_9
+          question_10
+          question_11
+          question_12
         }
       }
     }

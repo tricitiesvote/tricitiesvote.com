@@ -27,7 +27,7 @@ exports.onCreateNode = ({ node, actions }) => {
       name: `slug`,
       value: _.kebabCase(node.region),
     });
-    console.log('guide slug for', node.region, _.kebabCase(node.region));
+    // console.log('guide slug for', node.region, _.kebabCase(node.region));
   }
 
   // build slug contents for Races
@@ -54,6 +54,15 @@ exports.onCreateNode = ({ node, actions }) => {
       node,
       name: `slug`,
       value: _.kebabCase(node.title),
+    });
+  }
+
+  // build regionslug contents for Offices
+  if (node.internal.type === 'OfficesJson' && node.region) {
+    createNodeField({
+      node,
+      name: `regionslug`,
+      value: _.kebabCase(node.region),
     });
   }
 
@@ -268,6 +277,26 @@ exports.createPages = async ({
       component: path.resolve('./src/templates/RacePagePreview.js'),
       context: {
         slug: race.node.fields.slug,
+      },
+    });
+  });
+
+  allGuides.forEach(guide => {
+    createPage({
+      path: `${guide.node.fields.slug}/council`,
+      component: path.resolve('./src/templates/CompareCityCouncilPage.js'),
+      context: {
+        slug: guide.node.fields.slug,
+      },
+    });
+  });
+
+  allGuides.forEach(guide => {
+    createPage({
+      path: `${guide.node.fields.slug}/schools`,
+      component: path.resolve('./src/templates/CompareSchoolBoardPage.js'),
+      context: {
+        slug: guide.node.fields.slug,
       },
     });
   });
