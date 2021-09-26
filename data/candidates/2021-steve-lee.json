@@ -1,14 +1,14 @@
 {
+  "party": "",
   "name": "Steve Lee",
   "slug": "steve-lee",
-  "email": "SteveForKennewick@gmail.com",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=871#/candidates/66323/1540545",
-  "image": "/images/candidates/steve-lee-original.jpg",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=LEE SR 337&election_year=2021",
-  "uuid": "LEE SR 337",
-  "party": "",
   "statement": "",
   "electionyear": "2021",
-  "office": "City Council Member",
-  "website": "http://SteveForKennewick.com"
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=871#/candidates/66323/1540545",
+  "website": "http://SteveForKennewick.com",
+  "image": "/images/candidates/steve-lee-original.jpg",
+  "uuid": "LEE SR 337",
+  "office": "City Council",
+  "email": "SteveForKennewick@gmail.com",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=LEE SR 337&election_year=2021"
 }

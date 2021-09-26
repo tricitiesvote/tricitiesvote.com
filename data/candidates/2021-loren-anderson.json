@@ -1,14 +1,14 @@
 {
+  "party": "",
   "name": "Loren Anderson",
   "slug": "loren-anderson",
-  "email": "",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=871#/candidates/66323/1540544",
-  "image": "/images/candidates/loren-anderson-original.png",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=ANDEL--337&election_year=2021",
-  "uuid": "ANDEL--337",
-  "party": "",
   "statement": "**Elected Experience**  \nPast-President, Benton-Franklin Dental Association  \n  \n**Other Professional Experience**  \nFounder and Co-Owner, Anderson & Zentz Dental, 2004-present; Co-Founder of Discount Dental, Pasco, 2016  \n  \n**Education**  \nSunnyside High School, Class of 1992; Bachelor of Science, Brigham Young University, 1999; D.D.S., University of Oklahoma, 2004  \n  \n**Community Service**  \n2 years lived in Argentina, working full-time doing various service-oriented projects and teaching English classes; 6 years as a volunteer leader of a local church congregation with over 400 members, personally assisting members with food and housing needs, along with counseling for mental, emotional, and spiritual health  \n  \n**Statement**  \n\nAs informed voters, you are well aware of the chaos of the past few years in our political system. Like you, I want to contribute to a better world. Because I believe in our community, I’ve decided to serve through our City Council. I commit to emphasize _Optimal Health_, _Access to City Finances_, and _Term Limits_ for elected officials.\n\nI regularly see firsthand the missing health emphasis locally, and believe a public emphasis on _Optimal Health_ is critical. As we promote and emphasize health, our whole community will thrive.\n\nTo paraphrase Theodore Parker, our government should be of the people, by the people, for the people. As such, the citizens of Kennewick must have more oversight about how the city is managed. We must have _Ready Access to Budgets and Growth Plans_ the city uses. We are all responsible for growth and development that will benefit everyone, not just the few.\n\nWe must resurrect public service. Elected officials serve. Elected positions should not be a career, and _Term Limits_ can help bring back a government of, by, and for the people.\n\nI look forward to helping you create a better future for Kennewick and each resident of our growing city!",
   "electionyear": "2021",
-  "office": "City Council Member",
-  "website": "https://www.facebook.com/loren4kennewick"
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=871#/candidates/66323/1540544",
+  "website": "https://www.facebook.com/loren4kennewick",
+  "image": "/images/candidates/loren-anderson-original.png",
+  "uuid": "ANDEL--337",
+  "office": "City Council",
+  "email": "",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=ANDEL--337&election_year=2021"
 }

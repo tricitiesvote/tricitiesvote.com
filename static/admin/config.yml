@@ -170,7 +170,7 @@ collections:
   - name: races
     label: Election races
     label_singular: Election race
-    slug: '{{year}}-{{title}}'
+    slug: '{{electionyear}}-{{office}}'
     folder: 'data/races'
     media_folder: '/{{media_folder}}/races'
     public_folder: '/{{public_folder}}/races'

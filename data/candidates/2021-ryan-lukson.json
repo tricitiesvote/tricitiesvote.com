@@ -1,14 +1,14 @@
 {
+  "party": "",
   "name": "Ryan Lukson",
   "slug": "ryan-lukson",
-  "email": "rjlukson@gmail.com",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=871#/candidates/66316/1540562",
-  "image": "/images/candidates/ryan-lukson-original.png",
   "statement": "**Elected Experience**  \nRichland City Council 2018-Present  \nRichland Mayor 2020-Present  \n  \n  \n**Other Professional Experience**  \nBenton County Prosecutor’s Office 2011-Present  \nCurrently Assistant Chief Civil Deputy Prosecutor  \n  \n  \n**Education**  \nUniversity of Washington, Business-Finance 2004  \nFlorida State University College of Law 2009  \n  \n  \n**Community Service**  \nCommunity Service:  \nRichland Police Pension Board  \nRichland Fire Pension Board  \nTri-Cities National Park Committee  \nChair of Municipal Advisory Council COVID Response Committee  \nTRIDEC Board  \nBenton Franklin Council of Governments Board  \n  \n  \n**Statement**  \n\nIt has been my pleasure to serve on the Richland City Council since 2018, and as your Mayor since 2020. Our city has faced unprecedented challenges in the last several years in response to the global pandemic. I am proud to have helped lead the effort advocating for our city and region to safely re-open our community as soon as possible.\n\nWe have achieved so much as a city the last four years, and our resiliency has never been more apparent. Richland is growing by leaps and bounds. As Mayor, I have been committed to reinvesting in our parks, roads, and public infrastructure. During my tenure on council we have completed construction of the Duportail Bridge, as well as a new city hall and fire stations. These investments will serve our community for generations to come.\n\nGoing forward, I am excited about the revitalization efforts we have undertaken through targeted downtown investments. I am committed to continuing to invest in our downtown and make it the jewel of our region.\n\nI’m asking for your vote to continue the progress we have made as a city the last four years.",
-  "website": "",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=LUKSR  352&election_year=2021",
-  "uuid": "LUKSR  352",
-  "party": "",
   "electionyear": "2021",
-  "office": "City Council Member"
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=871#/candidates/66316/1540562",
+  "website": "",
+  "image": "/images/candidates/ryan-lukson-original.png",
+  "uuid": "LUKSR  352",
+  "office": "City Council",
+  "email": "rjlukson@gmail.com",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=LUKSR  352&election_year=2021"
 }
