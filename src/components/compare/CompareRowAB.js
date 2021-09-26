@@ -2,7 +2,7 @@ import React from 'react';
 import { StrongA, LeanA, LeanB, StrongB } from './statements';
 import CompareCandidateStatement from './CompareCandidateStatement';
 
-const CompareRowAB = ({statementA, statementB, response}) => {
+const CompareRowAB = ({ statementA, statementB, response }) => {
   return (
     <tr>
       <th>
@@ -12,9 +12,10 @@ const CompareRowAB = ({statementA, statementB, response}) => {
         {response.strongA.map(face => (
           <CompareCandidateStatement
             name={face.name}
-            last={face.name.split(" ").pop()}
+            last={face.name.split(' ').pop()}
             image={face.img}
             comment={face.comment}
+            position={face.pos}
             mini
           />
         ))}
@@ -23,9 +24,10 @@ const CompareRowAB = ({statementA, statementB, response}) => {
         {response.leanA.map(face => (
           <CompareCandidateStatement
             name={face.name}
-            last={face.name.split(" ").pop()}
+            last={face.name.split(' ').pop()}
             image={face.img}
             comment={face.comment}
+            position={face.pos}
             mini
           />
         ))}
@@ -34,9 +36,10 @@ const CompareRowAB = ({statementA, statementB, response}) => {
         {response.leanB.map(face => (
           <CompareCandidateStatement
             name={face.name}
-            last={face.name.split(" ").pop()}
+            last={face.name.split(' ').pop()}
             image={face.img}
             comment={face.comment}
+            position={face.pos}
             mini
           />
         ))}
@@ -45,9 +48,10 @@ const CompareRowAB = ({statementA, statementB, response}) => {
         {response.strongB.map(face => (
           <CompareCandidateStatement
             name={face.name}
-            last={face.name.split(" ").pop()}
+            last={face.name.split(' ').pop()}
             image={face.img}
             comment={face.comment}
+            position={face.pos}
             mini
           />
         ))}
@@ -56,7 +60,7 @@ const CompareRowAB = ({statementA, statementB, response}) => {
         <p>{statementB}</p>
       </th>
     </tr>
-  )
+  );
 };
 
 export default CompareRowAB;
