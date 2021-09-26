@@ -20,14 +20,14 @@ exports.onCreateNode = ({ node, actions }) => {
   // build slug contents for Guides
   if (node.internal.type === 'GuidesJson') {
     // TODO for county years
-    // this clumsy snippet slices 'county' off of the end of counties 
+    // this clumsy snippet slices 'county' off of the end of counties
     // const region = node.region.slice(0, node.region.indexOf(' '));
     createNodeField({
       node,
       name: `slug`,
       value: _.kebabCase(node.region),
     });
-    console.log('guide slug for', node.region,  _.kebabCase(node.region));
+    console.log('guide slug for', node.region, _.kebabCase(node.region));
   }
 
   // build slug contents for Races
@@ -45,6 +45,15 @@ exports.onCreateNode = ({ node, actions }) => {
       node,
       name: `slug`,
       value: _.kebabCase(node.name),
+    });
+  }
+
+  // build slug contents for Offices
+  if (node.internal.type === 'OfficesJson' && node.title) {
+    createNodeField({
+      node,
+      name: `slug`,
+      value: _.kebabCase(node.title),
     });
   }
 
