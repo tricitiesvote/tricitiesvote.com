@@ -39,7 +39,6 @@ const CandidateDonorSummaryMini = props => {
             <span className="topdonors-amount">(${person.total_donated})</span>
           </span>
         ))}
-        .
       </p>
     </div>
   );

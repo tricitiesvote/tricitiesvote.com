@@ -1,18 +1,37 @@
 [
   {
-    "id": "boswell-adam",
-    "name": "Boswell Adam",
-    "city": "Eagel Id 83616",
+    "id": "lundh-matthew",
+    "name": "Lundh Matthew",
+    "city": "Cle Elum",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 250,
-    "total_cash": 250,
+    "donations_count": 3,
+    "total_donated": 60,
+    "total_cash": 60,
     "total_in_kind": 0,
     "funded": [
-      "GRIGB--352"
+      "SHORK--336"
     ],
     "donations": [
-      "grigb-352-boswell-adam-2021-0"
+      "shork-336-lundh-matthew-2021-0",
+      "shork-336-lundh-matthew-2021-4",
+      "shork-336-lundh-matthew-2021-38"
+    ]
+  },
+  {
+    "id": "mayson-jake",
+    "name": "Mayson Jake",
+    "city": "Yakima",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "SHORK--336"
+    ],
+    "donations": [
+      "shork-336-mayson-jake-2021-1",
+      "shork-336-mayson-jake-2021-950"
     ]
   },
   {
@@ -20,13 +39,13 @@
     "name": "Small Contributions",
     "city": "",
     "type": "Other",
-    "donations_count": 165,
-    "total_donated": 6875,
-    "total_cash": 6875,
+    "donations_count": 171,
+    "total_donated": 7095,
+    "total_cash": 7095,
     "total_in_kind": 0,
     "funded": [
-      "GRIGB--352",
       "SHORK--336",
+      "GRIGB--352",
       "VALEM--338",
       "LEE SR 337",
       "LOHRJ--336",
@@ -51,77 +70,77 @@
       "RODGS--639"
     ],
     "donations": [
-      "grigb-352-small-contributions-2021-1",
-      "shork-336-small-contributions-2021-12",
-      "shork-336-small-contributions-2021-16",
-      "valem-338-small-contributions-2021-19",
-      "lee-sr-337-small-contributions-2021-20",
-      "shork-336-small-contributions-2021-26",
-      "lohrj-336-small-contributions-2021-28",
-      "lee-sr-337-small-contributions-2021-90",
+      "shork-336-small-contributions-2021-2",
+      "shork-336-small-contributions-2021-8",
+      "shork-336-small-contributions-2021-10",
+      "grigb-352-small-contributions-2021-13",
+      "valem-338-small-contributions-2021-15",
+      "lee-sr-337-small-contributions-2021-16",
+      "lohrj-336-small-contributions-2021-20",
+      "lee-sr-337-small-contributions-2021-82",
+      "shork-336-small-contributions-2021-83",
+      "grigb-352-small-contributions-2021-84",
+      "shork-336-small-contributions-2021-86",
+      "shork-336-small-contributions-2021-87",
+      "lee-sr-337-small-contributions-2021-88",
       "shork-336-small-contributions-2021-91",
-      "grigb-352-small-contributions-2021-92",
-      "shork-336-small-contributions-2021-93",
-      "shork-336-small-contributions-2021-95",
-      "lee-sr-337-small-contributions-2021-96",
-      "shork-336-small-contributions-2021-99",
-      "lee-sr-337-small-contributions-2021-101",
-      "grigb-352-small-contributions-2021-153",
-      "grigb-352-small-contributions-2021-165",
-      "lohrj-336-small-contributions-2021-170",
-      "lohrj-336-small-contributions-2021-176",
-      "lohrj-336-small-contributions-2021-179",
-      "lohrj-336-small-contributions-2021-184",
-      "grigb-352-small-contributions-2021-192",
-      "torrn-301-small-contributions-2021-206",
-      "lohrj-336-small-contributions-2021-210",
-      "kennj-302-small-contributions-2021-211",
-      "shork-336-small-contributions-2021-212",
-      "shork-336-small-contributions-2021-215",
-      "torrn-301-small-contributions-2021-222",
-      "steie-138-small-contributions-2021-223",
-      "lee-sr-337-small-contributions-2021-243",
-      "lee-sr-337-small-contributions-2021-247",
-      "steie-138-small-contributions-2021-261",
-      "kennj-302-small-contributions-2021-270",
-      "garcd-352-small-contributions-2021-273",
-      "vanne-352-small-contributions-2021-279",
-      "grigb-352-small-contributions-2021-282",
+      "lee-sr-337-small-contributions-2021-93",
+      "grigb-352-small-contributions-2021-146",
+      "grigb-352-small-contributions-2021-158",
+      "lohrj-336-small-contributions-2021-163",
+      "lohrj-336-small-contributions-2021-169",
+      "lohrj-336-small-contributions-2021-172",
+      "lohrj-336-small-contributions-2021-177",
+      "grigb-352-small-contributions-2021-185",
+      "torrn-301-small-contributions-2021-200",
+      "lohrj-336-small-contributions-2021-205",
+      "kennj-302-small-contributions-2021-206",
+      "shork-336-small-contributions-2021-207",
+      "shork-336-small-contributions-2021-210",
+      "torrn-301-small-contributions-2021-217",
+      "steie-138-small-contributions-2021-218",
+      "lee-sr-337-small-contributions-2021-237",
+      "lee-sr-337-small-contributions-2021-238",
+      "steie-138-small-contributions-2021-254",
+      "kennj-302-small-contributions-2021-263",
+      "garcd-352-small-contributions-2021-265",
+      "vanne-352-small-contributions-2021-272",
+      "grigb-352-small-contributions-2021-275",
       "grigb-352-small-contributions-2021-334",
       "torrn-301-small-contributions-2021-335",
       "grigb-352-small-contributions-2021-340",
       "grigb-352-small-contributions-2021-341",
       "grigb-352-small-contributions-2021-346",
-      "steie-138-small-contributions-2021-354",
-      "steie-138-small-contributions-2021-363",
+      "steie-138-small-contributions-2021-358",
+      "steie-138-small-contributions-2021-359",
       "lee-sr-337-small-contributions-2021-391",
-      "garcd-352-small-contributions-2021-394",
-      "lohrj-336-small-contributions-2021-396",
-      "garcd-352-small-contributions-2021-399",
+      "lohrj-336-small-contributions-2021-392",
+      "garcd-352-small-contributions-2021-396",
+      "garcd-352-small-contributions-2021-401",
       "crawg-338-small-contributions-2021-411",
       "meehb-336-small-contributions-2021-417",
       "grigb-352-small-contributions-2021-426",
       "kennj-302-small-contributions-2021-439",
       "browi-307-small-contributions-2021-442",
-      "garcd-352-small-contributions-2021-451",
-      "garcd-352-small-contributions-2021-455",
+      "garcd-352-small-contributions-2021-447",
+      "garcd-352-small-contributions-2021-458",
       "steie-138-small-contributions-2021-487",
       "grigb-352-small-contributions-2021-496",
       "grigb-352-small-contributions-2021-500",
       "steie-138-small-contributions-2021-505",
-      "steie-138-small-contributions-2021-511",
+      "steie-138-small-contributions-2021-510",
       "grigb-352-small-contributions-2021-516",
-      "fitzc-352-small-contributions-2021-519",
+      "fitzc-352-small-contributions-2021-524",
       "shork-336-small-contributions-2021-542",
-      "steie-138-small-contributions-2021-546",
+      "steie-138-small-contributions-2021-545",
       "sancm-350-small-contributions-2021-547",
-      "kennj-302-small-contributions-2021-554",
+      "kennj-302-small-contributions-2021-553",
       "torrn-301-small-contributions-2021-555",
       "meehb-336-small-contributions-2021-558",
       "grigb-352-small-contributions-2021-562",
       "grigb-352-small-contributions-2021-577",
       "steie-138-small-contributions-2021-583",
-      "steie-138-small-contributions-2021-588",
+      "steie-138-small-contributions-2021-590",
       "morak-353-small-contributions-2021-596",
       "valem-2-338-small-contributions-2021-605",
       "valem-2-338-small-contributions-2021-606",
@@ -131,12 +150,12 @@
       "torrn-301-small-contributions-2021-620",
       "garcd-352-small-contributions-2021-629",
       "garcd-352-small-contributions-2021-638",
-      "steie-138-small-contributions-2021-654",
+      "steie-138-small-contributions-2021-650",
       "torrn-301-small-contributions-2021-662",
       "garcd-352-small-contributions-2021-680",
-      "kennj-302-small-contributions-2021-686",
-      "kennj-302-small-contributions-2021-689",
-      "kennj-302-small-contributions-2021-693",
+      "kennj-302-small-contributions-2021-687",
+      "kennj-302-small-contributions-2021-691",
+      "kennj-302-small-contributions-2021-695",
       "britd-336-small-contributions-2021-702",
       "steie-138-small-contributions-2021-703",
       "garcd-352-small-contributions-2021-713",
@@ -148,17 +167,17 @@
       "birdm-352-small-contributions-2021-752",
       "birdm-352-small-contributions-2021-753",
       "birdm-352-small-contributions-2021-759",
-      "birdm-352-small-contributions-2021-760",
-      "birdm-352-small-contributions-2021-761",
       "birdm-352-small-contributions-2021-762",
       "birdm-352-small-contributions-2021-763",
       "birdm-352-small-contributions-2021-764",
-      "birdm-352-small-contributions-2021-769",
+      "birdm-352-small-contributions-2021-765",
+      "birdm-352-small-contributions-2021-766",
+      "birdm-352-small-contributions-2021-767",
       "phila-301-small-contributions-2021-772",
       "kennj-302-small-contributions-2021-778",
-      "garcd-352-small-contributions-2021-793",
-      "valem-2-338-small-contributions-2021-824",
-      "fitzc-352-small-contributions-2021-827",
+      "garcd-352-small-contributions-2021-788",
+      "valem-2-338-small-contributions-2021-823",
+      "fitzc-352-small-contributions-2021-826",
       "kennj-302-small-contributions-2021-836",
       "shork-336-small-contributions-2021-837",
       "steie-138-small-contributions-2021-845",
@@ -180,22 +199,22 @@
       "andrm-301-small-contributions-2021-887",
       "grigb-352-small-contributions-2021-888",
       "lohrj-336-small-contributions-2021-894",
-      "steie-138-small-contributions-2021-903",
       "steie-138-small-contributions-2021-906",
+      "steie-138-small-contributions-2021-909",
       "garcd-352-small-contributions-2021-941",
       "lohrj-336-small-contributions-2021-947",
       "lee-sr-337-small-contributions-2021-952",
       "steie-138-small-contributions-2021-972",
       "steie-138-small-contributions-2021-973",
       "sancm-350-small-contributions-2021-980",
-      "galbg-338-small-contributions-2021-1020",
+      "galbg-338-small-contributions-2021-1018",
       "lohrj-336-small-contributions-2021-1022",
-      "garcd-352-small-contributions-2021-1025",
+      "garcd-352-small-contributions-2021-1028",
       "steie-138-small-contributions-2021-1034",
       "birdm-352-small-contributions-2021-1042",
+      "lohrj-336-small-contributions-2021-1050",
       "lohrj-336-small-contributions-2021-1052",
-      "lohrj-336-small-contributions-2021-1054",
-      "garcd-352-small-contributions-2021-1074",
+      "garcd-352-small-contributions-2021-1075",
       "torrn-301-small-contributions-2021-1089",
       "crawg-338-small-contributions-2021-1092",
       "andel-337-small-contributions-2021-1093",
@@ -206,8 +225,8 @@
       "rodgs-639-small-contributions-2021-1127",
       "browi-307-small-contributions-2021-1147",
       "steie-138-small-contributions-2021-1155",
-      "steie-138-small-contributions-2021-1158",
-      "garcd-352-small-contributions-2021-1194",
+      "steie-138-small-contributions-2021-1160",
+      "garcd-352-small-contributions-2021-1195",
       "fitzc-352-small-contributions-2021-1209",
       "lohrj-336-small-contributions-2021-1236",
       "steie-138-small-contributions-2021-1249",
@@ -215,257 +234,13 @@
       "garcd-352-small-contributions-2021-1275",
       "sancm-350-small-contributions-2021-1289",
       "andrm-301-small-contributions-2021-1317",
-      "rodgs-639-small-contributions-2021-1333"
-    ]
-  },
-  {
-    "id": "patel-vijay",
-    "name": "Patel Vijay",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 1250,
-    "total_cash": 1250,
-    "total_in_kind": 0,
-    "funded": [
-      "HOHEK--105",
-      "BRITD  336"
-    ],
-    "donations": [
-      "hohek-105-patel-vijay-2021-2",
-      "britd-336-patel-vijay-2021-993"
-    ]
-  },
-  {
-    "id": "schuurs-marieke",
-    "name": "Schuurs Marieke",
-    "city": "Eugene",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "LOHRJ--336"
-    ],
-    "donations": [
-      "lohrj-336-schuurs-marieke-2021-3"
-    ]
-  },
-  {
-    "id": "clement-michael",
-    "name": "Clement Michael",
-    "city": "Eugene",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "LOHRJ--336"
-    ],
-    "donations": [
-      "lohrj-336-clement-michael-2021-4"
-    ]
-  },
-  {
-    "id": "arpaia-paul",
-    "name": "Arpaia Paul",
-    "city": "Indiana",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "LOHRJ--336"
-    ],
-    "donations": [
-      "lohrj-336-arpaia-paul-2021-5"
-    ]
-  },
-  {
-    "id": "lohr-chiarra",
-    "name": "Lohr Chiarra",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 36,
-    "total_cash": 36,
-    "total_in_kind": 0,
-    "funded": [
-      "LOHRJ--336"
-    ],
-    "donations": [
-      "lohrj-336-lohr-chiarra-2021-6",
-      "lohrj-336-lohr-chiarra-2021-7",
-      "lohrj-336-lohr-chiarra-2021-8",
-      "lohrj-336-lohr-chiarra-2021-9",
-      "lohrj-336-lohr-chiarra-2021-296"
-    ]
-  },
-  {
-    "id": "simko-james",
-    "name": "Simko James",
-    "city": "Astoria",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "LOHRJ--336"
-    ],
-    "donations": [
-      "lohrj-336-simko-james-2021-10"
-    ]
-  },
-  {
-    "id": "burleigh-kyle",
-    "name": "Burleigh Kyle",
-    "city": "Lynnwood",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "SHORK--336"
-    ],
-    "donations": [
-      "shork-336-burleigh-kyle-2021-11"
-    ]
-  },
-  {
-    "id": "taylor-randal",
-    "name": "Taylor Randal",
-    "city": "Walla Walla",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "HOHEK--105"
-    ],
-    "donations": [
-      "hohek-105-taylor-randal-2021-13"
-    ]
-  },
-  {
-    "id": "bagley-rebecca",
-    "name": "Bagley Rebecca",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "GRIGB--352"
-    ],
-    "donations": [
-      "grigb-352-bagley-rebecca-2021-14"
-    ]
-  },
-  {
-    "id": "griggs-sarah",
-    "name": "Griggs Sarah",
-    "city": "Logan",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "GRIGB--352"
-    ],
-    "donations": [
-      "grigb-352-griggs-sarah-2021-15"
-    ]
-  },
-  {
-    "id": "johnson-jeanette",
-    "name": "Johnson Jeanette",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "GRIGB--352"
-    ],
-    "donations": [
-      "grigb-352-johnson-jeanette-2021-17"
-    ]
-  },
-  {
-    "id": "jason-gabriel-allen-lohr-jason-lohr",
-    "name": "Jason Gabriel Allen Lohr Jason Lohr",
-    "city": "Kennewick",
-    "type": "Other",
-    "donations_count": 2,
-    "total_donated": 201,
-    "total_cash": 201,
-    "total_in_kind": 0,
-    "funded": [
-      "LOHRJ--336"
-    ],
-    "donations": [
-      "lohrj-336-jason-gabriel-allen-lohr-jason-lohr-2021-18",
-      "lohrj-336-jason-gabriel-allen-lohr-jason-lohr-2021-100"
-    ]
-  },
-  {
-    "id": "kenneth-m-hohenberg-ken-hohenberg",
-    "name": "Kenneth M Hohenberg Ken Hohenberg",
-    "city": "Kennewick",
-    "type": "Other",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "HOHEK--105"
-    ],
-    "donations": [
-      "hohek-105-kenneth-m-hohenberg-ken-hohenberg-2021-21"
-    ]
-  },
-  {
-    "id": "lee-steven-r",
-    "name": "Lee Steven R",
-    "city": "Kennewick",
-    "type": "Other",
-    "donations_count": 4,
-    "total_donated": 15498,
-    "total_cash": 15498,
-    "total_in_kind": 0,
-    "funded": [
-      "LEE SR 337"
-    ],
-    "donations": [
-      "lee-sr-337-lee-steven-r-2021-22",
-      "lee-sr-337-lee-steven-r-2021-23",
-      "lee-sr-337-lee-steven-r-2021-244",
-      "lee-sr-337-lee-steven-r-2021-559"
-    ]
-  },
-  {
-    "id": "benjamin-griggs-ben-griggs",
-    "name": "Benjamin Griggs Ben Griggs",
-    "city": "Richland",
-    "type": "Other",
-    "donations_count": 1,
-    "total_donated": 200,
-    "total_cash": 200,
-    "total_in_kind": 0,
-    "funded": [
-      "GRIGB--352"
-    ],
-    "donations": [
-      "grigb-352-benjamin-griggs-ben-griggs-2021-24"
+      "rodgs-639-small-contributions-2021-1333",
+      "steie-138-small-contributions-2021-1343",
+      "garcd-352-small-contributions-2021-1352",
+      "lohrj-336-small-contributions-2021-1362",
+      "lohrj-336-small-contributions-2021-1364",
+      "lohrj-336-small-contributions-2021-1368",
+      "lohrj-336-small-contributions-2021-1370"
     ]
   },
   {
@@ -481,8 +256,141 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-kenneth-donald-short-ken-short-2021-25",
-      "shork-336-kenneth-donald-short-ken-short-2021-27"
+      "shork-336-kenneth-donald-short-ken-short-2021-3",
+      "shork-336-kenneth-donald-short-ken-short-2021-19"
+    ]
+  },
+  {
+    "id": "slack-james",
+    "name": "Slack James",
+    "city": "Spokane",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 600,
+    "total_cash": 600,
+    "total_in_kind": 0,
+    "funded": [
+      "SHORK--336"
+    ],
+    "donations": [
+      "shork-336-slack-james-2021-5",
+      "shork-336-slack-james-2021-1096"
+    ]
+  },
+  {
+    "id": "johnson-evan",
+    "name": "Johnson Evan",
+    "city": "Newcastle",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "SHORK--336"
+    ],
+    "donations": [
+      "shork-336-johnson-evan-2021-6"
+    ]
+  },
+  {
+    "id": "slack-ann",
+    "name": "Slack Ann",
+    "city": "Spokane",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "SHORK--336"
+    ],
+    "donations": [
+      "shork-336-slack-ann-2021-7"
+    ]
+  },
+  {
+    "id": "hansen-andrew",
+    "name": "Hansen Andrew",
+    "city": "Spokane",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "VANNE--352"
+    ],
+    "donations": [
+      "vanne-352-hansen-andrew-2021-9"
+    ]
+  },
+  {
+    "id": "kenneth-m-hohenberg-ken-hohenberg",
+    "name": "Kenneth M Hohenberg Ken Hohenberg",
+    "city": "Kennewick",
+    "type": "Other",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "HOHEK--105"
+    ],
+    "donations": [
+      "hohek-105-kenneth-m-hohenberg-ken-hohenberg-2021-11"
+    ]
+  },
+  {
+    "id": "lee-steven-r",
+    "name": "Lee Steven R",
+    "city": "Kennewick",
+    "type": "Other",
+    "donations_count": 4,
+    "total_donated": 15498,
+    "total_cash": 15498,
+    "total_in_kind": 0,
+    "funded": [
+      "LEE SR 337"
+    ],
+    "donations": [
+      "lee-sr-337-lee-steven-r-2021-12",
+      "lee-sr-337-lee-steven-r-2021-17",
+      "lee-sr-337-lee-steven-r-2021-239",
+      "lee-sr-337-lee-steven-r-2021-559"
+    ]
+  },
+  {
+    "id": "jason-gabriel-allen-lohr-jason-lohr",
+    "name": "Jason Gabriel Allen Lohr Jason Lohr",
+    "city": "Kennewick",
+    "type": "Other",
+    "donations_count": 2,
+    "total_donated": 201,
+    "total_cash": 201,
+    "total_in_kind": 0,
+    "funded": [
+      "LOHRJ--336"
+    ],
+    "donations": [
+      "lohrj-336-jason-gabriel-allen-lohr-jason-lohr-2021-14",
+      "lohrj-336-jason-gabriel-allen-lohr-jason-lohr-2021-92"
+    ]
+  },
+  {
+    "id": "benjamin-griggs-ben-griggs",
+    "name": "Benjamin Griggs Ben Griggs",
+    "city": "Richland",
+    "type": "Other",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "GRIGB--352"
+    ],
+    "donations": [
+      "grigb-352-benjamin-griggs-ben-griggs-2021-18"
     ]
   },
   {
@@ -498,7 +406,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-mead-jerron-2021-29"
+      "lee-sr-337-mead-jerron-2021-21"
     ]
   },
   {
@@ -514,7 +422,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-owen-trevor-2021-30"
+      "shork-336-owen-trevor-2021-22"
     ]
   },
   {
@@ -530,9 +438,9 @@
       "ALVAM  352"
     ],
     "donations": [
-      "alvam-352-michael-alvarez-2021-31",
-      "alvam-352-michael-alvarez-2021-102",
-      "alvam-352-michael-alvarez-2021-240",
+      "alvam-352-michael-alvarez-2021-23",
+      "alvam-352-michael-alvarez-2021-94",
+      "alvam-352-michael-alvarez-2021-234",
       "alvam-352-michael-alvarez-2021-891"
     ]
   },
@@ -549,7 +457,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-wa-securities-investment-corp-centralia-2021-32"
+      "hohek-105-wa-securities-investment-corp-centralia-2021-24"
     ]
   },
   {
@@ -565,7 +473,23 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-clough-jerame-2021-33"
+      "lee-sr-337-clough-jerame-2021-25"
+    ]
+  },
+  {
+    "id": "johnson-jeanette",
+    "name": "Johnson Jeanette",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "GRIGB--352"
+    ],
+    "donations": [
+      "grigb-352-johnson-jeanette-2021-26"
     ]
   },
   {
@@ -581,7 +505,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-guske-dean-2021-34"
+      "lee-sr-337-guske-dean-2021-27"
     ]
   },
   {
@@ -597,7 +521,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-van-horn-dawn-2021-35"
+      "lee-sr-337-van-horn-dawn-2021-28"
     ]
   },
   {
@@ -613,7 +537,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-groves-david-2021-36"
+      "shork-336-groves-david-2021-29"
     ]
   },
   {
@@ -629,7 +553,7 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-campbell-jane-2021-37"
+      "vanne-352-campbell-jane-2021-30"
     ]
   },
   {
@@ -645,7 +569,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-ta-ali-2021-38"
+      "lee-sr-337-ta-ali-2021-31"
     ]
   },
   {
@@ -661,24 +585,24 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-dewey-evan-2021-39",
+      "lohrj-336-dewey-evan-2021-32",
       "lohrj-336-dewey-evan-2021-930"
     ]
   },
   {
-    "id": "hansen-andrew",
-    "name": "Hansen Andrew",
-    "city": "Spokane",
+    "id": "taylor-randal",
+    "name": "Taylor Randal",
+    "city": "Walla Walla",
     "type": "Individual",
     "donations_count": 1,
     "total_donated": 100,
     "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
-      "VANNE--352"
+      "HOHEK--105"
     ],
     "donations": [
-      "vanne-352-hansen-andrew-2021-40"
+      "hohek-105-taylor-randal-2021-33"
     ]
   },
   {
@@ -694,8 +618,8 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-parulski-holli-2021-41",
-      "lee-sr-337-parulski-holli-2021-106"
+      "lee-sr-337-parulski-holli-2021-34",
+      "lee-sr-337-parulski-holli-2021-98"
     ]
   },
   {
@@ -711,7 +635,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-short-breanne-2021-42"
+      "shork-336-short-breanne-2021-35"
     ]
   },
   {
@@ -727,7 +651,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-short-norma-2021-43"
+      "shork-336-short-norma-2021-36"
     ]
   },
   {
@@ -743,27 +667,9 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-short-donald-2021-44",
+      "shork-336-short-donald-2021-37",
       "shork-336-short-donald-2021-1061",
       "shork-336-short-donald-2021-1062"
-    ]
-  },
-  {
-    "id": "lundh-matthew",
-    "name": "Lundh Matthew",
-    "city": "Cle Elum",
-    "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 60,
-    "total_cash": 60,
-    "total_in_kind": 0,
-    "funded": [
-      "SHORK--336"
-    ],
-    "donations": [
-      "shork-336-lundh-matthew-2021-45",
-      "shork-336-lundh-matthew-2021-46",
-      "shork-336-lundh-matthew-2021-47"
     ]
   },
   {
@@ -779,7 +685,7 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-cook-meredith-2021-48"
+      "vanne-352-cook-meredith-2021-39"
     ]
   },
   {
@@ -795,7 +701,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-schauble-ryan-2021-49"
+      "shork-336-schauble-ryan-2021-40"
     ]
   },
   {
@@ -811,7 +717,7 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-goulet-jennifer-2021-50"
+      "vanne-352-goulet-jennifer-2021-41"
     ]
   },
   {
@@ -827,24 +733,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-berkley-devan-2021-51"
-    ]
-  },
-  {
-    "id": "mayson-jake",
-    "name": "Mayson Jake",
-    "city": "Yakima",
-    "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 200,
-    "total_cash": 200,
-    "total_in_kind": 0,
-    "funded": [
-      "SHORK--336"
-    ],
-    "donations": [
-      "shork-336-mayson-jake-2021-52",
-      "shork-336-mayson-jake-2021-950"
+      "shork-336-berkley-devan-2021-42"
     ]
   },
   {
@@ -860,9 +749,9 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-kenneth-short-2021-53",
-      "shork-336-kenneth-short-2021-254",
-      "shork-336-kenneth-short-2021-797"
+      "shork-336-kenneth-short-2021-43",
+      "shork-336-kenneth-short-2021-247",
+      "shork-336-kenneth-short-2021-830"
     ]
   },
   {
@@ -878,7 +767,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-denning-taylor-2021-54"
+      "shork-336-denning-taylor-2021-44"
     ]
   },
   {
@@ -894,7 +783,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-latta-mercedes-2021-55"
+      "lee-sr-337-latta-mercedes-2021-45"
     ]
   },
   {
@@ -910,7 +799,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-cooley-alex-2021-56"
+      "lee-sr-337-cooley-alex-2021-46"
     ]
   },
   {
@@ -930,12 +819,12 @@
       "RODGS--639"
     ],
     "donations": [
-      "lee-sr-337-moran-kate-2021-57",
-      "lee-sr-337-moran-kate-2021-58",
-      "vanne-352-moran-kate-2021-197",
-      "garcd-352-moran-kate-2021-402",
+      "lee-sr-337-moran-kate-2021-47",
+      "lee-sr-337-moran-kate-2021-48",
+      "vanne-352-moran-kate-2021-190",
+      "garcd-352-moran-kate-2021-399",
       "steie-138-moran-kate-2021-725",
-      "rodgs-639-moran-kate-2021-1132"
+      "rodgs-639-moran-kate-2021-1133"
     ]
   },
   {
@@ -951,7 +840,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-brockman-kadin-2021-59"
+      "shork-336-brockman-kadin-2021-49"
     ]
   },
   {
@@ -968,9 +857,29 @@
       "TORRN--301"
     ],
     "donations": [
-      "britd-336-frost-sue-2021-60",
+      "britd-336-frost-sue-2021-50",
       "torrn-301-frost-sue-2021-339",
       "britd-336-frost-sue-2021-787"
+    ]
+  },
+  {
+    "id": "lohr-chiarra",
+    "name": "Lohr Chiarra",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 5,
+    "total_donated": 36,
+    "total_cash": 36,
+    "total_in_kind": 0,
+    "funded": [
+      "LOHRJ--336"
+    ],
+    "donations": [
+      "lohrj-336-lohr-chiarra-2021-51",
+      "lohrj-336-lohr-chiarra-2021-52",
+      "lohrj-336-lohr-chiarra-2021-293",
+      "lohrj-336-lohr-chiarra-2021-294",
+      "lohrj-336-lohr-chiarra-2021-295"
     ]
   },
   {
@@ -986,7 +895,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-bergevin-properties-2021-61"
+      "hohek-105-bergevin-properties-2021-53"
     ]
   },
   {
@@ -1002,8 +911,8 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-erlandson-julie-2021-62",
-      "lee-sr-337-erlandson-julie-2021-245"
+      "lee-sr-337-erlandson-julie-2021-54",
+      "lee-sr-337-erlandson-julie-2021-240"
     ]
   },
   {
@@ -1019,7 +928,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-oppegaard-brandon-2021-63"
+      "lee-sr-337-oppegaard-brandon-2021-55"
     ]
   },
   {
@@ -1035,7 +944,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-wing-vance-2021-64"
+      "grigb-352-wing-vance-2021-56"
     ]
   },
   {
@@ -1051,7 +960,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-rojas-stephanie-2021-65"
+      "shork-336-rojas-stephanie-2021-57"
     ]
   },
   {
@@ -1059,16 +968,17 @@
     "name": "Citrak Michael",
     "city": "Lacey",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 3,
+    "total_donated": 150,
+    "total_cash": 150,
     "total_in_kind": 0,
     "funded": [
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-citrak-michael-2021-66",
-      "vanne-352-citrak-michael-2021-935"
+      "vanne-352-citrak-michael-2021-58",
+      "vanne-352-citrak-michael-2021-935",
+      "vanne-352-citrak-michael-2021-1375"
     ]
   },
   {
@@ -1084,7 +994,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-lampson-william-n-2021-67"
+      "hohek-105-lampson-william-n-2021-59"
     ]
   },
   {
@@ -1100,7 +1010,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-couch-jerry-2021-68"
+      "shork-336-couch-jerry-2021-60"
     ]
   },
   {
@@ -1116,7 +1026,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-liu-zhongwei-2021-69"
+      "grigb-352-liu-zhongwei-2021-61"
     ]
   },
   {
@@ -1132,7 +1042,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-dawson-john-2021-70"
+      "lee-sr-337-dawson-john-2021-62"
     ]
   },
   {
@@ -1148,8 +1058,24 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-groves-tyler-2021-71",
-      "shork-336-groves-tyler-2021-132"
+      "shork-336-groves-tyler-2021-63",
+      "shork-336-groves-tyler-2021-124"
+    ]
+  },
+  {
+    "id": "boswell-adam",
+    "name": "Boswell Adam",
+    "city": "Eagel Id 83616",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "GRIGB--352"
+    ],
+    "donations": [
+      "grigb-352-boswell-adam-2021-64"
     ]
   },
   {
@@ -1165,7 +1091,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-huether-chris-2021-72"
+      "hohek-105-huether-chris-2021-65"
     ]
   },
   {
@@ -1182,8 +1108,8 @@
       "WIREE  352"
     ],
     "donations": [
-      "lee-sr-337-mckinley-doug-2021-73",
-      "wiree-352-mckinley-doug-2021-809"
+      "lee-sr-337-mckinley-doug-2021-66",
+      "wiree-352-mckinley-doug-2021-808"
     ]
   },
   {
@@ -1199,24 +1125,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-earth-ocean-systems-inc-2021-74"
-    ]
-  },
-  {
-    "id": "slack-james",
-    "name": "Slack James",
-    "city": "Spokane",
-    "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 600,
-    "total_cash": 600,
-    "total_in_kind": 0,
-    "funded": [
-      "SHORK--336"
-    ],
-    "donations": [
-      "shork-336-slack-james-2021-75",
-      "shork-336-slack-james-2021-1096"
+      "hohek-105-earth-ocean-systems-inc-2021-67"
     ]
   },
   {
@@ -1232,23 +1141,41 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-hohenberg-michelle-m-2021-76"
+      "hohek-105-hohenberg-michelle-m-2021-68"
     ]
   },
   {
-    "id": "johnson-evan",
-    "name": "Johnson Evan",
-    "city": "Newcastle",
+    "id": "patel-vijay",
+    "name": "Patel Vijay",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 1250,
+    "total_cash": 1250,
+    "total_in_kind": 0,
+    "funded": [
+      "HOHEK--105",
+      "BRITD  336"
+    ],
+    "donations": [
+      "hohek-105-patel-vijay-2021-69",
+      "britd-336-patel-vijay-2021-991"
+    ]
+  },
+  {
+    "id": "burleigh-kyle",
+    "name": "Burleigh Kyle",
+    "city": "Lynnwood",
     "type": "Individual",
     "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "total_donated": 50,
+    "total_cash": 50,
     "total_in_kind": 0,
     "funded": [
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-johnson-evan-2021-77"
+      "shork-336-burleigh-kyle-2021-70"
     ]
   },
   {
@@ -1264,7 +1191,23 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-brady-lora-2021-78"
+      "grigb-352-brady-lora-2021-71"
+    ]
+  },
+  {
+    "id": "bagley-rebecca",
+    "name": "Bagley Rebecca",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "GRIGB--352"
+    ],
+    "donations": [
+      "grigb-352-bagley-rebecca-2021-72"
     ]
   },
   {
@@ -1280,7 +1223,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-silvernail-victoria-2021-79"
+      "shork-336-silvernail-victoria-2021-73"
     ]
   },
   {
@@ -1296,23 +1239,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-perez-brian-2021-80"
-    ]
-  },
-  {
-    "id": "slack-ann",
-    "name": "Slack Ann",
-    "city": "Spokane",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "SHORK--336"
-    ],
-    "donations": [
-      "shork-336-slack-ann-2021-81"
+      "lee-sr-337-perez-brian-2021-74"
     ]
   },
   {
@@ -1328,7 +1255,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-harden-william-m-2021-82"
+      "hohek-105-harden-william-m-2021-75"
     ]
   },
   {
@@ -1344,23 +1271,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-mccurley-william-2021-83"
-    ]
-  },
-  {
-    "id": "schuurs-arthur",
-    "name": "Schuurs Arthur",
-    "city": "San Clement",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "LOHRJ--336"
-    ],
-    "donations": [
-      "lohrj-336-schuurs-arthur-2021-84"
+      "hohek-105-mccurley-william-2021-76"
     ]
   },
   {
@@ -1376,7 +1287,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-larios-abraham-2021-85"
+      "hohek-105-larios-abraham-2021-77"
     ]
   },
   {
@@ -1392,7 +1303,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-mckennon-kristina-2021-86"
+      "lee-sr-337-mckennon-kristina-2021-78"
     ]
   },
   {
@@ -1408,7 +1319,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-knox-ed-2021-87"
+      "lohrj-336-knox-ed-2021-79"
     ]
   },
   {
@@ -1424,7 +1335,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-mehic-edin-2021-88"
+      "shork-336-mehic-edin-2021-80"
     ]
   },
   {
@@ -1440,7 +1351,7 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-kim-cathy-2021-89"
+      "vanne-352-kim-cathy-2021-81"
     ]
   },
   {
@@ -1456,7 +1367,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-parker-diana-2021-94",
+      "lee-sr-337-parker-diana-2021-85",
       "lee-sr-337-parker-diana-2021-897"
     ]
   },
@@ -1474,8 +1385,8 @@
       "RODGS--639"
     ],
     "donations": [
-      "lee-sr-337-masulonis-john-2021-97",
-      "rodgs-639-masulonis-john-2021-1131"
+      "lee-sr-337-masulonis-john-2021-89",
+      "rodgs-639-masulonis-john-2021-1132"
     ]
   },
   {
@@ -1491,7 +1402,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-pm-2-west-limited-partnership-2021-98"
+      "hohek-105-pm-2-west-limited-partnership-2021-90"
     ]
   },
   {
@@ -1507,7 +1418,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-bartz-matt-2021-103"
+      "lee-sr-337-bartz-matt-2021-95"
     ]
   },
   {
@@ -1523,7 +1434,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-eerkes-craig-d-2021-104"
+      "hohek-105-eerkes-craig-d-2021-96"
     ]
   },
   {
@@ -1539,9 +1450,9 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-vann-m-s-2021-105",
-      "vanne-352-vann-m-s-2021-205",
-      "vanne-352-vann-m-s-2021-1175"
+      "vanne-352-vann-m-s-2021-97",
+      "vanne-352-vann-m-s-2021-199",
+      "vanne-352-vann-m-s-2021-1173"
     ]
   },
   {
@@ -1558,8 +1469,8 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lee-sr-337-rupert-joetta-2021-107",
-      "lohrj-336-rupert-joetta-2021-171"
+      "lee-sr-337-rupert-joetta-2021-99",
+      "lohrj-336-rupert-joetta-2021-164"
     ]
   },
   {
@@ -1575,7 +1486,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-waite-michael-2021-108"
+      "shork-336-waite-michael-2021-100"
     ]
   },
   {
@@ -1591,7 +1502,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-osborne-jordan-2021-109"
+      "shork-336-osborne-jordan-2021-101"
     ]
   },
   {
@@ -1607,7 +1518,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-maroon-everett-2021-110"
+      "lee-sr-337-maroon-everett-2021-102"
     ]
   },
   {
@@ -1623,7 +1534,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-rath-tessa-2021-111"
+      "shork-336-rath-tessa-2021-103"
     ]
   },
   {
@@ -1639,7 +1550,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-short-michelle-2021-112"
+      "shork-336-short-michelle-2021-104"
     ]
   },
   {
@@ -1655,7 +1566,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-craig-phil-2021-113"
+      "shork-336-craig-phil-2021-105"
     ]
   },
   {
@@ -1671,7 +1582,7 @@
       "VALEM--338"
     ],
     "donations": [
-      "valem-338-valentine-micah-2021-114"
+      "valem-338-valentine-micah-2021-106"
     ]
   },
   {
@@ -1687,7 +1598,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-spooner-brett-2021-115"
+      "lee-sr-337-spooner-brett-2021-107"
     ]
   },
   {
@@ -1703,7 +1614,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-gamez-hope-2021-116"
+      "shork-336-gamez-hope-2021-108"
     ]
   },
   {
@@ -1719,7 +1630,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-griffith-jeremiah-2021-117"
+      "lee-sr-337-griffith-jeremiah-2021-109"
     ]
   },
   {
@@ -1735,9 +1646,9 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-johnson-ranata-2021-118",
-      "shork-336-johnson-ranata-2021-218",
-      "shork-336-johnson-ranata-2021-470",
+      "shork-336-johnson-ranata-2021-110",
+      "shork-336-johnson-ranata-2021-211",
+      "shork-336-johnson-ranata-2021-469",
       "shork-336-johnson-ranata-2021-732",
       "shork-336-johnson-ranata-2021-976",
       "shork-336-johnson-ranata-2021-1254"
@@ -1756,7 +1667,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-hull-connie-2021-119"
+      "lee-sr-337-hull-connie-2021-111"
     ]
   },
   {
@@ -1772,7 +1683,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-mehic-alma-2021-120"
+      "shork-336-mehic-alma-2021-112"
     ]
   },
   {
@@ -1788,7 +1699,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-wright-jeffrey-2021-121"
+      "lee-sr-337-wright-jeffrey-2021-113"
     ]
   },
   {
@@ -1804,7 +1715,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-hollenbeck-trevor-2021-122",
+      "shork-336-hollenbeck-trevor-2021-114",
       "shork-336-hollenbeck-trevor-2021-949",
       "shork-336-hollenbeck-trevor-2021-1255"
     ]
@@ -1822,7 +1733,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-lee-kari-2021-123"
+      "lee-sr-337-lee-kari-2021-115"
     ]
   },
   {
@@ -1838,7 +1749,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-palmer-mary-2021-124",
+      "shork-336-palmer-mary-2021-116",
       "shork-336-palmer-mary-2021-1097"
     ]
   },
@@ -1855,7 +1766,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-rojas-coletta-2021-125"
+      "shork-336-rojas-coletta-2021-117"
     ]
   },
   {
@@ -1871,7 +1782,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-rojas-daniel-2021-126"
+      "shork-336-rojas-daniel-2021-118"
     ]
   },
   {
@@ -1887,7 +1798,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-varljen-robin-2021-127"
+      "lee-sr-337-varljen-robin-2021-119"
     ]
   },
   {
@@ -1903,7 +1814,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-edwards-collin-2021-128"
+      "grigb-352-edwards-collin-2021-120"
     ]
   },
   {
@@ -1919,7 +1830,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-gray-shirley-2021-129"
+      "lee-sr-337-gray-shirley-2021-121"
     ]
   },
   {
@@ -1935,7 +1846,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-mcdermott-michael-2021-130"
+      "lohrj-336-mcdermott-michael-2021-122"
     ]
   },
   {
@@ -1951,7 +1862,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-bennett-jacob-2021-131"
+      "shork-336-bennett-jacob-2021-123"
     ]
   },
   {
@@ -1967,7 +1878,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-mckee-laura-2021-133"
+      "shork-336-mckee-laura-2021-125"
     ]
   },
   {
@@ -1983,7 +1894,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-bergevin-david-w-2021-134"
+      "hohek-105-bergevin-david-w-2021-126"
     ]
   },
   {
@@ -1999,7 +1910,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-fuse-lisa-m-2021-135"
+      "hohek-105-fuse-lisa-m-2021-127"
     ]
   },
   {
@@ -2015,7 +1926,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-kelley-kendra-2021-136"
+      "shork-336-kelley-kendra-2021-128"
     ]
   },
   {
@@ -2031,7 +1942,23 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-bagley-donna-2021-137"
+      "grigb-352-bagley-donna-2021-129"
+    ]
+  },
+  {
+    "id": "griggs-sarah",
+    "name": "Griggs Sarah",
+    "city": "Logan",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "GRIGB--352"
+    ],
+    "donations": [
+      "grigb-352-griggs-sarah-2021-130"
     ]
   },
   {
@@ -2047,7 +1974,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-watts-christine-2021-138"
+      "shork-336-watts-christine-2021-131"
     ]
   },
   {
@@ -2063,7 +1990,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-meyer-alexander-2021-139"
+      "lee-sr-337-meyer-alexander-2021-132"
     ]
   },
   {
@@ -2079,7 +2006,7 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-chavallo-austin-2021-140"
+      "shork-336-chavallo-austin-2021-133"
     ]
   },
   {
@@ -2095,7 +2022,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-walters-ronald-a-2021-141"
+      "hohek-105-walters-ronald-a-2021-134"
     ]
   },
   {
@@ -2103,18 +2030,20 @@
     "name": "Chavallo Manuel",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 650,
-    "total_cash": 650,
+    "donations_count": 4,
+    "total_donated": 750,
+    "total_cash": 750,
     "total_in_kind": 0,
     "funded": [
       "SHORK--336",
-      "TORRN--301"
+      "TORRN--301",
+      "LOHRJ--336"
     ],
     "donations": [
-      "shork-336-chavallo-manuel-2021-142",
-      "shork-336-chavallo-manuel-2021-213",
-      "torrn-301-chavallo-manuel-2021-663"
+      "shork-336-chavallo-manuel-2021-135",
+      "shork-336-chavallo-manuel-2021-208",
+      "torrn-301-chavallo-manuel-2021-663",
+      "lohrj-336-chavallo-manuel-2021-1371"
     ]
   },
   {
@@ -2130,8 +2059,8 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-traynor-john-2021-143",
-      "lohrj-336-traynor-john-2021-183"
+      "lohrj-336-traynor-john-2021-136",
+      "lohrj-336-traynor-john-2021-176"
     ]
   },
   {
@@ -2147,7 +2076,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-breshears-professional-photography-2021-144"
+      "hohek-105-breshears-professional-photography-2021-137"
     ]
   },
   {
@@ -2163,7 +2092,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-larsen-heidi-2021-145",
+      "grigb-352-larsen-heidi-2021-138",
       "grigb-352-larsen-heidi-2021-929"
     ]
   },
@@ -2180,7 +2109,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-walker-rusty-2021-146"
+      "grigb-352-walker-rusty-2021-139"
     ]
   },
   {
@@ -2196,7 +2125,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-arpaia-mary-l-2021-147"
+      "lohrj-336-arpaia-mary-l-2021-140"
     ]
   },
   {
@@ -2212,7 +2141,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-benjamin-griggs-2021-148"
+      "grigb-352-benjamin-griggs-2021-141"
     ]
   },
   {
@@ -2228,9 +2157,9 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-griggs-benjamin-2021-149",
-      "grigb-352-griggs-benjamin-2021-188",
-      "grigb-352-griggs-benjamin-2021-189"
+      "grigb-352-griggs-benjamin-2021-142",
+      "grigb-352-griggs-benjamin-2021-182",
+      "grigb-352-griggs-benjamin-2021-183"
     ]
   },
   {
@@ -2246,7 +2175,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-hunter-julie-2021-150"
+      "grigb-352-hunter-julie-2021-143"
     ]
   },
   {
@@ -2263,8 +2192,8 @@
       "BIRDM--352"
     ],
     "donations": [
-      "grigb-352-holten-patricia-2021-151",
-      "birdm-352-holten-patricia-2021-1007"
+      "grigb-352-holten-patricia-2021-144",
+      "birdm-352-holten-patricia-2021-1000"
     ]
   },
   {
@@ -2280,7 +2209,7 @@
       "MEEHB--336"
     ],
     "donations": [
-      "meehb-336-bryan-meehan-verhei-2021-152",
+      "meehb-336-bryan-meehan-verhei-2021-145",
       "meehb-336-bryan-meehan-verhei-2021-306",
       "meehb-336-bryan-meehan-verhei-2021-648",
       "meehb-336-bryan-meehan-verhei-2021-649"
@@ -2299,13 +2228,13 @@
       "TORRN--301"
     ],
     "donations": [
-      "torrn-301-nikki-torres-2021-154",
-      "torrn-301-nikki-torres-2021-225",
+      "torrn-301-nikki-torres-2021-147",
+      "torrn-301-nikki-torres-2021-298",
       "torrn-301-nikki-torres-2021-299",
       "torrn-301-nikki-torres-2021-300",
       "torrn-301-nikki-torres-2021-301",
       "torrn-301-nikki-torres-2021-302",
-      "torrn-301-nikki-torres-2021-650"
+      "torrn-301-nikki-torres-2021-651"
     ]
   },
   {
@@ -2325,10 +2254,10 @@
       "SIMMS--301"
     ],
     "donations": [
-      "j-481-benjamin-charlotte-ms-2021-155",
-      "crawg-338-benjamin-charlotte-ms-2021-224",
+      "j-481-benjamin-charlotte-ms-2021-148",
+      "crawg-338-benjamin-charlotte-ms-2021-219",
       "mckaw-337-benjamin-charlotte-ms-2021-416",
-      "andel-337-benjamin-charlotte-ms-2021-509",
+      "andel-337-benjamin-charlotte-ms-2021-513",
       "simms-301-benjamin-charlotte-ms-2021-919"
     ]
   },
@@ -2345,7 +2274,7 @@
       "HOHEK--105"
     ],
     "donations": [
-      "hohek-105-frost-susan-2021-156"
+      "hohek-105-frost-susan-2021-149"
     ]
   },
   {
@@ -2361,7 +2290,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-mann-karen-2021-157"
+      "grigb-352-mann-karen-2021-150"
     ]
   },
   {
@@ -2377,7 +2306,7 @@
       "CRAWG--338"
     ],
     "donations": [
-      "crawg-338-przybylski-jan-ms-2021-158"
+      "crawg-338-przybylski-jan-ms-2021-151"
     ]
   },
   {
@@ -2393,7 +2322,7 @@
       "CRAWG--338"
     ],
     "donations": [
-      "crawg-338-thomas-lisa-ms-2021-159"
+      "crawg-338-thomas-lisa-ms-2021-152"
     ]
   },
   {
@@ -2409,11 +2338,11 @@
       "CRAWG--338"
     ],
     "donations": [
-      "crawg-338-crawford-gretl-ms-2021-160",
-      "crawg-338-crawford-gretl-ms-2021-161",
-      "crawg-338-crawford-gretl-ms-2021-162",
-      "crawg-338-crawford-gretl-ms-2021-163",
-      "crawg-338-crawford-gretl-ms-2021-164"
+      "crawg-338-crawford-gretl-ms-2021-153",
+      "crawg-338-crawford-gretl-ms-2021-154",
+      "crawg-338-crawford-gretl-ms-2021-155",
+      "crawg-338-crawford-gretl-ms-2021-156",
+      "crawg-338-crawford-gretl-ms-2021-157"
     ]
   },
   {
@@ -2429,7 +2358,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-griggs-mike-2021-166"
+      "grigb-352-griggs-mike-2021-159"
     ]
   },
   {
@@ -2445,7 +2374,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-warren-melissa-2021-167"
+      "grigb-352-warren-melissa-2021-160"
     ]
   },
   {
@@ -2461,7 +2390,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-pletsch-sarah-2021-168"
+      "grigb-352-pletsch-sarah-2021-161"
     ]
   },
   {
@@ -2477,7 +2406,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-jenkins-jeffrey-2021-169"
+      "grigb-352-jenkins-jeffrey-2021-162"
     ]
   },
   {
@@ -2493,7 +2422,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-ryerse-raymond-2021-172"
+      "lohrj-336-ryerse-raymond-2021-165"
     ]
   },
   {
@@ -2509,7 +2438,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-gustafson-kurt-2021-173",
+      "lohrj-336-gustafson-kurt-2021-166",
       "lohrj-336-gustafson-kurt-2021-1267"
     ]
   },
@@ -2526,8 +2455,8 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-arpaia-keranie-2021-174",
-      "lohrj-336-arpaia-keranie-2021-175"
+      "lohrj-336-arpaia-keranie-2021-167",
+      "lohrj-336-arpaia-keranie-2021-168"
     ]
   },
   {
@@ -2543,7 +2472,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-bumpaous-nickolas-2021-177"
+      "lohrj-336-bumpaous-nickolas-2021-170"
     ]
   },
   {
@@ -2559,7 +2488,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-martin-john-2021-178"
+      "lohrj-336-martin-john-2021-171"
     ]
   },
   {
@@ -2575,7 +2504,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-gay-bob-2021-180"
+      "lohrj-336-gay-bob-2021-173"
     ]
   },
   {
@@ -2591,7 +2520,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-torrescano-moses-2021-181"
+      "lohrj-336-torrescano-moses-2021-174"
     ]
   },
   {
@@ -2607,7 +2536,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-wahner-phillip-2021-182"
+      "lohrj-336-wahner-phillip-2021-175"
     ]
   },
   {
@@ -2625,9 +2554,9 @@
       "KENNJ--302"
     ],
     "donations": [
-      "lohrj-336-millbauer-kendell-2021-185",
-      "shork-336-millbauer-kendell-2021-286",
-      "kennj-302-millbauer-kendell-2021-789"
+      "lohrj-336-millbauer-kendell-2021-178",
+      "shork-336-millbauer-kendell-2021-279",
+      "kennj-302-millbauer-kendell-2021-791"
     ]
   },
   {
@@ -2643,7 +2572,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-carroll-matthew-2021-186"
+      "lohrj-336-carroll-matthew-2021-179"
     ]
   },
   {
@@ -2659,7 +2588,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-wa-state-building-and-construction-trades-council-pac-2021-187"
+      "lohrj-336-wa-state-building-and-construction-trades-council-pac-2021-180"
     ]
   },
   {
@@ -2675,7 +2604,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-lyman-stephanie-2021-190"
+      "grigb-352-lyman-stephanie-2021-181"
     ]
   },
   {
@@ -2691,8 +2620,8 @@
       "VAN-M--619"
     ],
     "donations": [
-      "van-m-619-michael-van-beek-michael-van-beek-2021-191",
-      "van-m-619-michael-van-beek-michael-van-beek-2021-267"
+      "van-m-619-michael-van-beek-michael-van-beek-2021-184",
+      "van-m-619-michael-van-beek-michael-van-beek-2021-262"
     ]
   },
   {
@@ -2708,7 +2637,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-griggs-ed-2021-193"
+      "grigb-352-griggs-ed-2021-186"
     ]
   },
   {
@@ -2724,7 +2653,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-watts-angela-2021-194"
+      "wiree-352-watts-angela-2021-187"
     ]
   },
   {
@@ -2740,7 +2669,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-thomas-hillebrant-2021-195"
+      "wiree-352-thomas-hillebrant-2021-188"
     ]
   },
   {
@@ -2756,7 +2685,7 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-phillips-lauren-2021-196"
+      "vanne-352-phillips-lauren-2021-189"
     ]
   },
   {
@@ -2774,7 +2703,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "vanne-352-gaudet-pamela-2021-198",
+      "vanne-352-gaudet-pamela-2021-191",
       "kennj-302-gaudet-pamela-2021-615",
       "kennj-302-gaudet-pamela-2021-616",
       "wiree-352-gaudet-pamela-2021-674"
@@ -2793,7 +2722,7 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-nelson-brigid-2021-199"
+      "vanne-352-nelson-brigid-2021-192"
     ]
   },
   {
@@ -2809,7 +2738,7 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-lasuk-tanya-2021-200",
+      "vanne-352-lasuk-tanya-2021-193",
       "vanne-352-lasuk-tanya-2021-936"
     ]
   },
@@ -2827,8 +2756,25 @@
       "STEIE--138"
     ],
     "donations": [
-      "vanne-352-corbin-charlie-2021-201",
-      "steie-138-corbin-charlie-2021-355"
+      "vanne-352-corbin-charlie-2021-194",
+      "steie-138-corbin-charlie-2021-360"
+    ]
+  },
+  {
+    "id": "ralston-erik",
+    "name": "Ralston Erik",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 600,
+    "total_cash": 600,
+    "total_in_kind": 0,
+    "funded": [
+      "VANNE--352"
+    ],
+    "donations": [
+      "vanne-352-ralston-erik-2021-195",
+      "vanne-352-ralston-erik-2021-297"
     ]
   },
   {
@@ -2836,18 +2782,19 @@
     "name": "Haack Jereme",
     "city": "West Richland",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 300,
-    "total_cash": 300,
+    "donations_count": 4,
+    "total_donated": 400,
+    "total_cash": 400,
     "total_in_kind": 0,
     "funded": [
       "VANNE--352",
       "GARCD--352"
     ],
     "donations": [
-      "vanne-352-haack-jereme-2021-202",
+      "vanne-352-haack-jereme-2021-196",
       "garcd-352-haack-jereme-2021-720",
-      "garcd-352-haack-jereme-2021-794"
+      "garcd-352-haack-jereme-2021-789",
+      "vanne-352-haack-jereme-2021-1374"
     ]
   },
   {
@@ -2863,7 +2810,7 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-thompson-megan-2021-203"
+      "vanne-352-thompson-megan-2021-197"
     ]
   },
   {
@@ -2883,7 +2830,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "vanne-352-raffa-justin-2021-204",
+      "vanne-352-raffa-justin-2021-198",
       "garcd-352-raffa-justin-2021-480",
       "wiree-352-raffa-justin-2021-737",
       "steie-138-raffa-justin-2021-959",
@@ -2903,7 +2850,7 @@
       "TORRN--301"
     ],
     "donations": [
-      "torrn-301-gallegos-victoria-2021-207"
+      "torrn-301-gallegos-victoria-2021-201"
     ]
   },
   {
@@ -2919,7 +2866,25 @@
       "TORRN--301"
     ],
     "donations": [
-      "torrn-301-iniguez-hose-2021-208"
+      "torrn-301-iniguez-hose-2021-202"
+    ]
+  },
+  {
+    "id": "scheele-trudi",
+    "name": "Scheele Trudi",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 3,
+    "total_donated": 125,
+    "total_cash": 125,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-scheele-trudi-2021-203",
+      "garcd-352-scheele-trudi-2021-394",
+      "garcd-352-scheele-trudi-2021-1194"
     ]
   },
   {
@@ -2935,7 +2900,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-ibew-local-union-191-cope-2021-209"
+      "lohrj-336-ibew-local-union-191-cope-2021-204"
     ]
   },
   {
@@ -2943,51 +2908,23 @@
     "name": "Moak Thomas",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 300,
-    "total_cash": 300,
+    "donations_count": 5,
+    "total_donated": 500,
+    "total_cash": 500,
     "total_in_kind": 0,
     "funded": [
       "SHORK--336",
       "MORAK  353",
-      "RODGS--639"
+      "RODGS--639",
+      "STEIE--138",
+      "BRITD  336"
     ],
     "donations": [
-      "shork-336-moak-thomas-2021-214",
+      "shork-336-moak-thomas-2021-209",
       "morak-353-moak-thomas-2021-477",
-      "rodgs-639-moak-thomas-2021-1339"
-    ]
-  },
-  {
-    "id": "eubanks-marie",
-    "name": "Eubanks Marie",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "SHORK--336"
-    ],
-    "donations": [
-      "shork-336-eubanks-marie-2021-216"
-    ]
-  },
-  {
-    "id": "doyle-nicholas",
-    "name": "Doyle Nicholas",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "SHORK--336"
-    ],
-    "donations": [
-      "shork-336-doyle-nicholas-2021-217"
+      "rodgs-639-moak-thomas-2021-1339",
+      "steie-138-moak-thomas-2021-1345",
+      "britd-336-moak-thomas-2021-1351"
     ]
   },
   {
@@ -3003,7 +2940,39 @@
       "SHORK--336"
     ],
     "donations": [
-      "shork-336-amato-josh-2021-219"
+      "shork-336-amato-josh-2021-212"
+    ]
+  },
+  {
+    "id": "eubanks-marie",
+    "name": "Eubanks Marie",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "SHORK--336"
+    ],
+    "donations": [
+      "shork-336-eubanks-marie-2021-213"
+    ]
+  },
+  {
+    "id": "doyle-nicholas",
+    "name": "Doyle Nicholas",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "SHORK--336"
+    ],
+    "donations": [
+      "shork-336-doyle-nicholas-2021-214"
     ]
   },
   {
@@ -3019,7 +2988,7 @@
       "BRITD  336"
     ],
     "donations": [
-      "britd-336-wannarachue-nikon-dr-2021-220"
+      "britd-336-wannarachue-nikon-dr-2021-215"
     ]
   },
   {
@@ -3036,7 +3005,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "grigb-352-chapin-kristen-2021-221",
+      "grigb-352-chapin-kristen-2021-216",
       "birdm-352-chapin-kristen-2021-1301"
     ]
   },
@@ -3053,7 +3022,7 @@
       "CRAWG--338"
     ],
     "donations": [
-      "crawg-338-ford-amy-ms-2021-226"
+      "crawg-338-ford-amy-ms-2021-220"
     ]
   },
   {
@@ -3069,7 +3038,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-byrd-audra-2021-227"
+      "grigb-352-byrd-audra-2021-221"
     ]
   },
   {
@@ -3085,7 +3054,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-doncaster-gina-2021-228"
+      "grigb-352-doncaster-gina-2021-222"
     ]
   },
   {
@@ -3101,7 +3070,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-walker-michelle-2021-229"
+      "grigb-352-walker-michelle-2021-223"
     ]
   },
   {
@@ -3117,7 +3086,7 @@
       "VALEM2-338"
     ],
     "donations": [
-      "valem-2-338-klovansky-jason-2021-230"
+      "valem-2-338-klovansky-jason-2021-224"
     ]
   },
   {
@@ -3134,7 +3103,7 @@
       "GALBG--338"
     ],
     "donations": [
-      "valem-2-338-vaughn-travis-2021-231",
+      "valem-2-338-vaughn-travis-2021-225",
       "galbg-338-vaughn-travis-2021-867"
     ]
   },
@@ -3152,7 +3121,7 @@
       "GALBG--338"
     ],
     "donations": [
-      "valem-2-338-beauchamp-brad-2021-232",
+      "valem-2-338-beauchamp-brad-2021-226",
       "galbg-338-beauchamp-brad-2021-885"
     ]
   },
@@ -3169,9 +3138,9 @@
       "VALEM2-338"
     ],
     "donations": [
-      "valem-2-338-anonymous-anonymous-2021-233",
-      "valem-2-338-anonymous-anonymous-2021-234",
-      "valem-2-338-anonymous-anonymous-2021-236"
+      "valem-2-338-anonymous-anonymous-2021-227",
+      "valem-2-338-anonymous-anonymous-2021-228",
+      "valem-2-338-anonymous-anonymous-2021-230"
     ]
   },
   {
@@ -3187,7 +3156,7 @@
       "VALEM2-338"
     ],
     "donations": [
-      "valem-2-338-stevens-matt-2021-235"
+      "valem-2-338-stevens-matt-2021-229"
     ]
   },
   {
@@ -3203,7 +3172,7 @@
       "VALEM2-338"
     ],
     "donations": [
-      "valem-2-338-micah-valentine-for-city-council-2021-237"
+      "valem-2-338-micah-valentine-for-city-council-2021-231"
     ]
   },
   {
@@ -3219,8 +3188,8 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-lohr-jason-2021-238",
-      "lohrj-336-lohr-jason-2021-239"
+      "lohrj-336-lohr-jason-2021-232",
+      "lohrj-336-lohr-jason-2021-233"
     ]
   },
   {
@@ -3240,8 +3209,8 @@
       "BRITD  336"
     ],
     "donations": [
-      "lohrj-336-teamsters-local-839-2021-241",
-      "steie-138-teamsters-local-839-2021-1168",
+      "lohrj-336-teamsters-local-839-2021-235",
+      "steie-138-teamsters-local-839-2021-1156",
       "morak-353-teamsters-local-839-2021-1170",
       "garcd-352-teamsters-local-839-2021-1189",
       "lohrj-336-teamsters-local-839-2021-1233",
@@ -3261,7 +3230,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-iron-workers-district-council-of-teh-pnw-2021-242"
+      "lohrj-336-iron-workers-district-council-of-teh-pnw-2021-236"
     ]
   },
   {
@@ -3277,7 +3246,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-roberts-agnes-2021-246"
+      "lee-sr-337-roberts-agnes-2021-241"
     ]
   },
   {
@@ -3293,7 +3262,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-danica-garcia-2021-248"
+      "garcd-352-danica-garcia-2021-242"
     ]
   },
   {
@@ -3309,27 +3278,8 @@
       "LEE SR 337"
     ],
     "donations": [
-      "lee-sr-337-lee-steven-2021-249",
-      "lee-sr-337-lee-steven-2021-250"
-    ]
-  },
-  {
-    "id": "jones-jhoanna-r",
-    "name": "Jones Jhoanna R",
-    "city": "Richland",
-    "type": "Self",
-    "donations_count": 4,
-    "total_donated": 2440,
-    "total_cash": 0,
-    "total_in_kind": 2440,
-    "funded": [
-      "JONEJH 352"
-    ],
-    "donations": [
-      "jonejh-352-jones-jhoanna-r-2021-251",
-      "jonejh-352-jones-jhoanna-r-2021-659",
-      "jonejh-352-jones-jhoanna-r-2021-660",
-      "jonejh-352-jones-jhoanna-r-2021-661"
+      "lee-sr-337-lee-steven-2021-243",
+      "lee-sr-337-lee-steven-2021-244"
     ]
   },
   {
@@ -3346,8 +3296,8 @@
       "WIREE  352"
     ],
     "donations": [
-      "sancm-350-sanchez-maricela-2021-252",
-      "sancm-350-sanchez-maricela-2021-253",
+      "sancm-350-sanchez-maricela-2021-245",
+      "sancm-350-sanchez-maricela-2021-246",
       "wiree-352-sanchez-maricela-2021-1261"
     ]
   },
@@ -3364,7 +3314,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-emerald-raindrops-photography-2021-255"
+      "kennj-302-emerald-raindrops-photography-2021-248"
     ]
   },
   {
@@ -3380,12 +3330,12 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-john-kennedy-2021-256",
-      "kennj-302-john-kennedy-2021-257",
-      "kennj-302-john-kennedy-2021-258",
-      "kennj-302-john-kennedy-2021-259",
-      "kennj-302-john-kennedy-2021-788",
-      "kennj-302-john-kennedy-2021-819"
+      "kennj-302-john-kennedy-2021-249",
+      "kennj-302-john-kennedy-2021-250",
+      "kennj-302-john-kennedy-2021-251",
+      "kennj-302-john-kennedy-2021-252",
+      "kennj-302-john-kennedy-2021-790",
+      "kennj-302-john-kennedy-2021-818"
     ]
   },
   {
@@ -3401,7 +3351,7 @@
       "CRAWG--338"
     ],
     "donations": [
-      "crawg-338-petty-lee-mr-2021-260"
+      "crawg-338-petty-lee-mr-2021-253"
     ]
   },
   {
@@ -3417,7 +3367,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-hanneman-nicole-2021-262"
+      "steie-138-hanneman-nicole-2021-255"
     ]
   },
   {
@@ -3433,7 +3383,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-wilkins-mary-jo-2021-263"
+      "steie-138-wilkins-mary-jo-2021-256"
     ]
   },
   {
@@ -3449,7 +3399,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-dage-denomy-2021-264"
+      "steie-138-dage-denomy-2021-257"
     ]
   },
   {
@@ -3465,23 +3415,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-fitzgerald-zechariah-2021-265"
-    ]
-  },
-  {
-    "id": "nielsen-ryan-mr",
-    "name": "Nielsen Ryan Mr",
-    "city": "West Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 300,
-    "total_cash": 300,
-    "total_in_kind": 0,
-    "funded": [
-      "VAN-M--619"
-    ],
-    "donations": [
-      "van-m-619-nielsen-ryan-mr-2021-266"
+      "steie-138-fitzgerald-zechariah-2021-258"
     ]
   },
   {
@@ -3497,7 +3431,7 @@
       "VAN-M--619"
     ],
     "donations": [
-      "van-m-619-hempstead-james-mr-2021-268"
+      "van-m-619-hempstead-james-mr-2021-259"
     ]
   },
   {
@@ -3513,7 +3447,23 @@
       "VAN-M--619"
     ],
     "donations": [
-      "van-m-619-richland-firefighters-local-1052-2021-269"
+      "van-m-619-richland-firefighters-local-1052-2021-260"
+    ]
+  },
+  {
+    "id": "nielsen-ryan-mr",
+    "name": "Nielsen Ryan Mr",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 300,
+    "total_cash": 300,
+    "total_in_kind": 0,
+    "funded": [
+      "VAN-M--619"
+    ],
+    "donations": [
+      "van-m-619-nielsen-ryan-mr-2021-261"
     ]
   },
   {
@@ -3529,7 +3479,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-dorsey-jacob-2021-271"
+      "kennj-302-dorsey-jacob-2021-264"
     ]
   },
   {
@@ -3545,7 +3495,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-wasem-mike-2021-272"
+      "garcd-352-wasem-mike-2021-266"
     ]
   },
   {
@@ -3561,7 +3511,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-petersen-molly-2021-274"
+      "garcd-352-petersen-molly-2021-267"
     ]
   },
   {
@@ -3577,7 +3527,7 @@
       "BORIM--517"
     ],
     "donations": [
-      "borim-517-marianne-boring-2021-275"
+      "borim-517-marianne-boring-2021-268"
     ]
   },
   {
@@ -3593,7 +3543,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-butner-scott-2021-276",
+      "wiree-352-butner-scott-2021-269",
       "wiree-352-butner-scott-2021-675"
     ]
   },
@@ -3610,7 +3560,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-hassing-leona-2021-277"
+      "wiree-352-hassing-leona-2021-270"
     ]
   },
   {
@@ -3626,7 +3576,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-cruz-ej-2021-278"
+      "wiree-352-cruz-ej-2021-271"
     ]
   },
   {
@@ -3643,7 +3593,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "vanne-352-brendel-susan-2021-280",
+      "vanne-352-brendel-susan-2021-273",
       "garcd-352-brendel-susan-2021-683"
     ]
   },
@@ -3661,8 +3611,8 @@
       "BIRDM--352"
     ],
     "donations": [
-      "grigb-352-triplett-katie-2021-281",
-      "birdm-352-triplett-katie-2021-999"
+      "grigb-352-triplett-katie-2021-274",
+      "birdm-352-triplett-katie-2021-1001"
     ]
   },
   {
@@ -3683,11 +3633,11 @@
       "BROWI--307"
     ],
     "donations": [
-      "grigb-352-anonymous-contributions-2021-283",
+      "grigb-352-anonymous-contributions-2021-276",
       "garcd-352-anonymous-contributions-2021-479",
-      "fitzc-352-anonymous-contributions-2021-520",
+      "fitzc-352-anonymous-contributions-2021-519",
       "fitzc-352-anonymous-contributions-2021-611",
-      "torrn-301-anonymous-contributions-2021-1049",
+      "torrn-301-anonymous-contributions-2021-1047",
       "andel-337-anonymous-contributions-2021-1057",
       "browi-307-anonymous-contributions-2021-1148",
       "browi-307-anonymous-contributions-2021-1149"
@@ -3706,7 +3656,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-mueller-charlene-2021-284"
+      "grigb-352-mueller-charlene-2021-277"
     ]
   },
   {
@@ -3724,8 +3674,8 @@
       "RODGS--639"
     ],
     "donations": [
-      "shork-336-torelli-chuck-2021-285",
-      "kennj-302-torelli-chuck-2021-553",
+      "shork-336-torelli-chuck-2021-278",
+      "kennj-302-torelli-chuck-2021-554",
       "rodgs-639-torelli-chuck-2021-1245"
     ]
   },
@@ -3742,7 +3692,39 @@
       "VALEM--338"
     ],
     "donations": [
-      "valem-338-massey-michael-2021-287"
+      "valem-338-massey-michael-2021-280"
+    ]
+  },
+  {
+    "id": "schuurs-marieke",
+    "name": "Schuurs Marieke",
+    "city": "Eugene",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "LOHRJ--336"
+    ],
+    "donations": [
+      "lohrj-336-schuurs-marieke-2021-281"
+    ]
+  },
+  {
+    "id": "clement-michael",
+    "name": "Clement Michael",
+    "city": "Eugene",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "LOHRJ--336"
+    ],
+    "donations": [
+      "lohrj-336-clement-michael-2021-282"
     ]
   },
   {
@@ -3758,8 +3740,24 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-ibew-local-union-112-polictical-action-committee-contribution-account-2021-288",
+      "lohrj-336-ibew-local-union-112-polictical-action-committee-contribution-account-2021-283",
       "lohrj-336-ibew-local-union-112-polictical-action-committee-contribution-account-2021-1235"
+    ]
+  },
+  {
+    "id": "schuurs-arthur",
+    "name": "Schuurs Arthur",
+    "city": "San Clement",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "LOHRJ--336"
+    ],
+    "donations": [
+      "lohrj-336-schuurs-arthur-2021-284"
     ]
   },
   {
@@ -3775,7 +3773,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-arpaia-joseph-2021-289"
+      "lohrj-336-arpaia-joseph-2021-285"
     ]
   },
   {
@@ -3791,9 +3789,9 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-jason-gabriel-allen-lohr-2021-290",
-      "lohrj-336-jason-gabriel-allen-lohr-2021-291",
-      "lohrj-336-jason-gabriel-allen-lohr-2021-292"
+      "lohrj-336-jason-gabriel-allen-lohr-2021-286",
+      "lohrj-336-jason-gabriel-allen-lohr-2021-287",
+      "lohrj-336-jason-gabriel-allen-lohr-2021-288"
     ]
   },
   {
@@ -3809,7 +3807,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-baer-david-2021-293"
+      "lohrj-336-baer-david-2021-289"
     ]
   },
   {
@@ -3825,7 +3823,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-quinn-sara-2021-294"
+      "lohrj-336-quinn-sara-2021-290"
     ]
   },
   {
@@ -3841,25 +3839,40 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-arpaia-mary-2021-295",
+      "lohrj-336-arpaia-mary-2021-291",
       "lohrj-336-arpaia-mary-2021-931"
     ]
   },
   {
-    "id": "ralston-erik",
-    "name": "Ralston Erik",
-    "city": "Richland",
+    "id": "arpaia-paul",
+    "name": "Arpaia Paul",
+    "city": "Indiana",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 600,
-    "total_cash": 600,
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
-      "VANNE--352"
+      "LOHRJ--336"
     ],
     "donations": [
-      "vanne-352-ralston-erik-2021-297",
-      "vanne-352-ralston-erik-2021-298"
+      "lohrj-336-arpaia-paul-2021-292"
+    ]
+  },
+  {
+    "id": "simko-james",
+    "name": "Simko James",
+    "city": "Astoria",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "LOHRJ--336"
+    ],
+    "donations": [
+      "lohrj-336-simko-james-2021-296"
     ]
   },
   {
@@ -3913,6 +3926,25 @@
     ]
   },
   {
+    "id": "jones-jhoanna-r",
+    "name": "Jones Jhoanna R",
+    "city": "Richland",
+    "type": "Self",
+    "donations_count": 4,
+    "total_donated": 2440,
+    "total_cash": 0,
+    "total_in_kind": 2440,
+    "funded": [
+      "JONEJH 352"
+    ],
+    "donations": [
+      "jonejh-352-jones-jhoanna-r-2021-307",
+      "jonejh-352-jones-jhoanna-r-2021-659",
+      "jonejh-352-jones-jhoanna-r-2021-660",
+      "jonejh-352-jones-jhoanna-r-2021-661"
+    ]
+  },
+  {
     "id": "irving-l-brown-sr",
     "name": "Irving L Brown Sr",
     "city": "Pasco",
@@ -3925,8 +3957,8 @@
       "BROWI--307"
     ],
     "donations": [
-      "browi-307-irving-l-brown-sr-2021-307",
       "browi-307-irving-l-brown-sr-2021-308",
+      "browi-307-irving-l-brown-sr-2021-309",
       "browi-307-irving-l-brown-sr-2021-646"
     ]
   },
@@ -3935,38 +3967,21 @@
     "name": "Colley Kriste",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 6,
-    "total_donated": 375,
-    "total_cash": 375,
+    "donations_count": 7,
+    "total_donated": 475,
+    "total_cash": 475,
     "total_in_kind": 0,
     "funded": [
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-colley-kriste-2021-309",
-      "garcd-352-colley-kriste-2021-395",
-      "garcd-352-colley-kriste-2021-452",
+      "garcd-352-colley-kriste-2021-310",
+      "garcd-352-colley-kriste-2021-397",
+      "garcd-352-colley-kriste-2021-448",
       "garcd-352-colley-kriste-2021-715",
       "garcd-352-colley-kriste-2021-719",
-      "garcd-352-colley-kriste-2021-1105"
-    ]
-  },
-  {
-    "id": "scheele-trudi",
-    "name": "Scheele Trudi",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 125,
-    "total_cash": 125,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-scheele-trudi-2021-310",
-      "garcd-352-scheele-trudi-2021-392",
-      "garcd-352-scheele-trudi-2021-1193"
+      "garcd-352-colley-kriste-2021-1105",
+      "garcd-352-colley-kriste-2021-1354"
     ]
   },
   {
@@ -4211,7 +4226,7 @@
     ],
     "donations": [
       "steie-138-henscheid-kristy-2021-325",
-      "steie-138-henscheid-kristy-2021-1160"
+      "steie-138-henscheid-kristy-2021-1162"
     ]
   },
   {
@@ -4540,7 +4555,7 @@
       "andrm-301-michelle-m-andres-michelle-andres-2021-410",
       "andrm-301-michelle-m-andres-michelle-andres-2021-445",
       "andrm-301-michelle-m-andres-michelle-andres-2021-635",
-      "andrm-301-michelle-m-andres-michelle-andres-2021-801",
+      "andrm-301-michelle-m-andres-michelle-andres-2021-800",
       "andrm-301-michelle-m-andres-michelle-andres-2021-1032",
       "andrm-301-michelle-m-andres-michelle-andres-2021-1225"
     ]
@@ -4578,56 +4593,6 @@
     ]
   },
   {
-    "id": "luther-andrea",
-    "name": "Luther Andrea",
-    "city": "Pasco",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-luther-andrea-2021-356"
-    ]
-  },
-  {
-    "id": "jackson-frank",
-    "name": "Jackson Frank",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-jackson-frank-2021-357"
-    ]
-  },
-  {
-    "id": "dunlop-sheila",
-    "name": "Dunlop Sheila",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138",
-      "RODGS--639"
-    ],
-    "donations": [
-      "steie-138-dunlop-sheila-2021-358",
-      "rodgs-639-dunlop-sheila-2021-1141"
-    ]
-  },
-  {
     "id": "tracy-jayne",
     "name": "Tracy Jayne",
     "city": "Richland",
@@ -4642,10 +4607,10 @@
       "WIREE  352"
     ],
     "donations": [
-      "morak-353-tracy-jayne-2021-359",
-      "borim-517-tracy-jayne-2021-457",
-      "wiree-352-tracy-jayne-2021-690",
-      "wiree-352-tracy-jayne-2021-805"
+      "morak-353-tracy-jayne-2021-354",
+      "borim-517-tracy-jayne-2021-452",
+      "wiree-352-tracy-jayne-2021-688",
+      "wiree-352-tracy-jayne-2021-804"
     ]
   },
   {
@@ -4662,18 +4627,18 @@
       "VANNE--352",
       "GARCD--352",
       "BORIM--517",
-      "KENNJ--302",
-      "WIREE  352"
+      "WIREE  352",
+      "KENNJ--302"
     ],
     "donations": [
-      "morak-353-tracy-chris-2021-360",
+      "morak-353-tracy-chris-2021-355",
       "vanne-352-tracy-chris-2021-375",
-      "garcd-352-tracy-chris-2021-393",
-      "borim-517-tracy-chris-2021-458",
-      "kennj-302-tracy-chris-2021-687",
-      "wiree-352-tracy-chris-2021-691",
-      "wiree-352-tracy-chris-2021-806",
-      "vanne-352-tracy-chris-2021-1178"
+      "garcd-352-tracy-chris-2021-395",
+      "borim-517-tracy-chris-2021-453",
+      "wiree-352-tracy-chris-2021-689",
+      "kennj-302-tracy-chris-2021-696",
+      "wiree-352-tracy-chris-2021-805",
+      "vanne-352-tracy-chris-2021-1176"
     ]
   },
   {
@@ -4681,9 +4646,9 @@
     "name": "Chen Barbara",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 200,
-    "total_cash": 200,
+    "donations_count": 4,
+    "total_donated": 300,
+    "total_cash": 300,
     "total_in_kind": 0,
     "funded": [
       "MORAK  353",
@@ -4691,9 +4656,10 @@
       "WIREE  352"
     ],
     "donations": [
-      "morak-353-chen-barbara-2021-361",
+      "morak-353-chen-barbara-2021-356",
       "vanne-352-chen-barbara-2021-380",
-      "wiree-352-chen-barbara-2021-389"
+      "wiree-352-chen-barbara-2021-389",
+      "vanne-352-chen-barbara-2021-1372"
     ]
   },
   {
@@ -4709,7 +4675,57 @@
       "MORAK  353"
     ],
     "donations": [
-      "morak-353-culver-jon-2021-362"
+      "morak-353-culver-jon-2021-357"
+    ]
+  },
+  {
+    "id": "luther-andrea",
+    "name": "Luther Andrea",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-luther-andrea-2021-361"
+    ]
+  },
+  {
+    "id": "jackson-frank",
+    "name": "Jackson Frank",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-jackson-frank-2021-362"
+    ]
+  },
+  {
+    "id": "dunlop-sheila",
+    "name": "Dunlop Sheila",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138",
+      "RODGS--639"
+    ],
+    "donations": [
+      "steie-138-dunlop-sheila-2021-363",
+      "rodgs-639-dunlop-sheila-2021-1141"
     ]
   },
   {
@@ -4843,8 +4859,8 @@
       "steie-138-dwyer-sheila-2021-371",
       "steie-138-dwyer-sheila-2021-585",
       "vanne-352-dwyer-sheila-2021-673",
-      "steie-138-dwyer-sheila-2021-904",
-      "steie-138-dwyer-sheila-2021-1156"
+      "steie-138-dwyer-sheila-2021-907",
+      "steie-138-dwyer-sheila-2021-1158"
     ]
   },
   {
@@ -5079,7 +5095,7 @@
     ],
     "donations": [
       "vanne-352-hanes-paula-2021-388",
-      "garcd-352-hanes-paula-2021-405"
+      "garcd-352-hanes-paula-2021-406"
     ]
   },
   {
@@ -5095,24 +5111,8 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-sawyer-teresa-2021-397",
+      "lohrj-336-sawyer-teresa-2021-393",
       "lohrj-336-sawyer-teresa-2021-1238"
-    ]
-  },
-  {
-    "id": "francik-rebecca",
-    "name": "Francik Rebecca",
-    "city": "Pasco",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 200,
-    "total_cash": 200,
-    "total_in_kind": 0,
-    "funded": [
-      "KENNJ--302"
-    ],
-    "donations": [
-      "kennj-302-francik-rebecca-2021-398"
     ]
   },
   {
@@ -5128,7 +5128,23 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-carstens-teresa-2021-400"
+      "garcd-352-carstens-teresa-2021-398"
+    ]
+  },
+  {
+    "id": "francik-rebecca",
+    "name": "Francik Rebecca",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "KENNJ--302"
+    ],
+    "donations": [
+      "kennj-302-francik-rebecca-2021-400"
     ]
   },
   {
@@ -5144,8 +5160,24 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-myjake-nicole-2021-401",
-      "garcd-352-myjake-nicole-2021-1073"
+      "garcd-352-myjake-nicole-2021-402",
+      "garcd-352-myjake-nicole-2021-1074"
+    ]
+  },
+  {
+    "id": "reis-julia",
+    "name": "Reis Julia",
+    "city": "Moses Lake",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-reis-julia-2021-403"
     ]
   },
   {
@@ -5161,7 +5193,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-rothwell-pamela-2021-403",
+      "garcd-352-rothwell-pamela-2021-404",
       "garcd-352-rothwell-pamela-2021-1107"
     ]
   },
@@ -5178,55 +5210,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-hagen-george-2021-404"
-    ]
-  },
-  {
-    "id": "lesit-emily",
-    "name": "Lesit Emily",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-lesit-emily-2021-406"
-    ]
-  },
-  {
-    "id": "haselrig-cinda",
-    "name": "Haselrig Cinda",
-    "city": "West Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-haselrig-cinda-2021-407"
-    ]
-  },
-  {
-    "id": "reis-julia",
-    "name": "Reis Julia",
-    "city": "Moses Lake",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-reis-julia-2021-408"
+      "garcd-352-hagen-george-2021-405"
     ]
   },
   {
@@ -5242,55 +5226,39 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-kramer-laura-2021-409"
+      "garcd-352-kramer-laura-2021-407"
     ]
   },
   {
-    "id": "clark-karianne-ms",
-    "name": "Clark Karianne Ms",
-    "city": "Pasco",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "CRAWG--338"
-    ],
-    "donations": [
-      "crawg-338-clark-karianne-ms-2021-412"
-    ]
-  },
-  {
-    "id": "kutschukau-katrina-ms",
-    "name": "Kutschukau Katrina Ms",
-    "city": "Kennewick",
+    "id": "lesit-emily",
+    "name": "Lesit Emily",
+    "city": "Richland",
     "type": "Individual",
     "donations_count": 1,
     "total_donated": 50,
     "total_cash": 50,
     "total_in_kind": 0,
     "funded": [
-      "CRAWG--338"
+      "GARCD--352"
     ],
     "donations": [
-      "crawg-338-kutschukau-katrina-ms-2021-413"
+      "garcd-352-lesit-emily-2021-408"
     ]
   },
   {
-    "id": "kutschukau-dean-mr",
-    "name": "Kutschukau Dean Mr",
-    "city": "Kennewick",
+    "id": "haselrig-cinda",
+    "name": "Haselrig Cinda",
+    "city": "West Richland",
     "type": "Individual",
     "donations_count": 1,
     "total_donated": 50,
     "total_cash": 50,
     "total_in_kind": 0,
     "funded": [
-      "CRAWG--338"
+      "GARCD--352"
     ],
     "donations": [
-      "crawg-338-kutschukau-dean-mr-2021-414"
+      "garcd-352-haselrig-cinda-2021-409"
     ]
   },
   {
@@ -5306,60 +5274,55 @@
       "CRAWG--338"
     ],
     "donations": [
-      "crawg-338-bond-melford-mr-2021-415"
+      "crawg-338-bond-melford-mr-2021-412"
     ]
   },
   {
-    "id": "palencia-victor",
-    "name": "Palencia Victor",
-    "city": "Richland",
+    "id": "clark-karianne-ms",
+    "name": "Clark Karianne Ms",
+    "city": "Pasco",
     "type": "Individual",
     "donations_count": 1,
-    "total_donated": 250,
-    "total_cash": 250,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
-      "TORRN--301"
+      "CRAWG--338"
     ],
     "donations": [
-      "torrn-301-palencia-victor-2021-418"
+      "crawg-338-clark-karianne-ms-2021-413"
     ]
   },
   {
-    "id": "kissel-jeffrey",
-    "name": "Kissel Jeffrey",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 6,
-    "total_donated": 90,
-    "total_cash": 90,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-kissel-jeffrey-2021-419",
-      "steie-138-kissel-jeffrey-2021-488",
-      "steie-138-kissel-jeffrey-2021-584",
-      "steie-138-kissel-jeffrey-2021-846",
-      "steie-138-kissel-jeffrey-2021-905",
-      "steie-138-kissel-jeffrey-2021-1157"
-    ]
-  },
-  {
-    "id": "briggs-thomas",
-    "name": "Briggs Thomas",
-    "city": "Cheektowaga",
+    "id": "kutschukau-katrina-ms",
+    "name": "Kutschukau Katrina Ms",
+    "city": "Kennewick",
     "type": "Individual",
     "donations_count": 1,
     "total_donated": 50,
     "total_cash": 50,
     "total_in_kind": 0,
     "funded": [
-      "STEIE--138"
+      "CRAWG--338"
     ],
     "donations": [
-      "steie-138-briggs-thomas-2021-420"
+      "crawg-338-kutschukau-katrina-ms-2021-414"
+    ]
+  },
+  {
+    "id": "kutschukau-dean-mr",
+    "name": "Kutschukau Dean Mr",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "CRAWG--338"
+    ],
+    "donations": [
+      "crawg-338-kutschukau-dean-mr-2021-415"
     ]
   },
   {
@@ -5375,7 +5338,7 @@
       "MORAK  353"
     ],
     "donations": [
-      "morak-353-mickinney-peckinpaugh-pam-2021-421"
+      "morak-353-mickinney-peckinpaugh-pam-2021-418"
     ]
   },
   {
@@ -5391,7 +5354,60 @@
       "MORAK  353"
     ],
     "donations": [
-      "morak-353-cash-stacy-2021-422"
+      "morak-353-cash-stacy-2021-419"
+    ]
+  },
+  {
+    "id": "palencia-victor",
+    "name": "Palencia Victor",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "TORRN--301"
+    ],
+    "donations": [
+      "torrn-301-palencia-victor-2021-420"
+    ]
+  },
+  {
+    "id": "kissel-jeffrey",
+    "name": "Kissel Jeffrey",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 6,
+    "total_donated": 90,
+    "total_cash": 90,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-kissel-jeffrey-2021-421",
+      "steie-138-kissel-jeffrey-2021-488",
+      "steie-138-kissel-jeffrey-2021-584",
+      "steie-138-kissel-jeffrey-2021-846",
+      "steie-138-kissel-jeffrey-2021-908",
+      "steie-138-kissel-jeffrey-2021-1159"
+    ]
+  },
+  {
+    "id": "briggs-thomas",
+    "name": "Briggs Thomas",
+    "city": "Cheektowaga",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-briggs-thomas-2021-422"
     ]
   },
   {
@@ -5409,7 +5425,7 @@
     ],
     "donations": [
       "grigb-352-walters-colin-2021-423",
-      "birdm-352-walters-colin-2021-767"
+      "birdm-352-walters-colin-2021-761"
     ]
   },
   {
@@ -5445,22 +5461,6 @@
     ]
   },
   {
-    "id": "ovens-misty",
-    "name": "Ovens Misty",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "VANNE--352"
-    ],
-    "donations": [
-      "vanne-352-ovens-misty-2021-427"
-    ]
-  },
-  {
     "id": "soderquist-julie",
     "name": "Soderquist Julie",
     "city": "Richland",
@@ -5474,7 +5474,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "vanne-352-soderquist-julie-2021-428",
+      "vanne-352-soderquist-julie-2021-427",
       "wiree-352-soderquist-julie-2021-433"
     ]
   },
@@ -5491,7 +5491,23 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-howard-dusty-2021-429"
+      "vanne-352-howard-dusty-2021-428"
+    ]
+  },
+  {
+    "id": "ovens-misty",
+    "name": "Ovens Misty",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "VANNE--352"
+    ],
+    "donations": [
+      "vanne-352-ovens-misty-2021-429"
     ]
   },
   {
@@ -5509,7 +5525,7 @@
     ],
     "donations": [
       "vanne-352-koppenaal-margaret-2021-430",
-      "garcd-352-koppenaal-margaret-2021-450"
+      "garcd-352-koppenaal-margaret-2021-462"
     ]
   },
   {
@@ -5543,7 +5559,7 @@
     ],
     "donations": [
       "vanne-352-kaspar-tiffany-2021-432",
-      "garcd-352-kaspar-tiffany-2021-447"
+      "garcd-352-kaspar-tiffany-2021-459"
     ]
   },
   {
@@ -5580,6 +5596,22 @@
     ]
   },
   {
+    "id": "sewa-labor-council-cope",
+    "name": "Sewa Labor Council Cope",
+    "city": "Pasco",
+    "type": "Political Action Committee",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "LOHRJ--336"
+    ],
+    "donations": [
+      "lohrj-336-sewa-labor-council-cope-2021-437"
+    ]
+  },
+  {
     "id": "lee-steve",
     "name": "Lee Steve",
     "city": "Kennewick",
@@ -5593,40 +5625,8 @@
       "WIREE  352"
     ],
     "donations": [
-      "lohrj-336-lee-steve-2021-437",
+      "lohrj-336-lee-steve-2021-438",
       "wiree-352-lee-steve-2021-1265"
-    ]
-  },
-  {
-    "id": "sewa-labor-council-cope",
-    "name": "Sewa Labor Council Cope",
-    "city": "Pasco",
-    "type": "Political Action Committee",
-    "donations_count": 1,
-    "total_donated": 1000,
-    "total_cash": 1000,
-    "total_in_kind": 0,
-    "funded": [
-      "LOHRJ--336"
-    ],
-    "donations": [
-      "lohrj-336-sewa-labor-council-cope-2021-438"
-    ]
-  },
-  {
-    "id": "teamsters-local-union-839",
-    "name": "Teamsters Local Union 839",
-    "city": "Pasco",
-    "type": "Union",
-    "donations_count": 1,
-    "total_donated": 500,
-    "total_cash": 500,
-    "total_in_kind": 0,
-    "funded": [
-      "BROWI--307"
-    ],
-    "donations": [
-      "browi-307-teamsters-local-union-839-2021-440"
     ]
   },
   {
@@ -5642,7 +5642,23 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-palomarez-kendra-2021-441"
+      "kennj-302-palomarez-kendra-2021-440"
+    ]
+  },
+  {
+    "id": "teamsters-local-union-839",
+    "name": "Teamsters Local Union 839",
+    "city": "Pasco",
+    "type": "Union",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "BROWI--307"
+    ],
+    "donations": [
+      "browi-307-teamsters-local-union-839-2021-441"
     ]
   },
   {
@@ -5694,38 +5710,6 @@
     ]
   },
   {
-    "id": "dukes-lisa",
-    "name": "Dukes Lisa",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-dukes-lisa-2021-448"
-    ]
-  },
-  {
-    "id": "mapes-jana",
-    "name": "Mapes Jana",
-    "city": "West Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-mapes-jana-2021-449"
-    ]
-  },
-  {
     "id": "nolan-kristin",
     "name": "Nolan Kristin",
     "city": "Richland",
@@ -5738,7 +5722,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-nolan-kristin-2021-453"
+      "garcd-352-nolan-kristin-2021-449"
     ]
   },
   {
@@ -5757,12 +5741,12 @@
       "VANNE--352"
     ],
     "donations": [
-      "garcd-352-dann-mary-2021-454",
+      "garcd-352-dann-mary-2021-450",
       "fitzc-352-dann-mary-2021-564",
       "wiree-352-dann-mary-2021-676",
       "garcd-352-dann-mary-2021-716",
-      "vanne-352-dann-mary-2021-1173",
-      "garcd-352-dann-mary-2021-1191"
+      "vanne-352-dann-mary-2021-1179",
+      "garcd-352-dann-mary-2021-1192"
     ]
   },
   {
@@ -5778,8 +5762,8 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-sullivan-deanie-2021-456",
-      "garcd-352-sullivan-deanie-2021-1190"
+      "garcd-352-sullivan-deanie-2021-451",
+      "garcd-352-sullivan-deanie-2021-1191"
     ]
   },
   {
@@ -5798,9 +5782,9 @@
       "MORAK  353"
     ],
     "donations": [
-      "borim-517-slovic-robert-2021-459",
-      "fitzc-352-slovic-robert-2021-523",
-      "wiree-352-slovic-robert-2021-812",
+      "borim-517-slovic-robert-2021-454",
+      "fitzc-352-slovic-robert-2021-522",
+      "wiree-352-slovic-robert-2021-811",
       "morak-353-slovic-robert-2021-1120"
     ]
   },
@@ -5809,23 +5793,25 @@
     "name": "Slovic Lillian",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 5,
-    "total_donated": 300,
-    "total_cash": 300,
+    "donations_count": 6,
+    "total_donated": 350,
+    "total_cash": 350,
     "total_in_kind": 0,
     "funded": [
       "BORIM--517",
       "FITZC--352",
       "WIREE  352",
       "GARCD--352",
-      "MORAK  353"
+      "MORAK  353",
+      "SANCM  350"
     ],
     "donations": [
-      "borim-517-slovic-lillian-2021-460",
-      "fitzc-352-slovic-lillian-2021-522",
-      "wiree-352-slovic-lillian-2021-813",
+      "borim-517-slovic-lillian-2021-455",
+      "fitzc-352-slovic-lillian-2021-521",
+      "wiree-352-slovic-lillian-2021-812",
       "garcd-352-slovic-lillian-2021-839",
-      "morak-353-slovic-lillian-2021-1119"
+      "morak-353-slovic-lillian-2021-1119",
+      "sancm-350-slovic-lillian-2021-1346"
     ]
   },
   {
@@ -5841,7 +5827,7 @@
       "BORIM--517"
     ],
     "donations": [
-      "borim-517-farmer-donald-2021-461"
+      "borim-517-farmer-donald-2021-456"
     ]
   },
   {
@@ -5857,7 +5843,39 @@
       "BORIM--517"
     ],
     "donations": [
-      "borim-517-farmer-carol-2021-462"
+      "borim-517-farmer-carol-2021-457"
+    ]
+  },
+  {
+    "id": "dukes-lisa",
+    "name": "Dukes Lisa",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-dukes-lisa-2021-460"
+    ]
+  },
+  {
+    "id": "mapes-jana",
+    "name": "Mapes Jana",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-mapes-jana-2021-461"
     ]
   },
   {
@@ -5944,22 +5962,6 @@
     ]
   },
   {
-    "id": "kelly-paul",
-    "name": "Kelly Paul",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "SHORK--336"
-    ],
-    "donations": [
-      "shork-336-kelly-paul-2021-469"
-    ]
-  },
-  {
     "id": "plumbers-steamfitters-local-union-598-pac",
     "name": "Plumbers Steamfitters Local Union 598 Pac",
     "city": "Pasco",
@@ -5973,9 +5975,25 @@
       "MORAK  353"
     ],
     "donations": [
+      "shork-336-plumbers-steamfitters-local-union-598-pac-2021-470",
       "shork-336-plumbers-steamfitters-local-union-598-pac-2021-471",
-      "shork-336-plumbers-steamfitters-local-union-598-pac-2021-472",
       "morak-353-plumbers-steamfitters-local-union-598-pac-2021-1118"
+    ]
+  },
+  {
+    "id": "kelly-paul",
+    "name": "Kelly Paul",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "SHORK--336"
+    ],
+    "donations": [
+      "shork-336-kelly-paul-2021-472"
     ]
   },
   {
@@ -6076,7 +6094,7 @@
       "wiree-352-fraser-ann-2021-602",
       "wiree-352-fraser-ann-2021-738",
       "wiree-352-fraser-ann-2021-940",
-      "wiree-352-fraser-ann-2021-1174"
+      "wiree-352-fraser-ann-2021-1172"
     ]
   },
   {
@@ -6093,7 +6111,7 @@
     ],
     "donations": [
       "garcd-352-moore-hamilton-patricia-2021-482",
-      "garcd-352-moore-hamilton-patricia-2021-1076"
+      "garcd-352-moore-hamilton-patricia-2021-1073"
     ]
   },
   {
@@ -6255,7 +6273,7 @@
     ],
     "donations": [
       "steie-138-winston-lesley-2021-494",
-      "steie-138-winston-lesley-2021-1159"
+      "steie-138-winston-lesley-2021-1161"
     ]
   },
   {
@@ -6407,97 +6425,19 @@
     "name": "Dabler Allison",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 160,
-    "total_cash": 160,
+    "donations_count": 3,
+    "total_donated": 210,
+    "total_cash": 210,
     "total_in_kind": 0,
     "funded": [
       "STEIE--138",
-      "LEE SR 337"
+      "LEE SR 337",
+      "LOHRJ--336"
     ],
     "donations": [
       "steie-138-dabler-allison-2021-507",
-      "lee-sr-337-dabler-allison-2021-560"
-    ]
-  },
-  {
-    "id": "anderson-brian-mr",
-    "name": "Anderson Brian Mr",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 195,
-    "total_cash": 195,
-    "total_in_kind": 0,
-    "funded": [
-      "ANDEL--337"
-    ],
-    "donations": [
-      "andel-337-anderson-brian-mr-2021-508"
-    ]
-  },
-  {
-    "id": "loren-anderson",
-    "name": "Loren Anderson",
-    "city": "Kennewick",
-    "type": "Other",
-    "donations_count": 1,
-    "total_donated": 0,
-    "total_cash": 0,
-    "total_in_kind": 0,
-    "funded": [
-      "ANDEL--337"
-    ],
-    "donations": [
-      "andel-337-loren-anderson-2021-510"
-    ]
-  },
-  {
-    "id": "smail-michael",
-    "name": "Smail Michael",
-    "city": "Chicago",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-smail-michael-2021-512"
-    ]
-  },
-  {
-    "id": "rau-charlie",
-    "name": "Rau Charlie",
-    "city": "St Louis",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 500,
-    "total_cash": 500,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-rau-charlie-2021-513"
-    ]
-  },
-  {
-    "id": "dunn-jack",
-    "name": "Dunn Jack",
-    "city": "Cayce",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-dunn-jack-2021-514"
+      "lee-sr-337-dabler-allison-2021-560",
+      "lohrj-336-dabler-allison-2021-1363"
     ]
   },
   {
@@ -6513,7 +6453,87 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-jones-justin-2021-515"
+      "steie-138-jones-justin-2021-508"
+    ]
+  },
+  {
+    "id": "loren-anderson",
+    "name": "Loren Anderson",
+    "city": "Kennewick",
+    "type": "Other",
+    "donations_count": 1,
+    "total_donated": 0,
+    "total_cash": 0,
+    "total_in_kind": 0,
+    "funded": [
+      "ANDEL--337"
+    ],
+    "donations": [
+      "andel-337-loren-anderson-2021-509"
+    ]
+  },
+  {
+    "id": "rau-charlie",
+    "name": "Rau Charlie",
+    "city": "St Louis",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-rau-charlie-2021-511"
+    ]
+  },
+  {
+    "id": "anderson-brian-mr",
+    "name": "Anderson Brian Mr",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 195,
+    "total_cash": 195,
+    "total_in_kind": 0,
+    "funded": [
+      "ANDEL--337"
+    ],
+    "donations": [
+      "andel-337-anderson-brian-mr-2021-512"
+    ]
+  },
+  {
+    "id": "smail-michael",
+    "name": "Smail Michael",
+    "city": "Chicago",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-smail-michael-2021-514"
+    ]
+  },
+  {
+    "id": "dunn-jack",
+    "name": "Dunn Jack",
+    "city": "Cayce",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-dunn-jack-2021-515"
     ]
   },
   {
@@ -6561,8 +6581,24 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-evans-carole-ms-2021-521",
-      "fitzc-352-evans-carole-ms-2021-533"
+      "fitzc-352-evans-carole-ms-2021-520",
+      "fitzc-352-evans-carole-ms-2021-534"
+    ]
+  },
+  {
+    "id": "duncan-m-r",
+    "name": "Duncan M R",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "FITZC--352"
+    ],
+    "donations": [
+      "fitzc-352-duncan-m-r-2021-523"
     ]
   },
   {
@@ -6578,7 +6614,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-tracy-jayne-mrs-2021-524"
+      "fitzc-352-tracy-jayne-mrs-2021-525"
     ]
   },
   {
@@ -6594,9 +6630,9 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-tracy-chris-mr-2021-525",
       "fitzc-352-tracy-chris-mr-2021-526",
       "fitzc-352-tracy-chris-mr-2021-527",
+      "fitzc-352-tracy-chris-mr-2021-528",
       "fitzc-352-tracy-chris-mr-2021-1210"
     ]
   },
@@ -6613,7 +6649,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-hollowell-betty-l-mrs-2021-528",
+      "fitzc-352-hollowell-betty-l-mrs-2021-529",
       "fitzc-352-hollowell-betty-l-mrs-2021-565",
       "fitzc-352-hollowell-betty-l-mrs-2021-899",
       "fitzc-352-hollowell-betty-l-mrs-2021-1213"
@@ -6632,8 +6668,8 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-lakes-shanai-ms-2021-529",
-      "fitzc-352-lakes-shanai-ms-2021-1038"
+      "fitzc-352-lakes-shanai-ms-2021-530",
+      "fitzc-352-lakes-shanai-ms-2021-1035"
     ]
   },
   {
@@ -6649,7 +6685,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-french-colleen-mrs-2021-530"
+      "fitzc-352-french-colleen-mrs-2021-531"
     ]
   },
   {
@@ -6665,7 +6701,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-holden-capri-2021-531"
+      "fitzc-352-holden-capri-2021-532"
     ]
   },
   {
@@ -6681,7 +6717,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-smith-edward-mr-2021-532"
+      "fitzc-352-smith-edward-mr-2021-533"
     ]
   },
   {
@@ -6697,23 +6733,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-duncan-vella-j-2021-534"
-    ]
-  },
-  {
-    "id": "duncan-m-r",
-    "name": "Duncan M R",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "FITZC--352"
-    ],
-    "donations": [
-      "fitzc-352-duncan-m-r-2021-535"
+      "fitzc-352-duncan-vella-j-2021-535"
     ]
   },
   {
@@ -6859,7 +6879,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-torie-julie-2021-545"
+      "steie-138-torie-julie-2021-546"
     ]
   },
   {
@@ -7166,7 +7186,7 @@
     ],
     "donations": [
       "grigb-352-duzan-carole-2021-575",
-      "birdm-352-duzan-carole-2021-1000"
+      "birdm-352-duzan-carole-2021-1002"
     ]
   },
   {
@@ -7272,15 +7292,17 @@
     "name": "Badalamente Richard",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 200,
+    "total_cash": 200,
     "total_in_kind": 0,
     "funded": [
-      "STEIE--138"
+      "STEIE--138",
+      "WIREE  352"
     ],
     "donations": [
-      "steie-138-badalamente-richard-2021-586"
+      "steie-138-badalamente-richard-2021-586",
+      "wiree-352-badalamente-richard-2021-1377"
     ]
   },
   {
@@ -7300,89 +7322,6 @@
     ]
   },
   {
-    "id": "guizzo-betsy",
-    "name": "Guizzo Betsy",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-guizzo-betsy-2021-589"
-    ]
-  },
-  {
-    "id": "feller-marianne",
-    "name": "Feller Marianne",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-feller-marianne-2021-590"
-    ]
-  },
-  {
-    "id": "gamble-allysha",
-    "name": "Gamble Allysha",
-    "city": "Pasco",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-gamble-allysha-2021-591"
-    ]
-  },
-  {
-    "id": "rose-jason",
-    "name": "Rose Jason",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 150,
-    "total_cash": 150,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138",
-      "RODGS--639"
-    ],
-    "donations": [
-      "steie-138-rose-jason-2021-592",
-      "rodgs-639-rose-jason-2021-1135"
-    ]
-  },
-  {
-    "id": "smith-rik",
-    "name": "Smith Rik",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 1250,
-    "total_cash": 1250,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-smith-rik-2021-593",
-      "steie-138-smith-rik-2021-1059"
-    ]
-  },
-  {
     "id": "escalera-andrea",
     "name": "Escalera Andrea",
     "city": "Richland",
@@ -7395,7 +7334,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-escalera-andrea-2021-594",
+      "steie-138-escalera-andrea-2021-588",
       "steie-138-escalera-andrea-2021-655"
     ]
   },
@@ -7412,7 +7351,90 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-pang-kelly-2021-595"
+      "steie-138-pang-kelly-2021-589"
+    ]
+  },
+  {
+    "id": "guizzo-betsy",
+    "name": "Guizzo Betsy",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-guizzo-betsy-2021-591"
+    ]
+  },
+  {
+    "id": "feller-marianne",
+    "name": "Feller Marianne",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-feller-marianne-2021-592"
+    ]
+  },
+  {
+    "id": "gamble-allysha",
+    "name": "Gamble Allysha",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-gamble-allysha-2021-593"
+    ]
+  },
+  {
+    "id": "rose-jason",
+    "name": "Rose Jason",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 150,
+    "total_cash": 150,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138",
+      "RODGS--639"
+    ],
+    "donations": [
+      "steie-138-rose-jason-2021-594",
+      "rodgs-639-rose-jason-2021-1135"
+    ]
+  },
+  {
+    "id": "smith-rik",
+    "name": "Smith Rik",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 2,
+    "total_donated": 1250,
+    "total_cash": 1250,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-smith-rik-2021-595",
+      "steie-138-smith-rik-2021-1059"
     ]
   },
   {
@@ -7952,8 +7974,8 @@
       "TORRN--301"
     ],
     "donations": [
-      "torrn-301-washington-state-democrats-2021-651",
-      "torrn-301-washington-state-democrats-2021-652"
+      "torrn-301-washington-state-democrats-2021-652",
+      "torrn-301-washington-state-democrats-2021-653"
     ]
   },
   {
@@ -7971,8 +7993,8 @@
       "FITZC--352"
     ],
     "donations": [
-      "torrn-301-ruiz-ana-2021-653",
-      "kennj-302-ruiz-ana-2021-790",
+      "torrn-301-ruiz-ana-2021-654",
+      "kennj-302-ruiz-ana-2021-792",
       "fitzc-352-ruiz-ana-2021-1214"
     ]
   },
@@ -8063,16 +8085,18 @@
     "name": "Ibew Local Union 112",
     "city": "Kennewick",
     "type": "Union",
-    "donations_count": 2,
-    "total_donated": 2000,
-    "total_cash": 2000,
+    "donations_count": 3,
+    "total_donated": 3000,
+    "total_cash": 3000,
     "total_in_kind": 0,
     "funded": [
-      "BRITD  336"
+      "BRITD  336",
+      "GARCD--352"
     ],
     "donations": [
       "britd-336-ibew-local-union-112-2021-668",
-      "britd-336-ibew-local-union-112-2021-1204"
+      "britd-336-ibew-local-union-112-2021-1204",
+      "garcd-352-ibew-local-union-112-2021-1360"
     ]
   },
   {
@@ -8128,15 +8152,17 @@
     "name": "Sundvik Diane",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 2,
+    "total_donated": 100,
+    "total_cash": 100,
     "total_in_kind": 0,
     "funded": [
-      "WIREE  352"
+      "WIREE  352",
+      "LOHRJ--336"
     ],
     "donations": [
-      "wiree-352-sundvik-diane-2021-677"
+      "wiree-352-sundvik-diane-2021-677",
+      "lohrj-336-sundvik-diane-2021-1366"
     ]
   },
   {
@@ -8234,7 +8260,7 @@
       "BROWI--307"
     ],
     "donations": [
-      "browi-307-sandoval-luisa-2021-688"
+      "browi-307-sandoval-luisa-2021-686"
     ]
   },
   {
@@ -8250,7 +8276,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-griffith-brian-2021-692"
+      "kennj-302-griffith-brian-2021-690"
     ]
   },
   {
@@ -8266,7 +8292,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-dorsey-jake-2021-694"
+      "kennj-302-dorsey-jake-2021-692"
     ]
   },
   {
@@ -8282,7 +8308,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-hough-christine-2021-695"
+      "kennj-302-hough-christine-2021-693"
     ]
   },
   {
@@ -8298,7 +8324,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-low-james-2021-696"
+      "kennj-302-low-james-2021-694"
     ]
   },
   {
@@ -8350,6 +8376,22 @@
     ]
   },
   {
+    "id": "sermo-digital",
+    "name": "Sermo Digital",
+    "city": "Cle Elum",
+    "type": "Business",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 0,
+    "total_in_kind": 1000,
+    "funded": [
+      "SHORK--336"
+    ],
+    "donations": [
+      "shork-336-sermo-digital-2021-700"
+    ]
+  },
+  {
     "id": "regev-shir",
     "name": "Regev Shir",
     "city": "Richland",
@@ -8364,25 +8406,9 @@
       "FITZC--352"
     ],
     "donations": [
-      "meehb-336-regev-shir-2021-700",
+      "meehb-336-regev-shir-2021-701",
       "wiree-352-regev-shir-2021-731",
       "fitzc-352-regev-shir-2021-1211"
-    ]
-  },
-  {
-    "id": "sermo-digital",
-    "name": "Sermo Digital",
-    "city": "Cle Elum",
-    "type": "Business",
-    "donations_count": 1,
-    "total_donated": 1000,
-    "total_cash": 0,
-    "total_in_kind": 1000,
-    "funded": [
-      "SHORK--336"
-    ],
-    "donations": [
-      "shork-336-sermo-digital-2021-701"
     ]
   },
   {
@@ -8504,15 +8530,16 @@
     "name": "Fagan Debbie",
     "city": "Richland",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
+    "donations_count": 2,
+    "total_donated": 200,
+    "total_cash": 200,
     "total_in_kind": 0,
     "funded": [
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-fagan-debbie-2021-714"
+      "garcd-352-fagan-debbie-2021-714",
+      "garcd-352-fagan-debbie-2021-1355"
     ]
   },
   {
@@ -8712,8 +8739,8 @@
     ],
     "donations": [
       "wiree-352-garcia-danica-2021-742",
-      "morak-353-garcia-danica-2021-799",
-      "vanne-352-garcia-danica-2021-1176",
+      "morak-353-garcia-danica-2021-798",
+      "vanne-352-garcia-danica-2021-1174",
       "fitzc-352-garcia-danica-2021-1221"
     ]
   },
@@ -8923,7 +8950,7 @@
     ],
     "donations": [
       "birdm-352-misipati-semi-bird-2021-758",
-      "birdm-352-misipati-semi-bird-2021-1016"
+      "birdm-352-misipati-semi-bird-2021-1015"
     ]
   },
   {
@@ -8939,7 +8966,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-thompson-gary-2021-765"
+      "birdm-352-thompson-gary-2021-760"
     ]
   },
   {
@@ -8955,7 +8982,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-ibatuan-lynn-2021-766"
+      "birdm-352-ibatuan-lynn-2021-768"
     ]
   },
   {
@@ -8971,7 +8998,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-dodd-leslie-2021-768"
+      "birdm-352-dodd-leslie-2021-769"
     ]
   },
   {
@@ -9055,38 +9082,6 @@
     ]
   },
   {
-    "id": "hill-bill",
-    "name": "Hill Bill",
-    "city": "Pasco",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 125,
-    "total_cash": 125,
-    "total_in_kind": 0,
-    "funded": [
-      "KENNJ--302"
-    ],
-    "donations": [
-      "kennj-302-hill-bill-2021-779"
-    ]
-  },
-  {
-    "id": "hill-sandra",
-    "name": "Hill Sandra",
-    "city": "Pasco",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 125,
-    "total_cash": 125,
-    "total_in_kind": 0,
-    "funded": [
-      "KENNJ--302"
-    ],
-    "donations": [
-      "kennj-302-hill-sandra-2021-780"
-    ]
-  },
-  {
     "id": "martin-joni",
     "name": "Martin Joni",
     "city": "Pasco",
@@ -9099,7 +9094,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-martin-joni-2021-781"
+      "kennj-302-martin-joni-2021-779"
     ]
   },
   {
@@ -9115,7 +9110,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-martin-paul-2021-782"
+      "kennj-302-martin-paul-2021-780"
     ]
   },
   {
@@ -9131,7 +9126,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-mendoza-gilbert-2021-783"
+      "kennj-302-mendoza-gilbert-2021-781"
     ]
   },
   {
@@ -9147,7 +9142,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-parmenter-valari-2021-784"
+      "kennj-302-parmenter-valari-2021-782"
     ]
   },
   {
@@ -9163,7 +9158,39 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-paredes-kristen-2021-785"
+      "kennj-302-paredes-kristen-2021-783"
+    ]
+  },
+  {
+    "id": "hill-bill",
+    "name": "Hill Bill",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 125,
+    "total_cash": 125,
+    "total_in_kind": 0,
+    "funded": [
+      "KENNJ--302"
+    ],
+    "donations": [
+      "kennj-302-hill-bill-2021-784"
+    ]
+  },
+  {
+    "id": "hill-sandra",
+    "name": "Hill Sandra",
+    "city": "Pasco",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 125,
+    "total_cash": 125,
+    "total_in_kind": 0,
+    "funded": [
+      "KENNJ--302"
+    ],
+    "donations": [
+      "kennj-302-hill-sandra-2021-785"
     ]
   },
   {
@@ -9183,6 +9210,22 @@
     ]
   },
   {
+    "id": "tucker-reid-lorraine",
+    "name": "Tucker Reid Lorraine",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 40,
+    "total_cash": 40,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-tucker-reid-lorraine-2021-793"
+    ]
+  },
+  {
     "id": "wa-education-association-pac",
     "name": "Wa Education Association Pac",
     "city": "Federal Way",
@@ -9195,7 +9238,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-wa-education-association-pac-2021-791"
+      "lohrj-336-wa-education-association-pac-2021-794"
     ]
   },
   {
@@ -9211,23 +9254,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-ibew-332-education-fund-2021-792"
-    ]
-  },
-  {
-    "id": "tucker-reid-lorraine",
-    "name": "Tucker Reid Lorraine",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 40,
-    "total_cash": 40,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-tucker-reid-lorraine-2021-795"
+      "lohrj-336-ibew-332-education-fund-2021-795"
     ]
   },
   {
@@ -9245,7 +9272,7 @@
     ],
     "donations": [
       "lohrj-336-frost-s-fifer-2021-796",
-      "lohrj-336-frost-s-fifer-2021-821",
+      "lohrj-336-frost-s-fifer-2021-820",
       "shork-336-frost-s-fifer-2021-838",
       "shork-336-frost-s-fifer-2021-1206",
       "lohrj-336-frost-s-fifer-2021-1272"
@@ -9264,7 +9291,7 @@
       "PERAL  337"
     ],
     "donations": [
-      "peral-337-leo-perales-leo-a-perales-2021-798"
+      "peral-337-leo-perales-leo-a-perales-2021-797"
     ]
   },
   {
@@ -9280,7 +9307,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "grigb-352-clawson-matthew-2021-800"
+      "grigb-352-clawson-matthew-2021-799"
     ]
   },
   {
@@ -9296,7 +9323,7 @@
       "ANDRM--301"
     ],
     "donations": [
-      "andrm-301-leaumont-richard-2021-802"
+      "andrm-301-leaumont-richard-2021-801"
     ]
   },
   {
@@ -9312,7 +9339,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-timmons-jim-2021-803"
+      "wiree-352-timmons-jim-2021-802"
     ]
   },
   {
@@ -9329,8 +9356,8 @@
       "GARCD--352"
     ],
     "donations": [
-      "wiree-352-timmons-alison-2021-804",
-      "garcd-352-timmons-alison-2021-842"
+      "wiree-352-timmons-alison-2021-803",
+      "garcd-352-timmons-alison-2021-841"
     ]
   },
   {
@@ -9346,7 +9373,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-garza-melinda-2021-807"
+      "wiree-352-garza-melinda-2021-806"
     ]
   },
   {
@@ -9366,7 +9393,7 @@
       "RODGS--639"
     ],
     "donations": [
-      "wiree-352-rogo-joel-2021-808",
+      "wiree-352-rogo-joel-2021-807",
       "vanne-352-rogo-joel-2021-1246",
       "garcd-352-rogo-joel-2021-1288",
       "fitzc-352-rogo-joel-2021-1314",
@@ -9386,7 +9413,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-rosenal-sandra-2021-810"
+      "wiree-352-rosenal-sandra-2021-809"
     ]
   },
   {
@@ -9402,7 +9429,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-pelletier-michelle-2021-811"
+      "wiree-352-pelletier-michelle-2021-810"
     ]
   },
   {
@@ -9418,7 +9445,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-harvey-david-2021-814"
+      "wiree-352-harvey-david-2021-813"
     ]
   },
   {
@@ -9436,8 +9463,8 @@
       "GARCD--352"
     ],
     "donations": [
-      "wiree-352-orrell-alice-2021-815",
-      "vanne-352-orrell-alice-2021-1172",
+      "wiree-352-orrell-alice-2021-814",
+      "vanne-352-orrell-alice-2021-1178",
       "garcd-352-orrell-alice-2021-1197"
     ]
   },
@@ -9454,7 +9481,7 @@
       "WIREE  352"
     ],
     "donations": [
-      "wiree-352-berkowitz-carl-2021-816"
+      "wiree-352-berkowitz-carl-2021-815"
     ]
   },
   {
@@ -9472,7 +9499,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "wiree-352-berkowitz-debbie-2021-817",
+      "wiree-352-berkowitz-debbie-2021-816",
       "vanne-352-berkowitz-debbie-2021-1256",
       "garcd-352-berkowitz-debbie-2021-1281"
     ]
@@ -9490,7 +9517,7 @@
       "KENNJ--302"
     ],
     "donations": [
-      "kennj-302-wa-state-democratic-central-committee-2021-818"
+      "kennj-302-wa-state-democratic-central-committee-2021-817"
     ]
   },
   {
@@ -9507,7 +9534,7 @@
       "LEE SR 337"
     ],
     "donations": [
-      "rodgs-639-correction-to-contributions-2021-820",
+      "rodgs-639-correction-to-contributions-2021-819",
       "lee-sr-337-correction-to-contributions-2021-926",
       "lee-sr-337-correction-to-contributions-2021-927",
       "lee-sr-337-correction-to-contributions-2021-928"
@@ -9526,7 +9553,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-break-blue-strategies-2021-822"
+      "lohrj-336-break-blue-strategies-2021-821"
     ]
   },
   {
@@ -9543,7 +9570,7 @@
       "GALBG--338"
     ],
     "donations": [
-      "valem-2-338-massey-mike-2021-823",
+      "valem-2-338-massey-mike-2021-822",
       "galbg-338-massey-mike-2021-878"
     ]
   },
@@ -9560,7 +9587,7 @@
       "VALEM2-338"
     ],
     "donations": [
-      "valem-2-338-boyce-oscar-2021-825"
+      "valem-2-338-boyce-oscar-2021-824"
     ]
   },
   {
@@ -9576,7 +9603,7 @@
       "VALEM2-338"
     ],
     "donations": [
-      "valem-2-338-smith-sheila-2021-826"
+      "valem-2-338-smith-sheila-2021-825"
     ]
   },
   {
@@ -9584,9 +9611,9 @@
     "name": "National Womens Political Caucus Of Wa",
     "city": "Seattle",
     "type": "Political Action Committee",
-    "donations_count": 4,
-    "total_donated": 850,
-    "total_cash": 850,
+    "donations_count": 5,
+    "total_donated": 950,
+    "total_cash": 950,
     "total_in_kind": 0,
     "funded": [
       "FITZC--352",
@@ -9595,10 +9622,11 @@
       "SANCM  350"
     ],
     "donations": [
-      "fitzc-352-national-womens-political-caucus-of-wa-2021-828",
+      "fitzc-352-national-womens-political-caucus-of-wa-2021-827",
       "garcd-352-national-womens-political-caucus-of-wa-2021-831",
       "torrn-301-national-womens-political-caucus-of-wa-2021-849",
-      "sancm-350-national-womens-political-caucus-of-wa-2021-1078"
+      "sancm-350-national-womens-political-caucus-of-wa-2021-1077",
+      "sancm-350-national-womens-political-caucus-of-wa-2021-1347"
     ]
   },
   {
@@ -9614,7 +9642,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-calloway-robbin-2021-829"
+      "fitzc-352-calloway-robbin-2021-828"
     ]
   },
   {
@@ -9630,7 +9658,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-timmons-allison-2021-830"
+      "fitzc-352-timmons-allison-2021-829"
     ]
   },
   {
@@ -9698,22 +9726,6 @@
     ]
   },
   {
-    "id": "faylor-ragan",
-    "name": "Faylor Ragan",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-faylor-ragan-2021-840"
-    ]
-  },
-  {
     "id": "mcdermott-jason",
     "name": "Mcdermott Jason",
     "city": "Richland",
@@ -9726,7 +9738,23 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-mcdermott-jason-2021-841"
+      "garcd-352-mcdermott-jason-2021-840"
+    ]
+  },
+  {
+    "id": "faylor-ragan",
+    "name": "Faylor Ragan",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-faylor-ragan-2021-842"
     ]
   },
   {
@@ -9743,7 +9771,7 @@
     ],
     "donations": [
       "steie-138-washington-education-association-political-action-commitee-2021-844",
-      "steie-138-washington-education-association-political-action-commitee-2021-1161"
+      "steie-138-washington-education-association-political-action-commitee-2021-1163"
     ]
   },
   {
@@ -10083,7 +10111,7 @@
     "donations": [
       "grigb-352-miscellaneous-receipts-2021-890",
       "grigb-352-miscellaneous-receipts-2021-975",
-      "galbg-338-miscellaneous-receipts-2021-1018",
+      "galbg-338-miscellaneous-receipts-2021-1019",
       "torrn-301-miscellaneous-receipts-2021-1150"
     ]
   },
@@ -10219,7 +10247,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-case-michael-2021-907"
+      "steie-138-case-michael-2021-903"
     ]
   },
   {
@@ -10235,23 +10263,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-crawford-steve-2021-908"
-    ]
-  },
-  {
-    "id": "rush-bradley",
-    "name": "Rush Bradley",
-    "city": "Coatesville",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-rush-bradley-2021-909"
+      "steie-138-crawford-steve-2021-904"
     ]
   },
   {
@@ -10268,8 +10280,24 @@
       "VANNE--352"
     ],
     "donations": [
-      "steie-138-mcleod-laura-2021-910",
+      "steie-138-mcleod-laura-2021-905",
       "vanne-352-mcleod-laura-2021-925"
+    ]
+  },
+  {
+    "id": "rush-bradley",
+    "name": "Rush Bradley",
+    "city": "Coatesville",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-rush-bradley-2021-910"
     ]
   },
   {
@@ -10483,7 +10511,7 @@
     ],
     "donations": [
       "vanne-352-hamilton-tessa-2021-938",
-      "steie-138-hamilton-tessa-2021-1165"
+      "steie-138-hamilton-tessa-2021-1167"
     ]
   },
   {
@@ -10502,7 +10530,7 @@
     ],
     "donations": [
       "vanne-352-painter-susan-2021-939",
-      "wiree-352-painter-susan-2021-990",
+      "wiree-352-painter-susan-2021-993",
       "garcd-352-painter-susan-2021-1286"
     ]
   },
@@ -10584,7 +10612,7 @@
     ],
     "donations": [
       "garcd-352-cadwell-jillian-2021-946",
-      "garcd-352-cadwell-jillian-2021-1195"
+      "garcd-352-cadwell-jillian-2021-1196"
     ]
   },
   {
@@ -11047,22 +11075,6 @@
     ]
   },
   {
-    "id": "dihel-deb",
-    "name": "Dihel Deb",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 250,
-    "total_cash": 250,
-    "total_in_kind": 0,
-    "funded": [
-      "WIREE  352"
-    ],
-    "donations": [
-      "wiree-352-dihel-deb-2021-991"
-    ]
-  },
-  {
     "id": "international-union-of-operating-engineers-local-302",
     "name": "International Union Of Operating Engineers Local 302",
     "city": "Kennewick",
@@ -11075,7 +11087,7 @@
       "BRITD  336"
     ],
     "donations": [
-      "britd-336-international-union-of-operating-engineers-local-302-2021-992"
+      "britd-336-international-union-of-operating-engineers-local-302-2021-990"
     ]
   },
   {
@@ -11093,11 +11105,27 @@
       "MORAK  353"
     ],
     "donations": [
-      "vanne-352-mercedes-ruiz-ana-2021-994",
-      "garcd-352-mercedes-ruiz-ana-2021-1026",
+      "vanne-352-mercedes-ruiz-ana-2021-992",
+      "garcd-352-mercedes-ruiz-ana-2021-1029",
       "morak-353-mercedes-ruiz-ana-2021-1033",
-      "vanne-352-mercedes-ruiz-ana-2021-1177",
+      "vanne-352-mercedes-ruiz-ana-2021-1175",
       "garcd-352-mercedes-ruiz-ana-2021-1278"
+    ]
+  },
+  {
+    "id": "dihel-deb",
+    "name": "Dihel Deb",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "WIREE  352"
+    ],
+    "donations": [
+      "wiree-352-dihel-deb-2021-994"
     ]
   },
   {
@@ -11165,54 +11193,6 @@
     ]
   },
   {
-    "id": "schlotthauer-mollie",
-    "name": "Schlotthauer Mollie",
-    "city": "West Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "BIRDM--352"
-    ],
-    "donations": [
-      "birdm-352-schlotthauer-mollie-2021-1001"
-    ]
-  },
-  {
-    "id": "mcnally-david",
-    "name": "Mcnally David",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 200,
-    "total_cash": 200,
-    "total_in_kind": 0,
-    "funded": [
-      "BIRDM--352"
-    ],
-    "donations": [
-      "birdm-352-mcnally-david-2021-1002"
-    ]
-  },
-  {
-    "id": "brown-tyson",
-    "name": "Brown Tyson",
-    "city": "West Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "BIRDM--352"
-    ],
-    "donations": [
-      "birdm-352-brown-tyson-2021-1003"
-    ]
-  },
-  {
     "id": "townsend-samuel",
     "name": "Townsend Samuel",
     "city": "Kennewick",
@@ -11225,23 +11205,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-townsend-samuel-2021-1004"
-    ]
-  },
-  {
-    "id": "brumback-michael",
-    "name": "Brumback Michael",
-    "city": "Naches",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 200,
-    "total_cash": 200,
-    "total_in_kind": 0,
-    "funded": [
-      "BIRDM--352"
-    ],
-    "donations": [
-      "birdm-352-brumback-michael-2021-1005"
+      "birdm-352-townsend-samuel-2021-999"
     ]
   },
   {
@@ -11257,45 +11221,13 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-bryson-dana-2021-1006"
+      "birdm-352-bryson-dana-2021-1003"
     ]
   },
   {
-    "id": "eubanks-stan",
-    "name": "Eubanks Stan",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 36,
-    "total_cash": 36,
-    "total_in_kind": 0,
-    "funded": [
-      "BIRDM--352"
-    ],
-    "donations": [
-      "birdm-352-eubanks-stan-2021-1008"
-    ]
-  },
-  {
-    "id": "schildnknecht-jim",
-    "name": "Schildnknecht Jim",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 500,
-    "total_cash": 500,
-    "total_in_kind": 0,
-    "funded": [
-      "BIRDM--352"
-    ],
-    "donations": [
-      "birdm-352-schildnknecht-jim-2021-1009"
-    ]
-  },
-  {
-    "id": "scott-peggy",
-    "name": "Scott Peggy",
-    "city": "Kennewick",
+    "id": "schlotthauer-mollie",
+    "name": "Schlotthauer Mollie",
+    "city": "West Richland",
     "type": "Individual",
     "donations_count": 1,
     "total_donated": 100,
@@ -11305,7 +11237,55 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-scott-peggy-2021-1010"
+      "birdm-352-schlotthauer-mollie-2021-1004"
+    ]
+  },
+  {
+    "id": "mcnally-david",
+    "name": "Mcnally David",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-mcnally-david-2021-1005"
+    ]
+  },
+  {
+    "id": "brown-tyson",
+    "name": "Brown Tyson",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-brown-tyson-2021-1006"
+    ]
+  },
+  {
+    "id": "brumback-michael",
+    "name": "Brumback Michael",
+    "city": "Naches",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-brumback-michael-2021-1007"
     ]
   },
   {
@@ -11321,7 +11301,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-shan-bin-2021-1011"
+      "birdm-352-shan-bin-2021-1008"
     ]
   },
   {
@@ -11337,7 +11317,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-gieszler-deborah-2021-1012"
+      "birdm-352-gieszler-deborah-2021-1009"
     ]
   },
   {
@@ -11353,7 +11333,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-keelean-brian-2021-1013"
+      "birdm-352-keelean-brian-2021-1010"
     ]
   },
   {
@@ -11369,7 +11349,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-flake-amiula-2021-1014"
+      "birdm-352-flake-amiula-2021-1011"
     ]
   },
   {
@@ -11385,7 +11365,55 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-hendricks-sherry-2021-1015"
+      "birdm-352-hendricks-sherry-2021-1012"
+    ]
+  },
+  {
+    "id": "eubanks-stan",
+    "name": "Eubanks Stan",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 36,
+    "total_cash": 36,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-eubanks-stan-2021-1013"
+    ]
+  },
+  {
+    "id": "schildnknecht-jim",
+    "name": "Schildnknecht Jim",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-schildnknecht-jim-2021-1014"
+    ]
+  },
+  {
+    "id": "scott-peggy",
+    "name": "Scott Peggy",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-scott-peggy-2021-1016"
     ]
   },
   {
@@ -11417,7 +11445,7 @@
       "GALBG--338"
     ],
     "donations": [
-      "galbg-338-print-place-2021-1019"
+      "galbg-338-print-place-2021-1020"
     ]
   },
   {
@@ -11454,38 +11482,6 @@
     ]
   },
   {
-    "id": "andrews-smith-kathy",
-    "name": "Andrews Smith Kathy",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-andrews-smith-kathy-2021-1027"
-    ]
-  },
-  {
-    "id": "stoltz-kathleen",
-    "name": "Stoltz Kathleen",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 200,
-    "total_cash": 200,
-    "total_in_kind": 0,
-    "funded": [
-      "GARCD--352"
-    ],
-    "donations": [
-      "garcd-352-stoltz-kathleen-2021-1028"
-    ]
-  },
-  {
     "id": "thomas-hargunani-cynthia",
     "name": "Thomas Hargunani Cynthia",
     "city": "Richland",
@@ -11498,7 +11494,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-thomas-hargunani-cynthia-2021-1029"
+      "garcd-352-thomas-hargunani-cynthia-2021-1025"
     ]
   },
   {
@@ -11514,7 +11510,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-kunkle-sara-2021-1030"
+      "garcd-352-kunkle-sara-2021-1026"
     ]
   },
   {
@@ -11530,7 +11526,39 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-seiler-gloria-2021-1031"
+      "garcd-352-seiler-gloria-2021-1027"
+    ]
+  },
+  {
+    "id": "andrews-smith-kathy",
+    "name": "Andrews Smith Kathy",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-andrews-smith-kathy-2021-1030"
+    ]
+  },
+  {
+    "id": "stoltz-kathleen",
+    "name": "Stoltz Kathleen",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-stoltz-kathleen-2021-1031"
     ]
   },
   {
@@ -11546,7 +11574,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-moore-vanessa-2021-1035"
+      "fitzc-352-moore-vanessa-2021-1036"
     ]
   },
   {
@@ -11562,7 +11590,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-ellis-balone-geneva-2021-1036"
+      "fitzc-352-ellis-balone-geneva-2021-1037"
     ]
   },
   {
@@ -11578,7 +11606,7 @@
       "FITZC--352"
     ],
     "donations": [
-      "fitzc-352-thomas-cassandra-2021-1037"
+      "fitzc-352-thomas-cassandra-2021-1038"
     ]
   },
   {
@@ -11695,38 +11723,6 @@
     ]
   },
   {
-    "id": "keck-roy",
-    "name": "Keck Roy",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 1000,
-    "total_cash": 1000,
-    "total_in_kind": 0,
-    "funded": [
-      "GERRB  353"
-    ],
-    "donations": [
-      "gerrb-353-keck-roy-2021-1047"
-    ]
-  },
-  {
-    "id": "majetich-ben",
-    "name": "Majetich Ben",
-    "city": "West Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 250,
-    "total_cash": 250,
-    "total_in_kind": 0,
-    "funded": [
-      "GERRB  353"
-    ],
-    "donations": [
-      "gerrb-353-majetich-ben-2021-1048"
-    ]
-  },
-  {
     "id": "tri-cities-insurance-professionals-llc",
     "name": "Tri Cities Insurance Professionals Llc",
     "city": "Pasco",
@@ -11739,7 +11735,7 @@
       "TORRN--301"
     ],
     "donations": [
-      "torrn-301-tri-cities-insurance-professionals-llc-2021-1050"
+      "torrn-301-tri-cities-insurance-professionals-llc-2021-1048"
     ]
   },
   {
@@ -11755,7 +11751,7 @@
       "VAN-M--619"
     ],
     "donations": [
-      "van-m-619-walsh-ricky-2021-1051"
+      "van-m-619-walsh-ricky-2021-1049"
     ]
   },
   {
@@ -11771,7 +11767,7 @@
       "LOHRJ--336"
     ],
     "donations": [
-      "lohrj-336-arpaia-kerani-2021-1053"
+      "lohrj-336-arpaia-kerani-2021-1051"
     ]
   },
   {
@@ -11787,7 +11783,39 @@
       "GERRB  353"
     ],
     "donations": [
-      "gerrb-353-gerry-brent-w-2021-1055"
+      "gerrb-353-gerry-brent-w-2021-1053"
+    ]
+  },
+  {
+    "id": "keck-roy",
+    "name": "Keck Roy",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "GERRB  353"
+    ],
+    "donations": [
+      "gerrb-353-keck-roy-2021-1054"
+    ]
+  },
+  {
+    "id": "majetich-ben",
+    "name": "Majetich Ben",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 250,
+    "total_cash": 250,
+    "total_in_kind": 0,
+    "funded": [
+      "GERRB  353"
+    ],
+    "donations": [
+      "gerrb-353-majetich-ben-2021-1055"
     ]
   },
   {
@@ -11872,22 +11900,6 @@
     ]
   },
   {
-    "id": "jeppson-denae",
-    "name": "Jeppson Denae",
-    "city": "West Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 31,
-    "total_cash": 31,
-    "total_in_kind": 0,
-    "funded": [
-      "BIRDM--352"
-    ],
-    "donations": [
-      "birdm-352-jeppson-denae-2021-1067"
-    ]
-  },
-  {
     "id": "tucker-brok",
     "name": "Tucker Brok",
     "city": "Richland",
@@ -11900,7 +11912,7 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-tucker-brok-2021-1068"
+      "birdm-352-tucker-brok-2021-1067"
     ]
   },
   {
@@ -11917,7 +11929,7 @@
       "GRIGB--352"
     ],
     "donations": [
-      "birdm-352-reberger-kevin-2021-1069",
+      "birdm-352-reberger-kevin-2021-1068",
       "grigb-352-reberger-kevin-2021-1081"
     ]
   },
@@ -11934,7 +11946,23 @@
       "BIRDM--352"
     ],
     "donations": [
-      "birdm-352-hester-kelly-2021-1070"
+      "birdm-352-hester-kelly-2021-1069"
+    ]
+  },
+  {
+    "id": "jeppson-denae",
+    "name": "Jeppson Denae",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 31,
+    "total_cash": 31,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-jeppson-denae-2021-1070"
     ]
   },
   {
@@ -11969,24 +11997,8 @@
       "FITZC--352"
     ],
     "donations": [
-      "garcd-352-fontana-sharon-2021-1075",
+      "garcd-352-fontana-sharon-2021-1076",
       "fitzc-352-fontana-sharon-2021-1217"
-    ]
-  },
-  {
-    "id": "clements-alexis",
-    "name": "Clements Alexis",
-    "city": "Brooklyn",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
-    "total_in_kind": 0,
-    "funded": [
-      "SANCM  350"
-    ],
-    "donations": [
-      "sancm-350-clements-alexis-2021-1077"
     ]
   },
   {
@@ -12002,7 +12014,23 @@
       "SANCM  350"
     ],
     "donations": [
-      "sancm-350-reisman-mark-2021-1079"
+      "sancm-350-reisman-mark-2021-1078"
+    ]
+  },
+  {
+    "id": "clements-alexis",
+    "name": "Clements Alexis",
+    "city": "Brooklyn",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "SANCM  350"
+    ],
+    "donations": [
+      "sancm-350-clements-alexis-2021-1079"
     ]
   },
   {
@@ -12372,7 +12400,7 @@
     ],
     "donations": [
       "fitzc-352-nicholson-erik-2021-1123",
-      "garcd-352-nicholson-erik-2021-1192"
+      "garcd-352-nicholson-erik-2021-1193"
     ]
   },
   {
@@ -12453,8 +12481,8 @@
       "STEIE--138"
     ],
     "donations": [
-      "rodgs-639-carlson-heather-2021-1133",
-      "steie-138-carlson-heather-2021-1167"
+      "rodgs-639-carlson-heather-2021-1131",
+      "steie-138-carlson-heather-2021-1169"
     ]
   },
   {
@@ -12488,7 +12516,7 @@
     ],
     "donations": [
       "rodgs-639-brown-christine-2021-1136",
-      "steie-138-brown-christine-2021-1162"
+      "steie-138-brown-christine-2021-1164"
     ]
   },
   {
@@ -12668,6 +12696,22 @@
     ]
   },
   {
+    "id": "shjerven-russell",
+    "name": "Shjerven Russell",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "STEIE--138"
+    ],
+    "donations": [
+      "steie-138-shjerven-russell-2021-1157"
+    ]
+  },
+  {
     "id": "wolbrecht-tiffany-s",
     "name": "Wolbrecht Tiffany S",
     "city": "Canfield",
@@ -12680,7 +12724,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-wolbrecht-tiffany-s-2021-1163"
+      "steie-138-wolbrecht-tiffany-s-2021-1165"
     ]
   },
   {
@@ -12696,7 +12740,7 @@
       "STEIE--138"
     ],
     "donations": [
-      "steie-138-santschi-bonnie-2021-1164"
+      "steie-138-santschi-bonnie-2021-1166"
     ]
   },
   {
@@ -12713,24 +12757,8 @@
       "RODGS--639"
     ],
     "donations": [
-      "steie-138-fellman-nellie-2021-1166",
+      "steie-138-fellman-nellie-2021-1168",
       "rodgs-639-fellman-nellie-2021-1242"
-    ]
-  },
-  {
-    "id": "shjerven-russell",
-    "name": "Shjerven Russell",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 200,
-    "total_cash": 200,
-    "total_in_kind": 0,
-    "funded": [
-      "STEIE--138"
-    ],
-    "donations": [
-      "steie-138-shjerven-russell-2021-1169"
     ]
   },
   {
@@ -12762,7 +12790,7 @@
       "VANNE--352"
     ],
     "donations": [
-      "vanne-352-tracy-jane-2021-1179"
+      "vanne-352-tracy-jane-2021-1177"
     ]
   },
   {
@@ -12894,7 +12922,7 @@
       "GARCD--352"
     ],
     "donations": [
-      "garcd-352-albers-karen-2021-1196"
+      "garcd-352-albers-karen-2021-1190"
     ]
   },
   {
@@ -13330,22 +13358,6 @@
     ]
   },
   {
-    "id": "lorenzo-kerry",
-    "name": "Lorenzo Kerry",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 1000,
-    "total_cash": 1000,
-    "total_in_kind": 0,
-    "funded": [
-      "RODGS--639"
-    ],
-    "donations": [
-      "rodgs-639-lorenzo-kerry-2021-1243"
-    ]
-  },
-  {
     "id": "shjerven-russell-d",
     "name": "Shjerven Russell D",
     "city": "Kennewick",
@@ -13358,7 +13370,23 @@
       "RODGS--639"
     ],
     "donations": [
-      "rodgs-639-shjerven-russell-d-2021-1244"
+      "rodgs-639-shjerven-russell-d-2021-1243"
+    ]
+  },
+  {
+    "id": "lorenzo-kerry",
+    "name": "Lorenzo Kerry",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "RODGS--639"
+    ],
+    "donations": [
+      "rodgs-639-lorenzo-kerry-2021-1244"
     ]
   },
   {
@@ -13458,26 +13486,6 @@
     ]
   },
   {
-    "id": "miller-kendall",
-    "name": "Miller Kendall",
-    "city": "Richland",
-    "type": "Individual",
-    "donations_count": 3,
-    "total_donated": 110,
-    "total_cash": 110,
-    "total_in_kind": 0,
-    "funded": [
-      "VANNE--352",
-      "GARCD--352",
-      "FITZC--352"
-    ],
-    "donations": [
-      "vanne-352-miller-kendall-2021-1257",
-      "garcd-352-miller-kendall-2021-1280",
-      "fitzc-352-miller-kendall-2021-1313"
-    ]
-  },
-  {
     "id": "mahoney-leiloni",
     "name": "Mahoney Leiloni",
     "city": "Richland",
@@ -13491,8 +13499,32 @@
       "GARCD--352"
     ],
     "donations": [
-      "vanne-352-mahoney-leiloni-2021-1258",
+      "vanne-352-mahoney-leiloni-2021-1257",
       "garcd-352-mahoney-leiloni-2021-1283"
+    ]
+  },
+  {
+    "id": "miller-kendall",
+    "name": "Miller Kendall",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 5,
+    "total_donated": 185,
+    "total_cash": 185,
+    "total_in_kind": 0,
+    "funded": [
+      "VANNE--352",
+      "GARCD--352",
+      "FITZC--352",
+      "STEIE--138",
+      "WIREE  352"
+    ],
+    "donations": [
+      "vanne-352-miller-kendall-2021-1258",
+      "garcd-352-miller-kendall-2021-1280",
+      "fitzc-352-miller-kendall-2021-1313",
+      "steie-138-miller-kendall-2021-1344",
+      "wiree-352-miller-kendall-2021-1376"
     ]
   },
   {
@@ -13500,15 +13532,17 @@
     "name": "Depaolo Austin",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 50,
-    "total_cash": 50,
+    "donations_count": 2,
+    "total_donated": 150,
+    "total_cash": 150,
     "total_in_kind": 0,
     "funded": [
-      "VANNE--352"
+      "VANNE--352",
+      "LOHRJ--336"
     ],
     "donations": [
-      "vanne-352-depaolo-austin-2021-1259"
+      "vanne-352-depaolo-austin-2021-1259",
+      "lohrj-336-depaolo-austin-2021-1365"
     ]
   },
   {
@@ -14001,22 +14035,6 @@
     ]
   },
   {
-    "id": "fairchild-jeff-mr",
-    "name": "Fairchild Jeff Mr",
-    "city": "Kennewick",
-    "type": "Individual",
-    "donations_count": 1,
-    "total_donated": 100,
-    "total_cash": 100,
-    "total_in_kind": 0,
-    "funded": [
-      "ANDEL--337"
-    ],
-    "donations": [
-      "andel-337-fairchild-jeff-mr-2021-1330"
-    ]
-  },
-  {
     "id": "fairchild-lisa-ms",
     "name": "Fairchild Lisa Ms",
     "city": "Kennewick",
@@ -14029,7 +14047,23 @@
       "ANDEL--337"
     ],
     "donations": [
-      "andel-337-fairchild-lisa-ms-2021-1331"
+      "andel-337-fairchild-lisa-ms-2021-1330"
+    ]
+  },
+  {
+    "id": "fairchild-jeff-mr",
+    "name": "Fairchild Jeff Mr",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "ANDEL--337"
+    ],
+    "donations": [
+      "andel-337-fairchild-jeff-mr-2021-1331"
     ]
   },
   {
@@ -14126,6 +14160,188 @@
     ],
     "donations": [
       "jonejh-352-barnes-don-2021-1342"
+    ]
+  },
+  {
+    "id": "ruddy-victoria",
+    "name": "Ruddy Victoria",
+    "city": "Prosser",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "SANCM  350"
+    ],
+    "donations": [
+      "sancm-350-ruddy-victoria-2021-1348"
+    ]
+  },
+  {
+    "id": "schweiger-mike-mr",
+    "name": "Schweiger Mike Mr",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "RICHT--352"
+    ],
+    "donations": [
+      "richt-352-schweiger-mike-mr-2021-1349"
+    ]
+  },
+  {
+    "id": "sewa-central-labor-council",
+    "name": "Sewa Central Labor Council",
+    "city": "Pasco",
+    "type": "Union",
+    "donations_count": 1,
+    "total_donated": 1000,
+    "total_cash": 1000,
+    "total_in_kind": 0,
+    "funded": [
+      "BRITD  336"
+    ],
+    "donations": [
+      "britd-336-sewa-central-labor-council-2021-1350"
+    ]
+  },
+  {
+    "id": "wasem-heidi",
+    "name": "Wasem Heidi",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 100,
+    "total_cash": 100,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-wasem-heidi-2021-1353"
+    ]
+  },
+  {
+    "id": "capan-cigdem",
+    "name": "Capan Cigdem",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-capan-cigdem-2021-1356"
+    ]
+  },
+  {
+    "id": "sewa-central-labor-council-cope",
+    "name": "Sewa Central Labor Council Cope",
+    "city": "Pasco",
+    "type": "Union",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-sewa-central-labor-council-cope-2021-1357"
+    ]
+  },
+  {
+    "id": "sutter-caroline",
+    "name": "Sutter Caroline",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-sutter-caroline-2021-1358"
+    ]
+  },
+  {
+    "id": "juergens-karen",
+    "name": "Juergens Karen",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352"
+    ],
+    "donations": [
+      "garcd-352-juergens-karen-2021-1359"
+    ]
+  },
+  {
+    "id": "baker-carl",
+    "name": "Baker Carl",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 4,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "GARCD--352",
+      "LOHRJ--336",
+      "VANNE--352",
+      "WIREE  352"
+    ],
+    "donations": [
+      "garcd-352-baker-carl-2021-1361",
+      "lohrj-336-baker-carl-2021-1369",
+      "vanne-352-baker-carl-2021-1373",
+      "wiree-352-baker-carl-2021-1379"
+    ]
+  },
+  {
+    "id": "hose-joseph",
+    "name": "Hose Joseph",
+    "city": "Spokane Valley",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "LOHRJ--336"
+    ],
+    "donations": [
+      "lohrj-336-hose-joseph-2021-1367"
+    ]
+  },
+  {
+    "id": "benitez-carrie",
+    "name": "Benitez Carrie",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 5,
+    "total_cash": 5,
+    "total_in_kind": 0,
+    "funded": [
+      "WIREE  352"
+    ],
+    "donations": [
+      "wiree-352-benitez-carrie-2021-1378"
     ]
   }
 ]

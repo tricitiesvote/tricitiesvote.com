@@ -713,7 +713,11 @@ del, del a:link, del li {
 }
 
 .topdonors:last-of-type::after {
-  content: ""
+  content: ".";
+}
+
+.candidate-mini .topdonors:last-of-type::after {
+  content: "";
 }
 
 .topdonors-amount {
