@@ -8,7 +8,6 @@ const RaceListMini = props => {
   const selectedRaces = [];
 
   data.forEach(item => {
-    console.log('item', item.node.candidates.length);
     // only show competetitve races
     if (item.node.candidates.length === 2) {
       selectedRaces.push(item);

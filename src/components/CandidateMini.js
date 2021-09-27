@@ -19,7 +19,9 @@ const CandidateMini = props => {
       {fundraising ? (
         <CandidateDonorSummaryMini fundraising={fundraising} />
       ) : (
-        ''
+        <div className="donor-summary">
+          <p>No donor data reported</p>
+        </div>
       )}
       <Link className="fullLink" to={url}>
         See full profile »

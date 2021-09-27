@@ -526,6 +526,10 @@ del, del a:link, del li {
   text-align: center;
 }
 
+.candidate-mini .donor-summary {
+  text-align: center;
+}
+
 .candidate-mini h3, .candidate-mini .including {
   display: none;
 }
