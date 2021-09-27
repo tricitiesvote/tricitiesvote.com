@@ -124,6 +124,15 @@ const CandidateCollection = () => {
           bio
           lettersyes
           lettersno
+          endorsements {
+            id
+            candidate
+            name
+            type
+            url
+            endorser
+            forAgainst
+          }
           articles
           engagement
           uuid

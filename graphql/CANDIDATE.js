@@ -32,6 +32,8 @@ const CANDIDATE = `
       name
       type
       url
+      endorser
+      forAgainst
     }
     party
     incumbent

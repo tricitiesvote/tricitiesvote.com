@@ -3,9 +3,9 @@ import { Link } from 'gatsby';
 import CandidateInfo from './CandidateInfo';
 import CandidateBody from './CandidateBody';
 import CandidateExcerpt from './CandidateExcerpt';
-import CandidateLetters from './CandidateLetters';
 import CandidateArticles from './CandidateArticles';
 import CandidateEngagement from './CandidateEngagement';
+import CandidateEndorsements from './CandidateEndorsements';
 import CandidateDonorSummary from './CandidateDonorSummary';
 import CandidateDonorSummaryMini from './CandidateDonorSummaryMini';
 import CANDIDATE from '../../graphql/CANDIDATE';
@@ -27,6 +27,7 @@ const Candidate = props => {
     pdc_url,
     pamphlet_url,
     fields,
+    endorsements,
   } = data;
 
   const {
@@ -37,8 +38,6 @@ const Candidate = props => {
     statement_html,
     engagement_html,
     statement_excerpt_html,
-    lettersyes_html_nowrap,
-    lettersno_html_nowrap,
     articles_html,
     fundraising,
   } = fields;
@@ -69,10 +68,7 @@ const Candidate = props => {
           ) : (
             ''
           )}
-          <CandidateLetters
-            yes={lettersyes_html_nowrap}
-            no={lettersno_html_nowrap}
-          />
+          <CandidateEndorsements endorsements={endorsements} />
           {articles_html ? <CandidateArticles articles={articles_html} /> : ''}
           {!fullsize ? (
             <div>

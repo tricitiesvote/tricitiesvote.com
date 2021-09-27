@@ -607,7 +607,7 @@ del, del a:link, del li {
   font-size: 14px;
 }
 
-.recs li, .news li, .finance li, .donors li {
+.news li, .finance li, .donors li {
   padding-left: .7rem;
   position: relative;
 }
@@ -626,13 +626,48 @@ del, del a:link, del li {
   font-size: 20px;
 }
 
+.recs {
+  padding-left: 0 !important;
+}
+
+.recs li {
+  position: relative;
+  margin: 0 10px 10px 0;
+  display: inline-block;
+  padding: 5px 8px 5px 33px;
+  border-radius: 15px;
+}
+
+.recs .yes {
+  background-color: #cef2cf;
+  border: 1px solid #89db8b;
+}
+
+.recs .no {
+  background-color: #dae0e3;
+  border: 1px solid #bfc6c9;
+}
+
+.recs .no a:link, .recs .no a:visited {
+  color: #7c8082;
+}
+
+.recs .yes a:link, .recs .yes a:visited {
+  color: #468a47;
+}
+
 .recs .yes::before {
   content: "👍";
-  position: absolute;
 }
 
 .recs .no::before {
   content: "👎";
+}
+
+.recs .yes::before, .recs .no::before {
+  position: absolute;
+  left: 8px;
+  top: 0px;
 }
 
 .news li::before {
