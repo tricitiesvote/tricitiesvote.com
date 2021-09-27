@@ -618,6 +618,10 @@ del, del a:link, del li {
   display: inline; 
 }
 
+.candidate-bio.excerpt {
+  min-height: 150px;
+}
+
 .candidate-link {
   font-size: 14px;
   margin-left: 10px;
