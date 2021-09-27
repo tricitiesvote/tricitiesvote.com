@@ -5,16 +5,18 @@ const CandidateEngagement = props => {
 
   return (
     <>
-    { engagement ? ( 
-    <div className="engagement">
-      <h4>Engagement:</h4>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: engagement,
-        }}
-      />
-    </div>
-    ) : ('') }
+      {engagement ? (
+        <div className="engagement">
+          <h4>Engagement:</h4>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: engagement,
+            }}
+          />
+        </div>
+      ) : (
+        ''
+      )}
     </>
   );
 };

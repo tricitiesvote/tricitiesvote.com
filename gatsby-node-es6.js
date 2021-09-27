@@ -46,6 +46,21 @@ exports.onCreateNode = ({ node, actions }) => {
       name: `slug`,
       value: _.kebabCase(node.name),
     });
+    createNodeField({
+      node,
+      name: `endorsements`,
+      value: node.uuid,
+    });
+    // createNodeField({
+    //   node,
+    //   name: `school_answers`,
+    //   value: node.uuid,
+    // });
+    // createNodeField({
+    //   node,
+    //   name: `council_answers`,
+    //   value: node.uuid,
+    // });
   }
 
   // build slug contents for Offices

@@ -69,6 +69,12 @@ module.exports = {
         path: `${__dirname}/data/questionnaires/council-answers.csv`,
       },
     },
+    {
+      resolve: `gatsby-transformer-csv`,
+      options: {
+        path: `${__dirname}/data/endorsements/endorsements.csv`,
+      },
+    },
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {

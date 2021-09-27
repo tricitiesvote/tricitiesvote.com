@@ -13,10 +13,15 @@ const ContactInline = props => {
       <h2 id="feedback">Have feedback?</h2>
       <p>
         This site is a community effort maintained by volunteers. If you see
-        something inaccurate or information missing, <a href="mailto:adamavenir@hey.com">let us know asap</a>.
-        </p>
-        <p>
-        Oh and <a href="https://github.com/tumbleweird/tricitiesvote.com">the entire site is open source</a>. Feel free to contribute!
+        something inaccurate or information missing,{' '}
+        <a href="mailto:adamavenir@hey.com">let us know asap</a>.
+      </p>
+      <p>
+        Oh and{' '}
+        <a href="https://github.com/tumbleweird/tricitiesvote.com">
+          the entire site is open source
+        </a>
+        . Feel free to contribute!
       </p>
       {/* <input type="hidden" id="fieldPage" name="page" value={page} />
       <fieldset>

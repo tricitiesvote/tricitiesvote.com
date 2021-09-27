@@ -26,6 +26,13 @@ const CANDIDATE = `
     office {
       ...OfficeDetails
     }
+    endorsements {
+      id
+      candidate
+      name
+      type
+      url
+    }
     party
     incumbent
     yearsin

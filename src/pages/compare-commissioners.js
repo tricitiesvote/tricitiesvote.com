@@ -3,7 +3,7 @@
 // import CompareHeader from '../components/CompareHeader';
 // import CompareCommissioners from '../components/compare/CompareCommissioners';
 // import CompareCommissionersKey from '../components/compare/CompareCommissionersKey';
-// 
+//
 // export default () => (
 //   <DefaultLayout
 //     pageTitle="Commissioner Candidate Compare-o-Tron™"

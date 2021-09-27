@@ -22,7 +22,7 @@ const CompareKey = () => {
       </th>
       <th>B</th>
     </tr>
-  )
-}
+  );
+};
 
 export default CompareKey;
