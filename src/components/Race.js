@@ -10,7 +10,7 @@ import Candidate from './Candidate';
 const Race = props => {
   const { data } = props;
 
-  const { candidates, office } = data;
+  const { candidates } = data;
 
   // TODO add back in comparisons
   // const CompareSet = {
@@ -67,7 +67,7 @@ const Race = props => {
   // TODO add back in comparisons
   // const thisOffice = CompareSet[office.title].office;
   // const CompareCandidates = CompareSet[office.title].component;
-  
+
   // TODO add back in within the <> </> below
   //  <CompareCandidates office={thisOffice} />
 
@@ -79,7 +79,6 @@ const Race = props => {
             <Candidate data={candidate} />
           ))}
         </div>
-
       </>
     );
   }

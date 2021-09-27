@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import CompareTable from '../components/compare/CompareTable';
 

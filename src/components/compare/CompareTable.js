@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import CompareRowAB from './CompareRowAB';
 import sortComparisons from '../../helpers/sortComparisons';
 
@@ -9,7 +8,7 @@ const CompareTable = ({ questions, answers }) => {
   return (
     <table>
       <thead>
-        <tr>
+        <tr className="key">
           <th>Statement A</th>
           <th>Strong A</th>
           <th>Lean A</th>

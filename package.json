@@ -50,6 +50,7 @@
     "@babel/register": "^7.12.1",
     "@ncwidgets/id": "^0.8.1",
     "@raae/gatsby-remark-oembed": "^0.1.1",
+    "a11y-react-emoji": "^1.1.3",
     "bluebird": "^3.7.2",
     "gatsby": "^2.24.85",
     "gatsby-plugin-json-remark": "^1.1.5",

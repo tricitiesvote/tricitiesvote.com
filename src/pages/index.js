@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 // import _ from 'lodash'
 import DefaultLayout from '../layouts/DefaultLayout';
 // import Guide from '../components/Guide';
@@ -25,7 +25,11 @@ class SiteIndex extends React.Component {
             A nonpartisan community-driven collection
             <br /> of information to help you decide.
           </h2>
-          <p>If things seem missing that’s because they are.<br/>Hold your horses cos we’re still working on it. 🐴 </p>
+          <p>
+            If things seem missing that’s because they are.
+            <br />
+            Hold your horses cos we’re still working on it. 🐴{' '}
+          </p>
           <p>
             <a href="mailto:adamavenir@hey.com">Reach out</a> to get involved.
           </p>
@@ -150,4 +154,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-

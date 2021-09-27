@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import { graphql } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import CompareTable from '../components/compare/CompareTable';
 

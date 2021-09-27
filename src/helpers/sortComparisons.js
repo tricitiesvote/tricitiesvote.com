@@ -1,24 +1,25 @@
 const sortComparisons = (questions, answers) => {
   console.log('questions', questions);
   const abQSet = []; // a/b questions
-  const tfQSet = []; // true/false questions
-  const oQSet = []; // open-ended questions
+  // TODO: add TF / open-ended questions/answers
+  // const tfQSet = []; // true/false questions
+  // const oQSet = []; // open-ended questions
 
-  const tfASet = []; // true/false answers
-  const oASet = []; // open-ended answers
+  // const tfASet = []; // true/false answers
+  // const oASet = []; // open-ended answers
 
   questions.forEach(question => {
     const q = question.node;
-    if (q.type === 'Open') {
-      oQSet.push(q);
-    }
+    // if (q.type === 'Open') {
+    //   oQSet.push(q);
+    // }
     if (q.type === 'AB') {
       abQSet.push(q);
       // console.log('q', q)
     }
-    if (q.type === 'TF') {
-      tfQSet.push(q);
-    }
+    // if (q.type === 'TF') {
+    //   tfQSet.push(q);
+    // }
   });
 
   const rowData = [];
