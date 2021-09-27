@@ -1,5 +1,5 @@
 const sortComparisons = (questions, answers) => {
-  console.log('questions', questions);
+  // console.log('questions', questions);
   const abQSet = []; // a/b questions
   // TODO: add TF / open-ended questions/answers
   // const tfQSet = []; // true/false questions
