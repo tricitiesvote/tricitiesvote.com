@@ -690,9 +690,30 @@ del, del a:link, del li {
 
 .recs .yes::before, .recs .no::before {
   position: absolute;
-  left: 8px;
-  top: 3px;
+  left: 5px;
+  top: 5px;
   font-size: 18px;
+}
+.candidate-mini .recs {
+  text-align: center;
+}
+
+.candidate-mini .endorsements-summary p {
+  font-size: 15px;
+  text-align: center;
+  color: #aaa;
+}
+
+.candidate-mini li a, .candidate-mini .recs .yes::before, .recs .no::before {
+  font-size: 10px;
+}
+
+.candidate-mini .recs li {
+  position: relative;
+  margin: 0 5px 5px 0;
+  display: inline-block;
+  padding: 3px 5px 3px 20px;
+  border-radius: 15px;
 }
 
 .news li::before {

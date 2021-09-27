@@ -148,6 +148,15 @@ export const pageQuery = graphql`
             id
             name
             uuid
+            endorsements {
+              id
+              candidate
+              name
+              type
+              url
+              endorser
+              forAgainst
+            }
           }
         }
       }

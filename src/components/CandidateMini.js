@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import CandidateEngagement from './CandidateEngagement';
+import CandidateEndorsements from './CandidateEndorsements';
 import CandidateDonorSummaryMini from './CandidateDonorSummaryMini';
 
 const CandidateMini = props => {
-  const { slug, image, name, engagement, fundraising } = props;
+  const { slug, image, name, engagement, fundraising, endorsements } = props;
+
+  console.log('props', props);
   const url = `/${slug}`;
   return (
     <div className="candidate candidate-mini">
@@ -23,6 +26,7 @@ const CandidateMini = props => {
           <p>No donor data reported</p>
         </div>
       )}
+      <CandidateEndorsements endorsements={endorsements} />
       <Link className="fullLink" to={url}>
         See full profile »
       </Link>

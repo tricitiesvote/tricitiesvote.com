@@ -41,6 +41,7 @@ const RaceListMini = props => {
                 image={candidate.image}
                 engagement={candidate.fields.engagement_html}
                 fundraising={candidate.fields.fundraising}
+                endorsements={candidate.endorsements}
               />
             ))}
           </div>
