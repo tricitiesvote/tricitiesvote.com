@@ -704,7 +704,7 @@ del, del a:link, del li {
   color: #aaa;
 }
 
-.candidate-mini li a, .candidate-mini .recs .yes::before, .recs .no::before {
+.candidate-mini li a, .candidate-mini .recs .yes::before, .candidate-mini .recs .no::before {
   font-size: 10px;
 }
 
@@ -714,6 +714,13 @@ del, del a:link, del li {
   display: inline-block;
   padding: 3px 5px 3px 20px;
   border-radius: 15px;
+}
+
+.candidate-page .recs .yes::before, .candidate-page .recs .no::before {
+  position: absolute;
+  left: 8px;
+  top: 0px;
+  font-size: 18px;
 }
 
 .news li::before {
