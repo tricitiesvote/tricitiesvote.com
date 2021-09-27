@@ -11,11 +11,11 @@ const usd = new Intl.NumberFormat('en-US', {
 
 const CandidateDonorSummaryMini = props => {
   const { fundraising } = props;
-  const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
-  const topDonors = donorsSorted.slice(0, 8);
   if (!fundraising) {
     return '';
   }
+  const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
+  const topDonors = donorsSorted.slice(0, 8);
   return (
     <div className="donor-summary">
       <h3>Donors</h3>
