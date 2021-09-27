@@ -526,6 +526,13 @@ del, del a:link, del li {
   text-align: center;
 }
 
+.candidate-mini h3, .candidate-mini .including {
+  display: none;
+}
+.candidate-mini strong {
+  font-weight: normal;
+}
+
 .candidate ul {
   padding-left: 10px;
 }
@@ -691,6 +698,22 @@ del, del a:link, del li {
 
 .videolink::after {
   content: " »"
+}
+
+.topdonors::after {
+  content: ", "
+}
+
+.topdonors:last-of-type::before {
+  content: " and "
+}
+
+.topdonors:last-of-type::after {
+  content: ""
+}
+
+.topdonors-amount {
+  color: rgba(0,0,0,.3)
 }
 
 li span {
