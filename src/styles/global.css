@@ -526,8 +526,20 @@ del, del a:link, del li {
   text-align: center;
 }
 
+
+.donor-summary {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  margin-top: 0px;
+}
+
+.donor-summary, .endorsements-summary {
+  margin-bottom: 30px;
+}
+
 .candidate-mini .donor-summary {
   text-align: center;
+  border-top: 0;
 }
 
 .candidate-mini h3, .candidate-mini .including {
@@ -639,6 +651,7 @@ del, del a:link, del li {
 
 .recs {
   padding-left: 0 !important;
+  margin-bottom: -10px !important;
 }
 
 .recs li {
@@ -678,7 +691,8 @@ del, del a:link, del li {
 .recs .yes::before, .recs .no::before {
   position: absolute;
   left: 8px;
-  top: 0px;
+  top: 3px;
+  font-size: 18px;
 }
 
 .news li::before {
@@ -1539,12 +1553,12 @@ span.note {
 
 .toggle-details:before {
   content: "▶";
-  color: #53bce4;
+  color: #a2ddf5;
   position: absolute;
-  left: -25px;
-  top: -10px;
-  font-size: 20px;
-  padding: 10px;
+  left: -10px;
+  top: -8px;
+  font-size: 16px;
+  padding: 10px 0px 5px 0px;
   cursor: pointer;
 }
 
