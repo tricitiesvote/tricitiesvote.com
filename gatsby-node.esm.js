@@ -42,6 +42,24 @@ exports.onCreateNode = ({ node, actions }) => {
       name: `slug`,
       value: _.kebabCase(node.office),
     });
+    // console.log('node', node);
+    // match answers by office
+    if (_.includes(node.office, 'School')) {
+      console.log('school_answers', node.office, node.candidates);
+      createNodeField({
+        node,
+        name: `school_answers`,
+        value: node.candidates,
+      });
+    }
+    if (_.includes(node.office, 'Council')) {
+      console.log('council_answers', node.office, node.candidates);
+      createNodeField({
+        node,
+        name: `council_answers`,
+        value: node.candidates,
+      });
+    }
   }
 
   // build slug contents for Candidates
