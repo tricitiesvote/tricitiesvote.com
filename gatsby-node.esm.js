@@ -42,6 +42,24 @@ exports.onCreateNode = ({ node, actions }) => {
       name: `slug`,
       value: _.kebabCase(node.office),
     });
+    // console.log('node', node);
+    // match answers by office
+    if (_.includes(node.office, 'School')) {
+      // console.log('school_answers', node.office, node.candidates);
+      createNodeField({
+        node,
+        name: `school_answers`,
+        value: node.candidates,
+      });
+    }
+    if (_.includes(node.office, 'Council')) {
+      // console.log('council_answers', node.office, node.candidates);
+      createNodeField({
+        node,
+        name: `council_answers`,
+        value: node.candidates,
+      });
+    }
   }
 
   // build slug contents for Candidates
@@ -249,6 +267,8 @@ exports.createPages = async ({
   const allCandidates = results.data.candidates.edges;
   const allGuides = results.data.guides.edges;
   const allRaces = results.data.races.edges;
+  const allCouncilQuestions = results.data.councilQuestions.edges;
+  const allSchoolQuestions = results.data.schoolQuestions.edges;
   // const allNotes = results.data.notes.edges;
 
   allCandidates.forEach(candidate => {
@@ -282,11 +302,31 @@ exports.createPages = async ({
   // });
 
   allRaces.forEach(race => {
+    let questionSet = null;
+    if (_.includes(race.node.office.title, 'School')) {
+      console.log(
+        race.node.office.title,
+        '(School)',
+        allSchoolQuestions.length,
+        'questions'
+      );
+      questionSet = allSchoolQuestions;
+    }
+    if (_.includes(race.node.office.title, 'Council')) {
+      console.log(
+        race.node.office.title,
+        '(Council)',
+        allCouncilQuestions.length,
+        'questions'
+      );
+      questionSet = allCouncilQuestions;
+    }
     createPage({
       path: `/${race.node.fields.slug}/`,
       component: path.resolve('./src/templates/RacePage.js'),
       context: {
         slug: race.node.fields.slug,
+        questions: questionSet,
       },
     });
   });

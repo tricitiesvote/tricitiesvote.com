@@ -9,9 +9,7 @@ import Candidate from './Candidate';
 // import CompareCongress from './compare/CompareCongress';
 // import CompareJudges from './compare/CompareJudges';
 
-const Race = props => {
-  const { data } = props;
-
+const Race = ({ data }) => {
   const { candidates } = data;
 
   // console.log('candidates', candidates);
@@ -31,7 +29,7 @@ const Race = props => {
       <>
         <div className="container-candidate">
           {candidates.map(candidate => (
-            <Candidate data={candidate} />
+            <Candidate key={candidate.id} data={candidate} />
           ))}
         </div>
       </>
@@ -46,6 +44,12 @@ export const pageQuery = graphql`
   fragment RaceDetails on RacesJson {
     fields {
       slug
+      school_answers {
+        question_1
+      }
+      council_answers {
+        question_1
+      }
     }
     electionyear
     type
