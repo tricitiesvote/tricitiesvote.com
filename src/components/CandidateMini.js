@@ -7,7 +7,7 @@ import CandidateDonorSummaryMini from './CandidateDonorSummaryMini';
 const CandidateMini = props => {
   const { slug, image, name, engagement, fundraising, endorsements } = props;
 
-  console.log('props', props);
+  // console.log('props', props);
   const url = `/${slug}`;
   return (
     <div className="candidate candidate-mini">
