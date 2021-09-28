@@ -1,9 +1,10 @@
 import React from 'react';
 
 const CandidateEndorsements = ({ endorsements }) => {
+  console.log('endorsements', endorsements);
   return (
     <div className="endorsements-summary">
-      {endorsements ? (
+      {endorsements.length > 0 ? (
         <>
           <ul className="recs">
             <h3>Endorsements and letters</h3>
