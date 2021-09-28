@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
+import CompareHeader from '../components/CompareHeader';
 import CompareTable from '../components/compare/CompareTable';
 
 const CompareCityCouncilPage = ({ data }) => {
@@ -11,10 +12,11 @@ const CompareCityCouncilPage = ({ data }) => {
 
   return (
     <DefaultLayout
-      pageTitle="TEMP Candidate Compare-o-Tron™"
+      pageTitle="City Council Candidate Compare-o-Tron™"
       preview="compare-temp.png"
       url="compare-temp"
     >
+      <CompareHeader />
       <CompareTable questions={questions} answers={answers} />
     </DefaultLayout>
   );

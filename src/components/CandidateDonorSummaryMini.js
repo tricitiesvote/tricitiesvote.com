@@ -9,10 +9,14 @@ const usd = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 20,
 });
 
-const CandidateDonorSummaryMini = props => {
-  const { fundraising } = props;
+const CandidateDonorSummaryMini = ({ fundraising }) => {
   if (!fundraising) {
-    return '';
+    return (
+      <div className="donor-summary">
+        <h3>Donors</h3>
+        <p>No donor data reported</p>
+      </div>
+    );
   }
   const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
   const topDonors = donorsSorted.slice(0, 8);

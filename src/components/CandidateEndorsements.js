@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CandidateEndorsements = ({ endorsements }) => {
-  console.log('endorsements', endorsements);
+  // console.log('endorsements', endorsements);
   return (
     <div className="endorsements-summary">
       {endorsements.length > 0 ? (

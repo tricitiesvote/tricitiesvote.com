@@ -74,13 +74,13 @@ const Candidate = props => {
             <div>
               <CandidateBody body={body_excerpt_html} />
               <CandidateDonorSummaryMini fundraising={fundraising} />
-              <p>
-                <Link to={url}>See full candidate donor details »</Link>
-              </p>
             </div>
           ) : (
             ''
           )}
+          <p>
+            <a href={url}>See full candidate details »</a>
+          </p>
         </div>
         <div className="info">
           <CandidateInfo
@@ -100,7 +100,7 @@ const Candidate = props => {
         {fullsize ? (
           <div className="candidate-content">
             <CandidateBody body={body_html} />
-            <CandidateDonorSummary fundraising={fundraising} />
+            <CandidateDonorSummary fundraising={fundraising} slug={slug} />
           </div>
         ) : (
           ''

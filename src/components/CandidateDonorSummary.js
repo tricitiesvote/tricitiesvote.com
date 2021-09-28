@@ -14,10 +14,8 @@ const handleClick = e => {
   e.target.parentElement.parentElement.classList.toggle('show-details');
 };
 
-const CandidateDonorSummary = props => {
+const CandidateDonorSummary = ({ fundraising }) => {
   // console.log('candidateDonorSummary props', props);
-  const { fundraising } = props;
-  // console.log(props);
 
   if (!fundraising || fundraising.donors.length === 0)
     return <p>No fundraising data reported</p>;
