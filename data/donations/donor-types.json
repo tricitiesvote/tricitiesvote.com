@@ -2078,8 +2078,8 @@
     "id": "birdm-352-other",
     "candidate": "BIRDM--352",
     "donor_type": "Other",
-    "total_donated": 315,
-    "total_cash": 315,
+    "total_donated": 365,
+    "total_cash": 365,
     "total_in_kind": 0,
     "donations": [
       "birdm-352-small-contributions-2021-750",
@@ -2093,15 +2093,16 @@
       "birdm-352-small-contributions-2021-765",
       "birdm-352-small-contributions-2021-766",
       "birdm-352-small-contributions-2021-767",
-      "birdm-352-small-contributions-2021-1042"
+      "birdm-352-small-contributions-2021-1042",
+      "birdm-352-small-contributions-2021-1382"
     ]
   },
   {
     "id": "birdm-352-individual",
     "candidate": "BIRDM--352",
     "donor_type": "Individual",
-    "total_donated": 5700,
-    "total_cash": 5700,
+    "total_donated": 6176,
+    "total_cash": 6176,
     "total_in_kind": 0,
     "donations": [
       "birdm-352-strickler-jerry-2021-751",
@@ -2160,7 +2161,11 @@
       "birdm-352-mcguire-jeremiah-2021-1298",
       "birdm-352-castillo-marisol-2021-1299",
       "birdm-352-wetzel-james-2021-1300",
-      "birdm-352-chapin-kristen-2021-1301"
+      "birdm-352-chapin-kristen-2021-1301",
+      "birdm-352-sprowl-jason-2021-1383",
+      "birdm-352-bullert-gary-2021-1384",
+      "birdm-352-bullert-june-2021-1385",
+      "birdm-352-friehauf-jeannie-2021-1386"
     ]
   },
   {
@@ -2492,13 +2497,15 @@
     "id": "gerrb-353-individual",
     "candidate": "GERRB  353",
     "donor_type": "Individual",
-    "total_donated": 1750,
-    "total_cash": 1750,
+    "total_donated": 2450,
+    "total_cash": 2450,
     "total_in_kind": 0,
     "donations": [
       "gerrb-353-keck-roy-2021-1054",
       "gerrb-353-majetich-ben-2021-1055",
-      "gerrb-353-dunn-patrick-w-2021-1111"
+      "gerrb-353-dunn-patrick-w-2021-1111",
+      "gerrb-353-richardson-julie-mrs-2021-1380",
+      "gerrb-353-richey-daniel-mr-2021-1381"
     ]
   },
   {

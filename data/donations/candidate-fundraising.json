@@ -2444,9 +2444,9 @@
   {
     "id": "birdm-352-funding",
     "candidate": "BIRDM--352",
-    "unique_donors": 70,
-    "total_raised": 6345,
-    "total_cash": 6015,
+    "unique_donors": 75,
+    "total_raised": 6871,
+    "total_cash": 6541,
     "total_in_kind": 330,
     "donors": [
       "birdm-352-small-contributions",
@@ -2506,7 +2506,10 @@
       "birdm-352-mcguire-jeremiah",
       "birdm-352-castillo-marisol",
       "birdm-352-wetzel-james",
-      "birdm-352-chapin-kristen"
+      "birdm-352-chapin-kristen",
+      "birdm-352-bullert-gary",
+      "birdm-352-bullert-june",
+      "birdm-352-friehauf-jeannie"
     ],
     "donations": [
       "birdm-352-small-contributions-2021-750",
@@ -2578,7 +2581,12 @@
       "birdm-352-mcguire-jeremiah-2021-1298",
       "birdm-352-castillo-marisol-2021-1299",
       "birdm-352-wetzel-james-2021-1300",
-      "birdm-352-chapin-kristen-2021-1301"
+      "birdm-352-chapin-kristen-2021-1301",
+      "birdm-352-small-contributions-2021-1382",
+      "birdm-352-sprowl-jason-2021-1383",
+      "birdm-352-bullert-gary-2021-1384",
+      "birdm-352-bullert-june-2021-1385",
+      "birdm-352-friehauf-jeannie-2021-1386"
     ]
   },
   {
@@ -2838,23 +2846,27 @@
   {
     "id": "gerrb-353-funding",
     "candidate": "GERRB  353",
-    "unique_donors": 5,
-    "total_raised": 2450,
-    "total_cash": 1850,
+    "unique_donors": 7,
+    "total_raised": 3150,
+    "total_cash": 2550,
     "total_in_kind": 600,
     "donors": [
       "gerrb-353-gerry-brent-w",
       "gerrb-353-keck-roy",
       "gerrb-353-majetich-ben",
       "gerrb-353-4-m-consulting-llc",
-      "gerrb-353-dunn-patrick-w"
+      "gerrb-353-dunn-patrick-w",
+      "gerrb-353-richardson-julie-mrs",
+      "gerrb-353-richey-daniel-mr"
     ],
     "donations": [
       "gerrb-353-gerry-brent-w-2021-1053",
       "gerrb-353-keck-roy-2021-1054",
       "gerrb-353-majetich-ben-2021-1055",
       "gerrb-353-4-m-consulting-llc-2021-1056",
-      "gerrb-353-dunn-patrick-w-2021-1111"
+      "gerrb-353-dunn-patrick-w-2021-1111",
+      "gerrb-353-richardson-julie-mrs-2021-1380",
+      "gerrb-353-richey-daniel-mr-2021-1381"
     ]
   },
   {

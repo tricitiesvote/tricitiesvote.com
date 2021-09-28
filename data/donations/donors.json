@@ -39,9 +39,9 @@
     "name": "Small Contributions",
     "city": "",
     "type": "Other",
-    "donations_count": 171,
-    "total_donated": 7095,
-    "total_cash": 7095,
+    "donations_count": 172,
+    "total_donated": 7145,
+    "total_cash": 7145,
     "total_in_kind": 0,
     "funded": [
       "SHORK--336",
@@ -240,7 +240,8 @@
       "lohrj-336-small-contributions-2021-1362",
       "lohrj-336-small-contributions-2021-1364",
       "lohrj-336-small-contributions-2021-1368",
-      "lohrj-336-small-contributions-2021-1370"
+      "lohrj-336-small-contributions-2021-1370",
+      "birdm-352-small-contributions-2021-1382"
     ]
   },
   {
@@ -11678,16 +11679,17 @@
     "name": "Sprowl Jason",
     "city": "Kennewick",
     "type": "Individual",
-    "donations_count": 2,
-    "total_donated": 76,
-    "total_cash": 76,
+    "donations_count": 3,
+    "total_donated": 102,
+    "total_cash": 102,
     "total_in_kind": 0,
     "funded": [
       "BIRDM--352"
     ],
     "donations": [
       "birdm-352-sprowl-jason-2021-1044",
-      "birdm-352-sprowl-jason-2021-1294"
+      "birdm-352-sprowl-jason-2021-1294",
+      "birdm-352-sprowl-jason-2021-1383"
     ]
   },
   {
@@ -14342,6 +14344,86 @@
     ],
     "donations": [
       "wiree-352-benitez-carrie-2021-1378"
+    ]
+  },
+  {
+    "id": "richardson-julie-mrs",
+    "name": "Richardson Julie Mrs",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "GERRB  353"
+    ],
+    "donations": [
+      "gerrb-353-richardson-julie-mrs-2021-1380"
+    ]
+  },
+  {
+    "id": "richey-daniel-mr",
+    "name": "Richey Daniel Mr",
+    "city": "West Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "funded": [
+      "GERRB  353"
+    ],
+    "donations": [
+      "gerrb-353-richey-daniel-mr-2021-1381"
+    ]
+  },
+  {
+    "id": "bullert-gary",
+    "name": "Bullert Gary",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-bullert-gary-2021-1384"
+    ]
+  },
+  {
+    "id": "bullert-june",
+    "name": "Bullert June",
+    "city": "Kennewick",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-bullert-june-2021-1385"
+    ]
+  },
+  {
+    "id": "friehauf-jeannie",
+    "name": "Friehauf Jeannie",
+    "city": "Richland",
+    "type": "Individual",
+    "donations_count": 1,
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "funded": [
+      "BIRDM--352"
+    ],
+    "donations": [
+      "birdm-352-friehauf-jeannie-2021-1386"
     ]
   }
 ]

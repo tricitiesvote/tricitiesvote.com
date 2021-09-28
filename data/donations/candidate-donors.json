@@ -7927,8 +7927,8 @@
     "candidate": "BIRDM--352",
     "name": "Small Contributions",
     "city": "",
-    "total_donated": 215,
-    "total_cash": 215,
+    "total_donated": 265,
+    "total_cash": 265,
     "total_in_kind": 0,
     "donations": [
       "birdm-352-small-contributions-2021-750",
@@ -7941,7 +7941,8 @@
       "birdm-352-small-contributions-2021-765",
       "birdm-352-small-contributions-2021-766",
       "birdm-352-small-contributions-2021-767",
-      "birdm-352-small-contributions-2021-1042"
+      "birdm-352-small-contributions-2021-1042",
+      "birdm-352-small-contributions-2021-1382"
     ]
   },
   {
@@ -10710,12 +10711,13 @@
     "candidate": "BIRDM--352",
     "name": "Sprowl Jason",
     "city": "Kennewick",
-    "total_donated": 76,
-    "total_cash": 76,
+    "total_donated": 102,
+    "total_cash": 102,
     "total_in_kind": 0,
     "donations": [
       "birdm-352-sprowl-jason-2021-1044",
-      "birdm-352-sprowl-jason-2021-1294"
+      "birdm-352-sprowl-jason-2021-1294",
+      "birdm-352-sprowl-jason-2021-1383"
     ]
   },
   {
@@ -13821,6 +13823,71 @@
     "total_in_kind": 0,
     "donations": [
       "wiree-352-baker-carl-2021-1379"
+    ]
+  },
+  {
+    "id": "gerrb-353-richardson-julie-mrs",
+    "donor": "richardson-julie-mrs",
+    "candidate": "GERRB  353",
+    "name": "Richardson Julie Mrs",
+    "city": "West Richland",
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "donations": [
+      "gerrb-353-richardson-julie-mrs-2021-1380"
+    ]
+  },
+  {
+    "id": "gerrb-353-richey-daniel-mr",
+    "donor": "richey-daniel-mr",
+    "candidate": "GERRB  353",
+    "name": "Richey Daniel Mr",
+    "city": "West Richland",
+    "total_donated": 500,
+    "total_cash": 500,
+    "total_in_kind": 0,
+    "donations": [
+      "gerrb-353-richey-daniel-mr-2021-1381"
+    ]
+  },
+  {
+    "id": "birdm-352-bullert-gary",
+    "donor": "bullert-gary",
+    "candidate": "BIRDM--352",
+    "name": "Bullert Gary",
+    "city": "Kennewick",
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "donations": [
+      "birdm-352-bullert-gary-2021-1384"
+    ]
+  },
+  {
+    "id": "birdm-352-bullert-june",
+    "donor": "bullert-june",
+    "candidate": "BIRDM--352",
+    "name": "Bullert June",
+    "city": "Kennewick",
+    "total_donated": 200,
+    "total_cash": 200,
+    "total_in_kind": 0,
+    "donations": [
+      "birdm-352-bullert-june-2021-1385"
+    ]
+  },
+  {
+    "id": "birdm-352-friehauf-jeannie",
+    "donor": "friehauf-jeannie",
+    "candidate": "BIRDM--352",
+    "name": "Friehauf Jeannie",
+    "city": "Richland",
+    "total_donated": 50,
+    "total_cash": 50,
+    "total_in_kind": 0,
+    "donations": [
+      "birdm-352-friehauf-jeannie-2021-1386"
     ]
   }
 ]
