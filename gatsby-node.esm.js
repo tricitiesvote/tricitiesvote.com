@@ -104,6 +104,22 @@ exports.onCreateNode = ({ node, actions }) => {
     });
   }
 
+  if (node.internal.type === 'CouncilAnswersCsv') {
+    createNodeField({
+      node,
+      name: `candidate`,
+      value: node.candidate,
+    });
+  }
+
+  if (node.internal.type === 'SchoolAnswersCsv') {
+    createNodeField({
+      node,
+      name: `candidate`,
+      value: node.candidate,
+    });
+  }
+
   const markdownFields = [
     {
       name: 'lettersyes',
