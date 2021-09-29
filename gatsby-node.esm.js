@@ -303,14 +303,17 @@ exports.createPages = async ({
 
   allRaces.forEach(race => {
     let questionSet = null;
+    let answerSet = null;
     let deets = null;
     if (_.includes(race.node.office.title, 'School')) {
       deets = `${race.node.office.title} (School) ${allSchoolQuestions.length}  questions`;
       questionSet = allSchoolQuestions;
+      answerSet = race.node.fields.school_answers;
     }
     if (_.includes(race.node.office.title, 'Council')) {
       deets = `${race.node.office.title} (Council) ${allCouncilQuestions.length}  questions`;
       questionSet = allCouncilQuestions;
+      answerSet = race.node.fields.council_answers;
     }
     createPage({
       path: `/${race.node.fields.slug}/`,
@@ -318,6 +321,7 @@ exports.createPages = async ({
       context: {
         slug: race.node.fields.slug,
         questions: questionSet,
+        answers: answerSet,
         deets,
       },
     });

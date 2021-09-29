@@ -8,13 +8,15 @@ import CompareTable from '../components/compare/CompareTable';
 
 const RacePage = ({ data, pageContext }) => {
   console.log('RacePage pageContext', pageContext);
-  const { questions } = pageContext;
-
-  console.log('racePage data', data);
-  const answers = data.allRacesJson.edges[0].node.fields.school_answers;
-  // console.log('data.edges[0]', data.edges[0])
+  const { questions, answers } = pageContext;
   const { allRacesJson } = data;
   const race = allRacesJson.edges[0].node;
+  // const race = data.allRacesJson.edges[0].node;
+
+  // console.log('racePage data', data);
+
+  // const answers = races.fields.school_answers;
+  // console.log('data.edges[0]', data.edges[0])
   console.log('RacePage questions', questions);
   console.log('RacePage answers', answers);
 
