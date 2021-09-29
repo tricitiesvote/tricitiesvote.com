@@ -35,38 +35,40 @@ const sortComparisons = (questions, answers) => {
     const strongB = [];
 
     answers.forEach(candidateAnswers => {
-      console.log('candidateAnswers.node', candidateAnswers);
-      const thisCandidate = candidateAnswers.fields.responder;
-      const candidate = {
-        name: thisCandidate.name,
-        img: thisCandidate.image,
-        comment: candidateAnswers[cId],
-        pos: thisCandidate.office.title.slice(-5),
-      };
-      if (candidateAnswers[qId] === '1') {
-        strongA.push(candidate);
+      console.log('candidateAnswers', candidateAnswers);
+      if (candidateAnswers !== null) {
+        const thisCandidate = candidateAnswers.fields.responder;
+        const candidate = {
+          name: thisCandidate.name,
+          img: thisCandidate.image,
+          comment: candidateAnswers[cId],
+          pos: thisCandidate.office.title.slice(-5),
+        };
+        if (candidateAnswers[qId] === '1') {
+          strongA.push(candidate);
+        }
+        if (candidateAnswers[qId] === '2') {
+          leanA.push(candidate);
+        }
+        if (candidateAnswers[qId] === '3') {
+          leanB.push(candidate);
+        }
+        if (candidateAnswers[qId] === '4') {
+          strongB.push(candidate);
+        }
       }
-      if (candidateAnswers[qId] === '2') {
-        leanA.push(candidate);
-      }
-      if (candidateAnswers[qId] === '3') {
-        leanB.push(candidate);
-      }
-      if (candidateAnswers[qId] === '4') {
-        strongB.push(candidate);
-      }
-    });
-    // console.log('abQ.id', abQ.id)
-    rowData.push({
-      question: abQ.id,
-      statementA: abQ.statementA,
-      statementB: abQ.statementB,
-      response: {
-        strongA,
-        leanA,
-        leanB,
-        strongB,
-      },
+      // console.log('abQ.id', abQ.id)
+      rowData.push({
+        question: abQ.id,
+        statementA: abQ.statementA,
+        statementB: abQ.statementB,
+        response: {
+          strongA,
+          leanA,
+          leanB,
+          strongB,
+        },
+      });
     });
   });
   return rowData;

@@ -3,7 +3,12 @@ import CompareRowAB from './CompareRowAB';
 import sortComparisons from '../../helpers/sortComparisons';
 
 const CompareTable = ({ questions, answers }) => {
-  const rowData = sortComparisons(questions, answers);
+  let rowData = null;
+  if (answers && answers.length > 1) {
+    rowData = sortComparisons(questions, answers);
+  } else {
+    return '';
+  }
 
   return (
     <table>

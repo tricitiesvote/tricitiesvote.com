@@ -11,6 +11,7 @@ const CompareRowAB = ({ statementA, statementB, response }) => {
       <StrongA>
         {response.strongA.map(face => (
           <CompareCandidateStatement
+            key={face.uuid}
             name={face.name}
             last={face.name.split(' ').pop()}
             image={face.img}
@@ -23,6 +24,7 @@ const CompareRowAB = ({ statementA, statementB, response }) => {
       <LeanA>
         {response.leanA.map(face => (
           <CompareCandidateStatement
+            key={face.uuid}
             name={face.name}
             last={face.name.split(' ').pop()}
             image={face.img}
@@ -35,6 +37,7 @@ const CompareRowAB = ({ statementA, statementB, response }) => {
       <LeanB>
         {response.leanB.map(face => (
           <CompareCandidateStatement
+            key={face.uuid}
             name={face.name}
             last={face.name.split(' ').pop()}
             image={face.img}
@@ -47,6 +50,7 @@ const CompareRowAB = ({ statementA, statementB, response }) => {
       <StrongB>
         {response.strongB.map(face => (
           <CompareCandidateStatement
+            key={face.uuid}
             name={face.name}
             last={face.name.split(' ').pop()}
             image={face.img}

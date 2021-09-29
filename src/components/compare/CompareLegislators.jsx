@@ -1,4 +1,5 @@
-import React from 'react';
+{
+  /* import React from 'react';
 import { StrongA, LeanA, LeanB, StrongB } from '../statements';
 import {
   BradKlippert,
@@ -819,4 +820,5 @@ const CompareLegislators = props => {
   );
 };
 
-export default CompareLegislators;
+export default CompareLegislators; */
+}
