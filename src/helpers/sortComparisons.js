@@ -35,22 +35,24 @@ const sortComparisons = (questions, answers) => {
     const strongB = [];
 
     answers.forEach(candidateAnswers => {
+      console.log('candidateAnswers.node', candidateAnswers);
+      const thisCandidate = candidateAnswers.fields.responder;
       const candidate = {
-        name: candidateAnswers.node.candidate.name,
-        img: candidateAnswers.node.candidate.image,
-        comment: candidateAnswers.node[cId],
-        pos: candidateAnswers.node.candidate.office.fields.slug.slice(-5),
+        name: thisCandidate.name,
+        img: thisCandidate.image,
+        comment: candidateAnswers[cId],
+        pos: thisCandidate.office.title.slice(-5),
       };
-      if (candidateAnswers.node[qId] === '1') {
+      if (candidateAnswers[qId] === '1') {
         strongA.push(candidate);
       }
-      if (candidateAnswers.node[qId] === '2') {
+      if (candidateAnswers[qId] === '2') {
         leanA.push(candidate);
       }
-      if (candidateAnswers.node[qId] === '3') {
+      if (candidateAnswers[qId] === '3') {
         leanB.push(candidate);
       }
-      if (candidateAnswers.node[qId] === '4') {
+      if (candidateAnswers[qId] === '4') {
         strongB.push(candidate);
       }
     });
