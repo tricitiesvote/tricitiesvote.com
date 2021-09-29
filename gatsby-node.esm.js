@@ -107,7 +107,7 @@ exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === 'CouncilAnswersCsv') {
     createNodeField({
       node,
-      name: `candidate`,
+      name: `responder`,
       value: node.candidate,
     });
   }
@@ -115,7 +115,7 @@ exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === 'SchoolAnswersCsv') {
     createNodeField({
       node,
-      name: `candidate`,
+      name: `responder`,
       value: node.candidate,
     });
   }

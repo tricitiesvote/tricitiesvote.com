@@ -49,17 +49,20 @@ export const pageQuery = graphql`
     fields {
       slug
       school_answers {
-        candidate {
-          name
-          image
-          uuid
-          fields {
-            slug
-          }
-          office {
-            title
-            position
-            region
+        candidate
+        fields {
+          responder {
+            name
+            image
+            uuid
+            fields {
+              slug
+            }
+            office {
+              title
+              position
+              region
+            }
           }
         }
         region
@@ -84,17 +87,20 @@ export const pageQuery = graphql`
         question_9
       }
       council_answers {
-        candidate {
-          name
-          image
-          uuid
-          fields {
-            slug
-          }
-          office {
-            title
-            position
-            region
+        candidate
+        fields {
+          responder {
+            name
+            image
+            uuid
+            fields {
+              slug
+            }
+            office {
+              title
+              position
+              region
+            }
           }
         }
         region
