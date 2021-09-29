@@ -1,14 +1,6 @@
 const SCHOOL_ANSWER = `
 fragment SchoolAnswerDetails on SchoolAnswersCsv {
-  candidate {
-    name
-    image
-    office {
-      fields {
-        slug
-      }
-    }
-  }
+  candidates
   region
   position
   question_1
@@ -33,3 +25,14 @@ fragment SchoolAnswerDetails on SchoolAnswersCsv {
 `;
 
 export default SCHOOL_ANSWER;
+
+//
+// candidate {
+//   name
+//   image
+//   office {
+//     fields {
+//       slug
+//     }
+//   }
+// }

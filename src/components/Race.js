@@ -28,6 +28,7 @@ const Race = ({ data }) => {
     // console.log('office', thisOffice);
     // console.log('region', thisRegion);
     // console.log('position', thisPos);
+
     return (
       <>
         <div className="container-candidate">
@@ -48,29 +49,13 @@ export const pageQuery = graphql`
     fields {
       slug
       school_answers {
-        candidate {
-          name
-          image
-          office {
-            fields {
-              slug
-            }
-          }
-        }
+        candidates
         region
         position
         question_1
       }
       council_answers {
-        candidate {
-          name
-          image
-          office {
-            fields {
-              slug
-            }
-          }
-        }
+        candidates
         region
         position
         question_1

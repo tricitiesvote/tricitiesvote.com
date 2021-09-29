@@ -7,10 +7,17 @@ import CompareTable from '../components/compare/CompareTable';
 // import _ from 'lodash';
 
 const RacePage = ({ data, pageContext }) => {
+  console.log('RacePage pageContext', pageContext);
   const { questions } = pageContext;
-  console.log('data', data);
+
+  console.log('racePage data', data);
+  const answers = data.allRacesJson.edges[0].node.fields.school_answers;
+  // console.log('data.edges[0]', data.edges[0])
   const { allRacesJson } = data;
   const race = allRacesJson.edges[0].node;
+  console.log('RacePage questions', questions);
+  console.log('RacePage answers', answers);
+
   // TODO: make 'region' consistent across data sets
   // it's also having slug trimmed in gatsby-node.js
   // const region = allRacesJson.edges[0].node.office.region
@@ -25,12 +32,12 @@ const RacePage = ({ data, pageContext }) => {
     >
       <div className="guide">
         {/* <pre><code>{JSON.stringify(race, null, 2)}</code></pre> */}
-        <section className="race" key={race.uuid}>
+        <section className="race" key={race.id}>
           <Link to={`/${race.fields.slug}`}>
             <h1>{race.office.title}</h1>
           </Link>
           <Race data={race} />
-          <CompareTable questions={questions} answers="" />
+          <CompareTable questions={questions} answers={answers} />
         </section>
       </div>
       <ContactInline page={`https://tricitiesvote.com/${race.fields.slug}`} />
