@@ -8,7 +8,7 @@ import CompareTable from '../components/compare/CompareTable';
 
 const RacePage = ({ data, pageContext }) => {
   const { questions } = pageContext;
-  console.log('pageContext', pageContext);
+  console.log('data', data);
   const { allRacesJson } = data;
   const race = allRacesJson.edges[0].node;
   // TODO: make 'region' consistent across data sets

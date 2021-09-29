@@ -12,11 +12,6 @@ import Candidate from './Candidate';
 const Race = ({ data }) => {
   const { candidates } = data;
 
-  // console.log('candidates', candidates);
-  console.log('slice', candidates[0].office.job.slice(0, 1));
-  console.log('region', candidates[0].office.region);
-  console.log('position', candidates[0].office.position);
-
   // TODO add back in comparisons
   // const thisOffice = CompareSet[office.title].office;
   // const CompareCandidates = CompareSet[office.title].component;
@@ -25,6 +20,14 @@ const Race = ({ data }) => {
   //  <CompareCandidates office={thisOffice} />
 
   if (candidates) {
+    // const thisOffice = candidates[0].office.job.slice(0, 1);
+    // const thisRegion = candidates[0].office.region;
+    // const thisPos = candidates[0].office.position;
+
+    // console.log('candidates', candidates);
+    // console.log('office', thisOffice);
+    // console.log('region', thisRegion);
+    // console.log('position', thisPos);
     return (
       <>
         <div className="container-candidate">
@@ -45,9 +48,31 @@ export const pageQuery = graphql`
     fields {
       slug
       school_answers {
+        candidate {
+          name
+          image
+          office {
+            fields {
+              slug
+            }
+          }
+        }
+        region
+        position
         question_1
       }
       council_answers {
+        candidate {
+          name
+          image
+          office {
+            fields {
+              slug
+            }
+          }
+        }
+        region
+        position
         question_1
       }
     }
