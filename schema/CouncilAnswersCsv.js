@@ -1,11 +1,10 @@
 const CouncilAnswersCsv = `
 type CouncilAnswersCsv implements Node {
-  candidates:        String
+  candidate:        CandidatesJson @link(by: "uuid", from: "candidate")  
 }`;
 
 export default CouncilAnswersCsv;
 
-// candidate:        CandidatesJson @link(by: "uuid", from: "candidate")
 // region:           String
 // position:         String
 // question_1:       String

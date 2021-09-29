@@ -1,6 +1,18 @@
 const COUNCIL_ANSWER = `
 fragment CouncilAnswerDetails on CouncilAnswersCsv {
-  candidates
+  candidate {
+    name
+    image
+    uuid
+    fields {
+      slug
+    }
+    office {
+      title
+      position
+      region
+    }
+  }
   region
   position
   question_1

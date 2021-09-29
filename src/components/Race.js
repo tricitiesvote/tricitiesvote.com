@@ -49,13 +49,37 @@ export const pageQuery = graphql`
     fields {
       slug
       school_answers {
-        candidates
+        candidate {
+          name
+          image
+          uuid
+          fields {
+            slug
+          }
+          office {
+            title
+            position
+            region
+          }
+        }
         region
         position
         question_1
       }
       council_answers {
-        candidates
+        candidate {
+          name
+          image
+          uuid
+          fields {
+            slug
+          }
+          office {
+            title
+            position
+            region
+          }
+        }
         region
         position
         question_1

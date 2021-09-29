@@ -45,7 +45,7 @@ exports.onCreateNode = ({ node, actions }) => {
     // console.log('node', node);
     // match answers by office
     if (_.includes(node.office, 'School')) {
-      // console.log('school_answers', node.office, node.candidates);
+      // console.log('school_answers candidates', node.office, node.candidate);
       createNodeField({
         node,
         name: `school_answers`,

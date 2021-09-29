@@ -1,6 +1,18 @@
 const SCHOOL_ANSWER = `
 fragment SchoolAnswerDetails on SchoolAnswersCsv {
-  candidates
+  candidate {
+    name
+    image
+    uuid
+    fields {
+      slug
+    }
+    office {
+      title
+      position
+      region
+    }
+  }
   region
   position
   question_1

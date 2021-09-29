@@ -38,7 +38,19 @@ export const pageQuery = graphql`
     allAs: allCouncilAnswersCsv {
       edges {
         node {
-          candidates
+          candidate {
+            name
+            image
+            uuid
+            fields {
+              slug
+            }
+            office {
+              title
+              position
+              region
+            }
+          }
           region
           position
           question_1
