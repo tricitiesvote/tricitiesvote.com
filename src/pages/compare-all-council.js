@@ -6,7 +6,7 @@ import CompareTable from '../components/compare/CompareTable';
 const CompareAllCouncil = ({ data }) => {
   const { allQs, allAs } = data;
 
-  console.log('data', data);
+  // console.log('data', data);
 
   const questions = allQs.edges;
   const answers = allAs.edges;

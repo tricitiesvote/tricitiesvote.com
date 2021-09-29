@@ -35,7 +35,7 @@ const sortComparisons = (questions, answers) => {
     const strongB = [];
 
     answers.forEach(candidateAnswers => {
-      console.log('candidateAnswers', candidateAnswers);
+      // console.log('candidateAnswers', candidateAnswers);
       if (candidateAnswers !== null) {
         const thisCandidate = candidateAnswers.fields.responder;
         const candidate = {

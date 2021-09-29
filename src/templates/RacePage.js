@@ -7,7 +7,7 @@ import CompareTable from '../components/compare/CompareTable';
 // import _ from 'lodash';
 
 const RacePage = ({ data, pageContext }) => {
-  console.log('RacePage pageContext', pageContext);
+  // console.log('RacePage pageContext', pageContext);
   const { questions, answers } = pageContext;
   const { allRacesJson } = data;
   const race = allRacesJson.edges[0].node;
@@ -17,8 +17,8 @@ const RacePage = ({ data, pageContext }) => {
 
   // const answers = races.fields.school_answers;
   // console.log('data.edges[0]', data.edges[0])
-  console.log('RacePage questions', questions);
-  console.log('RacePage answers', answers);
+  // console.log('RacePage questions', questions);
+  // console.log('RacePage answers', answers);
 
   // TODO: make 'region' consistent across data sets
   // it's also having slug trimmed in gatsby-node.js

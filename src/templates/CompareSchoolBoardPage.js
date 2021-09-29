@@ -9,7 +9,7 @@ const CompareSchoolBoardPage = ({ data }) => {
   const questions = allQs.edges;
   const answers = allAs.edges;
 
-  console.log('data', data);
+  // console.log('data', data);
 
   return (
     <DefaultLayout
