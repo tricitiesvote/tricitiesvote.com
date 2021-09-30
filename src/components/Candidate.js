@@ -28,6 +28,7 @@ const Candidate = props => {
     pamphlet_url,
     fields,
     endorsements,
+    minifiler,
   } = data;
 
   const {
@@ -73,7 +74,10 @@ const Candidate = props => {
           {!fullsize ? (
             <div>
               <CandidateBody body={body_excerpt_html} />
-              <CandidateDonorSummaryMini fundraising={fundraising} />
+              <CandidateDonorSummaryMini
+                fundraising={fundraising}
+                minifiler={minifiler}
+              />
             </div>
           ) : (
             ''
@@ -100,7 +104,11 @@ const Candidate = props => {
         {fullsize ? (
           <div className="candidate-content">
             <CandidateBody body={body_html} />
-            <CandidateDonorSummary fundraising={fundraising} slug={slug} />
+            <CandidateDonorSummary
+              fundraising={fundraising}
+              slug={slug}
+              minifiler={minifiler}
+            />
           </div>
         ) : (
           ''

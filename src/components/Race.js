@@ -140,6 +140,5 @@ export const pageQuery = graphql`
     }
     uuid
     hide
-    minifiler
   }
 `;

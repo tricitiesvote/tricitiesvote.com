@@ -9,12 +9,20 @@ const usd = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 20,
 });
 
-const CandidateDonorSummaryMini = ({ fundraising }) => {
-  if (!fundraising) {
+const CandidateDonorSummaryMini = ({ fundraising, minifiler }) => {
+  if (!fundraising && !minifiler) {
     return (
       <div className="donor-summary">
         <h3>Donors</h3>
         <p>No donor data reported</p>
+      </div>
+    );
+  }
+  if (minifiler) {
+    return (
+      <div className="donor-summary">
+        <h3>Donors</h3>
+        <p>Self-funded / mini-filer</p>
       </div>
     );
   }

@@ -5,7 +5,15 @@ import CandidateEndorsements from './CandidateEndorsements';
 import CandidateDonorSummaryMini from './CandidateDonorSummaryMini';
 
 const CandidateMini = props => {
-  const { slug, image, name, engagement, fundraising, endorsements } = props;
+  const {
+    slug,
+    image,
+    name,
+    engagement,
+    fundraising,
+    endorsements,
+    minifiler,
+  } = props;
 
   // console.log('props', props);
   const url = `/${slug}`;
@@ -20,7 +28,11 @@ const CandidateMini = props => {
       </h5>
       {engagement ? <CandidateEngagement engagement={engagement} /> : ''}
       {fundraising ? (
-        <CandidateDonorSummaryMini fundraising={fundraising} url={url} />
+        <CandidateDonorSummaryMini
+          fundraising={fundraising}
+          minifiler={minifiler}
+          url={url}
+        />
       ) : (
         <div className="donor-summary">
           <p>No donor data reported</p>

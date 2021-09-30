@@ -21,7 +21,6 @@ const RACE = `
     }
     uuid
     hide
-    minifiler
   }
 `;
 

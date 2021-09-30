@@ -14,11 +14,18 @@ const handleClick = e => {
   e.target.parentElement.parentElement.classList.toggle('show-details');
 };
 
-const CandidateDonorSummary = ({ fundraising }) => {
+const CandidateDonorSummary = ({ fundraising, minifiler }) => {
   // console.log('candidateDonorSummary props', props);
 
-  if (!fundraising || fundraising.donors.length === 0)
+  if (
+    (!fundraising && !minifiler) ||
+    (fundraising.donors.length === 0 && !minifiler)
+  ) {
     return <p>No fundraising data reported</p>;
+  }
+  if (minifiler) {
+    return <p>Self-funded / mini-filer</p>;
+  }
   const donorsSorted = orderBy(fundraising.donors, 'total_donated', 'desc');
   // console.log(donorsSorted);
   return (

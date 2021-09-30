@@ -148,6 +148,8 @@ export const pageQuery = graphql`
             id
             name
             uuid
+            hide
+            minifiler
             endorsements {
               id
               candidate
