@@ -27,16 +27,21 @@ const CandidateMini = props => {
         <Link to={url}>{name}</Link>
       </h5>
       {engagement ? <CandidateEngagement engagement={engagement} /> : ''}
-      {fundraising ? (
+      {fundraising && !minifiler ? (
         <CandidateDonorSummaryMini
           fundraising={fundraising}
           minifiler={minifiler}
           url={url}
         />
       ) : (
+        ''
+      )}
+      {!fundraising || minifiler ? (
         <div className="donor-summary">
-          <p>No donor data reported</p>
+          <p>Self-funded / mini-filer</p>
         </div>
+      ) : (
+        ''
       )}
       <CandidateEndorsements endorsements={endorsements} />
       <Link className="fullLink" to={url}>
