@@ -17,6 +17,7 @@ const CandidatesJson = `
     pamphlet_url:     String
     uuid:             String
     hide:             Boolean
+    minifiler:        Boolean
     statement:        String
   
     bio:              String

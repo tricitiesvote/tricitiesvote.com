@@ -137,6 +137,7 @@ const CandidateCollection = () => {
           engagement
           uuid
           hide
+          minifiler
         }
       `}
       render={data => (

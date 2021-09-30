@@ -61,6 +61,7 @@ const CANDIDATE = `
     engagement
     uuid
     hide
+    minifiler
   }
 `;
 
