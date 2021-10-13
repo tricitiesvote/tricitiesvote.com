@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: tumbleweird/tricitiesvote.com
-  branch: 'minifiler'
+  branch: 'endorsements'
 
 local_backend: true
 publish_mode: editorial_workflow
@@ -265,4 +265,47 @@ collections:
         valueField: 'uuid',
         displayFields: ['electionyear', 'office', 'type'],
         }
-
+  - name: endorsements
+    label: Endorsements
+    label_singular: Endorsement
+    slug: '{{endorser}}-{{forAgainst}}-{{candidate}}'
+    folder: 'data/endorsements'
+    media_folder: '/{{media_folder}}/endorsements'
+    public_folder: '/{{public_folder}}/endorsements'
+    summary: "{{endorser}} {{forAgainst}} {{candidate}}"
+    create: true
+    extension: json
+    fields:
+      - {
+        name: candidate,
+        label: Candidate,
+        widget: relation,
+        multiple: false,
+        collection: 'candidates',
+        searchFields: ['name'],
+        valueField: 'uuid',
+        displayFields: ['name'],
+        } 
+      - { name: endorser, label: Endorser, required: true}
+      - { name: url, label: Url, required: true}
+      - { 
+        name: type, 
+        label: 'Type', 
+        widget: select, 
+        multiple: false,
+        options: [
+          { label: 'Letter to the editor', value: 'letter' },
+          { label: 'Social media post', value: 'social' },
+          { label: 'Organization', value: 'org' },
+        ]
+      }
+      - { 
+          name: forAgainst, 
+          label: 'For or against?', 
+          widget: select, 
+          multiple: false,
+          options: [
+            { label: 'For', value: 'for' },
+            { label: 'Against', value: 'against' }
+          ]
+        }

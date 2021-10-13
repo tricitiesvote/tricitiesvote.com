@@ -1,5 +1,5 @@
 // CandidatesJson @link(by: "uuid", from: "candidate")
-const EndorsementsCsv = `
+const EndorsementsJson = `
 type EndorsementsCsv implements Node {
   candidate:        String
   type:             String
@@ -9,4 +9,4 @@ type EndorsementsCsv implements Node {
 }
 `;
 
-export default EndorsementsCsv;
+export default EndorsementsJson;

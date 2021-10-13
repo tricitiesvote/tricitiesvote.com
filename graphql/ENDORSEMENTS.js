@@ -1,5 +1,5 @@
 const ENDORSEMENTS = `
-  endorsements: allEndorsementsCsv(limit: 1000) {
+  endorsements: allEndorsementsJson(limit: 1000) {
     edges {
       node {
         candidate

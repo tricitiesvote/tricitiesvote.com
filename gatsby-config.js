@@ -36,6 +36,13 @@ module.exports = {
         name: `guides`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/endorsements`,
+        name: `endorsements`,
+      },
+    },
 
     // {
     //   resolve: `gatsby-transformer-csv`,
@@ -67,12 +74,6 @@ module.exports = {
       resolve: `gatsby-transformer-csv`,
       options: {
         path: `${__dirname}/data/questionnaires/council-answers.csv`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-csv`,
-      options: {
-        path: `${__dirname}/data/endorsements/endorsements.csv`,
       },
     },
     // {

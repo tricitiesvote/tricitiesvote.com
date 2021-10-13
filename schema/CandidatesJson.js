@@ -27,7 +27,7 @@ const CandidatesJson = `
     articles:         String
     engagement:       String
     office:           OfficesJson @link(by: "title", from: "office")
-    endorsements:     [EndorsementsCsv] @link(by: "candidate", from: "uuid")
+    endorsements:     [EndorsementsJson] @link(by: "candidate", from: "uuid")
   }`;
 
 export default CandidatesJson;

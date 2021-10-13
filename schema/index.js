@@ -14,7 +14,7 @@ import CouncilAnswersCsv from './CouncilAnswersCsv';
 import CouncilQuestionsCsv from './CouncilQuestionsCsv';
 import SchoolAnswersCsv from './SchoolAnswersCsv';
 import SchoolQuestionsCsv from './SchoolQuestionsCsv';
-import EndorsementsCsv from './EndorsementsCsv';
+import EndorsementsJson from './EndorsementsJson';
 
 const SchemaCustomization = `
 ${CandidateFundraisingJson}
@@ -49,7 +49,7 @@ ${SchoolAnswersCsv}
 
 ${SchoolQuestionsCsv}
 
-${EndorsementsCsv}
+${EndorsementsJson}
 `;
 
 export default SchemaCustomization;
