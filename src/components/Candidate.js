@@ -110,7 +110,6 @@ const Candidate = props => {
         {fullsize ? (
           <div className="candidate-content">
             <CandidateBody body={body_html} />
-            <h1>Content</h1>
             <pre>{JSON.stringify(council_answers, null, 2)}</pre>
             {school_answers ? (<CandidateAnswersSchool answers={school_answers} />) : ''}
             {council_answers ? (<CandidateAnswersCouncil answers={council_answers} />) : ''}
