@@ -47,9 +47,9 @@ const Candidate = props => {
     council_answers,
   } = fields;
 
-  console.log('fields', fields);
-  console.log('council_answers', council_answers);
-  console.log('school_answers', school_answers);
+  // console.log('fields', fields);
+  // console.log('council_answers', council_answers);
+  // console.log('school_answers', school_answers);
 
   const url = `/${slug}`;
 

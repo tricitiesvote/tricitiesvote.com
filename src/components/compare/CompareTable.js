@@ -8,7 +8,7 @@ const CompareTable = ({ questions, answers }) => {
   if (answers && answers.length > 1) {
     const rowDataWithDuplicates = sortComparisons(questions, answers);
     rowData = _.uniqBy(rowDataWithDuplicates,'question')
-    console.log('rowData', rowData);
+    // console.log('rowData', rowData);
   } else {
     return '';
   }

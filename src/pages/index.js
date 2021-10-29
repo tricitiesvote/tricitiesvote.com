@@ -25,17 +25,9 @@ class SiteIndex extends React.Component {
             A nonpartisan community-driven collection
             <br /> of information to help you decide.
           </h2>
-          <p>
-            If things seem missing that’s because they are.
-            <br />
-            Hold your horses cos we’re still working on it. 🐴{' '}
-          </p>
-          <p>
-            <a href="mailto:adamavenir@hey.com">Reach out</a> to get involved.
-          </p>
         </div>
         <div className="howto">
-          <h1>How you’ll be able to use this guide when it’s ready</h1>
+          <h1>How to use this guide</h1>
           <div className="intro-container">
             <div>
               <img

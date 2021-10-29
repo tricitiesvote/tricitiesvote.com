@@ -12,7 +12,7 @@ const sortComparisons = (questions, answers) => {
 
   questions.forEach(question => {
     const q = question.node;
-    console.log('question', q);
+    // console.log('question', q);
     // if (q.type === 'Open') {
     //   oQSet.push(q);
     // }
