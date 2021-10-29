@@ -81,8 +81,6 @@ const sortComparisons = (questions, answers) => {
       });
     });
     return rowData;
-  } else {
-    return;
   }
 };
 
