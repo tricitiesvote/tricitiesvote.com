@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const sortComparisons = (questions, answers) => {
   // console.log('questions', questions);
   const abQSet = []; // a/b questions
@@ -10,6 +12,7 @@ const sortComparisons = (questions, answers) => {
 
   questions.forEach(question => {
     const q = question.node;
+    console.log('question', q);
     // if (q.type === 'Open') {
     //   oQSet.push(q);
     // }
@@ -58,6 +61,11 @@ const sortComparisons = (questions, answers) => {
         }
       }
       // console.log('abQ.id', abQ.id)
+      // if (!_.includes(rowData, abQ.id)) {
+      //   
+      //   
+      // }
+      // 
       rowData.push({
         question: abQ.id,
         statementA: abQ.statementA,
