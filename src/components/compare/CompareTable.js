@@ -4,18 +4,13 @@ import CompareRowAB from './CompareRowAB';
 import sortComparisons from '../../helpers/sortComparisons';
 
 const CompareTable = ({ questions, answers }) => {
-  let rowData = null;
-  if (answers && answers.length > 1) {
-    const rowDataWithDuplicates = sortComparisons(questions, answers);
-    rowData = _.uniqBy(rowDataWithDuplicates,'question')
-    // console.log('rowData', rowData);
-  } else {
-    return '';
-  }
+  const rowDataWithDuplicates = sortComparisons(questions, answers);
+  const rowData = _.uniqBy(rowDataWithDuplicates, 'question');
+  // console.log('rowData', rowData);
 
   return (
     <>
-      {rowData ? (
+      {answers && answers.length > 1 ? (
         <table>
           <thead>
             <tr className="key">
@@ -37,8 +32,9 @@ const CompareTable = ({ questions, answers }) => {
             ))}
           </tbody>
         </table>
-      ) : ''
-      }
+      ) : (
+        ''
+      )}
     </>
   );
 };
