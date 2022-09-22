@@ -1,5 +1,7 @@
-{ 
+{
 	"candidate": "",
+	"endorser": "Endorser",
+	"url": "https://www.tri-cityherald.com/",
 	"type": "letter",
 	"forAgainst": "for"
 }
