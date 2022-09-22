@@ -7,6 +7,7 @@ const slugify = require('slugify');
 const loadPamphletCandidates = require('./loadPamphletCandidates');
 const loadUserCandidates = require('./loadUserCandidates');
 const loadPdcCandidates = require('./loadPdcCandidates');
+const CONFIG = require('./load-config-election.json');
 
 // get the data
 
@@ -89,12 +90,12 @@ const main = () => {
           if (!_.findKey(pdcCs, { candidate_fullname: name })) {
             // console.log('candidate_fullname', name, 'not found');
             console.warn(
-              chalk.red('⛔️', name, '— Add uuid to loadPdcCandidates.js')
+              chalk.red('⛔️', name, '— Add uuid or alt name to load-config-names.json')
             );
             candidate.pdc_url = '';
             candidate.uuid = '';
             candidate.party = '';
-            candidate.electionyear = '2021';
+            candidate.electionyear = CONFIG.year;
             candidate.office = '';
           }
         }

@@ -42,7 +42,9 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "load": "node loadCandidates",
-    "donors": "node loadDonors"
+    "donors": "node loadDonors",
+    "clean": "rm data/candidates/* && rm data/donations/* && rm data/endorsements/*",
+    "loadfresh": "rm data/candidates/* && node loadCandidates"
   },
   "dependencies": {
     "@ncwidgets/id": "^0.9.0",

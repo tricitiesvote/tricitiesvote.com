@@ -2,7 +2,7 @@
 const fs = require('fs');
 const soda = require('soda-js');
 const _ = require('lodash');
-const CONFIG = require('.load-config-election.json');
+const CONFIG = require('./load-config-election.json');
 
 // https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye/data
 const consumer = new soda.Consumer('data.wa.gov');

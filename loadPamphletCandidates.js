@@ -39,9 +39,7 @@ module.exports = () => {
   const pamphletCandidates = [];
 
   countyIds.forEach(function(countyId) {
-    console.log('countyId', countyId)
     raceIds.forEach(function(raceId) {
-      console.log('raceId', raceId)
       const raceUrl = `${apiUrl + electionId}&r=${raceId}&la=&c=${
         countyId
       }`;
@@ -62,11 +60,8 @@ module.exports = () => {
           if (_.find(NAMES, { altNames: [ thisName ]})) {
             name = _.find(NAMES, { altNames: [ thisName ]}).formattedName
           }
-          
-          console.log('Name:', name);
       
           let photo = `data:image/png;base64,${item.statement.Photo}`
-          // console.log('photo for', name, photo);
       
           // Get images base64, convert to file, save it
           let imageUrl = '';
@@ -96,8 +91,7 @@ module.exports = () => {
           };
           pamphletCandidates.push(candidate);
           console.log(
-            '➕',
-            '',
+            '✏️',
             `${candidate.candidate_ballot_name} candidate data`
           );
         }
