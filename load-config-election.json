@@ -1,0 +1,30 @@
+{
+	"year": "2022",
+	"pdcDataset": "kv7h-kjye",
+	"electionId": "877",
+	"query": "",
+	"races": {
+		"Benton": [
+		],
+		"Franklin": [
+		],
+		"Benton-Franklin": [
+		],
+		"District 8": [
+		],
+		"District 0": [
+		],
+		"District 15": [
+		],
+		"District 16": [
+		],
+		"Kennewick": [
+		],
+		"Pasco": [
+		],
+		"Richland": [
+		],
+		"West Richland": [
+		]
+	}
+}

@@ -2,6 +2,7 @@
 const fs = require('fs');
 const soda = require('soda-js');
 const _ = require('lodash');
+const CONFIG = require('.load-config-election.json');
 
 // https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye/data
 const consumer = new soda.Consumer('data.wa.gov');
@@ -33,12 +34,13 @@ const writeData = dataSet => {
 
 consumer
   .query()
-  // .withDataset('kv7h-kjye') // donors 2020 data?
-  .withDataset('2jwd-akfb') // donors 2021 data?
+  // .withDataset('kv7h-kjye') // donors 2020 data
+  // .withDataset('2jwd-akfb') // donors 2022 data
+  .withDataset(CONFIG.pdcDataset)
   .limit(10000)
   .where(
     `
-    election_year = '2021' AND (
+    election_year = '${CONFIG.year}' AND (
       jurisdiction_county = 'BENTON' OR 
       jurisdiction_county = 'FRANKLIN'
       )
