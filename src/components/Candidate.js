@@ -111,8 +111,16 @@ const Candidate = props => {
           <div className="candidate-content">
             <CandidateBody body={body_html} />
             <pre>{JSON.stringify(council_answers, null, 2)}</pre>
-            {school_answers ? (<CandidateAnswersSchool answers={school_answers} />) : ''}
-            {council_answers ? (<CandidateAnswersCouncil answers={council_answers} />) : ''}
+            {school_answers ? (
+              <CandidateAnswersSchool answers={school_answers} />
+            ) : (
+              ''
+            )}
+            {council_answers ? (
+              <CandidateAnswersCouncil answers={council_answers} />
+            ) : (
+              ''
+            )}
             <CandidateDonorSummary
               fundraising={fundraising}
               slug={slug}

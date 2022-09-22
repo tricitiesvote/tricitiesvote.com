@@ -145,7 +145,6 @@ export const pageQuery = graphql`
             endorsements {
               id
               candidate
-              name
               type
               url
               endorser
