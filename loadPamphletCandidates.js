@@ -6,6 +6,8 @@ const Turndown = require('turndown');
 const _ = require('lodash');
 const slugify = require('slugify');
 const asciify = require('fold-to-ascii');
+const NAMES = require('./load-config-names.json');
+const CONFIG = require('./load-config-election.json');
 
 const markdownify = new Turndown();
 // const saveImagePath = `./static/images/candidates/${filename}-original.png`,
@@ -26,83 +28,46 @@ module.exports = () => {
   // https://voter.votewa.gov/elections/candidate.ashx?e=870&r=61241&la=&c=03
   // https://voter.votewa.gov/elections/candidate.ashx?e={{election_id}}&r={{race_id}}&la=&c=
 
-  const electionId = '871'; // 2021 general
+  const electionId = CONFIG.electionId; // 2021 general
 
   const apiUrl = `https://voter.votewa.gov/elections/candidate.ashx?e=`;
   const webUrl = `https://voter.votewa.gov/genericvoterguide.aspx?e=`;
 
-  const bentonRaceIds = [
-    // these ids have to be changed every primary/general election
-    66322, // Kennewick Council 1
-    66323, // Kennewick Council 2
-    66324, // Kennewick Council 3
-    66308, // Kennewick Council 4
-    66314, // Richland Council 1
-    66313, // Richland Council 2
-    66315, // Richland Council 3
-    66316, // Richland Council 4
-    66312, // Richland Council 7
-    66318, // West Richland Council 1
-    66317, // West Richland Council 2
-    66321, // West Richland Council 3
-    66319, // West Richland Council 4
-    66320, // West Richland Mayor
-    68357, // Kennewick Schools 1
-    68358, // Kennewick Schools 2
-    68367, // Richland Schools 1
-    68366, // Richland Schools 2
-    68368, // Richland Schools 3
-  ];
-
-  const franklinRaceIds = [
-    // these ids have to be changed every primary/general election
-    66435, // Pasco Council 1
-    66436, // Pasco Council 3
-    66437, // Pasco Council 4
-    66438, // Pasco Council 6
-    68476, // Pasco School Director 3
-    68478, // Pasco School Director 4
-    68477, // Pasco School Director 5 
-  ];
-
   const countyIds = ['03', '11'];
-  const raceIds = [bentonRaceIds, franklinRaceIds];
+  const raceIds = CONFIG.raceIds;
 
   const pamphletCandidates = [];
 
-  raceIds.forEach(function(county, i) {
-    for (const raceId of county) {
+  countyIds.forEach(function(countyId) {
+    console.log('countyId', countyId)
+    raceIds.forEach(function(raceId) {
+      console.log('raceId', raceId)
       const raceUrl = `${apiUrl + electionId}&r=${raceId}&la=&c=${
-        countyIds[i]
+        countyId
       }`;
       // console.log('raceUrl', raceUrl);
       const site = fermata.json(raceUrl);
-
+      
       site.get(function(err, data) {
-        // console.log(data);
-
+      
         for (const item of data) {
           const statement_md = markdownify.turndown(item.statement.Statement);
           const pamphletUrl = `${webUrl + electionId}#/candidates/${raceId}/${
             item.statement.BallotID
           }`;
-          let name = asciify.foldReplacing(item.statement.BallotName);
-          if (name === "CHAUNE' FITZGERALD") name = 'Chauné Fitzgerald';
-          if (name === "BRENT GERRY") name = 'Brent Gerry';
-          if (name === 'Jhoanna R. Jones') name = 'Jhoanna Jones';
-          if (name === 'Amy Freeman Phillips') name = 'Amy Phillips';
-          if (name === 'John H. Trumbo') name = 'John Trumbo';
-          if (name === 'MIKE LUZZO') name = 'Mike Luzzo';
-          if (name === 'THERESA RICHARDSON') name = 'Theresa Richardson';
-          if (name === 'Leo A. Perales') name = 'Leo Perales';
-          if (name === 'Steven X Martinez') name = 'Steven Martinez';
-          if (name === 'Irving L. Brown Sr.') name = 'Irving Brown, Sr.';
-          if (name === 'LOREN ANDERSON') name = 'Loren Anderson';
-          if (name === 'Scott E. Rodgers') name = 'Scott Rodgers';
-          if (name === 'UBY CREEK') name = 'Uby Creek';
+          const thisName = asciify.foldReplacing(item.statement.BallotName);
+          let name = thisName
+          
+          // if the name used in the ballot data matches an alternate name, use that
+          if (_.find(NAMES, { altNames: [ thisName ]})) {
+            name = _.find(NAMES, { altNames: [ thisName ]}).formattedName
+          }
+          
+          console.log('Name:', name);
+      
           let photo = `data:image/png;base64,${item.statement.Photo}`
           // console.log('photo for', name, photo);
-
+      
           // Get images base64, convert to file, save it
           let imageUrl = '';
           if (item.statement.Photo) {
@@ -113,12 +78,13 @@ module.exports = () => {
             imageUrl = `${imageUrlPath}${newFilename}`;
             
             // TODO: re-enable photo write
-            // fs.writeFileSync(saveImageAs, buf);
-            // console.log('🌠', 'Adding photo', `${newFilename}`);
+            // TODO: why did I have to re-enable this?
+            fs.writeFileSync(saveImageAs, buf);
+            console.log('🌠', 'Adding photo', `${newFilename}`);
           } else {
             console.log('❌', `No photo for ${name}`);
           }
-
+      
           const candidate = {
             candidate_ballot_id: item.statement.BallotID,
             candidate_ballot_name: name,
@@ -138,8 +104,8 @@ module.exports = () => {
         if (err) {
           console.log(err);
         }
-      });
-    }
+      })
+    })
   });
 
   return pamphletCandidates;

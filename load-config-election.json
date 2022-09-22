@@ -3,28 +3,5 @@
 	"pdcDataset": "kv7h-kjye",
 	"electionId": "877",
 	"query": "",
-	"races": {
-		"Benton": [
-		],
-		"Franklin": [
-		],
-		"Benton-Franklin": [
-		],
-		"District 8": [
-		],
-		"District 0": [
-		],
-		"District 15": [
-		],
-		"District 16": [
-		],
-		"Kennewick": [
-		],
-		"Pasco": [
-		],
-		"Richland": [
-		],
-		"West Richland": [
-		]
-	}
+	"raceIds": ["121112", "121113", "121114", "121115", "121116", "121128", "121129", "121130", "121131", "121132", "120751", "120754", "120662", "120659"]
 }
