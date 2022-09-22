@@ -35,7 +35,6 @@ const CANDIDATE = `
     endorsements {
       id
       candidate
-      name
       type
       url
       endorser
