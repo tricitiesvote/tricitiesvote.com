@@ -28,7 +28,7 @@ module.exports = () => {
   // https://voter.votewa.gov/elections/candidate.ashx?e=870&r=61241&la=&c=03
   // https://voter.votewa.gov/elections/candidate.ashx?e={{election_id}}&r={{race_id}}&la=&c=
 
-  const electionId = CONFIG.electionId; // 2021 general
+  const electionId = CONFIG.electionId;
 
   const apiUrl = `https://voter.votewa.gov/elections/candidate.ashx?e=`;
   const webUrl = `https://voter.votewa.gov/genericvoterguide.aspx?e=`;
