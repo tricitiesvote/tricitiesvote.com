@@ -1,4 +1,4 @@
-import _ from 'lodash';
+// import _ from 'lodash';
 
 const sortComparisons = (questions, answers) => {
   // console.log('questions', questions);
@@ -9,6 +9,8 @@ const sortComparisons = (questions, answers) => {
 
   // const tfASet = []; // true/false answers
   // const oASet = []; // open-ended answers
+
+  const rowData = [];
 
   if (questions) {
     questions.forEach(question => {
@@ -25,8 +27,6 @@ const sortComparisons = (questions, answers) => {
       //   tfQSet.push(q);
       // }
     });
-
-    const rowData = [];
 
     // iterate through a/b
     abQSet.forEach(abQ => {
@@ -80,8 +80,8 @@ const sortComparisons = (questions, answers) => {
         });
       });
     });
-    return rowData;
   }
+  return rowData;
 };
 
 export default sortComparisons;

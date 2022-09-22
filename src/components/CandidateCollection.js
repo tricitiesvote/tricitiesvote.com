@@ -127,7 +127,6 @@ const CandidateCollection = () => {
           endorsements {
             id
             candidate
-            name
             type
             url
             endorser

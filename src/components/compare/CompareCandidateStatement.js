@@ -5,10 +5,16 @@ const handleClick = e => {
   e.currentTarget.classList.toggle('show');
 };
 
+const handleKeyDown = e => {
+  if (e.keyCode === 13) {
+    handleClick();
+  }
+};
+
 const CompareCandidateStatement = props => {
-  const { position, name, last, image, comment, spec, dnr, mini } = props;
+  const { position, name, last, image, comment, spec, dnr } = props;
   let posClass;
-  const p = kebabCase(position)
+  const p = kebabCase(position);
   if (spec && dnr) {
     posClass = `pos ${p} speculation dnr`;
   }
@@ -20,17 +26,19 @@ const CompareCandidateStatement = props => {
   }
 
   return (
-    <div
+    <button
+      type="button"
       className={posClass}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
     >
       <img alt={name} src={image} />
       <h5>{last}</h5>
-        <div className="more">
-          <span className="close" />
-          <p className="says">{comment}</p>
-        </div>
-    </div>
+      <div className="more">
+        <span className="close" />
+        <p className="says">{comment}</p>
+      </div>
+    </button>
   );
 };
 
