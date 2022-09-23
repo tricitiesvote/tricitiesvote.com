@@ -8,8 +8,6 @@ import CandidateEngagement from './CandidateEngagement';
 import CandidateEndorsements from './CandidateEndorsements';
 import CandidateDonorSummary from './CandidateDonorSummary';
 import CandidateDonorSummaryMini from './CandidateDonorSummaryMini';
-import CandidateAnswersCouncil from './CandidateAnswersCouncil';
-import CandidateAnswersSchool from './CandidateAnswersSchool';
 import CANDIDATE from '../../graphql/CANDIDATE';
 
 const Candidate = props => {
@@ -43,8 +41,6 @@ const Candidate = props => {
     statement_excerpt_html,
     articles_html,
     fundraising,
-    school_answers,
-    council_answers,
   } = fields;
 
   // console.log('fields', fields);
@@ -110,17 +106,6 @@ const Candidate = props => {
         {fullsize ? (
           <div className="candidate-content">
             <CandidateBody body={body_html} />
-            <pre>{JSON.stringify(council_answers, null, 2)}</pre>
-            {school_answers ? (
-              <CandidateAnswersSchool answers={school_answers} />
-            ) : (
-              ''
-            )}
-            {council_answers ? (
-              <CandidateAnswersCouncil answers={council_answers} />
-            ) : (
-              ''
-            )}
             <CandidateDonorSummary
               fundraising={fundraising}
               slug={slug}

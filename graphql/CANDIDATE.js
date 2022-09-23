@@ -17,12 +17,6 @@ const CANDIDATE = `
       bio_html_nowrap
       articles_html_nowrap
       body_html_nowrap
-      school_answers {
-        ...SchoolAnswerDetails
-      }
-      council_answers {
-        ...CouncilAnswerDetails
-      }
       fundraising {
         ...CandidateFundraisingDetails
       }

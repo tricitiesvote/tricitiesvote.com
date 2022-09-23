@@ -45,38 +45,6 @@ module.exports = {
     },
 
     // {
-    //   resolve: `gatsby-transformer-csv`,
-    //   options: {
-    //     path: `${__dirname}/data/questionnaires`
-    //   },
-    // },
-    // TODO ^^ this seems to be sufficient for this set of data
-
-    {
-      resolve: `gatsby-transformer-csv`,
-      options: {
-        path: `${__dirname}/data/questionnaires/school-questions.csv`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-csv`,
-      options: {
-        path: `${__dirname}/data/questionnaires/council-questions.csv`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-csv`,
-      options: {
-        path: `${__dirname}/data/questionnaires/school-answers.csv`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-csv`,
-      options: {
-        path: `${__dirname}/data/questionnaires/council-answers.csv`,
-      },
-    },
-    // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
     //     path: `${__dirname}/data/donations/candidate-fundraising.json`,
