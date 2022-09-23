@@ -111,7 +111,7 @@ export default SiteIndex;
 export const pageQuery = graphql`
   query {
     races: allRacesJson(
-      filter: { electionyear: { eq: "2021" }, type: { eq: "general" } }
+      filter: { electionyear: { eq: "2022" }, type: { eq: "general" } }
       sort: { fields: office___title, order: ASC }
     ) {
       edges {

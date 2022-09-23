@@ -50,7 +50,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     allRacesJson(
       filter: {
-        electionyear: { eq: "2021" }
+        electionyear: { eq: "2022" }
         type: { eq: "general" }
         fields: { slug: { eq: $slug } }
       }
