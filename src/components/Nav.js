@@ -5,10 +5,8 @@ const Nav = () => {
   return (
     <nav>
       <Link to="/">Home</Link>
-      <Link to="/kennewick">Kennewick</Link>
-      <Link to="/pasco">Pasco</Link>
-      <Link to="/richland">Richland</Link>
-      <Link to="/west-richland">West Richland</Link>
+      <Link to="/benton-county">Benton County</Link>
+      <Link to="/franklin-county">Franklin County</Link>
     </nav>
   );
 };

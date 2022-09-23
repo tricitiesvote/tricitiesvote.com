@@ -1,6 +1,6 @@
 const GUIDES = `
   guides: allGuidesJson(
-    filter: { electionyear: { eq: "2021" }, type: { eq: "general" } }
+    filter: { electionyear: { eq: "2022" }, type: { eq: "general" } }
   ) {
     edges {
       node {
