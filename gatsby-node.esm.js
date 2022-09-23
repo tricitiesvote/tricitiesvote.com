@@ -227,8 +227,8 @@ exports.createPages = async ({
   const allCandidates = results.data.candidates.edges;
   const allGuides = results.data.guides.edges;
   const allRaces = results.data.races.edges;
-  const allCouncilQuestions = results.data.councilQuestions.edges;
-  const allSchoolQuestions = results.data.schoolQuestions.edges;
+  // const allCouncilQuestions = results.data.councilQuestions.edges;
+  // const allSchoolQuestions = results.data.schoolQuestions.edges;
   // const allNotes = results.data.notes.edges;
 
   allCandidates.forEach(candidate => {

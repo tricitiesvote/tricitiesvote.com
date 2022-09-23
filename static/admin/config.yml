@@ -1,10 +1,9 @@
 backend:
   name: github
   repo: tumbleweird/tricitiesvote.com
-  branch: 'master'
+  branch: '2022'
 
 local_backend: true
-publish_mode: editorial_workflow
 media_folder: 'static/images'
 public_folder: 'images'
 
@@ -119,6 +118,7 @@ collections:
             [
               { label: 'District 8', value: '8th District' },
               { label: 'District 9', value: '9th District' },
+              { label: 'District 15', value: '15th District' },
               { label: 'District 16', value: '16th District' },
               { label: 'Benton County', value: 'Benton County' },
               { label: 'Franklin County', value: 'Franklin County' },
@@ -148,6 +148,8 @@ collections:
               { label: 'U.S. House', value: 'U.S. House' },
               { label: 'U.S. Senate', value: 'U.S. Senate' },
               { label: 'Mayor', value: 'Mayor' },
+              { label: 'Sheriff', value: 'Sheriff' },
+              { label: 'Prosecutor', value: 'Prosecutor' },
             ],
         }
       - {
@@ -163,6 +165,8 @@ collections:
               { label: 'Senator', value: 'Senator' },
               { label: 'Judge', value: 'Judge' },
               { label: 'Mayor', value: 'Mayor' },
+              { label: 'Sheriff', value: 'Sheriff' },
+              { label: 'Prosecutor', value: 'Prosecutor' },
             ],
           required: true,
         }

@@ -4,7 +4,7 @@ import ContactInline from '../components/ContactInline';
 
 // collect Candidates in Races, collect Races in Guides
 
-export default () => (
+const Letters = () => (
   <DefaultLayout title="Letters">
     <div className="page">
       <h1>
@@ -84,3 +84,5 @@ export default () => (
     <ContactInline page="https://tricitiesvote.com/letters" />
   </DefaultLayout>
 );
+
+export default Letters;

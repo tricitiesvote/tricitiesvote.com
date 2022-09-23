@@ -1,7 +1,7 @@
 import React from 'react';
 import DefaultLayout from '../layouts/DefaultLayout';
 
-export default () => (
+const Thanks = () => (
   <DefaultLayout title="Thanks">
     <div className="page">
       <h1>Thanks</h1>
@@ -9,3 +9,5 @@ export default () => (
     </div>
   </DefaultLayout>
 );
+
+export default Thanks;

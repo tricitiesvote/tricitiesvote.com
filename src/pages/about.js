@@ -1,7 +1,7 @@
 import React from 'react';
 import DefaultLayout from '../layouts/DefaultLayout';
 
-export default () => (
+const About = () => (
   <DefaultLayout title="About">
     <div className="page">
       <h1>About tricitiesvote.com</h1>
@@ -54,3 +54,5 @@ export default () => (
     </div>
   </DefaultLayout>
 );
+
+export default About;
