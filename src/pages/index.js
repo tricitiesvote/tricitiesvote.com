@@ -5,7 +5,7 @@ import DefaultLayout from '../layouts/DefaultLayout';
 // import Guide from '../components/Guide';
 import RaceListMini from '../components/RaceListMini';
 import ContactInline from '../components/ContactInline';
-import HowToUseThisGuide from '../components/HowToUseThisGuide'
+// import HowToUseThisGuide from '../components/HowToUseThisGuide'
 
 // collect Candidates in Races, collect Races in Guides
 
@@ -39,7 +39,6 @@ class SiteIndex extends React.Component {
         </div>
         <h1>Candidate engagement overview</h1> */}
         <RaceListMini data={races} />
-
         <ContactInline page="https://tricitiesvote.com" />
       </DefaultLayout>
     );
