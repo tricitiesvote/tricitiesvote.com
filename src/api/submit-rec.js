@@ -83,7 +83,7 @@ exports.handler = async (event) => {
 		}
 		
 		let slug = slugify(`${endorser}-for-${candidate}`)
-		let { candidate, endorser, url, type } = endorsementData;
+		const endorsementData = { candidate, endorser, url, type };
 
 		const files = {
 			[`data/endorsements/${slug}.json`]: JSON.stringify(
