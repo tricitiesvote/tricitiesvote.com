@@ -298,9 +298,9 @@ collections:
         widget: select, 
         multiple: false,
         options: [
-          { label: 'Letter to the editor', value: 'letter' },
-          { label: 'Social media post', value: 'social' },
-          { label: 'Organization', value: 'org' },
+          { label: 'Individual endorsement', value: 'personal' },
+          { label: 'Organizational endorsement', value: 'org' },
+          { label: 'Political endorsement', value: 'political' }
         ]
       }
       - { 
