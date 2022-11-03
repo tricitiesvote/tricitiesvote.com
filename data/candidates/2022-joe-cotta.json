@@ -1,14 +1,15 @@
 {
+  "party": "Republican",
   "name": "Joe Cotta",
   "slug": "joe-cotta",
-  "email": "joecotta@protonmail.com",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=877#/candidates/121114/1552623",
-  "image": "/images/candidates/joe-cotta-original.png",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=COTTJ--574&election_year=2022",
-  "uuid": "COTTJ--574",
-  "party": "Republican",
   "statement": "**Elected Experience**  \nNo Information Submitted  \n  \n**Other Professional Experience**  \nI’m a 4th generation farmer, managing 1000 acres. I’ve been married for 21 years and have 5 children. I spent 5 years owning & directing a vineyard and consulting business, before moving to the Tri-Cities in 2009, where I have become very active in the vineyard industry, serving on several committees, with responsibility in political advocacy and union negotiation.  \n  \n**Education**  \nBS Plant Science CSU Fresno; MS Horticulture UC Davis  \n  \n**Community Service**  \nI attend Calvary Chapel Tri-cities, where I have been active in jail ministry, substance abuse recovery, orphan, youth, and adult ministries requiring weekly bible teaching for the last 12 years.  \n  \n**Statement**  \nI am running to empower our law enforcement to protect our communities, restore individual liberties, and protect our small businesses and farms. I believe you should be able to choose your child’s educational environment, what goes into you and your family’s bodies, and have confidence in our election system. Government programs are inefficient compared to free enterprise. We need tax relief, not government subsidy. I value our constitutional rights to free speech, bear arms, and right to life. Loving your neighbor means fighting to protect and defend your neighbor’s liberty. I will honor God with my legislative responsibilities. \n\nBCRP endorsed.",
   "electionyear": "2022",
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=877#/candidates/121114/1552623",
+  "website": "http://votejoecotta.com",
+  "image": "/images/candidates/joe-cotta-original.png",
+  "uuid": "COTTJ--574",
   "office": "State Representative",
-  "website": "http://votejoecotta.com"
+  "email": "joecotta@protonmail.com",
+  "engagement": "[NWPB Primary Debate](https://youtu.be/dW1Uslv0_iY?t=378),",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=COTTJ--574&election_year=2022"
 }
