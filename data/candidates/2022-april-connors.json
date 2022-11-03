@@ -1,14 +1,15 @@
 {
+  "party": "Republican",
   "name": "April Connors",
   "slug": "april-connors",
-  "email": "hello@aprilforwashington.com",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=877#/candidates/121114/1552624",
-  "image": "/images/candidates/april-connors-original.png",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=CONNA--861&election_year=2022",
-  "uuid": "CONNA--861",
-  "party": "Republican",
   "statement": "**Elected Experience**  \nWith your vote!  \n  \n**Other Professional Experience**  \nApril Connors is a successful real estate professional, with a managing brokers license, and 22 years experience putting families into local homes. Previously, she was a legal assistant specializing in code drafting and housing policy, even staffing a case before the U.S. Supreme Court.  \n  \n**Education**  \nBA, WSU  \n  \n**Community Service**  \nApril is very active in our local community, especially with the PTO over the years.  She volunteered with the Academy of Children’s Theatre, the FFA, and is currently serving on the board for the Kadlec Foundation.  In 2010 she helped lead a relief effort to Haiti, after their massive earthquake.  \n  \n**Statement**  \nApril Connors is a mom, community leader, and a successful small business woman who shares our community's values.  Her priorities reflect the real needs of our community: good schools, more local jobs, and abundant housing.  April will defend our local energy sector, and she opposed the Seattle led bills to handcuff police and raise gas prices. \n\nA conservative with a record of working well with others,  April prioritizes real accomplishments over rhetoric.  Something Olympia needs more than ever.  She and her husband Mike have four children, two who are adopted.  The family enjoys bicycling, local theater, and hiking.",
   "electionyear": "2022",
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=877#/candidates/121114/1552624",
+  "website": "http://aprilforwashington.com",
+  "image": "/images/candidates/april-connors-original.png",
+  "uuid": "CONNA--861",
   "office": "State Representative",
-  "website": "http://aprilforwashington.com"
+  "email": "hello@aprilforwashington.com",
+  "engagement": "[NWPB Primary Debate](https://youtu.be/dW1Uslv0_iY?t=314),",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=CONNA--861&election_year=2022"
 }
