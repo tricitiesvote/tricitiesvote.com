@@ -1,14 +1,15 @@
 {
+  "party": "Republican",
   "name": "Eric Eisinger",
   "slug": "eric-eisinger",
-  "email": "ericforprosecutor@gmail.com",
-  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=877#/candidates/120659/1552813",
-  "image": "/images/candidates/eric-eisinger-original.png",
-  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=EISIE--385&election_year=2022",
-  "uuid": "EISIE--385",
-  "party": "Republican",
   "statement": "**Elected Experience**  \nNone.  \n  \n**Other Professional Experience**  \nEric is a former prosecutor for the City of Kennewick. For 18 years, he has prosecuted and defended thousands of criminal and civil cases.  Eric has litigated in state and federal court, including multi-million dollar cases. He has a 10.0 “Superb” client rating on Avvo.com. He has served as a judge pro tem. Eric is a partner at the Richland law firm Walker Heye, PLLC. He was President of the Benton Franklin Counties Bar Association from 2016-2017.  \n  \n**Education**  \nUniversity of Idaho College of Law (J.D. 2003); Washington State University (B.A., summa cum laude, 1999).  \n  \n**Community Service**  \nSmall Group Leader, New Vintage Church.  \n  \n**Statement**  \nOur community is at a turning point. As crime continues to rise, we must resist the progressive criminal justice initiatives coming out of Olympia and take a stand for the rule of law and the Constitution. As your county prosecutor, I will fight to keep Benton County from becoming like Seattle where the parks and streets no longer belong to the people. I will vigorously prosecute crime and fight for the safety of your community. I will request appropriate bail on all cases.  \nI understand that criminal cases are fundamentally about people. Justice requires compassion for victims and for the community. I believe people can change, but societal order depends on appropriate boundaries. I oppose needle exchange programs and giving drug pipes to addicts. I support programs that provide help and real solutions and show genuine compassion without removing the natural consequences of illegal behavior.  \nI am the candidate endorsed by the Benton County Republican Party. I will uphold your constitutional rights including the right to protect your home and your family and your right to keep and bear arms. I love this community and I ask for your vote. www.ericforprosecutor.com",
   "electionyear": "2022",
+  "pamphlet_url": "https://voter.votewa.gov/genericvoterguide.aspx?e=877#/candidates/120659/1552813",
+  "website": "http://www.ericforprosecutor.com",
+  "image": "/images/candidates/eric-eisinger-original.png",
+  "uuid": "EISIE--385",
   "office": "County Prosecutor",
-  "website": "http://www.ericforprosecutor.com"
+  "email": "ericforprosecutor@gmail.com",
+  "engagement": "[✅ Vote 2022 candidate forum](https://watch.nwpb.org/video/benton-co-commr-prosecuting-atty-franklin-co-commr-vhx1vw/)\n\n[✅ Vote 411 voters guide](http://onyourballot.vote411.org/candidate-detail.do?id=3750199)",
+  "pdc_url": "https://www.pdc.wa.gov/browse/campaign-explorer/candidate?filer_id=EISIE--385&election_year=2022"
 }
