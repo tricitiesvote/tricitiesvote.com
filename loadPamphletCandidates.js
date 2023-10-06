@@ -50,55 +50,53 @@ module.exports = async () => {
         })
       });
 
-      if (data) {
-        for (const item of data) {
-          const statement_md = markdownify.turndown(item.statement.Statement);
-          const pamphletUrl = pamphBase([
-            'candidates', raceId, item.statement.BallotID
-          ])();
+      for (const item of data) {
+        const statement_md = markdownify.turndown(item.statement.Statement);
+        const pamphletUrl = pamphBase([
+          'candidates', raceId, item.statement.BallotID
+        ])();
 
-          const thisName = asciify.foldReplacing(item.statement.BallotName);
-          let name = thisName
-          
-          // if the name used in the ballot data matches an alternate name, use that
-          if (_.find(NAMES, { altNames: [ thisName ]})) {
-            name = _.find(NAMES, { altNames: [ thisName ]}).formattedName
-          }
-      
-          let photo = `data:image/png;base64,${item.statement.Photo}`
-      
-          // Get images base64, convert to file, save it
-          let imageUrl = '';
-          if (item.statement.Photo) {
-            const filename = slugify(name, { lower: true, strict: true });
-            const buf = new Buffer.from(item.statement.Photo, 'base64');
-            const newFilename = `${filename}-original.png`;
-            const saveImageAs = `${saveImagePath}${newFilename}`;
-            imageUrl = `${imageUrlPath}${newFilename}`;
-            
-            // TODO: re-enable photo write
-            // TODO: why did I have to re-enable this?
-            fs.writeFileSync(saveImageAs, buf);
-            console.log('🌠', 'Adding photo', `${newFilename}`);
-          } else {
-            console.log('❌', `No photo for ${name}`);
-          }
-      
-          const candidate = {
-            candidate_ballot_id: item.statement.BallotID,
-            candidate_ballot_name: name,
-            email: item.statement.OrgEmail,
-            website: fixurl(item.statement.OrgWebsite),
-            statement: statement_md,
-            pamphlet_url: pamphletUrl,
-            image: imageUrl,
-          };
-          pamphletCandidates.push(candidate);
-          console.log(
-            '✏️',
-            `${candidate.candidate_ballot_name} candidate data`
-          );
+        const thisName = asciify.foldReplacing(item.statement.BallotName);
+        let name = thisName
+        
+        // if the name used in the ballot data matches an alternate name, use that
+        if (_.find(NAMES, { altNames: [ thisName ]})) {
+          name = _.find(NAMES, { altNames: [ thisName ]}).formattedName
         }
+    
+        let photo = `data:image/png;base64,${item.statement.Photo}`
+    
+        // Get images base64, convert to file, save it
+        let imageUrl = '';
+        if (item.statement.Photo) {
+          const filename = slugify(name, { lower: true, strict: true });
+          const buf = new Buffer.from(item.statement.Photo, 'base64');
+          const newFilename = `${filename}-original.png`;
+          const saveImageAs = `${saveImagePath}${newFilename}`;
+          imageUrl = `${imageUrlPath}${newFilename}`;
+          
+          // TODO: re-enable photo write
+          // TODO: why did I have to re-enable this?
+          fs.writeFileSync(saveImageAs, buf);
+          console.log('🌠', 'Adding photo', `${newFilename}`);
+        } else {
+          console.log('❌', `No photo for ${name}`);
+        }
+    
+        const candidate = {
+          candidate_ballot_id: item.statement.BallotID,
+          candidate_ballot_name: name,
+          email: item.statement.OrgEmail,
+          website: fixurl(item.statement.OrgWebsite),
+          statement: statement_md,
+          pamphlet_url: pamphletUrl,
+          image: imageUrl,
+        };
+        pamphletCandidates.push(candidate);
+        console.log(
+          '✏️',
+          `${candidate.candidate_ballot_name} candidate data`
+        );
       }
     }
   }
