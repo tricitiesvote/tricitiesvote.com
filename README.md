@@ -105,7 +105,7 @@ In the url you will find a string containing the race id:
 
 <img width="802" alt="Screenshot 2023-10-05 at 7 12 38 PM" src="https://github.com/tumbleweird/tricitiesvote.com/assets/110551/1421de78-8d43-49b8-835d-99728f07057d">
 
-Once you have the information, add the election type, election ID, and race IDs to the 
+Once you have the information, add the election type, election ID, and race IDs to the config
 
 ```
 {
@@ -118,7 +118,9 @@ Once you have the information, add the election type, election ID, and race IDs 
 }
 ```
 
-I don't remember what `query` was for above but it doesn't seem important because last year's was blank? 
+I'm pretty sure the same pdcDataset always works? I got that from [here](https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye/data) and it still seems to show data from the current year.
+
+And I don't remember what `query` was for above but it doesn't seem important because last year's was blank? 
 
 Anyway.
 
@@ -139,14 +141,7 @@ The following exceptions apply:
 
 ### Get PDC data for configuration
 
-WA PDC provides all the info related to campaign finance and donations. You'll need to find a set of IDs in order to configure `load-config-election.json` `load-config-names.json`:
-
-1. PDC election dataset
-2. Candidate IDs
-
-The PDC election dataset can be found by going to
-
-Set this string in `load-config-election.json`
+WA PDC provides all the info related to campaign finance and donations. You'll need to find a set of IDs in order to configure `load-config-names.json`:
 
 Candidate IDs are... annoying. 
 
