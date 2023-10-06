@@ -49,13 +49,13 @@ module.exports = async () => {
           else resolve(data);
         })
       });
-
+      
       for (const item of data) {
         const statement_md = markdownify.turndown(item.statement.Statement);
         const pamphletUrl = pamphBase([
           'candidates', raceId, item.statement.BallotID
         ])();
-
+        
         const thisName = asciify.foldReplacing(item.statement.BallotName);
         let name = thisName
         
@@ -63,9 +63,7 @@ module.exports = async () => {
         if (_.find(NAMES, { altNames: [ thisName ]})) {
           name = _.find(NAMES, { altNames: [ thisName ]}).formattedName
         }
-    
-        let photo = `data:image/png;base64,${item.statement.Photo}`
-    
+        
         // Get images base64, convert to file, save it
         let imageUrl = '';
         if (item.statement.Photo) {
