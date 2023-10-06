@@ -23,7 +23,7 @@ const fixurl = url => {
   return url;
 };
 
-module.exports = () => {
+module.exports = async () => {
   // https://voter.votewa.gov/elections/candidate.ashx?e=865&r=57373&la=&c=
   // https://voter.votewa.gov/elections/candidate.ashx?e=870&r=61241&la=&c=03
   // https://voter.votewa.gov/elections/candidate.ashx?e={{election_id}}&r={{race_id}}&la=&c=
@@ -41,10 +41,16 @@ module.exports = () => {
 
   const pamphletCandidates = [];
 
-  countyIds.forEach(function(countyId) {
-    raceIds.forEach(function(raceId) {
-      dataBase({r:raceId, la:'', c:countyId}).get(function(err, data) {
+  for (const countyId of countyIds) {
+    for (const raceId of raceIds) {
+      const data = await new Promise((resolve, reject) => {
+        dataBase({r:raceId, la:'', c:countyId}).get(function(err, data) {
+          if (err) reject(err);
+          else resolve(data);
+        })
+      });
 
+      if (data) {
         for (const item of data) {
           const statement_md = markdownify.turndown(item.statement.Statement);
           const pamphletUrl = pamphBase([
@@ -93,12 +99,9 @@ module.exports = () => {
             `${candidate.candidate_ballot_name} candidate data`
           );
         }
-        if (err) {
-          console.log(err);
-        }
-      })
-    })
-  });
+      }
+    }
+  }
 
   return pamphletCandidates;
 };
