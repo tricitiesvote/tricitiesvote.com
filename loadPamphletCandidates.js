@@ -30,8 +30,11 @@ module.exports = () => {
 
   const electionId = CONFIG.electionId;
 
-  const apiUrl = `https://voter.votewa.gov/elections/candidate.ashx?e=`;
-  const webUrl = `https://voter.votewa.gov/genericvoterguide.aspx?e=`;
+  const apiUrl = `https://voter.votewa.gov/elections/candidate.ashx`;
+  const webUrl = `https://voter.votewa.gov/genericvoterguide.aspx?e=${electionId}#`;
+
+  const dataBase = fermata.json(apiUrl)({e:electionId});
+  const pamphBase = fermata.raw({base:webUrl});
 
   const countyIds = ['03', '11'];
   const raceIds = CONFIG.raceIds;
@@ -40,19 +43,14 @@ module.exports = () => {
 
   countyIds.forEach(function(countyId) {
     raceIds.forEach(function(raceId) {
-      const raceUrl = `${apiUrl + electionId}&r=${raceId}&la=&c=${
-        countyId
-      }`;
-      // console.log('raceUrl', raceUrl);
-      const site = fermata.json(raceUrl);
-      
-      site.get(function(err, data) {
-      
+      dataBase({r:raceId, la:'', c:countyId}).get(function(err, data) {
+
         for (const item of data) {
           const statement_md = markdownify.turndown(item.statement.Statement);
-          const pamphletUrl = `${webUrl + electionId}#/candidates/${raceId}/${
-            item.statement.BallotID
-          }`;
+          const pamphletUrl = pamphBase([
+            'candidates', raceId, item.statement.BallotID
+          ])();
+
           const thisName = asciify.foldReplacing(item.statement.BallotName);
           let name = thisName
           
