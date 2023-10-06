@@ -15,7 +15,7 @@ const main = () => {
   const loadData = [
     loadPamphletCandidates(),
     loadUserCandidates(),
-    loadPdcCandidates,
+    loadPdcCandidates(),
   ];
 
   const candidates = [];

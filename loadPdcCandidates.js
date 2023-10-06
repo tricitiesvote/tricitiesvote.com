@@ -4,8 +4,8 @@ const _ = require('lodash');
 const NAMES = require('./load-config-names.json');
 const CONFIG = require('./load-config-election.json');
 
-module.exports = new Promise((resolve, reject) => {
-  
+module.exports = async () => {
+
   // go to this address to interact with this data in the browser:
   // https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye/data
   const consumer = new soda.Consumer('data.wa.gov');
@@ -14,8 +14,7 @@ module.exports = new Promise((resolve, reject) => {
   const filer_ids = [];
   const newCandidates = [];
 
-  consumer
-    .query()
+  const query = consumer.query()
     .withDataset(CONFIG.pdcDataset) // campaign finance reports
     .limit(10000)
     .where(
@@ -35,9 +34,19 @@ module.exports = new Promise((resolve, reject) => {
         legislative_district = '9' 
         )
     `
-    )
-    .getRows()
-    .on('success', function(rows) {
+    );
+    
+    const rows = await new Promise((resolve, reject) => {
+      query.getRows()
+        .on('success', function(rows) {
+          resolve(rows);
+        })
+        .on('error', function(error) {
+          reject(error);
+        });
+    });
+    
+    if (rows) {
       for (const row of rows) {
 
         // check to see if we already have the candidate
@@ -85,10 +94,6 @@ module.exports = new Promise((resolve, reject) => {
         console.log(JSON.stringify(newCandidates, null, 2))
         console.log('\n### Add to load-config-names.json')
       }
-      resolve(pdcCandidates);
-    })
-    .on('error', function(error) {
-      console.log(error);
-      reject(error);
-    });
-});
+      return pdcCandidates;
+    }
+};
