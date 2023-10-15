@@ -1,0 +1,9 @@
+[build]
+publish = "public/"
+command = "yarn build"
+
+[[plugins]]
+package = "@netlify/plugin-gatsby"
+
+[functions]
+directory = "functions/"
