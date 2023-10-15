@@ -23,84 +23,81 @@ const fixurl = url => {
   return url;
 };
 
-module.exports = () => {
+module.exports = async () => {
   // https://voter.votewa.gov/elections/candidate.ashx?e=865&r=57373&la=&c=
   // https://voter.votewa.gov/elections/candidate.ashx?e=870&r=61241&la=&c=03
   // https://voter.votewa.gov/elections/candidate.ashx?e={{election_id}}&r={{race_id}}&la=&c=
 
   const electionId = CONFIG.electionId;
 
-  const apiUrl = `https://voter.votewa.gov/elections/candidate.ashx?e=`;
-  const webUrl = `https://voter.votewa.gov/genericvoterguide.aspx?e=`;
+  const apiUrl = `https://voter.votewa.gov/elections/candidate.ashx`;
+  const webUrl = `https://voter.votewa.gov/genericvoterguide.aspx?e=${electionId}#`;
+
+  const dataBase = fermata.json(apiUrl)({e:electionId});
+  const pamphBase = fermata.raw({base:webUrl});
 
   const countyIds = ['03', '11'];
   const raceIds = CONFIG.raceIds;
 
   const pamphletCandidates = [];
 
-  countyIds.forEach(function(countyId) {
-    raceIds.forEach(function(raceId) {
-      const raceUrl = `${apiUrl + electionId}&r=${raceId}&la=&c=${
-        countyId
-      }`;
-      // console.log('raceUrl', raceUrl);
-      const site = fermata.json(raceUrl);
+  for (const countyId of countyIds) {
+    for (const raceId of raceIds) {
+      const data = await new Promise((resolve, reject) => {
+        dataBase({r:raceId, la:'', c:countyId}).get(function(err, data) {
+          if (err) reject(err);
+          else resolve(data);
+        })
+      });
       
-      site.get(function(err, data) {
-      
-        for (const item of data) {
-          const statement_md = markdownify.turndown(item.statement.Statement);
-          const pamphletUrl = `${webUrl + electionId}#/candidates/${raceId}/${
-            item.statement.BallotID
-          }`;
-          const thisName = asciify.foldReplacing(item.statement.BallotName);
-          let name = thisName
+      for (const item of data) {
+        const statement_md = markdownify.turndown(item.statement.Statement);
+        const pamphletUrl = pamphBase([
+          'candidates', raceId, item.statement.BallotID
+        ])();
+        
+        const thisName = asciify.foldReplacing(item.statement.BallotName);
+        let name = thisName
+        
+        // if the name used in the ballot data matches an alternate name, use that
+        if (_.find(NAMES, { altNames: [ thisName ]})) {
+          name = _.find(NAMES, { altNames: [ thisName ]}).formattedName
+        }
+        
+        // Get images base64, convert to file, save it
+        let imageUrl = '';
+        if (item.statement.Photo) {
+          const filename = slugify(name, { lower: true, strict: true });
+          const buf = new Buffer.from(item.statement.Photo, 'base64');
+          const newFilename = `${filename}-original.png`;
+          const saveImageAs = `${saveImagePath}${newFilename}`;
+          imageUrl = `${imageUrlPath}${newFilename}`;
           
-          // if the name used in the ballot data matches an alternate name, use that
-          if (_.find(NAMES, { altNames: [ thisName ]})) {
-            name = _.find(NAMES, { altNames: [ thisName ]}).formattedName
-          }
-      
-          let photo = `data:image/png;base64,${item.statement.Photo}`
-      
-          // Get images base64, convert to file, save it
-          let imageUrl = '';
-          if (item.statement.Photo) {
-            const filename = slugify(name, { lower: true, strict: true });
-            const buf = new Buffer.from(item.statement.Photo, 'base64');
-            const newFilename = `${filename}-original.png`;
-            const saveImageAs = `${saveImagePath}${newFilename}`;
-            imageUrl = `${imageUrlPath}${newFilename}`;
-            
-            // TODO: re-enable photo write
-            // TODO: why did I have to re-enable this?
-            fs.writeFileSync(saveImageAs, buf);
-            console.log('🌠', 'Adding photo', `${newFilename}`);
-          } else {
-            console.log('❌', `No photo for ${name}`);
-          }
-      
-          const candidate = {
-            candidate_ballot_id: item.statement.BallotID,
-            candidate_ballot_name: name,
-            email: item.statement.OrgEmail,
-            website: fixurl(item.statement.OrgWebsite),
-            statement: statement_md,
-            pamphlet_url: pamphletUrl,
-            image: imageUrl,
-          };
-          pamphletCandidates.push(candidate);
-          console.log(
-            '✏️',
-            `${candidate.candidate_ballot_name} candidate data`
-          );
+          // TODO: re-enable photo write
+          // TODO: why did I have to re-enable this?
+          fs.writeFileSync(saveImageAs, buf);
+          console.log('🌠', 'Adding photo', `${newFilename}`);
+        } else {
+          console.log('❌', `No photo for ${name}`);
         }
-        if (err) {
-          console.log(err);
-        }
-      })
-    })
-  });
+    
+        const candidate = {
+          candidate_ballot_id: item.statement.BallotID,
+          candidate_ballot_name: name,
+          email: item.statement.OrgEmail,
+          website: fixurl(item.statement.OrgWebsite),
+          statement: statement_md,
+          pamphlet_url: pamphletUrl,
+          image: imageUrl,
+        };
+        pamphletCandidates.push(candidate);
+        console.log(
+          '✏️',
+          `${candidate.candidate_ballot_name} candidate data`
+        );
+      }
+    }
+  }
 
   return pamphletCandidates;
 };
