@@ -269,5 +269,36 @@
     "altNames": [
       "James Czebotar"
     ]
+  },
+  {
+    "formattedName": "Aaron Riggs",
+    "pdcId": "RIGGA--546",
+    "altNames": [
+      "Aaron C. Riggs"
+    ]
+  },
+  {
+    "formattedName": "Dustin Petersen",
+    "pdcId": "PETED 848",
+    "altNames": [
+      "PETERSEN DUSTIN B (Dustin Petersen)"
+    ]
+  },
+  {
+    "formattedName": "Jill Oldson",
+    "pdcId": "OLDSJ 352",
+    "altNames": [
+      "Jill M. Oldson (Jill Oldson)"
+    ]
+  },
+  {
+    "formattedName": "Kari Williams",
+    "pdcId": "WILLK--352",
+    "altNames": []
+  },
+  {
+    "formattedName": "Ryan Whitten",
+    "pdcId": "WHITR--010",
+    "altNames": []
   }
 ]
