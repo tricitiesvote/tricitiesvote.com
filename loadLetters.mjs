@@ -46,15 +46,22 @@ function cleanupRow(row) {  // NOTE: modifies in place!!
   );
   
   const info = findCandidateViaName(row.name);
+  // NOTE: if missing can search at https://www.pdc.wa.gov/political-disclosure-reporting-data
+  //       and (as of 2023-October) follow through the "Registration" date link which will include
+  //       in the "Registration Filed" section a line containing the `pdcId` we use for this stuff.
   assert(info, `Must have candidate NAMES info ("${row.name}" not found).`);
   if (row.candidate) assert(
     row.candidate === info.pdcId,
     `Expected pdcId of ${info.pdcId} (got: '${row.candidate}').`
   );
   const candidate = info.pdcId;
+  assert(candidate, "NAMES info must have pdcId available.");
   
   const endorser = row.endorser.trim();
+  assert(endorser, "Endorser column must not be empty.");
+  
   const url = row.url.trim();
+  assert(url, "URL column must not be empty.");
   assert(
     (url.match(/http/g) || []).length === 1,
     `URL shouldn't be sus (check <${row.url}>).`
