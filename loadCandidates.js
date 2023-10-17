@@ -107,6 +107,11 @@ const main = () => {
     // write candidate files
     mergeCandidate.then(candidates => {
       for (const item of candidates) {
+        if (!item.slug) {
+          // likely means that formattedName still blank in load-config-names…
+          console.warn('🚩', "Empty slug (/name) for candidate:", item);
+        }
+        
         const candidateData = JSON.stringify(item, null, 2);
         // const filePath = `data/candidates-new/${item.electionyear}-${item.slug}.json`;
         const filePath = `data/candidates/${item.electionyear}-${item.slug}.json`;
