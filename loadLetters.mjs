@@ -3,6 +3,7 @@
 import assert from "node:assert";
 import { promises as fs } from "node:fs";
 import _ from "lodash";
+import slugify from "slugify";
 
 // TODO: this is only *implicity* available via gatsby-transformer-csv
 // (if this script stays around, a direct dependency should be added!)
@@ -10,8 +11,8 @@ import csv from "csvtojson";
 
 // HT: https://stackoverflow.com/questions/66726365/how-should-i-import-json-in-node/66726426#66726426
 import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const NAMES = require("./load-config-names.json");
+const _require = createRequire(import.meta.url);
+const NAMES = _require("./load-config-names.json");
 
 
 function findCandidateViaName(name) {
@@ -67,30 +68,44 @@ async function convertTheThings(inputPath, outputFolder) {
   const csvContent = await fs.readFile(inputPath, 'utf8');
   const rows = await csv().fromString(csvContent);
 
-  let numFiles = 0;
+  let numFiles = 0,
+      numSkips = 0;
   for (const [idx, row] of rows.entries()) {
-    const rowNum = idx + 1; // n.b. assumes CSV has one header row!
+    let _jsonData;   // WORKAROUND: JS scope limitations…
     try {
-      cleanupRow(row);
+      _jsonData = cleanupRow(row);
     } catch (err) {
+      const rowNum = idx + 1; // n.b. assumes CSV has one header row!
       console.warn('‼️', `Skipping row #${rowNum}:`, err.message);
+      numSkips += 1;
       continue;
     }
-
+    assert(_jsonData);
+    
+    const jsonData = _jsonData;
+    const { endorser, forAgainst, candidate } = jsonData;
+    const filename = slugify(
+      `${endorser} ${forAgainst} ${candidate}`,
+      { lower: true, strict: true }
+    );
+    console.log('💾', `Writing ${filename}.`);
+    fs.writeFile(
+      `${outputFolder}/${filename}.json`,
+      JSON.stringify(jsonData, null, 2)
+    );
+    
     numFiles += 1;
   }
-
-  throw "unfinished…";
-
-  return {numFiles};
+  return {numFiles, numSkips};
 }
 
 
 const inputPath = process.argv[2];
 const outputDir = "data/endorsements";
 assert(inputPath, "Must provide path to input CSV as arg!");
-convertTheThings(inputPath, outputDir).then((info) => {
-  console.log(`Done! Wrote ${info.numFiles} to ${outputDir}.`);
+convertTheThings(inputPath, outputDir).then(({numFiles,numSkips}) => {
+  console.log(`Done! Wrote ${numFiles} files to ${outputDir}.`);
+  if (numSkips) console.warn('⚠️', `Skipped ${numSkips} rows…`);
 }).catch((err) => {
   console.error("Load failed:", err);
   process.exit(1);
