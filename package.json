@@ -43,6 +43,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "load": "mkdir -p data/candidates data/donations data/endorsements && node loadCandidates",
     "donors": "mkdir -p data/donations && node loadDonors",
+    "letters": "mkdir -p data/endorsements && node loadLetters.mjs",
     "clean": "rm -f data/candidates/* data/donations/* data/endorsements/*",
     "loadfresh": "rm data/candidates/* && node loadCandidates"
   },
