@@ -36,7 +36,11 @@ module.exports = async () => {
   const dataBase = fermata.json(apiUrl)({e:electionId});
   const pamphBase = fermata.raw({base:webUrl});
 
-  const countyIds = ['03', '11'];
+  // API currently (2023-October) ignores this parameter…
+  const countyIds = [''];
+  // …so no need to fetch all races twice like we'd been.
+  //const countyIds = ['03', '11'];
+  
   const raceIds = CONFIG.raceIds;
 
   const pamphletCandidates = [];
