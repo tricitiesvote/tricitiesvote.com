@@ -38,10 +38,10 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
+    "start": "mkdir -p data/candidates data/donations data/endorsements data/races data/offices data/guides && npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "load": "mkdir -p data/candidates data/donations data/endorsements && node loadCandidates",
+    "load": "mkdir -p data/candidates && node loadCandidates",
     "donors": "mkdir -p data/donations && node loadDonors",
     "clean": "rm -f data/candidates/* data/donations/* data/endorsements/*",
     "loadfresh": "rm data/candidates/* && node loadCandidates"
