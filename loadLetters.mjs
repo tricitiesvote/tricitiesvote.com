@@ -23,12 +23,43 @@ function findCandidateViaName(name) {
 
 
 function cleanupRow(row) {  // NOTE: modifies in place!!
-  if (!row.candidate) {
-    const info = findCandidateViaName(row.name);
-    assert(info, `Must have candidate info for "${row.name}".`);
-    row.candidate = info.pdcId;
+  const fa = row.forAgainst.trim().toLowerCase();
+  assert(
+    fa === 'for' || fa === 'against',
+    `Must have valid forAgainst field (has: '${row.forAgainst}').`
+  );
+  
+  const _baseT = row.type.trim().toLowerCase();
+  const _splitT = _baseT.split(' - ');
+  if (_splitT.length > 1) {
+    assert((
+      (_splitT[1] === 'pro recall' && fa === 'against') ||
+      (_splitT[1] === 'antirecall' && fa === 'for')
+    ), `Letter category should match position (${_splitT[0]} vs. ${fa}).`);
   }
-
+  
+  const t = _splitT[0];
+  assert(
+    t === 'endorsement' || t === 'letter',
+    `Must have valid type (has: '${row.type}').`
+  );
+  
+  const info = findCandidateViaName(row.name);
+  assert(info, `Must have candidate NAMES info ("${row.name}" not found).`);
+  if (row.candidate) assert(
+    row.candidate === info.pdcId,
+    `Expected pdcId of ${info.pdcId} (got: '${row.candidate}').`
+  );
+  const candidate = info.pdcId;
+  
+  const endorser = row.endorser.trim();
+  const url = row.url.trim();
+  assert(
+    (url.match(/http/g) || []).length === 1,
+    `URL shouldn't be sus (check <${row.url}>).`
+  );
+  
+  return {candidate, endorser, url, type:t, forAgainst:fa};
 }
 
 
@@ -37,13 +68,12 @@ async function convertTheThings(inputPath, outputFolder) {
   const rows = await csv().fromString(csvContent);
 
   let numFiles = 0;
-  for (const row of rows) {
-    console.log(row);
-
+  for (const [idx, row] of rows.entries()) {
+    const rowNum = idx + 1; // n.b. assumes CSV has one header row!
     try {
       cleanupRow(row);
     } catch (err) {
-      console.warn(err);
+      console.warn('‼️', `Skipping row #${rowNum}:`, err.message);
       continue;
     }
 
@@ -61,4 +91,7 @@ const outputDir = "data/endorsements";
 assert(inputPath, "Must provide path to input CSV as arg!");
 convertTheThings(inputPath, outputDir).then((info) => {
   console.log(`Done! Wrote ${info.numFiles} to ${outputDir}.`);
+}).catch((err) => {
+  console.error("Load failed:", err);
+  process.exit(1);
 });
