@@ -1,6 +1,6 @@
 // CandidatesJson @link(by: "uuid", from: "candidate")
 const EndorsementsJson = `
-type EndorsementsCsv implements Node {
+type EndorsementsJson implements Node {
   candidate:        String
   type:             String
   endorser:         String
