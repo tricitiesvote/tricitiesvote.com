@@ -20,7 +20,7 @@ class SiteIndex extends React.Component {
           <h1>
             <span>🗳</span>
             Tri-Cities Vote:
-            <br /> 2022 Election
+            <br /> 2023 Election
           </h1>
           <h2>
             A nonpartisan community-driven collection
