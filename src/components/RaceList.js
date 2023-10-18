@@ -53,7 +53,7 @@ export default RaceList;
 //   query {
 //     allGuidesJson(
 //       filter: {
-//         electionyear: {eq: "2020"},
+//         electionyear: {eq: "2023"},
 //         type: {eq: "general"}
 //       }
 //     ) {
