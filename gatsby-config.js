@@ -132,6 +132,11 @@ module.exports = {
         manualInit: true,
         modulePath: `${__dirname}/src/cms/cms.js`,
         htmlTitle: 'vote.triciti.es admin',
+        customizeWebpackConfig: (config) => {
+        config.plugins = config.plugins.filter(
+        (plugin) => plugin.constructor.name !== "StaticQueryMapper"
+      );
+    },
       },
     },
     `gatsby-plugin-react-helmet`,
