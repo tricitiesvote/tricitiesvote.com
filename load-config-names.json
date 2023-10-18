@@ -7,7 +7,7 @@
     ]
   },
   {
-    "formattedName": "Aaron Michele Massey",
+    "formattedName": "Aaron Massey",
     "pdcId": "MASSA--336",
     "altNames": [
       "Aaron Michele Massey"
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "formattedName": "James A. Chesley",
+    "formattedName": "James Chesley",
     "pdcId": "CHESJ--083",
     "altNames": [
       "James A.Chesley (James Anthony Chesley)",
@@ -299,6 +299,51 @@
   {
     "formattedName": "Ryan Whitten",
     "pdcId": "WHITR--010",
+    "altNames": []
+  },
+  {
+    "formattedName": "J.R. Campos",
+    "pdcId": "CAMPJ--887",
+    "altNames": []
+  },
+  {
+    "formattedName": "Chuck Torelli",
+    "pdcId": "TOREC 337",
+    "altNames": []
+  },
+  {
+    "formattedName": "Brad Beauchamp",
+    "pdcId": "BEAUB--337",
+    "altNames": []
+  },
+  {
+    "formattedName": "Fred Brink",
+    "pdcId": "BRINF 353",
+    "altNames": []
+  },
+  {
+    "formattedName": "David Fetto",
+    "pdcId": "FETTD 353",
+    "altNames": []
+  },
+  {
+    "formattedName": "Michael Connors",
+    "pdcId": "CONNM--338",
+    "altNames": []
+  },
+  {
+    "formattedName": "Gabriel Lucatero",
+    "pdcId": "LUCAG--733",
+    "altNames": []
+  },
+  {
+    "formattedName": "Scott Keller",
+    "pdcId": "KELLS--520",
+    "altNames": []
+  },
+  {
+    "formattedName": "Vicki Gordon",
+    "pdcId": "GORDV 301",
     "altNames": []
   }
 ]
