@@ -23,7 +23,7 @@ collections:
     create: true
     extension: json
     fields:
-      - { name: electionyear, label: Election year, default: '2020'}
+      - { name: electionyear, label: Election year, default: '2023'}
       - { name: name, label: Name }
       - {
           name: office,
@@ -183,7 +183,7 @@ collections:
     create: true
     extension: json
     fields:
-      - { name: electionyear, label: Election year, default: '2020'}
+      - { name: electionyear, label: Election year, default: '2023'}
       - {
           name: office,
           label: Office title,
@@ -230,7 +230,7 @@ collections:
     create: true
     extension: json
     fields:
-      - { name: electionyear, label: Election year, default: '2020'}
+      - { name: electionyear, label: Election year, default: '2023'}
       - {
           name: region,
           label: "Region",
