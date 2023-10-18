@@ -7,6 +7,7 @@ const slugify = require('slugify');
 const loadPamphletCandidates = require('./loadPamphletCandidates');
 const loadUserCandidates = require('./loadUserCandidates');
 const loadPdcCandidates = require('./loadPdcCandidates');
+const NAMES = require('./load-config-names.json');
 const CONFIG = require('./load-config-election.json');
 
 // get the data
@@ -27,7 +28,13 @@ const main = () => {
       // iterate through guide candidates
       for (const guideC of guideCs) {
         const name = guideC.candidate_ballot_name;
-
+        
+        const configDetails = (
+          // copy-pasta of new loadLetter `findCandidateViaName`…
+          _.find(NAMES, { formattedName: name }) ||
+          _.find(NAMES, { altNames: [ name ]})
+        );
+        
         const candidate = {
           name: guideC.candidate_ballot_name,
           slug: slugify(guideC.candidate_ballot_name, {
@@ -97,6 +104,16 @@ const main = () => {
             candidate.party = '';
             candidate.electionyear = CONFIG.year;
             candidate.office = '';
+          }
+        }
+        
+        // make sure has a UUID even if stuff above hasn't worked out
+        // TODO: this should probably get integrated more holistically?
+        if (!candidate.uuid) {
+          if (configDetails) {
+            candidate.uuid = configDetails.pdcId;
+          } else {
+            console.warn('🧨', `${name} has no UUID, *nor* entry in load-config-names!`);
           }
         }
         candidates.push(candidate);
