@@ -113,7 +113,7 @@ const main = () => {
           if (configDetails) {
             candidate.uuid = configDetails.pdcId;
           } else {
-            console.warn('🧨', `${name} has no UUID, *nor* entry in load-config-names!`);
+            console.warn('🧨', `${name} has no UUID, nor entry in load-config-names!`);
           }
         }
         candidates.push(candidate);
