@@ -20,9 +20,7 @@ fragment CouncilAnswerDetails on CouncilAnswersCsv {
   position
   question_1
   question_2
-  question_2c
   question_3
-  question_3c
   question_4
   question_4c
   question_5
@@ -35,10 +33,6 @@ fragment CouncilAnswerDetails on CouncilAnswersCsv {
   question_8c
   question_9
   question_9c
-  question_10
-  question_10c
-  question_11
-  question_12
 }
 `;
 

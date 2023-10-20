@@ -19,13 +19,8 @@ fragment SchoolAnswerDetails on SchoolAnswersCsv {
   region
   position
   question_1
-  question_10
-  question_11
-  question_12
   question_2
-  question_2c
   question_3
-  question_3c
   question_4
   question_4c
   question_5
@@ -35,7 +30,11 @@ fragment SchoolAnswerDetails on SchoolAnswersCsv {
   question_7
   question_7c
   question_8
+  question_8c
   question_9
+  question_9c
+  question_10
+  question_10c
 }
 `;
 
