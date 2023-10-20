@@ -43,7 +43,23 @@ exports.onCreateNode = ({ node, actions }) => {
       value: _.kebabCase(node.office),
     });
     // console.log('node', node);
-    
+    // match answers by office
+    if (_.includes(node.office, 'School')) {
+      // console.log('school_answers candidates', node.office, node.candidate);
+      createNodeField({
+        node,
+        name: `school_answers`,
+        value: node.candidates,
+      });
+    }
+    if (_.includes(node.office, 'Council')) {
+      // console.log('council_answers', node.office, node.candidates);
+      createNodeField({
+        node,
+        name: `council_answers`,
+        value: node.candidates,
+      });
+    }
   }
 
   // build slug contents for Candidates
@@ -58,6 +74,16 @@ exports.onCreateNode = ({ node, actions }) => {
       name: `endorsements`,
       value: node.uuid,
     });
+    // createNodeField({
+    //   node,
+    //   name: `school_answers`,
+    //   value: node.uuid,
+    // });
+    // createNodeField({
+    //   node,
+    //   name: `council_answers`,
+    //   value: node.uuid,
+    // });
   }
 
   // build slug contents for Offices
@@ -75,6 +101,22 @@ exports.onCreateNode = ({ node, actions }) => {
       node,
       name: `regionslug`,
       value: _.kebabCase(node.region),
+    });
+  }
+
+  if (node.internal.type === 'CouncilAnswersCsv') {
+    createNodeField({
+      node,
+      name: `responder`,
+      value: node.candidate,
+    });
+  }
+
+  if (node.internal.type === 'SchoolAnswersCsv') {
+    createNodeField({
+      node,
+      name: `responder`,
+      value: node.candidate,
     });
   }
 
@@ -200,6 +242,20 @@ exports.onCreateNode = ({ node, actions }) => {
       value: _.kebabCase(_.lowerCase(`${node.uuid}-funding`)),
     });
   }
+  if (node.internal.type === 'CandidatesJson' && node.uuid) {
+    createNodeField({
+      node,
+      name: `school_answers`,
+      value: node.uuid,
+    });
+  }
+  if (node.internal.type === 'CandidatesJson' && node.uuid) {
+    createNodeField({
+      node,
+      name: `council_answers`,
+      value: node.uuid,
+    });
+  }
 };
 
 exports.createSchemaCustomization = helpers => {
@@ -262,11 +318,27 @@ exports.createPages = async ({
   // });
 
   allRaces.forEach(race => {
+    let questionSet = null;
+    let answerSet = null;
+    let deets = null;
+    if (_.includes(race.node.office.title, 'School')) {
+      deets = `${race.node.office.title} (School) ${allSchoolQuestions.length}  questions`;
+      questionSet = allSchoolQuestions;
+      answerSet = race.node.fields.school_answers;
+    }
+    if (_.includes(race.node.office.title, 'Council')) {
+      deets = `${race.node.office.title} (Council) ${allCouncilQuestions.length}  questions`;
+      questionSet = allCouncilQuestions;
+      answerSet = race.node.fields.council_answers;
+    }
     createPage({
       path: `/${race.node.fields.slug}/`,
       component: path.resolve('./src/templates/RacePage.js'),
       context: {
-        slug: race.node.fields.slug
+        slug: race.node.fields.slug,
+        questions: questionSet,
+        answers: answerSet,
+        deets,
       },
     });
   });

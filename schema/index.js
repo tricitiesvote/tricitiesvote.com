@@ -10,21 +10,45 @@ import NoteFields from './NoteFields';
 import NotesJson from './NotesJson';
 import OfficesJson from './OfficesJson';
 import RacesJson from './RacesJson';
+import CouncilAnswersCsv from './CouncilAnswersCsv';
+import CouncilQuestionsCsv from './CouncilQuestionsCsv';
+import SchoolAnswersCsv from './SchoolAnswersCsv';
+import SchoolQuestionsCsv from './SchoolQuestionsCsv';
 import EndorsementsJson from './EndorsementsJson';
 
 const SchemaCustomization = `
 ${CandidateFundraisingJson}
+
 ${CandidateDonorTypesJson}
+
 ${CandidateDonorsJson}
+
 ${CandidatesJson}
+
 ${DonationsJson}
+
 ${DonorsJson}
+
 ${Fields}
+
 ${GuidesJson}
+
 ${NoteFields}
+
 ${NotesJson}
+
 ${OfficesJson}
+
 ${RacesJson}
+
+${CouncilAnswersCsv}
+
+${CouncilQuestionsCsv}
+
+${SchoolAnswersCsv}
+
+${SchoolQuestionsCsv}
+
 ${EndorsementsJson}
 `;
 
