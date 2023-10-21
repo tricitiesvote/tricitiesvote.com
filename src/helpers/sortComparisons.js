@@ -46,7 +46,11 @@ const sortComparisons = (questions, answers) => {
             name: thisCandidate.name,
             img: thisCandidate.image,
             comment: candidateAnswers[cId],
-            pos: thisCandidate.office.title.slice(-5),
+            // WORKAROUND: many candidates have blank "office" field in their JSON…
+            // TODO: remove this once data is filled back in?
+            pos: thisCandidate.office
+              ? thisCandidate.office.title.slice(-5)
+              : '- N/A -',
           };
           if (candidateAnswers[qId] === '1') {
             strongA.push(candidate);

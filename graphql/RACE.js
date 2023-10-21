@@ -2,6 +2,12 @@ const RACE = `
   fragment RaceDetails on RacesJson {
     fields {
       slug
+      school_answers {
+        ...SchoolAnswerDetails
+      }
+      council_answers {
+        ...CouncilAnswerDetails
+      }
     }
     electionyear
     type
