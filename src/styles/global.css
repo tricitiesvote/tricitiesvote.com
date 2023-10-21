@@ -1154,7 +1154,7 @@ th:first-of-type {
   border-style: solid;
   border-radius: 100px;
   object-fit: cover;
-  object-position: 0% 10%;
+  object-position: center 10%;
 }
 
 .pos h5 {
