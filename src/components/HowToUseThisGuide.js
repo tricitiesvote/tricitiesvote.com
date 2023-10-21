@@ -50,10 +50,10 @@ const HowToUseThisGuide = () => {
             Our process is rigorous and some chose not to.
           </p>
           <p>
-            We have done our best to speculate on the positions of candidates
-            who did not answer to the best of our ability based on comments,
-            traditional party positions, publicly available information, and
-            input from engaged citizens.
+            In some cases, we have done our best to speculate on the positions
+            of candidates who did not answer to the best of our ability based on
+            comments, traditional party positions, publicly available
+            information, and input from engaged citizens.
           </p>
         </div>
       </div>
