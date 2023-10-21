@@ -14,11 +14,11 @@ const ContactInline = props => {
       <p>
         This site is a community effort maintained by volunteers. If you see
         something inaccurate or information missing,{' '}
-        <a href="mailto:adamavenir@hey.com">let us know asap</a>.
+        <a href="mailto:guide@tricitiesvote.com">let us know asap</a>.
       </p>
       <p>
         Oh and{' '}
-        <a href="https://github.com/tumbleweird/tricitiesvote.com">
+        <a href="https://github.com/tricitiesvote/tricitiesvote.com">
           the entire site is open source
         </a>
         . Feel free to contribute!
