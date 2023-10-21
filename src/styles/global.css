@@ -566,7 +566,7 @@ del, del a:link, del li {
 .candidate img, .pos img {
   border-radius: 100px;
   object-fit: cover;
-  object-position: 0% 10%;
+  object-position: center 10%;
 }
 
 .candidate img {
@@ -1357,12 +1357,6 @@ span.note {
   background: rgba(83,187,228,.1);
 }
 
-.preview-page .endorsements-summary, 
-.preview-page .details div,
-.preview-page .details p {
-  display: none;
-}
-
 @media screen and (max-width: 500px) {
   .intro br {
     display: none;
@@ -2043,7 +2037,7 @@ td .more, .no-response .more {
       -o-object-fit: cover;
       object-fit: cover;
       -o-object-position: 0% 10%;
-      object-position: 0% 10%;
+      object-position: center 10%;
   }
   .candidate {
     padding: 5px;

@@ -10,7 +10,10 @@
 .preview-page .donor-summary, 
 .preview-page .donor-summary+p, 
 .preview-page .container-candidate+h1,
-.preview-page .candidate-body+p {
+.preview-page .candidate-body+p, 
+.preview-page .endorsements-summary, 
+.preview-page .details div,
+.preview-page .details p {
   display: none;
 }
 
@@ -33,7 +36,7 @@
 
 .preview-page .candidate {
   grid-template-columns: 1fr;
-  padding: 0 50px;
+  padding: 0 30px;
 }
 
 .preview-page .candidate:first-child:after {
