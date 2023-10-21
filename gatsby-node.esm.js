@@ -353,25 +353,29 @@ exports.createPages = async ({
     });
   });
 
-  allGuides.forEach(guide => {
-    createPage({
-      path: `${guide.node.fields.slug}/council`,
-      component: path.resolve('./src/templates/CompareCityCouncilPage.js'),
-      context: {
-        slug: guide.node.fields.slug,
-      },
-    });
-  });
+  // TODO: make this work by adding questions and answers here
+  // or runnning queries for the page like in compare-all-council
+  // allGuides.forEach(guide => {
+  //   createPage({
+  //     path: `${guide.node.fields.slug}/council`,
+  //     component: path.resolve('./src/templates/CompareCityCouncilPage.js'),
+  //     context: {
+  //       slug: guide.node.fields.slug,
+  //     },
+  //   });
+  // });
 
-  allGuides.forEach(guide => {
-    createPage({
-      path: `${guide.node.fields.slug}/schools`,
-      component: path.resolve('./src/templates/CompareSchoolBoardPage.js'),
-      context: {
-        slug: guide.node.fields.slug,
-      },
-    });
-  });
+  // TODO: make this work by adding questions and answers here
+  // or runnning queries for the page like in compare-all-council
+  // allGuides.forEach(guide => {
+  //   createPage({
+  //     path: `${guide.node.fields.slug}/schools`,
+  //     component: path.resolve('./src/templates/CompareSchoolBoardPage.js'),
+  //     context: {
+  //       slug: guide.node.fields.slug,
+  //     },
+  //   });
+  // });
 
   // TODO saved for more elegant use of single compare page
   // TOOD the following could be compressed into one statement by getting the office from the slug
