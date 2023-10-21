@@ -24,6 +24,7 @@
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
     "prettier": "^1.19.1",
+    "puppeteer": "^21.4.0",
     "short-uuid": "^4.2.0",
     "soda-js": "^0.2.3",
     "turndown": "^6.0.0"
