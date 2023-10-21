@@ -5,7 +5,7 @@ import DefaultLayout from '../layouts/DefaultLayout';
 // import Guide from '../components/Guide';
 import RaceListMini from '../components/RaceListMini';
 import ContactInline from '../components/ContactInline';
-// import HowToUseThisGuide from '../components/HowToUseThisGuide'
+import HowToUseThisGuide from '../components/HowToUseThisGuide';
 
 // collect Candidates in Races, collect Races in Guides
 
@@ -27,6 +27,7 @@ class SiteIndex extends React.Component {
             <br /> of information to help you decide.
           </h2>
         </div>
+        <HowToUseThisGuide />
         {/* <div className="intro">
           <h2>
             <Link to="/compare-legislators">
