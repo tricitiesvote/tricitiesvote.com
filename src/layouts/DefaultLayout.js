@@ -34,7 +34,7 @@ export default props => {
         ) : (
           <meta
             property="og:image"
-            content="https://tricitiesvote.com/images/tcv-general-2023.png"
+            content="https://tricitiesvote.com/images/tcv-general.png"
           />
         )}
         <title>
