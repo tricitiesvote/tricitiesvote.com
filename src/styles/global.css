@@ -837,7 +837,7 @@ tbody .pos img, .close {
   cursor: pointer;
 }
 
-.pos-1 img, .wa8-rep1 img, .franklin-1 img {
+.pos-1 img, .pos-7 img, .wa8-rep1 img, .franklin-1 img {
   border-color: #89db8b;
   background-color: #89db8b;
 }
@@ -867,7 +867,7 @@ tbody .pos img, .close {
   background-color: #ef9b9b;
 }
 
-.pos-1 .more, .wa8-rep1 .more, .franklin-1 .more {
+.pos-1 .more, .pos-7 .more, .wa8-rep1 .more, .franklin-1 .more {
   background-color: #89db8b;
 }
 
@@ -892,7 +892,7 @@ tbody .pos img, .close {
   background-color: #ef9b9b;
 } 
 
-.pos-1.color-key, .wa8-rep1.color-key, .franklin-1.color-key {
+.pos-1.color-key, .pos-7.color-key, .wa8-rep1.color-key, .franklin-1.color-key {
   border: 3px solid #89db8b;
 }
 
@@ -935,6 +935,12 @@ tbody .pos img, .close {
   padding-bottom: 10px;
   margin: 10px;
   border-bottom: 1px solid #02BEE8;
+}
+
+td button {
+  border: 0px none;
+  outline: 0px none;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 730px) {
