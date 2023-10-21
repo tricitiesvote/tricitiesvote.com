@@ -3,10 +3,12 @@ import { graphql, Link } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import Race from '../components/Race';
 import ContactInline from '../components/ContactInline';
+import CompareTable from '../components/compare/CompareTable';
 // import _ from 'lodash';
 
-const RacePage = ({ data }) => {
+const RacePage = ({ data, pageContext }) => {
   // console.log('RacePage pageContext', pageContext);
+  const { questions, answers } = pageContext;
   const { allRacesJson } = data;
   const race = allRacesJson.edges[0].node;
   // const race = data.allRacesJson.edges[0].node;
@@ -37,6 +39,7 @@ const RacePage = ({ data }) => {
             <h1>{race.office.title}</h1>
           </Link>
           <Race data={race} />
+          <CompareTable questions={questions} answers={answers} />
         </section>
       </div>
       <ContactInline page={`https://tricitiesvote.com/${race.fields.slug}`} />
