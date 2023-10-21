@@ -1357,6 +1357,12 @@ span.note {
   background: rgba(83,187,228,.1);
 }
 
+.preview-page .endorsements-summary, 
+.preview-page .details div,
+.preview-page .details p {
+  display: none;
+}
+
 @media screen and (max-width: 500px) {
   .intro br {
     display: none;
