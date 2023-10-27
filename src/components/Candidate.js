@@ -10,6 +10,7 @@ import CandidateDonorSummary from './CandidateDonorSummary';
 import CandidateDonorSummaryMini from './CandidateDonorSummaryMini';
 import CandidateAnswersCouncil from './CandidateAnswersCouncil';
 import CandidateAnswersSchool from './CandidateAnswersSchool';
+import CandidateAnswersPort from './CandidateAnswersPort';
 import CANDIDATE from '../../graphql/CANDIDATE';
 
 const Candidate = props => {
@@ -43,6 +44,7 @@ const Candidate = props => {
     statement_excerpt_html,
     articles_html,
     fundraising,
+    port_answers,
     school_answers,
     council_answers,
   } = fields;
@@ -50,6 +52,7 @@ const Candidate = props => {
   // console.log('fields', fields);
   // console.log('council_answers', council_answers);
   // console.log('school_answers', school_answers);
+  // console.log('port_answers', port_answers);
 
   const url = `/${slug}`;
 
@@ -111,6 +114,11 @@ const Candidate = props => {
           <div className="candidate-content">
             <CandidateBody body={body_html} />
             <pre>{JSON.stringify(council_answers, null, 2)}</pre>
+            {port_answers ? (
+              <CandidateAnswersPort answers={port_answers} />
+            ) : (
+              ''
+            )}
             {school_answers ? (
               <CandidateAnswersSchool answers={school_answers} />
             ) : (

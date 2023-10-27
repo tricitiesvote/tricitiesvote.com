@@ -2,6 +2,9 @@ const RACE = `
   fragment RaceDetails on RacesJson {
     fields {
       slug
+      port_answers {
+        ...PortAnswerDetails
+      }
       school_answers {
         ...SchoolAnswerDetails
       }
