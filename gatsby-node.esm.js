@@ -1,4 +1,5 @@
 import path from 'path';
+import assert from 'assert';
 // import { buildCandidateFields, buildMarkdown, buildSlugs } from './node';
 
 import SchemaCustomization from './schema';
@@ -298,6 +299,9 @@ exports.createPages = async ({
   });
 
   allCandidates.forEach(candidate => {
+    // comment out if necessary, but can cause random mayhem w/Q&A rendering
+    assert(candidate.node.office, `${candidate.node.name} office could not be linked.`);
+    
     createPage({
       path: `/${candidate.node.fields.slug}/preview`,
       component: path.resolve('./src/templates/CandidatePagePreview.js'),
