@@ -3,7 +3,7 @@ import assert from 'assert';
 // import { buildCandidateFields, buildMarkdown, buildSlugs } from './node';
 
 import SchemaCustomization from './schema';
-import GraphQLSchema from './graphql';
+import GraphQLMainQuery from './graphql';
 
 // import _ from 'lodash';
 // import remark from 'remark';
@@ -83,21 +83,21 @@ exports.onCreateNode = ({ node, actions }) => {
       name: `endorsements`,
       value: node.uuid,
     });
-    // createNodeField({
-    //   node,
-    //   name: `port_answers`,
-    //   value: node.uuid,
-    // });
-    // createNodeField({
-    //   node,
-    //   name: `school_answers`,
-    //   value: node.uuid,
-    // });
-    // createNodeField({
-    //   node,
-    //   name: `council_answers`,
-    //   value: node.uuid,
-    // });
+    createNodeField({
+      node,
+      name: `port_answers`,
+      value: node.uuid,
+    });
+    createNodeField({
+      node,
+      name: `school_answers`,
+      value: node.uuid,
+    });
+    createNodeField({
+      node,
+      name: `council_answers`,
+      value: node.uuid,
+    });
   }
 
   // build slug contents for Offices
@@ -302,7 +302,7 @@ exports.createPages = async ({
   graphql,
   reporter,
 }) => {
-  const results = await graphql(GraphQLSchema);
+  const results = await graphql(GraphQLMainQuery);
 
   if (results.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);

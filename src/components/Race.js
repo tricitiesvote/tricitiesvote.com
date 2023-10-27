@@ -45,7 +45,7 @@ const Race = ({ data }) => {
 export default Race;
 
 export const pageQuery = graphql`
-  fragment RaceDetails on RacesJson {
+  fragment RaceDetails_copy on RacesJson {
     fields {
       slug
       port_answers {
