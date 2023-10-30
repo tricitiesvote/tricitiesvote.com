@@ -34,7 +34,12 @@ export const pageQuery = graphql`
     allCandidatesJson(filter: { fields: { slug: { eq: $slug } } }) {
       edges {
         node {
-          ...CandidateDetails
+          ...CandidateDetails,
+          fields {
+            council_answers {
+              question_1
+            }
+          }
         }
       }
     }

@@ -22,7 +22,7 @@ import SCHOOL_ANSWER from './SCHOOL_ANSWER';
 import PORT_ANSWERS from './PORT_ANSWERS';
 import PORT_ANSWER from './PORT_ANSWER';
 
-const GraphQLSchema = `
+export const SharedFragments = `
   ${OFFICE}
   ${CANDIDATE}
   ${RACE}
@@ -33,6 +33,10 @@ const GraphQLSchema = `
   ${COUNCIL_ANSWER}
   ${SCHOOL_ANSWER}
   ${PORT_ANSWER}
+`;
+
+const GraphQLMainQuery = `
+  ${SharedFragments}
   {
     ${ENDORSEMENTS}
     ${OFFICES}
@@ -49,4 +53,4 @@ const GraphQLSchema = `
   }
 `;
 
-export default GraphQLSchema;
+export default GraphQLMainQuery;

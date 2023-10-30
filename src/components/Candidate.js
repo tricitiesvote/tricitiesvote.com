@@ -14,7 +14,7 @@ import CandidateAnswersPort from './CandidateAnswersPort';
 import CANDIDATE from '../../graphql/CANDIDATE';
 
 const Candidate = props => {
-  // console.log(props);
+  //console.log(props);
   // TODO: re-add { donors } and var donorsHtml
   const { fullsize, data, children } = props;
   const {
@@ -113,7 +113,7 @@ const Candidate = props => {
         {fullsize ? (
           <div className="candidate-content">
             <CandidateBody body={body_html} />
-            <pre>{JSON.stringify(council_answers, null, 2)}</pre>
+            <code>{JSON.stringify([port_answers, school_answers, council_answers], null, 2)}</code>
             {port_answers ? (
               <CandidateAnswersPort answers={port_answers} />
             ) : (
