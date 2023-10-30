@@ -45,6 +45,14 @@ exports.onCreateNode = ({ node, actions }) => {
     });
     // console.log('node', node);
     // match answers by office
+    if (_.includes(node.office, 'Port')) {
+      // console.log('port_answers candidates', node.office, node.candidate);
+      createNodeField({
+        node,
+        name: `port_answers`,
+        value: node.candidates,
+      });
+    }
     if (_.includes(node.office, 'School')) {
       // console.log('school_answers candidates', node.office, node.candidate);
       createNodeField({
@@ -75,6 +83,11 @@ exports.onCreateNode = ({ node, actions }) => {
       name: `endorsements`,
       value: node.uuid,
     });
+    // createNodeField({
+    //   node,
+    //   name: `port_answers`,
+    //   value: node.uuid,
+    // });
     // createNodeField({
     //   node,
     //   name: `school_answers`,
@@ -114,6 +127,14 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 
   if (node.internal.type === 'SchoolAnswersCsv') {
+    createNodeField({
+      node,
+      name: `responder`,
+      value: node.candidate,
+    });
+  }
+  
+  if (node.internal.type === 'PortAnswersCsv') {
     createNodeField({
       node,
       name: `responder`,
@@ -246,6 +267,13 @@ exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === 'CandidatesJson' && node.uuid) {
     createNodeField({
       node,
+      name: `port_answers`,
+      value: node.uuid,
+    });
+  }
+  if (node.internal.type === 'CandidatesJson' && node.uuid) {
+    createNodeField({
+      node,
       name: `school_answers`,
       value: node.uuid,
     });
@@ -286,6 +314,7 @@ exports.createPages = async ({
   const allRaces = results.data.races.edges;
   const allCouncilQuestions = results.data.councilQuestions.edges;
   const allSchoolQuestions = results.data.schoolQuestions.edges;
+  const allPortQuestions = results.data.portQuestions.edges;
   // const allNotes = results.data.notes.edges;
 
   allCandidates.forEach(candidate => {
@@ -334,6 +363,11 @@ exports.createPages = async ({
       deets = `${race.node.office.title} (Council) ${allCouncilQuestions.length}  questions`;
       questionSet = allCouncilQuestions;
       answerSet = race.node.fields.council_answers;
+    }
+    if (_.includes(race.node.office.title, 'Port')) {
+      deets = `${race.node.office.title} (Port) ${allPortQuestions.length}  questions`;
+      questionSet = allPortQuestions;
+      answerSet = race.node.fields.port_answers;
     }
     createPage({
       path: `/${race.node.fields.slug}/`,

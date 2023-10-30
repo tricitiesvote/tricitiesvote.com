@@ -14,6 +14,8 @@ import CouncilAnswersCsv from './CouncilAnswersCsv';
 import CouncilQuestionsCsv from './CouncilQuestionsCsv';
 import SchoolAnswersCsv from './SchoolAnswersCsv';
 import SchoolQuestionsCsv from './SchoolQuestionsCsv';
+import PortAnswersCsv from './PortAnswersCsv';
+import PortQuestionsCsv from './PortQuestionsCsv';
 import EndorsementsJson from './EndorsementsJson';
 
 const SchemaCustomization = `
@@ -48,6 +50,10 @@ ${CouncilQuestionsCsv}
 ${SchoolAnswersCsv}
 
 ${SchoolQuestionsCsv}
+
+${PortAnswersCsv}
+
+${PortQuestionsCsv}
 
 ${EndorsementsJson}
 `;

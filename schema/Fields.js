@@ -19,6 +19,7 @@ type Fields {
   articles_html_nowrap:    String
   body_html_nowrap:        String
   fundraising:             CandidateFundraisingJson @link(by: "id", from: "fundraising")
+  port_answers:            [PortAnswersCsv] @link(by: "candidate", from: "port_answers")
   school_answers:          [SchoolAnswersCsv] @link(by: "candidate", from: "school_answers")
   council_answers:         [CouncilAnswersCsv] @link(by: "candidate", from: "council_answers")
   responder:               CandidatesJson @link(by: "uuid", from: "responder")

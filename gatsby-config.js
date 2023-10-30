@@ -55,6 +55,12 @@ module.exports = {
     {
       resolve: `gatsby-transformer-csv`,
       options: {
+        path: `${__dirname}/data/questionnaires/port-questions.csv`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-csv`,
+      options: {
         path: `${__dirname}/data/questionnaires/school-questions.csv`,
       },
     },
@@ -62,6 +68,12 @@ module.exports = {
       resolve: `gatsby-transformer-csv`,
       options: {
         path: `${__dirname}/data/questionnaires/council-questions.csv`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-csv`,
+      options: {
+        path: `${__dirname}/data/questionnaires/port-answers.csv`,
       },
     },
     {
