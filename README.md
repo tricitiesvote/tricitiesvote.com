@@ -128,7 +128,7 @@ Anyway.
 
 Names in state data are based on whatever candidates enter without any consistency or normalization, so... we do that by creating a config file that maps variants of their name that can be found in the original data sets to a normalized version.
 
-You'll see a list of all names after you run `npm run loadCandidates`
+You'll see a list of all names after you run `npm run load`
 
 The formatting approach we take is, unsurprisingly, to use "Firstname Lastname" with, uh, normal capitalization.
 
