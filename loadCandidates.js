@@ -126,7 +126,8 @@ const main = () => {
       for (const item of candidates) {
         if (!item.slug) {
           // likely means that formattedName still blank in load-config-names…
-          console.warn('🚩', "Empty slug (/name) for candidate:", item);
+          // console.warn('🚩', "Empty slug (/name) for candidate:", item);
+          console.warn('🚩', "Empty slug (/name) for candidate:", item.pamphlet_url);
         }
         
         const candidateData = JSON.stringify(item, null, 2);
