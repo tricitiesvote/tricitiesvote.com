@@ -8,6 +8,8 @@ import Candidate from './Candidate';
 // -- graphql/FUNDRAISING
 // -- graphql/CANDIDATE_DONOR (deleted donor {} )
 // -- graphql/DONATION
+// NOTE: must be renamed to avoid messing with the originals globally!
+// (presumedly to workaround no string interpolation in graphql error? ^nvw)
 const CandidateCollection = () => {
   return (
     <StaticQuery
@@ -16,13 +18,13 @@ const CandidateCollection = () => {
           allCandidatesJson {
             edges {
               node {
-                ...CandidateDetails
+                ...CandidateDetails_copy
               }
             }
           }
         }
 
-        fragment OfficeDetails on OfficesJson {
+        fragment OfficeDetails_copy on OfficesJson {
           title
           job
           position
@@ -30,7 +32,7 @@ const CandidateCollection = () => {
           uuid
         }
 
-        fragment CandidateDonorDetails on CandidateDonorsJson {
+        fragment CandidateDonorDetails_copy on CandidateDonorsJson {
           id
           candidate {
             name
@@ -42,25 +44,25 @@ const CandidateCollection = () => {
           total_cash
           total_in_kind
           donations {
-            ...DonationDetails
+            ...DonationDetails_copy
           }
         }
 
-        fragment CandidateFundraisingDetails on CandidateFundraisingJson {
+        fragment CandidateFundraisingDetails_copy on CandidateFundraisingJson {
           id
           unique_donors
           total_raised
           total_cash
           total_in_kind
           donors {
-            ...CandidateDonorDetails
+            ...CandidateDonorDetails_copy
           }
           donations {
-            ...DonationDetails
+            ...DonationDetails_copy
           }
         }
 
-        fragment DonationDetails on DonationsJson {
+        fragment DonationDetails_copy on DonationsJson {
           id
           candidate {
             name
@@ -81,7 +83,7 @@ const CandidateCollection = () => {
           amount
         }
 
-        fragment CandidateDetails on CandidatesJson {
+        fragment CandidateDetails_copy on CandidatesJson {
           fields {
             slug
             body_html
@@ -100,13 +102,13 @@ const CandidateCollection = () => {
             articles_html_nowrap
             body_html_nowrap
             fundraising {
-              ...CandidateFundraisingDetails
+              ...CandidateFundraisingDetails_copy
             }
           }
           name
           electionyear
           office {
-            ...OfficeDetails
+            ...OfficeDetails_copy
           }
           party
           incumbent
