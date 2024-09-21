@@ -6,6 +6,7 @@ import DefaultLayout from '../layouts/DefaultLayout';
 import RaceListMini from '../components/RaceListMini';
 import ContactInline from '../components/ContactInline';
 import HowToUseThisGuide from '../components/HowToUseThisGuide';
+import config from '../../load-config-election.json';
 
 // collect Candidates in Races, collect Races in Guides
 
@@ -20,7 +21,7 @@ class SiteIndex extends React.Component {
           <h1>
             <span>🗳</span>
             Tri-Cities Vote:
-            <br /> 2023 Election
+            <br /> {config.year} Election
           </h1>
           <h2>
             A nonpartisan community-driven collection
@@ -52,7 +53,7 @@ export default SiteIndex;
 export const pageQuery = graphql`
   query {
     races: allRacesJson(
-      filter: { electionyear: { eq: "2023" }, type: { eq: "general" } }
+      filter: { electionYear: { eq: config.year }, type: { eq: "general" } }
       sort: { fields: office___title, order: ASC }
     ) {
       edges {

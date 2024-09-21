@@ -4,6 +4,7 @@ import DefaultLayout from '../layouts/DefaultLayout';
 import Race from '../components/Race';
 import ContactInline from '../components/ContactInline';
 import CompareTable from '../components/compare/CompareTable';
+import config from '../../load-config-election.json';
 // import _ from 'lodash';
 
 const RacePage = ({ data, pageContext }) => {
@@ -63,7 +64,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     allRacesJson(
       filter: {
-        electionyear: { eq: "2023" }
+        electionYear: { eq: ${config.year} }
         type: { eq: "general" }
         fields: { slug: { eq: $slug } }
       }

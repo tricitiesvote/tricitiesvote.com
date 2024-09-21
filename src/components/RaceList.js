@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Race from './Race';
+// import config from '../../load-config-election.json';
 
 const RaceList = props => {
   const { data } = props;
@@ -53,7 +54,7 @@ export default RaceList;
 //   query {
 //     allGuidesJson(
 //       filter: {
-//         electionyear: {eq: "2023"},
+//         electionYear: { eq: ${config.year} },
 //         type: {eq: "general"}
 //       }
 //     ) {
