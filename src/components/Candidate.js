@@ -51,6 +51,13 @@ const Candidate = props => {
   // console.log('council_answers', council_answers);
   // console.log('school_answers', school_answers);
 
+  if (!council_answers) {
+    console.warn(`Candidate ${name} is missing council_answers data.`);
+  }
+  if (!school_answers) {
+    console.warn(`Candidate ${name} is missing school_answers data.`);
+  }
+
   const url = `/${slug}`;
 
   return (
@@ -110,13 +117,13 @@ const Candidate = props => {
         {fullsize ? (
           <div className="candidate-content">
             <CandidateBody body={body_html} />
-            <pre>{JSON.stringify(council_answers, null, 2)}</pre>
-            {school_answers ? (
+            {/* <pre>{JSON.stringify(council_answers, null, 2)}</pre> */}
+            {school_answers && school_answers.length > 0 ? (
               <CandidateAnswersSchool answers={school_answers} />
             ) : (
               ''
             )}
-            {council_answers ? (
+            {council_answers && council_answers.length > 0 ? (
               <CandidateAnswersCouncil answers={council_answers} />
             ) : (
               ''

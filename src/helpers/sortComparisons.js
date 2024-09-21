@@ -1,6 +1,10 @@
 // import _ from 'lodash';
 
 const sortComparisons = (questions, answers) => {
+  if (!questions || !answers) {
+    console.warn('sortComparisons: Missing questions or answers data.');
+    return [];
+  }
   // console.log('questions', questions);
   const abQSet = []; // a/b questions
   // TODO: add TF / open-ended questions/answers

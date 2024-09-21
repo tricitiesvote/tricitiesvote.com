@@ -2,43 +2,69 @@ const CANDIDATE = `
   fragment CandidateDetails on CandidatesJson {
     fields {
       slug
-      body_html
       bio_html
-      lettersyes_html
-      lettersno_html
-      articles_html
-      engagement_html
-      statement_html
-      statement_excerpt_html
+      body_html
       body_excerpt_html
-      bio_excerpt_html
-      lettersyes_html_nowrap
-      lettersno_html_nowrap
-      bio_html_nowrap
-      articles_html_nowrap
-      body_html_nowrap
-      school_answers {
-        ...SchoolAnswerDetails
-      }
-      council_answers {
-        ...CouncilAnswerDetails
-      }
+      statement_html
+      engagement_html
+      statement_excerpt_html
+      articles_html
       fundraising {
         ...CandidateFundraisingDetails
+      }
+      school_answers {
+        candidate
+        region
+        position
+        question_1
+        question_8
+        question_9
+        question_10
+        question_11
+        question_12
+      }
+      council_answers {
+        candidate
+        region
+        position
+        question_1
+        question_2
+        question_3
+        question_4
+        question_4c
+        question_5
+        question_5c
+        question_6
+        question_6c
+        question_7
+        question_7c
+        question_8
+        question_8c
+        question_9
+        question_9c
+        question_10
+        question_10c
+        question_11
+        question_12
+      }
+      responder {
+        name
+        image
+        uuid
+        fields {
+          slug
+        }
+        office {
+          title
+          position
+          region
+        }
       }
     }
     name
     electionyear
     office {
       ...OfficeDetails
-    }
-    endorsements {
-      id
-      candidate
-      type
-      url
-      endorser
-      forAgainst
     }
     party
     incumbent
@@ -56,6 +82,14 @@ const CANDIDATE = `
     bio
     lettersyes
     lettersno
+    endorsements {
+      id
+      candidate
+      type
+      url
+      endorser
+      forAgainst
+    }
     articles
     engagement
     uuid

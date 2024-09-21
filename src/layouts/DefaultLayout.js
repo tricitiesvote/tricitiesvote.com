@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Nav from '../components/Nav';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 // import '../styl/main.styl';
 
@@ -50,7 +51,7 @@ export default props => {
       <main>
         <Nav />
         {/* <Link to="/">Home</Link> */}
-        {children}
+        <ErrorBoundary>{children}</ErrorBoundary>
       </main>
     </>
   );

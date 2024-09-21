@@ -13,6 +13,12 @@ const RacePage = ({ data, pageContext }) => {
   const race = allRacesJson.edges[0].node;
   // const race = data.allRacesJson.edges[0].node;
 
+  // Check if council_answers and school_answers exist and have data
+  const hasCouncilAnswers =
+    race.fields.council_answers && race.fields.council_answers.length > 0;
+  const hasSchoolAnswers =
+    race.fields.school_answers && race.fields.school_answers.length > 0;
+
   // console.log('racePage data', data);
 
   // const answers = races.fields.school_answers;
@@ -39,7 +45,11 @@ const RacePage = ({ data, pageContext }) => {
             <h1>{race.office.title}</h1>
           </Link>
           <Race data={race} />
-          <CompareTable questions={questions} answers={answers} />
+          {(hasCouncilAnswers || hasSchoolAnswers) && questions && answers ? (
+            <CompareTable questions={questions} answers={answers} />
+          ) : (
+            ''
+          )}
         </section>
       </div>
       <ContactInline page={`https://tricitiesvote.com/${race.fields.slug}`} />

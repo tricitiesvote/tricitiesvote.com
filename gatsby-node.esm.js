@@ -104,15 +104,8 @@ exports.onCreateNode = ({ node, actions }) => {
     });
   }
 
-  if (node.internal.type === 'CouncilAnswersCsv') {
-    createNodeField({
-      node,
-      name: `responder`,
-      value: node.candidate,
-    });
-  }
-
-  if (node.internal.type === 'SchoolAnswersCsv') {
+  // Handle CouncilAnswersCsv and SchoolAnswersCsv
+  if (node.internal.type === 'CouncilAnswersCsv' || node.internal.type === 'SchoolAnswersCsv') {
     createNodeField({
       node,
       name: `responder`,
@@ -264,7 +257,7 @@ exports.createSchemaCustomization = helpers => {
   try {
     createTypes(SchemaCustomization);
   } catch (error) {
-    // console.log(error);
+    console.error('Schema Customization Error:', error);
   }
 };
 
@@ -280,11 +273,11 @@ exports.createPages = async ({
     console.log(results.errors);
   }
 
-  const allCandidates = results.data.candidates.edges;
-  const allGuides = results.data.guides.edges;
-  const allRaces = results.data.races.edges;
-  const allCouncilQuestions = results.data.councilQuestions.edges;
-  const allSchoolQuestions = results.data.schoolQuestions.edges;
+  const allCandidates = (results.data.candidates && results.data.candidates.edges) || [];
+  const allGuides = (results.data.guides && results.data.guides.edges) || [];
+  const allRaces = (results.data.races && results.data.races.edges) || [];
+  const allCouncilQuestions = (results.data.councilQuestions && results.data.councilQuestions.edges) || [];
+  const allSchoolQuestions = (results.data.schoolQuestions && results.data.schoolQuestions.edges) || [];
   // const allNotes = results.data.notes.edges;
 
   allCandidates.forEach(candidate => {
@@ -324,12 +317,12 @@ exports.createPages = async ({
     if (_.includes(race.node.office.title, 'School')) {
       deets = `${race.node.office.title} (School) ${allSchoolQuestions.length}  questions`;
       questionSet = allSchoolQuestions;
-      answerSet = race.node.fields.school_answers;
+      answerSet = race.node.fields.school_answers || [];
     }
     if (_.includes(race.node.office.title, 'Council')) {
       deets = `${race.node.office.title} (Council) ${allCouncilQuestions.length}  questions`;
       questionSet = allCouncilQuestions;
-      answerSet = race.node.fields.council_answers;
+      answerSet = race.node.fields.council_answers || [];
     }
     createPage({
       path: `/${race.node.fields.slug}/`,

@@ -4,13 +4,21 @@ import CompareRowAB from './CompareRowAB';
 import sortComparisons from '../../helpers/sortComparisons';
 
 const CompareTable = ({ questions, answers }) => {
+  if (!questions || !answers) {
+    console.warn('CompareTable: Missing questions or answers data.');
+    return null; // TODO: Optionally, render a placeholder message
+  }
   const rowDataWithDuplicates = sortComparisons(questions, answers);
   const rowData = _.uniqBy(rowDataWithDuplicates, 'question');
   // console.log('rowData', rowData);
 
+  if (rowData.length === 0) {
+    return '';
+  }
+
   return (
     <>
-      {answers && answers.length > 1 ? (
+      {answers && answers.length > 0 ? (
         <table>
           <thead>
             <tr className="key">
@@ -25,6 +33,7 @@ const CompareTable = ({ questions, answers }) => {
           <tbody>
             {rowData.map(row => (
               <CompareRowAB
+                key={row.question}
                 statementA={row.statementA}
                 statementB={row.statementB}
                 response={row.response}

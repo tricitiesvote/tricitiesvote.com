@@ -1,0 +1,7 @@
+{
+  "exclude": ["node_modules", "public", "data", "assets", ".vscode", ".nova", ".cache"],
+  "outputFile": false,
+  "usePastebin": true,
+  "fileExtensions": [".py", ".js", ".ts", ".tsx"],
+  "chunkSize": 90000
+}

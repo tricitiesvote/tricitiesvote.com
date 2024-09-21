@@ -1,6 +1,12 @@
 import React from 'react';
+import generateAnswersPropTypes from '../helpers/generatePropTypes';
 
 const CandidateAnswersSchool = ({ answers }) => {
+  if (!answers) {
+    console.warn('CandidateAnswersCouncil: Missing answers data.');
+    return null;
+  }
+
   const {
     question_1,
     question_8,
@@ -9,58 +15,44 @@ const CandidateAnswersSchool = ({ answers }) => {
     question_11,
     question_12,
   } = answers;
-  return (
-    <div className="answers">
-      {question_1 ? (
-        <div className="q-and-a">
-          <h5>Question 1</h5>
-          <p>{question_1}</p>
-        </div>
-      ) : (
-        ''
-      )}
-      {question_1 ? (
-        <div className="q-and-a">
-          <h5>Question 8</h5>
-          <p>{question_8}</p>
-        </div>
-      ) : (
-        ''
-      )}
-      {question_1 ? (
-        <div className="q-and-a">
-          <h5>Question 9</h5>
-          <p>{question_9}</p>
-        </div>
-      ) : (
-        ''
-      )}
-      {question_1 ? (
-        <div className="q-and-a">
-          <h5>Question 10</h5>
-          <p>{question_10}</p>
-        </div>
-      ) : (
-        ''
-      )}
-      {question_11 ? (
-        <div className="q-and-a">
-          <h5>Question 11</h5>
-          <p>{question_11}</p>
-        </div>
-      ) : (
-        ''
-      )}
-      {question_12 ? (
-        <div className="q-and-a">
-          <h5>Question 12</h5>
-          <p>{question_12}</p>
-        </div>
-      ) : (
-        ''
-      )}
-    </div>
-  );
+
+  if (
+    question_1 ||
+    question_8 ||
+    question_9 ||
+    question_10 ||
+    question_11 ||
+    question_12
+  ) {
+    return (
+      <div className="answers">
+        {answers.map((answer, index) => (
+          <div className="q-and-a">
+            <h5>Question {index + 1}</h5>
+            <p>{answer[`question_${index + 1}`]}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return null;
+};
+
+const schoolQuestionKeys = [
+  'question_1',
+  'question_8',
+  'question_9',
+  'question_10',
+  'question_11',
+  'question_12',
+];
+
+CandidateAnswersSchool.propTypes = {
+  answers: generateAnswersPropTypes(schoolQuestionKeys),
+};
+
+CandidateAnswersSchool.defaultProps = {
+  answers: [], // Defaults to an empty array if not provided
 };
 
 export default CandidateAnswersSchool;
