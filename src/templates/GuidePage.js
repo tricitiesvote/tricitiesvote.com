@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import DefaultLayout from '../layouts/DefaultLayout';
 import RaceList from '../components/RaceList';
 import ContactInline from '../components/ContactInline';
-import config from '../../load-config-election.json';
 // import _ from 'lodash';
 
 const GuidePage = ({ data }) => {
@@ -29,7 +28,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     allGuidesJson(
       filter: {
-        electionYear: { eq: ${config.year} },
+        electionYear: { eq: site.siteMetadata.electionYear },
         type: { eq: "general" }
         fields: { slug: { eq: $slug } }
       }

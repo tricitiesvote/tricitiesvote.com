@@ -4,7 +4,6 @@ import DefaultLayout from '../layouts/DefaultLayout';
 import Race from '../components/Race';
 import ContactInline from '../components/ContactInline';
 import CompareTable from '../components/compare/CompareTable';
-import config from '../../load-config-election.json';
 // import _ from 'lodash';
 
 const RacePage = ({ data, pageContext }) => {
@@ -64,7 +63,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     allRacesJson(
       filter: {
-        electionYear: { eq: ${config.year} }
+        electionYear: { eq: site.siteMetadata.electionYear }
         type: { eq: "general" }
         fields: { slug: { eq: $slug } }
       }

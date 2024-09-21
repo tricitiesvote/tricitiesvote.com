@@ -53,7 +53,7 @@ export default SiteIndex;
 export const pageQuery = graphql`
   query {
     races: allRacesJson(
-      filter: { electionYear: { eq: config.year }, type: { eq: "general" } }
+      filter: { electionYear: { eq: site.siteMetadata.electionYear }, type: { eq: "general" } }
       sort: { fields: office___title, order: ASC }
     ) {
       edges {

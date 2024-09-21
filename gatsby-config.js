@@ -1,4 +1,5 @@
 const { typeNameFromDir } = require('gatsby-transformer-csv');
+const config = require('./load-config-election.json');
 
 module.exports = {
   siteMetadata: {
@@ -6,6 +7,7 @@ module.exports = {
     author: `Tumbleweird, SPC`,
     description: `An impartial set of info and links to help people stay informed about the upcoming election`,
     siteUrl: `https://tricitiesvote.com`,
+    electionYear: config.year,
   },
   plugins: [
     {
