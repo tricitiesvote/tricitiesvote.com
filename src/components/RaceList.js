@@ -6,23 +6,11 @@ const RaceList = props => {
   const { data } = props;
   const races = [];
 
-  // allCandidates.forEach((candidate, index) => {
-  //   createPage({
-  //     path: `/${candidate.node.fields.slug}/`,
-  //     component: path.resolve('./src/templates/CandidatePage.js'),
-  //     context: {
-  //       slug: candidate.node.fields.slug,
-  //     },
-  //   })
-  // })
-
   data.forEach(item => {
     if (item.candidates) {
       races.push(item);
     }
   });
-
-  // is this a list of races or a list of candidates?
 
   return (
     <div className="races-collection" key={data.uuid}>
@@ -48,25 +36,3 @@ const RaceList = props => {
 };
 
 export default RaceList;
-
-// export const pageQuery = graphql`
-//   query {
-//     allGuidesJson(
-//       filter: {
-//         electionYear: { eq: site.siteMetadata.electionYear },
-//         type: {eq: "general"}
-//       }
-//     ) {
-//       edges {
-//         node {
-//           races {
-//             ...RaceDetails
-//           }
-//           electionyear
-//           type
-//           region
-//         }
-//       }
-//     }
-//   }
-// `

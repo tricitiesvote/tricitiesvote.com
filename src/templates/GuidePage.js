@@ -26,12 +26,13 @@ export default GuidePage;
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allGuidesJson(
-      filter: {
-        electionYear: { eq: site.siteMetadata.electionYear },
-        type: { eq: "general" }
-        fields: { slug: { eq: $slug } }
+    site {
+      siteMetadata {
+        electionYear
       }
+    }
+    guides: allGuidesJson(
+      filter: { type: { eq: "general" }, fields: { slug: { eq: $slug } } }
     ) {
       edges {
         node {

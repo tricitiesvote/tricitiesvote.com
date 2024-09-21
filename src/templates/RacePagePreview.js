@@ -35,12 +35,13 @@ export default RacePagePreview;
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allRacesJson(
-      filter: {
-        electionYear: { eq: site.siteMetadata.electionYear },
-        type: { eq: "general" }
-        fields: { slug: { eq: $slug } }
+    site {
+      siteMetadata {
+        electionYear
       }
+    }
+    races: allRacesJson(
+      filter: { type: { eq: "general" }, fields: { slug: { eq: $slug } } }
     ) {
       edges {
         node {

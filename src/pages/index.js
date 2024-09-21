@@ -6,7 +6,6 @@ import DefaultLayout from '../layouts/DefaultLayout';
 import RaceListMini from '../components/RaceListMini';
 import ContactInline from '../components/ContactInline';
 import HowToUseThisGuide from '../components/HowToUseThisGuide';
-import config from '../../load-config-election.json';
 
 // collect Candidates in Races, collect Races in Guides
 
@@ -14,6 +13,7 @@ class SiteIndex extends React.Component {
   render() {
     const { data } = this.props;
     const races = data.races.edges;
+    const { electionYear } = data.site.siteMetadata;
 
     return (
       <DefaultLayout title="Tri-Cities Vote" bodyClass="index" url="">
@@ -21,7 +21,7 @@ class SiteIndex extends React.Component {
           <h1>
             <span>🗳</span>
             Tri-Cities Vote:
-            <br /> {config.year} Election
+            <br /> {electionYear} Election
           </h1>
           <h2>
             A nonpartisan community-driven collection
@@ -52,8 +52,13 @@ export default SiteIndex;
 // copied from graphql/GUIDES
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        electionYear
+      }
+    }
     races: allRacesJson(
-      filter: { electionYear: { eq: site.siteMetadata.electionYear }, type: { eq: "general" } }
+      filter: { type: { eq: "general" } }
       sort: { fields: office___title, order: ASC }
     ) {
       edges {
