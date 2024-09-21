@@ -45,7 +45,7 @@
     "load": "node loadCandidates",
     "donors": "node loadDonors",
     "letters": "node loadLetters.mjs",
-    "clean": "rm -f data/candidates/* data/donations/* data/endorsements/* data/races/* data/offices/* data/guides/* data/questionnaires/* load-config-names.json && touch load-config-names.json",
+    "clean": "rm -rf data/candidates/* data/donations/* data/endorsements/* data/races/* data/offices/* data/guides/* data/questionnaires/* static/images/candidates/* public/* load-config-names.json && touch load-config-names.json",
     "loadfresh": "rm data/candidates/* && node loadCandidates"
   },
   "dependencies": {
