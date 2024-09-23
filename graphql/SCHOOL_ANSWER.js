@@ -38,7 +38,7 @@ fragment SchoolAnswerDetails on SchoolAnswersCsv {
 }
 `;
 
-export default SCHOOL_ANSWER;
+module.exports = SCHOOL_ANSWER;
 
 //
 // candidate {

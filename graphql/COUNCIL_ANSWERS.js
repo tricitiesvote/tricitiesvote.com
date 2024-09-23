@@ -8,4 +8,4 @@ councilAnswers: allCouncilAnswersCsv {
 }
 `;
 
-export default COUNCIL_ANSWERS;
+module.exports = COUNCIL_ANSWERS;

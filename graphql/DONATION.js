@@ -21,4 +21,4 @@ const DONATION = `
   }
 `;
 
-export default DONATION;
+module.exports = DONATION;

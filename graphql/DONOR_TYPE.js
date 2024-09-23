@@ -14,4 +14,4 @@ const CANDIDATE_DONOR_TYPE = `
   }
 `;
 
-export default CANDIDATE_DONOR_TYPE;
+module.exports = CANDIDATE_DONOR_TYPE;

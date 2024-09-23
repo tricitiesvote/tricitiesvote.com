@@ -14,4 +14,4 @@ const CANDIDATE_FUNDRAISING = `
   }
 `;
 
-export default CANDIDATE_FUNDRAISING;
+module.exports = CANDIDATE_FUNDRAISING;

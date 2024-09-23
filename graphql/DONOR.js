@@ -14,4 +14,4 @@ const DONOR = `
   }
 `;
 
-export default DONOR;
+module.exports = DONOR;

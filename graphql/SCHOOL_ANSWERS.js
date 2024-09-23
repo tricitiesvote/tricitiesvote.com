@@ -8,4 +8,4 @@ schoolAnswers: allSchoolAnswersCsv(limit: 1000) {
 }
 `;
 
-export default SCHOOL_ANSWERS;
+module.exports = SCHOOL_ANSWERS;

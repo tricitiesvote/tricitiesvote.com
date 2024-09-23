@@ -8,4 +8,4 @@ const OFFICES = `
   }
 `;
 
-export default OFFICES;
+module.exports = OFFICES;

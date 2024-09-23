@@ -53,4 +53,4 @@ const RACE = `
   }
 `;
 
-export default RACE;
+module.exports = RACE;

@@ -8,4 +8,4 @@ const CANDIDATES = `
   }
 `;
 
-export default CANDIDATES;
+module.exports = CANDIDATES;

@@ -12,4 +12,4 @@ councilQuestions: allCouncilQuestionsCsv(limit: 1000) {
 }
 `;
 
-export default COUNCIL_QUESTIONS;
+module.exports = COUNCIL_QUESTIONS;

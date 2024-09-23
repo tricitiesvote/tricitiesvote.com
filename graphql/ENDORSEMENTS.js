@@ -12,4 +12,4 @@ const ENDORSEMENTS = `
   }
 `;
 
-export default ENDORSEMENTS;
+module.exports = ENDORSEMENTS;

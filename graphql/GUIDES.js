@@ -18,4 +18,4 @@ const GUIDES = `
   }
 `;
 
-export default GUIDES;
+module.exports = GUIDES;

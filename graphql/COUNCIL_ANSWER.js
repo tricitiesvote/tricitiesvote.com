@@ -36,4 +36,4 @@ fragment CouncilAnswerDetails on CouncilAnswersCsv {
 }
 `;
 
-export default COUNCIL_ANSWER;
+module.exports = COUNCIL_ANSWER;

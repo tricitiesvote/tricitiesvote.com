@@ -12,4 +12,4 @@ schoolQuestions: allSchoolQuestionsCsv(limit: 1000) {
 }
 `;
 
-export default SCHOOL_QUESTIONS;
+module.exports = SCHOOL_QUESTIONS;

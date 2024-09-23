@@ -21,4 +21,4 @@ notes: allNotesJson(limit: 1000) {
 }
 `;
 
-export default NOTES;
+module.exports = NOTES;
