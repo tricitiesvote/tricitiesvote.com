@@ -4,14 +4,10 @@ import path from 'path';
 import SchemaCustomization from './schema';
 import GraphQLSchema from './graphql';
 
-// import _ from 'lodash';
-// import remark from 'remark';
-// import remarkHTML from 'remark-html';
-// import truncate from 'truncate-html';
-const _ = require('lodash');
-const remark = require('remark');
-const remarkHTML = require('remark-html');
-const truncate = require('truncate-html');
+import _ from 'lodash';
+import remark from 'remark';
+import remarkHTML from 'remark-html';
+import truncate from 'truncate-html';
 
 // const buildBits = [buildSlugs, buildMarkdown, buildCandidateFields];
 //
