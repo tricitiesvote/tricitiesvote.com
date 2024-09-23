@@ -26,4 +26,4 @@ type Fields {
 }
 `;
 
-export default Fields;
+module.exports = Fields;

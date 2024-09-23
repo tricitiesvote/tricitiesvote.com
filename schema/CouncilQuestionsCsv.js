@@ -7,4 +7,4 @@ type CouncilQuestionsCsv implements Node {
   statementB: String
 }`;
 
-export default CouncilQuestionsCsv;
+module.exports = CouncilQuestionsCsv;

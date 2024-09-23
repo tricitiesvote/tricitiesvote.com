@@ -5,4 +5,4 @@ type NoteFields {
 }
 `;
 
-export default NoteFields;
+module.exports = NoteFields;

@@ -7,4 +7,4 @@ type SchoolQuestionsCsv implements Node {
   statementB: String
 }`;
 
-export default SchoolQuestionsCsv;
+module.exports = SchoolQuestionsCsv;

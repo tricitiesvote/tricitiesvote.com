@@ -30,4 +30,4 @@ const CandidatesJson = `
     endorsements:     [EndorsementsJson] @link(by: "candidate", from: "uuid")
   }`;
 
-export default CandidatesJson;
+module.exports = CandidatesJson;

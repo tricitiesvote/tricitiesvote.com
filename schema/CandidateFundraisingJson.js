@@ -11,4 +11,4 @@ type CandidateFundraisingJson implements Node {
 }
 `;
 
-export default CandidateFundraisingJson;
+module.exports = CandidateFundraisingJson;

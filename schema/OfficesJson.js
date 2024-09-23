@@ -9,4 +9,4 @@ type OfficesJson implements Node {
 }
 `;
 
-export default OfficesJson;
+module.exports = OfficesJson;

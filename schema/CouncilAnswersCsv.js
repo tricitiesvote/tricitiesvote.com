@@ -28,4 +28,4 @@ type CouncilAnswersCsv implements Node {
 }
 `;
 
-export default CouncilAnswersCsv;
+module.exports = CouncilAnswersCsv;

@@ -9,4 +9,4 @@ type EndorsementsJson implements Node {
 }
 `;
 
-export default EndorsementsJson;
+module.exports = EndorsementsJson;

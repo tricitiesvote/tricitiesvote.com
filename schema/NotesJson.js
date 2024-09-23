@@ -6,4 +6,4 @@ type NotesJson implements Node {
 }
 `;
 
-export default NotesJson;
+module.exports = NotesJson;

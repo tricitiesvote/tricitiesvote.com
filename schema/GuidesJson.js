@@ -8,4 +8,4 @@ type GuidesJson implements Node {
 }
 `;
 
-export default GuidesJson;
+module.exports = GuidesJson;

@@ -13,4 +13,4 @@ type DonorsJson implements Node {
 }
 `;
 
-export default DonorsJson;
+module.exports = DonorsJson;

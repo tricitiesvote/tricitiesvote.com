@@ -13,4 +13,4 @@ type RacesJson implements Node {
 }
 `;
 
-export default RacesJson;
+module.exports = RacesJson;
