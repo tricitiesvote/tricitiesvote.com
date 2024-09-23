@@ -1,17 +1,17 @@
-import path from 'path';
-import SchemaCustomization from './schema';
-import GraphQLSchema from './graphql';
+const path = require('path');
+const SchemaCustomization = require('./schema');
+const GraphQLSchema = require('./graphql');
 
-import _ from 'lodash';
-import remark from 'remark';
-import remarkHTML from 'remark-html';
-import truncate from 'truncate-html';
+const _ = require('lodash');
+const remark = require('remark');
+const remarkHTML = require('remark-html');
+const truncate = require('truncate-html');
 
-export const onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = ({ node, actions }) => {
   // ... (contents from gatsby-node.esm.js)
 };
 
-export const createSchemaCustomization = (helpers) => {
+exports.createSchemaCustomization = (helpers) => {
   const { actions } = helpers;
   const { createTypes } = actions;
   try {
@@ -21,6 +21,6 @@ export const createSchemaCustomization = (helpers) => {
   }
 };
 
-export const createPages = async ({ actions: { createPage }, graphql, reporter }) => {
+exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => {
   // ... (contents from gatsby-node.esm.js)
 };
