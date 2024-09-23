@@ -98,4 +98,4 @@ const CANDIDATE = `
   }
 `;
 
-export default CANDIDATE;
+module.exports = CANDIDATE;

@@ -1,20 +1,20 @@
-import CandidateFundraisingJson from './CandidateFundraisingJson';
-import CandidateDonorTypesJson from './CandidateDonorTypesJson';
-import CandidateDonorsJson from './CandidateDonorsJson';
-import CandidatesJson from './CandidatesJson';
-import DonationsJson from './DonationsJson';
-import DonorsJson from './DonorsJson';
-import Fields from './Fields';
-import GuidesJson from './GuidesJson';
-import NoteFields from './NoteFields';
-import NotesJson from './NotesJson';
-import OfficesJson from './OfficesJson';
-import RacesJson from './RacesJson';
-import CouncilAnswersCsv from './CouncilAnswersCsv';
-import CouncilQuestionsCsv from './CouncilQuestionsCsv';
-import SchoolAnswersCsv from './SchoolAnswersCsv';
-import SchoolQuestionsCsv from './SchoolQuestionsCsv';
-import EndorsementsJson from './EndorsementsJson';
+const CandidateFundraisingJson = require('./CandidateFundraisingJson');
+const CandidateDonorTypesJson = require('./CandidateDonorTypesJson');
+const CandidateDonorsJson = require('./CandidateDonorsJson');
+const CandidatesJson = require('./CandidatesJson');
+const DonationsJson = require('./DonationsJson');
+const DonorsJson = require('./DonorsJson');
+const Fields = require('./Fields');
+const GuidesJson = require('./GuidesJson');
+const NoteFields = require('./NoteFields');
+const NotesJson = require('./NotesJson');
+const OfficesJson = require('./OfficesJson');
+const RacesJson = require('./RacesJson');
+const CouncilAnswersCsv = require('./CouncilAnswersCsv');
+const CouncilQuestionsCsv = require('./CouncilQuestionsCsv');
+const SchoolAnswersCsv = require('./SchoolAnswersCsv');
+const SchoolQuestionsCsv = require('./SchoolQuestionsCsv');
+const EndorsementsJson = require('./EndorsementsJson');
 
 const SchemaCustomization = `
 ${CandidateFundraisingJson}
@@ -52,4 +52,4 @@ ${SchoolQuestionsCsv}
 ${EndorsementsJson}
 `;
 
-export default SchemaCustomization;
+module.exports = SchemaCustomization;
