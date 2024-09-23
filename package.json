@@ -4,6 +4,7 @@
   "description": "Tri-Cities Election guide",
   "version": "0.1.0",
   "author": "Adam Avenir <adamavenir@hey.com>",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/tumbleweird/tricitiesvote.com"
   },
