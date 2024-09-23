@@ -8,4 +8,4 @@ const RACES = `
   }
 `;
 
-export default RACES;
+module.exports = RACES;

@@ -12,4 +12,4 @@ type CandidateDonorsJson implements Node {
 }
 `;
 
-export default CandidateDonorsJson;
+module.exports = CandidateDonorsJson;
