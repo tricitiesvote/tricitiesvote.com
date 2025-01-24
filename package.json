@@ -1,92 +1,22 @@
 {
-  "name": "vote.triciti.es",
-  "private": true,
-  "description": "Tri-Cities Election guide",
-  "version": "0.1.0",
-  "author": "Adam Avenir <adamavenir@hey.com>",
-  "bugs": {
-    "url": "https://github.com/tumbleweird/tricitiesvote.com"
-  },
-  "devDependencies": {
-    "chalk": "^4.1.2",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.1",
-    "eslint-plugin-react": "^7.26.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "eslint-plugin-unicorn": "^16.1.1",
-    "fermata": "^0.11.1",
-    "fold-to-ascii": "^5.0.0",
-    "fuzzysort": "^1.1.4",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
-    "prettier": "^1.19.1",
-    "puppeteer": "^21.4.0",
-    "short-uuid": "^4.2.0",
-    "soda-js": "^0.2.3",
-    "turndown": "^6.0.0"
-  },
-  "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tumbleweird/tricitiesvote.com.git"
-  },
+  "name": "tricitiesvote.com",
+  "version": "1.0.0",
+  "description": "Tri-Cities Election Guide",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "load": "node loadCandidates",
-    "donors": "node loadDonors",
-    "letters": "node loadLetters.mjs",
-    "clean": "rm -f data/candidates/* data/donations/* data/endorsements/* data/races/* data/offices/* data/guides/* data/questionnaires/*",
-    "loadfresh": "rm data/candidates/* && node loadCandidates"
+    "db:seed": "ts-node --project tsconfig.json prisma/seed.ts"
   },
   "dependencies": {
-    "@ncwidgets/id": "^0.9.0",
-    "a11y-react-emoji": "^1.1.3",
-    "esm": "^3.2.25",
-    "gatsby": "^3.14.0",
-    "gatsby-plugin-image": "^1.14.0",
-    "gatsby-plugin-netlify-cms": "^5.14.0",
-    "gatsby-plugin-offline": "^4.14.0",
-    "gatsby-plugin-react-helmet": "^4.14.0",
-    "gatsby-plugin-sharp": "^3.14.0",
-    "gatsby-remark-copy-linked-files": "^4.11.0",
-    "gatsby-remark-images": "^5.11.0",
-    "gatsby-remark-responsive-iframe": "^4.11.0",
-    "gatsby-remark-smartypants": "^4.11.0",
-    "gatsby-source-filesystem": "^3.14.0",
-    "gatsby-transformer-csv": "^3.14.0",
-    "gatsby-transformer-json": "^3.14.0",
-    "gatsby-transformer-remark": "^4.11.0",
-    "gatsby-transformer-sharp": "^3.14.0",
-    "graphql-tag": "^2.12.5",
-    "lodash": "^4.17.21",
-    "netlify-cms-app": "^2.15.44",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "remark": "^12.0.1",
-    "remark-html": "^11.0.2",
-    "truncate-html": "^1.0.4",
-    "unist-util-select": "^4.0.0"
+    "@prisma/client": "latest"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "./src/**/*.js": [
-      "npx prettier --write",
-      "eslint src/**/*.js --fix"
-    ]
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "turndown": "^7.1.2",
+    "fold-to-ascii": "^5.0.4",
+    "dotenv": "^16.4.1",
+    "fastest-levenshtein": "^1.0.16",
+    "@types/node": "^20.11.0",
+    "prisma": "latest",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }

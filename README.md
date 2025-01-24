@@ -1,6 +1,14 @@
-# Tri-Cities Election guide
+# Tri-Cities Vote
 
-This is the source code behind <https://tricitiesvote.com/>.
+This site is currently being rebuilt with a modern stack:
+- Next.js frontend
+- PostgreSQL database with Prisma
+- Improved state data integration
+- Better election cycle management
+
+The old Gatsby-based site's code has been preserved in the `legacy/` directory for reference during the modernization process.
+
+See `REFACTOR.md` for detailed information about the modernization plan and progress.
 
 ## Local setup (for site developers)
 
@@ -99,7 +107,7 @@ You can then find the election ID in the same place in the `?e=NNN` querystring.
 
 From that point, you may want to filter by county in order to get the set of candidates.
 
-Click on a candidate’s name to see their profile.
+Click on a candidate's name to see their profile.
 
 In the url you will find a string containing the race id:
 
