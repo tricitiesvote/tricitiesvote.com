@@ -6,6 +6,7 @@ We're modernizing the Tri-Cities Vote site's data layer while preserving its edi
 - Better handling of state data integration
 - Smoother year-to-year transitions
 - Proper tracking of term lengths and election results
+- Keep the original React frontend and css roughly intact (in legacy/gatsby/src)
 
 ### What We've Done
 

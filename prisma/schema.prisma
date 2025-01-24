@@ -13,18 +13,18 @@ datasource db {
 
 // Using your existing office values from the config
 enum OfficeType {
-  CITY_COUNCIL          @map("City Council")
-  SCHOOL_BOARD          @map("School Board")
-  PORT_COMMISSIONER     @map("Port Commissioner")
-  COUNTY_COMMISSIONER   @map("County Commissioner")
-  STATE_SENATOR         @map("WA Legislator (Senate)")
-  STATE_REPRESENTATIVE  @map("WA Legislator (House)")
-  SUPERIOR_COURT_JUDGE  @map("Superior Court Judge")
-  US_HOUSE             @map("U.S. House")
-  US_SENATE            @map("U.S. Senate")
-  MAYOR                @map("Mayor")
-  SHERIFF              @map("Sheriff")
-  PROSECUTOR           @map("Prosecutor")
+  CITY_COUNCIL
+  SCHOOL_BOARD
+  PORT_COMMISSIONER
+  COUNTY_COMMISSIONER
+  STATE_SENATOR
+  STATE_REPRESENTATIVE
+  SUPERIOR_COURT_JUDGE
+  US_HOUSE
+  US_SENATE
+  MAYOR
+  SHERIFF
+  PROSECUTOR
 }
 
 model Office {
