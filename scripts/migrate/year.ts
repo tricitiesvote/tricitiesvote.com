@@ -63,12 +63,33 @@ export async function migrateYear(year: number) {
   await migrateEndorsements(year, candidates)
 }
 
+export async function migrateYearFromBranch(year: number, branch: string) {
+  console.log(`\nMigrating year ${year} from branch ${branch}...`)
+  
+  // Determine data path based on branch
+  const isRefactorBranch = branch === 'refactor'
+  const dataPath = isRefactorBranch ? 'legacy/data/json' : 'data'
+  
+  // Step 1: Migrate candidates
+  const candidates = await migrateCandidatesFromPath(year, dataPath)
+  
+  // Step 2: Migrate races
+  await migrateRacesFromPath(year, candidates, dataPath)
+  
+  // Step 3: Migrate endorsements (if any)
+  await migrateEndorsementsFromPath(year, candidates, dataPath)
+}
+
 async function migrateCandidates(year: number): Promise<CandidateMapping[]> {
+  return migrateCandidatesFromPath(year, 'legacy/data/json')
+}
+
+async function migrateCandidatesFromPath(year: number, dataPath: string): Promise<CandidateMapping[]> {
   console.log('Migrating candidates...')
   const candidates: CandidateMapping[] = []
   
   // Find all candidate files for the year
-  const candidateFiles = await glob(`legacy/data/json/candidates/${year}-*.json`)
+  const candidateFiles = await glob(`${dataPath}/candidates/${year}-*.json`)
   
   for (const file of candidateFiles) {
     const data = await readJsonFile<LegacyCandidateData>(file)
@@ -132,10 +153,14 @@ async function migrateCandidates(year: number): Promise<CandidateMapping[]> {
 }
 
 async function migrateRaces(year: number, candidates: CandidateMapping[]) {
+  return migrateRacesFromPath(year, candidates, 'legacy/data/json')
+}
+
+async function migrateRacesFromPath(year: number, candidates: CandidateMapping[], dataPath: string) {
   console.log('Migrating races...')
   
   // Find all race files for the year
-  const raceFiles = await glob(`legacy/data/json/races/${year}-*.json`)
+  const raceFiles = await glob(`${dataPath}/races/${year}-*.json`)
   
   for (const file of raceFiles) {
     const data = await readJsonFile<LegacyRaceData>(file)
@@ -203,10 +228,14 @@ async function migrateRaces(year: number, candidates: CandidateMapping[]) {
 }
 
 async function migrateEndorsements(year: number, candidates: CandidateMapping[]) {
+  return migrateEndorsementsFromPath(year, candidates, 'legacy/data/json')
+}
+
+async function migrateEndorsementsFromPath(year: number, candidates: CandidateMapping[], dataPath: string) {
   console.log('Migrating endorsements...')
   
   // Find all endorsement files for the year
-  const endorsementFiles = await glob(`legacy/data/json/endorsements/${year}-*.json`)
+  const endorsementFiles = await glob(`${dataPath}/endorsements/${year}-*.json`)
   
   for (const file of endorsementFiles) {
     const endorsements = await readJsonFile<Record<string, any[]>>(file)

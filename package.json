@@ -5,6 +5,7 @@
   "scripts": {
     "db:seed": "ts-node --project tsconfig.json prisma/seed.ts",
     "migrate:legacy": "ts-node --project tsconfig.json scripts/migrate/index.ts",
+    "migrate:all-years": "ts-node --project tsconfig.json scripts/migrate/import-all-years.ts",
     "migrate:base": "ts-node --project tsconfig.json scripts/migrate/test-base.ts",
     "migrate:2023": "ts-node --project tsconfig.json scripts/migrate/test-year.ts",
     "validate:2023": "ts-node --project tsconfig.json scripts/migrate/validate-2023.ts",
