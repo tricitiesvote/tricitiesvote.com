@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import { execSync } from 'child_process'
 import * as fs from 'fs'
-import { migrateBaseData } from './base'
+import { migrateDynamicBase } from './dynamic-base'
 import { migrateYearFromBranch } from './year'
 
 const prisma = new PrismaClient()
@@ -14,9 +14,9 @@ async function main() {
   console.log(`Current branch: ${currentBranch}`)
   
   try {
-    // Step 1: Migrate base data (regions and offices)
-    console.log('\n=== MIGRATING BASE DATA ===')
-    await migrateBaseData()
+    // Step 1: Migrate base data (regions and offices) dynamically
+    console.log('\n=== MIGRATING BASE DATA (DYNAMIC) ===')
+    await migrateDynamicBase()
     
     // Step 2: Migrate each year's data from its respective branch
     const years = [2020, 2021, 2022, 2023]

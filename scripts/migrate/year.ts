@@ -78,6 +78,9 @@ export async function migrateYearFromBranch(year: number, branch: string) {
   
   // Step 3: Migrate endorsements (if any)
   await migrateEndorsementsFromPath(year, candidates, dataPath)
+  
+  // Step 4: Migrate guides (if any)
+  await migrateGuidesFromPath(year, dataPath)
 }
 
 async function migrateCandidates(year: number): Promise<CandidateMapping[]> {
@@ -192,9 +195,10 @@ async function migrateRacesFromPath(year: number, candidates: CandidateMapping[]
       continue
     }
     
-    // Create the race
+    // Create the race (using original UUID as the ID if possible)
     const race = await prisma.race.create({
       data: {
+        id: data.uuid || undefined, // Use original UUID if available
         electionYear: parseInt(data.electionyear),
         officeId: office.id,
         type: raceType,
@@ -260,5 +264,98 @@ async function migrateEndorsementsFromPath(year: number, candidates: CandidateMa
         })
       }
     }
+  }
+}
+
+interface LegacyGuideData {
+  electionyear: string
+  region: string
+  type: string
+  races: string[]
+}
+
+async function migrateGuides(year: number, candidates: CandidateMapping[]) {
+  return migrateGuidesFromPath(year, 'legacy/data/json')
+}
+
+async function migrateGuidesFromPath(year: number, dataPath: string) {
+  console.log('Migrating guides...')
+  
+  // Find all guide files for the year
+  const guideFiles = await glob(`${dataPath}/guides/${year}-*.json`)
+  
+  for (const file of guideFiles) {
+    const data = await readJsonFile<LegacyGuideData>(file)
+    
+    // Find the region
+    const region = await prisma.region.findFirst({
+      where: { name: data.region }
+    })
+    
+    if (!region) {
+      console.warn(`Region not found for guide: ${data.region}`)
+      continue
+    }
+    
+    // Convert guide type to enum
+    const guideType = data.type.toUpperCase() as ElectionType
+    
+    // Check if guide already exists
+    const existingGuide = await prisma.guide.findFirst({
+      where: {
+        electionYear: parseInt(data.electionyear),
+        regionId: region.id,
+        type: guideType
+      }
+    })
+    
+    if (existingGuide) {
+      console.log(`Guide already exists: ${data.region} ${data.type} ${data.electionyear}`)
+      continue
+    }
+    
+    // Create the guide
+    const guide = await prisma.guide.create({
+      data: {
+        electionYear: parseInt(data.electionyear),
+        regionId: region.id,
+        type: guideType,
+        races: {
+          connect: []  // We'll connect races in a separate step
+        }
+      }
+    })
+    
+    // Connect races to the guide using preserved UUIDs
+    const raceConnections = []
+    for (const raceUuid of data.races) {
+      // Find race by its preserved UUID
+      const race = await prisma.race.findFirst({
+        where: {
+          id: raceUuid,
+          electionYear: parseInt(data.electionyear)
+        }
+      })
+      
+      if (race) {
+        raceConnections.push({ id: race.id })
+      } else {
+        console.warn(`Race not found for guide ${data.region}: ${raceUuid}`)
+      }
+    }
+    
+    // Connect all races to the guide at once
+    if (raceConnections.length > 0) {
+      await prisma.guide.update({
+        where: { id: guide.id },
+        data: {
+          races: {
+            connect: raceConnections
+          }
+        }
+      })
+    }
+    
+    console.log(`Created guide: ${data.region} ${data.type} ${data.electionyear} with ${data.races.length} races`)
   }
 } 

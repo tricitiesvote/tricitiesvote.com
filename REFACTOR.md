@@ -35,55 +35,65 @@ We're modernizing the Tri-Cities Vote site's data layer while preserving its edi
 - Preserved old data structures and scripts for migration reference
 - Simplified project structure for better maintainability
 
+5. Historical Data Migration (COMPLETED)
+- Successfully migrated all election data from Git branches to PostgreSQL
+- Imported 145 candidates across 4 years (2020-2023)
+- Created 54 offices across 7 regions
+- Implemented geographic guide groupings with 8 guides
+- Preserved all race relationships and UUIDs
+- Dynamic office creation based on actual candidate data
+- Support for all election types: municipal, county, state, federal
+
 ### Next Steps
 
-1. Data Migration
-```typescript
-// Create script to import existing data:
-async function migrateExistingData() {
-  // 1. Import regions and offices (permanent structure)
-  // 2. Import 2023 candidates and races
-  // 3. Import endorsements
-  // 4. Validate relationships
-}
+1. Frontend Integration
+- Build Next.js frontend to query PostgreSQL data
+- Create voter guide views using geographic groupings
+- Implement candidate profile pages
+- Add search and filtering capabilities
 
+2. Election Results Integration
+```typescript
 // Import election results:
 async function importResults() {
   // 1. Fetch results from WA state site
-  // 2. Match candidates
-  // 3. Record vote counts
+  // 2. Match candidates to existing database records
+  // 3. Record vote counts and percentages
   // 4. Determine term lengths for Richland
+  // 5. Mark winners and update incumbent status
 }
 ```
 
-2. PDC Integration
+3. PDC Integration
 - Write scripts to pull contribution data
 - Set up regular updates during election season
 - Create visualizations of financial data
 - Add donor name normalization
 
-3. Editorial Workflow
+4. Editorial Workflow
 - Keep Decap CMS for content management
 - Update config to work with new data structure
 - Add validation rules
 - Preserve PR-based review process
 
-4. Development Setup
+5. Development Setup
 ```bash
 # Local development setup:
 npm install
 npx prisma generate
 npm run db:seed  # Add base data
 
-# Import existing content:
-npm run migrate-data
+# Import historical election data:
+npm run migrate:all-years
+
+# Import PDC financial data:
 npm run import-pdc
 
 # Start developing:
 npm run dev
 ```
 
-5. Testing and Validation
+6. Testing and Validation
 - Add schema validation
 - Create data integrity checks
 - Test term length calculation
@@ -92,21 +102,47 @@ npm run dev
 ## Architecture Details
 
 ### Database Structure
-- Core structural data in PostgreSQL
+- Core structural data in PostgreSQL (regions, offices, races, candidates)
+- Geographic guide groupings for location-based voter guides
 - Editorial content managed through git/Decap
 - Photos and static assets in filesystem
 - State data pulled from APIs
 
+### Data Organization
+The database is organized around geographic regions and office types:
+
+**Regions (7 total)**:
+- Kennewick
+- Pasco
+- Richland
+- West Richland
+- Benton County
+- Franklin County
+- Walla Walla County
+
+**Offices (54 total)** dynamically created based on candidate data:
+- Municipal: City Council, Mayor, School Board, Port Commissioner
+- County: County Commissioner, Sheriff, Prosecutor, Superior Court Judge
+- State: State Representative, State Senator
+- Federal: US House, US Senate
+
+**Guides (8 total)** provide geographic groupings:
+- County guides for 2020/2022 elections
+- City guides for 2021/2023 elections
+- Each guide contains relevant races for that location
+
 ### Data Flow
 ```mermaid
 graph TD
+    GitBranches[Git Branches 2020-2023] --> Migration[Migration Scripts]
+    Migration --> DB[(PostgreSQL)]
     PDC[PDC API] --> StateData[State Data Layer]
     VoterGuide[Voter Guide] --> StateData
-    StateData --> DB[(PostgreSQL)]
+    StateData --> DB
     CMS[Decap CMS] --> Git[Git Content]
     Git --> Build[Build Process]
     DB --> Build
-    Build --> Site[Static Site]
+    Build --> Site[Next.js Site]
 ```
 
 ### State Integration
@@ -117,23 +153,27 @@ graph TD
 
 ## Migration Plan
 
-1. Phase 1: Core Data (Current)
+1. Phase 1: Historical Data Migration (COMPLETED ✅)
 - [x] Set up database schema
 - [x] Create migration tools
 - [x] Configure state data client
-- [ ] Import basic office/region data
+- [x] Import all historical election data (2020-2023)
+- [x] Create geographic guide groupings
+- [x] Migrate 145 candidates across 54 offices and 7 regions
+- [x] Preserve race relationships and UUIDs
 
-2. Phase 2: Content Migration
-- [ ] Migrate 2023 candidate data
-- [ ] Import race configurations
-- [ ] Transfer endorsements
-- [ ] Update CMS configuration
+2. Phase 2: Frontend Development (NEXT)
+- [ ] Build Next.js application structure
+- [ ] Create guide-based voter guide views
+- [ ] Implement candidate profile pages
+- [ ] Add search and filtering by region/office
+- [ ] Test with existing data
 
-3. Phase 3: Election Results
-- [ ] Import 2023 results
-- [ ] Calculate term lengths
-- [ ] Mark incumbents
-- [ ] Set up results automation
+3. Phase 3: Election Results Integration
+- [ ] Import historical election results
+- [ ] Calculate term lengths (especially Richland rules)
+- [ ] Mark incumbents and winners
+- [ ] Set up results automation for future elections
 
 4. Phase 4: PDC Integration
 - [ ] Import historical contribution data
@@ -141,9 +181,15 @@ graph TD
 - [ ] Add contribution visualizations
 - [ ] Implement donor matching
 
-5. Phase 5: Testing & Launch
+5. Phase 5: CMS & Editorial Workflow
+- [ ] Update Decap CMS configuration
+- [ ] Validate editorial workflows
+- [ ] Add validation rules
+- [ ] Test content management
+
+6. Phase 6: Testing & Launch
 - [ ] Validate all data relationships
-- [ ] Test editorial workflows
+- [ ] Performance testing
 - [ ] Run parallel with old system
 - [ ] Switch to new system
 
@@ -170,12 +216,24 @@ npx prisma migrate dev
 npx prisma migrate reset
 npm run db:seed
 
+# Import historical election data:
+npm run migrate:all-years
+
+# Import specific year:
+npm run migrate:2023
+
 # Import new PDC data:
 npm run import-pdc
 
 # Test data integrity:
-npm run validate-data
+npm run validate:2023
 ```
+
+### Migration Scripts
+- `scripts/migrate/dynamic-base.ts` - Creates regions and offices dynamically
+- `scripts/migrate/year.ts` - Imports candidate and guide data for a specific year
+- `scripts/migrate/import-all-years.ts` - Orchestrates migration across all years
+- `scripts/migrate/validate-2023.ts` - Validates data relationships
 
 ## Future Considerations
 
