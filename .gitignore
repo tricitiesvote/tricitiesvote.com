@@ -53,10 +53,12 @@ typings/
 
 # dotenv environment variables file
 .env
+.env*.local
 
-# gatsby files
-.cache/
-public
+# Next.js
+.next/
+out/
+next-env.d.ts
 
 # Mac files
 .DS_Store
@@ -69,3 +71,35 @@ yarn-error.log
 .yarn-integrity
 
 google-drive.json
+
+# TypeScript
+*.tsbuildinfo
+
+# Vercel
+.vercel
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# Prisma
+prisma/migrations/dev/
+
+# Temporary files
+tmp/
+temp/
+
+# Build artifacts
+dist/
+build/
+
+# Backup files
+*.backup
+*_backup/
+lib_backup/
+
+# Election data images (if stored locally during dev)
+public/images/candidates/

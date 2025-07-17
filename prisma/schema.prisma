@@ -54,6 +54,7 @@ model Region {
 model Candidate {
   id            String          @id @default(cuid())
   name          String
+  slug          String          @unique
   stateId       String?        // PDC filer_id
   electionYear  Int
   office        Office         @relation(fields: [officeId], references: [id])
@@ -80,6 +81,8 @@ model Candidate {
   minifiler     Boolean        @default(false)
   races         CandidateRace[]
   endorsements  Endorsement[]
+  
+  @@unique([name])
 }
 
 model CandidateRace {
@@ -100,7 +103,9 @@ model CandidateRace {
 
 model Race {
   id          String          @id @default(cuid())
-  electionYear Int
+  title       String
+  slug        String          @unique
+  year        Int
   office      Office          @relation(fields: [officeId], references: [id])
   officeId    String
   type        ElectionType
@@ -108,12 +113,14 @@ model Race {
   intro       String?         @db.Text
   body        String?         @db.Text
   hide        Boolean         @default(false)
-  guides      Guide[]         @relation("GuideRaces")
+  guide       Guide           @relation("GuideRaces", fields: [guideId], references: [id])
+  guideId     String
 }
 
 model Guide {
   id           String    @id @default(cuid())
-  electionYear Int
+  title        String
+  year         Int
   region       Region    @relation(fields: [regionId], references: [id])
   regionId     String
   type         ElectionType

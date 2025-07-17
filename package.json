@@ -3,18 +3,29 @@
   "version": "1.0.0",
   "description": "Tri-Cities Election Guide",
   "scripts": {
-    "db:seed": "ts-node --project tsconfig.json prisma/seed.ts",
-    "migrate:legacy": "ts-node --project tsconfig.json scripts/migrate/index.ts",
-    "migrate:all-years": "ts-node --project tsconfig.json scripts/migrate/import-all-years.ts",
-    "migrate:dynamic-base": "ts-node --project tsconfig.json scripts/migrate/dynamic-base.ts",
-    "migrate:base": "ts-node --project tsconfig.json scripts/migrate/test-base.ts",
-    "migrate:2023": "ts-node --project tsconfig.json scripts/migrate/test-year.ts",
-    "validate:2023": "ts-node --project tsconfig.json scripts/migrate/validate-2023.ts",
-    "cleanup:2023": "ts-node --project tsconfig.json scripts/migrate/clean.ts"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:seed": "ts-node --project tsconfig.scripts.json prisma/seed.ts",
+    "migrate:legacy": "ts-node --project tsconfig.scripts.json scripts/migrate/index.ts",
+    "migrate:all-years": "ts-node --project tsconfig.scripts.json scripts/migrate/import-all-years.ts",
+    "migrate:dynamic-base": "ts-node --project tsconfig.scripts.json scripts/migrate/dynamic-base.ts",
+    "migrate:base": "ts-node --project tsconfig.scripts.json scripts/migrate/test-base.ts",
+    "migrate:2023": "ts-node --project tsconfig.scripts.json scripts/migrate/test-year.ts",
+    "validate:2023": "ts-node --project tsconfig.scripts.json scripts/migrate/validate-2023.ts",
+    "cleanup:2023": "ts-node --project tsconfig.scripts.json scripts/migrate/clean.ts",
+    "import:pdc": "ts-node --project tsconfig.scripts.json scripts/import/pdc.ts",
+    "import:pamphlet": "ts-node --project tsconfig.scripts.json scripts/import/pamphlet.ts",
+    "import:results": "ts-node --project tsconfig.scripts.json scripts/import/results.ts",
+    "prepare:2025": "ts-node --project tsconfig.scripts.json scripts/prepare-2025.ts"
   },
   "dependencies": {
     "@prisma/client": "latest",
-    "glob-promise": "^6.0.5"
+    "glob-promise": "^6.0.5",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.12",
@@ -23,8 +34,16 @@
     "dotenv": "^16.4.1",
     "fastest-levenshtein": "^1.0.16",
     "@types/node": "^20.11.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/turndown": "^5.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.0",
     "prisma": "latest",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
+  },
+  "prisma": {
+    "seed": "ts-node --project tsconfig.json prisma/seed.ts"
   }
 }

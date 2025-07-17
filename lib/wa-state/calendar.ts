@@ -24,12 +24,12 @@ export class ElectionCalendarClient {
     const dates: ElectionDate[] = []
 
     // The calendar typically has tables for each year
-    $('table').each((_, table) => {
+    $('table').each((_: any, table: any) => {
       const yearText = $(table).find('caption').text()
       const year = this.extractYear(yearText)
 
       if (year === targetYear) {
-        $(table).find('tr').each((_, row) => {
+        $(table).find('tr').each((_: any, row: any) => {
           const text = $(row).text().toLowerCase()
           
           if (text.includes('primary')) {

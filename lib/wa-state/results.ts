@@ -35,10 +35,10 @@ export class ElectionResultsClient {
     const results: ElectionResult[] = []
     
     // Find all result tables
-    $('.race-results').each((_, table) => {
+    $('.race-results').each((_: any, table: any) => {
       const office = $(table).find('.race-title').text().trim()
       
-      $(table).find('tr').each((_, row) => {
+      $(table).find('tr').each((_: any, row: any) => {
         const cols = $(row).find('td')
         if (cols.length >= 3) { // Valid result row
           results.push({

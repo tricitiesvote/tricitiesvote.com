@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "commonjs",
+    "lib": ["es2022"],
+    "noEmit": false,
+    "isolatedModules": false
+  },
+  "include": [
+    "lib/**/*",
+    "scripts/**/*",
+    "prisma/**/*"
+  ],
+  "exclude": [
+    "src/**/*",
+    "node_modules"
+  ]
+}

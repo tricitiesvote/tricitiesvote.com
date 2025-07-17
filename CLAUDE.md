@@ -178,42 +178,136 @@ Guides are automatically generated based on:
 - Public response tracking
 - Non-response candidate flagging
 
-## Development Workflow
+## Data Import System
 
-### Common Development Tasks
+### Washington State Data Sources
+
+The system integrates with several Washington State data sources through the `lib/wa-state` module:
+
+**PDC (Public Disclosure Commission)**:
+- API: `data.wa.gov` (Socrata platform)
+- Data: Campaign contributions, expenditures, last-minute contributions
+- Authentication: Requires API credentials for higher rate limits
+- Script: `lib/wa-state/client.ts`
+
+**VoteWA Voter Pamphlet**:
+- URL: `voter.votewa.gov/elections/candidate.ashx`
+- Data: Candidate statements, photos, contact information
+- Requirements: Election ID and Race IDs for specific contests
+- Script: `lib/wa-state/pamphlet.ts`
+
+**Election Results**:
+- URL: `results.vote.wa.gov/results/{year}{month}/{county}/`
+- Data: Vote counts, percentages, winners
+- Method: HTML scraping
+- Script: `lib/wa-state/results.ts`
+
+### Data Import Scripts
+
+#### Core Import Commands
 
 ```bash
-# Start development environment
-npm run dev
+# Import campaign finance data from PDC
+npm run import:pdc
 
-# Database operations
-npx prisma migrate dev      # Update schema
-npx prisma studio          # Browse data
-npm run db:seed            # Reset with base data
+# Import candidate statements and photos from voter pamphlet
+npm run import:pamphlet
 
-# Data import operations  
-npm run migrate:all-years   # Import historical data
-npm run import-pdc         # Update campaign finance data
-npm run validate:2023      # Test data integrity
+# Import election results (after election)
+npm run import:results
 
-# Election cycle preparation
-npm run prepare-year:2025   # Set up new election year
-npm run import-results     # Process election results
+# Prepare database for new election year
+npm run prepare:2025
 ```
 
-### Content Update Cycle
+#### Legacy Migration Commands
 
-1. **Pre-Election**: Set up races, recruit candidates, deploy questionnaires
-2. **Campaign Season**: Regular PDC data updates, content management
-3. **Election Night**: Results import and winner determination
-4. **Post-Election**: Archive to historical data, prepare for next cycle
+```bash
+# Import all historical data (2020-2023)
+npm run migrate:all-years
 
-### Year Transition Process
+# Import specific year
+npm run migrate:2023
 
-1. **Data Preparation**: Create new year structure in database
-2. **Guide Configuration**: Set up appropriate guide type (city vs county)
-3. **Office Setup**: Create offices based on filed candidates
-4. **Content Migration**: Adapt questionnaires for new races
-5. **Testing**: Validate guide generation and navigation
+# Validate imported data
+npm run validate:2023
+```
+
+### 2025 Election Preparation
+
+To prepare for the 2025 municipal election:
+
+1. **Update Configuration Files**:
+   - `legacy/data/json/load-config-names.json` - Add new candidate name mappings
+   - `legacy/data/json/load-config-election.json` - Update election metadata
+
+2. **Obtain Election IDs**:
+   - Get Election ID from VoteWA for the 2025 election
+   - Collect Race IDs for each contest (City Council, School Board, etc.)
+
+3. **Run Import Sequence**:
+   ```bash
+   # 1. Set up base data structures
+   npm run prepare:2025
+   
+   # 2. Import PDC data (ongoing during campaign)
+   npm run import:pdc
+   
+   # 3. Import pamphlet data (when available)
+   npm run import:pamphlet
+   
+   # 4. Import results (after election)
+   npm run import:results
+   ```
+
+### Name Normalization System
+
+The system includes sophisticated name matching to handle variations:
+- `lib/normalize/names.ts` - Name normalization and fuzzy matching
+- Handles nicknames, middle names, suffixes
+- Configurable similarity thresholds
+- Manual mapping overrides in configuration files
+
+### Data Import Workflow Details
+
+**Pre-Election Phase**:
+1. Create Region, Office, and Guide records for the election year
+2. Import candidate filing data from PDC
+3. Match candidates to normalize names
+4. Set up questionnaire system
+
+**Campaign Phase**:
+1. Regular PDC data imports (weekly/bi-weekly)
+2. Import pamphlet data when published
+3. Update candidate profiles and photos
+4. Track endorsements and media coverage
+
+**Post-Election Phase**:
+1. Import official results
+2. Determine winners and term lengths
+3. Update incumbent status for next cycle
+4. Archive completed election data
+
+### Technical Requirements
+
+**Environment Variables**:
+```env
+# Optional: PDC API credentials for higher rate limits
+SOCRATA_APP_TOKEN=your_app_token
+SOCRATA_USERNAME=your_username
+SOCRATA_PASSWORD=your_password
+```
+
+**TypeScript Configuration**:
+- Data scripts use `tsconfig.scripts.json` (CommonJS, ES2022 target)
+- Frontend uses standard `tsconfig.json` (ESNext modules)
+
+### Troubleshooting Data Imports
+
+**Common Issues**:
+- **Name Matching**: Check `load-config-names.json` for missing mappings
+- **API Rate Limits**: Add Socrata credentials to `.env`
+- **Missing Race IDs**: Verify election configuration has all race IDs
+- **Schema Mismatches**: Run `npx prisma migrate dev` after schema changes
 
 This architecture provides a flexible, maintainable system for managing election information across multiple cycles while preserving the simplicity and effectiveness of the original voter guide format.
