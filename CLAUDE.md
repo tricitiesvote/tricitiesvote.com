@@ -2,6 +2,30 @@
 
 This project is currently being modernized from a Gatsby-based static site to a Next.js application with PostgreSQL database. This document describes the intended long-term architecture and business logic.
 
+## CRITICAL: Design Philosophy
+
+**This is a REARCHITECTURE, NOT a redesign.** The visual design, layout, and user experience must remain virtually identical to the original Gatsby site. The ONLY design change allowed is adding a year selector in the header to enable browsing historical election data.
+
+### Design Principles:
+1. **Preserve ALL original styling** - Every color, font, spacing, and visual element must match the legacy site
+2. **Maintain exact layouts** - Component positioning, grid structures, and responsive behavior must be identical
+3. **Keep interaction patterns** - All user interactions should work exactly as they did before
+4. **Copy legacy CSS directly** - Use the original `legacy/gatsby/src/styles/global.css` without modification
+5. **Match HTML structure** - Component hierarchy and class names should mirror the original
+
+### What IS changing:
+- **Backend architecture**: Moving from static site generation to dynamic Next.js with PostgreSQL
+- **Data management**: Centralized database instead of JSON files
+- **Year navigation**: Adding ability to browse different election years
+- **Build process**: Modern Next.js tooling instead of Gatsby
+
+### What is NOT changing:
+- Visual appearance of any page
+- Component layouts and styling
+- Color scheme, typography, or spacing
+- User workflows and interactions
+- Information architecture (except for year navigation)
+
 ## Project Overview
 
 The Tri-Cities Vote website provides nonpartisan voter guides for elections in the Tri-Cities region of Washington State (Kennewick, Pasco, Richland, and surrounding areas). The system manages candidate information, races, questionnaires, endorsements, and campaign finance data across multiple election cycles.

@@ -4,59 +4,204 @@ interface CandidateProfileProps {
   candidate: {
     id: string
     name: string
-    slug: string
+    image?: string | null
+    email?: string | null
+    website?: string | null
+    facebook?: string | null
+    twitter?: string | null
+    instagram?: string | null
+    youtube?: string | null
+    pdc?: string | null
+    minifiler: boolean
+    bio?: string | null
+    statement?: string | null
+    engagement?: string | null
+    articles?: string | null
+    lettersYes?: string | null
+    lettersNo?: string | null
+    donors?: string | null
     office: {
       title: string
-      jobTitle: string
+      type: string
     }
-    races: {
+    races: Array<{
       race: {
         id: string
-        title: string
-        slug: string
+        electionYear: number
         office: {
           title: string
         }
-        guide: {
-          title: string
+        Guide?: Array<{
           region: {
             name: string
           }
-        }
+        }>
       }
-    }[]
+    }>
+    endorsements?: Array<{
+      id: string
+      endorser: string
+      url: string
+      type: string
+      forAgainst: string
+    }>
   }
   year: number
 }
 
 export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
-  const race = candidate.races[0]?.race // Assuming one race per candidate per year
-  const regionSlug = race?.guide.region.name.toLowerCase().replace(/\s+/g, '-')
+  // Find the race for this year
+  const currentRace = candidate.races.find(r => r.race.electionYear === year)
+  
+  // Group endorsements by for/against
+  const endorsementsFor = candidate.endorsements?.filter(e => e.forAgainst === 'FOR') || []
+  const endorsementsAgainst = candidate.endorsements?.filter(e => e.forAgainst === 'AGAINST') || []
   
   return (
-    <div className="candidate-profile">
-      <header className="candidate-header">
-        <nav className="breadcrumb">
-          <Link href={`/${year}`}>{year}</Link>
-          {race && (
-            <>
-              <span> / </span>
-              <Link href={`/${year}/guide/${regionSlug}`}>{race.guide.title}</Link>
-              <span> / </span>
-              <Link href={`/${year}/race/${race.slug}`}>{race.title}</Link>
-            </>
-          )}
-        </nav>
-        
-        <h1>{candidate.name}</h1>
-        <p className="office-name">Candidate for {candidate.office.jobTitle}</p>
-      </header>
-      
-      <main className="candidate-content">
-        <div className="candidate-info">
-          <p>Candidate information and responses will be displayed here.</p>
+    <div className="container-candidate-large">
+      {currentRace?.race.Guide && currentRace.race.Guide.length > 0 && (
+        <div className="breadcrumb">
+          <Link href={`/${year}`}>{year} Election</Link> &gt;{' '}
+          <Link href={`/${year}/guide/${currentRace.race.Guide[0].region.name.toLowerCase().replace(/\s+/g, '-')}`}>
+            {currentRace.race.Guide[0].region.name} Guide
+          </Link> &gt;{' '}
+          {currentRace.race.office.title} &gt;{' '}
+          {candidate.name}
         </div>
-      </main>
+      )}
+      
+      <div className="candidate">
+        <div className="info">
+          {candidate.image ? (
+            <img 
+              src={candidate.image} 
+              alt={candidate.name}
+              width={150}
+              height={150}
+            />
+          ) : (
+            <div className="candidate-no-image">
+              <span>{candidate.name.split(' ').map(n => n[0]).join('')}</span>
+            </div>
+          )}
+          
+          <h5>{candidate.name}</h5>
+          
+          <ul className="candidate-links">
+            {candidate.email && (
+              <li>
+                <a href={`mailto:${candidate.email}`}>Email</a>
+              </li>
+            )}
+            {candidate.website && (
+              <li>
+                <a href={candidate.website} target="_blank" rel="noopener noreferrer">Website</a>
+              </li>
+            )}
+            {candidate.facebook && (
+              <li>
+                <a href={candidate.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+              </li>
+            )}
+            {candidate.twitter && (
+              <li>
+                <a href={candidate.twitter} target="_blank" rel="noopener noreferrer">Twitter</a>
+              </li>
+            )}
+            {candidate.instagram && (
+              <li>
+                <a href={candidate.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+              </li>
+            )}
+            {candidate.youtube && (
+              <li>
+                <a href={candidate.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+              </li>
+            )}
+            {candidate.pdc && (
+              <li>
+                <a href={candidate.pdc} target="_blank" rel="noopener noreferrer">Campaign Finance (PDC)</a>
+              </li>
+            )}
+          </ul>
+        </div>
+        
+        <div className="details">
+          <h5>{candidate.name}</h5>
+          {candidate.bio && (
+            <div className="candidate-bio" dangerouslySetInnerHTML={{ __html: candidate.bio }} />
+          )}
+          {!candidate.bio && candidate.statement && (
+            <div className="candidate-statement" dangerouslySetInnerHTML={{ __html: candidate.statement }} />
+          )}
+          
+          {candidate.engagement && (
+            <div className="engagement">
+              <h4>Community Engagement</h4>
+              <div dangerouslySetInnerHTML={{ __html: candidate.engagement }} />
+            </div>
+          )}
+          
+          {(endorsementsFor.length > 0 || endorsementsAgainst.length > 0) && (
+            <div className="endorsements-summary">
+              <h4>Endorsements</h4>
+              <ul className="recs">
+                {endorsementsFor.map(endorsement => (
+                  <li key={endorsement.id} className="yes">
+                    <a href={endorsement.url} target="_blank" rel="noopener noreferrer">
+                      {endorsement.endorser}
+                    </a>
+                  </li>
+                ))}
+                {endorsementsAgainst.map(endorsement => (
+                  <li key={endorsement.id} className="no">
+                    <a href={endorsement.url} target="_blank" rel="noopener noreferrer">
+                      {endorsement.endorser}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          {candidate.articles && (
+            <div className="candidate-articles">
+              <h4>News Articles</h4>
+              <div dangerouslySetInnerHTML={{ __html: candidate.articles }} />
+            </div>
+          )}
+          
+          {candidate.lettersYes && (
+            <div className="letters-yes">
+              <h4>Letters of Support</h4>
+              <div dangerouslySetInnerHTML={{ __html: candidate.lettersYes }} />
+            </div>
+          )}
+          
+          {candidate.lettersNo && (
+            <div className="letters-no">
+              <h4>Letters of Opposition</h4>
+              <div dangerouslySetInnerHTML={{ __html: candidate.lettersNo }} />
+            </div>
+          )}
+        </div>
+        
+        <div className="candidate-content">
+          {candidate.donors && !candidate.minifiler && (
+            <div className="donor-summary">
+              <h3>Campaign Finance</h3>
+              <div dangerouslySetInnerHTML={{ __html: candidate.donors }} />
+            </div>
+          )}
+          
+          {candidate.minifiler && (
+            <div className="donor-summary">
+              <h3>Campaign Finance</h3>
+              <p>This candidate is a mini-filer or self-funded.</p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   )
 }

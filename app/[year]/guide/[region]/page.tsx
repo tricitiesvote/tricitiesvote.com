@@ -23,13 +23,13 @@ export default async function RegionalGuidePage({ params }: RegionalGuidePagePro
   return (
     <div className="regional-guide">
       <header className="page-header">
-        <h1>{guide.title}</h1>
+        <h1>{year} {guide.region.name} Election Guide</h1>
         <GuideSelector year={year} currentRegion={regionSlug} />
       </header>
       
       <main>
         <div className="races-list">
-          {guide.races.map(race => (
+          {guide.Race.map(race => (
             <RaceCard key={race.id} race={race} year={year} />
           ))}
         </div>

@@ -13,12 +13,12 @@ export default async function YearLayout({ children, params }: YearLayoutProps) 
   const availableYears = await getAvailableYears()
 
   return (
-    <div className="year-layout">
+    <>
       <Header>
         <YearToggle currentYear={currentYear} availableYears={availableYears} />
       </Header>
       <main>{children}</main>
       <Footer />
-    </div>
+    </>
   )
 }

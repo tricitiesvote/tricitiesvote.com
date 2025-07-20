@@ -227,7 +227,7 @@ section li a {
   font-size: 13px
 }
 
-section, article, .candidate {
+section, article {
   margin: 10px;
 }
 
@@ -276,9 +276,17 @@ h4 {
   padding-bottom: 5px;
 }
 
-.container, .container-wide, .container-candidate {
+.container, .container-wide {
   display: inline-grid;
 }
+
+.container-candidate {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
 
 .hide-item {
   /* float: right; */
@@ -379,8 +387,14 @@ form {
 }
 
 .container-candidate-large {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  display: block;
+}
+
+.container-candidate-large .candidate {
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .race {
@@ -388,9 +402,6 @@ form {
   padding: 20px;
   position: relative;
   border: 1px solid rgba(83,187,228,0.25);
-  /* text-shadow: 1px 0px 0px rgba(83,187,228,1); */
-  /* background-color: #f0fafa; */
-  /* box-shadow: inset 0 0px 2px #daeded; */
 }
 
 form {
@@ -398,6 +409,19 @@ form {
   margin: 50px auto;
   padding: 20px;
   border: 1px solid rgba(83,187,228,0.25);
+}
+
+.feedback-form {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.feedback-form h2 {
+  color: #52BAD5;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
 
 .race h2, form h2 {
@@ -481,6 +505,26 @@ input.button:hover {
   content: " »"
 }
 
+.compare-link {
+  margin: 10px 0 20px 0;
+  font-size: 14px;
+}
+
+.compare-link .compare-icon {
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.compare-link a {
+  color: #52BAD5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.compare-link a:hover {
+  text-decoration: underline;
+}
+
 del, del a:link, del li {
   opacity: 0.5 !important;
 }
@@ -533,8 +577,24 @@ del, del a:link, del li {
   margin-top: 0px;
 }
 
+.donor-summary h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.donors-note {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+}
+
 .donor-summary, .endorsements-summary {
   margin-bottom: 30px;
+}
+
+.endorsements-summary h4 {
+  font-size: 16px;
+  margin: 20px 0 10px 0;
 }
 
 .candidate-mini .donor-summary {
@@ -571,6 +631,20 @@ del, del a:link, del li {
 
 .candidate img {
   margin: 5px 15px 10px 5px;
+}
+
+.candidate-no-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  background-color: #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 15px 10px 5px;
+  font-size: 48px;
+  font-weight: 600;
+  color: #999;
 }
 
 .info ul {
@@ -772,6 +846,30 @@ del, del a:link, del li {
 
 li span {
   margin-right: 10px;
+}
+
+.candidate-links {
+  padding-left: 0;
+  list-style: none;
+  margin: 10px 0;
+}
+
+.candidate-links li {
+  font-size: 13px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.candidate-links li span {
+  margin-right: 3px;
+}
+
+.candidate-links li a {
+  font-size: 13px;
+}
+
+.candidate-image-name {
+  display: none;
 }
 
 .city {

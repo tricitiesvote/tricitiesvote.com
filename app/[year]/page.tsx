@@ -26,8 +26,8 @@ export default async function YearHomePage({ params }: YearHomePageProps) {
             const regionSlug = guide.region.name.toLowerCase().replace(/\s+/g, '-')
             return (
               <div key={guide.id} className="guide-preview">
-                <h3>{guide.title}</h3>
-                <p>{guide.races.length} races</p>
+                <h3>{guide.region.name} Guide</h3>
+                <p>{guide.Race.length} races</p>
                 <Link href={`/${year}/guide/${regionSlug}`}>
                   View Guide →
                 </Link>

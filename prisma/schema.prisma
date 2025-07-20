@@ -1,9 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
-  previewFeatures = ["fullTextSearch"]
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearchPostgres"]
 }
 
 datasource db {
@@ -11,7 +8,107 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Using your existing office values from the config
+model Office {
+  id         String      @id @default(cuid())
+  title      String
+  type       OfficeType
+  regionId   String
+  position   Int?
+  jobTitle   String
+  candidates Candidate[]
+  region     Region      @relation(fields: [regionId], references: [id])
+  races      Race[]
+
+  @@unique([regionId, title])
+}
+
+model Region {
+  id      String   @id @default(cuid())
+  name    String   @unique
+  code    String?
+  guides  Guide[]
+  offices Office[]
+}
+
+model Candidate {
+  id            String          @id @default(cuid())
+  name          String
+  stateId       String?
+  electionYear  Int
+  officeId      String
+  incumbent     Boolean         @default(false)
+  yearsInOffice Int?
+  image         String?
+  bio           String?
+  party         String?
+  email         String?
+  statement     String?
+  website       String?
+  facebook      String?
+  twitter       String?
+  instagram     String?
+  youtube       String?
+  pdc           String?
+  donors        String?
+  lettersYes    String?
+  lettersNo     String?
+  articles      String?
+  engagement    String?
+  hide          Boolean         @default(false)
+  minifiler     Boolean         @default(false)
+  office        Office          @relation(fields: [officeId], references: [id])
+  races         CandidateRace[]
+  endorsements  Endorsement[]
+}
+
+model CandidateRace {
+  candidateId String
+  raceId      String
+  incumbent   Boolean   @default(false)
+  party       String?
+  elected     Boolean?
+  voteCount   Int?
+  votePercent Float?
+  termLength  Int?
+  shortTerm   Boolean   @default(false)
+  candidate   Candidate @relation(fields: [candidateId], references: [id])
+  race        Race      @relation(fields: [raceId], references: [id])
+
+  @@id([candidateId, raceId])
+}
+
+model Race {
+  id           String          @id @default(cuid())
+  electionYear Int
+  officeId     String
+  type         ElectionType
+  intro        String?
+  body         String?
+  hide         Boolean         @default(false)
+  candidates   CandidateRace[]
+  office       Office          @relation(fields: [officeId], references: [id])
+  Guide        Guide[]         @relation("GuideRaces")
+}
+
+model Guide {
+  id           String       @id @default(cuid())
+  electionYear Int
+  regionId     String
+  type         ElectionType
+  region       Region       @relation(fields: [regionId], references: [id])
+  Race         Race[]       @relation("GuideRaces")
+}
+
+model Endorsement {
+  id          String          @id @default(cuid())
+  candidateId String
+  endorser    String
+  url         String
+  type        EndorsementType
+  forAgainst  ForAgainst
+  candidate   Candidate       @relation(fields: [candidateId], references: [id])
+}
+
 enum OfficeType {
   CITY_COUNCIL
   SCHOOL_BOARD
@@ -25,116 +122,6 @@ enum OfficeType {
   MAYOR
   SHERIFF
   PROSECUTOR
-}
-
-model Office {
-  id          String      @id @default(cuid())
-  title       String      // e.g. "Richland City Council Pos 4"
-  type        OfficeType
-  region      Region      @relation(fields: [regionId], references: [id])
-  regionId    String
-  position    Int?        // Optional position number
-  races       Race[]
-  jobTitle    String      // e.g. "Council member", "Commissioner"
-  candidates  Candidate[]
-  
-  @@unique([regionId, title])
-}
-
-model Region {
-  id          String    @id @default(cuid())
-  name        String    // e.g. "Richland", "Benton County"
-  code        String?   // e.g. "RCH", "BC"
-  offices     Office[]
-  guides      Guide[]   // Was previously called guides in your data structure
-
-  @@unique([name])
-}
-
-model Candidate {
-  id            String          @id @default(cuid())
-  name          String
-  slug          String          @unique
-  stateId       String?        // PDC filer_id
-  electionYear  Int
-  office        Office         @relation(fields: [officeId], references: [id])
-  officeId      String
-  incumbent     Boolean        @default(false)
-  yearsInOffice Int?
-  image         String?
-  bio           String?        @db.Text
-  party         String?
-  email         String?
-  statement     String?        @db.Text
-  website       String?
-  facebook      String?
-  twitter       String?
-  instagram     String?
-  youtube       String?
-  pdc          String?        // Campaign finance URL
-  donors        String?        @db.Text
-  lettersYes    String?        @db.Text
-  lettersNo     String?        @db.Text
-  articles      String?        @db.Text
-  engagement    String?        @db.Text
-  hide          Boolean        @default(false)
-  minifiler     Boolean        @default(false)
-  races         CandidateRace[]
-  endorsements  Endorsement[]
-  
-  @@unique([name])
-}
-
-model CandidateRace {
-  candidate     Candidate     @relation(fields: [candidateId], references: [id])
-  candidateId   String
-  race          Race         @relation(fields: [raceId], references: [id])
-  raceId        String
-  incumbent     Boolean      @default(false)
-  party         String?      // Optional since some races are non-partisan
-  elected       Boolean?     // null until results final
-  voteCount     Int?
-  votePercent   Float?
-  termLength    Int?         // For tracking 2 vs 4 year terms
-  shortTerm     Boolean      @default(false)
-  
-  @@id([candidateId, raceId])
-}
-
-model Race {
-  id          String          @id @default(cuid())
-  title       String
-  slug        String          @unique
-  year        Int
-  office      Office          @relation(fields: [officeId], references: [id])
-  officeId    String
-  type        ElectionType
-  candidates  CandidateRace[]
-  intro       String?         @db.Text
-  body        String?         @db.Text
-  hide        Boolean         @default(false)
-  guide       Guide           @relation("GuideRaces", fields: [guideId], references: [id])
-  guideId     String
-}
-
-model Guide {
-  id           String    @id @default(cuid())
-  title        String
-  year         Int
-  region       Region    @relation(fields: [regionId], references: [id])
-  regionId     String
-  type         ElectionType
-  races        Race[]    @relation("GuideRaces")
-}
-
-model Endorsement {
-  id          String    @id @default(cuid())
-  candidate   Candidate @relation(fields: [candidateId], references: [id])
-  candidateId String
-  endorser    String
-  url         String
-  type        EndorsementType
-  forAgainst  ForAgainst
 }
 
 enum EndorsementType {

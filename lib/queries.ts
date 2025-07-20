@@ -3,11 +3,11 @@ import { prisma } from './db'
 export async function getAvailableYears(): Promise<number[]> {
   try {
     const guides = await prisma.guide.findMany({
-      select: { year: true },
-      distinct: ['year'],
-      orderBy: { year: 'desc' }
+      select: { electionYear: true },
+      distinct: ['electionYear'],
+      orderBy: { electionYear: 'desc' }
     })
-    return guides.map(g => g.year)
+    return guides.map(g => g.electionYear)
   } catch (error) {
     console.error('Error fetching years:', error)
     return []
@@ -21,10 +21,10 @@ export async function getLatestYear(): Promise<number> {
 
 export async function getGuidesForYear(year: number) {
   return await prisma.guide.findMany({
-    where: { year },
+    where: { electionYear: year },
     include: {
       region: true,
-      races: {
+      Race: {
         include: {
           office: true,
           candidates: true
@@ -58,12 +58,12 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
   
   return await prisma.guide.findFirst({
     where: { 
-      year,
+      electionYear: year,
       regionId: region.id
     },
     include: {
       region: true,
-      races: {
+      Race: {
         include: {
           office: true,
           candidates: {
@@ -88,9 +88,16 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
 }
 
 export async function getCandidateByYearAndSlug(year: number, slug: string) {
+  // Convert slug back to name (e.g., "john-doe" -> "John Doe")
+  const name = slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+    
   return await prisma.candidate.findFirst({
     where: {
-      slug
+      name: { equals: name, mode: 'insensitive' },
+      electionYear: year
     },
     include: {
       office: true,
@@ -99,7 +106,7 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
           race: {
             include: {
               office: true,
-              guide: {
+              Guide: {
                 include: {
                   region: true
                 }
@@ -113,21 +120,27 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
 }
 
 export async function getRaceByYearAndSlug(year: number, slug: string) {
+  // For now, we'll search by office title pattern
+  // This is a temporary solution until we add slug to Race
   return await prisma.race.findFirst({
     where: {
-      slug,
-      year
+      electionYear: year
     },
     include: {
       office: true,
-      guide: {
+      Guide: {
         include: {
           region: true
         }
       },
       candidates: {
         include: {
-          candidate: true
+          candidate: {
+            include: {
+              office: true,
+              endorsements: true
+            }
+          }
         },
         orderBy: {
           candidate: {
