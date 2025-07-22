@@ -16,6 +16,7 @@
     "validate:2023": "ts-node --project tsconfig.scripts.json scripts/migrate/validate-2023.ts",
     "cleanup:2023": "ts-node --project tsconfig.scripts.json scripts/migrate/clean.ts",
     "import:pdc": "ts-node --project tsconfig.scripts.json scripts/import/pdc.ts",
+    "import:pdc:all": "npm run import:pdc 2020 2021 2022 2023 2024 2025",
     "import:pamphlet": "ts-node --project tsconfig.scripts.json scripts/import/pamphlet.ts",
     "import:results": "ts-node --project tsconfig.scripts.json scripts/import/results.ts",
     "prepare:2025": "ts-node --project tsconfig.scripts.json scripts/prepare-2025.ts"

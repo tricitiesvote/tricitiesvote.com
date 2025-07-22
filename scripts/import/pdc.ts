@@ -1,150 +1,168 @@
-// scripts/import/pdc.ts
-import { PrismaClient, RegionType, OfficeType } from '@prisma/client'
-import * as soda from 'soda-js'
-import _ from 'lodash'
+// scripts/import/pdc.ts - Import PDC contribution data for all years
+import { PrismaClient } from '@prisma/client'
+import { WAStateClient } from '../../lib/wa-state'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 
 const prisma = new PrismaClient()
 
-interface PDCCandidate {
+interface PDCContribution {
+  id: string
   filer_id: string
-  filer_name: string
-  office: string
-  legislative_district: string
-  position: string
-  jurisdiction_county: string
-  jurisdiction: string
-  party: string
   election_year: string
+  contributor_name: string
+  contributor_address: string
+  contributor_city: string
+  contributor_state: string
+  contributor_zip: string
+  contributor_employer: string
+  contributor_occupation: string
+  contribution_amount: string
+  contribution_date: string
+  description: string
 }
 
-async function importPDCData(year: number) {
-  const consumer = new soda.Consumer('data.wa.gov')
+async function importContributionsForYear(year: number) {
+  console.log(`Importing contributions for ${year}...`)
   
-  const query = consumer.query()
-    .withDataset('kv7h-kjye') // campaign finance reports
-    .limit(10000)
-    .where(`
-      election_year = '${year}' AND
-      type = 'Candidate' AND
-      (
-        jurisdiction = 'CITY OF RICHLAND' OR
-        jurisdiction = 'CITY OF KENNEWICK' OR
-        jurisdiction = 'CITY OF WEST RICHLAND' OR
-        jurisdiction = 'CITY OF PASCO' OR
-        jurisdiction_county = 'BENTON' OR 
-        jurisdiction_county = 'FRANKLIN' OR 
-        legislative_district = '16' OR 
-        legislative_district = '08' OR 
-        legislative_district = '09' OR
-        legislative_district = '8' OR 
-        legislative_district = '9' 
-      )
-    `)
-
-  return new Promise<PDCCandidate[]>((resolve, reject) => {
-    query.getRows()
-      .on('success', resolve)
-      .on('error', reject)
+  const client = new WAStateClient({
+    apiId: process.env.SOCRATA_APP_TOKEN || '',
+    apiSecret: process.env.SOCRATA_PASSWORD || ''
   })
-}
 
-async function mapCandidateToDatabase(pdcCandidate: PDCCandidate) {
-  // First ensure we have the right office
-  const office = await getOrCreateOffice(pdcCandidate)
+  let totalImported = 0
   
-  // Get or create the election
-  const election = await prisma.election.findFirst({
-    where: {
-      year: parseInt(pdcCandidate.election_year),
-      type: 'GENERAL'
+  try {
+    for await (const batch of client.getContributions({ election_year: year.toString() })) {
+      for (const contribution of batch) {
+        await processContribution(contribution as any, year)
+        totalImported++
+        
+        if (totalImported % 100 === 0) {
+          console.log(`Processed ${totalImported} contributions for ${year}`)
+        }
+      }
     }
-  })
-  
-  if (!election) {
-    throw new Error(`No election found for year ${pdcCandidate.election_year}`)
+    
+    console.log(`Completed importing ${totalImported} contributions for ${year}`)
+  } catch (error) {
+    console.error(`Error importing contributions for ${year}:`, error)
+    throw error
   }
-  
-  // Get or create the race for this office in this election
-  const race = await prisma.race.findFirst({
+}
+
+async function processContribution(contribution: PDCContribution, year: number) {
+  // Find candidate by PDC filer_id (stateId in our schema)
+  const candidate = await prisma.candidate.findFirst({
     where: {
-      electionId: election.id,
-      officeId: office.id
-    }
-  }) || await prisma.race.create({
-    data: {
-      electionId: election.id,
-      officeId: office.id,
-      termLength: office.termLength
+      stateId: contribution.filer_id,
+      electionYear: year
     }
   })
-  
-  // Create or update the candidate
-  const candidate = await prisma.candidate.upsert({
+
+  if (!candidate) {
+    console.warn(`Candidate not found for filer_id: ${contribution.filer_id} in ${year}`)
+    return
+  }
+
+  // Create contribution record
+  await prisma.contribution.upsert({
     where: {
-      stateId: pdcCandidate.filer_id
+      id: contribution.id || `${contribution.filer_id}-${contribution.contributor_name}-${contribution.contribution_date}-${contribution.contribution_amount}`
     },
     create: {
-      name: pdcCandidate.filer_name,
-      stateId: pdcCandidate.filer_id,
-      races: {
-        create: {
-          raceId: race.id,
-          party: pdcCandidate.party
-        }
-      }
+      candidateId: candidate.id,
+      electionYear: year,
+      donorName: contribution.contributor_name,
+      donorCity: contribution.contributor_city,
+      donorState: contribution.contributor_state,
+      donorZip: contribution.contributor_zip,
+      donorEmployer: contribution.contributor_employer,
+      donorOccupation: contribution.contributor_occupation,
+      amount: parseFloat(contribution.contribution_amount) || 0,
+      date: new Date(contribution.contribution_date),
+      description: contribution.description
     },
     update: {
-      name: pdcCandidate.filer_name,
-      races: {
-        create: {
-          raceId: race.id,
-          party: pdcCandidate.party
-        }
-      }
+      donorName: contribution.contributor_name,
+      donorCity: contribution.contributor_city,
+      donorState: contribution.contributor_state,
+      donorZip: contribution.contributor_zip,
+      donorEmployer: contribution.contributor_employer,
+      donorOccupation: contribution.contributor_occupation,
+      amount: parseFloat(contribution.contribution_amount) || 0,
+      date: new Date(contribution.contribution_date),
+      description: contribution.description
     }
   })
-  
-  return candidate
-}
-
-async function getOrCreateOffice(pdcCandidate: PDCCandidate) {
-  // Map PDC office data to our schema
-  const officeData = mapPDCOfficeData(pdcCandidate)
-  
-  return prisma.office.upsert({
-    where: {
-      regionId_title: {
-        regionId: officeData.regionId,
-        title: officeData.title
-      }
-    },
-    create: officeData,
-    update: officeData
-  })
-}
-
-function mapPDCOfficeData(pdcCandidate: PDCCandidate) {
-  // This would contain the logic to map PDC office descriptions
-  // to our office/region structure
-  // Would need to handle all the different types of offices
-  // Return type would match our Office schema
 }
 
 async function main() {
-  const year = 2023 // or get from args
+  const years = process.argv.slice(2).map(y => parseInt(y))
+  
+  if (years.length === 0) {
+    console.log('Usage: npm run import:pdc <year1> [year2] [year3]...')
+    console.log('Example: npm run import:pdc 2020 2021 2022 2023')
+    process.exit(1)
+  }
   
   try {
-    const pdcData = await importPDCData(year)
-    
-    for (const candidate of pdcData) {
-      await mapCandidateToDatabase(candidate)
-      console.log(`Processed ${candidate.filer_name}`)
+    for (const year of years) {
+      console.log(`\n=== Starting import for ${year} ===`)
+      await importContributionsForYear(year)
+      
+      // After importing contributions, update candidate donor summaries
+      await updateCandidateDonorSummaries(year)
     }
     
-    console.log('Import completed successfully')
+    console.log('\n=== All imports completed successfully ===')
   } catch (error) {
     console.error('Import failed:', error)
+    process.exit(1)
+  } finally {
+    await prisma.$disconnect()
   }
 }
 
-main()
+async function updateCandidateDonorSummaries(year: number) {
+  console.log(`Updating donor summaries for ${year}...`)
+  
+  const candidates = await prisma.candidate.findMany({
+    where: { electionYear: year },
+    include: {
+      contributions: true
+    }
+  })
+
+  for (const candidate of candidates) {
+    const totalRaised = candidate.contributions.reduce((sum, c) => sum + c.amount, 0)
+    const uniqueDonors = new Set(candidate.contributions.map(c => c.donorName)).size
+    const topDonors = candidate.contributions
+      .reduce((acc, c) => {
+        const existing = acc.find(d => d.name === c.donorName)
+        if (existing) {
+          existing.amount += c.amount
+        } else {
+          acc.push({ name: c.donorName, amount: c.amount })
+        }
+        return acc
+      }, [] as Array<{ name: string, amount: number }>)
+      .sort((a, b) => b.amount - a.amount)
+      .slice(0, 5)
+
+    // Update the candidate's donors field with summary info
+    const donorSummary = `Reported raised $${totalRaised.toFixed(0)} from ${uniqueDonors}+ donors`
+    
+    await prisma.candidate.update({
+      where: { id: candidate.id },
+      data: { donors: donorSummary }
+    })
+  }
+  
+  console.log(`Updated donor summaries for ${candidates.length} candidates in ${year}`)
+}
+
+if (require.main === module) {
+  main()
+}
