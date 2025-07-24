@@ -335,3 +335,9 @@ SOCRATA_PASSWORD=your_password
 - **Schema Mismatches**: Run `npx prisma migrate dev` after schema changes
 
 This architecture provides a flexible, maintainable system for managing election information across multiple cycles while preserving the simplicity and effectiveness of the original voter guide format.
+
+
+## General Notes
+
+- Do not use `git add -A` -- add files individually
+- Keep all commit messages simple and one-line with NO Claude branding
