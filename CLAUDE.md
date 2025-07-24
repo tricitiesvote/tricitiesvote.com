@@ -58,16 +58,30 @@ The system is organized around these key entities:
 - Connected to an office and region
 - Contains multiple candidates
 - Has questionnaire responses and metadata
+- Note: Uses `electionYear` field (not `year`)
 
 **Candidates** - Individuals running for office:
 - Profile information and photos
 - Questionnaire responses
-- Campaign finance data
+- Campaign finance data (via `donors` field)
 - Election results
+- Endorsements (separate table)
+- Note: Uses `electionYear` field (not `year`)
 
 **Guides** - Geographic groupings of races for voter convenience:
 - Year-specific collections of relevant races
 - Organized by location (city/county level)
+- Note: Uses `electionYear` field (not `year`)
+
+**Contributions** - PDC campaign finance records:
+- Linked to candidates
+- Individual donor records with amounts
+- Used to generate donor summaries
+
+**Endorsements** - Support/opposition from organizations:
+- Linked to candidates
+- FOR/AGAINST designation
+- Organization type (ORG/LETTER)
 
 ### Election Cycle Logic
 
@@ -231,8 +245,21 @@ The system integrates with several Washington State data sources through the `li
 #### Core Import Commands
 
 ```bash
-# Import campaign finance data from PDC
-npm run import:pdc
+# Import campaign finance data from PDC (single year)
+npm run import:pdc 2023
+
+# Import all PDC data (2020-2025)
+npm run import:pdc:all
+
+# Fast PDC import (10-50x faster, batch operations)
+npm run import:pdc:fast 2023
+npm run import:pdc:fast:all
+
+# Import historical data from Git branches
+npm run import:historical 2020 2021 2022 2023
+
+# Test historical import (dry-run)
+npm run import:historical:test 2020
 
 # Import candidate statements and photos from voter pamphlet
 npm run import:pamphlet
@@ -247,7 +274,7 @@ npm run prepare:2025
 #### Legacy Migration Commands
 
 ```bash
-# Import all historical data (2020-2023)
+# Import all base data (candidates, races, offices)
 npm run migrate:all-years
 
 # Import specific year
@@ -316,10 +343,12 @@ The system includes sophisticated name matching to handle variations:
 
 **Environment Variables**:
 ```env
-# Optional: PDC API credentials for higher rate limits
-SOCRATA_APP_TOKEN=your_app_token
-SOCRATA_USERNAME=your_username
-SOCRATA_PASSWORD=your_password
+# Database connection (Railway PostgreSQL)
+DATABASE_URL="postgresql://user:password@host:port/database"
+
+# PDC API credentials (required for contribution imports)
+SOCRATA_API_ID=your_api_id
+SOCRATA_API_SECRET=your_api_secret
 ```
 
 **TypeScript Configuration**:
@@ -333,11 +362,58 @@ SOCRATA_PASSWORD=your_password
 - **API Rate Limits**: Add Socrata credentials to `.env`
 - **Missing Race IDs**: Verify election configuration has all race IDs
 - **Schema Mismatches**: Run `npx prisma migrate dev` after schema changes
+- **PDC Field Names**: Use `amount` not `contribution_amount`, `receipt_date` not `contribution_date`
+- **Database Connection**: Railway may rate-limit after heavy imports; wait or change IP
+
+### Import Workflow Summary
+
+1. **Base Data Import** (candidates, races, offices):
+   ```bash
+   npm run migrate:all-years
+   ```
+
+2. **Historical Data Import** (photos, endorsements, statements):
+   ```bash
+   npm run import:historical 2020 2021 2022 2023
+   ```
+
+3. **PDC Contribution Import** (campaign finance):
+   ```bash
+   npm run import:pdc:fast:all
+   ```
+
+4. **Verify Data**:
+   - Check http://localhost:3000/[year]/guide/[region]
+   - Ensure images display
+   - Verify donor summaries show
+   - Confirm endorsements appear
 
 This architecture provides a flexible, maintainable system for managing election information across multiple cycles while preserving the simplicity and effectiveness of the original voter guide format.
 
+## Current Implementation Status
+
+### ✅ Completed
+- Next.js app with year-aware routing
+- Database schema with all core entities
+- Historical data import (2020-2023)
+- PDC contribution import with correct amounts
+- Basic UI components matching legacy structure
+- Endorsement display functionality
+
+### 🚧 In Progress
+- Donor data display on race/candidate pages
+- CSS styling to match legacy exactly
+- Markdown processing for bio/statement fields
+
+### ❌ TODO
+- Questionnaire CSV parsing
+- VoteWA pamphlet import
+- Election results import
+- 2025 election preparation
 
 ## General Notes
 
 - Do not use `git add -A` -- add files individually
 - Keep all commit messages simple and one-line with NO Claude branding
+- Database uses `electionYear` not `year` in all tables
+- Railway database may rate-limit after heavy usage

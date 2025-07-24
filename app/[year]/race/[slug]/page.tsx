@@ -46,12 +46,19 @@ export default async function RacePage({ params }: RacePageProps) {
             {race.candidates
               .filter(({ candidate }) => !candidate.hide)
               .map(({ candidate }) => {
-                // Calculate fundraising data from PDC if available
-                const fundraising = candidate.pdc ? {
-                  total: 0, // This would come from PDC data
-                  donors: 0,
-                  topDonors: []
-                } : null
+                // Parse donor summary string if available
+                let fundraising = null
+                if (candidate.donors) {
+                  // Example: "Reported raised $12500 from 156+ donors"
+                  const match = candidate.donors.match(/\$(\d+) from (\d+)\+? donors/)
+                  if (match) {
+                    fundraising = {
+                      total: parseInt(match[1]),
+                      donors: parseInt(match[2]),
+                      topDonors: [] // We don't have individual donors in the summary
+                    }
+                  }
+                }
 
                 return (
                   <Candidate

@@ -67,16 +67,16 @@ async function processContribution(contribution: PDCContribution, year: number) 
   }
 
   // Parse date safely
-  const contributionDate = contribution.contribution_date ? new Date(contribution.contribution_date) : new Date()
+  const contributionDate = contribution.receipt_date ? new Date(contribution.receipt_date) : new Date()
   if (isNaN(contributionDate.getTime())) {
-    console.warn(`Invalid date for contribution ${contribution.id}: ${contribution.contribution_date}`)
+    console.warn(`Invalid date for contribution ${contribution.id}: ${contribution.receipt_date}`)
     return
   }
 
   // Create contribution record
   await prisma.contribution.upsert({
     where: {
-      id: contribution.id || `${contribution.filer_id}-${contribution.contributor_name}-${contribution.contribution_date}-${contribution.contribution_amount}`
+      id: contribution.id || `${contribution.filer_id}-${contribution.contributor_name}-${contribution.receipt_date}-${contribution.amount}`
     },
     create: {
       candidateId: candidate.id,
@@ -87,7 +87,7 @@ async function processContribution(contribution: PDCContribution, year: number) 
       donorZip: contribution.contributor_zip,
       donorEmployer: contribution.contributor_employer,
       donorOccupation: contribution.contributor_occupation,
-      amount: parseFloat(contribution.contribution_amount) || 0,
+      amount: parseFloat(contribution.amount) || 0,
       date: contributionDate,
       description: contribution.description
     },
@@ -98,7 +98,7 @@ async function processContribution(contribution: PDCContribution, year: number) 
       donorZip: contribution.contributor_zip,
       donorEmployer: contribution.contributor_employer,
       donorOccupation: contribution.contributor_occupation,
-      amount: parseFloat(contribution.contribution_amount) || 0,
+      amount: parseFloat(contribution.amount) || 0,
       date: contributionDate,
       description: contribution.description
     }

@@ -68,7 +68,11 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
           office: true,
           candidates: {
             include: {
-              candidate: true
+              candidate: {
+                include: {
+                  endorsements: true
+                }
+              }
             },
             orderBy: {
               candidate: {
@@ -101,6 +105,7 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
     },
     include: {
       office: true,
+      endorsements: true,
       races: {
         include: {
           race: {
@@ -120,11 +125,18 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
 }
 
 export async function getRaceByYearAndSlug(year: number, slug: string) {
-  // For now, we'll search by office title pattern
-  // This is a temporary solution until we add slug to Race
+  // Convert slug back to office title (e.g., "kennewick-city-council" -> "Kennewick City Council")
+  const officeTitle = slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+  
   return await prisma.race.findFirst({
     where: {
-      electionYear: year
+      electionYear: year,
+      office: {
+        title: { equals: officeTitle, mode: 'insensitive' }
+      }
     },
     include: {
       office: true,

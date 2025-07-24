@@ -3,7 +3,7 @@
 
 import 'dotenv/config'
 import { PrismaClient } from '@prisma/client'
-import { WAStateClient, PDCContribution } from '../lib/wa-state/client'
+import { WAStateClient } from '../../lib/wa-state/client'
 
 const prisma = new PrismaClient()
 
@@ -44,14 +44,14 @@ async function importContributionsForYear(year: number) {
         }
         
         // Parse date safely
-        const contributionDate = contribution.contribution_date ? new Date(contribution.contribution_date) : new Date()
+        const contributionDate = contribution.receipt_date ? new Date(contribution.receipt_date) : new Date()
         if (isNaN(contributionDate.getTime())) {
           totalSkipped++
           continue
         }
         
         contributionBatch.push({
-          id: contribution.id || `${contribution.filer_id}-${contribution.contributor_name}-${contribution.contribution_date}-${contribution.contribution_amount}`,
+          id: contribution.id || `${contribution.filer_id}-${contribution.contributor_name}-${contribution.receipt_date}-${contribution.amount}`,
           candidateId,
           electionYear: year,
           donorName: contribution.contributor_name || 'Unknown',
@@ -60,7 +60,7 @@ async function importContributionsForYear(year: number) {
           donorZip: contribution.contributor_zip || null,
           donorEmployer: contribution.contributor_employer || null,
           donorOccupation: contribution.contributor_occupation || null,
-          amount: parseFloat(contribution.contribution_amount) || 0,
+          amount: parseFloat(contribution.amount) || 0,
           date: contributionDate,
           description: contribution.description || null
         })
