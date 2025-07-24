@@ -18,11 +18,11 @@ export class SocrataClient {
       const url = this.buildUrl(endpoint, whereClause, offset, batchSize)
       const response = await this.makeRequest(url)
       
-      if (response.length < batchSize) {
+      if ((response as any[]).length < batchSize) {
         hasMore = false
       }
 
-      yield response
+      yield response as any[]
       offset += batchSize
 
       // Respect rate limits

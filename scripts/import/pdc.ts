@@ -27,15 +27,15 @@ async function importContributionsForYear(year: number) {
   console.log(`Importing contributions for ${year}...`)
   
   const client = new WAStateClient({
-    apiId: process.env.SOCRATA_APP_TOKEN || '',
-    apiSecret: process.env.SOCRATA_PASSWORD || ''
+    apiId: process.env.SOCRATA_API_ID || '',
+    apiSecret: process.env.SOCRATA_API_SECRET || ''
   })
 
   let totalImported = 0
   
   try {
     for await (const batch of client.getContributions({ election_year: year.toString() })) {
-      for (const contribution of batch) {
+      for (const contribution of (batch as any)) {
         await processContribution(contribution as any, year)
         totalImported++
         
@@ -62,7 +62,14 @@ async function processContribution(contribution: PDCContribution, year: number) 
   })
 
   if (!candidate) {
-    console.warn(`Candidate not found for filer_id: ${contribution.filer_id} in ${year}`)
+    // Skip contributions for candidates not in our database
+    return
+  }
+
+  // Parse date safely
+  const contributionDate = contribution.contribution_date ? new Date(contribution.contribution_date) : new Date()
+  if (isNaN(contributionDate.getTime())) {
+    console.warn(`Invalid date for contribution ${contribution.id}: ${contribution.contribution_date}`)
     return
   }
 
@@ -81,7 +88,7 @@ async function processContribution(contribution: PDCContribution, year: number) 
       donorEmployer: contribution.contributor_employer,
       donorOccupation: contribution.contributor_occupation,
       amount: parseFloat(contribution.contribution_amount) || 0,
-      date: new Date(contribution.contribution_date),
+      date: contributionDate,
       description: contribution.description
     },
     update: {
@@ -92,7 +99,7 @@ async function processContribution(contribution: PDCContribution, year: number) 
       donorEmployer: contribution.contributor_employer,
       donorOccupation: contribution.contributor_occupation,
       amount: parseFloat(contribution.contribution_amount) || 0,
-      date: new Date(contribution.contribution_date),
+      date: contributionDate,
       description: contribution.description
     }
   })
@@ -128,14 +135,28 @@ async function main() {
 async function updateCandidateDonorSummaries(year: number) {
   console.log(`Updating donor summaries for ${year}...`)
   
-  const candidates = await prisma.candidate.findMany({
+  // First get just the candidate IDs to avoid loading everything at once
+  const candidateIds = await prisma.candidate.findMany({
     where: { electionYear: year },
-    include: {
-      contributions: true
-    }
+    select: { id: true }
   })
 
-  for (const candidate of candidates) {
+  console.log(`Found ${candidateIds.length} candidates to update`)
+  let processed = 0
+  
+  for (const { id } of candidateIds) {
+    processed++
+    if (processed % 10 === 0) {
+      console.log(`  Processed ${processed}/${candidateIds.length} candidates`)
+    }
+    
+    // Load one candidate at a time with their contributions
+    const candidate = await prisma.candidate.findUnique({
+      where: { id },
+      include: { contributions: true }
+    })
+    
+    if (!candidate || candidate.contributions.length === 0) continue;
     const totalRaised = candidate.contributions.reduce((sum, c) => sum + c.amount, 0)
     const uniqueDonors = new Set(candidate.contributions.map(c => c.donorName)).size
     const topDonors = candidate.contributions
@@ -160,7 +181,8 @@ async function updateCandidateDonorSummaries(year: number) {
     })
   }
   
-  console.log(`Updated donor summaries for ${candidates.length} candidates in ${year}`)
+  console.log(`Updated donor summaries for ${candidateIds.length} candidates in ${year}`)
+  console.log(`Finished processing year ${year}`)
 }
 
 if (require.main === module) {
