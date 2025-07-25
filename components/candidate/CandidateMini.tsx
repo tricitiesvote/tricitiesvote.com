@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { CandidateDonorSummary } from './CandidateDonorSummary'
 
 interface CandidateMiniProps {
   candidate: {
@@ -61,20 +62,11 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
         <div className="engagement" dangerouslySetInnerHTML={{ __html: candidate.engagement }} />
       )}
       
-      {fundraising && !candidate.minifiler ? (
-        <div className="donor-summary">
-          <p>
-            <strong>${fundraising.total.toLocaleString()}</strong> from{' '}
-            <strong>{fundraising.donors}+</strong> donors
-          </p>
-        </div>
-      ) : null}
-      
-      {(!fundraising || candidate.minifiler) && (
-        <div className="donor-summary">
-          <p>Self-funded / mini-filer</p>
-        </div>
-      )}
+      <CandidateDonorSummary
+        fundraising={fundraising}
+        minifiler={candidate.minifiler}
+        mini={true}
+      />
       
       {(endorsementsFor.length > 0 || endorsementsAgainst.length > 0) && (
         <div className="endorsements-summary">

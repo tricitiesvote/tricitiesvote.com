@@ -6,9 +6,9 @@ export default async function DebugPage() {
   })
   
   const years = await prisma.guide.findMany({
-    select: { year: true },
-    distinct: ['year'],
-    orderBy: { year: 'desc' }
+    select: { electionYear: true },
+    distinct: ['electionYear'],
+    orderBy: { electionYear: 'desc' }
   })
   
   return (
@@ -18,7 +18,7 @@ export default async function DebugPage() {
       <h2>Available Years:</h2>
       <ul>
         {years.map((y, i) => (
-          <li key={i}>{y.year}</li>
+          <li key={i}>{y.electionYear}</li>
         ))}
       </ul>
       
@@ -26,7 +26,7 @@ export default async function DebugPage() {
       <ul>
         {guides.map(guide => (
           <li key={guide.id}>
-            Year: {guide.year} | Region: {guide.region.name} | Title: {guide.title}
+            Year: {guide.electionYear} | Region: {guide.region.name} | Type: {guide.type}
           </li>
         ))}
       </ul>

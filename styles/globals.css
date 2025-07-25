@@ -181,7 +181,14 @@ h1 {
 }
 
 .candidate-position {
-  margin-left: 10px;
+  margin: 10px 0 15px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.candidate-position strong {
+  display: inline;
+  font-weight: 600;
 }
 
 h2 {
@@ -282,9 +289,15 @@ h4 {
 
 .container-candidate {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin: 20px 0;
+}
+
+@media (max-width: 900px) {
+  .container-candidate {
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -387,9 +400,8 @@ form {
 }
 
 .container-candidate-large {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
-  display: block;
 }
 
 .container-candidate-large .candidate {
@@ -398,7 +410,8 @@ form {
 }
 
 .race {
-  margin: 50px 10px 130px 10px;
+  margin: 50px auto 130px auto;
+  max-width: 1000px;
   padding: 20px;
   position: relative;
   border: 1px solid rgba(83,187,228,0.25);
@@ -546,11 +559,13 @@ del, del a:link, del li {
 .candidate {
   border: 1px solid #eee;
   border-bottom: 1px solid #ddd;
-  display: inline-grid;
+  display: grid;
   grid-template-columns: 170px 1fr;
-  padding: 10px;
+  padding: 15px;
   background: #fff;
   box-shadow: 0px 5px 10px rgba(38, 58, 172, .1);
+  width: 100%;
+  overflow: hidden;
 }
 
 .candidate.candidate-mini {
@@ -582,6 +597,21 @@ del, del a:link, del li {
   margin-bottom: 15px;
 }
 
+.donor-summary p {
+  font-family: "Iowan Old Style", "Apple Garamond", "Palatino", "Georgia", "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.candidate .donor-summary p {
+  font-size: 14px;
+}
+
+.candidate-mini .donor-summary p {
+  font-size: 15px;
+}
+
 .donors-note {
   font-size: 13px;
   color: #666;
@@ -602,7 +632,7 @@ del, del a:link, del li {
   border-top: 0;
 }
 
-.candidate-mini h3, .candidate-mini .including {
+.candidate h3, .candidate .including {
   display: none;
 }
 .candidate-mini strong {
@@ -654,6 +684,8 @@ del, del a:link, del li {
 .candidate .details {
   grid-column: 2;
   grid-row: 1;
+  padding: 0 10px;
+  overflow-wrap: break-word;
 }
 
 .candidate h5 {
@@ -672,6 +704,15 @@ del, del a:link, del li {
   border-bottom: 1px solid #eee;
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+
+.candidate-body {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.candidate-body p {
+  margin: 0 0 10px 0;
 }
 
 .candidate-body:last-child {
@@ -824,21 +865,6 @@ del, del a:link, del li {
   content: " »"
 }
 
-.topdonors::after {
-  content: ", "
-}
-
-.topdonors:last-of-type::before {
-  content: " and "
-}
-
-.topdonors:last-of-type::after {
-  content: ".";
-}
-
-.candidate-mini .topdonors:last-of-type::after {
-  content: "";
-}
 
 .topdonors-amount {
   color: rgba(0,0,0,.3)
@@ -870,6 +896,144 @@ li span {
 
 .candidate-image-name {
   display: none;
+}
+
+/* Engagement styles */
+.engagement {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.engagement li { 
+  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
+}
+
+.engagement ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.index .engagement ul {
+  margin: 10px;
+}
+
+.engagement h4 {
+  margin-bottom: 5px;
+  border-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+.container-candidate-large .engagement h4, .donor-summary h3 {
+  padding-top: 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.index .engagement {
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.index .engagement li {
+  font-size: 13px;
+}
+
+.fullLink {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: #53bce4;
+}
+
+.candidate h3, .candidate .including {
+  display: none;
+}
+
+/* Donor list styles */
+.donors-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.donor {
+  margin: 0 0 10px 0;
+}
+
+.donor p {
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.donor button {
+  border: 1px solid #fafafa;
+  background-color: transparent;
+  color: #777;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-details::before {
+  content: "▶";
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.donor.show-details .toggle-details::before {
+  transform: rotate(90deg);
+}
+
+.donor li {
+  display: none;
+  font-size: 12px;
+  padding-left: 25px;
+  margin-bottom: 3px;
+}
+
+.donor.show-details li {
+  display: block;
+}
+
+.donor ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.cash-vs-in-kind {
+  font-size: 12px;
+  color: #666;
+}
+
+.why-plus {
+  cursor: help;
+  text-decoration: underline dotted;
+}
+
+.helptext {
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+/* Candidate content area */
+.candidate-content {
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 20px;
 }
 
 .city {
@@ -1158,6 +1322,17 @@ li span {
 }
 
 /* Media queries for responsive design */
+@media screen and (min-width: 600px) {
+  .container-candidate-large .candidate {
+    padding: 50px;
+    grid-template-columns: 200px 1fr;
+  }
+  .container-candidate.container-candidate-mini {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .header-content {
     flex-direction: column;
@@ -1180,5 +1355,19 @@ li span {
   .year-toggle {
     flex-direction: column;
     align-items: center;
+  }
+  
+  .candidate .details {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .candidate {
+    grid-template-columns: 1fr;
+  }
+  
+  .candidate img {
+    margin: 10px auto;
+    display: block;
   }
 }

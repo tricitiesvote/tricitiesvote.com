@@ -70,7 +70,12 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
             include: {
               candidate: {
                 include: {
-                  endorsements: true
+                  endorsements: true,
+                  contributions: {
+                    orderBy: {
+                      amount: 'desc'
+                    }
+                  }
                 }
               }
             },
@@ -106,6 +111,11 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
     include: {
       office: true,
       endorsements: true,
+      contributions: {
+        orderBy: {
+          amount: 'desc'
+        }
+      },
       races: {
         include: {
           race: {
@@ -150,7 +160,12 @@ export async function getRaceByYearAndSlug(year: number, slug: string) {
           candidate: {
             include: {
               office: true,
-              endorsements: true
+              endorsements: true,
+              contributions: {
+                orderBy: {
+                  amount: 'desc'
+                }
+              }
             }
           }
         },

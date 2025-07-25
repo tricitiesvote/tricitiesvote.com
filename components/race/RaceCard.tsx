@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { CandidateMini } from '../candidate/CandidateMini'
+import { calculateFundraising } from '@/lib/calculateFundraising'
 
 interface RaceCardProps {
   race: {
@@ -34,6 +35,11 @@ interface RaceCardProps {
           forAgainst: string
         }>
         donors?: string | null
+        contributions?: Array<{
+          donorName: string
+          amount: number
+          cashOrInKind?: string | null
+        }>
       }
       incumbent: boolean
       party?: string | null
@@ -69,19 +75,8 @@ export function RaceCard({ race, year }: RaceCardProps) {
         {race.candidates
           .filter(({ candidate }) => !candidate.hide)
           .map(({ candidate }) => {
-            // Parse donor summary string if available
-            let fundraising = null
-            if (candidate.donors) {
-              // Example: "Reported raised $12500 from 156+ donors"
-              const match = candidate.donors.match(/\$(\d+) from (\d+)\+? donors/)
-              if (match) {
-                fundraising = {
-                  total: parseInt(match[1]),
-                  donors: parseInt(match[2]),
-                  topDonors: [] // We don't have individual donors in the summary
-                }
-              }
-            }
+            // Calculate fundraising from contributions
+            const fundraising = calculateFundraising(candidate.contributions || [])
 
             return (
               <CandidateMini

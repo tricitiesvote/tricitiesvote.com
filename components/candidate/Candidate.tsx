@@ -55,34 +55,30 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
   
   return (
     <div className="candidate">
+      {/* Info column (image and links) - comes first in HTML but displayed on left via grid */}
+      <div className="info">
+        <CandidateInfo
+          candidate={candidate}
+          year={year}
+        />
+      </div>
+      
+      {/* Details column (main content) */}
       <div className="details">
         <h5>
           <Link href={url}>{candidate.name}</Link>
         </h5>
         
-        {candidate.office && (
-          <div className="candidate-position">
-            <strong>Elected Experience:</strong><br />
-            Current {candidate.office.jobTitle || 'Candidate'}, {candidate.office.title}
-          </div>
+        {/* Bio or statement based on availability and fullsize */}
+        {candidate.bio && !fullsize && (
+          <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.bio }} />
         )}
         
-        {!fullsize && (
-          <div className="candidate-position">
-            <strong>Other Professional Experience:</strong><br />
-            {candidate.bio ? (
-              <div dangerouslySetInnerHTML={{ __html: candidate.bio }} />
-            ) : (
-              'Information not provided'
-            )}
-          </div>
+        {!candidate.bio && fullsize && candidate.statement && (
+          <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.statement }} />
         )}
         
-        {fullsize && !candidate.bio && candidate.statement && (
-          <div className="candidate-statement" dangerouslySetInnerHTML={{ __html: candidate.statement }} />
-        )}
-        
-        {!fullsize && excerptHtml && (
+        {!candidate.bio && !fullsize && excerptHtml && (
           <div className="candidate-bio excerpt">
             <div dangerouslySetInnerHTML={{ __html: excerptHtml }} />
             <Link href={url} className="candidate-link">
@@ -105,30 +101,24 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
         )}
         
         {!fullsize && (
-          <CandidateDonorSummary
-            fundraising={fundraising}
-            minifiler={candidate.minifiler}
-            mini={true}
-          />
+          <div>
+            {/* Body excerpt would go here if we had it */}
+            <CandidateDonorSummary
+              fundraising={fundraising}
+              minifiler={candidate.minifiler}
+              mini={true}
+            />
+          </div>
         )}
         
-        {!fullsize && (
-          <p>
-            <Link href={url}>See full candidate details »</Link>
-          </p>
-        )}
+        <p>
+          <a href={url}>See full candidate details »</a>
+        </p>
       </div>
       
-      <div className="info">
-        <CandidateInfo
-          candidate={candidate}
-          year={year}
-        />
-      </div>
-      
+      {/* Full candidate content area - spans both columns */}
       {fullsize && (
         <div className="candidate-content">
-          {/* This would contain the full candidate body content in legacy */}
           {candidate.bio && (
             <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.bio }} />
           )}

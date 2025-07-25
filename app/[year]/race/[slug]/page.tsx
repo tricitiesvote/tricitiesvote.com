@@ -2,6 +2,7 @@ import { getRaceByYearAndSlug } from '@/lib/queries'
 import { Candidate } from '@/components/candidate/Candidate'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { calculateFundraising } from '@/lib/calculateFundraising'
 
 interface RacePageProps {
   params: { 
@@ -46,19 +47,8 @@ export default async function RacePage({ params }: RacePageProps) {
             {race.candidates
               .filter(({ candidate }) => !candidate.hide)
               .map(({ candidate }) => {
-                // Parse donor summary string if available
-                let fundraising = null
-                if (candidate.donors) {
-                  // Example: "Reported raised $12500 from 156+ donors"
-                  const match = candidate.donors.match(/\$(\d+) from (\d+)\+? donors/)
-                  if (match) {
-                    fundraising = {
-                      total: parseInt(match[1]),
-                      donors: parseInt(match[2]),
-                      topDonors: [] // We don't have individual donors in the summary
-                    }
-                  }
-                }
+                // Calculate fundraising from contributions
+                const fundraising = calculateFundraising(candidate.contributions || [])
 
                 return (
                   <Candidate
