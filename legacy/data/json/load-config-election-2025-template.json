@@ -1,0 +1,15 @@
+{
+  "year": "2025",
+  "type": "general",
+  "pdcDataset": "TODO_GET_FROM_PDC",
+  "electionId": "TODO_GET_FROM_VOTEWA",
+  "query": "",
+  "raceIds": [],
+  "notes": "This is a template for 2025 election configuration. You need to obtain:",
+  "todo": {
+    "1": "PDC Dataset ID - Visit https://data.wa.gov and search for '2025 Campaign Finance'",
+    "2": "Election ID - Contact VoteWA or check voter.votewa.gov for 2025 Municipal Election",
+    "3": "Race IDs - Get from VoteWA for each race (City Council, School Board, Mayor, Port Commissioner)",
+    "4": "Update load-config-names.json with any new candidate name mappings as they file"
+  }
+}
