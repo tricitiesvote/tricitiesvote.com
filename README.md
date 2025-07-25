@@ -95,21 +95,42 @@ You'll need some IDs for the configs used by the data scraping scripts:
 2. Election ID
 3. Race IDs
 
-**RaceIDs** are available from the Candidate List aka "Who Filed" for each election:
+#### Finding Election IDs
 
-For the 2022 general, you can find that here: https://voter.votewa.gov/CandidateList.aspx?e=877
+**Election IDs** are available from the Candidate List at https://voter.votewa.gov/CandidateList.aspx
 
-The `e=877` bit is the **electionID** (in this case for the 2022 general election). Click the dropdown and select the election you want to view:
+The `e=XXX` parameter in the URL is the election ID. For example:
+- 2025 Primary: `e=893`
+- 2025 General: `e=894`
 
-<img width="653" alt="Screenshot 2023-10-05 at 7 19 57 PM" src="https://github.com/tumbleweird/tricitiesvote.com/assets/110551/284acb22-2edc-4c18-a086-4db5779a3023">
+#### Finding Race IDs Programmatically
 
-You can then find the election ID in the same place in the `?e=NNN` querystring.
+**Race IDs** can be extracted from the candidate list HTML. Here's how to get them:
 
-From that point, you may want to filter by county in order to get the set of candidates.
+```bash
+# For Benton County (code 03) - includes Kennewick, Richland, West Richland
+curl -s "https://voter.votewa.gov/CandidateList.aspx?e=893&c=03" | \
+  grep -E "candidates/[0-9]+/[0-9]+" | \
+  grep -oE "candidates/[0-9]+/[0-9]+" | \
+  cut -d'/' -f2 | sort -u
 
-Click on a candidate's name to see their profile.
+# For Franklin County (code 11) - includes Pasco
+curl -s "https://voter.votewa.gov/CandidateList.aspx?e=893&c=11" | \
+  grep -E "candidates/[0-9]+/[0-9]+" | \
+  grep -oE "candidates/[0-9]+/[0-9]+" | \
+  cut -d'/' -f2 | sort -u
+```
 
-In the url you will find a string containing the race id:
+Race IDs appear in candidate URLs in the format: `/candidates/XXXXX/YYYYYYY` where XXXXX is the race ID.
+
+#### Manual Method
+
+You can also find race IDs manually:
+
+1. Go to https://voter.votewa.gov/CandidateList.aspx?e=XXX (replace XXX with election ID)
+2. Filter by county (Benton = 03, Franklin = 11)
+3. Click on a candidate's name
+4. In the URL you'll see `/candidates/XXXXX/YYYYYYY` - the XXXXX is the race ID
 
 <img width="802" alt="Screenshot 2023-10-05 at 7 12 38 PM" src="https://github.com/tumbleweird/tricitiesvote.com/assets/110551/1421de78-8d43-49b8-835d-99728f07057d">
 

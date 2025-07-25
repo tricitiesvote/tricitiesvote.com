@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import TurndownService from 'turndown'
 import { NameMatcher } from '../normalize/names'
-import { foldReplacing } from 'fold-to-ascii'
+import * as foldToAscii from 'fold-to-ascii'
 import path from 'path'
 import fs from 'fs/promises'
 
@@ -11,9 +11,11 @@ interface PamphletData {
     BallotName: string
     OrgEmail: string
     OrgWebsite: string
-    Statement: string
+    CandidateStatementText: string
+    Statement?: string // For backwards compatibility
     Photo?: string
   }
+  HasPhoto?: boolean
 }
 
 interface PamphletConfig {
@@ -53,7 +55,12 @@ export class PamphletClient {
   }
 
   private async processCandidateData(data: PamphletData, raceId: string) {
-    const rawName = foldReplacing(data.statement.BallotName)
+    if (!data.statement || !data.statement.BallotName) {
+      console.warn(`Missing ballot name for race ${raceId}`)
+      return
+    }
+    
+    const rawName = foldToAscii.foldReplacing(data.statement.BallotName || '')
     const nameMatch = this.nameMatcher.findMatch(rawName)
     
     // Skip if we can't match the name
@@ -67,31 +74,46 @@ export class PamphletClient {
     // Store the photo if present
     let imagePath = ''
     if (data.statement.Photo) {
+      console.log(`  📸 Found photo for ${normalizedName} (${data.statement.Photo.length} bytes)`)
       imagePath = await this.savePhoto(data.statement.Photo, normalizedName)
+    } else {
+      console.log(`  ❌ No photo for ${normalizedName}`)
     }
 
     // Convert HTML statement to markdown
-    const statementMarkdown = this.markdownConverter.turndown(
-      data.statement.Statement
-    )
+    const statementText = data.statement.CandidateStatementText || data.statement.Statement || ''
+    const statementMarkdown = statementText ? this.markdownConverter.turndown(statementText) : null
 
-    // Update or create candidate in database
-    await this.prisma.candidate.upsert({
-      where: { name: normalizedName },
-      create: {
+    // Update or create candidate in database - we need to find by name AND year
+    const candidate = await this.prisma.candidate.findFirst({
+      where: { 
         name: normalizedName,
-        email: data.statement.OrgEmail,
-        website: this.fixUrl(data.statement.OrgWebsite),
-        image: imagePath,
-        // Additional fields can be added here
-      },
-      update: {
-        email: data.statement.OrgEmail,
-        website: this.fixUrl(data.statement.OrgWebsite),
-        image: imagePath,
-        // Additional fields can be updated here
+        electionYear: { in: [2025, 2024] } // Check recent years
       }
     })
+    
+    if (candidate) {
+      const updateData = {
+        email: data.statement.OrgEmail || candidate.email,
+        website: this.fixUrl(data.statement.OrgWebsite) || candidate.website,
+        image: imagePath || candidate.image,
+        statement: statementMarkdown || candidate.statement
+      }
+      
+      console.log(`  📝 Updating ${normalizedName}:`)
+      if (data.statement.OrgEmail) console.log(`     Email: ${data.statement.OrgEmail}`)
+      if (data.statement.OrgWebsite) console.log(`     Website: ${data.statement.OrgWebsite}`)
+      if (imagePath) console.log(`     Image: ${imagePath}`)
+      if (statementMarkdown) console.log(`     Statement: ${statementMarkdown.substring(0, 50)}...`)
+      
+      await this.prisma.candidate.update({
+        where: { id: candidate.id },
+        data: updateData
+      })
+      console.log(`  ✓ Updated ${normalizedName}`)
+    } else {
+      console.warn(`  ⚠️  Candidate not found in database: ${normalizedName}`)
+    }
   }
 
   private async savePhoto(base64Photo: string, candidateName: string) {

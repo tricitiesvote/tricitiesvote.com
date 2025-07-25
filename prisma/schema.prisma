@@ -58,8 +58,8 @@ model Candidate {
   minifiler     Boolean         @default(false)
   office        Office          @relation(fields: [officeId], references: [id])
   races         CandidateRace[]
-  endorsements  Endorsement[]
   contributions Contribution[]
+  endorsements  Endorsement[]
 }
 
 model CandidateRace {
@@ -111,7 +111,7 @@ model Endorsement {
 }
 
 model Contribution {
-  id              String   @id @default(cuid())
+  id              String    @id @default(cuid())
   candidateId     String
   electionYear    Int
   donorName       String
@@ -125,7 +125,7 @@ model Contribution {
   description     String?
   cashOrInKind    String?
   candidate       Candidate @relation(fields: [candidateId], references: [id])
-  
+
   @@index([candidateId])
   @@index([electionYear])
 }
