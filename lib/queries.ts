@@ -31,7 +31,33 @@ export async function getGuidesForYear(year: number) {
         where: { type: ElectionType.GENERAL },
         include: {
           office: true,
-          candidates: true
+          candidates: {
+            include: {
+              candidate: {
+                include: {
+                  endorsements: true,
+                  contributions: {
+                    where: { electionYear: year },
+                    select: {
+                      donorName: true,
+                      amount: true,
+                      cashOrInKind: true
+                    }
+                  }
+                }
+              }
+            },
+            orderBy: {
+              candidate: {
+                name: 'asc'
+              }
+            }
+          }
+        },
+        orderBy: {
+          office: {
+            title: 'asc'
+          }
         }
       }
     },

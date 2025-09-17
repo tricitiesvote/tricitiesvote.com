@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface CandidateProfileProps {
@@ -52,6 +53,8 @@ interface CandidateProfileProps {
 export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
   // Find the race for this year
   const currentRace = candidate.races.find(r => r.race.electionYear === year)
+  const imageSrc = candidate.image || null
+  const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
   
   // Group endorsements by for/against
   const endorsementsFor = candidate.endorsements?.filter(e => e.forAgainst === 'FOR') || []
@@ -72,12 +75,14 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
       
       <div className="candidate">
         <div className="info">
-          {candidate.image ? (
-            <img 
-              src={candidate.image} 
+          {imageSrc ? (
+            <Image
+              src={imageSrc}
               alt={candidate.name}
               width={150}
               height={150}
+              sizes="150px"
+              unoptimized={isRemoteImage}
             />
           ) : (
             <div className="candidate-no-image">

@@ -773,6 +773,30 @@ del, del a:link, del li {
   border-radius: 15px;
 }
 
+.hero-actions {
+  margin-top: 20px;
+}
+
+.hero-link {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid rgba(83, 187, 228, 0.6);
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.latest-overview {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 10px 40px;
+}
+
+.latest-overview > p {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
 .candidate-page .recs .yes::before, .candidate-page .recs .no::before {
   position: absolute;
   left: 8px;
@@ -2210,5 +2234,3 @@ td .more, .no-response .more {
   font-size: 14px;
   color: #666;
 }
-
-
