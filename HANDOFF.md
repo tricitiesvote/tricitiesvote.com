@@ -12,15 +12,21 @@
   - Created the West Richland region/guide and re-homed all `West Richland …` offices.
   - Ensured Benton County guide exists so the Port of Benton race has a home.
   - Seeded 20 general races by copying primary candidates where no general records existed.
+- Added Franklin PDF importer (`scripts/import/pamphlet-franklin-2025.ts`) to ingest Pasco council/school content.
 - West Richland guide currently has **0 races/candidates** (no filings imported yet). All other city guides show the copied rosters from the primary.
 - Candidate content is still mostly placeholder—expect missing statements/photos/contact info until pamphlet data lands.
 
-## Outstanding Work
-1. **Populate West Richland general data** once filings arrive. After any new imports, re-run `npm run prepare:2025:general` to copy candidates into empty general races and keep guide links aligned.
-2. **Results ingest** – `scripts/import/results.ts` is still a TODO; hook it up to `npm run import:results` when ready.
-3. **Pamphlet + media updates** – rerun `npx tsx scripts/import/pamphlet-2025.ts` (plus `scripts/match-pamphlet-candidates.ts`) once the general pamphlet is published, then remove the “N/A” placeholders manually where data is now available.
-4. **Weekly finance refresh** – keep `npm run import:pdc:fast 2025` on cadence.
-5. **Region-specific checks** – if you rely on any of the `scripts/check-*` utilities, confirm they handle the new West Richland region (some of them still assume Richland).
+## Outstanding Work (next in line)
+1. **Restore DB connectivity** – the importer scripts expect `DATABASE_URL` in the local env. Make sure the `.env` file (Railway connection) is present before re-running any data pulls.
+2. **Populate West Richland general data** once filings arrive. After any new imports, re-run `npm run prepare:2025:general` to copy candidates into empty general races and keep guide links aligned.
+3. **Pamphlet updates** – once `DATABASE_URL` is set:
+   - Run `npx tsx scripts/import/pamphlet-2025.ts` (Benton API) and `npx tsx scripts/import/pamphlet-franklin-2025.ts` (Franklin PDF via `pdftotext`)
+   - Follow with `npx tsx scripts/match-pamphlet-candidates.ts 2025` to reconcile aliases
+   - Finish with `npm run prepare:2025:general` so guides pick up the new statements
+4. **Images/media** – Franklin PDF importer only covers text/contact info. Coordinate with the photo workflow to drop assets under `public/images/candidates/2025` and update candidate `image` fields manually.
+5. **Results ingest** – `scripts/import/results.ts` is still a TODO; hook it up to `npm run import:results` when ready.
+6. **Weekly finance refresh** – keep `npm run import:pdc:fast 2025` on cadence.
+7. **Region-specific checks** – if you rely on any of the `scripts/check-*` utilities, confirm they handle the new West Richland region (some of them still assume Richland).
 
 ## How to Continue Safely
 - To inspect current general data from the CLI, you can run (with network access):
@@ -33,6 +39,7 @@
   TS
   ```
 - Run `npm run prepare:2025:general` after any candidate/office import. It is idempotent and reassigns West Richland offices automatically.
+- Use `npx tsx scripts/import/pamphlet-2025.ts` (Benton API) and `npx tsx scripts/import/pamphlet-franklin-2025.ts` (Franklin PDF, requires `pdftotext`) before re-running the prepare script; both depend on `DATABASE_URL` being set.
 - When editing queries, remember the app only displays general data now; if you need primary history, query Prisma directly instead of using the helpers.
 
 ## Recent Changes to Note

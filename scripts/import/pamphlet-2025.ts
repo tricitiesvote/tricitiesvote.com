@@ -11,42 +11,28 @@ dotenv.config()
 const prisma = new PrismaClient()
 const nameMatcher = new NameMatcher()
 
-// 2025 Primary Election IDs
-const ELECTION_ID = '893' // 2025 Primary Election (August 5, 2025)
+// 2025 General Election IDs – Benton County coverage only
+const ELECTION_ID = '894' // 2025 General Election (November 4, 2025)
 const RACE_IDS = [
-  "162487", // Kennewick Ward District #2 - Council Position 2 Ward 2
-  "162488", // City Of Richland - Council Pos. 7
-  "162489", // City Of West Richland - Mayor
-  "162490", // City Of West Richland - Council Pos. 3
-  "162491", // Kennewick Public Hospital District - Commissioner Pos. 5
-  "162493", // Richland School District 400 - Director No. 1
-  "162505", // Port Of Kennewick-Dist 2 - Commissioner District 2
-  "162506", // Kennewick School District 17 - Director No. 1
-  "162583", // Kennewick Ward District #1 - Council Position 1 Ward 1
-  "162584", // City Of West Richland - Council Pos. 2
-  "162602", // Kennewick Ward District #3 - Council Position 3 Ward 3
-  "162603", // City Of Kennewick - Council Position 4 At Large
-  "162604", // City Of West Richland - Council Pos. 1
-  "162605", // City Of West Richland - Council Pos. 4
-  "162607", // Kennewick Public Hospital District - Commissioner Pos. 4
-  "162621", // City Of Richland - Council Pos. 3
-  "162622", // City Of Richland - Council Pos. 6
-  "162623", // City Of Richland - Council Pos. 4
-  "162625", // Kennewick Public Hospital District - Commissioner Pos. 6
-  "162682", // Richland School District 400 - Director No. 2
-  "164278", // Port of Benton-Dist 1 - Commissioner District 1
-  "164279", // Kennewick School District 17 - Director No. 2
-  "164351", // Pasco Port District 3 - Commissioner, District 3
-  "165057", // Pasco Port District 2 - Commissioner, District 2
-  "165654", // Kennewick Public Hospital District - Commissioner Pos. 1
-  // Pasco races
-  "162816", // City Of Pasco District 1
-  "164348", // City Of Pasco District 3
-  "162908", // City Of Pasco District 4
-  "165056", // City Of Pasco District 6
-  "165491", // Pasco School District, Director District 3
-  "165492", // Pasco School District, Director District 4
-  "165493"  // Pasco School District No. 1 - At Large, Position 5
+  "166498", // Port of Benton - Commissioner District 1
+  "166499", // Port of Kennewick - Commissioner District 2
+  "166508", // City of West Richland - Council Pos. 1
+  "166509", // City of West Richland - Council Pos. 2
+  "166510", // City of West Richland - Council Pos. 3
+  "166511", // City of West Richland - Council Pos. 4
+  "166512", // City of West Richland - Mayor
+  "166516", // City of Kennewick - Council Position 1 Ward 1
+  "166517", // City of Kennewick - Council Position 2 Ward 2
+  "166518", // City of Kennewick - Council Position 3 Ward 3
+  "166519", // City of Kennewick - Council Position 4 At Large
+  "166522", // City of Richland - Council Pos. 3
+  "166523", // City of Richland - Council Pos. 4
+  "166524", // City of Richland - Council Pos. 6
+  "166525", // City of Richland - Council Pos. 7
+  "166526", // Kennewick School District 17 - Director No. 1
+  "166527", // Kennewick School District 17 - Director No. 2
+  "166537", // Richland School District 400 - Director No. 1
+  "166538"  // Richland School District 400 - Director No. 2
 ]
 
 async function importPamphletData() {
@@ -73,6 +59,9 @@ async function importPamphletData() {
     nameMatcher.addAlias('LANDSMAN DONALD C', 'Donald Landsman')
     nameMatcher.addAlias('KECK,ROY D.', 'Roy Keck')
     nameMatcher.addAlias('KECK,ROY D.', 'Roy D. Keck')
+    nameMatcher.addAlias('Robert Perkes', 'ROBERT HARVEY PERKES')
+    nameMatcher.addAlias('Gloria Baker', 'Gloria Tyler Baker')
+    nameMatcher.addAlias('Nic Uhnak', 'Nic (Nicolas) Uhnak')
     
     // Additional Pasco candidates
     nameMatcher.addAlias('Mark Anthony Figueroa', 'Mark Figueroa')

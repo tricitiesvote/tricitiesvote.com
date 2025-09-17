@@ -8,7 +8,7 @@ This file gives working instructions for agents in this repo. Its scope is the e
 - Keep changes minimal and focused on reliability and shipping.
 
 ## Quick Start
-- Requirements: Node 18+, PostgreSQL URL.
+- Requirements: Node 18+, PostgreSQL URL (`DATABASE_URL`), and `pdftotext` (poppler) for Franklin imports.
 - Env vars in `.env` (example):
   - `DATABASE_URL` – Prisma connection string
   - `SOCRATA_API_ID`, `SOCRATA_API_SECRET` – PDC API credentials (optional but recommended)
@@ -26,8 +26,9 @@ This file gives working instructions for agents in this repo. Its scope is the e
 ## Data Imports (operate safely)
 - PDC contributions (fast, idempotent):
   - `npm run import:pdc:fast 2025`
-- Voter pamphlet (when available):
-  - `npx tsx scripts/import/pamphlet-2025.ts`
+- Voter pamphlet imports (require `DATABASE_URL` in env):
+  - Benton County (API): `npx tsx scripts/import/pamphlet-2025.ts`
+  - Franklin County (PDF scrape): `npx tsx scripts/import/pamphlet-franklin-2025.ts` (needs `pdftotext` on PATH)
   - Use `scripts/match-pamphlet-candidates.ts` for interactive name matching.
 - 2025 candidate scaffolding from PDC:
   - `npx tsx scripts/import/pdc-candidates-2025.ts`
@@ -59,7 +60,7 @@ Notes:
      - Is idempotent and logs summaries
 3. Continue hardening and filling content:
    - Flesh out placeholder copy (“N/A”) with real statements/photos/contact info as soon as pamphlet data arrives.
-   - Run `scripts/match-pamphlet-candidates.ts` after each pamphlet import to extend alias coverage.
+   - After each pamphlet run (`pamphlet-2025` + Franklin PDF importer) follow with `scripts/match-pamphlet-candidates.ts` to extend alias coverage.
 4. Keep weekly PDC updates running:
    - `npm run import:pdc:fast 2025` (automate via cron/CI if available).
 5. Build out outstanding scripts/checks as we move toward launch:

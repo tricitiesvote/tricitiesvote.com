@@ -6,8 +6,8 @@
  *   npx tsx scripts/utils/validate-race-ids.ts <electionId> [raceIds...]
  * 
  * Examples:
- *   npx tsx scripts/utils/validate-race-ids.ts 893
- *   npx tsx scripts/utils/validate-race-ids.ts 893 162487 162488 162489
+*   npx tsx scripts/utils/validate-race-ids.ts 894
+*   npx tsx scripts/utils/validate-race-ids.ts 894 166498 166499 166508
  */
 
 const ELECTION_ID = process.argv[2]
@@ -20,6 +20,11 @@ const DEFAULT_RACE_IDS: Record<string, string[]> = {
     "162583", "162584", "162602", "162603", "162604", "162605", "162607", "162621",
     "162622", "162623", "162625", "162682", "164278", "164279", "164351", "165057",
     "165654", "162816", "164348", "162908", "165056", "165491", "165492", "165493"
+  ],
+  '894': [ // 2025 General (Benton County focus)
+    "166498", "166499", "166508", "166509", "166510", "166511", "166512",
+    "166516", "166517", "166518", "166519", "166522", "166523", "166524",
+    "166525", "166526", "166527", "166537", "166538"
   ]
 }
 
