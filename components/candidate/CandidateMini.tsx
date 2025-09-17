@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
+import { slugify } from '@/lib/utils'
 
 interface CandidateMiniProps {
   candidate: {
@@ -30,7 +30,7 @@ interface CandidateMiniProps {
 
 export function CandidateMini({ candidate, fundraising, year }: CandidateMiniProps) {
   // Create a slug from candidate name
-  const candidateSlug = candidate.name.toLowerCase().replace(/\s+/g, '-')
+  const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
   
   // Group endorsements by for/against

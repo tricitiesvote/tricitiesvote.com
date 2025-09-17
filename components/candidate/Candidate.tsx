@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { CandidateInfo } from './CandidateInfo'
 import { CandidateEndorsements } from './CandidateEndorsements'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
+import { slugify } from '@/lib/utils'
 
 interface CandidateProps {
   candidate: {
@@ -46,12 +47,11 @@ interface CandidateProps {
 }
 
 export function Candidate({ candidate, year, fullsize = false, fundraising }: CandidateProps) {
-  const candidateSlug = candidate.name.toLowerCase().replace(/\s+/g, '-')
+  const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
   
-  // Get excerpt from statement if no bio
-  const excerpt = candidate.bio || candidate.statement
-  const excerptHtml = excerpt ? excerpt.substring(0, 300) + '...' : null
+  const hasBio = Boolean(candidate.bio)
+  const hasStatement = Boolean(candidate.statement)
   
   return (
     <div className="candidate">
@@ -68,29 +68,30 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
         <h5>
           <Link href={url}>{candidate.name}</Link>
         </h5>
-        
-        {/* Bio or statement based on availability and fullsize */}
-        {candidate.bio && !fullsize && (
-          <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.bio }} />
+
+        {!fullsize && (
+          <>
+            {hasBio ? (
+              <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.bio! }} />
+            ) : hasStatement ? (
+              <div className="candidate-bio excerpt">
+                <div dangerouslySetInnerHTML={{ __html: candidate.statement! }} />
+                <Link href={url} className="candidate-link">
+                  More »
+                </Link>
+              </div>
+            ) : (
+              <div className="candidate-bio placeholder">
+                <p>Statement N/A.</p>
+              </div>
+            )}
+          </>
         )}
-        
-        {!candidate.bio && fullsize && candidate.statement && (
-          <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.statement }} />
-        )}
-        
-        {!candidate.bio && !fullsize && excerptHtml && (
-          <div className="candidate-bio excerpt">
-            <div dangerouslySetInnerHTML={{ __html: excerptHtml }} />
-            <Link href={url} className="candidate-link">
-              More »
-            </Link>
-          </div>
-        )}
-        
+
         {candidate.engagement && (
           <div className="engagement" dangerouslySetInnerHTML={{ __html: candidate.engagement }} />
         )}
-        
+
         <CandidateEndorsements endorsements={candidate.endorsements || []} />
         
         {candidate.articles && (
@@ -111,20 +112,28 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
           </div>
         )}
         
-        <p>
-          <a href={url}>See full candidate details »</a>
-        </p>
+        {!fullsize && (
+          <p>
+            <a href={url}>See full candidate details »</a>
+          </p>
+        )}
       </div>
       
       {/* Full candidate content area - spans both columns */}
       {fullsize && (
         <div className="candidate-content">
-          {candidate.bio && (
-            <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.bio }} />
+          {hasBio ? (
+            <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.bio! }} />
+          ) : hasStatement ? (
+            <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.statement! }} />
+          ) : (
+            <div className="candidate-body placeholder">
+              <p>Statement N/A.</p>
+            </div>
           )}
-          
+
           {/* Questionnaire answers would go here */}
-          
+
           <CandidateDonorSummary
             fundraising={fundraising}
             minifiler={candidate.minifiler}

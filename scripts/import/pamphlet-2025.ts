@@ -38,7 +38,15 @@ const RACE_IDS = [
   "164279", // Kennewick School District 17 - Director No. 2
   "164351", // Pasco Port District 3 - Commissioner, District 3
   "165057", // Pasco Port District 2 - Commissioner, District 2
-  "165654"  // Kennewick Public Hospital District - Commissioner Pos. 1
+  "165654", // Kennewick Public Hospital District - Commissioner Pos. 1
+  // Pasco races
+  "162816", // City Of Pasco District 1
+  "164348", // City Of Pasco District 3
+  "162908", // City Of Pasco District 4
+  "165056", // City Of Pasco District 6
+  "165491", // Pasco School District, Director District 3
+  "165492", // Pasco School District, Director District 4
+  "165493"  // Pasco School District No. 1 - At Large, Position 5
 ]
 
 async function importPamphletData() {
@@ -65,6 +73,16 @@ async function importPamphletData() {
     nameMatcher.addAlias('LANDSMAN DONALD C', 'Donald Landsman')
     nameMatcher.addAlias('KECK,ROY D.', 'Roy Keck')
     nameMatcher.addAlias('KECK,ROY D.', 'Roy D. Keck')
+    
+    // Additional Pasco candidates
+    nameMatcher.addAlias('Mark Anthony Figueroa', 'Mark Figueroa')
+    nameMatcher.addAlias('Leo A. Perales', 'Leo Perales')
+    nameMatcher.addAlias('Bryan Verhei', 'Bryan A. Verhei')
+    nameMatcher.addAlias('Pete Serrano', 'Peter Serrano')
+    nameMatcher.addAlias('Steve Christensen', 'Steven Christensen')
+    nameMatcher.addAlias('Matt Watkins', 'Matthew Watkins')
+    nameMatcher.addAlias('Hans-Joachim Engelke', 'H.J. Engelke')
+    nameMatcher.addAlias('Hans-Joachim Engelke', 'Hans Engelke')
     
     // Ensure image directory exists
     const imageDir = path.join(process.cwd(), 'public/images/candidates/2025')

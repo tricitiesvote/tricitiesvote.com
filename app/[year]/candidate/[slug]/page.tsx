@@ -13,7 +13,12 @@ interface CandidatePageProps {
 }
 
 export default async function CandidatePage({ params }: CandidatePageProps) {
-  const year = parseInt(params.year)
+  const year = Number.parseInt(params.year, 10)
+
+  if (!Number.isFinite(year)) {
+    notFound()
+  }
+
   const candidate = await getCandidateByYearAndSlug(year, params.slug)
   
   if (!candidate) {

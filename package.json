@@ -23,7 +23,8 @@
     "import:historical:test": "npm run import:historical -- --dry-run",
     "import:pamphlet": "ts-node --project tsconfig.scripts.json scripts/import/pamphlet.ts",
     "import:results": "ts-node --project tsconfig.scripts.json scripts/import/results.ts",
-    "prepare:2025": "ts-node --project tsconfig.scripts.json scripts/prepare-2025.ts"
+    "prepare:2025": "ts-node --project tsconfig.scripts.json scripts/prepare-2025.ts",
+    "prepare:2025:general": "ts-node --project tsconfig.scripts.json scripts/prepare-2025-general.ts"
   },
   "dependencies": {
     "@prisma/client": "latest",

@@ -11,9 +11,13 @@ interface RegionalGuidePageProps {
 }
 
 export default async function RegionalGuidePage({ params }: RegionalGuidePageProps) {
-  const year = parseInt(params.year)
+  const year = Number.parseInt(params.year, 10)
   const regionSlug = params.region
   
+  if (!Number.isFinite(year)) {
+    notFound()
+  }
+
   const guide = await getGuideByYearAndRegion(year, regionSlug)
   
   if (!guide) {
@@ -28,10 +32,14 @@ export default async function RegionalGuidePage({ params }: RegionalGuidePagePro
       </header>
       
       <main>
-        <div className="races-list">
-          {guide.Race.map(race => (
-            <RaceCard key={race.id} race={race} year={year} />
-          ))}
+        <div className="races-collection guide-page">
+          {guide.Race.length === 0 ? (
+            <p className="race-empty">Race list N/A. Check back soon.</p>
+          ) : (
+            guide.Race.map(race => (
+              <RaceCard key={race.id} race={race} year={year} />
+            ))
+          )}
         </div>
       </main>
     </div>

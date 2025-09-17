@@ -27,8 +27,14 @@ export function CandidateLinkCollection({
     { href: pdc, label: 'Finance', icon: '💰' },
   ].filter(link => link.href)
   
-  if (links.length === 0) return null
-  
+  if (links.length === 0) {
+    return (
+      <div className="candidate-links empty">
+        <p>Contact info N/A.</p>
+      </div>
+    )
+  }
+
   return (
     <ul className="candidate-links">
       {links.map((link, index) => (

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CandidateMini } from '../candidate/CandidateMini'
 import { calculateFundraising } from '@/lib/calculateFundraising'
+import { slugify } from '@/lib/utils'
 
 interface RaceCardProps {
   race: {
@@ -53,7 +54,8 @@ interface RaceCardProps {
 
 export function RaceCard({ race, year }: RaceCardProps) {
   // Create a slug from office title
-  const raceSlug = race.office.title.toLowerCase().replace(/\s+/g, '-')
+  const raceSlug = slugify(race.office.title)
+  const visibleCandidates = race.candidates.filter(({ candidate }) => !candidate.hide)
   
   return (
     <div className="race">
@@ -71,10 +73,11 @@ export function RaceCard({ race, year }: RaceCardProps) {
         </Link>
       </div>
       
-      <div className="container-candidate">
-        {race.candidates
-          .filter(({ candidate }) => !candidate.hide)
-          .map(({ candidate }) => {
+      <div className="container-candidate container-candidate-mini">
+        {visibleCandidates.length === 0 ? (
+          <p className="candidate-empty">Candidate details N/A.</p>
+        ) : (
+          visibleCandidates.map(({ candidate }) => {
             // Calculate fundraising from contributions
             const fundraising = calculateFundraising(candidate.contributions || [])
 
@@ -86,7 +89,8 @@ export function RaceCard({ race, year }: RaceCardProps) {
                 year={year}
               />
             )
-          })}
+          })
+        )}
       </div>
     </div>
   )

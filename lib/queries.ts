@@ -1,8 +1,11 @@
 import { prisma } from './db'
+import { ElectionType } from '@prisma/client'
+import { unslugify } from './utils'
 
 export async function getAvailableYears(): Promise<number[]> {
   try {
     const guides = await prisma.guide.findMany({
+      where: { type: ElectionType.GENERAL },
       select: { electionYear: true },
       distinct: ['electionYear'],
       orderBy: { electionYear: 'desc' }
@@ -21,10 +24,11 @@ export async function getLatestYear(): Promise<number> {
 
 export async function getGuidesForYear(year: number) {
   return await prisma.guide.findMany({
-    where: { electionYear: year },
+    where: { electionYear: year, type: ElectionType.GENERAL },
     include: {
       region: true,
       Race: {
+        where: { type: ElectionType.GENERAL },
         include: {
           office: true,
           candidates: true
@@ -41,10 +45,7 @@ export async function getGuidesForYear(year: number) {
 
 export async function getGuideByYearAndRegion(year: number, regionSlug: string) {
   // Convert slug back to region name (e.g., "benton-county" -> "Benton County")
-  const regionName = regionSlug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
+  const regionName = unslugify(regionSlug)
   
   const region = await prisma.region.findFirst({
     where: { 
@@ -59,11 +60,13 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
   return await prisma.guide.findFirst({
     where: { 
       electionYear: year,
-      regionId: region.id
+      regionId: region.id,
+      type: ElectionType.GENERAL
     },
     include: {
       region: true,
       Race: {
+        where: { type: ElectionType.GENERAL },
         include: {
           office: true,
           candidates: {
@@ -98,11 +101,8 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
 
 export async function getCandidateByYearAndSlug(year: number, slug: string) {
   // Convert slug back to name (e.g., "john-doe" -> "John Doe")
-  const name = slug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
-    
+  const name = unslugify(slug)
+
   return await prisma.candidate.findFirst({
     where: {
       name: { equals: name, mode: 'insensitive' },
@@ -117,6 +117,11 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
         }
       },
       races: {
+        where: {
+          race: {
+            type: ElectionType.GENERAL
+          }
+        },
         include: {
           race: {
             include: {
@@ -136,14 +141,12 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
 
 export async function getRaceByYearAndSlug(year: number, slug: string) {
   // Convert slug back to office title (e.g., "kennewick-city-council" -> "Kennewick City Council")
-  const officeTitle = slug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
+  const officeTitle = unslugify(slug)
   
   return await prisma.race.findFirst({
     where: {
       electionYear: year,
+      type: ElectionType.GENERAL,
       office: {
         title: { equals: officeTitle, mode: 'insensitive' }
       }

@@ -1,0 +1,238 @@
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
+// Mapping of candidates to their correct offices based on pamphlet data
+const CANDIDATE_OFFICE_MAP = [
+  // Richland City Council Position 7
+  { candidates: ["Joshua Short", "Tony Sanchez", "Colin Michael", "Ryan Whitten"], 
+    office: "City Council Position 7", region: "Richland" },
+  
+  // Kennewick School Board
+  { candidates: ["Mike Luzzo", "Robert Franklin", "Micah Valentine"], 
+    office: "School Board Director No. 2", region: "Kennewick" },
+  
+  // Kennewick City Council Ward 1
+  { candidates: ["Austin Miller", "Tina Gregory", "Jason McShane"], 
+    office: "City Council Ward District #1", region: "Kennewick" },
+  
+  // Kennewick City Council Ward 3
+  { candidates: ["Douglas Perez", "Warren Hughs", "John Trumbo"], 
+    office: "City Council Ward District #3", region: "Kennewick" },
+  
+  // Kennewick City Council Position 4
+  { candidates: ["Gloria Tyler Baker", "Danielle Schuster", "Brad Klippert"], 
+    office: "City Council Position 4", region: "Kennewick" },
+  
+  // Richland City Council Position 3
+  { candidates: ["Robert Walko", "Pat Holten", "Sandra Kent"], 
+    office: "City Council Position 3", region: "Richland" },
+  
+  // Richland City Council Position 6
+  { candidates: ["Joshua Arnold", "Kyle Saltz", "Kurt H Maier"], 
+    office: "City Council Position 6", region: "Richland" },
+  
+  // Richland City Council Position 4
+  { candidates: ["Jordan Lee", "John Maier", "Donald Landsman"], 
+    office: "City Council Position 4", region: "Richland" },
+]
+
+async function fixCandidateOffices() {
+  console.log('🔧 Fixing candidate office assignments...\n')
+  
+  // First, let's see what offices we have
+  const unknownOffice = await prisma.office.findFirst({
+    where: { title: "Unknown Office" },
+    include: { candidates: { where: { electionYear: 2025 } } }
+  })
+  
+  if (unknownOffice) {
+    console.log(`Found ${unknownOffice.candidates.length} candidates in "Unknown Office"\n`)
+  }
+  
+  for (const mapping of CANDIDATE_OFFICE_MAP) {
+    console.log(`\n📋 ${mapping.office} (${mapping.region}):`)
+    
+    // Find or create the correct office
+    const region = await prisma.region.findFirst({
+      where: { name: mapping.region }
+    })
+    
+    if (!region) {
+      console.log(`   ❌ Region not found: ${mapping.region}`)
+      continue
+    }
+    
+    let office = await prisma.office.findFirst({
+      where: {
+        title: mapping.office,
+        regionId: region.id
+      }
+    })
+    
+    if (!office) {
+      // Determine office type
+      let officeType = 'CITY_COUNCIL'
+      let jobTitle = 'Councilmember'
+      
+      if (mapping.office.includes('School')) {
+        officeType = 'SCHOOL_BOARD'
+        jobTitle = 'School Board Director'
+      }
+      
+      office = await prisma.office.create({
+        data: {
+          title: mapping.office,
+          type: officeType,
+          regionId: region.id,
+          jobTitle: jobTitle
+        }
+      })
+      console.log(`   ✅ Created office: ${mapping.office}`)
+    } else {
+      console.log(`   ✓ Office exists: ${mapping.office}`)
+    }
+    
+    // Find or create race
+    let race = await prisma.race.findFirst({
+      where: {
+        officeId: office.id,
+        electionYear: 2025,
+        type: 'PRIMARY'
+      }
+    })
+    
+    if (!race) {
+      race = await prisma.race.create({
+        data: {
+          electionYear: 2025,
+          type: 'PRIMARY',
+          officeId: office.id
+        }
+      })
+      console.log(`   ✅ Created race`)
+    }
+    
+    // Update candidates
+    for (const candidateName of mapping.candidates) {
+      const candidate = await prisma.candidate.findFirst({
+        where: {
+          name: candidateName,
+          electionYear: 2025
+        }
+      })
+      
+      if (candidate) {
+        // Update office
+        await prisma.candidate.update({
+          where: { id: candidate.id },
+          data: { officeId: office.id }
+        })
+        
+        // Ensure race connection exists
+        const existingConnection = await prisma.candidateRace.findUnique({
+          where: {
+            candidateId_raceId: {
+              candidateId: candidate.id,
+              raceId: race.id
+            }
+          }
+        })
+        
+        if (!existingConnection) {
+          // Remove any existing race connections
+          await prisma.candidateRace.deleteMany({
+            where: { candidateId: candidate.id }
+          })
+          
+          // Create new connection
+          await prisma.candidateRace.create({
+            data: {
+              candidateId: candidate.id,
+              raceId: race.id
+            }
+          })
+        }
+        
+        console.log(`   ✅ Updated ${candidateName}`)
+      } else {
+        console.log(`   ❌ Not found: ${candidateName}`)
+      }
+    }
+    
+    // Connect race to appropriate guide
+    const guide = await prisma.guide.findFirst({
+      where: {
+        regionId: region.id,
+        electionYear: 2025
+      }
+    })
+    
+    if (guide) {
+      const guideHasRace = await prisma.guide.findFirst({
+        where: {
+          id: guide.id,
+          Race: {
+            some: { id: race.id }
+          }
+        }
+      })
+      
+      if (!guideHasRace) {
+        await prisma.guide.update({
+          where: { id: guide.id },
+          data: {
+            Race: {
+              connect: { id: race.id }
+            }
+          }
+        })
+        console.log(`   ✅ Connected race to ${region.name} guide`)
+      }
+    }
+  }
+  
+  // Clean up the Unknown Office if it's empty
+  const unknownOfficeCheck = await prisma.office.findFirst({
+    where: { title: "Unknown Office" },
+    include: { 
+      candidates: { where: { electionYear: 2025 } },
+      races: true 
+    }
+  })
+  
+  if (unknownOfficeCheck && unknownOfficeCheck.candidates.length === 0) {
+    // Delete any empty races first
+    await prisma.race.deleteMany({
+      where: { officeId: unknownOfficeCheck.id }
+    })
+    
+    // Delete the office
+    await prisma.office.delete({
+      where: { id: unknownOfficeCheck.id }
+    })
+    console.log('\n🧹 Deleted empty "Unknown Office"')
+  }
+  
+  console.log('\n✅ Office assignments fixed!')
+  
+  // Show summary
+  const stats = await prisma.candidate.groupBy({
+    by: ['officeId'],
+    where: { electionYear: 2025 },
+    _count: true
+  })
+  
+  console.log('\n📊 Final candidate distribution:')
+  for (const stat of stats) {
+    const office = await prisma.office.findUnique({
+      where: { id: stat.officeId },
+      include: { region: true }
+    })
+    console.log(`   ${office?.title} (${office?.region.name}): ${stat._count} candidates`)
+  }
+}
+
+fixCandidateOffices()
+  .catch(console.error)
+  .finally(() => prisma.$disconnect())

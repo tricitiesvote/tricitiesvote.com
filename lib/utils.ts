@@ -7,7 +7,7 @@ export function getYearType(year: number): 'municipal' | 'county' {
 export function getGuideRegionsForYear(year: number): string[] {
   const yearType = getYearType(year)
   return yearType === 'municipal' 
-    ? ['Kennewick', 'Pasco', 'Richland', 'West Richland']
+    ? ['Kennewick', 'Pasco', 'Richland', 'West Richland', 'Benton County']
     : ['Benton County', 'Franklin County']
 }
 

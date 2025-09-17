@@ -20,10 +20,18 @@ interface DonorSummaryProps {
 export function CandidateDonorSummary({ fundraising, minifiler, mini = false }: DonorSummaryProps) {
   const [expandedDonors, setExpandedDonors] = useState<Set<number>>(new Set())
   
-  if (minifiler || !fundraising) {
+  if (minifiler) {
     return (
       <div className="donor-summary">
-        <p>Self-funded / mini-filer</p>
+        <p>Mini-filer: detailed reports N/A.</p>
+      </div>
+    )
+  }
+
+  if (!fundraising) {
+    return (
+      <div className="donor-summary">
+        <p>No contributions reported yet.</p>
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CandidateImage } from './CandidateImage'
 import { CandidateLinkCollection } from './CandidateLinkCollection'
+import { slugify } from '@/lib/utils'
 
 interface CandidateInfoProps {
   candidate: {
@@ -18,7 +19,7 @@ interface CandidateInfoProps {
 }
 
 export function CandidateInfo({ candidate, year }: CandidateInfoProps) {
-  const candidateSlug = candidate.name.toLowerCase().replace(/\s+/g, '-')
+  const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
   
   return (

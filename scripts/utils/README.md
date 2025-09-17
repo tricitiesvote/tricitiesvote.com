@@ -1,111 +1,49 @@
-# Utility Scripts
+# Data Import Utilities
 
-This directory contains utility scripts for managing election data.
+This directory contains reusable utilities for managing election data imports and fixes.
 
 ## Available Utilities
 
-### 🔍 fetch-race-ids.ts
-Fetches race IDs from Washington State voter website for a given election.
-
+### 1. Fix Candidate Offices
 ```bash
-# Fetch race IDs for the 2025 primary (election ID 893)
-npx tsx scripts/utils/fetch-race-ids.ts 893
-
-# Fetch race IDs for the 2025 general (election ID 894)
-npx tsx scripts/utils/fetch-race-ids.ts 894
+npx tsx scripts/utils/fix-candidate-offices.ts [year]
 ```
+Reassigns candidates to their correct offices when they've been imported with incorrect assignments.
 
-This script will:
-- Query both Benton County (03) and Franklin County (11)
-- Filter for Tri-Cities area races (Kennewick, Pasco, Richland, West Richland)
-- Include Port districts (Benton, Kennewick, Pasco)
-- Output race IDs in JSON format ready for config files
-
-### 🔧 fix-office-types.ts
-Fixes office types in the database based on office titles.
-
+### 2. Match Pamphlet Candidates
 ```bash
-npx tsx scripts/utils/fix-office-types.ts
+npx tsx scripts/utils/match-pamphlet-candidates.ts [year] [--auto]
 ```
+Helps match unmatched pamphlet candidates to existing database records.
 
-This ensures offices have the correct enum type:
-- SCHOOL_BOARD for school districts
-- PORT_COMMISSIONER for port positions
-- MAYOR for mayoral races
-- CITY_COUNCIL for council positions
-- etc.
-
-Run this after importing candidates if office types seem incorrect.
-
-### 🔍 check-name-matches.ts
-Checks for candidate name mismatches between different data sources.
-
+### 3. Validate Race IDs
 ```bash
-# Check 2025 candidates
-npx tsx scripts/utils/check-name-matches.ts 2025
-
-# Check specific year
-npx tsx scripts/utils/check-name-matches.ts 2023
+npx tsx scripts/utils/validate-race-ids.ts [electionId]
 ```
+Validates which race IDs have pamphlet data available.
 
-This helps identify:
-- All-caps names that need normalization
-- Names with special characters
-- Potential aliases needed for pamphlet import
-- Suggests name mappings for `load-config-names.json`
+### 4. Find Duplicate Candidates
+```bash
+npx tsx scripts/utils/find-duplicates.ts [year]
+```
+Finds potential duplicate candidates based on name similarity.
 
-## Workflow for New Elections
+### 5. Import Missing Candidates
+```bash
+npx tsx scripts/utils/import-missing-candidates.ts [year]
+```
+Imports candidates that exist in pamphlet but not in database.
 
-1. **Get Election IDs**
-   - Find election ID from https://voter.votewa.gov/CandidateList.aspx
-   - Primary elections are usually in August (odd years for municipal)
-   - General elections are in November
+### 6. Fix Name Mappings
+```bash
+npx tsx scripts/utils/fix-name-mappings.ts
+```
+Updates name mapping configuration based on common mismatches.
 
-2. **Fetch Race IDs**
-   ```bash
-   npx tsx scripts/utils/fetch-race-ids.ts [ELECTION_ID]
-   ```
+## Common Issues These Scripts Solve
 
-3. **Update Configuration**
-   - Add race IDs to `legacy/data/json/load-config-election.json`
-   - Update election ID and type (primary/general)
-
-4. **Import Candidates from PDC**
-   ```bash
-   npm run import:pdc:fast 2025
-   ```
-
-5. **Fix Office Types**
-   ```bash
-   npx tsx scripts/utils/fix-office-types.ts
-   ```
-
-6. **Check Name Matches**
-   ```bash
-   npx tsx scripts/utils/check-name-matches.ts 2025
-   ```
-
-7. **Import Pamphlet Data**
-   - Add any needed name aliases to the pamphlet import script
-   - Run pamphlet import when available
-
-## County Codes
-
-- Benton County: `03`
-- Franklin County: `11`
-
-## Common Issues
-
-### Names Not Matching
-- Candidate names from PDC often differ from voter pamphlet
-- Use `check-name-matches.ts` to identify mismatches
-- Add aliases to pamphlet import script or `load-config-names.json`
-
-### Missing Races
-- Some races may not show candidates until filing deadline
-- Port districts span counties - check both Benton and Franklin
-- School districts may have at-large and district positions
-
-### Office Type Errors
-- Run `fix-office-types.ts` after any candidate import
-- The script uses title keywords to determine correct type
+1. **Wrong Office Assignment**: When PDC or pamphlet import assigns candidates to generic "Unknown Office"
+2. **Name Mismatches**: When pamphlet names don't match PDC names exactly
+3. **Missing Candidates**: When candidates appear in pamphlet but not in PDC data
+4. **Duplicate Records**: When same candidate imported multiple times with name variations
+5. **Missing Photos/Statements**: When pamphlet data exists but wasn
