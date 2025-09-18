@@ -21,7 +21,12 @@ const NAME_SKIP_LINES = new Set([
   'Photo not available',
   'Unopposed',
   'Write-in',
-  'submitted'
+  'submitted',
+  'Local',
+  'Voters’',
+  'Voters',
+  'Pamphlet',
+  'Local Voters’ Pamphlet'
 ])
 
 const SECTION_SKIP_LINES = new Set([
@@ -34,34 +39,6 @@ function normalizeLine(input: string): string {
 
 function shouldProcessHeader(header: string): boolean {
   return TARGET_PATTERNS.some(pattern => pattern.test(header))
-}
-
-function collectCandidateBlocks(lines: string[]): string[][] {
-  const blocks: string[][] = []
-  let current: string[] = []
-
-  for (const rawLine of lines) {
-    const line = normalizeLine(rawLine)
-    if (!line || /^\d+$/.test(line) || line.startsWith('Local Voters')) {
-      continue
-    }
-
-    if (line.startsWith('Candidate statements are printed')) {
-      if (current.length) {
-        blocks.push(current)
-        current = []
-      }
-      continue
-    }
-
-    current.push(line)
-  }
-
-  if (current.length) {
-    blocks.push(current)
-  }
-
-  return blocks
 }
 
 function formatStatement(lines: string[]): string | null {
@@ -180,7 +157,7 @@ async function downloadPdf(): Promise<string> {
 
 async function pdfToText(pdfPath: string): Promise<string> {
   try {
-    const { stdout } = await execFileAsync('pdftotext', ['-layout', '-enc', 'UTF-8', pdfPath, '-'])
+    const { stdout } = await execFileAsync('pdftotext', ['-raw', '-enc', 'UTF-8', pdfPath, '-'])
     return stdout
   } catch (error) {
     console.error('❌ Failed to run pdftotext. Ensure the poppler utilities are installed and available on PATH.')
@@ -189,37 +166,65 @@ async function pdfToText(pdfPath: string): Promise<string> {
 }
 
 function parsePamphlet(text: string): ParsedCandidate[] {
-  const pages = text.split('\f')
   const results: ParsedCandidate[] = []
+  const lines = text.split('\n')
 
-  for (const page of pages) {
-    const rawLines = page.split('\n')
-    if (!rawLines.length) continue
-    const header = normalizeLine(rawLines[0])
-    if (!header || !shouldProcessHeader(header)) {
+  let currentHeader: string | null = null
+  let buffer: string[] = []
+
+  const flush = () => {
+    if (!currentHeader || buffer.length === 0) {
+      buffer = []
+      return
+    }
+
+    const parsed = parseCandidateBlock(currentHeader, buffer.map(normalizeLine))
+    if (parsed) {
+      results.push(parsed)
+    }
+    buffer = []
+  }
+
+  for (const rawLine of lines) {
+    const line = normalizeLine(rawLine)
+
+    if (line && shouldProcessHeader(line)) {
+      if (!currentHeader && buffer.length > 0) {
+        currentHeader = line
+        flush()
+        continue
+      }
+
+      flush()
+      currentHeader = line
       continue
     }
 
-    const bodyLines = rawLines.slice(1)
-    const blocks = collectCandidateBlocks(bodyLines)
-    for (const block of blocks) {
-      const parsed = parseCandidateBlock(header, block)
-      if (parsed) {
-        results.push(parsed)
-      }
+    if (!line || /^\d+$/.test(line) || line.startsWith('Local Voters')) {
+      continue
     }
+
+    if (line.startsWith('Candidate statements are printed')) {
+      flush()
+      currentHeader = null
+      continue
+    }
+
+    buffer.push(rawLine)
   }
+
+  flush()
 
   return results
 }
 
 function addCommonAliases(nameMatcher: NameMatcher) {
   nameMatcher.addAlias('Anthony E Sanchez', 'Tony Sanchez')
-  nameMatcher.addAlias('LANDSMAN DONALD C', 'Donald Landsman')
-  nameMatcher.addAlias('KECK,ROY D.', 'Roy Keck')
-  nameMatcher.addAlias('KECK,ROY D.', 'Roy D. Keck')
-  nameMatcher.addAlias('Robert Perkes', 'ROBERT HARVEY PERKES')
-  nameMatcher.addAlias('Gloria Baker', 'Gloria Tyler Baker')
+  nameMatcher.addAlias('Donald Landsman', 'LANDSMAN DONALD C')
+  nameMatcher.addAlias('Roy Keck', 'KECK,ROY D.')
+  nameMatcher.addAlias('Roy Keck', 'Roy D. Keck')
+  nameMatcher.addAlias('Robert Harvey Perkes', 'ROBERT HARVEY PERKES')
+  nameMatcher.addAlias('Gloria Tyler Baker', 'Gloria Baker')
   nameMatcher.addAlias('Nic Uhnak', 'Nic (Nicolas) Uhnak')
   nameMatcher.addAlias('Mark Anthony Figueroa', 'Mark Figueroa')
   nameMatcher.addAlias('Leo A. Perales', 'Leo Perales')

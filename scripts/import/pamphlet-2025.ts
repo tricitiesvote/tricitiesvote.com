@@ -56,11 +56,11 @@ async function importPamphletData() {
     
     // Add known aliases for 2025 candidates
     nameMatcher.addAlias('Anthony E Sanchez', 'Tony Sanchez')
-    nameMatcher.addAlias('LANDSMAN DONALD C', 'Donald Landsman')
-    nameMatcher.addAlias('KECK,ROY D.', 'Roy Keck')
-    nameMatcher.addAlias('KECK,ROY D.', 'Roy D. Keck')
-    nameMatcher.addAlias('Robert Perkes', 'ROBERT HARVEY PERKES')
-    nameMatcher.addAlias('Gloria Baker', 'Gloria Tyler Baker')
+    nameMatcher.addAlias('Donald Landsman', 'LANDSMAN DONALD C')
+    nameMatcher.addAlias('Roy Keck', 'KECK,ROY D.')
+    nameMatcher.addAlias('Roy Keck', 'Roy D. Keck')
+    nameMatcher.addAlias('Robert Harvey Perkes', 'ROBERT HARVEY PERKES')
+    nameMatcher.addAlias('Gloria Tyler Baker', 'Gloria Baker')
     nameMatcher.addAlias('Nic Uhnak', 'Nic (Nicolas) Uhnak')
     
     // Additional Pasco candidates

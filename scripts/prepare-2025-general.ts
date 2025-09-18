@@ -68,75 +68,6 @@ async function attachRaceToGuide(raceId: string, guideId: string) {
   })
 }
 
-async function prepareGeneralRaces(guideMap: Map<string, string>) {
-  const primaryRaces = await prisma.race.findMany({
-    where: {
-      electionYear: YEAR,
-      type: ElectionType.PRIMARY
-    },
-    include: {
-      office: {
-        include: { region: true }
-      },
-      candidates: true
-    }
-  })
-
-  for (const primaryRace of primaryRaces) {
-    const regionName = primaryRace.office.region.name
-    const guideId = guideMap.get(regionName)
-
-    if (!guideId) {
-      console.log(`  • Skipping ${primaryRace.office.title} (${regionName}) — no general guide`)
-      continue
-    }
-
-    let generalRace = await prisma.race.findFirst({
-      where: {
-        electionYear: YEAR,
-        officeId: primaryRace.officeId,
-        type: ElectionType.GENERAL
-      },
-      include: { candidates: true }
-    })
-
-    if (!generalRace) {
-      const created = await prisma.race.create({
-        data: {
-          electionYear: YEAR,
-          officeId: primaryRace.officeId,
-          type: ElectionType.GENERAL,
-          Guide: {
-            connect: { id: guideId }
-          }
-        }
-      })
-      console.log(`  • Created general race for ${primaryRace.office.title}`)
-      generalRace = await prisma.race.findFirst({
-        where: { id: created.id },
-        include: { candidates: true }
-      })
-    } else {
-      await attachRaceToGuide(generalRace.id, guideId)
-    }
-
-    if (generalRace && generalRace.candidates.length === 0 && primaryRace.candidates.length > 0) {
-      await prisma.candidateRace.createMany({
-        data: primaryRace.candidates.map(candidateRace => ({
-          candidateId: candidateRace.candidateId,
-          raceId: generalRace!.id,
-          incumbent: candidateRace.incumbent,
-          party: candidateRace.party,
-          termLength: candidateRace.termLength,
-          shortTerm: candidateRace.shortTerm
-        })),
-        skipDuplicates: true
-      })
-      console.log(`    • Copied ${primaryRace.candidates.length} candidates into general race`)
-    }
-  }
-}
-
 async function ensureGeneralRaceGuideLinks(guideMap: Map<string, string>) {
   const generalRaces = await prisma.race.findMany({
     where: {
@@ -182,7 +113,6 @@ async function main() {
     guideMap.set(name, guide.id)
   }
 
-  await prepareGeneralRaces(guideMap)
   await ensureGeneralRaceGuideLinks(guideMap)
 
   console.log('\n✅ General election guides ready.')

@@ -28,8 +28,10 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `npm run import:pdc:fast 2025`
 - Voter pamphlet imports (require `DATABASE_URL` in env):
   - Benton County (API): `npx tsx scripts/import/pamphlet-2025.ts`
-  - Franklin County (PDF scrape): `npx tsx scripts/import/pamphlet-franklin-2025.ts` (needs `pdftotext` on PATH)
-  - Use `scripts/match-pamphlet-candidates.ts` for interactive name matching.
+- Franklin County (PDF scrape): `npx tsx scripts/import/pamphlet-franklin-2025.ts` (needs `pdftotext` on PATH)
+- Use `scripts/match-pamphlet-candidates.ts` for interactive name matching.
+- Core 2025 general race scaffolding (city councils, school boards, ports):
+  - `npx tsx scripts/import/ensure-2025-core-races.ts` (shared seat definitions live in `scripts/import/2025-seats.ts`)
 - 2025 candidate scaffolding from PDC:
   - `npx tsx scripts/import/pdc-candidates-2025.ts`
 - Race ID discovery and validation:
@@ -43,6 +45,8 @@ Notes:
 ## Current State (2025)
 - Next.js app and Prisma schema are in place; voter guide pages render from DB data.
 - Primary 2025 wasn’t shipped. All focus is on the November General.
+- The `/` landing page now mirrors the legacy layout: it automatically features the latest election year, surfaces “How to use this guide” copy, and lists every general race via `RaceCard` so changes to candidate data show up immediately.
+- PDC importers now normalize to the canonical seat format (`{City} City Council {Ward/Position/District}`, `{City} School Board {Position/District}`, `Port of {Locale} Commissioner District {n}`) and only create general races for the seats listed in `scripts/import/2025-seats.ts`.
 - `npm run prepare:2025:general` has created guides for Kennewick, Pasco, Richland, West Richland, and Benton County. West Richland currently has no candidates or races because filings aren’t in the DB yet.
 - Compare view (`/{year}/compare/{slug}`) is live and uses the same “N/A” fallbacks as the main pages.
 - We do not have full General candidate data yet (pamphlet/results not final). The UI now shows “N/A” fallbacks when statements, bios, photos, contact info, or fundraising are missing.
@@ -92,6 +96,13 @@ Notes:
 - `prisma/seed.ts` targets an older schema and should not be used. Avoid running it unless it’s updated.
 - `PDC_DISPLAY_ISSUES.md` reflects older import-field assumptions; current import uses `amount` from PDC. Validate before acting.
 - `tsconfig.json` excludes `lib/**/*` from main typecheck; queries compile at runtime, but edits there won’t be type-checked by Next build. Consider enabling for local safety, but don’t widen scope without intent.
+- Legacy imagery used on the new landing page now lives under `public/images`; keep additions there square to avoid layout regressions.
+- If you need to reset the 2025 municipal dataset, run `npx tsx scripts/data/cleanup-2025-offices.ts` before kicking off the imports above – it removes primary races, generic council/school offices, and old mayor data.
+
+## Naming Standards
+- City council seats: `{City} City Council {Ward/District/Position} {Number}` (e.g., `Kennewick City Council Ward 1`, `Pasco City Council District 6`).
+- School board seats: `{City} School Board {District/Position} {Number}` or `{City} School Board At-Large Position {Number}`.
+- Port seats: `Port of {Benton|Kennewick} Commissioner District {Number}`.
 
 ## Partial/Missing Data Behavior
 - The UI must render when any of the following are missing:

@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import 'dotenv/config'
-import { PrismaClient, OfficeType } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 import { WAStateClient } from '../../lib/wa-state/client'
+import { normalizeLocalOffice } from '../../lib/normalize/offices'
+import { CANDIDATE_SEAT_MAP } from './2025-seats'
 
 const prisma = new PrismaClient()
 
@@ -11,67 +13,6 @@ interface PDCCandidate {
   office: string
   jurisdiction: string
   jurisdiction_county: string
-}
-
-// Map PDC office names to our office types
-function mapOfficeType(pdcOffice: string): OfficeType {
-  const normalized = pdcOffice.toUpperCase()
-  if (normalized.includes('CITY COUNCIL')) return OfficeType.CITY_COUNCIL
-  if (normalized.includes('SCHOOL')) return OfficeType.SCHOOL_BOARD
-  if (normalized.includes('PORT')) return OfficeType.PORT_COMMISSIONER
-  if (normalized.includes('MAYOR')) return OfficeType.MAYOR
-  return OfficeType.CITY_COUNCIL // default
-}
-
-// Extract clean office title from PDC data
-function cleanOfficeTitle(pdcOffice: string, jurisdiction: string): string {
-  // Handle School Board
-  if (pdcOffice.includes('SCHOOL')) {
-    if (jurisdiction.includes('KENNEWICK')) return 'Kennewick School Board'
-    if (jurisdiction.includes('PASCO')) return 'Pasco School Board'
-    if (jurisdiction.includes('RICHLAND')) return 'Richland School Board'
-  }
-  
-  // Handle City Council
-  if (pdcOffice.includes('CITY COUNCIL')) {
-    if (jurisdiction.includes('KENNEWICK')) return 'Kennewick City Council'
-    if (jurisdiction.includes('PASCO')) return 'Pasco City Council'
-    if (jurisdiction.includes('RICHLAND')) return 'Richland City Council'
-    if (jurisdiction.includes('WEST RICHLAND')) return 'West Richland City Council'
-  }
-  
-  // Handle Mayor
-  if (pdcOffice.includes('MAYOR')) {
-    if (jurisdiction.includes('KENNEWICK')) return 'Kennewick Mayor'
-    if (jurisdiction.includes('PASCO')) return 'Pasco Mayor'
-    if (jurisdiction.includes('RICHLAND')) return 'Richland Mayor'
-    if (jurisdiction.includes('WEST RICHLAND')) return 'West Richland Mayor'
-  }
-  
-  // Handle Port Commissioner
-  if (pdcOffice.includes('PORT')) {
-    if (jurisdiction.includes('BENTON')) return 'Port of Benton Commissioner'
-    if (jurisdiction.includes('KENNEWICK')) return 'Port of Kennewick Commissioner'
-  }
-  
-  return pdcOffice
-}
-
-// Extract position number if present
-function extractPosition(pdcOffice: string): number | null {
-  const match = pdcOffice.match(/POS(?:ITION)?\s*(\d+)/i)
-  return match ? parseInt(match[1]) : null
-}
-
-// Map jurisdiction to region
-function mapRegion(jurisdiction: string, county: string): string {
-  if (jurisdiction.includes('KENNEWICK')) return 'Kennewick'
-  if (jurisdiction.includes('PASCO')) return 'Pasco'
-  if (jurisdiction.includes('WEST RICHLAND')) return 'Richland' // West Richland goes under Richland
-  if (jurisdiction.includes('RICHLAND')) return 'Richland'
-  if (county === 'BENTON') return 'Benton County'
-  if (county === 'FRANKLIN') return 'Franklin County'
-  return 'Tri-Cities'
 }
 
 async function importCandidatesFrom2025() {
@@ -105,58 +46,67 @@ async function importCandidatesFrom2025() {
     // Process each candidate
     let created = 0
     let skipped = 0
+
+    const regions = await prisma.region.findMany({
+      select: { id: true, name: true }
+    })
+    const regionLookup = new Map(regions.map(region => [region.name, region.id]))
     
     for (const [filerId, pdcCandidate] of candidateMap) {
       // Clean up the name (remove parentheses content)
       const cleanName = pdcCandidate.filer_name.replace(/\s*\([^)]*\)/g, '').trim()
       
-      // Determine office and region
-      const officeTitle = cleanOfficeTitle(pdcCandidate.office, pdcCandidate.jurisdiction)
-      const position = extractPosition(pdcCandidate.office)
-      const regionName = mapRegion(pdcCandidate.jurisdiction, pdcCandidate.jurisdiction_county)
-      const officeType = mapOfficeType(pdcCandidate.office)
-      
-      // Build the full office title
-      const fullOfficeTitle = position ? `${officeTitle} Pos ${position}` : officeTitle
-      
-      console.log(`Processing: ${cleanName} for ${fullOfficeTitle} in ${regionName}`)
-      
-      // Find the region
-      const region = await prisma.region.findFirst({
-        where: { name: regionName }
-      })
-      
-      if (!region) {
-        console.log(`  ⚠️  Region not found: ${regionName}`)
+      const candidateKey = cleanName.toUpperCase()
+      const mappedSeat = CANDIDATE_SEAT_MAP[candidateKey]
+
+      if (!mappedSeat) {
+        console.log(`  • Skipping ${cleanName} — not on general roster`)
         skipped++
         continue
       }
+
+      const normalized = normalizeLocalOffice({
+        office: mappedSeat.office,
+        jurisdiction: mappedSeat.jurisdiction
+      })
+
+      if (!normalized) {
+        console.log(`  • Skipping ${cleanName} — unable to normalize ${mappedSeat.office}`)
+        skipped++
+        continue
+      }
+
+      const regionId = regionLookup.get(normalized.regionName)
+      if (!regionId) {
+        console.log(`  ⚠️  Region not found for ${normalized.regionName}`)
+        skipped++
+        continue
+      }
+
+      console.log(`Processing: ${cleanName} for ${normalized.officeTitle}`)
+      
+      // Find the region
+      const region = regionId
       
       // Find or create the office
       let office = await prisma.office.findFirst({
         where: {
-          title: fullOfficeTitle,
-          regionId: region.id
+          title: normalized.officeTitle,
+          regionId: region
         }
       })
       
       if (!office) {
-        // Create the office if it doesn't exist
-        const jobTitle = officeType === OfficeType.SCHOOL_BOARD ? 'Board member' :
-                        officeType === OfficeType.PORT_COMMISSIONER ? 'Commissioner' :
-                        officeType === OfficeType.MAYOR ? 'Mayor' :
-                        'Council member'
-        
         office = await prisma.office.create({
           data: {
-            title: fullOfficeTitle,
-            type: officeType,
-            regionId: region.id,
-            position,
-            jobTitle
+            title: normalized.officeTitle,
+            type: normalized.officeType,
+            regionId: region,
+            position: normalized.position,
+            jobTitle: normalized.jobTitle
           }
         })
-        console.log(`  ✓ Created office: ${fullOfficeTitle}`)
+        console.log(`  ✓ Created office: ${normalized.officeTitle}`)
       }
       
       // Check if candidate already exists
@@ -209,7 +159,7 @@ async function importCandidatesFrom2025() {
         region: true
       }
     })
-    
+
     let racesCreated = 0
     for (const office of officesWithCandidates) {
       // Check if race already exists
