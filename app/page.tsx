@@ -1,8 +1,9 @@
 import { ContactInline } from '@/components/ContactInline'
 import { HowToUseThisGuide } from '@/components/home/HowToUseThisGuide'
-import { RaceCard } from '@/components/race/RaceCard'
 import { getAvailableYears, getGuidesForYear } from '@/lib/queries'
 import Link from 'next/link'
+import { slugify } from '@/lib/utils'
+import { orderRaces } from '@/lib/raceOrdering'
 
 export default async function HomePage() {
   const availableYears = await getAvailableYears()
@@ -31,34 +32,49 @@ export default async function HomePage() {
         {/* <YearToggle currentYear={latestYear} availableYears={availableYears} /> */}
       </section>
 
-      <HowToUseThisGuide />
-
-      <section className="latest-overview">
-        <h2>{latestYear} candidates at a glance</h2>
-        <p>
-          Explore every race we track below. Jump in to compare candidates, see
-          their endorsements, read their statements, and review fundraising.
-        </p>
+      <section className="guide-directory">
+        <h2>{latestYear} voter guides</h2>
+        <p>Choose your city or county to see every race, candidate, and compare view we track.</p>
 
         {guides.length === 0 ? (
           <p className="guide-empty">We have not published guides for this year yet.</p>
         ) : (
-          guides.map(guide => (
-            <article key={guide.id} className="guide">
-              <h3>{guide.region.name}</h3>
-              {guide.Race.length === 0 ? (
-                <p className="race-empty">No races published for this region yet.</p>
-              ) : (
-                <div className="races-collection">
-                  {guide.Race.map(race => (
-                    <RaceCard key={race.id} race={race} year={latestYear} />
-                  ))}
-                </div>
-              )}
-            </article>
-          ))
+          <div className="guide-directory-grid">
+            {guides.map(guide => {
+              const regionSlug = slugify(guide.region.name)
+              const orderedRaces = orderRaces(guide.Race, latestYear)
+
+              return (
+                <article key={guide.id} className="guide-card">
+                  <h3>
+                    <Link href={`/${latestYear}/guide/${regionSlug}`}>
+                      {guide.region.name}
+                    </Link>
+                  </h3>
+                  {orderedRaces.length === 0 ? (
+                    <p className="race-empty">Race list N/A. Check back soon.</p>
+                  ) : (
+                    <ul>
+                      {orderedRaces.map(race => (
+                        <li key={race.id}>
+                          <Link href={`/${latestYear}/race/${slugify(race.office.title)}`}>
+                            {race.office.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <Link className="guide-card-link" href={`/${latestYear}/guide/${regionSlug}`}>
+                    View full guide »
+                  </Link>
+                </article>
+              )
+            })}
+          </div>
         )}
       </section>
+
+      <HowToUseThisGuide />
 
       <ContactInline />
     </main>

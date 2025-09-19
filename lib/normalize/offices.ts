@@ -116,10 +116,16 @@ function normalizePort(office: string): NormalizedOffice | null {
   const upper = office.toUpperCase()
 
   let regionName: string | null = null
+  let portLabel: string | null = null
   if (upper.includes('PORT OF BENTON')) {
     regionName = 'Benton County'
+    portLabel = 'Benton'
   } else if (upper.includes('PORT OF KENNEWICK')) {
     regionName = 'Kennewick'
+    portLabel = 'Kennewick'
+  } else if (upper.includes('PORT OF PASCO')) {
+    regionName = 'Pasco'
+    portLabel = 'Pasco'
   } else {
     return null
   }
@@ -132,7 +138,7 @@ function normalizePort(office: string): NormalizedOffice | null {
   return {
     regionName,
     officeType: OfficeType.PORT_COMMISSIONER,
-    officeTitle: `Port of ${regionName === 'Benton County' ? 'Benton' : 'Kennewick'} Commissioner ${seat.label}`.trim(),
+    officeTitle: `Port of ${portLabel} Commissioner ${seat.label}`.trim(),
     jobTitle: 'Commissioner',
     position: seat.position
   }

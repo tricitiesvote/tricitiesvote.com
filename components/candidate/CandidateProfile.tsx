@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { ensureHtml } from '@/lib/richText'
 
 interface CandidateProfileProps {
   candidate: {
@@ -55,6 +56,12 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
   const currentRace = candidate.races.find(r => r.race.electionYear === year)
   const imageSrc = candidate.image || null
   const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
+  const bioHtml = ensureHtml(candidate.bio)
+  const statementHtml = ensureHtml(candidate.statement)
+  const engagementHtml = ensureHtml(candidate.engagement)
+  const articlesHtml = ensureHtml(candidate.articles)
+  const lettersYesHtml = ensureHtml(candidate.lettersYes)
+  const lettersNoHtml = ensureHtml(candidate.lettersNo)
   
   // Group endorsements by for/against
   const endorsementsFor = candidate.endorsements?.filter(e => e.forAgainst === 'FOR') || []
@@ -133,17 +140,17 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
         
         <div className="details">
           <h5>{candidate.name}</h5>
-          {candidate.bio && (
-            <div className="candidate-bio" dangerouslySetInnerHTML={{ __html: candidate.bio }} />
+          {bioHtml && (
+            <div className="candidate-bio" dangerouslySetInnerHTML={{ __html: bioHtml }} />
           )}
-          {!candidate.bio && candidate.statement && (
-            <div className="candidate-statement" dangerouslySetInnerHTML={{ __html: candidate.statement }} />
+          {!bioHtml && statementHtml && (
+            <div className="candidate-statement" dangerouslySetInnerHTML={{ __html: statementHtml }} />
           )}
           
-          {candidate.engagement && (
+          {engagementHtml && (
             <div className="engagement">
               <h4>Community Engagement</h4>
-              <div dangerouslySetInnerHTML={{ __html: candidate.engagement }} />
+              <div dangerouslySetInnerHTML={{ __html: engagementHtml }} />
             </div>
           )}
           
@@ -169,24 +176,24 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
             </div>
           )}
           
-          {candidate.articles && (
+          {articlesHtml && (
             <div className="candidate-articles">
               <h4>News Articles</h4>
-              <div dangerouslySetInnerHTML={{ __html: candidate.articles }} />
+              <div dangerouslySetInnerHTML={{ __html: articlesHtml }} />
             </div>
           )}
           
-          {candidate.lettersYes && (
+          {lettersYesHtml && (
             <div className="letters-yes">
               <h4>Letters of Support</h4>
-              <div dangerouslySetInnerHTML={{ __html: candidate.lettersYes }} />
+              <div dangerouslySetInnerHTML={{ __html: lettersYesHtml }} />
             </div>
           )}
           
-          {candidate.lettersNo && (
+          {lettersNoHtml && (
             <div className="letters-no">
               <h4>Letters of Opposition</h4>
-              <div dangerouslySetInnerHTML={{ __html: candidate.lettersNo }} />
+              <div dangerouslySetInnerHTML={{ __html: lettersNoHtml }} />
             </div>
           )}
         </div>

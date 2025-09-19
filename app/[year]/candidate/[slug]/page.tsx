@@ -4,6 +4,8 @@ import { ContactInline } from '@/components/ContactInline'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { calculateFundraising } from '@/lib/calculateFundraising'
+import { slugify } from '@/lib/utils'
+import { getOfficeBreadcrumbParts } from '@/lib/officeDisplay'
 
 interface CandidatePageProps {
   params: {
@@ -32,29 +34,30 @@ export default async function CandidatePage({ params }: CandidatePageProps) {
   const race = candidate.races?.[0]?.race
   const guide = race?.Guide?.[0]
   const region = guide?.region
+  const officeParts = race ? getOfficeBreadcrumbParts(race.office) : null
+
+  const breadcrumbs = [
+    { label: String(year), href: `/${year}` },
+    region ? { label: region.name, href: `/${year}/guide/${slugify(region.name)}` } : null,
+    race
+      ? {
+          label: officeParts?.section ?? race.office.title,
+          href: `/${year}/race/${slugify(race.office.title)}`
+        }
+      : null,
+    officeParts?.seat ? { label: officeParts.seat } : null,
+    { label: candidate.name }
+  ].filter(Boolean) as Array<{ label: string; href?: string }>
   
   return (
     <>
-      <nav>
-        <Link href={`/${year}`}>{year} Election</Link>
-        {region && (
-          <>
-            {' > '}
-            <Link href={`/${year}/guide/${region.name.toLowerCase().replace(/\s+/g, '-')}`}>
-              {region.name} Guide
-            </Link>
-          </>
-        )}
-        {race && (
-          <>
-            {' > '}
-            <Link href={`/${year}/race/${race.office.title.toLowerCase().replace(/\s+/g, '-')}`}>
-              {race.office.title}
-            </Link>
-          </>
-        )}
-        {' > '}
-        {candidate.name}
+      <nav className="breadcrumb">
+        {breadcrumbs.map((crumb, index) => (
+          <span key={`${crumb.label}-${index}`}>
+            {index > 0 && ' » '}
+            {crumb.href ? <Link href={crumb.href}>{crumb.label}</Link> : crumb.label}
+          </span>
+        ))}
       </nav>
       
       <div className="container-candidate-large">

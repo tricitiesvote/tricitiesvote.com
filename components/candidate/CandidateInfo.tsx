@@ -16,9 +16,10 @@ interface CandidateInfoProps {
     pdc?: string | null
   }
   year: number
+  size?: number
 }
 
-export function CandidateInfo({ candidate, year }: CandidateInfoProps) {
+export function CandidateInfo({ candidate, year, size }: CandidateInfoProps) {
   const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
   
@@ -28,6 +29,7 @@ export function CandidateInfo({ candidate, year }: CandidateInfoProps) {
         name={candidate.name}
         image={candidate.image}
         url={url}
+        size={size}
       />
       <CandidateLinkCollection
         email={candidate.email}

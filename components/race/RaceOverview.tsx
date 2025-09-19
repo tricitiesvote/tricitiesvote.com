@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { CandidateCard } from '@/components/candidate/CandidateCard'
+import { slugify } from '@/lib/utils'
 
 interface RaceOverviewProps {
   race: {
@@ -27,15 +28,22 @@ interface RaceOverviewProps {
 }
 
 export function RaceOverview({ race, year }: RaceOverviewProps) {
-  const regionSlug = race.guide.region.name.toLowerCase().replace(/\s+/g, '-')
+  const regionSlug = slugify(race.guide.region.name)
+  const breadcrumbs = [
+    { label: String(year), href: `/${year}` },
+    { label: race.guide.region.name, href: `/${year}/guide/${regionSlug}` }
+  ]
   
   return (
     <div className="race-overview">
       <header className="race-header">
         <nav className="breadcrumb">
-          <Link href={`/${year}`}>{year}</Link>
-          <span> / </span>
-          <Link href={`/${year}/guide/${regionSlug}`}>{race.guide.title}</Link>
+          {breadcrumbs.map((crumb, index) => (
+            <span key={`${crumb.label}-${index}`}>
+              {index > 0 && ' » '}
+              <Link href={crumb.href}>{crumb.label}</Link>
+            </span>
+          ))}
         </nav>
         
         <h1>{race.title}</h1>

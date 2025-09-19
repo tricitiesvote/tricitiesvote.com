@@ -6,13 +6,18 @@ interface EndorsementProps {
     type: string
     forAgainst: string
   }>
+  showPlaceholder?: boolean
 }
 
-export function CandidateEndorsements({ endorsements }: EndorsementProps) {
+export function CandidateEndorsements({ endorsements, showPlaceholder = true }: EndorsementProps) {
   const endorsementsFor = endorsements.filter(e => e.forAgainst === 'FOR')
   const endorsementsAgainst = endorsements.filter(e => e.forAgainst === 'AGAINST')
   
   if (endorsements.length === 0) {
+    if (!showPlaceholder) {
+      return null
+    }
+
     return (
       <div className="endorsements-summary">
         <p>No letters of support or opposition listed yet.</p>

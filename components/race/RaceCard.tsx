@@ -66,10 +66,8 @@ export function RaceCard({ race, year }: RaceCardProps) {
       </h2>
       
       <div className="compare-link">
-        <span className="compare-icon">🟡</span>
-        <span className="compare-icon">🟢</span>
         <Link href={`/${year}/compare/${raceSlug}`}>
-          Compare candidates »
+          🟢 🟡 Compare Candidates »
         </Link>
       </div>
       

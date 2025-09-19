@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
+import { getOfficeBreadcrumbParts } from '@/lib/officeDisplay'
 
 interface RacePageProps {
   params: { 
@@ -25,35 +26,39 @@ export default async function RacePage({ params }: RacePageProps) {
     notFound()
   }
   
+  const guide = race.Guide?.[0]
+  const region = guide?.region
+  const officeParts = getOfficeBreadcrumbParts(race.office)
+
+  const breadcrumbs = [
+    { label: String(year), href: `/${year}` },
+    region
+      ? { label: region.name, href: `/${year}/guide/${slugify(region.name)}` }
+      : null,
+    { label: officeParts.section },
+    officeParts.seat ? { label: officeParts.seat } : null,
+  ].filter(Boolean) as Array<{ label: string; href?: string }>
+
   return (
     <>
-      <nav>
-        <Link href={`/${year}`}>{year} Election</Link> &gt;{' '}
-        {race.Guide && race.Guide.length > 0 && (
-          <>
-            <Link href={`/${year}/guide/${slugify(race.Guide[0].region.name)}`}>
-              {race.Guide[0].region.name} Guide
-            </Link> &gt;{' '}
-          </>
-        )}
-        {race.office.title}
+      <nav className="breadcrumb">
+        {breadcrumbs.map((crumb, index) => (
+          <span key={`${crumb.label}-${index}`}>
+            {index > 0 && ' » '}
+            {crumb.href ? <Link href={crumb.href}>{crumb.label}</Link> : crumb.label}
+          </span>
+        ))}
       </nav>
 
       <div className="guide">
         <section className="race">
-          <a href={`/${year}/race/${params.slug}`}>
-            <h2>{race.office.title}</h2>
-          </a>
+          <h1 className="race-title">{race.office.title}</h1>
 
-          {race.intro ? (
+          {race.intro && (
             <div className="race-intro" dangerouslySetInnerHTML={{ __html: race.intro }} />
-          ) : (
-            <div className="race-intro placeholder">
-              <p>Overview N/A.</p>
-            </div>
           )}
 
-          <div className="container-candidate">
+          <div className="compare-candidate-list">
             {race.candidates.filter(({ candidate }) => !candidate.hide).length === 0 ? (
               <p className="candidate-empty">Candidate details N/A.</p>
             ) : (
@@ -76,12 +81,8 @@ export default async function RacePage({ params }: RacePageProps) {
             )}
           </div>
 
-          {race.body ? (
+          {race.body && (
             <div className="race-body" dangerouslySetInnerHTML={{ __html: race.body }} />
-          ) : (
-            <div className="race-body placeholder">
-              <p>Additional notes N/A.</p>
-            </div>
           )}
         </section>
       </div>

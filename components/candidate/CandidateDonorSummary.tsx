@@ -1,6 +1,9 @@
-'use client'
-
-import React, { useState } from 'react'
+const usd = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+})
 
 interface DonorSummaryProps {
   fundraising?: {
@@ -18,8 +21,6 @@ interface DonorSummaryProps {
 }
 
 export function CandidateDonorSummary({ fundraising, minifiler, mini = false }: DonorSummaryProps) {
-  const [expandedDonors, setExpandedDonors] = useState<Set<number>>(new Set())
-  
   if (minifiler) {
     return (
       <div className="donor-summary">
@@ -35,111 +36,142 @@ export function CandidateDonorSummary({ fundraising, minifiler, mini = false }: 
       </div>
     )
   }
-  
+  const donorCountLabel = `${fundraising.donors}+`
+  const normalizedDonors = (fundraising.topDonors || []).map((donor, index) => {
+    const formattedName = normalizeDonorName(donor.name)
+    const safeName = formattedName || donor.name || 'Unknown Donor'
+
+    return {
+      key: `${safeName}-${index}`,
+      name: safeName,
+      amount: donor.amount,
+    }
+  })
+
   if (mini) {
-    const usd = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    })
-    
     return (
       <div className="donor-summary">
         <h3>Donors</h3>
         <p>
-          💰{' '}
-          <strong>
-            {usd.format(fundraising.total)} from {fundraising.donors}
-            <span
-              className="why-plus"
-              title="Why 'plus'? Sometimes multiple very small individual contributions are lumped together in one batch."
-            >
-              +
-            </span>{' '}
-            donors
-          </strong>
-          {fundraising.topDonors.length > 0 && (
+          💰 <strong>{usd.format(fundraising.total)} from {donorCountLabel} donors</strong>
+          {normalizedDonors.length > 0 && ':'}
+          {normalizedDonors.length > 0 && (
             <>
-              <span className="including">, including </span>
-              {fundraising.topDonors.slice(0, 8).map((donor, index, arr) => (
-                <span key={index} className="topdonors">
+              {' including '}
+              {normalizedDonors.slice(0, 8).map(donor => (
+                <span key={donor.key} className="topdonors">
                   {donor.name}{' '}
                   <span className="topdonors-amount">({usd.format(donor.amount)})</span>
-                  {index < arr.length - 1 && index < arr.length - 2 && ', '}
-                  {index === arr.length - 2 && ' and '}
                 </span>
               ))}
-              .
             </>
           )}
         </p>
       </div>
     )
   }
-  
-  const handleToggle = (index: number) => {
-    const newExpanded = new Set(expandedDonors)
-    if (newExpanded.has(index)) {
-      newExpanded.delete(index)
-    } else {
-      newExpanded.add(index)
-    }
-    setExpandedDonors(newExpanded)
-  }
-  
-  const usd = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  })
-  
+
   return (
     <div className="donor-summary">
       <h3>Donors</h3>
       <p>
-        Reported raised {usd.format(fundraising.total)} from{' '}
-        {fundraising.donors}
-        <span
-          className="why-plus"
-          title="Why 'plus'? Sometimes multiple very small individual contributions are lumped together in one batch."
-        >
-          +
-        </span>{' '}
-        unique donors.{' '}
+        <strong>{usd.format(fundraising.total)} from {donorCountLabel} donors</strong>{' '}
         {fundraising.totalCash !== undefined && fundraising.totalInKind !== undefined && (
           <span className="cash-vs-in-kind">
-            ({usd.format(fundraising.totalCash)} in cash,{' '}
-            {usd.format(fundraising.totalInKind)} in kind)
+            ({usd.format(fundraising.totalCash)} cash / {usd.format(fundraising.totalInKind)} in-kind)
           </span>
         )}
       </p>
-      <p className="helptext">
-        Click the triangle to see more details and links to financial disclosure reports.
-      </p>
-      {fundraising.topDonors.length > 0 && (
-        <div className="donors-list">
-          {fundraising.topDonors.map((donor, index) => (
-            <ul key={index} className={`donor ${expandedDonors.has(index) ? 'show-details' : ''}`}>
-              <p>
-                <button
-                  aria-label="show/hide details"
-                  type="button"
-                  title="Show/hide details"
-                  className="toggle-details"
-                  onClick={() => handleToggle(index)}
-                />
-                {donor.name} ({usd.format(donor.amount)})
-              </p>
-              <li>
-                Total: {usd.format(donor.amount)}
-              </li>
-              {/* Additional donation details would go here */}
-            </ul>
+      {normalizedDonors.length > 0 && (
+        <ul className="donors">
+          {normalizedDonors.map(donor => (
+            <li key={donor.key}>
+              <span className="donor-name">{donor.name}</span>
+              <span className="donor-amount">{usd.format(donor.amount)}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   )
+}
+
+const CORPORATE_KEYWORDS = /\b(LLC|INC|CORP|COMPANY|COMMITTEE|CAMPAIGN|PAC|ASSOCIATION|ASSOC|FUND|BANK|SCHOOL|DISTRICT|DEPARTMENT|PARTNERS|PARTNERSHIP|LP|LLP|PLC|PC|USA|FOUNDATION|GROUP|ENTERPRISES|HOTEL|RESORT|HOSPITAL|CLUB)\b/i
+const SUFFIX_EXCEPTIONS = new Set(['II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'JR', 'SR'])
+
+function normalizeDonorName(name: string) {
+  if (!name) {
+    return ''
+  }
+
+  const withoutParen = name.replace(/\([^)]*\)/g, ' ')
+  const cleaned = withoutParen.replace(/\s+/g, ' ').trim()
+
+  if (!cleaned) {
+    return ''
+  }
+
+  const segments = cleaned.split(',').map(part => part.trim()).filter(Boolean)
+  let reordered = cleaned
+
+  if (segments.length === 2 && !CORPORATE_KEYWORDS.test(cleaned)) {
+    reordered = `${segments[1]} ${segments[0]}`.trim()
+  } else if (segments.length > 1) {
+    reordered = segments.join(' ')
+  }
+
+  const hasLetters = /[A-Za-z]/.test(reordered)
+  const isAllCaps = hasLetters && reordered === reordered.toUpperCase()
+
+  if (!isAllCaps) {
+    return reordered.replace(/\s+/g, ' ').trim()
+  }
+
+  return toTitleCase(reordered).replace(/\s+/g, ' ').trim()
+}
+
+function toTitleCase(value: string) {
+  return value
+    .split(' ')
+    .map(token => {
+      if (!token) {
+        return token
+      }
+
+      const upperToken = token.toUpperCase()
+      if (SUFFIX_EXCEPTIONS.has(upperToken)) {
+        return upperToken
+      }
+
+      return token
+        .toLowerCase()
+        .split('-')
+        .map(segment => capitalizeSegment(segment))
+        .join('-')
+    })
+    .join(' ')
+}
+
+function capitalizeSegment(segment: string) {
+  if (!segment) {
+    return segment
+  }
+
+  const lower = segment.toLowerCase()
+
+  if (lower.length <= 2) {
+    return lower.toUpperCase()
+  }
+
+  let result = lower.charAt(0).toUpperCase() + lower.slice(1)
+
+  if (/^mc[a-z]/.test(result)) {
+    result = result.replace(/^mc([a-z])/, (_, letter) => `Mc${letter.toUpperCase()}`)
+  }
+
+  if (/^o'[a-z]/.test(result)) {
+    result = result.replace(/^o'([a-z])/, (_, letter) => `O'${letter.toUpperCase()}`)
+  }
+
+  return result
 }

@@ -1,5 +1,5 @@
 import { prisma } from './db'
-import { ElectionType } from '@prisma/client'
+import { ElectionType, OfficeType } from '@prisma/client'
 import { unslugify } from './utils'
 
 export async function getAvailableYears(): Promise<number[]> {
@@ -23,37 +23,13 @@ export async function getLatestYear(): Promise<number> {
 }
 
 export async function getGuidesForYear(year: number) {
-  return await prisma.guide.findMany({
+  const guides = await prisma.guide.findMany({
     where: { electionYear: year, type: ElectionType.GENERAL },
     include: {
       region: true,
       Race: {
         where: { type: ElectionType.GENERAL },
-        include: {
-          office: true,
-          candidates: {
-            include: {
-              candidate: {
-                include: {
-                  endorsements: true,
-                  contributions: {
-                    where: { electionYear: year },
-                    select: {
-                      donorName: true,
-                      amount: true,
-                      cashOrInKind: true
-                    }
-                  }
-                }
-              }
-            },
-            orderBy: {
-              candidate: {
-                name: 'asc'
-              }
-            }
-          }
-        },
+        include: getRaceInclude(year),
         orderBy: {
           office: {
             title: 'asc'
@@ -67,6 +43,11 @@ export async function getGuidesForYear(year: number) {
       }
     }
   })
+
+  const portGroups = await fetchPortRacesByKey(year)
+  guides.forEach(guide => attachPortRaces(guide, portGroups))
+
+  return guides
 }
 
 export async function getGuideByYearAndRegion(year: number, regionSlug: string) {
@@ -83,7 +64,7 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
     return null
   }
   
-  return await prisma.guide.findFirst({
+  const guide = await prisma.guide.findFirst({
     where: { 
       electionYear: year,
       regionId: region.id,
@@ -93,28 +74,7 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
       region: true,
       Race: {
         where: { type: ElectionType.GENERAL },
-        include: {
-          office: true,
-          candidates: {
-            include: {
-              candidate: {
-                include: {
-                  endorsements: true,
-                  contributions: {
-                    orderBy: {
-                      amount: 'desc'
-                    }
-                  }
-                }
-              }
-            },
-            orderBy: {
-              candidate: {
-                name: 'asc'
-              }
-            }
-          }
-        },
+        include: getRaceInclude(year),
         orderBy: {
           office: {
             title: 'asc'
@@ -123,6 +83,15 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
       }
     }
   })
+
+  if (!guide) {
+    return null
+  }
+
+  const portGroups = await fetchPortRacesByKey(year)
+  attachPortRaces(guide, portGroups)
+
+  return guide
 }
 
 export async function getCandidateByYearAndSlug(year: number, slug: string) {
@@ -205,5 +174,140 @@ export async function getRaceByYearAndSlug(year: number, slug: string) {
         }
       }
     }
+  })
+}
+
+function getRaceInclude(year: number) {
+  return {
+    office: true,
+    candidates: {
+      include: {
+        candidate: {
+          include: {
+            endorsements: true,
+            contributions: {
+              where: { electionYear: year },
+              orderBy: {
+                amount: 'desc'
+              },
+              select: {
+                donorName: true,
+                amount: true,
+                cashOrInKind: true
+              }
+            }
+          }
+        }
+      },
+      orderBy: {
+        candidate: {
+          name: 'asc'
+        }
+      }
+    }
+  }
+}
+
+type PortGroupKey = 'benton' | 'kennewick' | 'pasco'
+
+async function fetchPortRacesByKey(year: number) {
+  const races = await prisma.race.findMany({
+    where: {
+      electionYear: year,
+      type: ElectionType.GENERAL,
+      office: {
+        type: OfficeType.PORT_COMMISSIONER
+      }
+    },
+    include: getRaceInclude(year),
+    orderBy: {
+      office: {
+        title: 'asc'
+      }
+    }
+  })
+
+  const groups = new Map<PortGroupKey, typeof races>()
+
+  races.forEach(race => {
+    const key = getPortGroupKey(race.office.title)
+    if (!key) {
+      return
+    }
+
+    if (!groups.has(key)) {
+      groups.set(key, [])
+    }
+
+    groups.get(key)!.push(race)
+  })
+
+  return groups
+}
+
+function getPortGroupKey(title: string): PortGroupKey | null {
+  const upper = title.toUpperCase()
+
+  if (upper.includes('PORT OF BENTON')) {
+    return 'benton'
+  }
+
+  if (upper.includes('PORT OF KENNEWICK')) {
+    return 'kennewick'
+  }
+
+  if (upper.includes('PORT OF PASCO')) {
+    return 'pasco'
+  }
+
+  return null
+}
+
+function getPortKeysForRegion(regionName: string): PortGroupKey[] {
+  const name = regionName.toLowerCase()
+
+  if (name.includes('richland') || name.includes('west richland')) {
+    return ['benton']
+  }
+
+  if (name.includes('benton')) {
+    return ['benton']
+  }
+
+  if (name.includes('kennewick')) {
+    return ['kennewick']
+  }
+
+  if (name.includes('pasco')) {
+    return ['pasco']
+  }
+
+  if (name.includes('franklin')) {
+    return ['pasco']
+  }
+
+  return []
+}
+
+function attachPortRaces(
+  guide: Awaited<ReturnType<typeof prisma.guide.findMany>>[number],
+  portGroups: Map<PortGroupKey, Awaited<ReturnType<typeof prisma.race.findMany>>>
+) {
+  const keys = getPortKeysForRegion(guide.region.name)
+
+  if (keys.length === 0) {
+    return
+  }
+
+  const existingIds = new Set(guide.Race.map(race => race.id))
+
+  keys.forEach(key => {
+    const races = portGroups.get(key) || []
+    races.forEach(race => {
+      if (!existingIds.has(race.id)) {
+        guide.Race.push(race)
+        existingIds.add(race.id)
+      }
+    })
   })
 }

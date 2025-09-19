@@ -5,18 +5,19 @@ interface CandidateImageProps {
   name: string
   image?: string | null
   url: string
+  size?: number
 }
 
-export function CandidateImage({ name, image, url }: CandidateImageProps) {
+export function CandidateImage({ name, image, url, size = 150 }: CandidateImageProps) {
   return (
     <Link href={url}>
       {image ? (
         <Image
           src={image}
           alt={name}
-          width={150}
-          height={150}
-          sizes="150px"
+          width={size}
+          height={size}
+          sizes={`${size}px`}
           unoptimized={/^https?:/i.test(image)}
         />
       ) : (

@@ -3,8 +3,8 @@
 This file gives working instructions for agents in this repo. Its scope is the entire repository.
 
 ## Goals Right Now
-- Ship the 2025 General election guide (Primary was not completed).
-- Operate with partial/incomplete candidate data until official sources publish.
+- Keep the 2025 General election guide accurate as official data rolls in.
+- Operate with partial/incomplete candidate data until counties publish certified statements or results.
 - Keep changes minimal and focused on reliability and shipping.
 
 ## Quick Start
@@ -23,53 +23,44 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `/{year}/race/{slug}` – race page
   - `/{year}/candidate/{slug}` – candidate page
 
-## Data Imports (operate safely)
-- PDC contributions (fast, idempotent):
-  - `npm run import:pdc:fast 2025`
-- Voter pamphlet imports (require `DATABASE_URL` in env):
-  - Benton County (API): `npx tsx scripts/import/pamphlet-2025.ts`
-- Franklin County (PDF scrape): `npx tsx scripts/import/pamphlet-franklin-2025.ts` (needs `pdftotext` on PATH)
-- Use `scripts/match-pamphlet-candidates.ts` for interactive name matching.
-- Core 2025 general race scaffolding (city councils, school boards, ports):
-  - `npx tsx scripts/import/ensure-2025-core-races.ts` (shared seat definitions live in `scripts/import/2025-seats.ts`)
-- 2025 candidate scaffolding from PDC:
-  - `npx tsx scripts/import/pdc-candidates-2025.ts`
-- Race ID discovery and validation:
-  - `npx tsx scripts/fetch-race-ids.ts`
-  - `npx tsx scripts/validate-race-ids.ts`
+- Reset/import workflow (run in this order when refreshing data):
+  1. **Purge stale primary/generic data** (optional when already clean):
+     - `npx tsx scripts/data/cleanup-2025-offices.ts`
+  2. **PDC candidates + offices** (recreates seats listed in `scripts/import/2025-seats.ts`):
+     - `npx tsx scripts/import/pdc-candidates-2025.ts`
+     - `npm run import:pdc:fast 2025`
+  3. **Core race enforcement** (ensures every tracked seat exists and only general candidates remain):
+     - `npx tsx scripts/import/ensure-2025-core-races.ts`
+  4. **Guide linking** (reattach races to guides):
+     - `npm run prepare:2025:general`
+  5. **Pamphlet data** (requires `pdftotext`):
+     - Benton/West Richland etc.: `npx tsx scripts/import/pamphlet-2025.ts`
+     - Pasco/Franklin PDF: `npx tsx scripts/import/pamphlet-franklin-2025.ts`
+     - Follow with `scripts/match-pamphlet-candidates.ts 2025` when new names appear.
+
+- Other scripts:
+  - `npx tsx scripts/fetch-race-ids.ts` / `scripts/validate-race-ids.ts` for troubleshooting county IDs.
+  - `scripts/check-*` utilities to spot duplicates or missing offices.
 
 Notes:
 - Scripts under `scripts/` are designed to be re-runnable and conservative. Prefer running those over ad‑hoc DB edits.
 - Election results import is NOT implemented yet; see “Immediate Priorities”.
 
-## Current State (2025)
 - Next.js app and Prisma schema are in place; voter guide pages render from DB data.
-- Primary 2025 wasn’t shipped. All focus is on the November General.
-- The `/` landing page now mirrors the legacy layout: it automatically features the latest election year, surfaces “How to use this guide” copy, and lists every general race via `RaceCard` so changes to candidate data show up immediately.
-- PDC importers now normalize to the canonical seat format (`{City} City Council {Ward/Position/District}`, `{City} School Board {Position/District}`, `Port of {Locale} Commissioner District {n}`) and only create general races for the seats listed in `scripts/import/2025-seats.ts`.
-- `npm run prepare:2025:general` has created guides for Kennewick, Pasco, Richland, West Richland, and Benton County. West Richland currently has no candidates or races because filings aren’t in the DB yet.
+- Primary 2025 data is archived; only the November general roster is present in Prisma (26 races, every seat named per the standards below).
+- The `/` landing page mirrors the legacy intro, auto-selects the latest election, and lists every general race via `RaceCard` so DB changes surface immediately.
+- PDC importers normalize offices to the canonical seat format (`{City} City Council {Ward/Position/District}`, `{City} School Board {District/Position}`, `Port of {Locale} Commissioner District {n}`) and only ingest candidates defined in `scripts/import/2025-seats.ts`.
+- West Richland, Kennewick, Pasco, Richland, and the two ports all have current general lineups; unopposed seats show a single candidate.
 - Compare view (`/{year}/compare/{slug}`) is live and uses the same “N/A” fallbacks as the main pages.
-- We do not have full General candidate data yet (pamphlet/results not final). The UI now shows “N/A” fallbacks when statements, bios, photos, contact info, or fundraising are missing.
-- Some docs still reference a “complete” primary import; treat those as stale unless you are mining historical context.
+- General statements/photos/contact are still arriving; pamphlet scripts are re-runnable and fill gaps as counties publish updates.
+- Some older docs still reference a “complete” primary import—treat those as historical context only.
 
 ## Immediate Priorities to Ship General 2025
-1. Keep 2025 general guides synced:
-   - Run `npm run prepare:2025:general` after importing new candidates/offices so West Richland and Benton County stay current. Script is idempotent and will copy primary candidates into empty general races.
-   - Backfill West Richland candidate/race data once filings land (currently empty guide).
-2. Implement results import and wire `npm run import:results`:
-   - Add `scripts/import/results.ts` that:
-     - Fetches official results by election ID
-     - Matches candidates to DB
-     - Upserts `CandidateRace` with `voteCount`/`votePercent`, marks winners, and handles Richland term rules
-     - Is idempotent and logs summaries
-3. Continue hardening and filling content:
-   - Flesh out placeholder copy (“N/A”) with real statements/photos/contact info as soon as pamphlet data arrives.
-   - After each pamphlet run (`pamphlet-2025` + Franklin PDF importer) follow with `scripts/match-pamphlet-candidates.ts` to extend alias coverage.
-4. Keep weekly PDC updates running:
-   - `npm run import:pdc:fast 2025` (automate via cron/CI if available).
-5. Build out outstanding scripts/checks as we move toward launch:
-   - `scripts/import/results.ts` (see above)
-   - Any `scripts/check-*` updates needed for newly split regions (West Richland vs. Richland).
+1. **Maintain the roster**: When new filings or corrections appear, rerun the reset/import pipeline (cleanup → PDC import → core races → prepare → pamphlets). Guides will pick up the updates automatically.
+2. **Implement results import** (`scripts/import/results.ts` + `npm run import:results`) to pull official vote totals, mark winners, and handle Richland’s special term rules once canvass data is released.
+3. **Continue content backfill**: As counties post revised pamphlets or candidate-provided assets, rerun the pamphlet scripts and `scripts/match-pamphlet-candidates.ts 2025` to extend alias coverage and fill missing statements/photos.
+4. **Keep finance up to date**: run `npm run import:pdc:fast 2025` on cadence (weekly or after major filing deadlines).
+5. **Expand checks**: extend `scripts/check-*` utilities as needed (e.g., to validate the shared seat definitions or highlight unassigned candidates).
 
 ## Code Organization
 - Frontend (Next.js App Router): `app/`

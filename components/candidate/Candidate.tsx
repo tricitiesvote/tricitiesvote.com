@@ -3,6 +3,7 @@ import { CandidateInfo } from './CandidateInfo'
 import { CandidateEndorsements } from './CandidateEndorsements'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
 import { slugify } from '@/lib/utils'
+import { ensureHtml } from '@/lib/richText'
 
 interface CandidateProps {
   candidate: {
@@ -50,9 +51,65 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
   const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
   
-  const hasBio = Boolean(candidate.bio)
-  const hasStatement = Boolean(candidate.statement)
-  
+  const bioHtml = ensureHtml(candidate.bio)
+  const statementHtml = ensureHtml(candidate.statement)
+  const engagementHtml = ensureHtml(candidate.engagement)
+  const articlesHtml = ensureHtml(candidate.articles)
+  const hasBio = Boolean(bioHtml)
+  const hasStatement = Boolean(statementHtml)
+
+  const primaryContent = hasBio
+    ? <div className="candidate-body" dangerouslySetInnerHTML={{ __html: bioHtml! }} />
+    : hasStatement
+      ? <div className="candidate-body" dangerouslySetInnerHTML={{ __html: statementHtml! }} />
+      : (
+        <div className="candidate-body placeholder">
+          <p>Statement N/A.</p>
+        </div>
+      )
+
+  if (fullsize) {
+    return (
+      <article className="candidate candidate-full">
+        <div className="info">
+          <CandidateInfo
+            candidate={candidate}
+            year={year}
+            size={100}
+          />
+        </div>
+
+        <div className="details">
+          <h3>{candidate.name}</h3>
+          {primaryContent}
+        </div>
+
+        <div className="candidate-expanded">
+          {engagementHtml && (
+            <div className="engagement" dangerouslySetInnerHTML={{ __html: engagementHtml }} />
+          )}
+
+          {candidate.endorsements && candidate.endorsements.length > 0 && (
+            <CandidateEndorsements endorsements={candidate.endorsements} showPlaceholder={false} />
+          )}
+
+          {articlesHtml && (
+            <div className="candidate-articles news">
+              <h4>News Articles</h4>
+              <div dangerouslySetInnerHTML={{ __html: articlesHtml }} />
+            </div>
+          )}
+
+          <CandidateDonorSummary
+            fundraising={fundraising}
+            minifiler={candidate.minifiler}
+            mini={false}
+          />
+        </div>
+      </article>
+    )
+  }
+
   return (
     <div className="candidate">
       {/* Info column (image and links) - comes first in HTML but displayed on left via grid */}
@@ -60,6 +117,7 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
         <CandidateInfo
           candidate={candidate}
           year={year}
+          size={150}
         />
       </div>
       
@@ -69,78 +127,46 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
           <Link href={url}>{candidate.name}</Link>
         </h5>
 
-        {!fullsize && (
-          <>
-            {hasBio ? (
-              <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.bio! }} />
-            ) : hasStatement ? (
-              <div className="candidate-bio excerpt">
-                <div dangerouslySetInnerHTML={{ __html: candidate.statement! }} />
-                <Link href={url} className="candidate-link">
-                  More »
-                </Link>
-              </div>
-            ) : (
-              <div className="candidate-bio placeholder">
-                <p>Statement N/A.</p>
-              </div>
-            )}
-          </>
+        {hasBio ? (
+          <div className="candidate-body" dangerouslySetInnerHTML={{ __html: bioHtml! }} />
+        ) : hasStatement ? (
+          <div className="candidate-bio excerpt">
+            <div dangerouslySetInnerHTML={{ __html: statementHtml! }} />
+            <Link href={url} className="candidate-link">
+              More »
+            </Link>
+          </div>
+        ) : (
+          <div className="candidate-bio placeholder">
+            <p>Statement N/A.</p>
+          </div>
         )}
 
-        {candidate.engagement && (
-          <div className="engagement" dangerouslySetInnerHTML={{ __html: candidate.engagement }} />
+        {engagementHtml && (
+          <div className="engagement" dangerouslySetInnerHTML={{ __html: engagementHtml }} />
         )}
 
         <CandidateEndorsements endorsements={candidate.endorsements || []} />
         
-        {candidate.articles && (
+        {articlesHtml && (
           <div className="candidate-articles news">
             <h4>News Articles</h4>
-            <div dangerouslySetInnerHTML={{ __html: candidate.articles }} />
+            <div dangerouslySetInnerHTML={{ __html: articlesHtml }} />
           </div>
         )}
         
-        {!fullsize && (
-          <div>
-            {/* Body excerpt would go here if we had it */}
-            <CandidateDonorSummary
-              fundraising={fundraising}
-              minifiler={candidate.minifiler}
-              mini={true}
-            />
-          </div>
-        )}
-        
-        {!fullsize && (
-          <p>
-            <a href={url}>See full candidate details »</a>
-          </p>
-        )}
-      </div>
-      
-      {/* Full candidate content area - spans both columns */}
-      {fullsize && (
-        <div className="candidate-content">
-          {hasBio ? (
-            <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.bio! }} />
-          ) : hasStatement ? (
-            <div className="candidate-body" dangerouslySetInnerHTML={{ __html: candidate.statement! }} />
-          ) : (
-            <div className="candidate-body placeholder">
-              <p>Statement N/A.</p>
-            </div>
-          )}
-
-          {/* Questionnaire answers would go here */}
-
+        <div>
           <CandidateDonorSummary
             fundraising={fundraising}
             minifiler={candidate.minifiler}
-            mini={false}
+            mini={true}
           />
         </div>
-      )}
+        
+        <p>
+          <a href={url}>See full candidate details »</a>
+        </p>
+      </div>
     </div>
   )
 }

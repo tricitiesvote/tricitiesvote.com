@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
 import { slugify } from '@/lib/utils'
+import { ensureHtml } from '@/lib/richText'
 
 interface CandidateMiniProps {
   candidate: {
@@ -35,7 +36,8 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
   const url = `/${year}/candidate/${candidateSlug}`
   const imageSrc = candidate.image || null
   const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
-  
+  const engagementHtml = ensureHtml(candidate.engagement)
+
   // Group endorsements by for/against
   const endorsementsFor = candidate.endorsements?.filter(e => e.forAgainst === 'FOR') || []
   const endorsementsAgainst = candidate.endorsements?.filter(e => e.forAgainst === 'AGAINST') || []
@@ -63,8 +65,8 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
         <Link href={url}>{candidate.name}</Link>
       </h5>
       
-      {candidate.engagement && (
-        <div className="engagement" dangerouslySetInnerHTML={{ __html: candidate.engagement }} />
+      {engagementHtml && (
+        <div className="engagement" dangerouslySetInnerHTML={{ __html: engagementHtml }} />
       )}
       
       <CandidateDonorSummary
