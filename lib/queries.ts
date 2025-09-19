@@ -1,6 +1,50 @@
 import { prisma } from './db'
-import { ElectionType, OfficeType } from '@prisma/client'
+import { ElectionType, OfficeType, Prisma } from '@prisma/client'
 import { unslugify } from './utils'
+
+const raceInclude = (year: number) => ({
+  office: true,
+  candidates: {
+    include: {
+      candidate: {
+        include: {
+          endorsements: true,
+          contributions: {
+            where: { electionYear: year },
+            orderBy: { amount: 'desc' as const },
+            select: {
+              donorName: true,
+              amount: true,
+              cashOrInKind: true
+            }
+          }
+        }
+      }
+    },
+    orderBy: {
+      candidate: {
+        name: 'asc' as const
+      }
+    }
+  }
+} as const)
+
+const guideInclude = (year: number) => ({
+  include: {
+    region: true,
+    Race: {
+      where: { type: ElectionType.GENERAL },
+      include: raceInclude(year),
+      orderBy: {
+        office: {
+          title: 'asc' as const
+        }
+      }
+    }
+  }
+} as const)
+
+type GuideWithRelations = Prisma.GuideGetPayload<ReturnType<typeof guideInclude>>
 
 export async function getAvailableYears(): Promise<number[]> {
   try {
@@ -25,24 +69,13 @@ export async function getLatestYear(): Promise<number> {
 export async function getGuidesForYear(year: number) {
   const guides = await prisma.guide.findMany({
     where: { electionYear: year, type: ElectionType.GENERAL },
-    include: {
-      region: true,
-      Race: {
-        where: { type: ElectionType.GENERAL },
-        include: getRaceInclude(year),
-        orderBy: {
-          office: {
-            title: 'asc'
-          }
-        }
-      }
-    },
+    ...guideInclude(year),
     orderBy: {
       region: {
-        name: 'asc'
+        name: 'asc' as const
       }
     }
-  })
+  }) as GuideWithRelations[]
 
   const portGroups = await fetchPortRacesByKey(year)
   guides.forEach(guide => attachPortRaces(guide, portGroups))
@@ -70,19 +103,8 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
       regionId: region.id,
       type: ElectionType.GENERAL
     },
-    include: {
-      region: true,
-      Race: {
-        where: { type: ElectionType.GENERAL },
-        include: getRaceInclude(year),
-        orderBy: {
-          office: {
-            title: 'asc'
-          }
-        }
-      }
-    }
-  })
+    ...guideInclude(year)
+  }) as GuideWithRelations | null
 
   if (!guide) {
     return null
@@ -178,34 +200,7 @@ export async function getRaceByYearAndSlug(year: number, slug: string) {
 }
 
 function getRaceInclude(year: number) {
-  return {
-    office: true,
-    candidates: {
-      include: {
-        candidate: {
-          include: {
-            endorsements: true,
-            contributions: {
-              where: { electionYear: year },
-              orderBy: {
-                amount: 'desc' as const
-              },
-              select: {
-                donorName: true,
-                amount: true,
-                cashOrInKind: true
-              }
-            }
-          }
-        }
-      },
-      orderBy: {
-        candidate: {
-          name: 'asc'
-        }
-      }
-    }
-  }
+  return raceInclude(year)
 }
 
 type PortGroupKey = 'benton' | 'kennewick' | 'pasco'
@@ -290,7 +285,7 @@ function getPortKeysForRegion(regionName: string): PortGroupKey[] {
 }
 
 function attachPortRaces(
-  guide: Awaited<ReturnType<typeof prisma.guide.findMany>>[number],
+  guide: GuideWithRelations,
   portGroups: Map<PortGroupKey, Awaited<ReturnType<typeof prisma.race.findMany>>>
 ) {
   const keys = getPortKeysForRegion(guide.region.name)
