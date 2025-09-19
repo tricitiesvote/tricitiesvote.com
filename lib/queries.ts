@@ -300,7 +300,7 @@ function attachPortRaces(
     const races = portGroups.get(key) || []
     races.forEach(race => {
       if (!existingIds.has(race.id)) {
-        guide.Race.push(race)
+        guide.Race.push(race as GuideWithRelations['Race'][number])
         existingIds.add(race.id)
       }
     })
