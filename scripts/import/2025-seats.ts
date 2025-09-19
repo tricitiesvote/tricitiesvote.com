@@ -36,7 +36,10 @@ export const CORE_SEAT_DEFINITIONS: SeatDefinition[] = [
   { office: 'School Board Position 2', jurisdiction: 'Richland', candidates: ['Rick Jansons'] },
 
   { office: 'Port of Benton Commissioner District 1', jurisdiction: 'Port of Benton', candidates: ['Roy Keck', "Bill O'Neil"] },
-  { office: 'Port of Kennewick Commissioner District 2', jurisdiction: 'Port of Kennewick', candidates: ['Raul Contreras Gonzalez', 'Tammy Kenfield'] }
+  { office: 'Port of Kennewick Commissioner District 2', jurisdiction: 'Port of Kennewick', candidates: ['Raul Contreras Gonzalez', 'Tammy Kenfield'] },
+
+  { office: 'Port of Pasco Commissioner District 2', jurisdiction: 'Port of Pasco', candidates: ['Matt Watkins'] },
+  { office: 'Port of Pasco Commissioner District 3', jurisdiction: 'Port of Pasco', candidates: ['Hans-Joachim Engelke'] }
 ]
 
 const ADDITIONAL_CANDIDATE_ALIASES: Record<string, string> = {
