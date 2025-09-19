@@ -6,7 +6,11 @@ const prisma = new PrismaClient()
 
 const YEAR = 2025
 const MUNICIPAL_REGIONS = ['Kennewick', 'Pasco', 'Richland', 'West Richland']
-const SUPPORTING_REGIONS = ['Benton County']
+
+const PORT_RACE_GUIDES: Record<string, string[]> = {
+  'Port of Benton Commissioner District 1': ['Richland', 'West Richland'],
+  'Port of Kennewick Commissioner District 2': ['Kennewick']
+}
 
 async function ensureRegion(name: string) {
   let region = await prisma.region.findFirst({ where: { name } })
@@ -57,12 +61,16 @@ async function reassignWestRichlandOffices(westRichlandRegionId: string) {
   }
 }
 
-async function attachRaceToGuide(raceId: string, guideId: string) {
+async function attachRaceToGuides(raceId: string, guideIds: string[]) {
+  if (guideIds.length === 0) {
+    return
+  }
+
   await prisma.race.update({
     where: { id: raceId },
     data: {
       Guide: {
-        set: [{ id: guideId }]
+        set: guideIds.map(id => ({ id }))
       }
     }
   })
@@ -83,13 +91,33 @@ async function ensureGeneralRaceGuideLinks(guideMap: Map<string, string>) {
   })
 
   for (const race of generalRaces) {
-    const targetGuideId = guideMap.get(race.office.region.name)
-    if (!targetGuideId) continue
+    const guideIds = new Set<string>()
 
-    const alreadyLinked = race.Guide.some(guide => guide.id === targetGuideId)
-    if (!alreadyLinked || race.Guide.length > 1) {
-      await attachRaceToGuide(race.id, targetGuideId)
-      console.log(`  • Linked ${race.office.title} to ${race.office.region.name} guide`)
+    const primaryGuideId = guideMap.get(race.office.region.name)
+    if (primaryGuideId) {
+      guideIds.add(primaryGuideId)
+    }
+
+    const portTargets = PORT_RACE_GUIDES[race.office.title]
+    if (portTargets) {
+      for (const targetRegion of portTargets) {
+        const id = guideMap.get(targetRegion)
+        if (id) {
+          guideIds.add(id)
+        }
+      }
+    }
+
+    if (guideIds.size === 0) {
+      continue
+    }
+
+    const currentIds = new Set(race.Guide.map(guide => guide.id))
+    const needsUpdate = guideIds.size !== currentIds.size || [...guideIds].some(id => !currentIds.has(id))
+
+    if (needsUpdate) {
+      await attachRaceToGuides(race.id, [...guideIds])
+      console.log(`  • Linked ${race.office.title} to ${[...guideIds].map(id => [...guideMap.entries()].find(([, value]) => value === id)?.[0]).filter(Boolean).join(', ')}`)
     }
   }
 }
@@ -99,7 +127,7 @@ async function main() {
 
   const regionMap = new Map<string, string>()
 
-  for (const name of [...MUNICIPAL_REGIONS, ...SUPPORTING_REGIONS]) {
+  for (const name of MUNICIPAL_REGIONS) {
     const region = await ensureRegion(name)
     regionMap.set(name, region.id)
   }
