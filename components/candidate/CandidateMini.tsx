@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
 import { slugify } from '@/lib/utils'
@@ -35,7 +34,6 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
   const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
   const imageSrc = candidate.image || null
-  const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
   const engagementHtml = ensureHtml(candidate.engagement)
 
   // Group endorsements by for/against
@@ -46,13 +44,12 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
     <div className="candidate candidate-mini">
       <Link href={url}>
         {imageSrc ? (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={imageSrc}
             alt={candidate.name}
             width={150}
             height={150}
-            sizes="150px"
-            unoptimized={isRemoteImage}
           />
         ) : (
           <div className="candidate-no-image">
