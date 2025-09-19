@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import { ContactInline } from '@/components/ContactInline'
 import { HowToUseThisGuide } from '@/components/home/HowToUseThisGuide'
 import { getAvailableYears, getGuidesForYear } from '@/lib/queries'
@@ -5,10 +6,15 @@ import Link from 'next/link'
 import { slugify } from '@/lib/utils'
 import { orderRaces } from '@/lib/raceOrdering'
 
+const getAvailableYearsCached = cache(getAvailableYears)
+const getGuidesForYearCached = cache(async (year: number) => getGuidesForYear(year))
+
+export const revalidate = 3600
+
 export default async function HomePage() {
-  const availableYears = await getAvailableYears()
+  const availableYears = await getAvailableYearsCached()
   const latestYear = availableYears[0] || new Date().getFullYear()
-  const guides = await getGuidesForYear(latestYear)
+  const guides = await getGuidesForYearCached(latestYear)
 
   return (
     <main>

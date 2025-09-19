@@ -1,7 +1,30 @@
-import { getGuideByYearAndRegion } from '@/lib/queries'
+import { cache } from 'react'
+import { getAvailableYears, getGuideByYearAndRegion, getGuidesForYear } from '@/lib/queries'
 import { RaceCard } from '@/components/race/RaceCard'
 import { notFound } from 'next/navigation'
 import { orderRaces } from '@/lib/raceOrdering'
+import { slugify } from '@/lib/utils'
+
+const getGuideCached = cache(async (year: number, regionSlug: string) =>
+  getGuideByYearAndRegion(year, regionSlug)
+)
+
+export const revalidate = 3600
+
+export async function generateStaticParams() {
+  const years = await getAvailableYears()
+  if (years.length === 0) {
+    return []
+  }
+
+  const latestYear = years[0]
+  const guides = await getGuidesForYear(latestYear)
+
+  return guides.map(guide => ({
+    year: String(latestYear),
+    region: slugify(guide.region.name)
+  }))
+}
 
 interface RegionalGuidePageProps {
   params: { 
@@ -18,7 +41,7 @@ export default async function RegionalGuidePage({ params }: RegionalGuidePagePro
     notFound()
   }
 
-  const guide = await getGuideByYearAndRegion(year, regionSlug)
+  const guide = await getGuideCached(year, regionSlug)
   
   if (!guide) {
     notFound()

@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import Image from 'next/image'
 
 export interface ComparisonCandidate {
   id?: string
@@ -113,12 +114,13 @@ function renderBucket(entries?: ComparisonCandidate[]) {
         return (
           <div key={key} className="compare-person">
             {entry.image && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <Image
                 src={entry.image}
                 alt={entry.name}
                 width={40}
                 height={40}
+                sizes="40px"
+                unoptimized={/^https?:/i.test(entry.image)}
               />
             )}
             <div>

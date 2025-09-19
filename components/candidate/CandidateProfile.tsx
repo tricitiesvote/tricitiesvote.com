@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { ensureHtml } from '@/lib/richText'
 
@@ -54,6 +55,7 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
   // Find the race for this year
   const currentRace = candidate.races.find(r => r.race.electionYear === year)
   const imageSrc = candidate.image || null
+  const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
   const bioHtml = ensureHtml(candidate.bio)
   const statementHtml = ensureHtml(candidate.statement)
   const engagementHtml = ensureHtml(candidate.engagement)
@@ -81,12 +83,13 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
       <div className="candidate">
         <div className="info">
           {imageSrc ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={imageSrc}
               alt={candidate.name}
               width={150}
               height={150}
+              sizes="150px"
+              unoptimized={isRemoteImage}
             />
           ) : (
             <div className="candidate-no-image">

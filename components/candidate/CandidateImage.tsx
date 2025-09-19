@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface CandidateImageProps {
@@ -8,15 +9,18 @@ interface CandidateImageProps {
 }
 
 export function CandidateImage({ name, image, url, size = 150 }: CandidateImageProps) {
+  const isRemoteImage = image ? /^https?:/i.test(image) : false
+
   return (
     <Link href={url}>
       {image ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={image}
           alt={name}
           width={size}
           height={size}
+          sizes={`${size}px`}
+          unoptimized={isRemoteImage}
         />
       ) : (
         <div className="candidate-no-image">

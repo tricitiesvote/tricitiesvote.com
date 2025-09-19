@@ -1,4 +1,5 @@
-import { getRaceByYearAndSlug } from '@/lib/queries'
+import { cache } from 'react'
+import { getAvailableYears, getGuidesForYear, getRaceByYearAndSlug } from '@/lib/queries'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { calculateFundraising } from '@/lib/calculateFundraising'
@@ -14,6 +15,34 @@ interface ComparePageProps {
   }
 }
 
+const getRaceCached = cache(async (year: number, slug: string) => getRaceByYearAndSlug(year, slug))
+
+export const revalidate = 3600
+
+export async function generateStaticParams() {
+  const years = await getAvailableYears()
+  if (years.length === 0) {
+    return []
+  }
+
+  const latestYear = years[0]
+  const guides = await getGuidesForYear(latestYear)
+  const seen = new Set<string>()
+  const params: Array<{ year: string; slug: string }> = []
+
+  for (const guide of guides) {
+    for (const race of guide.Race) {
+      const raceSlug = slugify(race.office.title)
+      if (!seen.has(raceSlug)) {
+        seen.add(raceSlug)
+        params.push({ year: String(latestYear), slug: raceSlug })
+      }
+    }
+  }
+
+  return params
+}
+
 export default async function ComparePage({ params }: ComparePageProps) {
   const year = Number.parseInt(params.year, 10)
 
@@ -21,7 +50,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
     notFound()
   }
 
-  const race = await getRaceByYearAndSlug(year, params.slug)
+  const race = await getRaceCached(year, params.slug)
 
   if (!race) {
     notFound()
