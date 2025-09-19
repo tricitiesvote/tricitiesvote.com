@@ -1,6 +1,18 @@
 import { prisma } from './db'
-import { ElectionType, OfficeType } from '@prisma/client'
+import { ElectionType, OfficeType, Prisma } from '@prisma/client'
 import { unslugify } from './utils'
+
+type RaceInclude = ReturnType<typeof getRaceInclude>
+type GuideWithRelations = Prisma.GuideGetPayload<{
+  include: {
+    region: true
+    Race: {
+      include: RaceInclude
+      where?: any
+      orderBy?: any
+    }
+  }
+}>
 
 export async function getAvailableYears(): Promise<number[]> {
   try {
@@ -42,7 +54,7 @@ export async function getGuidesForYear(year: number) {
         name: 'asc'
       }
     }
-  })
+  }) as GuideWithRelations[]
 
   const portGroups = await fetchPortRacesByKey(year)
   guides.forEach(guide => attachPortRaces(guide, portGroups))
@@ -82,7 +94,7 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
         }
       }
     }
-  })
+  }) as GuideWithRelations | null
 
   if (!guide) {
     return null
@@ -290,7 +302,7 @@ function getPortKeysForRegion(regionName: string): PortGroupKey[] {
 }
 
 function attachPortRaces(
-  guide: Awaited<ReturnType<typeof prisma.guide.findMany>>[number],
+  guide: GuideWithRelations,
   portGroups: Map<PortGroupKey, Awaited<ReturnType<typeof prisma.race.findMany>>>
 ) {
   const keys = getPortKeysForRegion(guide.region.name)

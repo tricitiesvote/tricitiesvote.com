@@ -1,5 +1,4 @@
 import { getGuideByYearAndRegion } from '@/lib/queries'
-import { GuideSelector } from '@/components/GuideSelector'
 import { RaceCard } from '@/components/race/RaceCard'
 import { notFound } from 'next/navigation'
 import { orderRaces } from '@/lib/raceOrdering'
