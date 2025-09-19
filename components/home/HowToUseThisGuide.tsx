@@ -15,8 +15,7 @@ export function HowToUseThisGuide() {
           <p>
             <strong>Nearly everything on this site is a link.</strong> Dig into
             questionnaires, interviews, forums, written endorsements, and
-            Washington State PDC filings. Compare side-by-side or open a full
-            profile to follow the money all the way back to the source.
+            Washington State PDC filings and donor data.
           </p>
         </div>
         <div>
@@ -26,10 +25,9 @@ export function HowToUseThisGuide() {
             <br /> leanings on top issues
           </h3>
           <p>
-            Our issue matrix covers the topics voters tell us matter. The
-            prompts are imperfect - but intentionally so - because real decisions
+            Our issue matrix is based on real issues candidates will face—not 
+            talking points. The prompts have imperfect tradeoffs because real decisions
             rarely give you perfect options.{' '}
-            <Link href="/about">Read more about our approach</Link>.
           </p>
         </div>
         <div>
@@ -39,9 +37,8 @@ export function HowToUseThisGuide() {
             <br /> their additional comments
           </h3>
           <p>
-            We invite every candidate to participate. Some decline. When that
-            happens, we summarize what we can based on public statements,
-            records, and input from engaged neighbors.
+            We invite every candidate to participate and we give them the chance to 
+            add additional comments to explain their positions.
           </p>
         </div>
       </div>

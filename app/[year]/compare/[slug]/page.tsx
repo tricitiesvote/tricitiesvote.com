@@ -5,7 +5,7 @@ import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
 import { Candidate } from '@/components/candidate/Candidate'
 import { CompareTable, type ComparisonRow } from '@/components/compare/CompareTable'
-import { getOfficeBreadcrumbParts } from '@/lib/officeDisplay'
+import { buildBreadcrumbs } from '@/lib/officeDisplay'
 
 interface ComparePageProps {
   params: {
@@ -35,17 +35,12 @@ export default async function ComparePage({ params }: ComparePageProps) {
     ? ((race as any).comparisons as ComparisonRow[])
     : []
 
-  const officeParts = getOfficeBreadcrumbParts(race.office)
-
-  const breadcrumbs = [
-    { label: String(year), href: `/${year}` },
-    regionName && regionSlug
-      ? { label: regionName, href: `/${year}/guide/${regionSlug}` }
-      : null,
-    { label: officeParts.section, href: `/${year}/race/${params.slug}` },
-    officeParts.seat ? { label: officeParts.seat } : null,
-    { label: 'Compare' }
-  ].filter(Boolean) as Array<{ label: string; href?: string }>
+  const breadcrumbs = buildBreadcrumbs({
+    year,
+    region: guide?.region,
+    office: race.office,
+  })
+  breadcrumbs.push({ label: 'Compare', url: `/${year}/compare/${params.slug}` })
 
   return (
     <>
@@ -53,7 +48,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
         {breadcrumbs.map((crumb, index) => (
           <span key={`${crumb.label}-${index}`}>
             {index > 0 && ' » '}
-            {crumb.href ? <Link href={crumb.href}>{crumb.label}</Link> : crumb.label}
+            {crumb.url ? <Link href={crumb.url}>{crumb.label}</Link> : crumb.label}
           </span>
         ))}
       </nav>

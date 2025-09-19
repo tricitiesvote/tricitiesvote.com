@@ -22,7 +22,6 @@ export function Header({ currentYear }: HeaderProps) {
   const navLinks = currentYear % 2 === 0 ? COUNTY_LINKS : CITY_LINKS
 
   return (
-    <header className="site-header">
       <nav className="site-nav">
         {navLinks.map(link => (
           <Link key={link.href} href={link.href}>
@@ -30,6 +29,5 @@ export function Header({ currentYear }: HeaderProps) {
           </Link>
         ))}
       </nav>
-    </header>
   )
 }

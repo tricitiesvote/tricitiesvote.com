@@ -419,7 +419,7 @@ form {
 }
 
 .race {
-  margin: 50px 10px 130px 10px;
+  margin: 40px 10px 80px 10px;
   padding: 20px;
   position: relative;
   border: 1px solid rgba(83,187,228,0.25);
@@ -427,6 +427,10 @@ form {
   /* background-color: #f0fafa; */
   /* box-shadow: inset 0 0px 2px #daeded; */
 }
+/* 
+.race:first-of-type {
+  margin-top: 40px;
+} */
 
 .race-title {
   margin: 0 0 20px 0;
@@ -471,7 +475,7 @@ form {
 }
 
 .compare-link {
-  margin: 10px 0 0 0;
+  margin: 10px 0 20px 0;
   font-size: 15px;
 }
 
@@ -836,6 +840,7 @@ del, del a:link, del li {
 
 .candidate.candidate-full .candidate-expanded .donor-summary {
   margin-bottom: 0;
+  border-top: 0;
 }
 
 .candidate.candidate-full .candidate-links {
@@ -1048,7 +1053,7 @@ del, del a:link, del li {
 
 .guide-directory {
   max-width: 1200px;
-  margin: 40px auto 60px auto;
+  margin: -40px auto 20px auto;
   padding: 0 20px;
 }
 
@@ -1069,6 +1074,16 @@ del, del a:link, del li {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.guide-index {
+  text-align: center;
+}
+.guide-index a {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 15px;
+  display: inline-block;
 }
 
 .guide-card {
@@ -1801,7 +1816,7 @@ span.note {
     padding-top: 40px;
   }
 }
-
+/* 
 @media screen and (max-width: 700px) {
   .candidate.candidate-full {
     grid-template-columns: 1fr;
@@ -1814,7 +1829,7 @@ span.note {
   .candidate.candidate-full .info {
     justify-self: center;
   }
-}
+} */
 
 @media screen and (min-width: 400px) {
   .container {
@@ -1958,6 +1973,7 @@ span.note {
   .container-candidate.container-candidate-mini {
     grid-template-columns: 1fr 1fr;
   }
+
 }
 
 @media screen and (min-width: 800px) {
@@ -1993,13 +2009,28 @@ span.note {
   .container-candidate.container-candidate-mini {
     grid-template-columns: 1fr 1fr;
   }
-
 }
 
 @media screen and (max-width: 1000px) {
   .races-collection {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .compare-candidate-list .candidate {
+    margin: 0;
+    max-width: none;
+    height: 100%;
+    grid-template-columns: 120px 1fr;
+  }
+  
+  .compare-candidate-list .candidate img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .compare-candidate-list .candidate-links {
+    padding-left: 10px;
   }
 }
 

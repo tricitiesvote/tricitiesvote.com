@@ -24,50 +24,30 @@ export default async function HomePage() {
           A nonpartisan, community-driven collection
           <br /> of information to help you decide.
         </h2>
-        <div className="hero-actions">
+        {/* <div className="hero-actions">
           <Link href={`/${latestYear}`} className="hero-link">
             View the full {latestYear} guide »
           </Link>
-        </div>
+        </div> */}
         {/* <YearToggle currentYear={latestYear} availableYears={availableYears} /> */}
       </section>
 
       <section className="guide-directory">
-        <h2>{latestYear} voter guides</h2>
-        <p>Choose your city or county to see every race, candidate, and compare view we track.</p>
+        {/* <h2>{latestYear} voter guides</h2> */}
+        {/* <p>Choose your area to see every race, candidate, and compare view we track.</p> */}
 
         {guides.length === 0 ? (
           <p className="guide-empty">We have not published guides for this year yet.</p>
         ) : (
-          <div className="guide-directory-grid">
+          <div className="guide-index">
             {guides.map(guide => {
               const regionSlug = slugify(guide.region.name)
               const orderedRaces = orderRaces(guide.Race, latestYear)
 
               return (
-                <article key={guide.id} className="guide-card">
-                  <h3>
-                    <Link href={`/${latestYear}/guide/${regionSlug}`}>
-                      {guide.region.name}
-                    </Link>
-                  </h3>
-                  {orderedRaces.length === 0 ? (
-                    <p className="race-empty">Race list N/A. Check back soon.</p>
-                  ) : (
-                    <ul>
-                      {orderedRaces.map(race => (
-                        <li key={race.id}>
-                          <Link href={`/${latestYear}/race/${slugify(race.office.title)}`}>
-                            {race.office.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  <Link className="guide-card-link" href={`/${latestYear}/guide/${regionSlug}`}>
-                    View full guide »
-                  </Link>
-                </article>
+                <Link key={guide.id} href={`/${latestYear}/guide/${regionSlug}`}>
+                  {guide.region.name} »
+                </Link>
               )
             })}
           </div>

@@ -27,10 +27,7 @@ export default async function RegionalGuidePage({ params }: RegionalGuidePagePro
   
   return (
     <div className="regional-guide">
-      <header className="page-header">
-        <h1>{year} {guide.region.name} Election Guide</h1>
-        <GuideSelector year={year} currentRegion={regionSlug} />
-      </header>
+      <h1>{year} {guide.region.name} Election Guide</h1>
       
       <main>
         <div className="races-collection guide-page">

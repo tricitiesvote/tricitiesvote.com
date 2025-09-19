@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
-import { getOfficeBreadcrumbParts } from '@/lib/officeDisplay'
+import { buildBreadcrumbs } from '@/lib/officeDisplay'
 
 interface RacePageProps {
   params: { 
@@ -27,17 +27,11 @@ export default async function RacePage({ params }: RacePageProps) {
   }
   
   const guide = race.Guide?.[0]
-  const region = guide?.region
-  const officeParts = getOfficeBreadcrumbParts(race.office)
-
-  const breadcrumbs = [
-    { label: String(year), href: `/${year}` },
-    region
-      ? { label: region.name, href: `/${year}/guide/${slugify(region.name)}` }
-      : null,
-    { label: officeParts.section },
-    officeParts.seat ? { label: officeParts.seat } : null,
-  ].filter(Boolean) as Array<{ label: string; href?: string }>
+  const breadcrumbs = buildBreadcrumbs({
+    year,
+    region: guide?.region,
+    office: race.office
+  })
 
   return (
     <>
@@ -45,7 +39,7 @@ export default async function RacePage({ params }: RacePageProps) {
         {breadcrumbs.map((crumb, index) => (
           <span key={`${crumb.label}-${index}`}>
             {index > 0 && ' » '}
-            {crumb.href ? <Link href={crumb.href}>{crumb.label}</Link> : crumb.label}
+            {crumb.url ? <Link href={crumb.url}>{crumb.label}</Link> : crumb.label}
           </span>
         ))}
       </nav>
