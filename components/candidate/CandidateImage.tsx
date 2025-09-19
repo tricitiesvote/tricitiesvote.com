@@ -9,6 +9,8 @@ interface CandidateImageProps {
 }
 
 export function CandidateImage({ name, image, url, size = 150 }: CandidateImageProps) {
+  const isRemoteImage = image ? /^https?:/i.test(image) : false
+
   return (
     <Link href={url}>
       {image ? (
@@ -18,7 +20,7 @@ export function CandidateImage({ name, image, url, size = 150 }: CandidateImageP
           width={size}
           height={size}
           sizes={`${size}px`}
-          unoptimized={/^https?:/i.test(image)}
+          unoptimized={isRemoteImage}
         />
       ) : (
         <div className="candidate-no-image">
