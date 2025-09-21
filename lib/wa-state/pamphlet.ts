@@ -93,19 +93,49 @@ export class PamphletClient {
     })
     
     if (candidate) {
-      const updateData = {
-        email: data.statement.OrgEmail || candidate.email,
-        website: this.fixUrl(data.statement.OrgWebsite) || candidate.website,
-        image: imagePath || candidate.image,
-        statement: statementMarkdown || candidate.statement
+      const updateData: Record<string, unknown> = {}
+
+      if (
+        data.statement.OrgEmail &&
+        !candidate.emailWiki &&
+        data.statement.OrgEmail !== candidate.email
+      ) {
+        updateData.email = data.statement.OrgEmail
       }
-      
+
+      const normalizedWebsite = this.fixUrl(data.statement.OrgWebsite)
+      if (
+        normalizedWebsite &&
+        !candidate.websiteWiki &&
+        normalizedWebsite !== candidate.website
+      ) {
+        updateData.website = normalizedWebsite
+      }
+
+      if (imagePath && !candidate.imageWiki && imagePath !== candidate.image) {
+        updateData.image = imagePath
+      }
+
+      if (
+        statementMarkdown &&
+        !candidate.statementWiki &&
+        statementMarkdown !== candidate.statement
+      ) {
+        updateData.statement = statementMarkdown
+      }
+
+      if (Object.keys(updateData).length === 0) {
+        console.log(`  ▹ Skipping ${normalizedName} (no changes or wiki overrides present)`)
+        return
+      }
+
       console.log(`  📝 Updating ${normalizedName}:`)
-      if (data.statement.OrgEmail) console.log(`     Email: ${data.statement.OrgEmail}`)
-      if (data.statement.OrgWebsite) console.log(`     Website: ${data.statement.OrgWebsite}`)
-      if (imagePath) console.log(`     Image: ${imagePath}`)
-      if (statementMarkdown) console.log(`     Statement: ${statementMarkdown.substring(0, 50)}...`)
-      
+      if (updateData.email) console.log(`     Email: ${updateData.email}`)
+      if (updateData.website) console.log(`     Website: ${updateData.website}`)
+      if (updateData.image) console.log(`     Image: ${updateData.image}`)
+      if (updateData.statement)
+        console.log(`     Statement: ${(updateData.statement as string).substring(0, 50)}...`)
+
       await this.prisma.candidate.update({
         where: { id: candidate.id },
         data: updateData

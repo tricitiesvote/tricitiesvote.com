@@ -15,9 +15,14 @@ model Office {
   regionId   String
   position   Int?
   jobTitle   String
+  description String?
   candidates Candidate[]
   region     Region      @relation(fields: [regionId], references: [id])
   races      Race[]
+
+  titleWiki        String?
+  jobTitleWiki     String?
+  descriptionWiki  String?
 
   @@unique([regionId, title])
 }
@@ -56,10 +61,26 @@ model Candidate {
   engagement    String?
   hide          Boolean         @default(false)
   minifiler     Boolean         @default(false)
+
+  // Wiki override fields
+  nameWiki      String?
+  bioWiki       String?
+  statementWiki String?
+  imageWiki     String?
+  websiteWiki   String?
+  emailWiki     String?
+  phoneWiki     String?
+  twitterWiki   String?
+  facebookWiki  String?
+  instagramWiki String?
+  engagementWiki String?
+  articlesWiki   String?
+
   office        Office          @relation(fields: [officeId], references: [id])
   races         CandidateRace[]
   contributions Contribution[]
   endorsements  Endorsement[]
+  user          User?
 }
 
 model CandidateRace {
@@ -85,10 +106,15 @@ model Race {
   type         ElectionType
   intro        String?
   body         String?
+  announcements String?
   hide         Boolean         @default(false)
   candidates   CandidateRace[]
   office       Office          @relation(fields: [officeId], references: [id])
   Guide        Guide[]         @relation("GuideRaces")
+
+  introWiki         String?
+  bodyWiki          String?
+  announcementsWiki String?
 }
 
 model Guide {
@@ -96,8 +122,11 @@ model Guide {
   electionYear Int
   regionId     String
   type         ElectionType
+  announcements String?
   region       Region       @relation(fields: [regionId], references: [id])
   Race         Race[]       @relation("GuideRaces")
+
+  announcementsWiki String?
 }
 
 model Endorsement {
@@ -160,4 +189,92 @@ enum ElectionType {
   PRIMARY
   GENERAL
   SPECIAL
+}
+
+// Wiki System Models
+
+model User {
+  id              String    @id @default(cuid())
+  email           String    @unique
+  name            String?
+  role            UserRole  @default(COMMUNITY)
+  candidateId     String?   @unique
+  candidate       Candidate? @relation(fields: [candidateId], references: [id])
+
+  // Trust scoring
+  editsAccepted   Int       @default(0)
+  editsRejected   Int       @default(0)
+  editsPending    Int       @default(0)
+
+  edits           Edit[]
+  moderatedEdits  Edit[]    @relation("ModeratedEdits")
+  loginTokens     LoginToken[]
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+enum UserRole {
+  COMMUNITY
+  CANDIDATE
+  MODERATOR
+  ADMIN
+}
+
+model LoginToken {
+  id          String   @id @default(cuid())
+  token       String   @unique @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  used        Boolean  @default(false)
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+}
+
+model Edit {
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id])
+
+  // What's being edited
+  entityType    EntityType
+  entityId      String
+  field         String
+
+  // The change
+  oldValue      Json?
+  newValue      Json
+  rationale     String
+
+  // Review process
+  status        EditStatus  @default(PENDING)
+  moderatorId   String?
+  moderator     User?       @relation("ModeratedEdits", fields: [moderatorId], references: [id])
+  moderatorNote String?
+
+  // Metadata
+  createdAt     DateTime    @default(now())
+  reviewedAt    DateTime?
+  appliedAt     DateTime?
+
+  @@index([status, createdAt])
+  @@index([userId, status])
+  @@index([entityType, entityId])
+}
+
+enum EntityType {
+  CANDIDATE
+  RACE
+  OFFICE
+  GUIDE
+  ENDORSEMENT
+  CONTRIBUTION
+}
+
+enum EditStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  APPLIED
+  SUPERSEDED
 }

@@ -239,7 +239,16 @@ function addCommonAliases(nameMatcher: NameMatcher) {
 async function updateCandidates(prisma: PrismaClient, records: ParsedCandidate[]) {
   const candidates = await prisma.candidate.findMany({
     where: { electionYear: 2025 },
-    select: { id: true, name: true, email: true, statement: true, website: true }
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      website: true,
+      statement: true,
+      emailWiki: true,
+      websiteWiki: true,
+      statementWiki: true
+    }
   })
 
   const nameMatcher = new NameMatcher()
@@ -269,13 +278,25 @@ async function updateCandidates(prisma: PrismaClient, records: ParsedCandidate[]
     }
 
     const data: Prisma.CandidateUpdateInput = {}
-    if (record.email && record.email !== candidate.email) {
+    if (
+      record.email &&
+      !candidate.emailWiki &&
+      record.email !== candidate.email
+    ) {
       data.email = record.email
     }
-    if (record.website && record.website !== candidate.website) {
+    if (
+      record.website &&
+      !candidate.websiteWiki &&
+      record.website !== candidate.website
+    ) {
       data.website = record.website
     }
-    if (record.statement && record.statement !== candidate.statement) {
+    if (
+      record.statement &&
+      !candidate.statementWiki &&
+      record.statement !== candidate.statement
+    ) {
       data.statement = record.statement
     }
 

@@ -2475,3 +2475,72 @@ td .more, .no-response .more {
   font-size: 14px;
   color: #666;
 }
+
+/* Announcements styles for markdown rendering */
+.announcements-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.announcements-container > ul > li {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  break-inside: avoid;
+}
+
+.announcements-container > ul > li::before {
+  content: '📅';
+  margin-right: 0.5rem;
+}
+
+.announcements-container ul li ul {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  list-style-type: disc;
+  display: block;
+  grid-template-columns: none;
+}
+
+.announcements-container ul li ul li {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin-bottom: 0.25rem;
+}
+
+.announcements-container ul li ul li::before {
+  content: none;
+}
+
+.announcements-container a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.announcements-container a:hover {
+  color: #1d4ed8;
+}
+
+.announcements-container p {
+  margin-bottom: 0.5rem;
+}
+
+.announcements-container strong {
+  font-weight: 600;
+}
+
+.announcements-container em {
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .announcements-container ul {
+    grid-template-columns: 1fr;
+  }
+}

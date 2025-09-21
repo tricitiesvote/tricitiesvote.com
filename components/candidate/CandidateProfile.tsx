@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ensureHtml } from '@/lib/richText'
+import { preferWikiString } from '@/lib/wiki/utils'
 
 interface CandidateProfileProps {
   candidate: {
@@ -54,7 +55,7 @@ interface CandidateProfileProps {
 export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
   // Find the race for this year
   const currentRace = candidate.races.find(r => r.race.electionYear === year)
-  const imageSrc = candidate.image || null
+  const imageSrc = preferWikiString(candidate as any, 'image') ?? candidate.image ?? null
   const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
   const bioHtml = ensureHtml(candidate.bio)
   const statementHtml = ensureHtml(candidate.statement)
@@ -75,8 +76,8 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
           <Link href={`/${year}/guide/${currentRace.race.Guide[0].region.name.toLowerCase().replace(/\s+/g, '-')}`}>
             {currentRace.race.Guide[0].region.name} Guide
           </Link> &gt;{' '}
-          {currentRace.race.office.title} &gt;{' '}
-          {candidate.name}
+          {(currentRace?.race.office && preferWikiString(currentRace.race.office as any, 'title')) ?? currentRace?.race.office.title} &gt;{' '}
+          {preferWikiString(candidate as any, 'name') ?? candidate.name}
         </div>
       )}
       

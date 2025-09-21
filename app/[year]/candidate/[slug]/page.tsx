@@ -27,6 +27,10 @@ export default async function CandidatePage({ params }: CandidatePageProps) {
     notFound()
   }
   
+  const displayName = candidate.nameWiki && candidate.nameWiki.trim().length > 0
+    ? candidate.nameWiki
+    : candidate.name
+
   // Calculate fundraising from contributions
   const fundraising = calculateFundraising(candidate.contributions || [])
   
@@ -38,7 +42,7 @@ export default async function CandidatePage({ params }: CandidatePageProps) {
     year,
     region,
     office: race?.office,
-    candidateName: candidate.name
+    candidateName: displayName
   }, { includeCandidate: true })
   
   return (

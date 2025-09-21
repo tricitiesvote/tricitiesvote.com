@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { CandidateMini } from '../candidate/CandidateMini'
 import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
+import { preferWikiString } from '@/lib/wiki/utils'
 
 interface RaceCardProps {
   race: {
@@ -9,6 +10,7 @@ interface RaceCardProps {
     office: {
       title: string
       type: string
+      titleWiki?: string | null
     }
     candidates: Array<{
       candidate: {
@@ -55,13 +57,14 @@ interface RaceCardProps {
 export function RaceCard({ race, year }: RaceCardProps) {
   // Create a slug from office title
   const raceSlug = slugify(race.office.title)
+  const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
   const visibleCandidates = race.candidates.filter(({ candidate }) => !candidate.hide)
   
   return (
     <div className="race">
       <h2>
         <Link href={`/${year}/race/${raceSlug}`}>
-          {race.office.title} »
+          {displayTitle} »
         </Link>
       </h2>
       

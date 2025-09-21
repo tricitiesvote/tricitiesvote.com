@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation'
 import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
 import { buildBreadcrumbs } from '@/lib/officeDisplay'
+import { preferWikiString } from '@/lib/wiki/utils'
+import { ensureHtml } from '@/lib/richText'
 
 interface RacePageProps {
   params: { 
@@ -56,6 +58,9 @@ export default async function RacePage({ params }: RacePageProps) {
   }
   
   const guide = race.Guide?.[0]
+  const introHtml = ensureHtml(preferWikiString(race as any, 'intro'))
+  const bodyHtml = ensureHtml(preferWikiString(race as any, 'body'))
+  const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
   const breadcrumbs = buildBreadcrumbs({
     year,
     region: guide?.region,
@@ -75,10 +80,10 @@ export default async function RacePage({ params }: RacePageProps) {
 
       <div className="guide">
         <section className="race">
-          <h1 className="race-title">{race.office.title}</h1>
+          <h1 className="race-title">{displayTitle}</h1>
 
-          {race.intro && (
-            <div className="race-intro" dangerouslySetInnerHTML={{ __html: race.intro }} />
+          {introHtml && (
+            <div className="race-intro" dangerouslySetInnerHTML={{ __html: introHtml }} />
           )}
 
           <div className="compare-candidate-list">
@@ -104,8 +109,8 @@ export default async function RacePage({ params }: RacePageProps) {
             )}
           </div>
 
-          {race.body && (
-            <div className="race-body" dangerouslySetInnerHTML={{ __html: race.body }} />
+          {bodyHtml && (
+            <div className="race-body" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
           )}
         </section>
       </div>

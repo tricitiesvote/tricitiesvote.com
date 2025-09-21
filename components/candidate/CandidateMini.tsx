@@ -9,6 +9,8 @@ interface CandidateMiniProps {
     id: string
     name: string
     image?: string | null
+    nameWiki?: string | null
+    imageWiki?: string | null
     minifiler: boolean
     engagement?: string | null
     endorsements?: Array<{
@@ -31,10 +33,15 @@ interface CandidateMiniProps {
 }
 
 export function CandidateMini({ candidate, fundraising, year }: CandidateMiniProps) {
-  // Create a slug from candidate name
+  const displayName = candidate.nameWiki && candidate.nameWiki.trim().length > 0
+    ? candidate.nameWiki
+    : candidate.name
+  const displayImage = candidate.imageWiki && candidate.imageWiki.trim().length > 0
+    ? candidate.imageWiki
+    : candidate.image
   const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
-  const imageSrc = candidate.image || null
+  const imageSrc = displayImage || null
   const engagementHtml = ensureHtml(candidate.engagement)
   const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
 
@@ -48,7 +55,7 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
         {imageSrc ? (
           <Image
             src={imageSrc}
-            alt={candidate.name}
+            alt={displayName}
             width={150}
             height={150}
             sizes="150px"
@@ -56,13 +63,13 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
           />
         ) : (
           <div className="candidate-no-image">
-            <span>{candidate.name.split(' ').map(n => n[0]).join('')}</span>
+            <span>{displayName.split(' ').map(n => n[0]).join('')}</span>
           </div>
         )}
       </Link>
       
       <h5>
-        <Link href={url}>{candidate.name}</Link>
+        <Link href={url}>{displayName}</Link>
       </h5>
       
       {engagementHtml && (

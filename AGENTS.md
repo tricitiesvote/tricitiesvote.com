@@ -12,6 +12,9 @@ This file gives working instructions for agents in this repo. Its scope is the e
 - Env vars in `.env` (example):
   - `DATABASE_URL` – Prisma connection string
   - `SOCRATA_API_ID`, `SOCRATA_API_SECRET` – PDC API credentials (optional but recommended)
+  - `JWT_SECRET` – JWT secret for wiki authentication
+  - `MAILGUN_API_KEY`, `MAILGUN_DOMAIN`, `MAILGUN_FROM` – Email service for wiki notifications
+  - `NEXT_PUBLIC_BASE_URL` – Base URL for magic link emails
 - Install and run:
   - `npm install`
   - `npx prisma generate`
@@ -22,6 +25,9 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `/{year}/guide/{region}` – regional guide
   - `/{year}/race/{slug}` – race page
   - `/{year}/candidate/{slug}` – candidate page
+  - `/login` – wiki system authentication
+  - `/moderate` – moderator review interface (requires MODERATOR/ADMIN role)
+  - `/edits` – public edit audit trail
 
 - Reset/import workflow (run in this order when refreshing data):
   1. **Purge stale primary/generic data** (optional when already clean):
@@ -41,6 +47,7 @@ This file gives working instructions for agents in this repo. Its scope is the e
 - Other scripts:
   - `npx tsx scripts/fetch-race-ids.ts` / `scripts/validate-race-ids.ts` for troubleshooting county IDs.
   - `scripts/check-*` utilities to spot duplicates or missing offices.
+  - `npx tsx scripts/add-announcements.ts` – populate League of Women Voters events in guides.
 
 Notes:
 - Scripts under `scripts/` are designed to be re-runnable and conservative. Prefer running those over ad‑hoc DB edits.
@@ -51,9 +58,11 @@ Notes:
 - The `/` landing page mirrors the legacy intro, auto-selects the latest election, and lists every general race via `RaceCard` so DB changes surface immediately.
 - PDC importers normalize offices to the canonical seat format (`{City} City Council {Ward/Position/District}`, `{City} School Board {District/Position}`, `Port of {Locale} Commissioner District {n}`) and only ingest candidates defined in `scripts/import/2025-seats.ts`.
 - West Richland, Kennewick, Pasco, Richland, and the two ports all have current general lineups; unopposed seats show a single candidate.
-- Compare view (`/{year}/compare/{slug}`) is live and uses the same “N/A” fallbacks as the main pages.
+- Compare view (`/{year}/compare/{slug}`) is live and uses the same "N/A" fallbacks as the main pages.
 - General statements/photos/contact are still arriving; pamphlet scripts are re-runnable and fill gaps as counties publish updates.
-- Some older docs still reference a “complete” primary import—treat those as historical context only.
+- Some older docs still reference a "complete" primary import—treat those as historical context only.
+- **Wiki system is live**: Community-driven editing with email authentication, moderator review, and public audit trail. Supports editing candidate info, race descriptions, and regional announcements.
+- **Announcements system**: Markdown-based announcements for races and regional guides with multi-column layout. League of Women Voters candidate events are populated for all 2025 city guides.
 
 ## Immediate Priorities to Ship General 2025
 1. **Maintain the roster**: When new filings or corrections appear, rerun the reset/import pipeline (cleanup → PDC import → core races → prepare → pamphlets). Guides will pick up the updates automatically.
@@ -65,10 +74,18 @@ Notes:
 ## Code Organization
 - Frontend (Next.js App Router): `app/`
   - `/{year}` landing, `guide`, `race`, `candidate` routes implemented.
+  - `/login`, `/moderate`, `/edits` – wiki system pages
+  - `/api/auth/*` – authentication endpoints
+  - `/api/edits/*` – edit management endpoints
 - Data access: `lib/`
   - `lib/queries.ts` Prisma queries (server components)
   - `lib/wa-state/*` Socrata/PDC + pamphlet helpers
   - `lib/calculateFundraising.ts` aggregates contributions per candidate
+  - `lib/auth/*` – wiki authentication and email services
+  - `lib/wiki/*` – wiki field definitions and edit mode management
+- Components: `components/`
+  - `components/wiki/*` – editable fields, announcements, moderation UI
+  - `components/examples/*` – usage examples and demos
 - Schema/migrations: `prisma/`
 - Import/maintenance scripts: `scripts/`
 - Legacy Gatsby (reference only): `legacy/`
@@ -95,11 +112,32 @@ Notes:
 - School board seats: `{City} School Board {District/Position} {Number}` or `{City} School Board At-Large Position {Number}`.
 - Port seats: `Port of {Benton|Kennewick} Commissioner District {Number}`.
 
+## Wiki System & Community Editing
+- **Authentication**: Passwordless email magic links (15-min expiry)
+- **User roles**: COMMUNITY (default), CANDIDATE, MODERATOR, ADMIN
+- **Trust system**: Progressive edit limits based on approval history (1 → 3 → 10 pending edits)
+- **Editable entities**: CANDIDATE, RACE, OFFICE, GUIDE
+- **Editable fields**: See `lib/wiki/fields.ts` for complete list
+- **Moderation**: All edits require moderator approval before going live
+- **Data priority**: Wiki overrides (`*Wiki` fields) take precedence over imported data
+- **Email notifications**: Mailgun-based system for login links, edit status, and moderator alerts
+- **Audit trail**: Public edit history at `/edits` with rationales and moderator notes
+
+## Announcements System
+- **Markdown support**: Rich text with special multi-column layout for top-level bullets
+- **Display**: Responsive grid layout, cards for each top-level item, sub-bullets grouped
+- **Editable via wiki**: Both race and guide announcements can be community-edited
+- **Current content**: League of Women Voters candidate events pre-populated for 2025 guides
+- **Usage**: Use `<EditableField>` with `<AnnouncementDisplay>` for markdown rendering
+
 ## Partial/Missing Data Behavior
 - The UI must render when any of the following are missing:
   - Candidate `image`, `statement`, `bio`, endorsements, or contributions
+  - Race or guide `announcements`
 - `calculateFundraising()` returns `null` for no contributions; components already handle `null`.
-- Prefer showing clear “Awaiting data” copy rather than hiding candidates.
+- Wiki system prioritizes wiki overrides (`*Wiki` fields) over original data when present.
+- Prefer showing clear "Awaiting data" copy rather than hiding candidates.
+- Announcements display as empty when no content is provided.
 
 ## Validation & Debugging
 - Open `/debug` to list guides/years.

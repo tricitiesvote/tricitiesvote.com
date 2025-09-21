@@ -7,6 +7,7 @@ import { slugify } from '@/lib/utils'
 import { Candidate } from '@/components/candidate/Candidate'
 import { CompareTable, type ComparisonRow } from '@/components/compare/CompareTable'
 import { buildBreadcrumbs } from '@/lib/officeDisplay'
+import { preferWikiString } from '@/lib/wiki/utils'
 
 interface ComparePageProps {
   params: {
@@ -71,6 +72,8 @@ export default async function ComparePage({ params }: ComparePageProps) {
   })
   breadcrumbs.push({ label: 'Compare', url: `/${year}/compare/${params.slug}` })
 
+  const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
+
   return (
     <>
       <nav className="breadcrumb">
@@ -84,7 +87,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
 
       <div className="guide">
         <section className="race race-compare">
-          <h1 className="race-title">{race.office.title}</h1>
+          <h1 className="race-title">{displayTitle}</h1>
 
           <CompareTable rows={compareRows} />
 

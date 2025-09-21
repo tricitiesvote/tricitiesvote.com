@@ -1,5 +1,6 @@
 import { OfficeType } from '@prisma/client'
 import { slugify } from './utils'
+import { preferWikiString } from './wiki/utils'
 
 export interface BreadcrumbSegment {
   label: string
@@ -14,7 +15,7 @@ export function buildBreadcrumbs(
   params: {
     year: number
     region?: { name: string }
-    office?: { title: string; type: OfficeType }
+    office?: { title: string; type: OfficeType; titleWiki?: string | null }
     candidateName?: string
   },
   options: BreadcrumbOptions = {}
@@ -30,7 +31,8 @@ export function buildBreadcrumbs(
 
   if (params.office) {
     const officeSlug = slugify(params.office.title)
-    const { section, seat } = splitOffice(params.office)
+    const displayTitle = preferWikiString(params.office as any, 'title') ?? params.office.title
+    const { section, seat } = splitOffice(params.office.type, displayTitle)
 
     segments.push({ label: section, url: `/${params.year}/race/${officeSlug}` })
 
@@ -47,10 +49,9 @@ export function buildBreadcrumbs(
   return segments
 }
 
-function splitOffice(office: { title: string; type: OfficeType }): { section: string; seat?: string | null } {
-  const title = office.title
+function splitOffice(type: OfficeType, title: string): { section: string; seat?: string | null } {
 
-  switch (office.type) {
+  switch (type) {
     case OfficeType.CITY_COUNCIL: {
       const match = title.match(/City Council\s+(.*)$/i)
       return { section: 'City Council', seat: match ? match[1] : null }

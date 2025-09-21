@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CandidateCard } from '@/components/candidate/CandidateCard'
 import { slugify } from '@/lib/utils'
+import { preferWikiString } from '@/lib/wiki/utils'
 
 interface RaceOverviewProps {
   race: {
@@ -21,6 +22,7 @@ interface RaceOverviewProps {
         id: string
         name: string
         slug: string
+        nameWiki?: string | null
       }
     }[]
   }
@@ -29,6 +31,7 @@ interface RaceOverviewProps {
 
 export function RaceOverview({ race, year }: RaceOverviewProps) {
   const regionSlug = slugify(race.guide.region.name)
+  const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
   const breadcrumbs = [
     { label: String(year), href: `/${year}` },
     { label: race.guide.region.name, href: `/${year}/guide/${regionSlug}` }
@@ -47,7 +50,7 @@ export function RaceOverview({ race, year }: RaceOverviewProps) {
         </nav>
         
         <h1>{race.title}</h1>
-        <p className="office-name">{race.office.title}</p>
+        <p className="office-name">{displayTitle}</p>
       </header>
       
       <main>
