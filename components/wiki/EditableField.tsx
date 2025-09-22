@@ -31,7 +31,7 @@ export function EditableField({
   as = multiline ? 'div' : 'span',
   children
 }: EditableFieldProps) {
-  const { user } = useAuth();
+  const { user, refreshUser } = useAuth();
   const { editMode } = useEditMode();
   const [isEditing, setIsEditing] = useState(false);
   const baseValue = value ?? '';
@@ -79,6 +79,9 @@ export function EditableField({
         setSuccess(true);
         setIsEditing(false);
         setRationale('');
+        refreshUser().catch(() => {
+          // Non-fatal; the pending counter will refresh on next auth fetch
+        });
         setTimeout(() => setSuccess(false), 3000);
       } else {
         setError(data.error || 'Failed to submit edit');

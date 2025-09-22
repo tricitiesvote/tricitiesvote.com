@@ -200,6 +200,7 @@ model User {
   role            UserRole  @default(COMMUNITY)
   candidateId     String?   @unique
   candidate       Candidate? @relation(fields: [candidateId], references: [id])
+  publicId        String?   @unique
 
   // Trust scoring
   editsAccepted   Int       @default(0)

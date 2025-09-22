@@ -2544,3 +2544,22 @@ td .more, .no-response .more {
     grid-template-columns: 1fr;
   }
 }
+
+.admin-theme {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+.admin-theme a {
+  color: #2563eb;
+}
+
+.admin-theme a:hover {
+  color: #1d4ed8;
+}
+
+.admin-theme table {
+  border-collapse: collapse;
+}

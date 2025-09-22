@@ -24,6 +24,9 @@ async function getAuthenticatedUser(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
+    const viewer = await getAuthenticatedUser(request);
+    const canViewEmails = Boolean(viewer && ['MODERATOR', 'ADMIN'].includes(viewer.role));
+
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status');
     const entityType = searchParams.get('entityType');
@@ -44,14 +47,19 @@ export async function GET(request: NextRequest) {
             id: true,
             email: true,
             name: true,
-            role: true
+            role: true,
+            publicId: true,
+            editsAccepted: true,
+            editsRejected: true
           }
         },
         moderator: {
           select: {
             id: true,
             email: true,
-            name: true
+            name: true,
+            role: true,
+            publicId: true
           }
         }
       },
@@ -59,7 +67,26 @@ export async function GET(request: NextRequest) {
       take: 50
     });
 
-    return NextResponse.json({ edits });
+    const sanitized = edits.map((edit) => ({
+      ...edit,
+      user: edit.user
+        ? {
+            ...edit.user,
+            email: canViewEmails ? edit.user.email : null
+          }
+        : null,
+      moderator: edit.moderator
+        ? {
+            ...edit.moderator,
+            email: canViewEmails ? edit.moderator.email : null
+          }
+        : null
+    }));
+
+    return NextResponse.json({
+      edits: sanitized,
+      viewerRole: viewer?.role ?? null
+    });
 
   } catch (error) {
     console.error('Get edits error:', error);

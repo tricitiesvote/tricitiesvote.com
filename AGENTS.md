@@ -122,6 +122,9 @@ Notes:
 - **Data priority**: Wiki overrides (`*Wiki` fields) take precedence over imported data
 - **Email notifications**: Mailgun-based system for login links, edit status, and moderator alerts
 - **Audit trail**: Public edit history at `/edits` with rationales and moderator notes
+- **Admin console**: `/admin/wiki` (moderator/admin only) exposes dashboard metrics, pending queue, moderation history, and contributor management.
+- **Contributor dashboards**: Link to `/edits/user/{publicId}` (and `/accepted`, `/pending`, `/declined` variants) or `/edits/candidate/{slug}` for transparency; IDs are the six-character `publicId` assigned to each user.
+- **Bootstrap admin**: run `npx tsx scripts/wiki/bootstrap-admin.ts` to promote `guide@tricitiesvote.com` (override email with an argument).
 
 ## Announcements System
 - **Markdown support**: Rich text with special multi-column layout for top-level bullets
@@ -145,6 +148,7 @@ Notes:
 - Scripts:
   - `scripts/check-*` (offices, duplicates, mismatches)
   - `scripts/validate-race-ids.ts`
+  - `scripts/wiki/backfill-public-ids.ts` to populate `publicId` for legacy accounts after the migration.
 
 ## CI/Operational Notes
 - If adding CI, include: install, `prisma generate`, typecheck/lint, and optionally a nightly/weekly `import:pdc:fast 2025` job.

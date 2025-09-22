@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sendMagicLink } from '@/lib/auth/email';
 import { generateMagicToken } from '@/lib/auth/jwt';
 import { prisma } from '@/lib/db';
+import { generateUniquePublicId } from '@/lib/wiki/publicId';
 
 const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000; // 5 minutes
 const RATE_LIMIT_MAX_REQUESTS = 5;
@@ -57,16 +58,25 @@ export async function POST(request: NextRequest) {
     const expiresAt = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes
 
     // Find or create user
+    const normalizedEmail = email.toLowerCase();
+
     let user = await prisma.user.findUnique({
-      where: { email: email.toLowerCase() }
+      where: { email: normalizedEmail }
     });
 
     if (!user) {
       user = await prisma.user.create({
         data: {
-          email: email.toLowerCase(),
-          role: 'COMMUNITY'
+          email: normalizedEmail,
+          role: 'COMMUNITY',
+          publicId: await generateUniquePublicId(prisma)
         }
+      });
+    } else if (!user.publicId) {
+      const publicId = await generateUniquePublicId(prisma);
+      user = await prisma.user.update({
+        where: { id: user.id },
+        data: { publicId }
       });
     }
 

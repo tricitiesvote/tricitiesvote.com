@@ -34,7 +34,8 @@ export async function GET(request: NextRequest) {
             name: true,
             role: true,
             editsAccepted: true,
-            editsRejected: true
+            editsRejected: true,
+            publicId: true
           }
         }
       },

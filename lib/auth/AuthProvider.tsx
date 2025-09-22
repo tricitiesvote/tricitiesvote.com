@@ -13,6 +13,7 @@ interface User {
   editsPending: number;
   candidateId?: string;
   createdAt: string;
+  publicId: string;
 }
 
 interface AuthContextType {
@@ -31,7 +32,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const fetchUser = async () => {
     try {
-      const response = await fetch('/api/auth/me');
+      const response = await fetch('/api/auth/me', {
+        cache: 'no-store'
+      });
       const data = await response.json();
       setUser(data.user);
     } catch (error) {

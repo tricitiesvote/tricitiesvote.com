@@ -4,48 +4,87 @@ import { useAuth } from '@/lib/auth/AuthProvider';
 import { useEditMode } from '@/lib/wiki/EditModeProvider';
 
 export function EditModeButton() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const { editMode, toggleEditMode } = useEditMode();
 
   if (!user) {
     return (
-      <div className="fixed top-4 right-4 z-50">
-        <a
-          href="/login"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium shadow-md"
-        >
-          Sign in to Edit
-        </a>
+      <div className="w-full bg-slate-900 text-white px-4 py-3 text-sm">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <span className="font-medium">Tri-Cities Vote Wiki</span>
+          <a
+            href="/login"
+            className="bg-blue-500 hover:bg-blue-400 text-white px-3 py-2 rounded-md font-medium"
+          >
+            Sign in to edit
+          </a>
+        </div>
       </div>
     );
   }
 
-  return (
-    <div className="fixed top-4 right-4 z-50 flex gap-2 items-center">
-      <button
-        onClick={toggleEditMode}
-        className={`px-4 py-2 rounded-md text-sm font-medium shadow-md transition-colors ${
-          editMode
-            ? 'bg-green-600 hover:bg-green-700 text-white'
-            : 'bg-blue-600 hover:bg-blue-700 text-white'
-        }`}
-      >
-        {editMode ? 'Exit Edit Mode' : 'Suggest Changes'}
-      </button>
+  const isModerator = ['MODERATOR', 'ADMIN'].includes(user.role);
+  const roleIcon =
+    user.role === 'ADMIN' ? '👑' :
+    user.role === 'MODERATOR' ? '🛡️' :
+    user.role === 'CANDIDATE' ? '🎯' : '👤';
 
-      {user && (
-        <div className="bg-white border rounded-md px-3 py-2 text-sm shadow-md">
-          <span className="text-gray-600">
-            {user.role === 'ADMIN' ? '👑' :
-             user.role === 'MODERATOR' ? '🛡️' :
-             user.role === 'CANDIDATE' ? '🎯' : '👤'}
-            {user.email}
-          </span>
-          <div className="text-xs text-gray-500">
-            {user.editsAccepted} accepted, {user.editsPending} pending
+  return (
+    <div className="w-full bg-slate-900 text-white text-sm">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            onClick={toggleEditMode}
+            className={`px-3 py-2 rounded-md font-medium transition-colors ${
+              editMode ? 'bg-green-500 hover:bg-green-400' : 'bg-blue-500 hover:bg-blue-400'
+            }`}
+          >
+            {editMode ? 'Exit Edit Mode' : 'Suggest Changes'}
+          </button>
+
+          <div className="flex flex-col md:flex-row md:items-center md:gap-3 text-slate-200">
+            <span className="flex items-center gap-2">
+              {roleIcon}
+              <span className="truncate max-w-[220px]">{user.email}</span>
+            </span>
+            <span className="text-xs text-slate-300">
+              Contributor ID:{' '}
+              <a
+                href={`/edits/user/${user.publicId}`}
+                className="text-blue-200 hover:text-blue-100"
+              >
+                {user.publicId.slice(0, 6)}
+              </a>
+            </span>
+            <span className="text-xs text-slate-300 flex items-center gap-2">
+              <a href={`/edits/user/${user.publicId}/accepted`} className="hover:text-white">
+                {user.editsAccepted} accepted
+              </a>
+              <span aria-hidden>•</span>
+              <a href={`/edits/user/${user.publicId}/pending`} className="hover:text-white">
+                {user.editsPending} pending
+              </a>
+            </span>
           </div>
         </div>
-      )}
+
+        <div className="flex items-center gap-3 text-xs text-slate-200">
+          {isModerator ? (
+            <a
+              href="/admin/wiki"
+              className="bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded-md font-medium"
+            >
+              Admin console
+            </a>
+          ) : null}
+          <button
+            onClick={() => logout()}
+            className="bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded-md font-medium"
+          >
+            Log out
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyToken } from '@/lib/auth/jwt';
 import { prisma } from '@/lib/db';
+import { ensureUserPublicId } from '@/lib/wiki/publicId';
 
 export async function GET(request: NextRequest) {
   try {
@@ -28,7 +29,8 @@ export async function GET(request: NextRequest) {
         editsRejected: true,
         editsPending: true,
         candidateId: true,
-        createdAt: true
+        createdAt: true,
+        publicId: true
       }
     });
 
@@ -36,7 +38,34 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ user: null });
     }
 
-    return NextResponse.json({ user });
+    const publicId = user.publicId ?? (await ensureUserPublicId(prisma, user.id));
+
+    const pendingCount = await prisma.edit.count({
+      where: {
+        userId: user.id,
+        status: 'PENDING'
+      }
+    });
+
+    if (pendingCount !== user.editsPending) {
+      // Keep the cached counter in sync; best-effort only
+      try {
+        await prisma.user.update({
+          where: { id: user.id },
+          data: { editsPending: pendingCount }
+        });
+      } catch (updateError) {
+        console.warn('Failed to sync editsPending counter', updateError);
+      }
+    }
+
+    return NextResponse.json({
+      user: {
+        ...user,
+        publicId,
+        editsPending: pendingCount
+      }
+    });
 
   } catch (error) {
     console.error('Auth me error:', error);
