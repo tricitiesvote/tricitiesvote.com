@@ -269,6 +269,10 @@ npm run import:results
 
 # Prepare database for new election year
 npm run prepare:2025
+
+# Import letters to the editor (endorsements)
+npm run import:letters          # Scrape and analyze letters
+npm run import:letters:load     # Load analyzed letters into database
 ```
 
 #### Legacy Migration Commands
@@ -311,6 +315,47 @@ To prepare for the 2025 municipal election:
    npm run import:results
    ```
 
+### Letter to the Editor Endorsement Tracking
+
+**Daily Workflow** (during campaign season):
+
+The system automatically scrapes and analyzes Tri-City Herald letters to the editor to identify candidate endorsements or opposition.
+
+**Process**:
+1. **Scrape Letters**: Run `npm run import:letters`
+   - Uses Playwright to fetch letters from https://www.tri-cityherald.com/opinion/letters-to-the-editor/
+   - **Automatically detects last processed letter** from database
+   - Only scrapes NEW letters since the last import (or since May 2025 on first run)
+   - Extracts full text content from each letter
+   - Uses Claude AI to analyze each letter for candidate mentions
+   - Outputs results to `scripts/import/letter-endorsements.csv`
+   - Separate file created for items needing manual review: `letter-endorsements-review.csv`
+
+2. **Review Results**:
+   - Check the CSV files for accuracy
+   - AI categorizes mentions as: FOR, AGAINST, REVIEW, or IGNORE
+   - Items marked REVIEW need human verification before import
+   - Verify candidate name matches are correct (AI enforces exact full name matching)
+
+3. **Import to Database**: Run `npm run import:letters:load`
+   - Reads `letter-endorsements.csv`
+   - Skips REVIEW and IGNORE items (manual review required)
+   - Creates Endorsement records with type=LETTER
+   - Automatically skips duplicates if letter already imported
+
+**Important Notes**:
+- Run this **DAILY** during the campaign (October-November)
+- The AI is conservative - requires exact full name matches
+- Letters are only scraped once (script checks for existing endorsements)
+- Rate limited to 1 request/second to respect Herald's servers
+- Requires `ANTHROPIC_API_KEY` environment variable
+
+**Technical Details**:
+- Script location: `scripts/import/scrape-letters.ts` and `import-letter-endorsements.ts`
+- Uses Playwright for browser automation (bypasses site blocking)
+- Claude AI analyzes text for endorsements
+- Full documentation: `scripts/import/README-letters.md`
+
 ### Name Normalization System
 
 The system includes sophisticated name matching to handle variations:
@@ -332,6 +377,7 @@ The system includes sophisticated name matching to handle variations:
 2. Import pamphlet data when published
 3. Update candidate profiles and photos
 4. Track endorsements and media coverage
+5. **DAILY**: Import letters to the editor for endorsement tracking
 
 **Post-Election Phase**:
 1. Import official results
@@ -349,6 +395,9 @@ DATABASE_URL="postgresql://user:password@host:port/database"
 # PDC API credentials (required for contribution imports)
 SOCRATA_API_ID=your_api_id
 SOCRATA_API_SECRET=your_api_secret
+
+# Anthropic API credentials (required for letter scraping)
+ANTHROPIC_API_KEY=your_anthropic_api_key
 ```
 
 **TypeScript Configuration**:

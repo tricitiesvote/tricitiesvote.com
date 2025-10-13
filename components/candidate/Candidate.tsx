@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { CandidateInfo } from './CandidateInfo'
 import { CandidateEndorsements } from './CandidateEndorsements'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
+import { CandidateEnforcementCases } from './CandidateEnforcementCases'
 import { slugify } from '@/lib/utils'
 import { ensureHtml } from '@/lib/richText'
 import { EditableField } from '@/components/wiki/EditableField'
@@ -35,6 +36,15 @@ interface CandidateProps {
       url: string
       type: string
       forAgainst: string
+    }>
+    enforcementCases?: Array<{
+      id: string
+      caseNumber: string
+      opened: Date
+      subject: string
+      status: string
+      areasOfLaw: string
+      url: string
     }>
   }
   year: number
@@ -167,6 +177,8 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
             <CandidateEndorsements endorsements={candidate.endorsements} showPlaceholder={false} />
           )}
 
+          {/* <CandidateEnforcementCases cases={candidate.enforcementCases || []} /> */}
+
           <section className="candidate-section">
             <h4>News Articles</h4>
             <EditableField
@@ -228,14 +240,16 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
         )}
 
         <CandidateEndorsements endorsements={candidate.endorsements || []} />
-        
+
+        {/* <CandidateEnforcementCases cases={candidate.enforcementCases || []} /> */}
+
         {articlesHtml && (
           <div className="candidate-articles news">
             <h4>News Articles</h4>
             <div dangerouslySetInnerHTML={{ __html: articlesHtml }} />
           </div>
         )}
-        
+
         <div>
           <CandidateDonorSummary
             fundraising={fundraising}

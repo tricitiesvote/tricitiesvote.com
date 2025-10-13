@@ -76,11 +76,12 @@ model Candidate {
   engagementWiki String?
   articlesWiki   String?
 
-  office        Office          @relation(fields: [officeId], references: [id])
-  races         CandidateRace[]
-  contributions Contribution[]
-  endorsements  Endorsement[]
-  user          User?
+  office           Office             @relation(fields: [officeId], references: [id])
+  races            CandidateRace[]
+  contributions    Contribution[]
+  endorsements     Endorsement[]
+  enforcementCases EnforcementCase[]
+  user             User?
 }
 
 model CandidateRace {
@@ -157,6 +158,31 @@ model Contribution {
 
   @@index([candidateId])
   @@index([electionYear])
+}
+
+model EnforcementCase {
+  id               String    @id @default(cuid())
+  caseNumber       String    @unique
+  opened           DateTime
+  complainant      String
+  respondent       String
+  subject          String
+  areasOfLaw       String
+  status           String
+  description      String    @db.Text
+  url              String
+
+  // Candidate linking
+  candidateId      String?
+  candidate        Candidate? @relation(fields: [candidateId], references: [id])
+  matchConfidence  Float?
+  manuallyReviewed Boolean   @default(false)
+
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([candidateId])
+  @@index([status])
 }
 
 enum OfficeType {

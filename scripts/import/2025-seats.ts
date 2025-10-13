@@ -10,8 +10,8 @@ export const CORE_SEAT_DEFINITIONS: SeatDefinition[] = [
   { office: 'City Council Ward 3', jurisdiction: 'Kennewick', candidates: ['John Trumbo', 'Warren Hughs'] },
   { office: 'City Council Position 4', jurisdiction: 'Kennewick', candidates: ['Brad Klippert', 'Gloria Tyler Baker'] },
 
-  { office: 'City Council District 1', jurisdiction: 'Pasco', candidates: ['Mark Anthony Figueroa', 'Jay Dillard'] },
-  { office: 'City Council District 3', jurisdiction: 'Pasco', candidates: ['Leo A. Perales', 'Bryan Verhei'] },
+  { office: 'City Council District 1', jurisdiction: 'Pasco', candidates: ['Mark Anthony Figueroa'] },
+  { office: 'City Council District 3', jurisdiction: 'Pasco', candidates: ['Leo Perales', 'Bryan Verhei'] },
   { office: 'City Council District 4', jurisdiction: 'Pasco', candidates: ['Pete Serrano'] },
   { office: 'City Council District 6', jurisdiction: 'Pasco', candidates: ['Calixto Hernandez', 'Melissa Blasdel'] },
 

@@ -553,7 +553,7 @@ export default function WikiAdminPage() {
                     value={pendingEntityFilter}
                     onChange={(event) => setPendingEntityFilter(event.target.value as (typeof ENTITY_FILTERS)[number])}
                     aria-label="Filter by entity type"
-                    className="w-[200px]"
+                    style={{ width: 200 }}
                   >
                     {ENTITY_FILTERS.map((option) => (
                       <option key={option} value={option}>
@@ -565,7 +565,7 @@ export default function WikiAdminPage() {
                     value={pendingSearch}
                     onChange={(event) => setPendingSearch(event.target.value)}
                     placeholder="Search contributor, field, rationale"
-                    className="w-[260px]"
+                    style={{ width: 260 }}
                   />
                 </div>
                 <div className="flex gap-2">
@@ -653,7 +653,7 @@ export default function WikiAdminPage() {
                   <Select
                     value={userRoleFilter}
                     onChange={(event) => setUserRoleFilter(event.target.value as (typeof ROLE_FILTERS)[number])}
-                    className="w-[160px]"
+                    style={{ width: 160 }}
                   >
                     {ROLE_FILTERS.map((option) => (
                       <option key={option} value={option}>
@@ -665,7 +665,7 @@ export default function WikiAdminPage() {
                     value={userSearchDraft}
                     onChange={(event) => setUserSearchDraft(event.target.value)}
                     placeholder="Search email or name"
-                    className="w-[240px]"
+                    style={{ width: 240 }}
                   />
                 </div>
                 <div className="flex gap-2">
@@ -1020,7 +1020,7 @@ function RoleSelector({
           setPendingRole(nextRole);
           handleSave(nextRole);
         }}
-        className="w-[140px]"
+        style={{ width: 140 }}
       >
         {['COMMUNITY', 'CANDIDATE', 'MODERATOR', 'ADMIN'].map((roleOption) => (
           <option key={roleOption} value={roleOption}>

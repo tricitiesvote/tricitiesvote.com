@@ -4,23 +4,12 @@ import { useAuth } from '@/lib/auth/AuthProvider';
 import { useEditMode } from '@/lib/wiki/EditModeProvider';
 
 export function EditModeButton() {
-  const { user, logout } = useAuth();
+  const { user, logout, isLoading } = useAuth();
   const { editMode, toggleEditMode } = useEditMode();
 
-  if (!user) {
-    return (
-      <div className="w-full bg-slate-900 text-white px-4 py-3 text-sm">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <span className="font-medium">Tri-Cities Vote Wiki</span>
-          <a
-            href="/login"
-            className="bg-blue-500 hover:bg-blue-400 text-white px-3 py-2 rounded-md font-medium"
-          >
-            Sign in to edit
-          </a>
-        </div>
-      </div>
-    );
+  // Hide completely if no user is logged in
+  if (!user || isLoading) {
+    return null;
   }
 
   const isModerator = ['MODERATOR', 'ADMIN'].includes(user.role);
@@ -42,10 +31,10 @@ export function EditModeButton() {
             {editMode ? 'Exit Edit Mode' : 'Suggest Changes'}
           </button>
 
-          <div className="flex flex-col md:flex-row md:items-center md:gap-3 text-slate-200">
+        <div className="flex flex-col md:flex-row md:items-center md:gap-3 text-slate-200">
             <span className="flex items-center gap-2">
               {roleIcon}
-              <span className="truncate max-w-[220px]">{user.email}</span>
+              <span style={{ maxWidth: 220, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user.email}</span>
             </span>
             <span className="text-xs text-slate-300">
               Contributor ID:{' '}

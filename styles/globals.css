@@ -2545,21 +2545,16 @@ td .more, .no-response .more {
   }
 }
 
-.admin-theme {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
-  min-height: 100vh;
-}
-
-.admin-theme a {
-  color: #2563eb;
-}
-
-.admin-theme a:hover {
-  color: #1d4ed8;
-}
-
-.admin-theme table {
+.admin-wrapper table {
+  border-spacing: initial;
   border-collapse: collapse;
+  margin-bottom: 0;
+}
+
+.admin-wrapper th,
+.admin-wrapper th p {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  line-height: 1.4;
 }

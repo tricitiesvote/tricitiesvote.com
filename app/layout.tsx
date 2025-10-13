@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
+import '../styles/ui.css'
 import { ServiceWorkerCleanup } from '@/components/ServiceWorkerCleanup'
 import { AuthProvider } from '@/lib/auth/AuthProvider'
 import { EditModeProvider } from '@/lib/wiki/EditModeProvider'

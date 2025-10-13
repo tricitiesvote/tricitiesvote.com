@@ -1,8 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import { cn } from '@/lib/utils';
-
 interface TabsContextValue {
   value: string;
   setValue: (value: string) => void;
@@ -34,7 +32,7 @@ export function Tabs({ defaultValue, value, onValueChange, className, children }
 
   return (
     <TabsContext.Provider value={{ value: currentValue, setValue: handleChange }}>
-      <div className={className}>{children}</div>
+      <div className={['ui-tabs', className].filter(Boolean).join(' ')}>{children}</div>
     </TabsContext.Provider>
   );
 }
@@ -42,12 +40,7 @@ export function Tabs({ defaultValue, value, onValueChange, className, children }
 interface TabsListProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function TabsList({ className, ...props }: TabsListProps) {
-  return (
-    <div
-      className={cn('inline-flex items-center justify-center rounded-md bg-slate-100 p-1 text-slate-600', className)}
-      {...props}
-    />
-  );
+  return <div role="tablist" className={['ui-tabs-list', className].filter(Boolean).join(' ')} {...props} />;
 }
 
 interface TabsTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -64,11 +57,9 @@ export function TabsTrigger({ className, value, ...props }: TabsTriggerProps) {
     <button
       type="button"
       onClick={() => context.setValue(value)}
-      className={cn(
-        'inline-flex min-w-[100px] items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
-        isActive ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900',
-        className
-      )}
+      role="tab"
+      aria-selected={isActive}
+      className={['ui-tabs-trigger', className].filter(Boolean).join(' ')}
       {...props}
     />
   );
@@ -78,12 +69,10 @@ interface TabsContentProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
 }
 
-export function TabsContent({ className, value, ...props }: TabsContentProps) {
+export function TabsContent({ className = '', value, ...props }: TabsContentProps) {
   const context = React.useContext(TabsContext);
   if (!context) throw new Error('TabsContent must be used within Tabs');
   if (context.value !== value) return null;
 
-  return (
-    <div className={cn('mt-4 focus-visible:outline-none', className)} {...props} />
-  );
+  return <div className={['ui-tabs-content', className].filter(Boolean).join(' ')} {...props} />;
 }

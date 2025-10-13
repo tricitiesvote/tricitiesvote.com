@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 const PASCO_CANDIDATES = [
   // Pasco City Council
   { name: 'Mark Anthony Figueroa', office: 'CITY OF PASCO DISTRICT 1', position: 'Councilmember, District 1, Position 1' },
-  { name: 'Leo A. Perales', office: 'CITY OF PASCO DISTRICT 3', position: 'Councilmember, District 3, Position 3' },
+  { name: 'Leo Perales', office: 'CITY OF PASCO DISTRICT 3', position: 'Councilmember, District 3, Position 3' },
   { name: 'Bryan Verhei', office: 'CITY OF PASCO DISTRICT 3', position: 'Councilmember, District 3, Position 3' },
   { name: 'Pete Serrano', office: 'CITY OF PASCO DISTRICT 4', position: 'Councilmember, District 4, Position 4' },
   { name: 'Melissa Blasdel', office: 'CITY OF PASCO DISTRICT 6', position: 'Councilmember, District 6, Position 6' },

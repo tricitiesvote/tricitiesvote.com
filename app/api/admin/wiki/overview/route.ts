@@ -117,9 +117,9 @@ export async function GET(request: NextRequest) {
           reviewedAt: { gte: sevenDaysAgo },
           moderatorId: { not: null }
         },
-        _count: { _all: true },
+        _count: { moderatorId: true },
         orderBy: {
-          _count: { _all: 'desc' }
+          _count: { moderatorId: 'desc' }
         },
         take: 5
       })
@@ -159,7 +159,7 @@ export async function GET(request: NextRequest) {
       const moderator = moderators.find((mod) => mod.id === row.moderatorId);
       return {
         moderatorId: row.moderatorId,
-        moderatedCount: row._count._all,
+        moderatedCount: row._count.moderatorId,
         email: moderator?.email ?? null,
         name: moderator?.name ?? null,
         role: moderator?.role ?? null,

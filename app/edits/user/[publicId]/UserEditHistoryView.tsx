@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { getUserEditHistory, serializeEdit } from '@/lib/wiki/editQueries';
 import { getViewer } from '@/lib/auth/getViewer';
 import { EditLogTable } from '@/components/wiki/EditLogTable';
@@ -11,7 +12,7 @@ const STATUS_SEGMENTS = [
   { label: 'Declined', slug: 'declined' }
 ] as const;
 
-type StatusSlug = typeof STATUS_SEGMENTS[number]['slug'];
+type StatusSlug = (typeof STATUS_SEGMENTS)[number]['slug'];
 
 interface UserEditHistoryViewProps {
   publicId: string;
@@ -73,43 +74,48 @@ export async function UserEditHistoryView({
   const pendingCount = counts.PENDING;
 
   return (
-    <div className="admin-theme">
-      <div className="max-w-6xl mx-auto px-4 py-10 space-y-8">
-        <header className="space-y-4">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">Contributor {contributorId}</h1>
-              <p className="text-gray-600 text-sm">
-                {totalSubmitted} total edit{submittedPlural(totalSubmitted)} · Member since{' '}
-                {timeAgo(new Date(user.createdAt))}
-              </p>
-            </div>
-          <div className="text-sm text-gray-600">
-            <p>Role: {user.role}</p>
-            <p>Accepted: {acceptedCount} · Declined: {declinedCount} · Pending: {pendingCount}</p>
+    <div className="max-w-6xl mx-auto px-4 py-10 space-y-8">
+      <Card>
+        <CardHeader className="pb-4">
+          <CardTitle className="text-2xl">Contributor {contributorId}</CardTitle>
+          <CardDescription>
+            {user.role} · Member since {timeAgo(new Date(user.createdAt))} · {totalSubmitted} total edit{submittedPlural(totalSubmitted)}
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-4 md:grid-cols-3">
+            <StatCard label="Accepted" value={acceptedCount} variant="success" />
+            <StatCard label="Declined" value={declinedCount} variant="muted" />
+            <StatCard label="Pending" value={pendingCount} variant="warning" />
           </div>
-        </div>
+        </CardContent>
+      </Card>
 
-        <nav className="flex flex-wrap gap-2 text-sm">
-          {STATUS_SEGMENTS.map((segment) => {
-            const href = segment.slug ? `/edits/user/${publicId}/${segment.slug}` : `/edits/user/${publicId}`;
-            const isActive = segment.slug === activeSlug;
-            return (
-              <Link
-                key={segment.label}
-                href={href}
-                className={`px-3 py-2 rounded-md border text-sm ${
-                  isActive
-                    ? 'bg-blue-600 border-blue-600 text-white'
-                    : 'border-gray-300 text-gray-700 hover:bg-gray-100'
-                }`}
-              >
-                {segment.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </header>
+      <Card>
+        <CardHeader className="pb-4">
+          <CardTitle className="text-lg">Activity filters</CardTitle>
+          <CardDescription>Select a filter to narrow the activity stream.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-2">
+            {STATUS_SEGMENTS.map((segment) => {
+              const href = segment.slug ? `/edits/user/${publicId}/${segment.slug}` : `/edits/user/${publicId}`;
+              const isActive = segment.slug === activeSlug;
+              return (
+                <Link
+                  key={segment.label}
+                  href={href}
+                  className={`inline-flex items-center rounded-md border px-3 py-2 text-sm font-medium transition ${
+                    isActive ? 'border-blue-600 bg-blue-600 text-white' : 'border-slate-200 text-slate-600 hover:bg-slate-100'
+                  }`}
+                >
+                  {segment.label}
+                </Link>
+              );
+            })}
+          </div>
+        </CardContent>
+      </Card>
 
       <EditLogTable
         pinnedEdits={statusFilter ? [] : serializedPinned}
@@ -121,15 +127,15 @@ export async function UserEditHistoryView({
       />
 
       {pagination.totalPages > 1 ? (
-        <footer className="flex items-center justify-between border-t pt-4">
-          <div className="text-sm text-gray-500">
+        <footer className="flex items-center justify-between border-t border-slate-200 pt-4">
+          <div className="text-sm text-slate-500">
             Page {pagination.page} of {pagination.totalPages}
           </div>
           <div className="flex gap-2">
             {pagination.page > 1 ? (
               <Link
                 href={buildPageLink(basePath, searchParams, pagination.page - 1)}
-                className="px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-100"
+                className="inline-flex items-center rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-600 transition hover:bg-slate-100"
               >
                 Previous
               </Link>
@@ -137,7 +143,7 @@ export async function UserEditHistoryView({
             {pagination.page < pagination.totalPages ? (
               <Link
                 href={buildPageLink(basePath, searchParams, pagination.page + 1)}
-                className="px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-100"
+                className="inline-flex items-center rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-600 transition hover:bg-slate-100"
               >
                 Next
               </Link>
@@ -145,7 +151,39 @@ export async function UserEditHistoryView({
           </div>
         </footer>
       ) : null}
-      </div>
+    </div>
+  );
+}
+
+function StatCard({
+  label,
+  value,
+  variant
+}: {
+  label: string;
+  value: number;
+  variant: 'success' | 'warning' | 'muted';
+}) {
+  const styles = {
+    success: { borderColor: '#bbf7d0', background: '#ecfdf5', color: '#047857' },
+    warning: { borderColor: '#fcd34d', background: '#fffbeb', color: '#b45309' },
+    muted: { borderColor: '#e2e8f0', background: '#f8fafc', color: '#475569' }
+  } as const;
+
+  const palette = styles[variant];
+
+  return (
+    <div
+      style={{
+        border: `1px solid ${palette.borderColor}`,
+        background: palette.background,
+        color: palette.color,
+        borderRadius: 12,
+        padding: '16px'
+      }}
+    >
+      <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0 }}>{label}</p>
+      <p style={{ fontSize: 28, fontWeight: 600, margin: '12px 0 0 0' }}>{value}</p>
     </div>
   );
 }

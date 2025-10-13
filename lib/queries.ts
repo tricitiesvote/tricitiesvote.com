@@ -17,6 +17,15 @@ const raceInclude = (year: number) => ({
               amount: true,
               cashOrInKind: true
             }
+          },
+          enforcementCases: {
+            where: {
+              opened: {
+                gte: new Date(`${year}-01-01`),
+                lt: new Date(`${year + 1}-01-01`)
+              }
+            },
+            orderBy: { opened: 'desc' as const }
           }
         }
       }
@@ -131,6 +140,17 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
       contributions: {
         orderBy: {
           amount: 'desc'
+        }
+      },
+      enforcementCases: {
+        where: {
+          opened: {
+            gte: new Date(`${year}-01-01`),
+            lt: new Date(`${year + 1}-01-01`)
+          }
+        },
+        orderBy: {
+          opened: 'desc'
         }
       },
       races: {

@@ -1,0 +1,74 @@
+# Tri-City Herald Letters to Editor Scraper
+# Extracts endorsements for local candidates (City Council, School Board, Port Commissioner)
+
+/echo "🔍 Scraping Tri-City Herald Letters to Editor..."
+
+# Step 1: Fetch the letters index page
+/var @index_url = "https://www.tri-cityherald.com/opinion/letters-to-the-editor/"
+/echo "Fetching index page: @index_url"
+/run {curl -s "@index_url"}
+/var @index_html = $result
+
+# Step 2: Extract all letter article URLs from the index
+/prompt "Extract all article URLs from this HTML that are letters to the editor. Return only the URLs, one per line. Each URL should be the full article link (e.g., https://www.tri-cityherald.com/opinion/letters-to-the-editor/article*.html)"
+@index_html
+/var @letter_urls = $result
+
+# Step 3: Get list of 2025 candidates from our database
+/var @candidates = "Mark Anthony Figueroa, Leo Perales, Bryan Verhei, Pete Serrano, Calixto Hernandez, Melissa Blasdel, Austin Miller, Jason McShane, Loren Anderson, John Trumbo, Warren Hughs, Brad Klippert, Gloria Tyler Baker, Pat Holten, Robert Walko, Donald Landsman, John Maier, Kurt H Maier, Kyle Saltz, Colin Michael, Ryan Whitten, Nancy Aldrich, John Smart, Ken Stoker, David Cole, Robert Harvey Perkes, Braden Sloughter, Richard Bloom, Micah Valentine, Robert Franklin, Nic Uhnak, Gabe Galbraith, Amanda Brown, Steve Christensen, Heather Kubalek, Scott Lehrman, Valerie Torres, Jacques Bakhazi, Bonnie Mitchell, Rick Jansons, Roy Keck, Bill O'Neil, Raul Contreras Gonzalez, Tammy Kenfield, Matt Watkins, Hans-Joachim Engelke"
+
+# Step 4: Process each letter URL
+/var @results = []
+/for @url in @letter_urls {
+  /echo "Processing: @url"
+
+  # Fetch the article
+  /run {curl -s "@url"}
+  /var @article_html = $result
+
+  # Extract text content from HTML
+  /prompt "Extract all the text content from this HTML article. Return just the plain text of each letter, preserving the headings and author names."
+  @article_html
+  /var @article_text = $result
+
+  # Analyze for candidate endorsements
+  /prompt "You are analyzing letters to the editor for endorsements of local election candidates.
+
+Candidate list (2025 races):
+@candidates
+
+Task: Read the following letter(s) to the editor and identify any that endorse (FOR) or oppose (AGAINST) any of these candidates.
+
+For each endorsement found, extract:
+1. Candidate Name (must match the list above)
+2. Letter Writer Name (the person who wrote the letter, found at the end of each letter section)
+3. Position (FOR or AGAINST)
+4. Office Type (City Council, School Board, or Port Commissioner)
+
+Return results in CSV format:
+Candidate Name,Letter Writer,For/Against,Office Type,URL
+
+If no relevant endorsements are found, return: NONE
+
+Letters text:
+@article_text"
+  /var @endorsements = $result
+
+  # Add URL to each endorsement line
+  /if @endorsements != "NONE" {
+    /run {echo "@endorsements" | sed "s/$/,@url/"}
+    /var @endorsements_with_url = $result
+    /var @results = [@results, @endorsements_with_url]
+  }
+}
+
+# Step 5: Output CSV
+/echo ""
+/echo "=== RESULTS ==="
+/echo "Candidate Name,Letter Writer,For/Against,Office Type,URL"
+/for @result in @results {
+  /echo @result
+}
+
+/echo ""
+/echo "✅ Scraping complete!"

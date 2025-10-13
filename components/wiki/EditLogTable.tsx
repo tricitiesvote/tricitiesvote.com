@@ -156,10 +156,10 @@ function EditRow({
   return (
     <>
       <TableRow className="border-slate-100" key={edit.id}>
-        <TableCell className="align-top text-xs text-slate-500 w-[140px]">
+        <TableCell className="text-xs text-slate-500" style={{ width: 140 }}>
           {formatDateTime(edit.createdAt)}
         </TableCell>
-        <TableCell className="align-top w-[120px]">
+        <TableCell style={{ width: 120 }}>
           <Badge variant={badgeConfig.variant} className={cn('capitalize', badgeConfig.className)}>
             {statusLabel}
           </Badge>
@@ -169,19 +169,19 @@ function EditRow({
           <p className="text-xs text-slate-500 mt-1">{getPreview(edit.newValue)}</p>
         </TableCell>
         {showEntity ? (
-          <TableCell className="align-top text-xs text-slate-500 w-[160px]">
+          <TableCell className="text-xs text-slate-500" style={{ width: 160 }}>
             <EntityBadge edit={edit} />
           </TableCell>
         ) : null}
         {showContributor ? (
-          <TableCell className="align-top w-[160px]">
+          <TableCell style={{ width: 160 }}>
             <ContributorDisplay edit={edit} viewerRole={viewerRole} />
           </TableCell>
         ) : null}
-        <TableCell className="align-top w-[140px]">
+        <TableCell style={{ width: 140 }}>
           <ModeratorDisplay edit={edit} />
         </TableCell>
-        <TableCell className="align-top w-[120px] text-right">
+        <TableCell className="text-right" style={{ width: 120 }}>
           <Button variant="ghost" size="sm" onClick={() => setExpanded((value) => !value)}>
             {expanded ? 'Hide details' : 'View details'}
           </Button>
@@ -189,10 +189,7 @@ function EditRow({
       </TableRow>
       {expanded ? (
         <TableRow className="bg-slate-50/80">
-          <TableCell
-            colSpan={showContributor && showEntity ? 7 : showContributor || showEntity ? 6 : 5}
-            className="p-0"
-          >
+          <TableCell colSpan={showContributor && showEntity ? 7 : showContributor || showEntity ? 6 : 5} className="p-0">
             <div className="px-6 py-4 space-y-4 text-sm text-slate-700">
               <div>
                 <p className="text-xs font-semibold uppercase text-slate-500 tracking-wide">Contributor rationale</p>

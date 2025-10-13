@@ -121,9 +121,8 @@ export default function ModeratePage() {
   }
 
   return (
-    <div className="admin-theme">
-      <div className="min-h-screen bg-slate-100 py-10">
-        <div className="max-w-6xl mx-auto px-4 space-y-6">
+    <div className="min-h-screen py-10">
+      <div className="max-w-6xl mx-auto px-4 space-y-6">
           <header className="rounded-lg bg-white px-6 py-5 shadow-sm">
             <h1 className="text-3xl font-semibold text-slate-900">Moderate edits</h1>
             <p className="text-sm text-slate-500 mt-1">
@@ -143,7 +142,6 @@ export default function ModeratePage() {
               ))}
             </div>
           )}
-        </div>
       </div>
     </div>
   );
