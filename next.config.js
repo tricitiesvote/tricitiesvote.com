@@ -8,6 +8,15 @@ const nextConfig = {
       { protocol: 'https', hostname: '**' },
       { protocol: 'http', hostname: '**' }
     ]
+  },
+  async redirects() {
+    return [
+      {
+        source: '/2025',
+        destination: '/',
+        permanent: false
+      }
+    ]
   }
 }
 

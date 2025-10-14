@@ -35,6 +35,7 @@ export async function GET(request: NextRequest) {
             role: true,
             editsAccepted: true,
             editsRejected: true,
+            editsPending: true,
             publicId: true
           }
         }
