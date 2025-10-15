@@ -28,6 +28,8 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `/login` – wiki system authentication
   - `/moderate` – moderator review interface (requires MODERATOR/ADMIN role)
   - `/edits` – public edit audit trail
+  - `/admin/wiki` – moderator dashboard (pending edits, contributor stats)
+  - `/admin/engagements` – engagement manager for questionnaires/forums (MODERATOR/ADMIN)
 
 - Reset/import workflow (run in this order when refreshing data):
   1. **Purge stale primary/generic data** (optional when already clean):
@@ -48,6 +50,7 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `npx tsx scripts/fetch-race-ids.ts` / `scripts/validate-race-ids.ts` for troubleshooting county IDs.
   - `scripts/check-*` utilities to spot duplicates or missing offices.
   - `npx tsx scripts/add-announcements.ts` – populate League of Women Voters events in guides.
+  - Engagement/questionnaire imports live under `scripts/import/` (`npm run import:tcrc`, `import:tcrc:videos`, `import:ballotpedia`, `import:wrcg`). Each script upserts into `Engagement` and `CandidateEngagement`; run the `:load` companion command to write DB changes after reviewing CSV output.
 
 Notes:
 - Scripts under `scripts/` are designed to be re-runnable and conservative. Prefer running those over ad‑hoc DB edits.
@@ -62,6 +65,7 @@ Notes:
 - General statements/photos/contact are still arriving; pamphlet scripts are re-runnable and fill gaps as counties publish updates.
 - Some older docs still reference a "complete" primary import—treat those as historical context only.
 - **Wiki system is live**: Community-driven editing with email authentication, moderator review, and public audit trail. Supports editing candidate info, race descriptions, and regional announcements.
+- **Engagement manager**: Structured tracking for questionnaires/forums lives in new `Engagement` + `CandidateEngagement` tables. Moderators manage these at `/admin/engagements` (API: `POST /api/admin/engagements`, `PATCH/DELETE /api/admin/engagements/:id`). Import scripts should upsert against those tables instead of the legacy markdown field.
 - **Announcements system**: Markdown-based announcements for races and regional guides with multi-column layout. League of Women Voters candidate events are populated for all 2025 city guides.
 
 ## Immediate Priorities to Ship General 2025
@@ -94,6 +98,7 @@ Notes:
 - Keep schema stable unless necessary. If you must change it, add a Prisma migration and update queries/scripts.
 - Idempotent scripts: prefer upsert/batch patterns and safe deletes-by-id before insert when needed.
 - Slugs: use lowercase, `-` separators; match existing helpers (`slugify`, `unslugify`).
+- Engagement data: use the structured `Engagement` and `CandidateEngagement` tables. Let the admin UI or import scripts generate slugs; avoid editing the legacy `candidate.engagement` markdown unless backfilling history.
 - Office/region mapping: reuse existing helpers and mapping logic (avoid ad‑hoc titles that break joins).
 - Don’t modify `legacy/` except for reference; modern app reads from DB.
 - Images: store under `public/images/candidates/{year}`; reference via `/images/...` paths in DB.

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ensureHtml } from '@/lib/richText'
 import { preferWikiString } from '@/lib/wiki/utils'
+import { CandidateEngagementList } from './CandidateEngagementList'
 
 interface CandidateProfileProps {
   candidate: {
@@ -19,6 +20,20 @@ interface CandidateProfileProps {
     bio?: string | null
     statement?: string | null
     engagement?: string | null
+    engagements?: Array<{
+      participated: boolean
+      notes?: string | null
+      engagement: {
+        id: string
+        slug: string
+        title: string
+        date?: Date | string | null
+        primaryLink?: string | null
+        secondaryLink?: string | null
+        secondaryLinkTitle?: string | null
+        notes?: string | null
+      } | null
+    }>
     articles?: string | null
     lettersYes?: string | null
     lettersNo?: string | null
@@ -59,7 +74,10 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
   const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
   const bioHtml = ensureHtml(candidate.bio)
   const statementHtml = ensureHtml(candidate.statement)
-  const engagementHtml = ensureHtml(candidate.engagement)
+  const structuredEngagements = Array.isArray(candidate.engagements)
+    ? candidate.engagements.filter(entry => entry.engagement)
+    : []
+  const legacyEngagementHtml = ensureHtml(candidate.engagement)
   const articlesHtml = ensureHtml(candidate.articles)
   const lettersYesHtml = ensureHtml(candidate.lettersYes)
   const lettersNoHtml = ensureHtml(candidate.lettersNo)
@@ -148,10 +166,14 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
             <div className="candidate-statement" dangerouslySetInnerHTML={{ __html: statementHtml }} />
           )}
           
-          {engagementHtml && (
+          {(structuredEngagements.length > 0 || legacyEngagementHtml) && (
             <div className="engagement">
-              <h4>Community Engagement</h4>
-              <div dangerouslySetInnerHTML={{ __html: engagementHtml }} />
+              {structuredEngagements.length > 0 && (
+                <CandidateEngagementList entries={structuredEngagements} />
+              )}
+              {legacyEngagementHtml && (
+                <div dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+              )}
             </div>
           )}
           

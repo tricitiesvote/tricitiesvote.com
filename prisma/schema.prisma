@@ -82,6 +82,7 @@ model Candidate {
   endorsements     Endorsement[]
   enforcementCases EnforcementCase[]
   user             User?
+  engagements      CandidateEngagement[]
 }
 
 model CandidateRace {
@@ -112,6 +113,7 @@ model Race {
   candidates   CandidateRace[]
   office       Office          @relation(fields: [officeId], references: [id])
   Guide        Guide[]         @relation("GuideRaces")
+  engagements  Engagement[]
 
   introWiki         String?
   bodyWiki          String?
@@ -158,6 +160,42 @@ model Contribution {
 
   @@index([candidateId])
   @@index([electionYear])
+}
+
+model Engagement {
+  id                 String                  @id @default(cuid())
+  slug               String                  @unique
+  title              String
+  date               DateTime?
+  linkType           EngagementLinkType      @default(SHARED)
+  primaryLink        String?
+  secondaryLink      String?
+  secondaryLinkTitle String?
+  notes              String?
+  raceId             String?
+  createdAt          DateTime                @default(now())
+  updatedAt          DateTime                @updatedAt
+  race               Race?                   @relation(fields: [raceId], references: [id])
+  participants       CandidateEngagement[]
+
+  @@index([raceId])
+  @@index([date])
+}
+
+model CandidateEngagement {
+  engagementId String
+  candidateId  String
+  participated Boolean                 @default(false)
+  notes        String?
+  link         String?                 // Optional per-candidate link (overrides engagement.primaryLink)
+  createdAt    DateTime                @default(now())
+  updatedAt    DateTime                @updatedAt
+
+  engagement   Engagement              @relation(fields: [engagementId], references: [id])
+  candidate    Candidate               @relation(fields: [candidateId], references: [id])
+
+  @@id([engagementId, candidateId])
+  @@index([candidateId])
 }
 
 model EnforcementCase {
@@ -215,6 +253,11 @@ enum ElectionType {
   PRIMARY
   GENERAL
   SPECIAL
+}
+
+enum EngagementLinkType {
+  SHARED        // One link for all candidates (e.g., questionnaire)
+  PER_CANDIDATE // Individual link per candidate (e.g., video timestamp)
 }
 
 // Wiki System Models

@@ -182,12 +182,45 @@ export async function PATCH(
 
       // Apply the edit to the actual data
       if (edit.entityType === 'CANDIDATE') {
-        const wikiField = `${edit.field}Wiki`;
+        // Special handling for engagement participation
+        if (edit.field === 'engagements') {
+          try {
+            const participants = JSON.parse(normalizedNewValue) as Array<{
+              engagementId: string;
+              participated: boolean;
+              link?: string;
+            }>;
 
-        await prisma.candidate.update({
-          where: { id: edit.entityId },
-          data: { [wikiField]: normalizedNewValue }
-        });
+            // Delete all existing engagement records for this candidate
+            await prisma.candidateEngagement.deleteMany({
+              where: { candidateId: edit.entityId }
+            });
+
+            // Create new records
+            if (participants.length > 0) {
+              await prisma.candidateEngagement.createMany({
+                data: participants.map(p => ({
+                  candidateId: edit.entityId,
+                  engagementId: p.engagementId,
+                  participated: p.participated,
+                  link: p.link || null,
+                  notes: null
+                })),
+                skipDuplicates: true
+              });
+            }
+          } catch (err) {
+            console.error('Failed to apply engagement changes:', err);
+            throw new Error('Failed to parse or apply engagement data');
+          }
+        } else {
+          // Standard wiki field update
+          const wikiField = `${edit.field}Wiki`;
+          await prisma.candidate.update({
+            where: { id: edit.entityId },
+            data: { [wikiField]: normalizedNewValue }
+          });
+        }
 
         await revalidateCandidateContent(edit.entityId);
       } else if (edit.entityType === 'RACE') {

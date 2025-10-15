@@ -1625,14 +1625,15 @@ li span {
   border-bottom: 1px solid #eee;
 }
 
-.engagement li { 
+.engagement li, .engagement li a { 
   font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
+  font-size: 13px;
 }
 
 .engagement ul {
   list-style: none;
   margin: 0;
-  padding-left: 0;
+  padding: 0 10px;
 }
 
 .index .engagement ul {
@@ -1661,6 +1662,62 @@ li span {
 
 .index .engagement li {
   font-size: 13px;
+}
+
+.engagement.engagement-compact ul {
+  padding: 0 10px;
+}
+
+.engagement-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: baseline;
+}
+
+.engagement-title a {
+  font-weight: 600;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.engagement-date,
+.engagement-status {
+  color: #555;
+  font-size: 0.9em;
+}
+
+.engagement-meta {
+  margin-top: 0.25rem;
+  font-size: 0.9em;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.engagement-meta a {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.engagement-notes {
+  color: #555;
+}
+
+.engagement-missed {
+  color: #7f1d1d;
+}
+
+.engagement-missed .engagement-title a,
+.engagement-missed .engagement-title span {
+  text-decoration-color: rgba(220, 38, 38, 0.4);
+}
+
+.engagement-more {
+  margin-top: 0.5rem;
+  font-size: 0.85em;
+  color: #555;
 }
 
 .index .race {

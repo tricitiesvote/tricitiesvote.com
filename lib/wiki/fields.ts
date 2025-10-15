@@ -10,6 +10,7 @@ export const candidateEditableFields = [
   'facebook',
   'instagram',
   'engagement',
+  'engagements',
   'articles'
 ] as const;
 

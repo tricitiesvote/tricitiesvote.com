@@ -3,9 +3,11 @@ import { CandidateInfo } from './CandidateInfo'
 import { CandidateEndorsements } from './CandidateEndorsements'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
 import { CandidateEnforcementCases } from './CandidateEnforcementCases'
+import { CandidateEngagementList } from './CandidateEngagementList'
 import { slugify } from '@/lib/utils'
 import { ensureHtml } from '@/lib/richText'
 import { EditableField } from '@/components/wiki/EditableField'
+import { EditableCandidateEngagements } from '@/components/wiki/EditableCandidateEngagements'
 import { preferWikiString } from '@/lib/wiki/utils'
 
 interface CandidateProps {
@@ -26,6 +28,27 @@ interface CandidateProps {
     engagement?: string | null
     articles?: string | null
     electionYear: number
+    engagements?: Array<{
+      participated: boolean
+      notes?: string | null
+      link?: string | null
+      engagement: {
+        id: string
+        slug: string
+        title: string
+        date?: Date | string | null
+        primaryLink?: string | null
+        secondaryLink?: string | null
+        secondaryLinkTitle?: string | null
+        notes?: string | null
+      } | null
+    }>
+    races?: Array<{
+      race: {
+        id: string
+        electionYear: number
+      }
+    }>
     office: {
       title: string
       jobTitle: string
@@ -70,7 +93,10 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
   const articlesValue = preferWikiString(candidate as any, 'articles')
   const bioHtml = ensureHtml(bioValue)
   const statementHtml = ensureHtml(statementValue)
-  const engagementHtml = ensureHtml(engagementValue)
+  const structuredEngagements = Array.isArray(candidate.engagements)
+    ? candidate.engagements.filter(entry => entry.engagement)
+    : []
+  const legacyEngagementHtml = ensureHtml(engagementValue)
   const articlesHtml = ensureHtml(articlesValue)
   const hasBio = Boolean(bioHtml)
   const hasStatement = Boolean(statementHtml)
@@ -94,16 +120,18 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
 
   const statementDisplay = renderRichText(statementValue, 'Statement N/A.')
   const bioDisplay = renderRichText(bioValue, 'Biography N/A.')
-  const engagementDisplay = renderRichText(
-    engagementValue,
-    'Awaiting engagement details.',
-    'engagement'
-  )
+  const engagementDisplay = structuredEngagements.length > 0
+    ? <CandidateEngagementList entries={structuredEngagements} />
+    : renderRichText(engagementValue, 'Awaiting engagement details.', 'engagement')
   const articlesDisplay = renderRichText(
     articlesValue,
     'No articles listed.',
     'candidate-articles news'
   )
+
+  // Get race ID for engagement editing
+  const currentRace = candidate.races?.find(r => r.race.electionYear === year)
+  const raceId = currentRace?.race.id || null
 
   if (fullsize) {
     return (
@@ -161,16 +189,30 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
         <div className="candidate-expanded">
           <section className="candidate-section">
             <h4>Community Engagement</h4>
-            <EditableField
-              entityType="CANDIDATE"
-              entityId={candidate.id}
-              field="engagement"
-              value={engagementValue ?? ''}
-              placeholder="Awaiting engagement details."
-              multiline
-            >
-              {engagementDisplay}
-            </EditableField>
+            {structuredEngagements.length > 0 ? (
+              <>
+                <EditableCandidateEngagements
+                  candidateId={candidate.id}
+                  electionYear={candidate.electionYear}
+                  raceId={raceId}
+                  currentEngagements={structuredEngagements}
+                />
+                {legacyEngagementHtml && (
+                  <div className="candidate-body legacy-engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+                )}
+              </>
+            ) : (
+              <EditableField
+                entityType="CANDIDATE"
+                entityId={candidate.id}
+                field="engagement"
+                value={engagementValue ?? ''}
+                placeholder="Awaiting engagement details."
+                multiline
+              >
+                {engagementDisplay}
+              </EditableField>
+            )}
           </section>
 
           {candidate.endorsements && candidate.endorsements.length > 0 && (
@@ -235,8 +277,12 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
           </div>
         )}
 
-        {engagementHtml && (
-          <div className="engagement" dangerouslySetInnerHTML={{ __html: engagementHtml }} />
+        {structuredEngagements.length > 0 ? (
+          <CandidateEngagementList entries={structuredEngagements} variant="compact" />
+        ) : (
+          legacyEngagementHtml && (
+            <div className="engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+          )
         )}
 
         <CandidateEndorsements endorsements={candidate.endorsements || []} />

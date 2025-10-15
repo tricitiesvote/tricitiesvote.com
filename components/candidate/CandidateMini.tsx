@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
+import { CandidateEngagementList } from './CandidateEngagementList'
 import { slugify } from '@/lib/utils'
 import { ensureHtml } from '@/lib/richText'
 
@@ -13,6 +14,20 @@ interface CandidateMiniProps {
     imageWiki?: string | null
     minifiler: boolean
     engagement?: string | null
+    engagements?: Array<{
+      participated: boolean
+      notes?: string | null
+      engagement: {
+        id: string
+        slug: string
+        title: string
+        date?: Date | string | null
+        primaryLink?: string | null
+        secondaryLink?: string | null
+        secondaryLinkTitle?: string | null
+        notes?: string | null
+      } | null
+    }>
     endorsements?: Array<{
       id: string
       endorser: string
@@ -42,7 +57,10 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
   const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
   const imageSrc = displayImage || null
-  const engagementHtml = ensureHtml(candidate.engagement)
+  const structuredEngagements = Array.isArray(candidate.engagements)
+    ? candidate.engagements.filter(entry => entry.engagement)
+    : []
+  const legacyEngagementHtml = ensureHtml(candidate.engagement)
   const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
 
   // Group endorsements by for/against
@@ -72,8 +90,12 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
         <Link href={url}>{displayName}</Link>
       </h5>
       
-      {engagementHtml && (
-        <div className="engagement" dangerouslySetInnerHTML={{ __html: engagementHtml }} />
+      {structuredEngagements.length > 0 ? (
+        <CandidateEngagementList entries={structuredEngagements} variant="compact" />
+      ) : (
+        legacyEngagementHtml && (
+          <div className="engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+        )
       )}
       
       <CandidateDonorSummary

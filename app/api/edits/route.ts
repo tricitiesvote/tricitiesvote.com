@@ -205,16 +205,29 @@ export async function POST(request: NextRequest) {
     let oldValue = null;
     try {
       if (entityType === 'CANDIDATE') {
-        const candidate = await prisma.candidate.findUnique({
-          where: { id: entityId }
-        });
-        if (candidate) {
-          const wikiKey = `${field}Wiki` as keyof typeof candidate;
-          const wikiValue = (candidate as any)[wikiKey];
-          if (wikiValue !== undefined && wikiValue !== null && wikiValue !== '') {
-            oldValue = wikiValue;
-          } else {
-            oldValue = (candidate as any)[field];
+        if (field === 'engagements') {
+          // Special handling for engagements - fetch current participation records
+          const engagementRecords = await prisma.candidateEngagement.findMany({
+            where: { candidateId: entityId },
+            select: {
+              engagementId: true,
+              participated: true,
+              link: true
+            }
+          });
+          oldValue = JSON.stringify(engagementRecords);
+        } else {
+          const candidate = await prisma.candidate.findUnique({
+            where: { id: entityId }
+          });
+          if (candidate) {
+            const wikiKey = `${field}Wiki` as keyof typeof candidate;
+            const wikiValue = (candidate as any)[wikiKey];
+            if (wikiValue !== undefined && wikiValue !== null && wikiValue !== '') {
+              oldValue = wikiValue;
+            } else {
+              oldValue = (candidate as any)[field];
+            }
           }
         }
       } else if (entityType === 'RACE') {

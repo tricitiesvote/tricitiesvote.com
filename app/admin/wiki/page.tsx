@@ -171,6 +171,9 @@ export default function WikiAdminPage() {
             <h1 className="font-medium text-gray-900">Wiki Admin</h1>
             <span className="text-gray-500">{pendingEdits.length} pending</span>
             <Link href="/edits" className="text-blue-600 hover:underline">Audit trail</Link>
+            <Link href="/admin/engagements" className="text-blue-600 hover:underline">
+              Engagement manager
+            </Link>
           </div>
           <div className="flex items-center gap-6">
             <span className="text-gray-600">{user.email}</span>
@@ -349,7 +352,8 @@ function EditRow({
               {/* Why */}
               {edit.rationale && (
                 <div className="text-gray-600">
-                  <span className="font-medium">Why:</span> "{edit.rationale}"
+                  <span className="font-medium">Why:</span>{' '}
+                  <span className="italic">&ldquo;{edit.rationale}&rdquo;</span>
                 </div>
               )}
 

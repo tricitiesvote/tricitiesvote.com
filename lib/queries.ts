@@ -26,6 +26,11 @@ const raceInclude = (year: number) => ({
               }
             },
             orderBy: { opened: 'desc' as const }
+          },
+          engagements: {
+            include: {
+              engagement: true
+            }
           }
         }
       }
@@ -153,6 +158,11 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
           opened: 'desc'
         }
       },
+      engagements: {
+        include: {
+          engagement: true
+        }
+      },
       races: {
         where: {
           race: {
@@ -204,6 +214,11 @@ export async function getRaceByYearAndSlug(year: number, slug: string) {
               contributions: {
                 orderBy: {
                   amount: 'desc'
+                }
+              },
+              engagements: {
+                include: {
+                  engagement: true
                 }
               }
             }

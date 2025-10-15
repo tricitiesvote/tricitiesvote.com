@@ -111,7 +111,7 @@ export function EditQueueCard({ edit, onReview, defaultExpanded = false }: EditQ
         </div>
 
         <p className="text-sm text-slate-500 italic line-clamp-1">
-          "{edit.rationale}"
+          &ldquo;{edit.rationale}&rdquo;
         </p>
       </div>
 
