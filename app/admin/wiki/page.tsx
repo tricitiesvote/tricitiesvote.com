@@ -66,11 +66,13 @@ export default function WikiAdminPage() {
 
         // Fetch entity data for all candidate edits
         const candidateIds = edits
-          .filter((e: WikiEdit) => e.entityType === 'CANDIDATE')
+          .filter((e: WikiEdit) => e.entityType === 'CANDIDATE' || e.entityType === 'ENDORSEMENT')
           .map((e: WikiEdit) => e.entityId);
 
-        if (candidateIds.length > 0) {
-          await loadEntityData(candidateIds);
+        const uniqueCandidateIds = Array.from(new Set(candidateIds));
+
+        if (uniqueCandidateIds.length > 0) {
+          await loadEntityData(uniqueCandidateIds);
         }
       } else {
         setError(data.error || 'Failed to load pending edits');
@@ -173,6 +175,9 @@ export default function WikiAdminPage() {
             <Link href="/edits" className="text-blue-600 hover:underline">Audit trail</Link>
             <Link href="/admin/engagements" className="text-blue-600 hover:underline">
               Engagement manager
+            </Link>
+            <Link href="/admin/endorsements" className="text-blue-600 hover:underline">
+              Endorsement manager
             </Link>
           </div>
           <div className="flex items-center gap-6">

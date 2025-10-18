@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { ReactNode } from 'react';
 import { useAuth } from '@/lib/auth/AuthProvider';
-import { getCsrfToken } from '@/lib/auth/getCsrfToken';
 import { useEditMode } from '@/lib/wiki/EditModeProvider';
+import { EditModal } from './EditModal';
 
 interface EditableFieldProps {
   entityType: 'CANDIDATE' | 'RACE' | 'OFFICE' | 'GUIDE';
@@ -17,6 +17,10 @@ interface EditableFieldProps {
   renderDisplay?: (value: string) => ReactNode;
   as?: 'div' | 'span';
   children?: ReactNode;
+  // New props for better UX
+  label?: string; // Label for the modal
+  showPencilInline?: boolean; // Show pencil next to content (for contact fields)
+  renderTrigger?: (openModal: () => void) => ReactNode;
 }
 
 export function EditableField({
@@ -29,89 +33,30 @@ export function EditableField({
   className = '',
   renderDisplay,
   as = multiline ? 'div' : 'span',
-  children
+  children,
+  label,
+  showPencilInline = false,
+  renderTrigger
 }: EditableFieldProps) {
   const { user, refreshUser } = useAuth();
   const { editMode } = useEditMode();
-  const [isEditing, setIsEditing] = useState(false);
-  const baseValue = value ?? '';
-  const [editValue, setEditValue] = useState(baseValue);
-  const [rationale, setRationale] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [success, setSuccess] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!rationale.trim()) {
-      setError('Please provide a rationale for your change');
-      return;
-    }
-
-    if (editValue === baseValue) {
-      setError('No changes detected');
-      return;
-    }
-
-    setIsSubmitting(true);
-    setError('');
-
-    try {
-      const response = await fetch('/api/edits', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-Token': getCsrfToken()
-        },
-        body: JSON.stringify({
-          entityType,
-          entityId,
-          field,
-          newValue: editValue,
-          rationale
-        })
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setSuccess(true);
-        setIsEditing(false);
-        setRationale('');
-        refreshUser().catch(() => {
-          // Non-fatal; the pending counter will refresh on next auth fetch
-        });
-        setTimeout(() => setSuccess(false), 3000);
-      } else {
-        setError(data.error || 'Failed to submit edit');
-      }
-    } catch (err) {
-      setError('Network error. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleCancel = () => {
-    setIsEditing(false);
-    setEditValue(baseValue);
-    setRationale('');
-    setError('');
-  };
-
-  const currentValue = baseValue;
-
-  useEffect(() => {
-    if (!isEditing) {
-      setEditValue(baseValue);
-    }
-  }, [baseValue, isEditing]);
+  const baseValue = value ?? '';
+  const openModal = () => setIsModalOpen(true);
 
   const Wrapper = as === 'span' ? 'span' : 'div';
 
   const displayContent = children
-    ?? (renderDisplay ? renderDisplay(currentValue) : currentValue || placeholder);
+    ?? (renderDisplay ? renderDisplay(baseValue) : baseValue || placeholder);
+
+  const handleSuccess = () => {
+    setSuccess(true);
+    refreshUser().catch(() => {
+      // Non-fatal; the pending counter will refresh on next auth fetch
+    });
+    setTimeout(() => setSuccess(false), 3000);
+  };
 
   if (!editMode) {
     return (
@@ -121,79 +66,107 @@ export function EditableField({
     );
   }
 
-  if (isEditing) {
+  // For inline pencil (contact fields)
+  if (showPencilInline) {
     return (
-      <form onSubmit={handleSubmit} className="space-y-3">
-        {multiline ? (
-          <textarea
-            value={editValue}
-            onChange={(e) => setEditValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            rows={4}
-          />
-        ) : (
-          <input
-            type="text"
-            value={editValue}
-            onChange={(e) => setEditValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+      <>
+        <Wrapper
+          className={className}
+          style={{ display: 'inline', cursor: 'pointer' }}
+          onClick={openModal}
+        >
+          {displayContent}
+        </Wrapper>
+        {user && editMode && (
+          <button
+            onClick={openModal}
+            title={`Edit ${label || field}`}
+            style={{
+              marginLeft: '0.5rem',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '0.9em',
+              opacity: 0.6,
+              verticalAlign: 'middle'
+            }}
+          >
+            ✏️
+          </button>
         )}
-
-        <textarea
-          value={rationale}
-          onChange={(e) => setRationale(e.target.value)}
-          placeholder="Explain why this change is needed..."
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          rows={2}
-          required
+        <EditModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          entityType={entityType}
+          entityId={entityId}
+          field={field}
+          value={baseValue}
+          label={label || field}
+          multiline={multiline}
+          onSuccess={handleSuccess}
         />
-
-        {error && (
-          <div className="text-red-600 text-sm">{error}</div>
+        {success && (
+          <div style={{
+            display: 'inline-block',
+            marginLeft: '0.5rem',
+            padding: '0.25rem 0.5rem',
+            backgroundColor: '#d4edda',
+            border: '1px solid #c3e6cb',
+            borderRadius: '3px',
+            fontSize: '0.8em',
+            color: '#155724'
+          }}>
+            ✓ Submitted
+          </div>
         )}
-
-        <div className="flex gap-2">
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white px-3 py-1 rounded text-sm"
-          >
-            {isSubmitting ? 'Submitting...' : 'Submit Change'}
-          </button>
-          <button
-            type="button"
-            onClick={handleCancel}
-            className="bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded text-sm"
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
+        {renderTrigger && editMode && (
+          <div style={{ display: 'inline-block', marginLeft: '0.5rem' }}>
+            {renderTrigger(openModal)}
+          </div>
+        )}
+      </>
     );
   }
 
+  // Default: for sections/blocks - make clickable in edit mode
   return (
-    <div className="group relative">
-      <Wrapper className={className}>
+    <>
+      <Wrapper
+        className={className}
+        onClick={user && editMode ? openModal : undefined}
+        style={user && editMode ? { cursor: 'pointer' } : undefined}
+      >
         {displayContent}
       </Wrapper>
-
-      {user && editMode && (
-        <button
-          onClick={() => setIsEditing(true)}
-          className="absolute -right-6 top-0 opacity-0 group-hover:opacity-100 transition-opacity"
-          title="Edit this field"
-        >
-          ✏️
-        </button>
+      {renderTrigger && editMode && (
+        <div style={{ marginTop: '0.5rem' }}>
+          {renderTrigger(openModal)}
+        </div>
       )}
-
+      <EditModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        entityType={entityType}
+        entityId={entityId}
+        field={field}
+        value={baseValue}
+        label={label || field}
+        multiline={multiline}
+        onSuccess={handleSuccess}
+      />
       {success && (
-        <div className="absolute -top-8 left-0 bg-green-100 border border-green-300 text-green-700 px-2 py-1 rounded text-sm">
+        <div style={{
+          marginTop: '0.5rem',
+          padding: '0.5rem 0.75rem',
+          backgroundColor: '#d4edda',
+          border: '1px solid #c3e6cb',
+          borderRadius: '3px',
+          fontSize: '0.9em',
+          color: '#155724'
+        }}>
           Edit submitted for review!
         </div>
       )}
-    </div>
+    </>
   );
 }

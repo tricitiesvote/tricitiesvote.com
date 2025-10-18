@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!['CANDIDATE', 'RACE', 'OFFICE', 'GUIDE'].includes(entityType)) {
+    if (!['CANDIDATE', 'RACE', 'OFFICE', 'GUIDE', 'ENDORSEMENT'].includes(entityType)) {
       return NextResponse.json(
         { error: 'Editing this entity type is not supported yet.' },
         { status: 400 }
@@ -170,6 +170,32 @@ export async function POST(request: NextRequest) {
         { error: `Editing the ${field} field is not supported for guides.` },
         { status: 400 }
       );
+    }
+
+    if (entityType === 'ENDORSEMENT') {
+      const allowedEndorsementFields = new Set<string>([
+        'endorsement_for',
+        'endorsement_against'
+      ]);
+
+      if (!allowedEndorsementFields.has(field)) {
+        return NextResponse.json(
+          { error: 'Endorsement edits must target a supported action.' },
+          { status: 400 }
+        );
+      }
+
+      const candidate = await prisma.candidate.findUnique({
+        where: { id: entityId },
+        select: { id: true }
+      });
+
+      if (!candidate) {
+        return NextResponse.json(
+          { error: 'Candidate not found for endorsement suggestion.' },
+          { status: 404 }
+        );
+      }
     }
 
     const normalizedNewValue = typeof newValue === 'string' ? newValue : JSON.stringify(newValue);

@@ -573,6 +573,25 @@ del, del a:link, del li {
   margin: 5px 15px 10px 5px;
 }
 
+.candidate-no-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  background-color: #f7ffff;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 15px 10px 5px;
+}
+
+.candidate-no-image span {
+  font-size: 48px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
 .info ul {
   padding-left: 25px;
 }

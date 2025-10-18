@@ -1,14 +1,20 @@
+'use client';
+
 import Link from 'next/link'
 import { CandidateInfo } from './CandidateInfo'
 import { CandidateEndorsements } from './CandidateEndorsements'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
 import { CandidateEnforcementCases } from './CandidateEnforcementCases'
+import { EditableCandidateEndorsements } from '@/components/wiki/EditableCandidateEndorsements'
 import { CandidateEngagementList } from './CandidateEngagementList'
 import { slugify } from '@/lib/utils'
 import { ensureHtml } from '@/lib/richText'
 import { EditableField } from '@/components/wiki/EditableField'
+import { EditableSectionTitle } from '@/components/wiki/EditableSectionTitle'
 import { EditableCandidateEngagements } from '@/components/wiki/EditableCandidateEngagements'
 import { preferWikiString } from '@/lib/wiki/utils'
+import { useEditMode } from '@/lib/wiki/EditModeProvider'
+import { useAuth } from '@/lib/auth/AuthProvider'
 
 interface CandidateProps {
   candidate: {
@@ -56,7 +62,10 @@ interface CandidateProps {
     endorsements?: Array<{
       id: string
       endorser: string
-      url: string
+      url?: string | null
+      filePath?: string | null
+      sourceTitle?: string | null
+      notes?: string | null
       type: string
       forAgainst: string
     }>
@@ -83,10 +92,14 @@ interface CandidateProps {
 }
 
 export function Candidate({ candidate, year, fullsize = false, fundraising }: CandidateProps) {
+  const { editMode } = useEditMode();
+  const { user } = useAuth();
+  const showEditControls = editMode && user;
+
   const displayName = preferWikiString(candidate as any, 'name') ?? candidate.name
   const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
-  
+
   const bioValue = preferWikiString(candidate as any, 'bio')
   const statementValue = preferWikiString(candidate as any, 'statement')
   const engagementValue = preferWikiString(candidate as any, 'engagement')
@@ -100,6 +113,8 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
   const articlesHtml = ensureHtml(articlesValue)
   const hasBio = Boolean(bioHtml)
   const hasStatement = Boolean(statementHtml)
+  const hasEngagement = structuredEngagements.length > 0 || Boolean(legacyEngagementHtml)
+  const hasArticles = Boolean(articlesHtml)
 
   const renderRichText = (
     value: string | null,
@@ -145,95 +160,80 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
         </div>
 
         <div className="details">
-          <h3>
-            <EditableField
-              entityType="CANDIDATE"
-              entityId={candidate.id}
-              field="name"
-              value={displayName ?? ''}
-              placeholder="Name unavailable"
-              className="inline"
-              as="span"
-            />
-          </h3>
+          <h3>{displayName}</h3>
 
-          <section className="candidate-section">
-            <h4>Candidate Statement</h4>
-            <EditableField
-              entityType="CANDIDATE"
-              entityId={candidate.id}
-              field="statement"
-              value={statementValue ?? ''}
-              placeholder="Statement N/A."
-              multiline
-            >
-              {statementDisplay}
-            </EditableField>
-          </section>
-
-          <section className="candidate-section">
-            <h4>Biography</h4>
-            <EditableField
-              entityType="CANDIDATE"
-              entityId={candidate.id}
-              field="bio"
-              value={bioValue ?? ''}
-              placeholder="Biography N/A."
-              multiline
-            >
-              {bioDisplay}
-            </EditableField>
-          </section>
+          {statementHtml && (
+            <section className="candidate-section">
+              <h4>Candidate Statement</h4>
+              <div className="candidate-body" dangerouslySetInnerHTML={{ __html: statementHtml }} />
+            </section>
+          )}
         </div>
 
         <div className="candidate-expanded">
-          <section className="candidate-section">
-            <h4>Community Engagement</h4>
-            {structuredEngagements.length > 0 ? (
-              <>
-                <EditableCandidateEngagements
-                  candidateId={candidate.id}
-                  electionYear={candidate.electionYear}
-                  raceId={raceId}
-                  currentEngagements={structuredEngagements}
-                />
-                {legacyEngagementHtml && (
-                  <div className="candidate-body legacy-engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
-                )}
-              </>
-            ) : (
-              <EditableField
-                entityType="CANDIDATE"
-                entityId={candidate.id}
-                field="engagement"
-                value={engagementValue ?? ''}
-                placeholder="Awaiting engagement details."
-                multiline
-              >
-                {engagementDisplay}
-              </EditableField>
-            )}
-          </section>
-
-          {candidate.endorsements && candidate.endorsements.length > 0 && (
-            <CandidateEndorsements endorsements={candidate.endorsements} showPlaceholder={false} />
+          {(hasEngagement || showEditControls) && (
+            <section className="candidate-section">
+              {structuredEngagements.length > 0 ? (
+                <>
+                  <h4>Community Engagement</h4>
+                  <EditableCandidateEngagements
+                    candidateId={candidate.id}
+                    electionYear={candidate.electionYear}
+                    raceId={raceId}
+                    currentEngagements={structuredEngagements}
+                  />
+                  {legacyEngagementHtml && (
+                    <div className="candidate-body legacy-engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+                  )}
+                </>
+              ) : (
+                <>
+                  <EditableSectionTitle
+                    title="Community Engagement"
+                    entityType="CANDIDATE"
+                    entityId={candidate.id}
+                    field="engagement"
+                    value={engagementValue ?? ''}
+                    label="Community Engagement"
+                    multiline
+                  />
+                  {engagementDisplay}
+                </>
+              )}
+            </section>
           )}
+
+          <CandidateEndorsements endorsements={candidate.endorsements || []} />
+          <EditableCandidateEndorsements candidateId={candidate.id} />
 
           {/* <CandidateEnforcementCases cases={candidate.enforcementCases || []} /> */}
 
-          <section className="candidate-section">
-            <h4>News Articles</h4>
-            <EditableField
+          {(hasArticles || showEditControls) && (
+            <section className="candidate-section">
+              <EditableSectionTitle
+                title="News Articles"
               entityType="CANDIDATE"
               entityId={candidate.id}
               field="articles"
               value={articlesValue ?? ''}
-              placeholder="No articles listed."
+              label="News Articles"
               multiline
-            >
-              {articlesDisplay}
-            </EditableField>
+              renderTrigger={openModal => (
+                <button
+                  type="button"
+                  className="wiki-trigger-button"
+                  onClick={event => {
+                    event.stopPropagation();
+                    openModal();
+                  }}
+                >
+                  Add news article
+                </button>
+              )}
+            />
+            {articlesDisplay}
           </section>
+        )}
 
           <CandidateDonorSummary
             fundraising={fundraising}

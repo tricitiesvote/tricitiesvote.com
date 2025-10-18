@@ -139,12 +139,35 @@ export function EditableCandidateEngagements({
       }> = [];
 
       participationMap.forEach((state, engagementId) => {
-        if (state.status !== 'unset') {
-          participants.push({
-            engagementId,
-            participated: state.status === 'yes',
-            link: state.link || undefined
-          });
+        // For PER_CANDIDATE engagements, determine participation by link presence
+        // For SHARED engagements, use the explicit status
+        const engagement = availableEngagements.find(e => e.id === engagementId);
+
+        if (engagement?.linkType === 'PER_CANDIDATE') {
+          // Only include if there's a link (which means participated)
+          if (state.link && state.link.trim()) {
+            participants.push({
+              engagementId,
+              participated: true,
+              link: state.link.trim()
+            });
+          } else {
+            // Include as "did not participate" (no link)
+            participants.push({
+              engagementId,
+              participated: false,
+              link: undefined
+            });
+          }
+        } else {
+          // SHARED engagement - only include if status is set
+          if (state.status !== 'unset') {
+            participants.push({
+              engagementId,
+              participated: state.status === 'yes',
+              link: undefined
+            });
+          }
         }
       });
 
@@ -205,121 +228,185 @@ export function EditableCandidateEngagements({
   // Edit mode - form view
   if (isEditing) {
     return (
-      <form onSubmit={handleSubmit} className="space-y-4 border border-gray-300 rounded p-4 bg-gray-50">
-        <h5 className="font-semibold">Edit Community Engagement</h5>
+      <div className="wiki-edit-form" style={{
+        border: '1px solid #ddd',
+        padding: '1rem',
+        marginTop: '1rem',
+        backgroundColor: '#f9f9f9',
+        borderRadius: '4px'
+      }}>
+        <form onSubmit={handleSubmit}>
+          <h5 style={{ marginTop: 0, marginBottom: '1rem' }}>Edit Community Engagement</h5>
 
-        {isLoading && <div className="text-sm text-gray-600">Loading engagements...</div>}
+          {isLoading && <p style={{ fontSize: '0.9em', color: '#666' }}>Loading engagements...</p>}
 
-        {!isLoading && availableEngagements.length === 0 && (
-          <div className="text-sm text-gray-600">No engagements available for this race</div>
-        )}
+          {!isLoading && availableEngagements.length === 0 && (
+            <p style={{ fontSize: '0.9em', color: '#666' }}>No engagements available</p>
+          )}
 
-        {!isLoading && availableEngagements.map(engagement => {
-          const state = participationMap.get(engagement.id) || { status: 'unset', link: '' };
+          {!isLoading && availableEngagements.map(engagement => {
+            const state = participationMap.get(engagement.id) || { status: 'unset', link: '' };
 
-          return (
-            <div key={engagement.id} className="border-b border-gray-200 pb-3 last:border-0">
-              <div className="font-medium text-sm mb-2">{engagement.title}</div>
+            return (
+              <div key={engagement.id} style={{
+                marginBottom: '1.5rem',
+                paddingBottom: '1rem',
+                borderBottom: '1px solid #eee'
+              }}>
+                <div style={{ fontWeight: 500, marginBottom: '0.5rem' }}>{engagement.title}</div>
 
-              <div className="flex items-center gap-4 mb-2">
-                <label className="flex items-center gap-2 text-sm">
-                  <input
-                    type="radio"
-                    name={`engagement-${engagement.id}`}
-                    checked={state.status === 'yes'}
-                    onChange={() => handleParticipationChange(engagement.id, 'yes')}
-                  />
-                  <span>✅ Participated</span>
-                </label>
+                {engagement.linkType === 'SHARED' ? (
+                  // For SHARED engagements: simple yes/no radio
+                  <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                      <input
+                        type="radio"
+                        name={`engagement-${engagement.id}`}
+                        checked={state.status === 'yes'}
+                        onChange={() => handleParticipationChange(engagement.id, 'yes')}
+                      />
+                      <span>Participated</span>
+                    </label>
 
-                <label className="flex items-center gap-2 text-sm">
-                  <input
-                    type="radio"
-                    name={`engagement-${engagement.id}`}
-                    checked={state.status === 'no'}
-                    onChange={() => handleParticipationChange(engagement.id, 'no')}
-                  />
-                  <span>❌ Declined</span>
-                </label>
-
-                <label className="flex items-center gap-2 text-sm">
-                  <input
-                    type="radio"
-                    name={`engagement-${engagement.id}`}
-                    checked={state.status === 'unset'}
-                    onChange={() => handleParticipationChange(engagement.id, 'unset')}
-                  />
-                  <span>No response</span>
-                </label>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                      <input
+                        type="radio"
+                        name={`engagement-${engagement.id}`}
+                        checked={state.status === 'no'}
+                        onChange={() => handleParticipationChange(engagement.id, 'no')}
+                      />
+                      <span>Did not participate</span>
+                    </label>
+                  </div>
+                ) : (
+                  // For PER_CANDIDATE engagements: just a link input
+                  // (presence of link = participated, empty = did not participate)
+                  <div>
+                    <input
+                      type="url"
+                      value={state.link}
+                      onChange={(e) => {
+                        const link = e.target.value;
+                        handleLinkChange(engagement.id, link);
+                        // Auto-set participation based on whether link is present
+                        handleParticipationChange(engagement.id, link.trim() ? 'yes' : 'no');
+                      }}
+                      placeholder="Enter link if participated (e.g., video timestamp)"
+                      style={{
+                        width: '100%',
+                        padding: '0.5rem',
+                        border: '1px solid #ddd',
+                        borderRadius: '3px',
+                        fontSize: '0.9em'
+                      }}
+                    />
+                    <div style={{ fontSize: '0.8em', color: '#666', marginTop: '0.25rem' }}>
+                      {state.link.trim() ? '✅ Participated' : '❌ Did not participate'}
+                    </div>
+                  </div>
+                )}
               </div>
+            );
+          })}
 
-              {engagement.linkType === 'PER_CANDIDATE' && state.status === 'yes' && (
-                <div className="mt-2">
-                  <input
-                    type="url"
-                    value={state.link}
-                    onChange={(e) => handleLinkChange(engagement.id, e.target.value)}
-                    placeholder="Link (e.g., video timestamp)"
-                    className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
-                  />
-                </div>
-              )}
-            </div>
-          );
-        })}
+          <div style={{ marginTop: '1rem' }}>
+            <textarea
+              value={rationale}
+              onChange={(e) => setRationale(e.target.value)}
+              placeholder="Explain why this change is needed..."
+              required
+              rows={3}
+              style={{
+                width: '100%',
+                padding: '0.5rem',
+                border: '1px solid #ddd',
+                borderRadius: '3px',
+                fontFamily: 'inherit',
+                fontSize: '0.9em'
+              }}
+            />
+          </div>
 
-        <div className="mt-4">
-          <textarea
-            value={rationale}
-            onChange={(e) => setRationale(e.target.value)}
-            placeholder="Explain why this change is needed..."
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            rows={2}
-            required
-          />
-        </div>
+          {error && (
+            <div style={{ color: '#c00', fontSize: '0.9em', marginTop: '0.5rem' }}>{error}</div>
+          )}
 
-        {error && (
-          <div className="text-red-600 text-sm">{error}</div>
-        )}
-
-        <div className="flex gap-2">
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white px-3 py-1 rounded text-sm"
-          >
-            {isSubmitting ? 'Submitting...' : 'Submit Change'}
-          </button>
-          <button
-            type="button"
-            onClick={handleCancel}
-            className="bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded text-sm"
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
+          <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem' }}>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: isSubmitting ? '#999' : '#28a745',
+                color: 'white',
+                border: 'none',
+                borderRadius: '3px',
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                fontSize: '0.9em'
+              }}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit Change'}
+            </button>
+            <button
+              type="button"
+              onClick={handleCancel}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: '#6c757d',
+                color: 'white',
+                border: 'none',
+                borderRadius: '3px',
+                cursor: 'pointer',
+                fontSize: '0.9em'
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     );
   }
 
   // Edit mode - display with edit button
   return (
-    <div className="group relative">
+    <div style={{ position: 'relative' }}>
       <CandidateEngagementList entries={currentEngagements} />
 
       {user && editMode && (
         <button
           onClick={() => setIsEditing(true)}
-          className="absolute -right-6 top-0 opacity-0 group-hover:opacity-100 transition-opacity"
           title="Edit engagement participation"
+          style={{
+            position: 'absolute',
+            right: '-30px',
+            top: '0',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: '1.2em',
+            opacity: 0.3,
+            transition: 'opacity 0.2s'
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.3')}
         >
           ✏️
         </button>
       )}
 
       {success && (
-        <div className="absolute -top-8 left-0 bg-green-100 border border-green-300 text-green-700 px-2 py-1 rounded text-sm">
+        <div style={{
+          position: 'absolute',
+          top: '-2rem',
+          left: 0,
+          backgroundColor: '#d4edda',
+          border: '1px solid #c3e6cb',
+          color: '#155724',
+          padding: '0.5rem 0.75rem',
+          borderRadius: '3px',
+          fontSize: '0.9em'
+        }}>
           Edit submitted for review!
         </div>
       )}

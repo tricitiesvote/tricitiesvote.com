@@ -50,6 +50,8 @@ Next.js route handlers act as the server-side API layer:
   - `/api/admin/wiki/overview`: dashboard metrics.
   - `/api/admin/wiki/users`: list/manage contributors.
   - `/api/admin/engagements` (GET/POST) and `/api/admin/engagements/[id]` (PATCH/DELETE): moderator-only endpoints for managing engagement metadata and per-candidate participation.
+  - `/api/admin/endorsements` (GET/POST) and `/api/admin/endorsements/[id]` (DELETE): create URL/file endorsements, store uploads under `public/uploads/endorsements/{year}`, and list existing records with candidate context.
+  - `/api/endorsement-suggestions/upload`: authenticated community endpoint that stages uploaded letters under `/uploads/endorsements/pending/{year}` for moderator approval.
   - `/api/users/[id]/role`: privileged endpoint for role promotion/demotion (used by bootstrap scripts).
 - **Bulk operations**:
   - `/api/candidates/bulk`: supports multi-field updates, primarily used by internal tools to sync data safely.
@@ -60,12 +62,13 @@ All API routes pull from `lib/db.ts` for a shared PrismaClient instance and rely
 
 - **Race & candidate presentation** (`components/race`, `components/candidate`):
   - `RaceCard` renders each race summary including fundraising snapshots derived from `calculateFundraising.ts`.
-  - `CandidateMini` and related components show per-candidate contact, endorsements, fundraising, and structured engagement participation (via `CandidateEngagementList`), hiding candidates flagged with `hide`.
+  - `CandidateMini` and related components show per-candidate contact, endorsements (links or uploaded files), fundraising, and structured engagement participation (via `CandidateEngagementList`), hiding candidates flagged with `hide`. Edit mode surfaces call-to-action buttons so contributors can suggest links or upload supporting letters.
   - Compare views reuse the same data but pivot layout for side-by-side evaluation.
 - **Wiki UI** (`components/wiki/*`):
   - `EditableField` wrappers surface inline edit controls when edit mode is enabled and the user is authenticated.
   - `DiffView` performs a simple LCS diff for moderation.
   - `EngagementManager` (admin-only) wraps the `/api/admin/engagements` endpoints, providing a form to create/update events and mark candidate participation.
+  - `EndorsementManager` (admin-only) wraps the `/api/admin/endorsements` endpoints, offering separate flows for URL-based entries and file uploads.
   - Announcement editors/renderers support Markdown with the bespoke multi-column layout used on guides.
 - **UI primitives** live in `components/ui`, mostly shadcn patterns for cards, badges, buttons, etc.
 - **Home & shared sections** (`components/home`, `components/GuideSelector`, `components/ContactInline`) compose the landing experience.
@@ -88,7 +91,7 @@ The schema (see `prisma/schema.prisma`) centers on election entities and the wik
 ### Supporting Data
 
 - **Contribution**: Individual donor records imported from the Public Disclosure Commission (PDC). Each belongs to a `Candidate` with donor identity details, amount, date, and `cashOrInKind` classification.
-- **Endorsement**: Captures endorsements and opposition statements; `type` distinguishes letters vs. organizational/social endorsements. Used by the letters-to-the-editor import path.
+- **Endorsement**: Captures endorsements and opposition statements; `type` distinguishes letters vs. organizational/social endorsements. Records may include an external URL, an uploaded file (`filePath`), optional display label, and moderator notes. Used by the letters-to-the-editor import path and admin uploads.
 - **EnforcementCase**: PDC enforcement data. Optional `candidateId` and `matchConfidence` track fuzzy matches between cases and candidates.
 - **Engagement / CandidateEngagement**: Structured records for questionnaires, forums, and other touch points. `Engagement` stores event metadata (title, date, links, optional `raceId`), while `CandidateEngagement` indicates whether each candidate participated and captures moderator notes. These replace the legacy markdown blob in `candidate.engagement` while still supporting a fallback.
 

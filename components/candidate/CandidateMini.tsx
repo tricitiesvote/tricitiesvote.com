@@ -31,7 +31,10 @@ interface CandidateMiniProps {
     endorsements?: Array<{
       id: string
       endorser: string
-      url: string
+      url?: string | null
+      filePath?: string | null
+      sourceTitle?: string | null
+      notes?: string | null
       type: string
       forAgainst: string
     }>

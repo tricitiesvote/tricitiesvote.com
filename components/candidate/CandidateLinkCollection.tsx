@@ -1,4 +1,8 @@
+'use client';
+
 import { EditableField } from '@/components/wiki/EditableField'
+import { useEditMode } from '@/lib/wiki/EditModeProvider'
+import { useAuth } from '@/lib/auth/AuthProvider'
 
 interface CandidateLinkCollectionProps {
   candidateId: string
@@ -23,6 +27,10 @@ export function CandidateLinkCollection({
   pdc,
   phone
 }: CandidateLinkCollectionProps) {
+  const { editMode } = useEditMode();
+  const { user } = useAuth();
+  const showEditControls = editMode && user;
+
   const contactFields = [
     {
       field: 'email',
@@ -36,14 +44,15 @@ export function CandidateLinkCollection({
         </a>
       )
     },
-    {
-      field: 'phone',
-      value: phone ?? '',
-      label: 'Phone',
-      icon: '📞',
-      readonly: false,
-      render: (value: string) => <span>{value}</span>
-    },
+    // Commented out for municipal elections - can enable for statewide
+    // {
+    //   field: 'phone',
+    //   value: phone ?? '',
+    //   label: 'Phone',
+    //   icon: '📞',
+    //   readonly: false,
+    //   render: (value: string) => <span>{value}</span>
+    // },
     {
       field: 'website',
       value: website ?? '',
@@ -124,29 +133,38 @@ export function CandidateLinkCollection({
       {!hasAnyValue && (
         <li className="text-gray-500">Contact info N/A.</li>
       )}
-      {contactFields.map(({ field, value, icon, render, readonly, label }) => (
-        <li key={field}>
-          <span>{icon}</span>
-          {readonly ? (
-            value ? (
-              render(value)
+      {contactFields.map(({ field, value, icon, render, readonly, label }) => {
+        // In normal view, skip empty fields
+        if (!showEditControls && !value) {
+          return null;
+        }
+
+        return (
+          <li key={field} className="candidate-link-item">
+            <span>{icon}</span>
+            {readonly ? (
+              value ? (
+                render(value)
+              ) : (
+                <span className="text-gray-500">Finance link N/A.</span>
+              )
             ) : (
-              <span className="text-gray-500">Finance link N/A.</span>
-            )
-          ) : (
-            <EditableField
-              entityType="CANDIDATE"
-              entityId={candidateId}
-              field={field}
-              value={value}
-              placeholder={`${label} N/A.`}
-              as="span"
-            >
-              {value ? render(value) : <span className="text-gray-500">{label} N/A.</span>}
-            </EditableField>
-          )}
-        </li>
-      ))}
+              <EditableField
+                entityType="CANDIDATE"
+                entityId={candidateId}
+                field={field}
+                value={value}
+                placeholder={`${label} N/A.`}
+                label={label}
+                as="span"
+                showPencilInline={showEditControls}
+              >
+                {value ? render(value) : <span className="text-gray-500">{label} N/A.</span>}
+              </EditableField>
+            )}
+          </li>
+        );
+      })}
     </ul>
   )
 }

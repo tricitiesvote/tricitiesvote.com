@@ -30,6 +30,7 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `/edits` – public edit audit trail
   - `/admin/wiki` – moderator dashboard (pending edits, contributor stats)
   - `/admin/engagements` – engagement manager for questionnaires/forums (MODERATOR/ADMIN)
+  - `/admin/endorsements` – endorsement manager for URLs and file uploads (MODERATOR/ADMIN)
 
 - Reset/import workflow (run in this order when refreshing data):
   1. **Purge stale primary/generic data** (optional when already clean):
@@ -66,6 +67,7 @@ Notes:
 - Some older docs still reference a "complete" primary import—treat those as historical context only.
 - **Wiki system is live**: Community-driven editing with email authentication, moderator review, and public audit trail. Supports editing candidate info, race descriptions, and regional announcements.
 - **Engagement manager**: Structured tracking for questionnaires/forums lives in new `Engagement` + `CandidateEngagement` tables. Moderators manage these at `/admin/engagements` (API: `POST /api/admin/engagements`, `PATCH/DELETE /api/admin/engagements/:id`). Import scripts should upsert against those tables instead of the legacy markdown field.
+- **Endorsement manager**: Moderators can add URL-based endorsements or upload source files at `/admin/endorsements` (API: `GET/POST /api/admin/endorsements`, `DELETE /api/admin/endorsements/:id`). File uploads land in `public/uploads/endorsements/{year}`. Community users can now suggest links or upload supporting letters from candidate pages; suggestions arrive as `ENDORSEMENT` edits for moderation (uploads are temporarily stored under `/uploads/endorsements/pending/{year}` and promoted on approval).
 - **Announcements system**: Markdown-based announcements for races and regional guides with multi-column layout. League of Women Voters candidate events are populated for all 2025 city guides.
 
 ## Immediate Priorities to Ship General 2025

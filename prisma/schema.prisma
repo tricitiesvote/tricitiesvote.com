@@ -136,10 +136,14 @@ model Endorsement {
   id          String          @id @default(cuid())
   candidateId String
   endorser    String
-  url         String
+  url         String?
+  filePath    String?
+  sourceTitle String?
+  notes       String?
   type        EndorsementType
   forAgainst  ForAgainst
   candidate   Candidate       @relation(fields: [candidateId], references: [id])
+  createdAt   DateTime        @default(now())
 }
 
 model Contribution {

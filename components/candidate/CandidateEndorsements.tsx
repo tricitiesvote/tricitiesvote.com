@@ -2,7 +2,10 @@ interface EndorsementProps {
   endorsements: Array<{
     id: string
     endorser: string
-    url: string
+    url?: string | null
+    filePath?: string | null
+    sourceTitle?: string | null
+    notes?: string | null
     type: string
     forAgainst: string
   }>
@@ -31,19 +34,47 @@ export function CandidateEndorsements({ endorsements, showPlaceholder = true }: 
       <ul className="recs">
         {endorsementsFor.map(endorsement => (
           <li key={endorsement.id} className="yes">
-            <a href={endorsement.url} target="_blank" rel="noopener noreferrer">
-              {endorsement.endorser}
-            </a>
+            <EndorsementLink endorsement={endorsement} />
           </li>
         ))}
         {endorsementsAgainst.map(endorsement => (
           <li key={endorsement.id} className="no">
-            <a href={endorsement.url} target="_blank" rel="noopener noreferrer">
-              {endorsement.endorser}
-            </a>
+            <EndorsementLink endorsement={endorsement} />
           </li>
         ))}
       </ul>
+    </div>
+  )
+}
+
+function EndorsementLink({
+  endorsement
+}: {
+  endorsement: {
+    id: string
+    endorser: string
+    url?: string | null
+    filePath?: string | null
+    sourceTitle?: string | null
+    notes?: string | null
+  }
+}) {
+  const href = endorsement.url || endorsement.filePath || null
+  const label = endorsement.endorser
+  const secondary = endorsement.sourceTitle || endorsement.notes || null
+
+  return (
+    <div className="endorsement-item">
+      {href ? (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          {label}
+        </a>
+      ) : (
+        <span>{label}</span>
+      )}
+      {secondary && (
+        <span className="endorsement-meta"> — {secondary}</span>
+      )}
     </div>
   )
 }

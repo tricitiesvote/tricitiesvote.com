@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import path from 'path';
+import { promises as fs } from 'fs';
 import { verifyToken } from '@/lib/auth/jwt';
 import { sendEditStatusNotification } from '@/lib/auth/email';
 import { prisma } from '@/lib/db';
@@ -247,6 +249,101 @@ export async function PATCH(
         });
 
         await revalidateGuideContent(edit.entityId);
+      } else if (edit.entityType === 'ENDORSEMENT') {
+        try {
+          const payload = JSON.parse(normalizedNewValue) as {
+            endorser?: string;
+            url?: string | null;
+            filePath?: string | null;
+            sourceTitle?: string | null;
+            notes?: string | null;
+            type?: string | null;
+            forAgainst?: string | null;
+          };
+
+          const endorser = payload.endorser?.trim();
+          if (!endorser) {
+            throw new Error('Missing endorser name');
+          }
+
+          const candidateRecord = await prisma.candidate.findUnique({
+            where: { id: edit.entityId },
+            select: { electionYear: true }
+          });
+
+          if (!candidateRecord) {
+            throw new Error('Candidate not found when applying endorsement');
+          }
+
+          const normalizedType = (payload.type || 'LETTER').toUpperCase();
+          const type = ['LETTER', 'SOCIAL', 'ORG'].includes(normalizedType)
+            ? (normalizedType as 'LETTER' | 'SOCIAL' | 'ORG')
+            : 'LETTER';
+
+          const normalizedForAgainst = (payload.forAgainst || 'FOR').toUpperCase();
+          const forAgainst = normalizedForAgainst === 'AGAINST' ? 'AGAINST' : 'FOR';
+
+          let finalFilePath: string | null = payload.filePath && payload.filePath.trim() ? payload.filePath.trim() : null;
+
+          if (finalFilePath && finalFilePath.includes('/uploads/endorsements/pending/')) {
+            const pendingAbsolute = path.join(process.cwd(), 'public', finalFilePath);
+            const exists = await fs
+              .access(pendingAbsolute)
+              .then(() => true)
+              .catch(() => false);
+
+            if (exists) {
+              const targetDir = path.join(
+                process.cwd(),
+                'public',
+                'uploads',
+                'endorsements',
+                String(candidateRecord.electionYear)
+              );
+              await fs.mkdir(targetDir, { recursive: true });
+
+              const fileName = path.basename(finalFilePath);
+              let finalAbsolute = path.join(targetDir, fileName);
+              let finalRelative = `/uploads/endorsements/${candidateRecord.electionYear}/${fileName}`;
+
+              // Avoid collisions if another file with same name exists
+              let counter = 1;
+              while (
+                await fs
+                  .access(finalAbsolute)
+                  .then(() => true)
+                  .catch(() => false)
+              ) {
+                const parsed = path.parse(fileName);
+                const candidateName = `${parsed.name}-${counter}${parsed.ext}`;
+                finalAbsolute = path.join(targetDir, candidateName);
+                finalRelative = `/uploads/endorsements/${candidateRecord.electionYear}/${candidateName}`;
+                counter += 1;
+              }
+
+              await fs.rename(pendingAbsolute, finalAbsolute);
+              finalFilePath = finalRelative;
+            }
+          }
+
+          await prisma.endorsement.create({
+            data: {
+              candidateId: edit.entityId,
+              endorser,
+              url: payload.url && payload.url.trim() ? payload.url.trim() : null,
+              filePath: finalFilePath,
+              sourceTitle: payload.sourceTitle && payload.sourceTitle.trim() ? payload.sourceTitle.trim() : null,
+              notes: payload.notes && payload.notes.trim() ? payload.notes.trim() : null,
+              type,
+              forAgainst
+            }
+          });
+
+          await revalidateCandidateContent(edit.entityId);
+        } catch (err) {
+          console.error('Failed to apply endorsement edit:', err);
+          throw new Error('Failed to apply endorsement changes');
+        }
       }
 
     } else {

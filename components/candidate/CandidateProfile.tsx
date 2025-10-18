@@ -2,7 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ensureHtml } from '@/lib/richText'
 import { preferWikiString } from '@/lib/wiki/utils'
+import { EditableField } from '@/components/wiki/EditableField'
+import { EditableCandidateEndorsements } from '@/components/wiki/EditableCandidateEndorsements'
 import { CandidateEngagementList } from './CandidateEngagementList'
+import { CandidateEndorsements } from './CandidateEndorsements'
 
 interface CandidateProfileProps {
   candidate: {
@@ -59,7 +62,10 @@ interface CandidateProfileProps {
     endorsements?: Array<{
       id: string
       endorser: string
-      url: string
+      url?: string | null
+      filePath?: string | null
+      sourceTitle?: string | null
+      notes?: string | null
       type: string
       forAgainst: string
     }>
@@ -78,14 +84,11 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
     ? candidate.engagements.filter(entry => entry.engagement)
     : []
   const legacyEngagementHtml = ensureHtml(candidate.engagement)
-  const articlesHtml = ensureHtml(candidate.articles)
+  const articlesValue = preferWikiString(candidate as any, 'articles') ?? ''
   const lettersYesHtml = ensureHtml(candidate.lettersYes)
   const lettersNoHtml = ensureHtml(candidate.lettersNo)
   
   // Group endorsements by for/against
-  const endorsementsFor = candidate.endorsements?.filter(e => e.forAgainst === 'FOR') || []
-  const endorsementsAgainst = candidate.endorsements?.filter(e => e.forAgainst === 'AGAINST') || []
-  
   return (
     <div className="container-candidate-large">
       {currentRace?.race.Guide && currentRace.race.Guide.length > 0 && (
@@ -177,34 +180,45 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
             </div>
           )}
           
-          {(endorsementsFor.length > 0 || endorsementsAgainst.length > 0) && (
-            <div className="endorsements-summary">
-              <h4>Endorsements</h4>
-              <ul className="recs">
-                {endorsementsFor.map(endorsement => (
-                  <li key={endorsement.id} className="yes">
-                    <a href={endorsement.url} target="_blank" rel="noopener noreferrer">
-                      {endorsement.endorser}
-                    </a>
-                  </li>
-                ))}
-                {endorsementsAgainst.map(endorsement => (
-                  <li key={endorsement.id} className="no">
-                    <a href={endorsement.url} target="_blank" rel="noopener noreferrer">
-                      {endorsement.endorser}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          
-          {articlesHtml && (
-            <div className="candidate-articles">
+          <CandidateEndorsements
+            endorsements={candidate.endorsements || []}
+            showPlaceholder={true}
+          />
+          <EditableCandidateEndorsements candidateId={candidate.id} />
+
+          <div className="candidate-articles">
+            <div className="candidate-articles-header">
               <h4>News Articles</h4>
-              <div dangerouslySetInnerHTML={{ __html: articlesHtml }} />
             </div>
-          )}
+            <EditableField
+              entityType="CANDIDATE"
+              entityId={candidate.id}
+              field="articles"
+              value={articlesValue}
+              placeholder="No articles listed."
+              label="News Articles"
+              multiline
+              renderDisplay={(value) => {
+                const html = ensureHtml(value);
+                if (!html) {
+                  return <span className="text-gray-500">No articles listed.</span>;
+                }
+                return <div className="candidate-articles-content" dangerouslySetInnerHTML={{ __html: html }} />;
+              }}
+              renderTrigger={openModal => (
+                <button
+                  type="button"
+                  className="wiki-trigger-button"
+                  onClick={event => {
+                    event.stopPropagation();
+                    openModal();
+                  }}
+                >
+                  Add news article
+                </button>
+              )}
+            />
+          </div>
           
           {lettersYesHtml && (
             <div className="letters-yes">

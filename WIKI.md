@@ -134,6 +134,14 @@ This creates natural rate limiting and enables shadow-banning problematic users 
 - **Import scripts**: New collectors (`npm run import:tcrc`, `import:tcrc:videos`, `import:ballotpedia:load`, `import:wrcg:load`) upsert into the same tables. Scripts should never write to the legacy `candidate.engagement` markdown field.
 - **Legacy fallback**: The front-end still renders the old markdown blob when no structured data exists, so historical copy remains visible. Prefer structured entries going forward; only use the markdown field for archival context.
 
+## Endorsement Management
+
+- **Admin workflow**: Moderators can add or remove endorsements at `/admin/endorsements`. Two flows exist—one for web links, one for file uploads (PDFs/images). Uploaded files are stored under `public/uploads/endorsements/{year}` and surfaced automatically on candidate pages.
+- **API endpoints**: `GET/POST /api/admin/endorsements` lists and creates endorsements (POST handles both JSON payloads and multipart file uploads). `DELETE /api/admin/endorsements/:id` removes a record and its associated file. CSRF tokens and MODERATOR/ADMIN roles are required.
+- **Data model**: Each `Endorsement` now supports `url`, `filePath`, optional `sourceTitle`, and `notes`, alongside existing `type`/`forAgainst` fields.
+- **Imports**: The letters-to-the-editor loader continues to produce URL-based endorsements. Future scripts can add file uploads by writing into these same columns.
+- **Community suggestions**: When edit mode is enabled on candidate pages, contributors can submit supporting or opposing endorsements. Submissions create `ENDORSEMENT` edits (link or upload). Uploaded files are staged under `/uploads/endorsements/pending/{year}` and moved into the final directory once a moderator approves the edit.
+
 ## Database Schema & Data Flow
 
 ### Schema considerations

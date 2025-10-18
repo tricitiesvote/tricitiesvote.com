@@ -19,6 +19,22 @@ header p {
 header nav {
   font-weight: 600;
 }
+
+.wiki-controls {
+  font-size: 12px !important;
+  border-bottom: 1px solid #e4f5f5;
+}
+.wiki-controls span, .wiki-controls button {
+  display: inline-block;
+  margin: 10px;
+}
+
+.wiki-controls .logout-button {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
 .penalty-box {
   margin: 10px 0 20px 0;
   display: block;
@@ -806,6 +822,35 @@ del, del a:link, del li {
   margin: 5px 15px 10px 5px;
 }
 
+.candidate-no-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  background-color: #f7ffff;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 15px 10px 5px;
+}
+
+.candidate-no-image span {
+  font-size: 48px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.candidate.candidate-full .candidate-no-image {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
+
+.candidate.candidate-full .candidate-no-image span {
+  font-size: 32px;
+}
+
 .info ul {
   padding-left: 25px;
 }
@@ -827,6 +872,7 @@ del, del a:link, del li {
   margin-top: 0;
   margin-bottom: 15px;
   font-size: 22px;
+  margin-left: 10px;
 }
 
 .candidate.candidate-full .candidate-expanded {
@@ -1005,6 +1051,64 @@ del, del a:link, del li {
   top: 5px;
   font-size: 18px;
 }
+
+.endorsement-item {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: baseline;
+}
+
+.endorsement-meta {
+  font-size: 0.85em;
+  color: #555;
+}
+
+.endorsement-suggest {
+  margin-top: 15px;
+  padding: 12px 14px;
+  border: 1px dashed #cbd5f5;
+  border-radius: 8px;
+  background-color: #f8fbff;
+}
+
+.endorsement-suggest__intro {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: #415a77;
+}
+
+.endorsement-suggest__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.endorsement-suggest__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background-color: transparent;
+  color: #374151;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.endorsement-suggest__button:hover {
+  background-color: #f3f4f6;
+  border-color: #cbd5e1;
+}
+
+.endorsement-suggest__button:focus {
+  outline: none;
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 1px #94a3b8;
+}
 .candidate-mini .recs {
   text-align: center;
 }
@@ -1013,6 +1117,36 @@ del, del a:link, del li {
   font-size: 15px;
   text-align: center;
   color: #aaa;
+}
+
+.wiki-trigger-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background-color: transparent;
+  color: #1d4ed8;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.wiki-trigger-button:hover {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.candidate-link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.candidate-link-item span:first-child {
+  min-width: 1.2rem;
 }
 
 .candidate-mini li a, .candidate-mini .recs .yes::before, .candidate-mini .recs .no::before {
