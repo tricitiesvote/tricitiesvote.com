@@ -13,6 +13,7 @@ type RaceLike = {
 }
 
 const ODD_YEAR_PRIORITY: OfficeType[] = [
+  OfficeType.MAYOR,
   OfficeType.CITY_COUNCIL,
   OfficeType.SCHOOL_BOARD,
   OfficeType.PORT_COMMISSIONER,

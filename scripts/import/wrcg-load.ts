@@ -194,6 +194,7 @@ async function loadWrcg() {
               notes: row.hasQuestionnaire
                 ? `Completed WRCG questionnaire - ${row.url}`
                 : row.notes || 'Did not complete questionnaire',
+              link: row.url || engagementPrimaryLink,
             },
           })
           results.push(
@@ -209,6 +210,7 @@ async function loadWrcg() {
               notes: row.hasQuestionnaire
                 ? `Completed WRCG questionnaire - ${row.url}`
                 : row.notes || 'Did not complete questionnaire',
+              link: row.url || engagementPrimaryLink,
             },
           })
 

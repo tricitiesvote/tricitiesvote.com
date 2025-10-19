@@ -53,7 +53,23 @@ interface SurveyResponseRow {
  *   "Kurt H. Maier" → "Kurt_H._Maier"
  *   "John Doe Jr." → "John_Doe_Jr."
  */
+const BALLOTPEDIA_NAME_OVERRIDES: Record<string, string> = {
+  'Leo Perales': 'Leo_A._Perales',
+  'Kurt H Maier': 'Kurt_H._Maier'
+}
+
+const MAYOR_OFFICE_SLUGS: Record<string, string> = {
+  Kennewick: 'Mayor_of_Kennewick',
+  Pasco: 'Mayor_of_Pasco',
+  Richland: 'Mayor_of_Richland',
+  'West Richland': 'Mayor_of_West_Richland'
+}
+
 function formatNameForUrl(name: string): string {
+  const override = BALLOTPEDIA_NAME_OVERRIDES[name]
+  if (override) {
+    return override
+  }
   return name.replace(/ /g, '_')
 }
 
@@ -73,6 +89,15 @@ function formatNameForUrl(name: string): string {
  *   - "Pasco School Board At-Large Position 5" → "Pasco_School_District_school_board_Position_5_At-large"
  */
 function formatOfficeForUrl(office: string, officeType: string): string {
+  if (officeType === 'MAYOR') {
+    const cityMatch = office.match(/^(.*) Mayor$/)
+    if (cityMatch) {
+      const city = cityMatch[1]
+      return MAYOR_OFFICE_SLUGS[city] ?? `Mayor_of_${city.replace(/ /g, '_')}`
+    }
+    return office.replace(/ /g, '_')
+  }
+
   if (officeType === 'SCHOOL_BOARD') {
     // Parse: "{City} School Board {Type} {Number}"
     // Pattern: City_School_District_school_board_Position_N or _District_N or _Position_N_At-large
@@ -278,51 +303,36 @@ async function scrapeBallotpedia() {
             .replace(/\s+/g, ' ')
             .trim()
 
-        const heading = document.querySelector('#Candidate_Connection_survey')
-        if (!heading) {
-          return {
-            surveyCompleted: false,
-            responses: [] as Array<{ question: string; answer: string }>
-          }
-        }
-
         const responses: Array<{ question: string; answer: string }> = []
-        let pointer = heading.parentElement?.nextElementSibling ?? null
-        let current: { question: string; answerParts: string[] } | null = null
 
-        const commit = () => {
-          if (current && current.question.trim() && current.answerParts.length > 0) {
-            const answer = normalizeText(current.answerParts.join('\n\n'))
-            if (answer.length > 0) {
-              responses.push({
-                question: normalizeText(current.question),
-                answer
-              })
-            }
+        const accordionPanels = Array.from(document.querySelectorAll('#accordion .panel')) as HTMLElement[]
+        for (const panel of accordionPanels) {
+          const question = normalizeText(panel.querySelector('.panel-title')?.textContent ?? '')
+          const answer = normalizeText(panel.querySelector('.panel-body')?.textContent ?? '')
+          if (question && answer) {
+            responses.push({ question, answer })
           }
-          current = null
         }
 
-        while (pointer && pointer.tagName !== 'H2') {
-          const tagName = pointer.tagName
+        if (responses.length === 0) {
+          const questionElements = Array.from(
+            document.querySelectorAll('#Candidate_Connection_survey .survey-question, #Campaign_themes .survey-question')
+          ) as HTMLElement[]
+          if (questionElements.length > 0) {
+            const responseElements = Array.from(
+              document.querySelectorAll('#Candidate_Connection_survey .survey-response, #Campaign_themes .survey-response')
+            ) as HTMLElement[]
+            const pairCount = Math.min(questionElements.length, responseElements.length)
 
-          if (tagName === 'H3' || tagName === 'H4') {
-            commit()
-            current = {
-              question: normalizeText(pointer.textContent),
-              answerParts: []
-            }
-          } else if (current && (tagName === 'P' || tagName === 'UL' || tagName === 'OL')) {
-            const text = normalizeText(pointer.textContent)
-            if (text.length > 0) {
-              current.answerParts.push(text)
+            for (let i = 0; i < pairCount; i++) {
+              const question = normalizeText(questionElements[i].textContent ?? '')
+              const answer = normalizeText(responseElements[i].textContent ?? '')
+              if (question && answer) {
+                responses.push({ question, answer })
+              }
             }
           }
-
-          pointer = pointer.nextElementSibling
         }
-
-        commit()
 
         return {
           surveyCompleted: responses.length > 0,
@@ -330,7 +340,13 @@ async function scrapeBallotpedia() {
         }
       })
 
-      const actualSurveyCompleted = hasSurveyContent || (surveyCompleted && (await page.locator('#Campaign_themes').count() > 0))
+      const pageBodyLower = pageBody.toLowerCase()
+      const hasExplicitIncomplete =
+        pageBodyLower.includes("has not yet completed ballotpedia's candidate connection survey") ||
+        pageBodyLower.includes('has not completed ballotpedia') ||
+        pageBodyLower.includes('has not yet completed ballotpedia’s candidate connection survey')
+
+      const actualSurveyCompleted = !hasExplicitIncomplete && candidateSurveyResponses.length > 0
 
       console.log(
         `  ${actualSurveyCompleted ? EMOJI.SUCCESS : EMOJI.INFO} Survey: ${actualSurveyCompleted ? 'Completed' : 'Not completed'}`

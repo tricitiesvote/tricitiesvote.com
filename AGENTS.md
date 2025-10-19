@@ -15,6 +15,9 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `JWT_SECRET` – JWT secret for wiki authentication
   - `MAILGUN_API_KEY`, `MAILGUN_DOMAIN`, `MAILGUN_FROM` – Email service for wiki notifications
   - `NEXT_PUBLIC_BASE_URL` – Base URL for magic link emails
+  - `NEXT_PUBLIC_SHOW_UNCONTESTED` – set to `true` to include uncontested races in list views (default hides them)
+  - `NEXT_PUBLIC_HIDE_PARTIAL_TCV_RESPONSES` – leave unset (default `true`) to hide Tri-Cities Vote Q&A answers until every candidate in a contested race responds; set to `false` to always display the answers
+  - `NEXT_PUBLIC_TCV_PARTIAL_HIDE_EXCEPTIONS` – comma-separated list of race identifiers (slug, race ID, or exact title) that bypass the partial-response hiding rule; defaults include `richland-city-council-position-3` for the Holten/Walko contest
 - Install and run:
   - `npm install`
   - `npx prisma generate`
@@ -38,6 +41,7 @@ This file gives working instructions for agents in this repo. Its scope is the e
   2. **PDC candidates + offices** (recreates seats listed in `scripts/import/2025-seats.ts`):
      - `npx tsx scripts/import/pdc-candidates-2025.ts`
      - `npm run import:pdc:fast 2025`
+     - ✅ Make sure **Benton County City of West Richland Mayor** is present in `2025-seats.ts` before running; this keeps the mayoral contest in sync with Vote411, WRCG, and PDC imports.
   3. **Core race enforcement** (ensures every tracked seat exists and only general candidates remain):
      - `npx tsx scripts/import/ensure-2025-core-races.ts`
   4. **Guide linking** (reattach races to guides):
@@ -52,7 +56,8 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `scripts/check-*` utilities to spot duplicates or missing offices.
   - `npm run import:questionnaire <city-council|school-board|all>` loads 2025 questionnaire CSVs (rerunnable; writes unmatched names to `scripts/import/unmatched-*.txt`).
   - `npx tsx scripts/add-announcements.ts` – populate League of Women Voters events in guides.
-  - Engagement/questionnaire imports live under `scripts/import/` (`npm run import:tcrc`, `import:tcrc:videos`, `import:ballotpedia`, `import:wrcg`). Each script upserts into `Engagement` and `CandidateEngagement`; run the `:load` companion command to write DB changes after reviewing CSV output.
+  - Engagement/questionnaire imports live under `scripts/import/` (`npm run import:tcrc`, `import:tcrc:videos`, `import:ballotpedia`, `import:wrcg`, `import:lowv`). Each script produces both a participation CSV **and** a detailed responses CSV, then upserts into `Engagement` + `CandidateEngagement`; run the `:load` companion command to write DB changes after reviewing CSV output.
+  - Vote411 scraper (`import:lowv`) calls the Vote411 REST API directly (client credentials are embedded in the public widget). No browser automation is required; ensure outbound HTTPS is available.
 
 Notes:
 - Scripts under `scripts/` are designed to be re-runnable and conservative. Prefer running those over ad‑hoc DB edits.
@@ -60,9 +65,9 @@ Notes:
 
 - Next.js app and Prisma schema are in place; voter guide pages render from DB data.
 - Primary 2025 data is archived; only the November general roster is present in Prisma (26 races, every seat named per the standards below).
-- The `/` landing page mirrors the legacy intro, auto-selects the latest election, and lists every general race via `RaceCard` so DB changes surface immediately.
+- The `/` landing page mirrors the legacy intro, auto-selects the latest election, and lists every general race via `RaceCard` so DB changes surface immediately. Uncontested races are hidden by default; flip `NEXT_PUBLIC_SHOW_UNCONTESTED=true` locally if you need to inspect them in list views.
 - PDC importers normalize offices to the canonical seat format (`{City} City Council {Ward/Position/District}`, `{City} School Board {District/Position}`, `Port of {Locale} Commissioner District {n}`) and only ingest candidates defined in `scripts/import/2025-seats.ts`.
-- West Richland, Kennewick, Pasco, Richland, and the two ports all have current general lineups; unopposed seats show a single candidate.
+- West Richland (including the **Mayor** contest), Kennewick, Pasco, Richland, and the two ports all have current general lineups; unopposed seats show a single candidate.
 - Compare view (`/{year}/compare/{slug}`) is live and uses the same "N/A" fallbacks as the main pages.
 - General statements/photos/contact are still arriving; pamphlet scripts are re-runnable and fill gaps as counties publish updates.
 - Some older docs still reference a "complete" primary import—treat those as historical context only.
@@ -149,6 +154,7 @@ Notes:
 - Wiki system prioritizes wiki overrides (`*Wiki` fields) over original data when present.
 - Prefer showing clear "Awaiting data" copy rather than hiding candidates.
 - Announcements display as empty when no content is provided.
+- Tri-Cities Vote questionnaires stay hidden for contested races until every visible candidate responds (unless `NEXT_PUBLIC_HIDE_PARTIAL_TCV_RESPONSES=false` or the race slug/ID/title lives in `NEXT_PUBLIC_TCV_PARTIAL_HIDE_EXCEPTIONS`). A banner reminds readers which candidates are still outstanding and links to their email when available unless the bypass applies.
 
 ## Validation & Debugging
 - Open `/debug` to list guides/years.

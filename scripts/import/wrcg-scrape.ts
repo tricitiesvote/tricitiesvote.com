@@ -31,6 +31,13 @@ interface WrcgResponse {
   hasQuestionnaire: boolean
   questionnaireText?: string
   notes?: string
+  responses?: QuestionAnswer[]
+}
+
+interface QuestionAnswer {
+  position: number
+  question: string
+  answer: string
 }
 
 async function scrapeWrcg() {
@@ -91,6 +98,13 @@ async function scrapeWrcg() {
   const page = await context.newPage()
 
   const results: WrcgResponse[] = []
+  const detailedResponses: Array<{
+    candidateName: string
+    position: number
+    question: string
+    answer: string
+    url: string
+  }> = []
   let processed = 0
 
   // First, visit the main elections page to understand the structure
@@ -170,19 +184,71 @@ async function scrapeWrcg() {
       await page.waitForSelector('#PAGES_CONTAINER').catch(() => {})
       await page.waitForTimeout(RATE_LIMITS.WIX_LOADS)
 
-      // Extract all text content from the page
-      const pageText = await page.evaluate(() => {
-        // Get main content area, avoid headers/footers
-        const main = document.querySelector('#PAGES_CONTAINER')
-        if (!main) return ''
+      // Extract questionnaire content
+      const extraction = await page.evaluate(() => {
+        const normalize = (value: string | null | undefined) =>
+          (value ?? '')
+            .replace(/\s+/g, ' ')
+            .trim()
 
-        // Get all text nodes, join with line breaks
-        const paragraphs = main.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li')
-        return Array.from(paragraphs)
-          .map(el => el.textContent?.trim())
-          .filter(Boolean)
-          .join('\n\n')
+        const main = document.querySelector('#PAGES_CONTAINER')
+        if (!main) {
+          return {
+            plainText: '',
+            responses: [] as Array<{ position: number; question: string; answer: string }>
+          }
+        }
+
+        const paragraphs = Array.from(main.querySelectorAll('p, h1, h2, h3, h4, h5, h6'))
+          .map(element => normalize(element.textContent))
+          .filter(text => text.length > 0)
+
+        type WorkingResponse = {
+          position: number
+          question: string
+          answers: string[]
+        }
+
+        const responses: WorkingResponse[] = []
+        let current: WorkingResponse | null = null
+
+        const commit = () => {
+          if (current && current.question && current.answers.length > 0) {
+            responses.push(current)
+          }
+          current = null
+        }
+
+        for (const paragraph of paragraphs) {
+          const match = paragraph.match(/^(\d+)\s*[\).\:-]\s*(.+)$/)
+          if (match) {
+            commit()
+            current = {
+              position: Number.parseInt(match[1], 10),
+              question: match[2].trim(),
+              answers: []
+            }
+            continue
+          }
+
+          if (current) {
+            current.answers.push(paragraph)
+          }
+        }
+
+        commit()
+
+        return {
+          plainText: paragraphs.join('\n\n'),
+          responses: responses.map(item => ({
+            position: item.position,
+            question: item.question,
+            answer: item.answers.join('\n\n')
+          }))
+        }
       })
+
+      const pageText = extraction.plainText
 
       if (!pageText || pageText.length < 100) {
         console.log(`  ${EMOJI.SKIP} Insufficient text content found`)
@@ -195,10 +261,9 @@ async function scrapeWrcg() {
         continue
       }
 
-      // Check if this looks like a questionnaire (has numbered questions)
-      const hasNumberedQuestions = /\d+\)/.test(pageText)
+      const hasResponses = extraction.responses.length > 0
 
-      if (hasNumberedQuestions) {
+      if (hasResponses) {
         console.log(`  ${EMOJI.SUCCESS} Found questionnaire content`)
         results.push({
           candidateName: candidate.name,
@@ -206,6 +271,16 @@ async function scrapeWrcg() {
           hasQuestionnaire: true,
           questionnaireText: pageText,
           notes: 'Questionnaire found',
+          responses: extraction.responses,
+        })
+        extraction.responses.forEach(entry => {
+          detailedResponses.push({
+            candidateName: candidate.name,
+            position: entry.position,
+            question: entry.question,
+            answer: entry.answer,
+            url: urlToTry,
+          })
         })
       } else {
         console.log(`  ${EMOJI.INFO} Page exists but no questionnaire format detected`)
@@ -256,6 +331,31 @@ async function scrapeWrcg() {
   const csv = [csvHeaders, ...csvLines].join('\n')
   const outputPath = 'scripts/import/wrcg-responses.csv'
   fs.writeFileSync(outputPath, csv)
+
+  if (detailedResponses.length > 0) {
+    const detailHeaders = 'Candidate Name,Question Order,Question,Answer,URL'
+    const detailLines = detailedResponses
+      .sort((a, b) =>
+        a.candidateName === b.candidateName
+          ? a.position - b.position
+          : a.candidateName.localeCompare(b.candidateName)
+      )
+      .map(r =>
+        [
+          escapeCsvField(r.candidateName),
+          String(r.position),
+          escapeCsvField(r.question),
+          escapeCsvField(r.answer),
+          escapeCsvField(r.url),
+        ].join(',')
+      )
+
+    const detailPath = 'scripts/import/wrcg-questionnaire-responses.csv'
+    fs.writeFileSync(detailPath, [detailHeaders, ...detailLines].join('\n'))
+    console.log(`${EMOJI.SUCCESS} Detailed responses saved to ${detailPath}`)
+  } else {
+    console.log(`${EMOJI.INFO} No detailed responses extracted`)
+  }
 
   // Summary
   const withQuestionnaire = results.filter(r => r.hasQuestionnaire).length

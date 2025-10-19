@@ -14,7 +14,7 @@ async function prepare2025(options: PrepareOptions = {}) {
   try {
     // 1. Ensure regions exist
     console.log('📍 Checking regions...');
-    const regionNames = ['Kennewick', 'Pasco', 'Richland'];
+    const regionNames = ['Kennewick', 'Pasco', 'Richland', 'West Richland'];
     const regions = new Map<string, string>();
     
     for (const name of regionNames) {
@@ -78,8 +78,8 @@ async function prepare2025(options: PrepareOptions = {}) {
       { region: 'Richland', office: 'Richland School Board', positions: [1, 2, 3, 4, 5], type: OfficeType.SCHOOL_BOARD },
       
       // West Richland offices (under Richland region)
-      { region: 'Richland', office: 'West Richland City Council', positions: [1, 2, 3, 4, 5, 6, 7], type: OfficeType.CITY_COUNCIL },
-      { region: 'Richland', office: 'West Richland Mayor', positions: null, type: OfficeType.MAYOR },
+      { region: 'West Richland', office: 'West Richland City Council', positions: [1, 2, 3, 4, 5, 6, 7], type: OfficeType.CITY_COUNCIL },
+      { region: 'West Richland', office: 'West Richland Mayor', positions: null, type: OfficeType.MAYOR },
       
       // Port Commissioner (cross-regional)
       { region: 'Benton County', office: 'Port of Benton Commissioner', positions: [1, 2, 3], type: OfficeType.PORT_COMMISSIONER },

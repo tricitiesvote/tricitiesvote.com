@@ -3,8 +3,10 @@ import { prisma } from '@/lib/db'
 import { CompareCandidateStatement } from './CompareCandidateStatement'
 
 interface CompareQuestionnairesProps {
-  raceId: string
   year: number
+  regionId?: string | null
+  candidates: CandidateMeta[]
+  hiddenTitles?: string[]
 }
 
 interface CandidateMeta {
@@ -30,7 +32,7 @@ interface CandidateEntry extends CandidateMeta {
 interface OpenQuestion {
   id: string
   question: string
-  responses: Array<CandidateMeta & { answer: string }>
+  responses: Record<string, string>
 }
 
 type QuestionnaireWithRelations = Prisma.QuestionnaireGetPayload<{
@@ -51,51 +53,33 @@ interface QuestionnaireSection {
   openQuestions: OpenQuestion[]
 }
 
-export async function CompareQuestionnaires({ raceId, year }: CompareQuestionnairesProps) {
-  const race = await prisma.race.findUnique({
-    where: { id: raceId },
-    select: {
-      office: { select: { regionId: true } },
-      candidates: {
-        select: {
-          candidateId: true,
-          candidate: {
-            select: {
-              id: true,
-              name: true,
-              image: true,
-              hide: true
-            }
-          }
-        }
-      }
-    }
-  })
-
-  if (!race) {
-    return null
-  }
-
-  const visibleCandidates = race.candidates
-    .filter(({ candidate }) => candidate && !candidate.hide)
-    .map(({ candidateId, candidate }) => ({
-      id: candidateId,
-      name: candidate?.name ?? '',
-      image: candidate?.image ?? null
+export async function CompareQuestionnaires({
+  year,
+  regionId,
+  candidates,
+  hiddenTitles = []
+}: CompareQuestionnairesProps) {
+  const orderedCandidates = candidates
+    .map(candidate => ({
+      id: candidate.id,
+      name: candidate.name,
+      image: candidate.image ?? null
     }))
     .filter(candidate => candidate.name.trim().length > 0)
 
-  if (visibleCandidates.length === 0) {
+  if (orderedCandidates.length === 0) {
     return null
   }
 
   const candidateMap = new Map<string, CandidateMeta>()
-  for (const candidate of visibleCandidates) {
+  for (const candidate of orderedCandidates) {
     candidateMap.set(candidate.id, candidate)
   }
 
-  const regionFilter = race.office.regionId
-    ? [{ regionId: null }, { regionId: race.office.regionId }]
+  const candidateIds = orderedCandidates.map(candidate => candidate.id)
+
+  const regionFilter = regionId
+    ? [{ regionId: null }, { regionId }]
     : [{ regionId: null }]
 
   const questionnaires = await prisma.questionnaire.findMany({
@@ -109,7 +93,7 @@ export async function CompareQuestionnaires({ raceId, year }: CompareQuestionnai
       },
       responses: {
         where: {
-          candidateId: { in: visibleCandidates.map(candidate => candidate.id) }
+          candidateId: { in: candidateIds }
         },
         include: {
           candidate: {
@@ -125,9 +109,14 @@ export async function CompareQuestionnaires({ raceId, year }: CompareQuestionnai
     orderBy: { title: 'asc' }
   })
 
+  const hiddenTitleSet = new Set(hiddenTitles)
+
   const sections: QuestionnaireSection[] = questionnaires
     .map(questionnaire => buildSection(questionnaire, candidateMap))
-    .filter(section => section.abRows.length > 0 || section.openQuestions.length > 0)
+    .filter(section =>
+      (section.abRows.length > 0 || section.openQuestions.length > 0) &&
+      !hiddenTitleSet.has(section.title)
+    )
 
   if (sections.length === 0) {
     return null
@@ -141,19 +130,33 @@ export async function CompareQuestionnaires({ raceId, year }: CompareQuestionnai
 
           {section.openQuestions.length > 0 && (
             <div className="questionnaire-open">
-              {section.openQuestions.map(question => (
-                <article key={question.id} className="questionnaire-open-question">
-                  <h3>{question.question}</h3>
-                  <div className="questionnaire-open-responses">
-                    {question.responses.map(response => (
-                      <div key={response.id} className="questionnaire-open-response">
-                        <strong>{response.name}</strong>
-                        <p>{response.answer}</p>
-                      </div>
-                    ))}
+              {section.openQuestions.map(question => {
+                const gridStyle = {
+                  gridTemplateColumns: `repeat(auto-fit, minmax(320px, 1fr))`
+                }
+
+                return (
+                  <div key={question.id} className="questionnaire-open-block">
+                    <div className="questionnaire-open-question-cell">
+                      <h3>{question.question}</h3>
+                    </div>
+                    <div className="questionnaire-open-answer-list" style={gridStyle}>
+                      {orderedCandidates.map(candidate => {
+                        const answer = question.responses[candidate.id]
+                        return (
+                          <div
+                            key={candidate.id}
+                            className={`questionnaire-open-answer-card${answer ? '' : ' questionnaire-open-answer-empty'}`}
+                          >
+                            <h4>{candidate.name}</h4>
+                            {answer ? <p>{answer}</p> : <span className="questionnaire-open-answer-none">—</span>}
+                          </div>
+                        )
+                      })}
+                    </div>
                   </div>
-                </article>
-              ))}
+                )
+              })}
             </div>
           )}
 
@@ -284,16 +287,20 @@ function buildSection(
     }
 
     if (question.type === 'OPEN') {
-      const openResponses = responses
-        .filter(response => Boolean(response.textResponse))
-        .map(response => toOpenEntry(response, candidateMap))
-        .filter(Boolean) as OpenQuestion['responses']
+      const responsesRecord: Record<string, string> = {}
 
-      if (openResponses.length > 0 && question.question) {
+      responses.forEach(response => {
+        const entry = toOpenEntry(response, candidateMap)
+        if (entry) {
+          responsesRecord[entry.id] = entry.answer
+        }
+      })
+
+      if (Object.keys(responsesRecord).length > 0 && question.question) {
         openQuestions.push({
           id: question.id,
           question: question.question,
-          responses: openResponses
+          responses: responsesRecord
         })
       }
     }

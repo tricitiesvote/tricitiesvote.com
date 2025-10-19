@@ -1,7 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { Prisma, PrismaClient } from '@prisma/client'
+import { Prisma, PrismaClient, OfficeType } from '@prisma/client'
 import { NameMatcher } from '../../lib/normalize/names'
+import { generateEngagementSlug } from './config'
+import { slugify } from '../../lib/utils'
 
 const prisma = new PrismaClient()
 
@@ -531,6 +533,122 @@ async function importQuestionnaire(type: QuestionnaireType) {
   }
 }
 
+async function syncTriCitiesVoteEngagement() {
+  const engagementTitle = 'Tri-Cities Vote Q&A'
+  const engagementDate = new Date('2025-10-01')
+  const engagementSlug = generateEngagementSlug(engagementTitle, engagementDate)
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://tricitiesvote.com'
+
+  const questionnaires = await prisma.questionnaire.findMany({
+    where: { slug: { in: ['2025-city-council', '2025-school-board'] } },
+    select: { id: true }
+  })
+
+  if (questionnaires.length === 0) {
+    console.log('⚠️  No Tri-Cities Vote questionnaires found; skipping engagement sync.')
+    return
+  }
+
+  const questionnaireIds = questionnaires.map(q => q.id)
+
+  const respondingCandidates = await prisma.questionnaireResponse.findMany({
+    where: { questionnaireId: { in: questionnaireIds } },
+    distinct: ['candidateId'],
+    select: { candidateId: true }
+  })
+  const responders = new Set(respondingCandidates.map(entry => entry.candidateId))
+
+  const engagement = await prisma.engagement.upsert({
+    where: { slug: engagementSlug },
+    create: {
+      slug: engagementSlug,
+      title: engagementTitle,
+      date: engagementDate,
+      primaryLink: `${baseUrl}/2025`,
+      notes: 'Tri-Cities Vote candidate questionnaire responses (city councils and school boards).'
+    },
+    update: {
+      title: engagementTitle,
+      date: engagementDate,
+      primaryLink: `${baseUrl}/2025`,
+      notes: 'Tri-Cities Vote candidate questionnaire responses (city councils and school boards).'
+    }
+  })
+
+  const candidates = await prisma.candidate.findMany({
+    where: {
+      electionYear: 2025,
+      office: {
+        type: {
+          in: [OfficeType.CITY_COUNCIL, OfficeType.SCHOOL_BOARD]
+        }
+      }
+    },
+    include: {
+      office: true,
+      races: {
+        where: {
+          race: {
+            electionYear: 2025,
+            type: 'GENERAL'
+          }
+        },
+        include: {
+          race: {
+            include: {
+              office: true
+            }
+          }
+        }
+      }
+    }
+  })
+
+  let participatedCount = 0
+
+  for (const candidate of candidates) {
+    const participated = responders.has(candidate.id)
+    if (participated) {
+      participatedCount++
+    }
+
+    const generalRace = candidate.races.find(entry => entry.race?.type === 'GENERAL')
+    const raceTitle = generalRace?.race?.office?.title ?? candidate.office.title
+    const raceSlug = slugify(raceTitle)
+    const raceLink = `${baseUrl}/${candidate.electionYear}/race/${raceSlug}`
+
+    await prisma.candidateEngagement.upsert({
+      where: {
+        engagementId_candidateId: {
+          engagementId: engagement.id,
+          candidateId: candidate.id
+        }
+      },
+      create: {
+        engagementId: engagement.id,
+        candidateId: candidate.id,
+        participated,
+        notes: participated ? 'Responded on Tri-Cities Vote Q&A' : 'No response yet',
+        link: raceLink
+      },
+      update: {
+        participated,
+        notes: participated ? 'Responded on Tri-Cities Vote Q&A' : 'No response yet',
+        link: raceLink
+      }
+    })
+  }
+
+  console.log(`\n📊 Tri-Cities Vote Q&A Engagement synced`)
+  console.log(`   - ${participatedCount} participants (${participantsPercentage(participatedCount, candidates.length)} of ${candidates.length})`)
+}
+
+function participantsPercentage(participated: number, total: number): string {
+  if (total === 0) return '0%'
+  const pct = (participated / total) * 100
+  return `${pct.toFixed(1)}%`
+}
+
 async function main() {
   const arg = process.argv[2]
 
@@ -550,11 +668,24 @@ async function main() {
     process.exit(1)
   }
 
+  let encounteredError = false
+
   for (const type of types) {
     try {
       await importQuestionnaire(type)
     } catch (error) {
       console.error(`❌ Failed to import ${type} questionnaire`)
+      console.error(error)
+      process.exitCode = 1
+      encounteredError = true
+    }
+  }
+
+  if (!encounteredError) {
+    try {
+      await syncTriCitiesVoteEngagement()
+    } catch (error) {
+      console.error('❌ Failed to sync Tri-Cities Vote Q&A engagement')
       console.error(error)
       process.exitCode = 1
     }

@@ -144,6 +144,21 @@ function normalizePort(office: string): NormalizedOffice | null {
   }
 }
 
+function normalizeMayor(office: string, jurisdiction: string): NormalizedOffice | null {
+  const city = detectCity(jurisdiction, office)
+  if (!city) {
+    return null
+  }
+
+  return {
+    regionName: city,
+    officeType: OfficeType.MAYOR,
+    officeTitle: `${city} Mayor`,
+    jobTitle: 'Mayor',
+    position: null
+  }
+}
+
 export function normalizeLocalOffice(params: {
   office: string
   jurisdiction: string
@@ -162,6 +177,10 @@ export function normalizeLocalOffice(params: {
 
   if (officeUpper.includes('PORT')) {
     return normalizePort(office)
+  }
+
+  if (officeUpper.includes('MAYOR')) {
+    return normalizeMayor(office, jurisdiction)
   }
 
   return null

@@ -1,16 +1,16 @@
 /**
- * TCRC Questionnaire Loader
+ * LWV Vote411 Loader
  *
- * Loads TCRC questionnaire participation data from CSV into the database.
- * Creates Engagement and CandidateEngagement records.
+ * Loads Vote411 questionnaire participation data from CSV into the database.
+ * Creates/updates Engagement and CandidateEngagement records.
  *
  * Usage:
- *   npm run import:tcrc:load              # Dry run (CSV output only)
- *   IMPORT_MODE=db npm run import:tcrc:load   # Write to database
+ *   npm run import:lowv:load              # Dry run (CSV output only)
+ *   IMPORT_MODE=db npm run import:lowv:load   # Write to database
  *
  * Requirements:
  *   - DATABASE_URL in environment
- *   - CSV file from tcrc-questionnaire.ts: scripts/import/tcrc-responses.csv
+ *   - CSV file from lowv-scrape.ts: scripts/import/lowv-responses.csv
  */
 
 import { PrismaClient } from '@prisma/client'
@@ -28,54 +28,56 @@ const prisma = new PrismaClient()
 interface CsvRow {
   candidateName: string
   office: string
+  region: string
   participated: boolean
   notes: string
+  raceUrl: string
 }
 
-async function loadQuestionnaire() {
-  console.log(`${EMOJI.SEARCH} Starting TCRC Questionnaire loader...\n`)
+async function loadLowv() {
+  console.log(`${EMOJI.SEARCH} Starting Vote411 loader...\n`)
 
   const outputMode = getOutputMode()
   console.log(outputMode.message)
   console.log()
 
-  const csvPath = 'scripts/import/tcrc-responses.csv'
+  const csvPath = 'scripts/import/lowv-responses.csv'
 
-  // Check for CSV file
   const fs = await import('fs')
   if (!fs.existsSync(csvPath)) {
     console.error(`${EMOJI.ERROR} ERROR: CSV file not found: ${csvPath}`)
-    console.error('Please run: npm run import:tcrc first')
+    console.error('Please run: npm run import:lowv first')
     process.exit(1)
   }
 
-  // Read CSV
   console.log(`${EMOJI.SEARCH} Reading CSV file...`)
   const csvContent = fs.readFileSync(csvPath, 'utf-8')
   const lines = csvContent.split('\n').slice(1) // Skip header
 
   const rows: CsvRow[] = []
-  let lineNum = 2 // Start at 2 (header is line 1)
+  let lineNum = 2
 
   for (const line of lines) {
     if (!line.trim()) continue
 
-    const fields = parseCsvLine(line, 4)
+    const fields = parseCsvLine(line, 6)
     if (!fields) {
       console.log(
-        `${EMOJI.WARNING} Skipping malformed line ${lineNum}: ${line.substring(0, 50)}...`
+        `${EMOJI.WARNING} Skipping malformed line ${lineNum}: ${line.substring(0, 80)}...`
       )
       lineNum++
       continue
     }
 
-    const [candidateName, office, participatedStr, notes] = fields
+    const [candidateName, office, region, participatedStr, notes, raceUrl] = fields
 
     rows.push({
       candidateName,
       office,
+      region,
       participated: participatedStr.toUpperCase() === 'TRUE',
       notes,
+      raceUrl,
     })
 
     lineNum++
@@ -83,7 +85,6 @@ async function loadQuestionnaire() {
 
   console.log(`${EMOJI.SUCCESS} Parsed ${rows.length} rows from CSV\n`)
 
-  // Fetch all candidates for name matching
   console.log(`${EMOJI.SEARCH} Fetching candidates from database...`)
   const candidates = await prisma.candidate.findMany({
     where: {
@@ -96,33 +97,21 @@ async function loadQuestionnaire() {
 
   console.log(`${EMOJI.SUCCESS} Found ${candidates.length} candidates\n`)
 
-  // Process each row
-  const results: string[] = []
-  let imported = 0
-  let skipped = 0
-  let errors = 0
-
-  // Engagement details (same for all candidates)
-  const engagementTitle = 'TCRC Questionnaire 2025'
-  const engagementDate = new Date('2025-08-01') // Approximate - adjust if you have exact date
-  const engagementSlug = generateEngagementSlug(
-    engagementTitle,
-    engagementDate
-  )
-  const engagementPrimaryLink =
-    'https://indd.adobe.com/view/publication/6ff62159-8c7f-435a-bc67-2ab6b3d56467/c17s/publication-web-resources/pdf/2025_Vote_for_Business_Primary_Candidate_Questionnaire.pdf'
+  const engagementTitle = 'LWV Vote411 Questionnaire 2025'
+  const engagementDate = new Date('2025-08-01')
+  const engagementSlug = generateEngagementSlug(engagementTitle, engagementDate)
+  const engagementPrimaryLink = 'https://www.vote411.org/ballot'
 
   if (!isDryRun()) {
-    // Create or update the Engagement record (once for all candidates)
     console.log(`${EMOJI.SEARCH} Creating/updating Engagement record...`)
-    const engagement = await prisma.engagement.upsert({
+    await prisma.engagement.upsert({
       where: { slug: engagementSlug },
       create: {
         slug: engagementSlug,
         title: engagementTitle,
         date: engagementDate,
         primaryLink: engagementPrimaryLink,
-        notes: 'Tri-City Regional Chamber of Commerce candidate questionnaire for the 2025 primary election',
+        notes: 'League of Women Voters Vote411 questionnaire responses for 2025 general election',
       },
       update: {
         title: engagementTitle,
@@ -130,14 +119,18 @@ async function loadQuestionnaire() {
         primaryLink: engagementPrimaryLink,
       },
     })
-    console.log(`${EMOJI.SUCCESS} Engagement record ready: ${engagement.id}\n`)
+    console.log(`${EMOJI.SUCCESS} Engagement record ready\n`)
   }
+
+  const results: string[] = []
+  let imported = 0
+  let skipped = 0
+  let errors = 0
 
   console.log(`${EMOJI.PROCESSING} Processing candidate participation...\n`)
 
   for (const row of rows) {
     try {
-      // Case-insensitive name match
       const candidate = candidates.find(
         c => c.name.toLowerCase() === row.candidateName.toLowerCase()
       )
@@ -153,7 +146,6 @@ async function loadQuestionnaire() {
         continue
       }
 
-      // Check if already exists
       if (!isDryRun()) {
         const engagement = await prisma.engagement.findUnique({
           where: { slug: engagementSlug },
@@ -163,66 +155,43 @@ async function loadQuestionnaire() {
           throw new Error('Engagement record not found')
         }
 
-        const existing = await prisma.candidateEngagement.findUnique({
+        await prisma.candidateEngagement.upsert({
           where: {
             engagementId_candidateId: {
               engagementId: engagement.id,
               candidateId: candidate.id,
             },
           },
+          create: {
+            engagementId: engagement.id,
+            candidateId: candidate.id,
+            participated: row.participated,
+            notes: row.notes || (row.participated ? 'Provided responses on Vote411' : 'No Vote411 responses'),
+            link: row.raceUrl || engagementPrimaryLink,
+          },
+          update: {
+            participated: row.participated,
+            notes: row.notes || (row.participated ? 'Provided responses on Vote411' : 'No Vote411 responses'),
+            link: row.raceUrl || engagementPrimaryLink,
+          },
         })
 
-        if (existing) {
-          console.log(
-            `${EMOJI.SKIP} Already exists: ${candidate.name} - updating participation status`
-          )
-          await prisma.candidateEngagement.update({
-            where: {
-              engagementId_candidateId: {
-                engagementId: engagement.id,
-                candidateId: candidate.id,
-              },
-            },
-            data: {
-              participated: row.participated,
-              notes: row.notes || (row.participated ? 'Responded' : 'Did not respond'),
-              link: engagementPrimaryLink,
-            },
-          })
-          results.push(
-            `UPDATED,${escapeCsvField(candidate.name)},${row.participated ? 'Participated' : 'Did not participate'}`
-          )
-        } else {
-          // Create new record
-          await prisma.candidateEngagement.create({
-            data: {
-              engagementId: engagement.id,
-              candidateId: candidate.id,
-              participated: row.participated,
-              notes: row.notes || (row.participated ? 'Responded' : 'Did not respond'),
-              link: engagementPrimaryLink,
-            },
-          })
-
-          console.log(
-            `${EMOJI.SUCCESS} Imported: ${candidate.name} (${row.participated ? 'participated' : 'did not participate'})`
-          )
-          results.push(
-            `IMPORTED,${escapeCsvField(candidate.name)},${row.participated ? 'Participated' : 'Did not participate'}`
-          )
-        }
-
-        imported++
+        console.log(
+          `${EMOJI.SUCCESS} Processed: ${candidate.name} (${row.participated ? 'participated' : 'did not participate'})`
+        )
+        results.push(
+          `IMPORTED,${escapeCsvField(candidate.name)},${row.participated ? 'Participated' : 'Did not participate'}`
+        )
       } else {
-        // Dry run - just log what would happen
         console.log(
           `${EMOJI.INFO} Would import: ${candidate.name} (${row.participated ? 'participated' : 'did not participate'})`
         )
         results.push(
           `DRY_RUN,${escapeCsvField(candidate.name)},${row.participated ? 'Participated' : 'Did not participate'}`
         )
-        imported++
       }
+
+      imported++
     } catch (error) {
       console.error(
         `${EMOJI.ERROR} Error processing ${row.candidateName}:`,
@@ -235,19 +204,17 @@ async function loadQuestionnaire() {
     }
   }
 
-  // Save results to CSV
   const resultsCsv = [
     'Status,Candidate Name,Notes',
     ...results,
   ].join('\n')
 
   const resultsPath = isDryRun()
-    ? 'scripts/import/tcrc-responses-dry-run-results.csv'
-    : 'scripts/import/tcrc-responses-import-results.csv'
+    ? 'scripts/import/lowv-responses-dry-run-results.csv'
+    : 'scripts/import/lowv-responses-import-results.csv'
 
   fs.writeFileSync(resultsPath, resultsCsv)
 
-  // Summary
   console.log(`\n${EMOJI.SUMMARY} Summary:`)
   console.log(`   Total processed: ${rows.length}`)
   console.log(`   Imported/Updated: ${imported}`)
@@ -257,11 +224,16 @@ async function loadQuestionnaire() {
 
   if (isDryRun()) {
     console.log(
-      `\n${EMOJI.INFO} To write to database, run: IMPORT_MODE=db npm run import:tcrc:load`
+      `\n${EMOJI.INFO} To write to database, run: IMPORT_MODE=db npm run import:lowv:load`
     )
   }
 
   await prisma.$disconnect()
 }
 
-loadQuestionnaire().catch(console.error)
+loadLowv().catch(async error => {
+  console.error(`${EMOJI.ERROR} Vote411 loader failed`, error)
+  await prisma.$disconnect()
+  process.exit(1)
+})
+

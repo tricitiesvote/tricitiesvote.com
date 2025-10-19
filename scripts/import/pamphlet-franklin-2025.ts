@@ -18,6 +18,7 @@ const TARGET_PATTERNS = [
 
 const NAME_SKIP_LINES = new Set([
   'No photo submitted',
+  'No photo',
   'Photo not available',
   'Unopposed',
   'Write-in',
@@ -90,55 +91,137 @@ interface ParsedCandidate {
   website: string | null
 }
 
-function parseCandidateBlock(header: string, lines: string[]): ParsedCandidate | null {
-  if (!lines.length) return null
+function isHeaderLine(line: string, currentHeader: string | null): boolean {
+  if (!line) return false
+  if (!shouldProcessHeader(line)) return false
+  // Allow multiple candidates under the same header
+  return currentHeader ? line !== currentHeader : true
+}
 
-  let nameParts: string[] = []
+function parseCandidateBlock(header: string, lines: string[]): ParsedCandidate[] {
+  const results: ParsedCandidate[] = []
   let index = 0
+
+  const isPotentialNameLine = (line: string) => {
+    if (!line) return false
+    if (NAME_SKIP_LINES.has(line)) return false
+    if (line === 'Statement' || line === 'Contact' || line === 'Elected Experience') return false
+    if (line.startsWith('(')) return false
+    if (SECTION_SKIP_LINES.has(line)) return false
+    return true
+  }
+
   while (index < lines.length) {
-    const line = lines[index]
-    if (line === 'Statement' || line === 'Elected Experience' || line.startsWith('(')) {
-      break
+    // Skip filler until a potential name line
+    while (index < lines.length && !isPotentialNameLine(lines[index])) {
+      if (isHeaderLine(lines[index], header)) {
+        return results
+      }
+      if (lines[index] === 'Candidate statements are printed') {
+        return results
+      }
+      index++
     }
-    if (NAME_SKIP_LINES.has(line)) {
-      index += 1
+
+    const nameParts: string[] = []
+    while (index < lines.length) {
+      const line = lines[index]
+      if (!isPotentialNameLine(line)) {
+        break
+      }
+      nameParts.push(line)
+      index++
+    }
+
+    const name = nameParts.join(' ').trim()
+    if (!name) {
+      index++
       continue
     }
-    nameParts.push(line)
-    index += 1
-  }
 
-  const name = nameParts.join(' ').trim()
-  if (!name) {
-    console.warn(`⚠️  Unable to determine candidate name for header "${header}"`)
-    return null
-  }
+    // Skip party/affiliation line if present (e.g., "(Nonpartisan)")
+    if (index < lines.length && lines[index]?.startsWith('(')) {
+      index++
+    }
 
-  const statementIdx = lines.indexOf('Statement')
-  const contactIdx = lines.indexOf('Contact')
-
-  let statement: string | null = null
-  if (statementIdx !== -1) {
-    const statementLines = lines.slice(statementIdx + 1, contactIdx === -1 ? lines.length : contactIdx)
-    statement = formatStatement(statementLines)
-  }
-
-  let email: string | null = null
-  let website: string | null = null
-
-  if (contactIdx !== -1) {
-    const contactLines = lines.slice(contactIdx + 1).filter(line => !SECTION_SKIP_LINES.has(line))
-    for (const line of contactLines) {
-      if (!email) {
-        email = cleanEmail(line)
+    // Advance past section headings until we reach Statement
+    while (index < lines.length && lines[index] !== 'Statement') {
+      if (isHeaderLine(lines[index], header)) {
+        // Hit next header before statement; abort this candidate
+        return results
       }
-      if (!website) {
-        website = fixUrl(line)
+      index++
+    }
+
+    if (index >= lines.length || lines[index] !== 'Statement') {
+      break
+    }
+
+    index++ // skip 'Statement'
+
+    const statementLines: string[] = []
+    while (index < lines.length) {
+      const line = lines[index]
+      if (line === 'Contact' || isHeaderLine(line, header)) {
+        break
+      }
+      statementLines.push(line)
+      index++
+    }
+
+    const statement = formatStatement(statementLines)
+
+    let email: string | null = null
+    let website: string | null = null
+
+    if (index < lines.length && lines[index] === 'Contact') {
+      index++ // skip 'Contact'
+      while (index < lines.length) {
+        const line = lines[index]
+
+        if (!line) {
+          index++
+          continue
+        }
+
+        if (line === 'Statement' || isHeaderLine(line, header)) {
+          break
+        }
+
+        if (NAME_SKIP_LINES.has(line)) {
+          index++
+          continue
+        }
+
+        const maybeEmail = cleanEmail(line)
+        if (maybeEmail && !email) {
+          email = maybeEmail
+        }
+
+        const maybeWebsite = fixUrl(line)
+        if (maybeWebsite && !website) {
+          website = maybeWebsite
+        }
+
+        // If the line doesn't look like contact info, assume it's the next candidate's name
+        if (!maybeEmail && !maybeWebsite) {
+          break
+        }
+
+        index++
       }
     }
+
+    results.push({
+      header,
+      name,
+      statement,
+      email,
+      website
+    })
   }
 
-  return { header, name, statement, email, website }
+  return results
 }
 
 async function downloadPdf(): Promise<string> {
@@ -178,9 +261,9 @@ function parsePamphlet(text: string): ParsedCandidate[] {
       return
     }
 
-    const parsed = parseCandidateBlock(currentHeader, buffer.map(normalizeLine))
-    if (parsed) {
-      results.push(parsed)
+    const parsedCandidates = parseCandidateBlock(currentHeader, buffer.map(normalizeLine))
+    if (parsedCandidates.length) {
+      results.push(...parsedCandidates)
     }
     buffer = []
   }
@@ -219,7 +302,7 @@ function parsePamphlet(text: string): ParsedCandidate[] {
 }
 
 function addCommonAliases(nameMatcher: NameMatcher) {
-  nameMatcher.addAlias('Anthony E Sanchez', 'Tony Sanchez')
+  nameMatcher.addAlias('Tony Sanchez', 'Anthony E Sanchez')
   nameMatcher.addAlias('Donald Landsman', 'LANDSMAN DONALD C')
   nameMatcher.addAlias('Roy Keck', 'KECK,ROY D.')
   nameMatcher.addAlias('Roy Keck', 'Roy D. Keck')
@@ -227,7 +310,7 @@ function addCommonAliases(nameMatcher: NameMatcher) {
   nameMatcher.addAlias('Gloria Tyler Baker', 'Gloria Baker')
   nameMatcher.addAlias('Nic Uhnak', 'Nic (Nicolas) Uhnak')
   nameMatcher.addAlias('Mark Anthony Figueroa', 'Mark Figueroa')
-  nameMatcher.addAlias('Leo A. Perales', 'Leo Perales')
+  nameMatcher.addAlias('Leo Perales', 'Leo A. Perales')
   nameMatcher.addAlias('Bryan Verhei', 'Bryan A. Verhei')
   nameMatcher.addAlias('Pete Serrano', 'Peter Serrano')
   nameMatcher.addAlias('Steve Christensen', 'Steven Christensen')

@@ -51,13 +51,10 @@ export function CandidateEngagementList({
     return null
   }
 
-  const limit = variant === 'compact' ? 3 : sorted.length
-  const displayEntries = sorted.slice(0, limit)
-
   return (
     <div className={cn('engagement', variant === 'compact' && 'engagement-compact')}>
       <ul>
-        {displayEntries.map(entry => {
+        {sorted.map(entry => {
           const engagement = entry.engagement!
           const displayTitle = formatEngagementTitle(engagement.title)
           const icon = entry.participated ? '✅' : '❌'
@@ -87,9 +84,6 @@ export function CandidateEngagementList({
           )
         })}
       </ul>
-      {variant === 'compact' && sorted.length > displayEntries.length && (
-        <p className="engagement-more">See full profile for more.</p>
-      )}
     </div>
   )
 }

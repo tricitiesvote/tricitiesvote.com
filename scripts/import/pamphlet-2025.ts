@@ -55,7 +55,7 @@ async function importPamphletData() {
     })
     
     // Add known aliases for 2025 candidates
-    nameMatcher.addAlias('Anthony E Sanchez', 'Tony Sanchez')
+    nameMatcher.addAlias('Tony Sanchez', 'Anthony E Sanchez')
     nameMatcher.addAlias('Donald Landsman', 'LANDSMAN DONALD C')
     nameMatcher.addAlias('Roy Keck', 'KECK,ROY D.')
     nameMatcher.addAlias('Roy Keck', 'Roy D. Keck')
@@ -65,7 +65,7 @@ async function importPamphletData() {
     
     // Additional Pasco candidates
     nameMatcher.addAlias('Mark Anthony Figueroa', 'Mark Figueroa')
-    nameMatcher.addAlias('Leo A. Perales', 'Leo Perales')
+    nameMatcher.addAlias('Leo Perales', 'Leo A. Perales')
     nameMatcher.addAlias('Bryan Verhei', 'Bryan A. Verhei')
     nameMatcher.addAlias('Pete Serrano', 'Peter Serrano')
     nameMatcher.addAlias('Steve Christensen', 'Steven Christensen')

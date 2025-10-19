@@ -8,6 +8,12 @@ import { CORE_SEAT_DEFINITIONS } from './2025-seats'
 const prisma = new PrismaClient()
 const YEAR = 2025
 
+interface CandidateCacheItem {
+  id: string
+  name: string
+  officeId: string | null
+}
+
 const candidateRenames: Array<{ oldName: string; newName: string }> = [
   { oldName: 'LANDSMAN DONALD C', newName: 'Donald Landsman' },
   { oldName: 'FREDERICK T BRINK', newName: 'Fred Brink' },
@@ -15,7 +21,12 @@ const candidateRenames: Array<{ oldName: string; newName: string }> = [
   { oldName: 'John H Trumbo', newName: 'John Trumbo' },
   { oldName: 'Anthony E Sanchez', newName: 'Tony Sanchez' },
   { oldName: 'ROBERT HARVEY PERKES', newName: 'Robert Harvey Perkes' },
-  { oldName: 'Nic (Nicolas) Uhnak', newName: 'Nic Uhnak' }
+  { oldName: 'Nic (Nicolas) Uhnak', newName: 'Nic Uhnak' },
+  { oldName: 'Leo A Perales', newName: 'Leo Perales' },
+  { oldName: 'Leo A. Perales', newName: 'Leo Perales' },
+  { oldName: 'Leo Anthony Perales', newName: 'Leo Perales' },
+  { oldName: 'Kurt Maier', newName: 'Kurt H Maier' },
+  { oldName: 'Kurt H. Maier', newName: 'Kurt H Maier' }
 ]
 
 async function renameCandidatesIfNeeded() {
@@ -39,7 +50,23 @@ async function renameCandidatesIfNeeded() {
   }
 }
 
-async function ensureRace(def: { office: string; jurisdiction: string; candidates: string[] }) {
+function buildCandidateKey(name: string): string {
+  const parts = name
+    .replace(/[^A-Za-z\s-]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(part => part.toUpperCase())
+
+  if (!parts.length) {
+    return ''
+  }
+
+  const first = parts[0]
+  const last = parts[parts.length - 1]
+  return `${first} ${last}`
+}
+
+async function ensureRace(def: { office: string; jurisdiction: string; candidates: string[] }, cache: CandidateCacheItem[]) {
   const normalized = normalizeLocalOffice({
     office: def.office,
     jurisdiction: def.jurisdiction
@@ -102,16 +129,36 @@ async function ensureRace(def: { office: string; jurisdiction: string; candidate
     console.log(`  • Created general race for ${normalized.officeTitle}`)
   }
 
+  const linkedCandidateIds: string[] = []
+
   for (const candidateName of def.candidates) {
-    let candidate = await prisma.candidate.findFirst({
-      where: {
-        electionYear: YEAR,
-        name: candidateName
-      }
-    })
+    const targetKey = buildCandidateKey(candidateName)
+
+    let candidate = cache.find(item => item.name === candidateName && item.officeId === office.id)
 
     if (!candidate) {
-      candidate = await prisma.candidate.create({
+      candidate = cache.find(item => item.officeId === office.id && buildCandidateKey(item.name) === targetKey)
+    }
+
+    if (!candidate) {
+      candidate = cache.find(item => buildCandidateKey(item.name) === targetKey)
+      if (candidate) {
+        const previousName = candidate.name
+        await prisma.candidate.update({
+          where: { id: candidate.id },
+          data: {
+            name: candidateName,
+            officeId: office.id
+          }
+        })
+        console.log(`    • Normalized candidate ${previousName} → ${candidateName}`)
+        candidate.name = candidateName
+        candidate.officeId = office.id
+      }
+    }
+
+    if (!candidate) {
+      const created = await prisma.candidate.create({
         data: {
           name: candidateName,
           electionYear: YEAR,
@@ -119,12 +166,27 @@ async function ensureRace(def: { office: string; jurisdiction: string; candidate
         }
       })
       console.log(`    • Created candidate ${candidateName}`)
+      candidate = { id: created.id, name: created.name, officeId: created.officeId }
+      cache.push(candidate)
     } else if (candidate.officeId !== office.id) {
       await prisma.candidate.update({
         where: { id: candidate.id },
         data: { officeId: office.id }
       })
+      candidate.officeId = office.id
     }
+
+    if (candidate.name !== candidateName) {
+      const previousName = candidate.name
+      await prisma.candidate.update({
+        where: { id: candidate.id },
+        data: { name: candidateName }
+      })
+      candidate.name = candidateName
+      console.log(`    • Renamed candidate ${previousName} → ${candidateName}`)
+    }
+
+    linkedCandidateIds.push(candidate.id)
 
     await prisma.candidateRace.upsert({
       where: {
@@ -145,16 +207,36 @@ async function ensureRace(def: { office: string; jurisdiction: string; candidate
     where: {
       raceId: race.id,
       candidateId: {
-        notIn: await prisma.candidate.findMany({
-          where: {
-            electionYear: YEAR,
-            name: { in: def.candidates }
-          },
-          select: { id: true }
-        }).then(list => list.map(item => item.id))
+        notIn: linkedCandidateIds
       }
     }
   })
+
+  const guide = await prisma.guide.findFirst({
+    where: {
+      electionYear: YEAR,
+      regionId: region.id,
+      type: ElectionType.GENERAL
+    },
+    select: { id: true }
+  })
+
+  if (guide) {
+    try {
+      await prisma.guide.update({
+        where: { id: guide.id },
+        data: {
+          Race: {
+            connect: { id: race.id }
+          }
+        }
+      })
+    } catch (error: any) {
+      if (error?.code !== 'P2002') {
+        throw error
+      }
+    }
+  }
 }
 
 async function main() {
@@ -162,8 +244,13 @@ async function main() {
 
   await renameCandidatesIfNeeded()
 
+  const candidateCache = await prisma.candidate.findMany({
+    where: { electionYear: YEAR },
+    select: { id: true, name: true, officeId: true }
+  })
+
   for (const race of CORE_SEAT_DEFINITIONS) {
-    await ensureRace(race)
+    await ensureRace(race, candidateCache)
   }
 
   console.log('✅ Core municipal races ensured.')

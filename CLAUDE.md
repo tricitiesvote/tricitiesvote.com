@@ -194,6 +194,7 @@ Guides are automatically generated based on:
 - School board races serving the city
 - Port commissioner races (regional coverage)
 - Relevant county/state races affecting city residents
+- Explicitly include **Benton County City of West Richland Mayor** so external questionnaire sources (Vote411, WRCG) map cleanly to our database.
 
 **County Guides** (Even Years):
 - County-wide races (commissioner, sheriff, prosecutor)
@@ -426,7 +427,15 @@ ANTHROPIC_API_KEY=your_anthropic_api_key
    npm run import:historical 2020 2021 2022 2023
    ```
 
-3. **PDC Contribution Import** (campaign finance):
+3. **Questionnaire Imports**
+   ```bash
+   npm run import:wrcg          # West Richland Citizens Group responses
+   npm run import:lowv          # Vote411 questionnaire via REST API
+   IMPORT_MODE=db npm run import:wrcg:load
+   IMPORT_MODE=db npm run import:lowv:load
+   ```
+
+4. **PDC Contribution Import** (campaign finance):
    ```bash
    npm run import:pdc:fast:all
    ```
@@ -455,7 +464,6 @@ This architecture provides a flexible, maintainable system for managing election
 - Markdown processing for bio/statement fields
 
 ### ❌ TODO
-- Questionnaire CSV parsing
 - VoteWA pamphlet import
 - Election results import
 - 2025 election preparation

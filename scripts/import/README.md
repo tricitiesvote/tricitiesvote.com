@@ -50,8 +50,9 @@ IMPORT_MODE=db npm run import:tcrc:load
 
 **Output:**
 - `scripts/import/tcrc-responses.csv`
+- `scripts/import/tcrc-questionnaire-responses.csv` (full Q&A archive)
 - Creates `Engagement` record for "TCRC Questionnaire 2025"
-- Creates `CandidateEngagement` records for participation tracking
+- Creates `CandidateEngagement` records for participation tracking (links point to the source PDF)
 
 ---
 
@@ -105,10 +106,12 @@ IMPORT_MODE=db npm run import:ballotpedia:load
 - Detects survey completion (looks for "completed Ballotpedia survey" text)
 - Updates candidate `bio`, `website`, `email` **ONLY if currently NULL**
 - Skips updates if wiki overrides exist (`bioWiki`, etc.)
-- Creates `Engagement` record for completed surveys
+- Captures Candidate Connection question/answer pairs for archival CSV
+- Creates `Engagement` record for completed surveys (per-candidate link points to Ballotpedia page)
 
 **Output:**
 - `scripts/import/ballotpedia-data.csv`
+- `scripts/import/ballotpedia-responses.csv` (Candidate Connection responses)
 - Updates candidate profile fields (safe - only fills nulls)
 - Creates survey completion engagements
 
@@ -145,8 +148,45 @@ IMPORT_MODE=db npm run import:wrcg:load
 
 **Output:**
 - `scripts/import/wrcg-responses.csv`
+- `scripts/import/wrcg-questionnaire-responses.csv` (parsed questionnaire responses)
 - Creates `Engagement` record for WRCG questionnaire
-- Creates `CandidateEngagement` records for all West Richland candidates
+- Creates `CandidateEngagement` records for all West Richland candidates (links point to individual WRCG pages)
+
+---
+
+### LOWV / Vote411
+
+Scrapes League of Women Voters (Vote411.org) questionnaire participation and detailed responses for Tri-Cities races.
+
+```bash
+# Scrape Vote411 (always outputs CSV)
+npm run import:lowv
+
+# Review: scripts/import/lowv-responses.csv
+#         scripts/import/lowv-questionnaire-responses.csv
+
+# Load to database (dry-run)
+npm run import:lowv:load
+
+# Load to database (for real)
+IMPORT_MODE=db npm run import:lowv:load
+```
+
+**Requirements:**
+- Playwright browsers installed
+- Database access for race/candidate metadata
+- Outgoing HTTPS access to `auth.thevoterguide.org` and `api.thevoterguide.org`
+
+**Behavior:**
+- Uses Vote411’s public REST API (client credentials exposed in the widget embed)
+- Filters to Kennewick, Pasco, Richland, and West Richland municipal races
+- Parses candidate participation plus detailed Q&A (when available)
+- Writes a shared engagement (`LWV Vote411 Questionnaire 2025`) with per-candidate participation and direct race links
+
+**Output:**
+- `scripts/import/lowv-responses.csv` (participation summary)
+- `scripts/import/lowv-questionnaire-responses.csv` (detailed responses)
+- `import:lowv:load` populates `CandidateEngagement` records referencing the Vote411 race URL
 
 ---
 

@@ -24,6 +24,7 @@ export const CORE_SEAT_DEFINITIONS: SeatDefinition[] = [
   { office: 'City Council Position 2', jurisdiction: 'West Richland', candidates: ['Ken Stoker'] },
   { office: 'City Council Position 3', jurisdiction: 'West Richland', candidates: ['David Cole', 'Robert Harvey Perkes'] },
   { office: 'City Council Position 4', jurisdiction: 'West Richland', candidates: ['Braden Sloughter', 'Richard Bloom'] },
+  { office: 'Mayor', jurisdiction: 'West Richland', candidates: ['Fred Brink', 'May Hays'] },
 
   { office: 'School Board District 1', jurisdiction: 'Kennewick', candidates: ['Micah Valentine', 'Robert Franklin'] },
   { office: 'School Board District 2', jurisdiction: 'Kennewick', candidates: ['Nic Uhnak', 'Gabe Galbraith'] },
@@ -42,7 +43,7 @@ export const CORE_SEAT_DEFINITIONS: SeatDefinition[] = [
   { office: 'Port of Pasco Commissioner District 3', jurisdiction: 'Port of Pasco', candidates: ['Hans-Joachim Engelke'] }
 ]
 
-const ADDITIONAL_CANDIDATE_ALIASES: Record<string, string> = {
+export const ADDITIONAL_CANDIDATE_ALIASES: Record<string, string> = {
   'LANDSMAN DONALD C': 'Donald Landsman',
   'FREDERICK T BRINK': 'Fred Brink',
   'KECK,ROY D.': 'Roy Keck',
@@ -51,7 +52,15 @@ const ADDITIONAL_CANDIDATE_ALIASES: Record<string, string> = {
   'ANTHONY E SANCHEZ': 'Tony Sanchez',
   'JOHN H TRUMBO': 'John Trumbo',
   'ROBERT HARVEY PERKES': 'Robert Harvey Perkes',
-  'NIC (NICOLAS) UHNAK': 'Nic Uhnak'
+  'NIC (NICOLAS) UHNAK': 'Nic Uhnak',
+  'BRINK, FREDERICK T': 'Fred Brink',
+  'HAYS, MAY': 'May Hays',
+  'MERRILEE E HAYS': 'May Hays',
+  'MERRILEE HAYS': 'May Hays',
+  'LEO A PERALES': 'Leo Perales',
+  'LEO A. PERALES': 'Leo Perales',
+  'LANDSMAN, DONALD C': 'Donald Landsman',
+  'KECK ROY D.': 'Roy Keck'
 }
 
 export const CANDIDATE_SEAT_MAP = CORE_SEAT_DEFINITIONS.reduce<Record<string, { office: string; jurisdiction: string }>>((acc, seat) => {

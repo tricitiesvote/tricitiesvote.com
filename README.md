@@ -24,6 +24,14 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 npm start
 ```
 
+## Feature flags
+
+The Next.js frontend reads a handful of optional toggles from the environment. Current flags:
+
+- `NEXT_PUBLIC_SHOW_UNCONTESTED` (default: unset/`false`) – when set to `true`, uncontested races remain visible in list views. By default only contested races are listed, though the underlying candidate pages stay live either way.
+- `NEXT_PUBLIC_HIDE_PARTIAL_TCV_RESPONSES` (default: unset/`true`) – hides Tri-Cities Vote Q&A answers in contested races until every visible candidate has responded. Set to `false` to always surface those answers.
+- `NEXT_PUBLIC_TCV_PARTIAL_HIDE_EXCEPTIONS` (default: empty; seeded with `richland-city-council-position-3`) – comma-separated list of race identifiers (slug, ID, or title) that should always surface Q&A answers even if some candidates have not responded.
+
 
 ## Updating the content
 

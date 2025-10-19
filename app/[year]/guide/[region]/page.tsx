@@ -4,6 +4,7 @@ import { RaceCard } from '@/components/race/RaceCard'
 import { notFound } from 'next/navigation'
 import { orderRaces } from '@/lib/raceOrdering'
 import { slugify } from '@/lib/utils'
+import { getVisibleRaces } from '@/lib/raceVisibility'
 
 const getGuideCached = cache(async (year: number, regionSlug: string) =>
   getGuideByYearAndRegion(year, regionSlug)
@@ -47,16 +48,19 @@ export default async function RegionalGuidePage({ params }: RegionalGuidePagePro
     notFound()
   }
   
+  const orderedRaces = orderRaces(guide.Race, year)
+  const visibleRaces = getVisibleRaces(orderedRaces)
+
   return (
     <div className="regional-guide">
       <h1>{year} {guide.region.name} Election Guide</h1>
       
       <main>
         <div className="races-collection guide-page">
-          {guide.Race.length === 0 ? (
+          {visibleRaces.length === 0 ? (
             <p className="race-empty">Race list N/A. Check back soon.</p>
           ) : (
-            orderRaces(guide.Race, year).map(race => (
+            visibleRaces.map(race => (
               <RaceCard key={race.id} race={race} year={year} />
             ))
           )}

@@ -1,5 +1,6 @@
 import { getGuidesForYear, getAvailableYears } from '@/lib/queries'
 import { getYearType, slugify } from '@/lib/utils'
+import { getVisibleRaces } from '@/lib/raceVisibility'
 import { GuideSelector } from '@/components/GuideSelector'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -32,10 +33,11 @@ export default async function YearHomePage({ params }: YearHomePageProps) {
           ) : (
             guides.map(guide => {
               const regionSlug = slugify(guide.region.name)
+              const visibleRaces = getVisibleRaces(guide.Race)
               return (
                 <div key={guide.id} className="guide-preview">
                   <h3>{guide.region.name} Guide</h3>
-                  <p>{guide.Race.length} races</p>
+                  <p>{visibleRaces.length} {visibleRaces.length === 1 ? 'race' : 'races'}</p>
                   <Link href={`/${year}/guide/${regionSlug}`}>
                     View Guide →
                   </Link>

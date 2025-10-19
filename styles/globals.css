@@ -1620,7 +1620,9 @@ td .pos img, .no-response .pos img {
 
 td .more, .no-response .more {
   position: absolute;
-  width: 250px;
+  /* original width */
+  /* width: 250px; */
+  width: 400px;
   min-height: 50px;
   top: -11px;
   border-top: 1px solid rgba(255, 255, 255, .5);
@@ -1872,7 +1874,7 @@ li span {
 }
 
 .engagement-missed {
-  color: #7f1d1d;
+  color: #777;
 }
 
 .engagement-missed .engagement-title a,
@@ -2754,34 +2756,54 @@ td .more, .no-response .more {
 }
 
 .questionnaire-open {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
+  display: grid;
+  gap: 2rem;
 }
 
-.questionnaire-open-question {
-  margin-bottom: 2rem;
-}
-
-.questionnaire-open-question h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-}
-
-.questionnaire-open-responses {
+.questionnaire-open-block {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-.questionnaire-open-response {
-  background: #f9f9f9;
-  border-left: 3px solid #0066cc;
+.questionnaire-open-question-cell {
+  padding: 1.25rem 0;
+}
+
+.questionnaire-open-question-cell h3 {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 1.1rem;
+}
+
+.questionnaire-open-answer-list {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.questionnaire-open-answer-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   padding: 1rem;
+  min-height: 100%;
+  white-space: pre-line;
 }
 
-.questionnaire-open-response p {
-  margin: 0.5rem 0 0 0;
-  line-height: 1.6;
-  white-space: pre-line;
+.questionnaire-open-answer-card h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: #2a708a;
+}
+
+.questionnaire-open-answer-none {
+  display: inline-block;
+  color: #9ca3af;
+}
+
+.questionnaire-open-answer-empty {
+  text-align: center;
+  color: #9ca3af;
 }
 
 .pos-placeholder {
@@ -2902,6 +2924,22 @@ td .more, .no-response .more {
 
 .announcements-container em {
   font-style: italic;
+}
+
+.tcv-banner {
+  background-color: #fff4d6;
+  border: 1px solid #f4c16b;
+  color: #7a4a00;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 16px 0;
+  font-size: 0.95rem;
+}
+
+.tcv-banner a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {

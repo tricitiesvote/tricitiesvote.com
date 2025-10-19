@@ -9,6 +9,8 @@ import { CompareTable, type ComparisonRow } from '@/components/compare/CompareTa
 import { CompareQuestionnaires } from '@/components/compare/CompareQuestionnaires'
 import { buildBreadcrumbs } from '@/lib/officeDisplay'
 import { preferWikiString } from '@/lib/wiki/utils'
+import { evaluateTriCitiesRaceStatus } from '@/lib/triCitiesVote'
+import { TriCitiesQuestionnaireBanner } from '@/components/race/TriCitiesQuestionnaireBanner'
 
 interface ComparePageProps {
   params: {
@@ -58,10 +60,17 @@ export default async function ComparePage({ params }: ComparePageProps) {
     notFound()
   }
 
+  const triCitiesStatus = evaluateTriCitiesRaceStatus(race, year)
+
   const guide = race.Guide?.[0]
   const regionName = guide?.region.name
   const regionSlug = regionName ? slugify(regionName) : null
   const visibleCandidates = race.candidates.filter(({ candidate }) => !candidate.hide)
+  const compareCandidates = visibleCandidates.map(({ candidate }) => ({
+    id: candidate.id,
+    name: preferWikiString(candidate as any, 'name') ?? candidate.name,
+    image: candidate.image ?? null
+  }))
   const compareRows: ComparisonRow[] = Array.isArray((race as any)?.comparisons)
     ? ((race as any).comparisons as ComparisonRow[])
     : []
@@ -85,6 +94,8 @@ export default async function ComparePage({ params }: ComparePageProps) {
           </span>
         ))}
       </nav>
+
+      <TriCitiesQuestionnaireBanner status={triCitiesStatus} />
 
       <div className="guide">
         <section className="race race-compare">
@@ -112,7 +123,12 @@ export default async function ComparePage({ params }: ComparePageProps) {
             </div>
           )}
 
-          <CompareQuestionnaires raceId={race.id} year={year} />
+          <CompareQuestionnaires
+            year={year}
+            regionId={race.office.regionId}
+            candidates={compareCandidates}
+            hiddenTitles={triCitiesStatus.hiddenTitles}
+          />
         </section>
       </div>
     </>

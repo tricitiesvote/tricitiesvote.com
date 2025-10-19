@@ -5,9 +5,14 @@ const SCALE_LABELS = ['', 'Strong A', 'Lean A', 'Lean B', 'Strong B'] as const
 interface QuestionnaireResponsesProps {
   candidateId: string
   year: number
+  hiddenTitles?: string[]
 }
 
-export async function QuestionnaireResponses({ candidateId, year }: QuestionnaireResponsesProps) {
+export async function QuestionnaireResponses({
+  candidateId,
+  year,
+  hiddenTitles = []
+}: QuestionnaireResponsesProps) {
   const questionnaires = await prisma.questionnaire.findMany({
     where: { year },
     include: {
@@ -73,7 +78,7 @@ export async function QuestionnaireResponses({ candidateId, year }: Questionnair
         }>
       }
     })
-    .filter(Boolean) as Array<{
+    .filter((section): section is {
       id: string
       title: string
       items: Array<{
@@ -93,7 +98,7 @@ export async function QuestionnaireResponses({ candidateId, year }: Questionnair
           textResponse: string | null
         }
       }>
-    }>
+    } => Boolean(section) && !hiddenTitles.includes(section!.title))
 
   if (sections.length === 0) {
     return null

@@ -8,6 +8,8 @@ import { slugify } from '@/lib/utils'
 import { buildBreadcrumbs } from '@/lib/officeDisplay'
 import { preferWikiString } from '@/lib/wiki/utils'
 import { ensureHtml } from '@/lib/richText'
+import { evaluateTriCitiesRaceStatus } from '@/lib/triCitiesVote'
+import { TriCitiesQuestionnaireBanner } from '@/components/race/TriCitiesQuestionnaireBanner'
 
 interface RacePageProps {
   params: { 
@@ -56,6 +58,8 @@ export default async function RacePage({ params }: RacePageProps) {
   if (!race) {
     notFound()
   }
+
+  const triCitiesStatus = evaluateTriCitiesRaceStatus(race, year)
   
   const guide = race.Guide?.[0]
   const introHtml = ensureHtml(preferWikiString(race as any, 'intro'))
@@ -77,6 +81,8 @@ export default async function RacePage({ params }: RacePageProps) {
           </span>
         ))}
       </nav>
+
+      <TriCitiesQuestionnaireBanner status={triCitiesStatus} />
 
       <div className="guide">
         <section className="race">

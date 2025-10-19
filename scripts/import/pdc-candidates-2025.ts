@@ -3,7 +3,7 @@ import 'dotenv/config'
 import { PrismaClient } from '@prisma/client'
 import { WAStateClient } from '../../lib/wa-state/client'
 import { normalizeLocalOffice } from '../../lib/normalize/offices'
-import { CANDIDATE_SEAT_MAP } from './2025-seats'
+import { ADDITIONAL_CANDIDATE_ALIASES, CANDIDATE_SEAT_MAP, CORE_SEAT_DEFINITIONS } from './2025-seats'
 
 const prisma = new PrismaClient()
 
@@ -65,6 +65,13 @@ async function importCandidatesFrom2025() {
         continue
       }
 
+      const canonicalName =
+        ADDITIONAL_CANDIDATE_ALIASES[candidateKey] ??
+        CORE_SEAT_DEFINITIONS.find(
+          seat => seat.office === mappedSeat.office && seat.jurisdiction === mappedSeat.jurisdiction
+        )?.candidates.find(candidate => candidate.toUpperCase() === candidateKey) ??
+        cleanName
+
       const normalized = normalizeLocalOffice({
         office: mappedSeat.office,
         jurisdiction: mappedSeat.jurisdiction
@@ -110,29 +117,58 @@ async function importCandidatesFrom2025() {
       }
       
       // Check if candidate already exists
-      const existing = await prisma.candidate.findFirst({
+      let existing = await prisma.candidate.findFirst({
         where: {
-          name: cleanName,
+          name: canonicalName,
           electionYear: 2025,
           officeId: office.id
         }
       })
+
+      if (!existing) {
+        existing = await prisma.candidate.findFirst({
+          where: {
+            name: cleanName,
+            electionYear: 2025,
+            officeId: office.id
+          }
+        })
+      }
       
       if (!existing) {
         // Create the candidate
         await prisma.candidate.create({
           data: {
-            name: cleanName,
+            name: canonicalName,
             stateId: filerId,
             electionYear: 2025,
             officeId: office.id,
             pdc: `https://www.pdc.wa.gov/browse/campaign-explorer/candidate/${filerId}`
           }
         })
-        console.log(`  ✓ Created candidate: ${cleanName}`)
+        console.log(`  ✓ Created candidate: ${canonicalName}`)
         created++
       } else {
-        console.log(`  - Candidate already exists`)
+        const updates: Record<string, string> = {}
+
+        if (existing.stateId !== filerId) {
+          updates.stateId = filerId
+        }
+
+        const pdcUrl = `https://www.pdc.wa.gov/browse/campaign-explorer/candidate/${filerId}`
+        if (existing.pdc !== pdcUrl) {
+          updates.pdc = pdcUrl
+        }
+
+        if (Object.keys(updates).length > 0) {
+          await prisma.candidate.update({
+            where: { id: existing.id },
+            data: updates
+          })
+          console.log(`  ✓ Updated candidate: ${canonicalName}`)
+        } else {
+          console.log(`  - Candidate already exists`)
+        }
         skipped++
       }
     }
@@ -162,51 +198,55 @@ async function importCandidatesFrom2025() {
 
     let racesCreated = 0
     for (const office of officesWithCandidates) {
-      // Check if race already exists
-      const existingRace = await prisma.race.findFirst({
+      let race = await prisma.race.findFirst({
         where: {
           electionYear: 2025,
           officeId: office.id
         }
       })
-      
-      if (!existingRace) {
-        const race = await prisma.race.create({
+
+      if (!race) {
+        race = await prisma.race.create({
           data: {
             electionYear: 2025,
             officeId: office.id,
             type: 'GENERAL'
           }
         })
-        
-        // Link candidates to the race
-        for (const candidate of office.candidates) {
-          await prisma.candidateRace.create({
-            data: {
+        console.log(`  ✓ Created race for ${office.title} with ${office.candidates.length} candidates`)
+        racesCreated++
+      }
+
+      for (const candidate of office.candidates) {
+        await prisma.candidateRace.upsert({
+          where: {
+            candidateId_raceId: {
               candidateId: candidate.id,
               raceId: race.id
             }
-          })
-        }
-        
-        // Link race to appropriate guide
-        const guide = await prisma.guide.findFirst({
-          where: {
-            electionYear: 2025,
-            regionId: office.regionId
+          },
+          update: {},
+          create: {
+            candidateId: candidate.id,
+            raceId: race.id
           }
         })
-        
-        if (guide) {
-          await prisma.$executeRaw`
-            INSERT INTO "_GuideRaces" ("A", "B") 
-            VALUES (${guide.id}, ${race.id})
-            ON CONFLICT DO NOTHING
-          `
-        }
-        
-        console.log(`  ✓ Created race for ${office.title} with ${office.candidates.length} candidates`)
-        racesCreated++
+      }
+
+      const guide = await prisma.guide.findFirst({
+        where: {
+          electionYear: 2025,
+          regionId: office.regionId
+        },
+        select: { id: true }
+      })
+
+      if (guide) {
+        await prisma.$executeRaw`
+          INSERT INTO "_GuideRaces" ("A", "B") 
+          VALUES (${guide.id}, ${race.id})
+          ON CONFLICT DO NOTHING
+        `
       }
     }
     

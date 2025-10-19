@@ -190,10 +190,14 @@ A new set of import scripts track candidate participation in questionnaires, for
 - Respects wiki overrides—never overwrites existing data.
 
 **4. WRCG (West Richland Citizens Group)**
-- **`npm run import:wrcg`** → `scripts/import/wrcg-scrape.ts` scrapes West Richland candidate questionnaires from https://www.wrcg.org/2025-elections. Handles Wix site rendering with conservative rate limiting. Outputs `scripts/import/wrcg-responses.csv`.
-- **`npm run import:wrcg:load`** → `scripts/import/wrcg-load.ts` loads participation data into `Engagement` and `CandidateEngagement` tables.
-- Requires: `ANTHROPIC_API_KEY`, Playwright browsers.
-- Scope: West Richland candidates only (~9 candidates in 2025).
+  - **`npm run import:wrcg`** → `scripts/import/wrcg-scrape.ts` scrapes West Richland candidate questionnaires from https://www.wrcg.org/2025-elections. Handles Wix site rendering with conservative rate limiting. Outputs `scripts/import/wrcg-responses.csv`.
+  - **`npm run import:wrcg:load`** → `scripts/import/wrcg-load.ts` loads participation data into `Engagement` and `CandidateEngagement` tables.
+  - Requires: `ANTHROPIC_API_KEY`, Playwright browsers.
+  - Scope: West Richland candidates only (~9 candidates in 2025). Ensure the **Benton County City of West Richland Mayor** race exists in Prisma before running so the mayoral contest receives questionnaire coverage.
+
+**5. Vote411 (LWV national questionnaire)**
+  - **`npm run import:lowv`** → `scripts/import/lowv-scrape.ts` uses Vote411’s REST API (client credentials exposed in the public widget) to pull participation plus Q&A for Kennewick, Pasco, Richland, West Richland, and port races. Outputs `scripts/import/lowv-responses.csv` and `scripts/import/lowv-questionnaire-responses.csv` while flagging unmatched names in `scripts/import/unmatched-lowv.txt`.
+  - **`npm run import:lowv:load`** (`IMPORT_MODE=db`) writes the shared `Engagement` (“LWV Vote411 Questionnaire 2025”) and per-candidate participation records with direct Vote411 links. Review the CSVs before loading.
 
 **Shared Configuration**: `scripts/import/config.ts` provides rate-limit constants, emoji vocabulary, CSV helpers, and the `isDryRun()` feature flag check used by all new importers.
 
