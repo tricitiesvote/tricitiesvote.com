@@ -6,6 +6,7 @@ import { EditableField } from '@/components/wiki/EditableField'
 import { EditableCandidateEndorsements } from '@/components/wiki/EditableCandidateEndorsements'
 import { CandidateEngagementList } from './CandidateEngagementList'
 import { CandidateEndorsements } from './CandidateEndorsements'
+import { QuestionnaireResponses } from '@/components/questionnaire/QuestionnaireResponses'
 
 interface CandidateProfileProps {
   candidate: {
@@ -168,6 +169,8 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
           {!bioHtml && statementHtml && (
             <div className="candidate-statement" dangerouslySetInnerHTML={{ __html: statementHtml }} />
           )}
+
+          <QuestionnaireResponses candidateId={candidate.id} year={year} />
           
           {(structuredEngagements.length > 0 || legacyEngagementHtml) && (
             <div className="engagement">

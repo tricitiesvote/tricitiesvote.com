@@ -6,6 +6,7 @@ import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
 import { Candidate } from '@/components/candidate/Candidate'
 import { CompareTable, type ComparisonRow } from '@/components/compare/CompareTable'
+import { CompareQuestionnaires } from '@/components/compare/CompareQuestionnaires'
 import { buildBreadcrumbs } from '@/lib/officeDisplay'
 import { preferWikiString } from '@/lib/wiki/utils'
 
@@ -110,6 +111,8 @@ export default async function ComparePage({ params }: ComparePageProps) {
               })}
             </div>
           )}
+
+          <CompareQuestionnaires raceId={race.id} year={year} />
         </section>
       </div>
     </>

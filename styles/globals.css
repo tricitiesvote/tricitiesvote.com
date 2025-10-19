@@ -1363,11 +1363,44 @@ td, th {
   text-align: center;
   display: inline-block;
   margin: 2px;
+  position: relative !important;
 }
 
+.pos.show {
+  z-index: 999;
+}
+
+
 .pos img {
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
   border-width: 3px;
   border-style: solid;
+  border-color: #eee;
+  border-radius: 100px;
+  object-fit: cover;
+  object-position: center 10%;
+}
+
+.pos.has-comment img {
+  border-color: #2a708a;
+  background-color: #2a708a;
+}
+
+.pos .more {
+  background-color: #2a708a;
+  color: #fff;
+}
+
+.pos.has-comment::after {
+  content: '💬';
+  position: absolute;
+  top: 0px;
+  right: -16px;
+  font-size: 20px;
+  pointer-events: none;
 }
 
 tbody .pos img, .close {
@@ -1564,10 +1597,12 @@ td .more, .no-response .more {
   margin: 0;
   position: relative;
   z-index: 100;
+  font-size: 14px;
 }
 
 table .pos.show .more {
   display: block;
+  z-index: 998;
 }
 
 td .pos img, .no-response .pos img {
@@ -1594,10 +1629,11 @@ td .more, .no-response .more {
 }
 
 td:nth-of-type(-n+2) .more {
-  left: -10px;
-  padding: 15px 40px 15px 60px;
+  left: 0px;
+  padding: 15px 40px 15px 65px;
   text-align: left;
   border-radius: 30px 10px 10px 10px;
+  top: -5px;
 }
 
 td:nth-of-type(n+3) .more {
@@ -1628,12 +1664,11 @@ td:nth-of-type(n+3) .close {
   top: -2px;
   background-color: inherit;
   background-color: rgba(0, 0, 0, .1);
-  border: 2px solid rgba(0, 0, 0, .5);
-  ;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, .5);
+  border: 2px solid #fff;
+  text-shadow: none;
   border-radius: 50px;
   padding: 5px 8px;
-  color: #000;
+  color: #fff;
   font-size: 15px;
   font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
   font-weight: 500;
@@ -1683,22 +1718,19 @@ th:first-of-type {
 }
 
 .pos img {
-  width: 40px;
-  height: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 100px;
-  object-fit: cover;
-  object-position: center 10%;
+  width: 50px;
+  height: 50px;
 }
 
 .pos h5 {
-  margin: -6px 0 0 0;
+  margin: -10px 0 0 0;
   padding: 0;
   font-size: 10px;
   font-weight: 500;
+}
+
+.pos.show h5 {
+  color: #fff;
 }
 
 .speculation.dnr img {
@@ -2619,9 +2651,151 @@ td .more, .no-response .more {
     margin-bottom: 10px;
     text-align: center;
   }
-  .intro h1 {
-    font-size: 28px;
-  }
+.intro h1 {
+  font-size: 28px;
+}
+}
+
+/* Questionnaire components */
+.questionnaire-responses {
+  margin-top: 2rem;
+}
+
+.questionnaire-section {
+  margin-bottom: 2rem;
+}
+
+.questionnaire-section h4 {
+  margin-bottom: 0.75rem;
+  color: #0066cc;
+}
+
+.q-and-a {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-left: 3px solid #0066cc;
+}
+
+.question-text {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ab-statements {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  font-size: 0.9em;
+  color: #666;
+  gap: 1.5rem;
+}
+
+.statement-a {
+  text-align: left;
+}
+
+.statement-b {
+  text-align: right;
+}
+
+.scale-value {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.scale-1 {
+  background: #0066cc;
+  color: #fff;
+}
+
+.scale-2 {
+  background: #66aaff;
+  color: #fff;
+}
+
+.scale-3 {
+  background: #ff9966;
+  color: #fff;
+}
+
+.scale-4 {
+  background: #ff6600;
+  color: #fff;
+}
+
+.response {
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+.response-comment {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #555;
+}
+
+.questionnaire-compare {
+  margin-top: 3rem;
+}
+
+.questionnaire-compare-section {
+  margin-bottom: 3rem;
+}
+
+.questionnaire-compare-heading {
+  margin: 0 0 1.5rem;
+  font-size: 1.75rem;
+  color: #0066cc;
+}
+
+.questionnaire-open {
+  margin-bottom: 2.5rem;
+}
+
+.questionnaire-open-question {
+  margin-bottom: 2rem;
+}
+
+.questionnaire-open-question h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.questionnaire-open-responses {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.questionnaire-open-response {
+  background: #f9f9f9;
+  border-left: 3px solid #0066cc;
+  padding: 1rem;
+}
+
+.questionnaire-open-response p {
+  margin: 0.5rem 0 0 0;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.pos-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #2a708a;
+  border: 3px solid #2a708a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 /* Next.js specific styles */

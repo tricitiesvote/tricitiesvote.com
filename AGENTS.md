@@ -50,6 +50,7 @@ This file gives working instructions for agents in this repo. Its scope is the e
 - Other scripts:
   - `npx tsx scripts/fetch-race-ids.ts` / `scripts/validate-race-ids.ts` for troubleshooting county IDs.
   - `scripts/check-*` utilities to spot duplicates or missing offices.
+  - `npm run import:questionnaire <city-council|school-board|all>` loads 2025 questionnaire CSVs (rerunnable; writes unmatched names to `scripts/import/unmatched-*.txt`).
   - `npx tsx scripts/add-announcements.ts` – populate League of Women Voters events in guides.
   - Engagement/questionnaire imports live under `scripts/import/` (`npm run import:tcrc`, `import:tcrc:videos`, `import:ballotpedia`, `import:wrcg`). Each script upserts into `Engagement` and `CandidateEngagement`; run the `:load` companion command to write DB changes after reviewing CSV output.
 

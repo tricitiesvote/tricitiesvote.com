@@ -36,6 +36,16 @@ interface BallotpediaData {
   notes?: string
 }
 
+interface SurveyResponseRow {
+  candidateName: string
+  office: string
+  region: string
+  questionOrder: number
+  question: string
+  answer: string
+  url: string
+}
+
 /**
  * Convert candidate name to Ballotpedia URL format
  * Examples:
@@ -196,7 +206,7 @@ async function scrapeBallotpedia() {
 
   // Launch browser
   const browser = await chromium.launch({
-    headless: false, // Visible browser for debugging
+    headless: true,
   })
 
   const context = await browser.newContext({
@@ -208,6 +218,7 @@ async function scrapeBallotpedia() {
   const page = await context.newPage()
 
   const results: BallotpediaData[] = []
+  const surveyResponses: SurveyResponseRow[] = []
   const notFoundUrls: Array<{ name: string; office: string; url: string }> = []
   let processed = 0
   let found = 0
@@ -261,12 +272,65 @@ async function scrapeBallotpedia() {
         firstParagraph?.includes('survey in 2025')) || false
 
       // Method 2: Verify Campaign themes section exists (additional confirmation)
-      const hasCampaignThemes = await page
-        .locator('#Campaign_themes')
-        .count()
-        .then(count => count > 0)
+      const { surveyCompleted: hasSurveyContent, responses: candidateSurveyResponses } = await page.evaluate(() => {
+        const normalizeText = (input: string | null | undefined) =>
+          (input ?? '')
+            .replace(/\s+/g, ' ')
+            .trim()
 
-      const actualSurveyCompleted = surveyCompleted && hasCampaignThemes
+        const heading = document.querySelector('#Candidate_Connection_survey')
+        if (!heading) {
+          return {
+            surveyCompleted: false,
+            responses: [] as Array<{ question: string; answer: string }>
+          }
+        }
+
+        const responses: Array<{ question: string; answer: string }> = []
+        let pointer = heading.parentElement?.nextElementSibling ?? null
+        let current: { question: string; answerParts: string[] } | null = null
+
+        const commit = () => {
+          if (current && current.question.trim() && current.answerParts.length > 0) {
+            const answer = normalizeText(current.answerParts.join('\n\n'))
+            if (answer.length > 0) {
+              responses.push({
+                question: normalizeText(current.question),
+                answer
+              })
+            }
+          }
+          current = null
+        }
+
+        while (pointer && pointer.tagName !== 'H2') {
+          const tagName = pointer.tagName
+
+          if (tagName === 'H3' || tagName === 'H4') {
+            commit()
+            current = {
+              question: normalizeText(pointer.textContent),
+              answerParts: []
+            }
+          } else if (current && (tagName === 'P' || tagName === 'UL' || tagName === 'OL')) {
+            const text = normalizeText(pointer.textContent)
+            if (text.length > 0) {
+              current.answerParts.push(text)
+            }
+          }
+
+          pointer = pointer.nextElementSibling
+        }
+
+        commit()
+
+        return {
+          surveyCompleted: responses.length > 0,
+          responses
+        }
+      })
+
+      const actualSurveyCompleted = hasSurveyContent || (surveyCompleted && (await page.locator('#Campaign_themes').count() > 0))
 
       console.log(
         `  ${actualSurveyCompleted ? EMOJI.SUCCESS : EMOJI.INFO} Survey: ${actualSurveyCompleted ? 'Completed' : 'Not completed'}`
@@ -314,6 +378,20 @@ async function scrapeBallotpedia() {
           ? 'Completed Ballotpedia survey'
           : 'Page exists but no survey',
       })
+
+      if (actualSurveyCompleted && candidateSurveyResponses.length > 0) {
+        candidateSurveyResponses.forEach((entry, index) => {
+          surveyResponses.push({
+            candidateName: candidate.name,
+            office: candidate.office.title,
+            region: candidate.office.region.name,
+            questionOrder: index + 1,
+            question: entry.question,
+            answer: entry.answer,
+            url,
+          })
+        })
+      }
 
       found++
     } catch (error) {
@@ -364,6 +442,23 @@ async function scrapeBallotpedia() {
   const outputPath = 'scripts/import/ballotpedia-data.csv'
   fs.writeFileSync(outputPath, csv)
 
+  const responsesOutputPath = 'scripts/import/ballotpedia-responses.csv'
+  const responsesHeaders =
+    'Candidate Name,Office,Region,Question Order,Question,Answer,URL'
+  const responsesLines = surveyResponses.map(r =>
+    [
+      escapeCsvField(r.candidateName),
+      escapeCsvField(r.office),
+      escapeCsvField(r.region),
+      String(r.questionOrder),
+      escapeCsvField(r.question),
+      escapeCsvField(r.answer),
+      escapeCsvField(r.url),
+    ].join(',')
+  )
+  const responsesCsv = [responsesHeaders, ...responsesLines].join('\n')
+  fs.writeFileSync(responsesOutputPath, responsesCsv)
+
   // Save 404s to separate file
   if (notFoundUrls.length > 0) {
     const notFoundCsvHeaders = 'Candidate Name,Office,URL'
@@ -385,6 +480,7 @@ async function scrapeBallotpedia() {
   console.log(`   Pages not found: ${notFound}`)
   console.log(`   Surveys completed: ${surveysCompleted}`)
   console.log(`\n${EMOJI.SUCCESS} Results saved to ${outputPath}`)
+  console.log(`${EMOJI.SUCCESS} Survey responses saved to ${responsesOutputPath}`)
   console.log(`${EMOJI.INFO} Review the CSV and then run: npm run import:ballotpedia:load`)
 
   await prisma.$disconnect()

@@ -33,6 +33,7 @@ model Region {
   code    String?
   guides  Guide[]
   offices Office[]
+  questionnaires Questionnaire[]
 }
 
 model Candidate {
@@ -83,6 +84,7 @@ model Candidate {
   enforcementCases EnforcementCase[]
   user             User?
   engagements      CandidateEngagement[]
+  questionnaireResponses QuestionnaireResponse[]
 }
 
 model CandidateRace {
@@ -199,6 +201,56 @@ model CandidateEngagement {
   candidate    Candidate               @relation(fields: [candidateId], references: [id])
 
   @@id([engagementId, candidateId])
+  @@index([candidateId])
+}
+
+model Questionnaire {
+  id          String                 @id @default(cuid())
+  slug        String                 @unique
+  year        Int
+  title       String
+  regionId    String?
+
+  region      Region?                @relation(fields: [regionId], references: [id])
+  questions   QuestionnaireQuestion[]
+  responses   QuestionnaireResponse[]
+
+  @@index([year])
+  @@index([regionId])
+}
+
+model QuestionnaireQuestion {
+  id              String        @id @default(cuid())
+  questionnaireId String
+  position        Int
+  type            String
+  question        String?
+  statementA      String?
+  statementB      String?
+
+  questionnaire   Questionnaire @relation(fields: [questionnaireId], references: [id], onDelete: Cascade)
+  responses       QuestionnaireResponse[]
+
+  @@unique([questionnaireId, position], name: "questionnaireId_position")
+  @@index([questionnaireId])
+}
+
+model QuestionnaireResponse {
+  id              String                @id @default(cuid())
+  questionnaireId String
+  questionId      String
+  candidateId     String
+  value           Int?
+  comment         String?
+  textResponse    String?
+
+  questionnaire   Questionnaire         @relation(fields: [questionnaireId], references: [id], onDelete: Cascade)
+  question        QuestionnaireQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  candidate       Candidate             @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@unique([questionId, candidateId])
+  @@index([questionnaireId])
+  @@index([questionId])
   @@index([candidateId])
 }
 

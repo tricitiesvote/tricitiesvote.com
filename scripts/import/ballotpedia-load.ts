@@ -234,11 +234,13 @@ async function loadBallotpedia() {
               engagementId: engagement.id,
               candidateId: candidate.id,
               participated: true,
-              notes: `Completed Ballotpedia survey - ${row.url}`,
+              notes: `Completed Ballotpedia survey`,
+              link: row.url || null,
             },
             update: {
               participated: true,
-              notes: `Completed Ballotpedia survey - ${row.url}`,
+              notes: `Completed Ballotpedia survey`,
+              link: row.url || null,
             },
           })
 

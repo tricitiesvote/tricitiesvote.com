@@ -166,6 +166,11 @@ These cases appear on candidate detail pages alongside contributions and endorse
 
 A new set of import scripts track candidate participation in questionnaires, forums, and surveys. All scripts follow a safety-first pattern with dry-run mode by default and CSV output for review.
 
+**0. City + School Questionnaire Responses (2025)**
+- **Source files**: `2025-city-council-responses.csv` and `2025-school-board-responses.csv` in the repo root (embedded newlines in headers, occasional trailing spaces/accents on names).
+- **Importer**: `npm run import:questionnaire city-council` / `school-board` (script lives at `scripts/import/questionnaire-import.ts`). Each run hardcodes question text, trims/aliases names, deletes prior responses, and recreates the dataset. Unmatched names are written to `scripts/import/unmatched-<type>.txt`.
+- **Verification**: After running the importer, spot-check `/2025/candidate/<slug>` plus `/2025/compare/<slug>` and ensure the compare table matches the legacy markup (`legacy/gatsby/src/components/compare/CompareTable.js`). Re-run the import to confirm idempotency.
+
 **Feature Flag**: Set `IMPORT_MODE=db` to enable database writes; otherwise scripts output CSV only.
 
 **1. TCRC Questionnaire**
