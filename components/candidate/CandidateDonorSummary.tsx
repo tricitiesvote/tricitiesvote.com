@@ -18,12 +18,18 @@ interface DonorSummaryProps {
   } | null
   minifiler: boolean
   mini?: boolean
+  className?: string
 }
 
-export function CandidateDonorSummary({ fundraising, minifiler, mini = false }: DonorSummaryProps) {
+export function CandidateDonorSummary({
+  fundraising,
+  minifiler,
+  mini = false,
+  className
+}: DonorSummaryProps) {
   if (minifiler) {
     return (
-      <div className="donor-summary">
+      <div className={className ?? 'donor-summary'}>
         <p>Mini-filer: detailed reports N/A.</p>
       </div>
     )
@@ -31,7 +37,7 @@ export function CandidateDonorSummary({ fundraising, minifiler, mini = false }: 
 
   if (!fundraising) {
     return (
-      <div className="donor-summary">
+      <div className={className ?? 'donor-summary'}>
         <p>No contributions reported yet.</p>
       </div>
     )
@@ -50,7 +56,7 @@ export function CandidateDonorSummary({ fundraising, minifiler, mini = false }: 
 
   if (mini) {
     return (
-      <div className="donor-summary">
+      <div className={className ?? 'donor-summary'}>
         <h3>Donors</h3>
         <p>
           💰 <strong>{usd.format(fundraising.total)} from {donorCountLabel} donors</strong>
@@ -72,7 +78,7 @@ export function CandidateDonorSummary({ fundraising, minifiler, mini = false }: 
   }
 
   return (
-    <div className="donor-summary">
+    <div className={className ?? 'donor-summary'}>
       <h3>Donors</h3>
       <p>
         <strong>{usd.format(fundraising.total)} from {donorCountLabel} donors</strong>{' '}

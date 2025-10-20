@@ -90,7 +90,7 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
       </Link>
       
       <h5>
-        <Link href={url}>{displayName}</Link>
+        {displayName}
       </h5>
       
       {structuredEngagements.length > 0 ? (
@@ -133,10 +133,6 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
           <p>No letters of support or opposition listed yet.</p>
         </div>
       )}
-      
-      <Link className="fullLink" href={url}>
-        View full profile »
-      </Link>
     </div>
   )
 }

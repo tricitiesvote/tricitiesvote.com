@@ -3,6 +3,7 @@
 import { EditableField } from '@/components/wiki/EditableField'
 import { useEditMode } from '@/lib/wiki/EditModeProvider'
 import { useAuth } from '@/lib/auth/AuthProvider'
+import { cn } from '@/lib/utils'
 
 interface CandidateLinkCollectionProps {
   candidateId: string
@@ -14,6 +15,7 @@ interface CandidateLinkCollectionProps {
   youtube?: string | null
   pdc?: string | null
   phone?: string | null
+  variant?: 'stacked' | 'inline'
 }
 
 export function CandidateLinkCollection({
@@ -25,7 +27,8 @@ export function CandidateLinkCollection({
   instagram,
   youtube,
   pdc,
-  phone
+  phone,
+  variant = 'stacked'
 }: CandidateLinkCollectionProps) {
   const { editMode } = useEditMode();
   const { user } = useAuth();
@@ -127,9 +130,13 @@ export function CandidateLinkCollection({
   ]
 
   const hasAnyValue = contactFields.some(field => field.value)
+  const listClassName = cn(
+    'candidate-links',
+    variant === 'inline' && 'candidate-links-inline'
+  )
 
   return (
-    <ul className="candidate-links">
+    <ul className={listClassName}>
       {!hasAnyValue && (
         <li className="text-gray-500">Contact info N/A.</li>
       )}
@@ -141,7 +148,7 @@ export function CandidateLinkCollection({
 
         return (
           <li key={field} className="candidate-link-item">
-            <span>{icon}</span>
+            <span class="link-item-icon">{icon}</span>
             {readonly ? (
               value ? (
                 render(value)

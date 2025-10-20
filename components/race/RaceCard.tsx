@@ -63,8 +63,8 @@ export function RaceCard({ race, year }: RaceCardProps) {
   return (
     <div className="race">
       <h2>
-        <Link href={`/${year}/race/${raceSlug}`}>
-          {displayTitle} »
+        <Link href={`/${year}/compare/${raceSlug}`}>
+          {displayTitle}
         </Link>
       </h2>
       
@@ -72,6 +72,7 @@ export function RaceCard({ race, year }: RaceCardProps) {
         <Link href={`/${year}/compare/${raceSlug}`}>
           🟢 🟡 Compare Candidates »
         </Link>
+        {' '}
       </div>
       
       <div className="container-candidate container-candidate-mini">

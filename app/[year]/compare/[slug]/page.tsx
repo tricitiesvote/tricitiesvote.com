@@ -1,16 +1,21 @@
-import { cache } from 'react'
+import { cache, type CSSProperties } from 'react'
 import { getAvailableYears, getGuidesForYear, getRaceByYearAndSlug } from '@/lib/queries'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
-import { Candidate } from '@/components/candidate/Candidate'
 import { CompareTable, type ComparisonRow } from '@/components/compare/CompareTable'
 import { CompareQuestionnaires } from '@/components/compare/CompareQuestionnaires'
 import { buildBreadcrumbs } from '@/lib/officeDisplay'
 import { preferWikiString } from '@/lib/wiki/utils'
 import { evaluateTriCitiesRaceStatus } from '@/lib/triCitiesVote'
 import { TriCitiesQuestionnaireBanner } from '@/components/race/TriCitiesQuestionnaireBanner'
+import { CandidateImage } from '@/components/candidate/CandidateImage'
+import { CandidateLinkCollection } from '@/components/candidate/CandidateLinkCollection'
+import { CandidateEndorsements } from '@/components/candidate/CandidateEndorsements'
+import { CandidateEngagementList } from '@/components/candidate/CandidateEngagementList'
+import { CompareCandidateDonorCard } from '@/components/compare/CompareCandidateDonorCard'
+import { ensureHtml } from '@/lib/richText'
 
 interface ComparePageProps {
   params: {
@@ -63,14 +68,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
   const triCitiesStatus = evaluateTriCitiesRaceStatus(race, year)
 
   const guide = race.Guide?.[0]
-  const regionName = guide?.region.name
-  const regionSlug = regionName ? slugify(regionName) : null
   const visibleCandidates = race.candidates.filter(({ candidate }) => !candidate.hide)
-  const compareCandidates = visibleCandidates.map(({ candidate }) => ({
-    id: candidate.id,
-    name: preferWikiString(candidate as any, 'name') ?? candidate.name,
-    image: candidate.image ?? null
-  }))
   const compareRows: ComparisonRow[] = Array.isArray((race as any)?.comparisons)
     ? ((race as any).comparisons as ComparisonRow[])
     : []
@@ -83,6 +81,150 @@ export default async function ComparePage({ params }: ComparePageProps) {
   breadcrumbs.push({ label: 'Compare', url: `/${year}/compare/${params.slug}` })
 
   const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
+
+  const candidateCards = visibleCandidates.map(({ candidate }) => {
+    const displayName = preferWikiString(candidate as any, 'name') ?? candidate.name
+    const slug = slugify(candidate.name)
+    const image = preferWikiString(candidate as any, 'image') ?? candidate.image ?? null
+    const statementValue = preferWikiString(candidate as any, 'statement')
+    const statementHtml = ensureHtml(statementValue)
+    const engagementValue = preferWikiString(candidate as any, 'engagement')
+    const legacyEngagementHtml = ensureHtml(engagementValue)
+    const structuredEngagements = Array.isArray(candidate.engagements)
+      ? candidate.engagements.filter(entry => entry.engagement)
+      : []
+
+    const fundraising = calculateFundraising(candidate.contributions || [])
+
+    return {
+      id: candidate.id,
+      displayName,
+      slug,
+      image,
+      candidate,
+      statementHtml,
+      legacyEngagementHtml,
+      structuredEngagements,
+      endorsements: candidate.endorsements || [],
+      minifiler: candidate.minifiler,
+      fundraising,
+      contact: {
+        email: preferWikiString(candidate as any, 'email') ?? candidate.email,
+        website: preferWikiString(candidate as any, 'website') ?? candidate.website,
+        facebook: preferWikiString(candidate as any, 'facebook') ?? candidate.facebook,
+        twitter: preferWikiString(candidate as any, 'twitter') ?? candidate.twitter,
+        instagram: preferWikiString(candidate as any, 'instagram') ?? candidate.instagram,
+        youtube: preferWikiString(candidate as any, 'youtube') ?? candidate.youtube,
+        pdc: candidate.pdc,
+        phone: preferWikiString(candidate as any, 'phone'),
+      },
+    }
+  })
+
+  const compareCardRows = [
+    {
+      key: 'statement',
+      render: (card: (typeof candidateCards)[number]) => (
+        <>
+          <div className="candidate-card-heading candidate-card-heading--center">
+            <CandidateImage name={card.displayName} image={card.image} url={`/${year}/candidate/${card.slug}`} size={110} />
+            <h3>{card.displayName}</h3>
+          </div>
+          <div className="candidate-card-divider" />
+          <div className="candidate-card-contact">
+            <CandidateLinkCollection
+              candidateId={card.candidate.id}
+              email={card.contact.email}
+              website={card.contact.website}
+              facebook={card.contact.facebook}
+              twitter={card.contact.twitter}
+              instagram={card.contact.instagram}
+              youtube={card.contact.youtube}
+              pdc={card.contact.pdc}
+              phone={card.contact.phone}
+              variant="inline"
+            />
+          </div>
+          <div className="candidate-card-divider" />
+          <div className="candidate-card-body">
+            {card.statementHtml ? (
+              <div className="candidate-card-text" dangerouslySetInnerHTML={{ __html: card.statementHtml }} />
+            ) : (
+              <p className="candidate-card-placeholder">Statement N/A.</p>
+            )}
+          </div>
+        </>
+      ),
+    },
+    {
+      key: 'engagement',
+      render: (card: (typeof candidateCards)[number]) => (
+        <>
+          <div className="candidate-card-heading">
+            <div>
+              <span className="candidate-card-subhead">{card.displayName}</span>
+              <h3>Community Engagement</h3>
+            </div>
+          </div>
+          <div className="candidate-card-body">
+            {card.structuredEngagements.length > 0 ? (
+              <CandidateEngagementList entries={card.structuredEngagements} variant="compact" />
+            ) : card.legacyEngagementHtml ? (
+              <div className="candidate-card-text" dangerouslySetInnerHTML={{ __html: card.legacyEngagementHtml }} />
+            ) : (
+              <p className="candidate-card-placeholder">Awaiting engagement details.</p>
+            )}
+          </div>
+        </>
+      ),
+    },
+    {
+      key: 'support',
+      render: (card: (typeof candidateCards)[number]) => (
+        <>
+          <div className="candidate-card-heading">
+            <div>
+              <span className="candidate-card-subhead">{card.displayName}</span>
+              <h3>Support &amp; Opposition</h3>
+            </div>
+          </div>
+          <div className="candidate-card-body">
+            {card.endorsements.length > 0 ? (
+              <CandidateEndorsements endorsements={card.endorsements} showPlaceholder={false} />
+            ) : (
+              <p className="candidate-card-placeholder">No letters of support or opposition listed yet.</p>
+            )}
+          </div>
+        </>
+      ),
+    },
+    {
+      key: 'donors',
+      render: (card: (typeof candidateCards)[number]) => (
+        <>
+          <div className="candidate-card-heading">
+            <div>
+              <span className="candidate-card-subhead">{card.displayName}</span>
+              <h3>Donors</h3>
+            </div>
+          </div>
+          <div className="candidate-card-body">
+            <CompareCandidateDonorCard
+              fundraising={card.fundraising}
+              minifiler={card.candidate.minifiler}
+            />
+          </div>
+        </>
+      ),
+    },
+  ]
+
+  const questionnaireCandidates = candidateCards.map(card => ({
+    id: card.id,
+    name: card.displayName,
+    image: card.image,
+    slug: card.slug,
+  }))
 
   return (
     <>
@@ -103,30 +245,30 @@ export default async function ComparePage({ params }: ComparePageProps) {
 
           <CompareTable rows={compareRows} />
 
-          {visibleCandidates.length === 0 ? (
+          {candidateCards.length === 0 ? (
             <p className="candidate-empty">Candidate details N/A.</p>
           ) : (
-            <div className="compare-candidate-list">
-              {visibleCandidates.map(({ candidate }) => {
-                const fundraising = calculateFundraising(candidate.contributions || [])
-
-                return (
-                  <Candidate
-                    key={candidate.id}
-                    candidate={candidate}
-                    year={year}
-                    fundraising={fundraising}
-                    fullsize={true}
-                  />
-                )
-              })}
+            <div className="compare-card-matrix">
+              {compareCardRows.map(row => (
+                <div
+                  key={row.key}
+                  className="compare-row"
+                  style={{ '--compare-columns': String(candidateCards.length) } as CSSProperties}
+                >
+                  {candidateCards.map(card => (
+                    <div key={`${row.key}-${card.id}`} className={`candidate-card compare-card compare-card-${row.key}`}>
+                      {row.render(card)}
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           )}
 
           <CompareQuestionnaires
             year={year}
             regionId={race.office.regionId}
-            candidates={compareCandidates}
+            candidates={questionnaireCandidates}
             hiddenTitles={triCitiesStatus.hiddenTitles}
           />
         </section>

@@ -1,15 +1,15 @@
 'use client';
 
 import Link from 'next/link'
-import { CandidateInfo } from './CandidateInfo'
+import { CandidateImage } from './CandidateImage'
+import { CandidateLinkCollection } from './CandidateLinkCollection'
 import { CandidateEndorsements } from './CandidateEndorsements'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
-import { CandidateEnforcementCases } from './CandidateEnforcementCases'
 import { EditableCandidateEndorsements } from '@/components/wiki/EditableCandidateEndorsements'
 import { CandidateEngagementList } from './CandidateEngagementList'
+import { CandidateInfo } from './CandidateInfo'
 import { slugify } from '@/lib/utils'
 import { ensureHtml } from '@/lib/richText'
-import { EditableField } from '@/components/wiki/EditableField'
 import { EditableSectionTitle } from '@/components/wiki/EditableSectionTitle'
 import { EditableCandidateEngagements } from '@/components/wiki/EditableCandidateEngagements'
 import { preferWikiString } from '@/lib/wiki/utils'
@@ -69,15 +69,6 @@ interface CandidateProps {
       type: string
       forAgainst: string
     }>
-    enforcementCases?: Array<{
-      id: string
-      caseNumber: string
-      opened: Date
-      subject: string
-      status: string
-      areasOfLaw: string
-      url: string
-    }>
   }
   year: number
   fullsize?: boolean
@@ -88,6 +79,8 @@ interface CandidateProps {
       name: string
       amount: number
     }>
+    totalCash?: number
+    totalInKind?: number
   } | null
 }
 
@@ -100,154 +93,153 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
   const candidateSlug = slugify(candidate.name)
   const url = `/${year}/candidate/${candidateSlug}`
 
-  const bioValue = preferWikiString(candidate as any, 'bio')
+  const imageValue = preferWikiString(candidate as any, 'image') ?? candidate.image ?? null
   const statementValue = preferWikiString(candidate as any, 'statement')
+  const statementHtml = ensureHtml(statementValue)
+  const bioValue = preferWikiString(candidate as any, 'bio')
+  const bioHtml = ensureHtml(bioValue)
   const engagementValue = preferWikiString(candidate as any, 'engagement')
   const articlesValue = preferWikiString(candidate as any, 'articles')
-  const bioHtml = ensureHtml(bioValue)
-  const statementHtml = ensureHtml(statementValue)
+  const legacyEngagementHtml = ensureHtml(engagementValue)
+  const articlesHtml = ensureHtml(articlesValue)
   const structuredEngagements = Array.isArray(candidate.engagements)
     ? candidate.engagements.filter(entry => entry.engagement)
     : []
-  const legacyEngagementHtml = ensureHtml(engagementValue)
-  const articlesHtml = ensureHtml(articlesValue)
   const hasBio = Boolean(bioHtml)
   const hasStatement = Boolean(statementHtml)
-  const hasEngagement = structuredEngagements.length > 0 || Boolean(legacyEngagementHtml)
-  const hasArticles = Boolean(articlesHtml)
 
-  const renderRichText = (
-    value: string | null,
-    placeholder: string,
-    className = 'candidate-body',
-    placeholderClassName = 'candidate-body placeholder'
-  ) => {
-    const html = ensureHtml(value)
-    if (!html) {
-      return (
-        <div className={placeholderClassName}>
-          <p>{placeholder}</p>
-        </div>
-      )
-    }
-    return <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
-  }
+  const emailValue = preferWikiString(candidate as any, 'email') ?? candidate.email
+  const websiteValue = preferWikiString(candidate as any, 'website') ?? candidate.website
+  const facebookValue = preferWikiString(candidate as any, 'facebook') ?? candidate.facebook
+  const twitterValue = preferWikiString(candidate as any, 'twitter') ?? candidate.twitter
+  const instagramValue = preferWikiString(candidate as any, 'instagram') ?? candidate.instagram
+  const youtubeValue = preferWikiString(candidate as any, 'youtube') ?? candidate.youtube
+  const phoneValue = preferWikiString(candidate as any, 'phone')
 
-  const statementDisplay = renderRichText(statementValue, 'Statement N/A.')
-  const bioDisplay = renderRichText(bioValue, 'Biography N/A.')
-  const engagementDisplay = structuredEngagements.length > 0
-    ? <CandidateEngagementList entries={structuredEngagements} />
-    : renderRichText(engagementValue, 'Awaiting engagement details.', 'engagement')
-  const articlesDisplay = renderRichText(
-    articlesValue,
-    'No articles listed.',
-    'candidate-articles news'
-  )
-
-  // Get race ID for engagement editing
   const currentRace = candidate.races?.find(r => r.race.electionYear === year)
   const raceId = currentRace?.race.id || null
 
   if (fullsize) {
+    const statementContent = statementHtml ? (
+      <div className="candidate-card-text" dangerouslySetInnerHTML={{ __html: statementHtml }} />
+    ) : (
+      <p className="candidate-card-placeholder">Statement N/A.</p>
+    )
+
+    const engagementContent = structuredEngagements.length > 0 ? (
+      <CandidateEngagementList entries={structuredEngagements} />
+    ) : legacyEngagementHtml ? (
+      <div className="candidate-card-text" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+    ) : (
+      <p className="candidate-card-placeholder">Awaiting engagement details.</p>
+    )
+
     return (
-      <article className="candidate candidate-full">
-        <div className="info">
-          <CandidateInfo
-            candidate={candidate}
-            year={year}
-            size={100}
-          />
-        </div>
+      <article className="candidate-profile">
+        <section className="candidate-card candidate-card--statement">
+          <div className="candidate-card-heading candidate-card-heading--center">
+            <CandidateImage name={displayName} image={imageValue} url={url} size={140} />
+            <h2>{displayName}</h2>
+          </div>
 
-        <div className="details">
-          <h3>{displayName}</h3>
+          <div className="candidate-card-divider" />
 
-          {statementHtml && (
-            <section className="candidate-section">
-              <h4>Candidate Statement</h4>
-              <div className="candidate-body" dangerouslySetInnerHTML={{ __html: statementHtml }} />
-            </section>
-          )}
-        </div>
-
-        <div className="candidate-expanded">
-          {(hasEngagement || showEditControls) && (
-            <section className="candidate-section">
-              {structuredEngagements.length > 0 ? (
-                <>
-                  <h4>Community Engagement</h4>
-                  <EditableCandidateEngagements
-                    candidateId={candidate.id}
-                    electionYear={candidate.electionYear}
-                    raceId={raceId}
-                    currentEngagements={structuredEngagements}
-                  />
-                  {legacyEngagementHtml && (
-                    <div className="candidate-body legacy-engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
-                  )}
-                </>
-              ) : (
-                <>
-                  <EditableSectionTitle
-                    title="Community Engagement"
-                    entityType="CANDIDATE"
-                    entityId={candidate.id}
-                    field="engagement"
-                    value={engagementValue ?? ''}
-                    label="Community Engagement"
-                    multiline
-                  />
-                  {engagementDisplay}
-                </>
-              )}
-            </section>
-          )}
-
-          <CandidateEndorsements endorsements={candidate.endorsements || []} />
-          <EditableCandidateEndorsements candidateId={candidate.id} />
-
-          {/* <CandidateEnforcementCases cases={candidate.enforcementCases || []} /> */}
-
-          {(hasArticles || showEditControls) && (
-            <section className="candidate-section">
-              <EditableSectionTitle
-                title="News Articles"
-              entityType="CANDIDATE"
-              entityId={candidate.id}
-              field="articles"
-              value={articlesValue ?? ''}
-              label="News Articles"
-              multiline
-              renderTrigger={openModal => (
-                <button
-                  type="button"
-                  className="wiki-trigger-button"
-                  onClick={event => {
-                    event.stopPropagation();
-                    openModal();
-                  }}
-                >
-                  Add news article
-                </button>
-              )}
+          <div className="candidate-card-contact">
+            <CandidateLinkCollection
+              candidateId={candidate.id}
+              email={emailValue}
+              website={websiteValue}
+              facebook={facebookValue}
+              twitter={twitterValue}
+              instagram={instagramValue}
+              youtube={youtubeValue}
+              pdc={candidate.pdc}
+              phone={phoneValue}
+              variant="inline"
             />
-            {articlesDisplay}
+          </div>
+
+          <div className="candidate-card-divider" />
+
+          <div className="candidate-card-body">
+            {statementContent}
+          </div>
+        </section>
+
+        <section className="candidate-card candidate-card--engagement">
+          <div className="candidate-card-heading">
+            <h3>Community Engagement</h3>
+          </div>
+
+          <div className="candidate-card-body">
+            {(structuredEngagements.length > 0 || showEditControls) && (
+              <EditableCandidateEngagements
+                candidateId={candidate.id}
+                electionYear={candidate.electionYear}
+                raceId={raceId}
+                currentEngagements={structuredEngagements}
+              />
+            )}
+            {engagementContent}
+          </div>
+        </section>
+
+        <section className="candidate-card candidate-card--support">
+          <div className="candidate-card-heading">
+            <h3>Support &amp; Opposition</h3>
+          </div>
+
+          <div className="candidate-card-body">
+            <CandidateEndorsements
+              endorsements={candidate.endorsements || []}
+              showPlaceholder={!showEditControls}
+            />
+            <EditableCandidateEndorsements candidateId={candidate.id} />
+          </div>
+        </section>
+
+        <section className="candidate-card candidate-card--donors">
+          <div className="candidate-card-heading">
+            <h3>Donors</h3>
+          </div>
+          <div className="candidate-card-body">
+            <CandidateDonorSummary
+              fundraising={fundraising}
+              minifiler={candidate.minifiler}
+              mini={false}
+            />
+          </div>
+        </section>
+
+        {(articlesHtml || showEditControls) && (
+          <section className="candidate-card candidate-card--articles">
+            <div className="candidate-card-heading">
+              <h3>News &amp; Articles</h3>
+            </div>
+            <div className="candidate-card-body">
+              <EditableSectionTitle
+                title="News & Articles"
+                entityType="CANDIDATE"
+                entityId={candidate.id}
+                field="articles"
+                value={articlesValue ?? ''}
+                label="News & Articles"
+                multiline
+              />
+              {articlesHtml ? (
+                <div className="candidate-card-text" dangerouslySetInnerHTML={{ __html: articlesHtml }} />
+              ) : (
+                <p className="candidate-card-placeholder">No articles listed.</p>
+              )}
+            </div>
           </section>
         )}
-
-          <CandidateDonorSummary
-            fundraising={fundraising}
-            minifiler={candidate.minifiler}
-            mini={false}
-          />
-        </div>
       </article>
     )
   }
 
   return (
     <div className="candidate">
-      {/* Info column (image and links) - comes first in HTML but displayed on left via grid */}
       <div className="info">
         <CandidateInfo
           candidate={candidate}
@@ -255,8 +247,7 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
           size={150}
         />
       </div>
-      
-      {/* Details column (main content) */}
+
       <div className="details">
         <h5>
           <Link href={url}>{displayName}</Link>
@@ -287,8 +278,6 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
 
         <CandidateEndorsements endorsements={candidate.endorsements || []} />
 
-        {/* <CandidateEnforcementCases cases={candidate.enforcementCases || []} /> */}
-
         {articlesHtml && (
           <div className="candidate-articles news">
             <h4>News Articles</h4>
@@ -303,7 +292,7 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
             mini={true}
           />
         </div>
-        
+
         <p>
           <a href={url}>See full candidate details »</a>
         </p>

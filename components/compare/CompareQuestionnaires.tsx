@@ -1,5 +1,7 @@
 import { Prisma } from '@prisma/client'
 import { prisma } from '@/lib/db'
+import { CandidateImage } from '@/components/candidate/CandidateImage'
+import { slugify } from '@/lib/utils'
 import { CompareCandidateStatement } from './CompareCandidateStatement'
 
 interface CompareQuestionnairesProps {
@@ -13,6 +15,7 @@ interface CandidateMeta {
   id: string
   name: string
   image?: string | null
+  slug: string
 }
 
 interface AbRow {
@@ -25,7 +28,11 @@ interface AbRow {
   strongB: CandidateEntry[]
 }
 
-interface CandidateEntry extends CandidateMeta {
+interface CandidateEntry {
+  id: string
+  name: string
+  image?: string | null
+  slug: string
   comment?: string | null
 }
 
@@ -53,17 +60,21 @@ interface QuestionnaireSection {
   openQuestions: OpenQuestion[]
 }
 
-export async function CompareQuestionnaires({
-  year,
-  regionId,
-  candidates,
-  hiddenTitles = []
-}: CompareQuestionnairesProps) {
+const TRI_CITIES_SLUGS = ['city-council', 'school-board']
+
+function isTriCitiesQuestionnaire(slug?: string | null) {
+  if (!slug) return false
+  const normalized = slug.toLowerCase()
+  return TRI_CITIES_SLUGS.some(segment => normalized.includes(segment))
+}
+
+export async function CompareQuestionnaires({ year, regionId, candidates, hiddenTitles = [] }: CompareQuestionnairesProps) {
   const orderedCandidates = candidates
     .map(candidate => ({
       id: candidate.id,
       name: candidate.name,
-      image: candidate.image ?? null
+      image: candidate.image ?? null,
+      slug: candidate.slug,
     }))
     .filter(candidate => candidate.name.trim().length > 0)
 
@@ -71,12 +82,9 @@ export async function CompareQuestionnaires({
     return null
   }
 
-  const candidateMap = new Map<string, CandidateMeta>()
-  for (const candidate of orderedCandidates) {
-    candidateMap.set(candidate.id, candidate)
-  }
-
-  const candidateIds = orderedCandidates.map(candidate => candidate.id)
+  const candidateMap = new Map<string, CandidateMeta>(
+    orderedCandidates.map(candidate => [candidate.id, candidate])
+  )
 
   const regionFilter = regionId
     ? [{ regionId: null }, { regionId }]
@@ -85,33 +93,34 @@ export async function CompareQuestionnaires({
   const questionnaires = await prisma.questionnaire.findMany({
     where: {
       year,
-      OR: regionFilter
+      OR: regionFilter,
     },
     include: {
       questions: {
-        orderBy: { position: 'asc' }
+        orderBy: { position: 'asc' },
       },
       responses: {
         where: {
-          candidateId: { in: candidateIds }
+          candidateId: { in: orderedCandidates.map(candidate => candidate.id) },
         },
         include: {
           candidate: {
             select: {
               id: true,
               name: true,
-              image: true
-            }
-          }
-        }
-      }
+              image: true,
+            },
+          },
+        },
+      },
     },
-    orderBy: { title: 'asc' }
+    orderBy: { title: 'asc' },
   })
 
   const hiddenTitleSet = new Set(hiddenTitles)
 
   const sections: QuestionnaireSection[] = questionnaires
+    .filter(questionnaire => isTriCitiesQuestionnaire(questionnaire.slug))
     .map(questionnaire => buildSection(questionnaire, candidateMap))
     .filter(section =>
       (section.abRows.length > 0 || section.openQuestions.length > 0) &&
@@ -130,33 +139,36 @@ export async function CompareQuestionnaires({
 
           {section.openQuestions.length > 0 && (
             <div className="questionnaire-open">
-              {section.openQuestions.map(question => {
-                const gridStyle = {
-                  gridTemplateColumns: `repeat(auto-fit, minmax(320px, 1fr))`
-                }
-
-                return (
-                  <div key={question.id} className="questionnaire-open-block">
-                    <div className="questionnaire-open-question-cell">
-                      <h3>{question.question}</h3>
-                    </div>
-                    <div className="questionnaire-open-answer-list" style={gridStyle}>
-                      {orderedCandidates.map(candidate => {
-                        const answer = question.responses[candidate.id]
-                        return (
-                          <div
-                            key={candidate.id}
-                            className={`questionnaire-open-answer-card${answer ? '' : ' questionnaire-open-answer-empty'}`}
-                          >
-                            <h4>{candidate.name}</h4>
-                            {answer ? <p>{answer}</p> : <span className="questionnaire-open-answer-none">—</span>}
-                          </div>
-                        )
-                      })}
-                    </div>
+              {section.openQuestions.map(question => (
+                <div key={question.id} className="questionnaire-open-block">
+                  <div className="questionnaire-open-question-cell">
+                    <h3>{question.question}</h3>
                   </div>
-                )
-              })}
+                  <div className={`questionnaire-open-answer-list columns-${Math.min(orderedCandidates.length, 6)}`}>
+                    {orderedCandidates.map(candidate => {
+                      const answer = question.responses[candidate.id]
+                      const candidateUrl = `/${year}/candidate/${candidate.slug}`
+                      const cardClass = `questionnaire-open-answer-card candidate-card${answer ? '' : ' questionnaire-open-answer-empty'}`
+
+                      return (
+                        <div key={candidate.id} className={cardClass}>
+                          <div className="candidate-card-heading">
+                            <CandidateImage name={candidate.name} image={candidate.image} url={candidateUrl} size={38} />
+                            <h4>{candidate.name}</h4>
+                          </div>
+                          <div className="candidate-card-body candidate-card-body-answer">
+                            {answer ? (
+                              <p className="candidate-card-text">{answer}</p>
+                            ) : (
+                              <span className="questionnaire-open-answer-none">—</span>
+                            )}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
           )}
 
@@ -281,7 +293,7 @@ function buildSection(
           strongA,
           leanA,
           leanB,
-          strongB
+          strongB,
         })
       }
     }
@@ -300,7 +312,7 @@ function buildSection(
         openQuestions.push({
           id: question.id,
           question: question.question,
-          responses: responsesRecord
+          responses: responsesRecord,
         })
       }
     }
@@ -310,14 +322,14 @@ function buildSection(
     id: questionnaire.id,
     title: questionnaire.title,
     abRows,
-    openQuestions
+    openQuestions,
   }
 }
 
 function toCandidateEntry(
   response: {
     candidateId: string
-    candidate: CandidateMeta | null
+    candidate: { id: string; name: string; image: string | null } | null
     comment: string | null
   },
   candidateMap: Map<string, CandidateMeta>
@@ -328,18 +340,21 @@ function toCandidateEntry(
     return null
   }
 
+  const slug = 'slug' in candidate ? candidate.slug : slugify(candidate.name)
+
   return {
     id: candidate.id,
     name: candidate.name,
-    image: candidate.image,
-    comment: response.comment?.trim() ? response.comment.trim() : null
+    image: candidate.image ?? null,
+    slug,
+    comment: response.comment?.trim() ? response.comment.trim() : null,
   }
 }
 
 function toOpenEntry(
   response: {
     candidateId: string
-    candidate: CandidateMeta | null
+    candidate: { id: string; name: string; image: string | null } | null
     textResponse: string | null
   },
   candidateMap: Map<string, CandidateMeta>
@@ -350,10 +365,13 @@ function toOpenEntry(
     return null
   }
 
+  const slug = 'slug' in candidate ? candidate.slug : slugify(candidate.name)
+
   return {
     id: candidate.id,
     name: candidate.name,
-    image: candidate.image,
-    answer: response.textResponse.trim()
+    image: candidate.image ?? null,
+    slug,
+    answer: response.textResponse.trim(),
   }
 }

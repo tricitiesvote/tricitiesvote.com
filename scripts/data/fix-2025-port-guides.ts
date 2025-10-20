@@ -6,8 +6,8 @@ const prisma = new PrismaClient()
 
 const YEAR = 2025
 const PORT_RACE_GUIDES: Record<string, string[]> = {
-  'Port of Benton Commissioner District 1': ['Richland', 'West Richland'],
-  'Port of Kennewick Commissioner District 2': ['Kennewick']
+  'Port of Benton Commissioner': ['Richland', 'West Richland'],
+  'Port of Kennewick Commissioner': ['Kennewick']
 }
 
 async function getGuideId(regionName: string) {
