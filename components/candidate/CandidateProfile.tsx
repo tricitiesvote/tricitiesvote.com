@@ -6,6 +6,7 @@ import { EditableField } from '@/components/wiki/EditableField'
 import { EditableCandidateEndorsements } from '@/components/wiki/EditableCandidateEndorsements'
 import { CandidateEngagementList } from './CandidateEngagementList'
 import { CandidateEndorsements } from './CandidateEndorsements'
+import { deriveMeasureStance } from './measureUtils'
 import { QuestionnaireResponses } from '@/components/questionnaire/QuestionnaireResponses'
 
 interface CandidateProfileProps {
@@ -88,6 +89,14 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
   const articlesValue = preferWikiString(candidate as any, 'articles') ?? ''
   const lettersYesHtml = ensureHtml(candidate.lettersYes)
   const lettersNoHtml = ensureHtml(candidate.lettersNo)
+  const measureStance = candidate.office?.type === 'BALLOT_MEASURE'
+    ? (deriveMeasureStance(candidate.name) ?? null)
+    : null
+  const endorsementStance = measureStance === 'support'
+    ? 'MEASURE_YES'
+    : measureStance === 'oppose'
+      ? 'MEASURE_NO'
+      : undefined
   
   // Group endorsements by for/against
   return (
@@ -183,11 +192,19 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
             </div>
           )}
           
-          <CandidateEndorsements
-            endorsements={candidate.endorsements || []}
-            showPlaceholder={true}
-          />
-          <EditableCandidateEndorsements candidateId={candidate.id} />
+          {endorsementStance ? (
+            <div className="endorsements-summary">
+              <p>No letters of support or opposition listed yet.</p>
+            </div>
+          ) : (
+            <>
+              <CandidateEndorsements
+                endorsements={candidate.endorsements || []}
+                showPlaceholder={true}
+              />
+              <EditableCandidateEndorsements candidateId={candidate.id} />
+            </>
+          )}
 
           <div className="candidate-articles">
             <div className="candidate-articles-header">

@@ -108,6 +108,11 @@ export default async function ComparePage({ params }: ComparePageProps) {
       : []
 
     const fundraising = calculateFundraising(candidate.contributions || [])
+    const endorsementStance = measureStance === 'support'
+      ? 'MEASURE_YES'
+      : measureStance === 'oppose'
+        ? 'MEASURE_NO'
+        : undefined
 
     return {
       id: candidate.id,
@@ -123,6 +128,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
       endorsements: candidate.endorsements || [],
       minifiler: candidate.minifiler,
       fundraising,
+      endorsementStance,
       contact: {
         email: preferWikiString(candidate as any, 'email') ?? candidate.email,
         website: preferWikiString(candidate as any, 'website') ?? candidate.website,
@@ -210,11 +216,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
             </div>
           </div>
           <div className="candidate-card-body">
-            {card.endorsements.length > 0 ? (
-              <CandidateEndorsements endorsements={card.endorsements} showPlaceholder={false} />
-            ) : (
-              <p className="candidate-card-placeholder">No letters of support or opposition listed yet.</p>
-            )}
+            <p className="candidate-card-placeholder">Community letters coming soon.</p>
           </div>
         </>
       ),

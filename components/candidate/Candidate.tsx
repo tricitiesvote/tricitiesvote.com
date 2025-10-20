@@ -131,6 +131,11 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
         backgroundColor: '#53bce4'
       }
     : null
+  const endorsementStance = measureStance === 'support'
+    ? 'MEASURE_YES'
+    : measureStance === 'oppose'
+      ? 'MEASURE_NO'
+      : undefined
 
   if (fullsize) {
     const statementContent = statementHtml ? (
@@ -199,18 +204,24 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
           </section>
         )}
 
-        <section className="candidate-card candidate-card--support">
-          <div className="candidate-card-heading">
-            <h3>Endorsements</h3>
-          </div>
+       <section className="candidate-card candidate-card--support">
+         <div className="candidate-card-heading">
+           <h3>Endorsements</h3>
+         </div>
 
-          <div className="candidate-card-body">
-            <CandidateEndorsements
-              endorsements={candidate.endorsements || []}
-              showPlaceholder={!showEditControls}
-            />
-            <EditableCandidateEndorsements candidateId={candidate.id} />
-          </div>
+          {endorsementStance ? (
+            <div className="candidate-card-body">
+              <p className="candidate-card-placeholder">Community letters coming soon.</p>
+            </div>
+          ) : (
+            <div className="candidate-card-body">
+              <CandidateEndorsements
+                endorsements={candidate.endorsements || []}
+                showPlaceholder={!showEditControls}
+              />
+              <EditableCandidateEndorsements candidateId={candidate.id} />
+            </div>
+          )}
         </section>
 
         <section className="candidate-card candidate-card--donors">
@@ -294,7 +305,15 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
           )
         )}
 
-        <CandidateEndorsements endorsements={candidate.endorsements || []} />
+        {endorsementStance ? (
+          <div className="endorsements-summary">
+            <p>No letters of support or opposition listed yet.</p>
+          </div>
+        ) : (
+          <CandidateEndorsements
+            endorsements={candidate.endorsements || []}
+          />
+        )}
 
         {articlesHtml && (
           <div className="candidate-articles news">

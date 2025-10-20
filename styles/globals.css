@@ -535,6 +535,16 @@ form {
 }
 
 .ballot-measure-card {
+  padding: 20px 0;
+}
+
+.ballot-measure-details  {
+  max-width: 600px;
+  margin: 0 auto 0px auto;
+}
+
+.ballot-measure-details div {
+
   border: 1px solid #eee;
   border-bottom: 1px solid #ddd;
   padding: 20px;
@@ -562,7 +572,7 @@ form {
   color: #334155;
 }
 
-.ballot-measure-summary-card {
+/* .ballot-measure-summary-card {
   border: 1px solid #e2e8f0;
   background: #f8fafc;
   padding: 16px;
@@ -570,6 +580,15 @@ form {
   border-radius: 8px;
   font-size: 0.95rem;
   color: #334155;
+} */
+
+.ballot-measure-summary-card {
+  margin-bottom: 20px;  
+  border: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0px 5px 10px rgba(38, 58, 172, .1);
 }
 
 .ballot-measure-summary-card p {
@@ -1510,23 +1529,6 @@ del, del a:link, del li {
 .endorsement-meta {
   font-size: 0.85em;
   color: #555;
-}
-
-.endorsements-columns {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.endorsement-column h4 {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-}
-
-.endorsement-empty {
-  color: #666;
-  font-style: italic;
-  margin: 0;
 }
 
 .endorsement-suggest {

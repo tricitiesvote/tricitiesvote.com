@@ -15,14 +15,14 @@ export function BallotMeasureDetails({ intro, body }: BallotMeasureDetailsProps)
     return <p className="ballot-measure-placeholder">Details coming soon.</p>
   }
 
-  return (
-    <div className="ballot-measure-details">
-      {hasIntro && (
-        <div className="ballot-measure-card ballot-measure-intro" dangerouslySetInnerHTML={{ __html: introHtml as string }} />
-      )}
-      {hasBody && (
-        <div className="ballot-measure-card ballot-measure-body" dangerouslySetInnerHTML={{ __html: bodyHtml as string }} />
-      )}
-    </div>
-  )
+  // return (
+  //   <div className="ballot-measure-details">
+  //     {/* {hasIntro && (
+  //       <div className="ballot-measure-card ballot-measure-intro" dangerouslySetInnerHTML={{ __html: introHtml as string }} />
+  //     )} */}
+  //     {/* {hasBody && (
+  //       <div className="ballot-measure-card ballot-measure-body" dangerouslySetInnerHTML={{ __html: bodyHtml as string }} />
+  //     )} */}
+  //   </div>
+  // )
 }

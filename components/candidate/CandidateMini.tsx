@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CandidateDonorSummary } from './CandidateDonorSummary'
 import { CandidateEngagementList } from './CandidateEngagementList'
+import { CandidateEndorsements } from './CandidateEndorsements'
 import { slugify } from '@/lib/utils'
 import { ensureHtml } from '@/lib/richText'
 import { deriveMeasureStance } from './measureUtils'
@@ -70,11 +71,12 @@ export function CandidateMini({ candidate, fundraising, year, officeType }: Cand
   const isBallotMeasureCandidate = officeType === 'BALLOT_MEASURE'
   const measureStance = isBallotMeasureCandidate ? deriveMeasureStance(displayName) ?? deriveMeasureStance(candidate.name) : null
   const measureBadgeLabel = measureStance ? (measureStance === 'support' ? 'YES' : 'NO') : null
+  const endorsementStance = measureStance === 'support'
+    ? 'MEASURE_YES'
+    : measureStance === 'oppose'
+      ? 'MEASURE_NO'
+      : undefined
 
-  // Group endorsements by for/against
-  const endorsementsFor = candidate.endorsements?.filter(e => e.forAgainst === 'FOR') || []
-  const endorsementsAgainst = candidate.endorsements?.filter(e => e.forAgainst === 'AGAINST') || []
-  
   return (
     <div className="candidate candidate-mini">
       <Link href={url}>
@@ -118,45 +120,14 @@ export function CandidateMini({ candidate, fundraising, year, officeType }: Cand
         mini={true}
       />
       
-      {(endorsementsFor.length > 0 || endorsementsAgainst.length > 0) && (
-        <div className="endorsements-summary">
-          <ul className="recs">
-            {endorsementsFor.map(endorsement => {
-              const href = endorsement.url || endorsement.filePath || undefined
-              return (
-                <li key={endorsement.id} className="yes">
-                  {href ? (
-                    <a href={href} target="_blank" rel="noopener noreferrer">
-                      {endorsement.endorser}
-                    </a>
-                  ) : (
-                    <span>{endorsement.endorser}</span>
-                  )}
-                </li>
-              )
-            })}
-            {endorsementsAgainst.map(endorsement => {
-              const href = endorsement.url || endorsement.filePath || undefined
-              return (
-                <li key={endorsement.id} className="no">
-                  {href ? (
-                    <a href={href} target="_blank" rel="noopener noreferrer">
-                      {endorsement.endorser}
-                    </a>
-                  ) : (
-                    <span>{endorsement.endorser}</span>
-                  )}
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      )}
-      
-      {!endorsementsFor.length && !endorsementsAgainst.length && (
+      {endorsementStance ? (
         <div className="endorsements-summary">
           <p>No letters of support or opposition listed yet.</p>
         </div>
+      ) : (
+        <CandidateEndorsements
+          endorsements={(candidate.endorsements as any) || []}
+        />
       )}
     </div>
   )

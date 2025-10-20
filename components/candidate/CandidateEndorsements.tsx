@@ -10,13 +10,15 @@ interface EndorsementProps {
     forAgainst: string
   }>
   showPlaceholder?: boolean
+  stance?: 'MEASURE_YES' | 'MEASURE_NO'
 }
 
-export function CandidateEndorsements({ endorsements, showPlaceholder = true }: EndorsementProps) {
-  const endorsementsFor = endorsements.filter(e => e.forAgainst === 'FOR')
-  const endorsementsAgainst = endorsements.filter(e => e.forAgainst === 'AGAINST')
-  
-  if (endorsements.length === 0) {
+type DisplayVariant = 'yes' | 'no'
+
+export function CandidateEndorsements({ endorsements, showPlaceholder = true, stance }: EndorsementProps) {
+  const displayList = computeDisplayList(endorsements, stance)
+
+  if (displayList.length === 0) {
     if (!showPlaceholder) {
       return null
     }
@@ -27,39 +29,45 @@ export function CandidateEndorsements({ endorsements, showPlaceholder = true }: 
       </div>
     )
   }
-  
+
   return (
-    <div className="endorsements-summary endorsements-columns">
-      <div className="endorsement-column">
-        <h4>Support</h4>
-        {endorsementsFor.length > 0 ? (
-          <ul className="recs">
-            {endorsementsFor.map(endorsement => (
-              <li key={endorsement.id} className="yes">
-                <EndorsementLink endorsement={endorsement} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="endorsement-empty">No supporters listed yet.</p>
-        )}
-      </div>
-      <div className="endorsement-column">
-        <h4>Oppose</h4>
-        {endorsementsAgainst.length > 0 ? (
-          <ul className="recs">
-            {endorsementsAgainst.map(endorsement => (
-              <li key={endorsement.id} className="no">
-                <EndorsementLink endorsement={endorsement} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="endorsement-empty">No opposition listed yet.</p>
-        )}
-      </div>
+    <div className="endorsements-summary">
+      <ul className="recs">
+        {displayList.map(item => (
+          <li key={item.id} className={item.variant === 'yes' ? 'yes' : 'no'}>
+            <EndorsementLink endorsement={item.endorsement} />
+          </li>
+        ))}
+      </ul>
     </div>
   )
+}
+
+function computeDisplayList(
+  endorsements: EndorsementProps['endorsements'],
+  stance: EndorsementProps['stance']
+): Array<{ id: string; endorsement: EndorsementProps['endorsements'][number]; variant: DisplayVariant }> {
+  if (endorsements.length === 0) {
+    return []
+  }
+
+  if (stance === 'MEASURE_YES') {
+    return endorsements
+      .filter(entry => entry.forAgainst === 'FOR')
+      .map(entry => ({ id: entry.id, endorsement: entry, variant: 'yes' as DisplayVariant }))
+  }
+
+  if (stance === 'MEASURE_NO') {
+    return endorsements
+      .filter(entry => entry.forAgainst === 'AGAINST')
+      .map(entry => ({ id: entry.id, endorsement: entry, variant: 'yes' as DisplayVariant }))
+  }
+
+  return endorsements.map(entry => ({
+    id: entry.id,
+    endorsement: entry,
+    variant: entry.forAgainst === 'FOR' ? 'yes' : 'no'
+  }))
 }
 
 function EndorsementLink({
