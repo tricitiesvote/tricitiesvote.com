@@ -1,16 +1,30 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+
+function ErrorBanner() {
+  const searchParams = useSearchParams();
+  const errorParam = searchParams.get('error');
+
+  if (!errorParam) {
+    return null;
+  }
+
+  return (
+    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+      {errorParam === 'missing_token' && 'Invalid or missing token'}
+      {errorParam === 'invalid_token' && 'Token has expired or is invalid'}
+      {errorParam === 'server_error' && 'Server error occurred'}
+    </div>
+  );
+}
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
-
-  const searchParams = useSearchParams();
-  const errorParam = searchParams.get('error');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,13 +84,9 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {errorParam && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-            {errorParam === 'missing_token' && 'Invalid or missing token'}
-            {errorParam === 'invalid_token' && 'Token has expired or is invalid'}
-            {errorParam === 'server_error' && 'Server error occurred'}
-          </div>
-        )}
+        <Suspense fallback={null}>
+          <ErrorBanner />
+        </Suspense>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div>

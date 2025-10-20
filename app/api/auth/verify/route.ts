@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { generateToken } from '@/lib/auth/jwt';
 import { generateCsrfToken } from '@/lib/auth/csrf';
