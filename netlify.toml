@@ -1,0 +1,7 @@
+[build.environment]
+PRISMA_CLI_BINARY_TARGETS = "linux-musl"
+
+[functions]
+node_bundler = "esbuild"
+external_node_modules = ["@prisma/client", "prisma"]
+included_files = ["node_modules/.prisma/client/**"]
