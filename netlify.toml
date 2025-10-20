@@ -1,3 +1,7 @@
+[build]
+command = "npm install && npm run prisma:generate && npm run build"
+publish = ".next"
+
 [build.environment]
 PRISMA_CLI_BINARY_TARGETS = "linux-musl"
 
