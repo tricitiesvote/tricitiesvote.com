@@ -29,20 +29,35 @@ export function CandidateEndorsements({ endorsements, showPlaceholder = true }: 
   }
   
   return (
-    <div className="endorsements-summary">
-      <h4>Endorsements and letters</h4>
-      <ul className="recs">
-        {endorsementsFor.map(endorsement => (
-          <li key={endorsement.id} className="yes">
-            <EndorsementLink endorsement={endorsement} />
-          </li>
-        ))}
-        {endorsementsAgainst.map(endorsement => (
-          <li key={endorsement.id} className="no">
-            <EndorsementLink endorsement={endorsement} />
-          </li>
-        ))}
-      </ul>
+    <div className="endorsements-summary endorsements-columns">
+      <div className="endorsement-column">
+        <h4>Support</h4>
+        {endorsementsFor.length > 0 ? (
+          <ul className="recs">
+            {endorsementsFor.map(endorsement => (
+              <li key={endorsement.id} className="yes">
+                <EndorsementLink endorsement={endorsement} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="endorsement-empty">No supporters listed yet.</p>
+        )}
+      </div>
+      <div className="endorsement-column">
+        <h4>Oppose</h4>
+        {endorsementsAgainst.length > 0 ? (
+          <ul className="recs">
+            {endorsementsAgainst.map(endorsement => (
+              <li key={endorsement.id} className="no">
+                <EndorsementLink endorsement={endorsement} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="endorsement-empty">No opposition listed yet.</p>
+        )}
+      </div>
     </div>
   )
 }

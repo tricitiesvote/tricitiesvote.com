@@ -74,7 +74,7 @@ export function RaceCard({ race, year }: RaceCardProps) {
   let summary: string | null = null
   if (isBallotMeasure && introHtml) {
     const text = introHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
-    summary = text.length > 200 ? `${text.slice(0, 197)}…` : text
+    summary = text.length > 300 ? `${text.slice(0, 297)}…` : text
   }
 
   if (isBallotMeasure) {
@@ -85,7 +85,6 @@ export function RaceCard({ race, year }: RaceCardProps) {
             {displayTitle}
           </Link>
         </h2>
-
         {summary && (
           <div className="ballot-measure-summary-card">
             <p>{summary}</p>
@@ -94,7 +93,6 @@ export function RaceCard({ race, year }: RaceCardProps) {
             </Link>
           </div>
         )}
-
         <div className="container-candidate container-candidate-mini">
           {visibleCandidates.length === 0 ? (
             <p className="candidate-empty">Positions coming soon.</p>
@@ -107,6 +105,7 @@ export function RaceCard({ race, year }: RaceCardProps) {
                   candidate={candidate}
                   fundraising={fundraising}
                   year={year}
+                  officeType={race.office.type}
                 />
               )
             })
@@ -143,6 +142,7 @@ export function RaceCard({ race, year }: RaceCardProps) {
                 candidate={candidate}
                 fundraising={fundraising}
                 year={year}
+                officeType={race.office.type}
               />
             )
           })

@@ -17,6 +17,7 @@ import { CandidateEngagementList } from '@/components/candidate/CandidateEngagem
 import { CompareCandidateDonorCard } from '@/components/compare/CompareCandidateDonorCard'
 import { ensureHtml } from '@/lib/richText'
 import { BallotMeasureDetails } from '@/components/race/BallotMeasureDetails'
+import { deriveMeasureStance } from '@/components/candidate/measureUtils'
 
 interface ComparePageProps {
   params: {
@@ -88,6 +89,16 @@ export default async function ComparePage({ params }: ComparePageProps) {
       const displayName = preferWikiString(candidate as any, 'name') ?? candidate.name
       const slug = slugify(candidate.name)
       const image = preferWikiString(candidate as any, 'image') ?? candidate.image ?? null
+    const officeType = candidate.office?.type
+    const measureStance = officeType === 'BALLOT_MEASURE'
+      ? (deriveMeasureStance(displayName) ?? deriveMeasureStance(candidate.name))
+      : null
+    const measureBadge = measureStance
+      ? {
+          label: measureStance === 'support' ? 'YES' : 'NO',
+          backgroundColor: '#53bce4'
+        }
+      : null
     const statementValue = preferWikiString(candidate as any, 'statement')
     const statementHtml = ensureHtml(statementValue)
     const engagementValue = preferWikiString(candidate as any, 'engagement')
@@ -103,6 +114,8 @@ export default async function ComparePage({ params }: ComparePageProps) {
       displayName,
       slug,
       image,
+      officeType,
+      measureBadge,
       candidate,
       statementHtml,
       legacyEngagementHtml,
@@ -129,7 +142,13 @@ export default async function ComparePage({ params }: ComparePageProps) {
       render: (card: (typeof candidateCards)[number]) => (
         <>
           <div className="candidate-card-heading candidate-card-heading--center">
-            <CandidateImage name={card.displayName} image={card.image} url={`/${year}/candidate/${card.slug}`} size={110} />
+            <CandidateImage
+              name={card.displayName}
+              image={card.image}
+              url={`/${year}/candidate/${card.slug}`}
+              size={110}
+              badge={card.measureBadge}
+            />
             <h3>{card.displayName}</h3>
           </div>
           <div className="candidate-card-divider" />
@@ -187,7 +206,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
           <div className="candidate-card-heading">
             <div>
               <span className="candidate-card-subhead">{card.displayName}</span>
-              <h3>Support &amp; Opposition</h3>
+              <h3>Endorsements</h3>
             </div>
           </div>
           <div className="candidate-card-body">
@@ -228,6 +247,10 @@ export default async function ComparePage({ params }: ComparePageProps) {
     slug: card.slug,
   }))
 
+  const rowsToRender = isBallotMeasure
+    ? compareCardRows.filter(row => row.key !== 'engagement')
+    : compareCardRows
+
   return (
     <>
       <nav className="breadcrumb">
@@ -260,7 +283,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
             <p className="candidate-empty">Candidate details N/A.</p>
           ) : (
             <div className="compare-card-matrix">
-              {compareCardRows.map(row => (
+              {rowsToRender.map(row => (
                 <div
                   key={row.key}
                   className="compare-row"

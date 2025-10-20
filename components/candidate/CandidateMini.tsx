@@ -4,6 +4,7 @@ import { CandidateDonorSummary } from './CandidateDonorSummary'
 import { CandidateEngagementList } from './CandidateEngagementList'
 import { slugify } from '@/lib/utils'
 import { ensureHtml } from '@/lib/richText'
+import { deriveMeasureStance } from './measureUtils'
 
 interface CandidateMiniProps {
   candidate: {
@@ -48,9 +49,10 @@ interface CandidateMiniProps {
     }>
   } | null
   year: number
+  officeType?: string
 }
 
-export function CandidateMini({ candidate, fundraising, year }: CandidateMiniProps) {
+export function CandidateMini({ candidate, fundraising, year, officeType }: CandidateMiniProps) {
   const displayName = candidate.nameWiki && candidate.nameWiki.trim().length > 0
     ? candidate.nameWiki
     : candidate.name
@@ -65,6 +67,9 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
     : []
   const legacyEngagementHtml = ensureHtml(candidate.engagement)
   const isRemoteImage = imageSrc ? /^https?:/i.test(imageSrc) : false
+  const isBallotMeasureCandidate = officeType === 'BALLOT_MEASURE'
+  const measureStance = isBallotMeasureCandidate ? deriveMeasureStance(displayName) ?? deriveMeasureStance(candidate.name) : null
+  const measureBadgeLabel = measureStance ? (measureStance === 'support' ? 'YES' : 'NO') : null
 
   // Group endorsements by for/against
   const endorsementsFor = candidate.endorsements?.filter(e => e.forAgainst === 'FOR') || []
@@ -73,7 +78,11 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
   return (
     <div className="candidate candidate-mini">
       <Link href={url}>
-        {imageSrc ? (
+        {measureBadgeLabel ? (
+          <div className="candidate-measure-badge candidate-measure-badge--mini">
+            <span>{measureBadgeLabel}</span>
+          </div>
+        ) : imageSrc ? (
           <Image
             src={imageSrc}
             alt={displayName}
@@ -93,11 +102,13 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
         {displayName}
       </h5>
       
-      {structuredEngagements.length > 0 ? (
-        <CandidateEngagementList entries={structuredEngagements} variant="compact" />
-      ) : (
-        legacyEngagementHtml && (
-          <div className="engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+      {!isBallotMeasureCandidate && (
+        structuredEngagements.length > 0 ? (
+          <CandidateEngagementList entries={structuredEngagements} variant="compact" />
+        ) : (
+          legacyEngagementHtml && (
+            <div className="engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+          )
         )
       )}
       

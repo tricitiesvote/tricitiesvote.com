@@ -10,13 +10,13 @@ const PAGE_SIZE = 5000
 const ELECTION_YEAR = 2025
 
 interface CommitteeConfig {
-  name: string
+  label: string
   committeeId: string
 }
 
 const COMMITTEES: CommitteeConfig[] = [
-  { name: 'Pro Districts', committeeId: 'CO-2025-31659' },
-  { name: 'Con Districts', committeeId: 'CO-2025-37825' }
+  { label: 'Yes to Districts', committeeId: 'CO-2025-31659' },
+  { label: 'No to Districts', committeeId: 'CO-2025-37825' }
 ]
 
 interface ContributionRecord {
@@ -45,13 +45,18 @@ function normalizeContributionType(raw: string | undefined): string | null {
 async function fetchAllContributions(committeeId: string): Promise<ContributionRecord[]> {
   const results: ContributionRecord[] = []
   let offset = 0
+  const numericIdMatch = committeeId.match(/(\d+)$/)
+  const numericId = numericIdMatch ? numericIdMatch[1] : committeeId
 
   while (true) {
     const url = new URL(DATASET_BASE)
     url.searchParams.set('$limit', PAGE_SIZE.toString())
     url.searchParams.set('$offset', offset.toString())
     url.searchParams.set('$order', 'receipt_date DESC')
-    url.searchParams.set("filer_id", committeeId)
+    url.searchParams.set(
+      '$where',
+      `committee_id='${numericId}' OR upper(filer_id)='${committeeId.toUpperCase()}'`
+    )
 
     const response = await fetch(url.toString(), {
       headers: {
@@ -80,16 +85,25 @@ async function importCommittee(config: CommitteeConfig) {
   const candidate = await prisma.candidate.findFirst({
     where: {
       electionYear: ELECTION_YEAR,
-      name: config.name
+      OR: [
+        { stateId: config.committeeId },
+        {
+          pdc: {
+            contains: config.committeeId,
+            mode: 'insensitive'
+          }
+        },
+        { name: config.label }
+      ]
     }
   })
 
   if (!candidate) {
-    console.warn(`⚠️  Candidate record '${config.name}' not found, skipping.`)
+    console.warn(`⚠️  Candidate record for committee '${config.label}' (${config.committeeId}) not found, skipping.`)
     return
   }
 
-  console.log(`\n📥 Importing contributions for ${config.name} (${config.committeeId})`)
+  console.log(`\n📥 Importing contributions for ${config.label} (${config.committeeId}) -> candidate ${candidate.name}`)
   const contributions = await fetchAllContributions(config.committeeId)
   console.log(`  • fetched ${contributions.length} transactions`)
 

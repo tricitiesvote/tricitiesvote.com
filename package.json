@@ -28,6 +28,7 @@
     "import:questionnaire": "ts-node --project tsconfig.scripts.json scripts/import/questionnaire-import.ts",
     "import:questionnaire:all": "npm run import:questionnaire -- all",
     "import:letters": "ts-node --project tsconfig.scripts.json scripts/import/scrape-letters.ts",
+    "import:letters:purge": "ts-node --project tsconfig.scripts.json scripts/import/purge-letter-endorsements.ts",
     "import:letters:load": "ts-node --project tsconfig.scripts.json scripts/import/import-letter-endorsements.ts",
     "import:tcrc": "ts-node --project tsconfig.scripts.json scripts/import/tcrc-questionnaire.ts",
     "import:tcrc:load": "ts-node --project tsconfig.scripts.json scripts/import/tcrc-questionnaire-load.ts",

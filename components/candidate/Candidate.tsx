@@ -15,6 +15,7 @@ import { EditableCandidateEngagements } from '@/components/wiki/EditableCandidat
 import { preferWikiString } from '@/lib/wiki/utils'
 import { useEditMode } from '@/lib/wiki/EditModeProvider'
 import { useAuth } from '@/lib/auth/AuthProvider'
+import { deriveMeasureStance } from './measureUtils'
 
 interface CandidateProps {
   candidate: {
@@ -58,6 +59,7 @@ interface CandidateProps {
     office: {
       title: string
       jobTitle: string
+      type?: string
     }
     endorsements?: Array<{
       id: string
@@ -118,6 +120,17 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
 
   const currentRace = candidate.races?.find(r => r.race.electionYear === year)
   const raceId = currentRace?.race.id || null
+  const officeType = candidate.office?.type
+  const isBallotMeasureCandidate = officeType === 'BALLOT_MEASURE'
+  const measureStance = isBallotMeasureCandidate
+    ? (deriveMeasureStance(displayName) ?? deriveMeasureStance(candidate.name))
+    : null
+  const measureBadge = measureStance
+    ? {
+        label: measureStance === 'support' ? 'YES' : 'NO',
+        backgroundColor: '#53bce4'
+      }
+    : null
 
   if (fullsize) {
     const statementContent = statementHtml ? (
@@ -138,7 +151,7 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
       <article className="candidate-profile">
         <section className="candidate-card candidate-card--statement">
           <div className="candidate-card-heading candidate-card-heading--center">
-            <CandidateImage name={displayName} image={imageValue} url={url} size={140} />
+            <CandidateImage name={displayName} image={imageValue} url={url} size={140} badge={measureBadge} />
             <h2>{displayName}</h2>
           </div>
 
@@ -166,27 +179,29 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
           </div>
         </section>
 
-        <section className="candidate-card candidate-card--engagement">
-          <div className="candidate-card-heading">
-            <h3>Community Engagement</h3>
-          </div>
+        {!isBallotMeasureCandidate && (
+          <section className="candidate-card candidate-card--engagement">
+            <div className="candidate-card-heading">
+              <h3>Community Engagement</h3>
+            </div>
 
-          <div className="candidate-card-body">
-            {(structuredEngagements.length > 0 || showEditControls) && (
-              <EditableCandidateEngagements
-                candidateId={candidate.id}
-                electionYear={candidate.electionYear}
-                raceId={raceId}
-                currentEngagements={structuredEngagements}
-              />
-            )}
-            {engagementContent}
-          </div>
-        </section>
+            <div className="candidate-card-body">
+              {(structuredEngagements.length > 0 || showEditControls) && (
+                <EditableCandidateEngagements
+                  candidateId={candidate.id}
+                  electionYear={candidate.electionYear}
+                  raceId={raceId}
+                  currentEngagements={structuredEngagements}
+                />
+              )}
+              {engagementContent}
+            </div>
+          </section>
+        )}
 
         <section className="candidate-card candidate-card--support">
           <div className="candidate-card-heading">
-            <h3>Support &amp; Opposition</h3>
+            <h3>Endorsements</h3>
           </div>
 
           <div className="candidate-card-body">
@@ -243,6 +258,7 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
       <div className="info">
         <CandidateInfo
           candidate={candidate}
+          badge={measureBadge}
           year={year}
           size={150}
         />
@@ -268,11 +284,13 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
           </div>
         )}
 
-        {structuredEngagements.length > 0 ? (
-          <CandidateEngagementList entries={structuredEngagements} variant="compact" />
-        ) : (
-          legacyEngagementHtml && (
-            <div className="engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+        {!isBallotMeasureCandidate && (
+          structuredEngagements.length > 0 ? (
+            <CandidateEngagementList entries={structuredEngagements} variant="compact" />
+          ) : (
+            legacyEngagementHtml && (
+              <div className="engagement" dangerouslySetInnerHTML={{ __html: legacyEngagementHtml }} />
+            )
           )
         )}
 

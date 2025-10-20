@@ -13,6 +13,28 @@ interface LetterEndorsementRow {
   url: string
 }
 
+const YES_COMMITTEE_NAME = 'Yes to Districts'
+const NO_COMMITTEE_NAME = 'No to Districts'
+
+function normalizeCandidateName({
+  candidateName,
+  position,
+  officeType
+}: {
+  candidateName: string
+  position: 'FOR' | 'AGAINST'
+  officeType: string
+}) {
+  const trimmedName = candidateName.trim()
+  const office = (officeType || '').toLowerCase()
+  const isBallotMeasure = office === 'ballot measure' || office === 'ballot_measure'
+  const looksLikeMeasure = /richland|charter|district/.test(trimmedName.toLowerCase())
+  if (isBallotMeasure || looksLikeMeasure) {
+    return position === 'FOR' ? YES_COMMITTEE_NAME : NO_COMMITTEE_NAME
+  }
+  return trimmedName
+}
+
 async function importLetterEndorsements() {
   console.log('📬 Importing letter endorsements...\n')
 
@@ -45,26 +67,41 @@ async function importLetterEndorsements() {
       field.replace(/^,?"?|"?$/g, '').replace(/""/g, '"')
     )
 
-    const [candidateName, letterWriter, position, officeType, excerpt, url] = fields
+    const [rawCandidateName, letterWriter, position, officeType, excerpt, url] = fields
+    const trimmedCandidateName = rawCandidateName.trim()
+    const trimmedLetterWriter = letterWriter.trim()
+    const normalizedPosition = position.trim().toUpperCase()
 
     // Skip REVIEW and IGNORE items
-    if (position === 'REVIEW' || position === 'IGNORE') {
-      console.log(`⏭️  Skipping ${position}: ${candidateName} by ${letterWriter}`)
+    if (normalizedPosition === 'REVIEW' || normalizedPosition === 'IGNORE') {
+      console.log(`⏭️  Skipping ${normalizedPosition}: ${trimmedCandidateName} by ${trimmedLetterWriter}`)
       skipped++
       continue
     }
+
+    if (normalizedPosition !== 'FOR' && normalizedPosition !== 'AGAINST') {
+      console.log(`⏭️  Skipping line with unrecognized position "${position}": ${trimmedCandidateName} by ${trimmedLetterWriter}`)
+      skipped++
+      continue
+    }
+
+    const normalizedCandidateName = normalizeCandidateName({
+      candidateName: trimmedCandidateName,
+      position: normalizedPosition as 'FOR' | 'AGAINST',
+      officeType
+    })
 
     try {
       // Find the candidate
       const candidate = await prisma.candidate.findFirst({
         where: {
-          name: { equals: candidateName, mode: 'insensitive' },
+          name: { equals: normalizedCandidateName, mode: 'insensitive' },
           electionYear: 2025
         }
       })
 
       if (!candidate) {
-        console.log(`❌ Candidate not found: ${candidateName}`)
+        console.log(`❌ Candidate not found: ${normalizedCandidateName}`)
         errors++
         continue
       }
@@ -80,7 +117,7 @@ async function importLetterEndorsements() {
       })
 
       if (existing) {
-        console.log(`⏭️  Already exists: ${position} ${candidateName} by ${letterWriter}`)
+        console.log(`⏭️  Already exists: ${position} ${normalizedCandidateName} by ${letterWriter}`)
         skipped++
         continue
       }
@@ -89,18 +126,18 @@ async function importLetterEndorsements() {
       await prisma.endorsement.create({
         data: {
           candidateId: candidate.id,
-          endorser: letterWriter,
-          url: url,
+          endorser: trimmedLetterWriter,
+          url,
           type: EndorsementType.LETTER,
-          forAgainst: position === 'FOR' ? ForAgainst.FOR : ForAgainst.AGAINST
+          forAgainst: normalizedPosition === 'FOR' ? ForAgainst.FOR : ForAgainst.AGAINST
         }
       })
 
-      console.log(`✅ Imported: ${position} ${candidateName} by ${letterWriter}`)
+      console.log(`✅ Imported: ${normalizedPosition} ${normalizedCandidateName} by ${trimmedLetterWriter}`)
       imported++
 
     } catch (error) {
-      console.error(`❌ Error importing ${candidateName}:`, error)
+      console.error(`❌ Error importing ${normalizedCandidateName}:`, error)
       errors++
     }
   }

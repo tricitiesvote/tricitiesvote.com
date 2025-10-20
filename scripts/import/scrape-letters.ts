@@ -13,6 +13,19 @@ interface Endorsement {
   excerpt?: string
 }
 
+const OFFICE_LABELS: Record<string, string> = {
+  CITY_COUNCIL: 'City Council',
+  SCHOOL_BOARD: 'School Board',
+  PORT_COMMISSIONER: 'Port Commissioner',
+  BALLOT_MEASURE: 'Ballot Measure'
+}
+
+const args = process.argv.slice(2)
+const forceFullRescan = args.includes('--full')
+const sinceArg = args.find(arg => arg.startsWith('--since='))
+const parsedSince = sinceArg ? new Date(sinceArg.split('=')[1]) : null
+const sinceIsValid = parsedSince instanceof Date && !Number.isNaN(parsedSince?.getTime?.() ?? Number.NaN)
+
 async function scrapeLetters() {
   console.log('🔍 Starting Tri-City Herald Letters scraper...\n')
 
@@ -30,7 +43,7 @@ async function scrapeLetters() {
       electionYear: 2025,
       office: {
         type: {
-          in: ['CITY_COUNCIL', 'SCHOOL_BOARD', 'PORT_COMMISSIONER']
+          in: ['CITY_COUNCIL', 'SCHOOL_BOARD', 'PORT_COMMISSIONER', 'BALLOT_MEASURE']
         }
       }
     },
@@ -44,7 +57,7 @@ async function scrapeLetters() {
 
   const candidateNames = candidates.map(c => c.name)
   const candidateOfficeMap = new Map(
-    candidates.map(c => [c.name, c.office.type])
+    candidates.map(c => [c.name, OFFICE_LABELS[c.office.type] ?? c.office.type])
   )
 
   console.log(`✅ Found ${candidateNames.length} candidates in 2025 races\n`)
@@ -66,15 +79,31 @@ async function scrapeLetters() {
     }
   })
 
-  let cutoffDate = new Date('2025-05-01') // Default fallback
-  let cutoffMessage = 'May 2025 (default)'
+  let cutoffDate = sinceIsValid ? parsedSince! : new Date('2025-05-01') // Default fallback
+  let cutoffMessage = sinceIsValid
+    ? parsedSince!.toLocaleDateString()
+    : 'May 2025 (default)'
 
-  if (lastLetter) {
+  const lastLetterUrl = lastLetter?.url ?? null
+
+  if (forceFullRescan) {
+    console.log('ℹ️  --full flag detected; scanning all available letters')
+    if (!sinceIsValid) {
+      cutoffDate = new Date('2000-01-01')
+      cutoffMessage = cutoffDate.toLocaleDateString()
+    }
+  }
+
+  if (sinceIsValid) {
+    console.log(`ℹ️  Using custom cutoff: ${cutoffMessage}`)
+  }
+
+  if (lastLetterUrl && !forceFullRescan) {
     // Extract article number from URL
-    const match = lastLetter.url.match(/article(\d+)\.html/)
+    const match = lastLetterUrl.match(/article(\d+)\.html/)
     if (match) {
       const lastArticleNum = parseInt(match[1])
-      console.log(`✅ Last processed article: ${lastArticleNum} (${lastLetter.url})`)
+      console.log(`✅ Last processed article: ${lastArticleNum} (${lastLetterUrl})`)
       cutoffMessage = `article ${lastArticleNum}`
       // We'll check article numbers instead of dates for already-processed letters
     }
@@ -107,8 +136,8 @@ async function scrapeLetters() {
 
   // Extract the last processed article number to use as cutoff
   let lastProcessedArticleNum = 0
-  if (lastLetter) {
-    const match = lastLetter.url.match(/article(\d+)\.html/)
+  if (lastLetterUrl && !forceFullRescan) {
+    const match = lastLetterUrl.match(/article(\d+)\.html/)
     if (match) {
       lastProcessedArticleNum = parseInt(match[1])
     }
@@ -242,10 +271,16 @@ async function scrapeLetters() {
 Candidate list (2025 Tri-Cities races):
 ${candidateNames.join(', ')}
 
+Ballot measure context:
+- The Richland Charter Amendment (ballot measure) is represented by two committees: "Yes to Districts" (support) and "No to Districts" (oppose).
+- If a letter clearly supports creating council districts in Richland, return the candidateName "Yes to Districts" even if that exact phrase is not present.
+- If a letter clearly opposes the charter amendment, return the candidateName "No to Districts" even if that exact phrase is not present.
+- Set officeType to "Ballot Measure" for these measure-related results.
+
 Task: Read the following letter(s) to the editor and identify any mentions of these candidates. Categorize each mention:
 
 **CRITICAL MATCHING RULES**:
-- The candidate's FULL NAME must appear in the letter text exactly as listed
+- The candidate's FULL NAME must appear in the letter text exactly as listed (except for the Richland Charter Amendment rule above)
 - Do NOT match partial names (e.g., "Brad Beauchamp" ≠ "Brad Klippert")
 - Do NOT match first names only unless the last name also appears
 - Do NOT make assumptions about who is being referenced
@@ -276,7 +311,7 @@ For each FOR, AGAINST, or REVIEW mention found, return a JSON array with objects
 - candidateName: (must match the list above EXACTLY - full name required)
 - letterWriter: (person who wrote the letter, found at the end of each section)
 - position: ("FOR", "AGAINST", or "REVIEW")
-- officeType: ("City Council", "School Board", or "Port Commissioner")
+- officeType: ("City Council", "School Board", "Port Commissioner", or "Ballot Measure")
 - excerpt: (brief quote showing the relevant mention WITH THE FULL NAME, max 100 chars)
 
 Return ONLY valid JSON array. If nothing found (all IGNORE), return: []
@@ -314,8 +349,19 @@ ${articleText}`
             const key = `${endorsement.candidateName}|${endorsement.letterWriter}|${endorsement.position}`
             if (!seen.has(key)) {
               seen.add(key)
-              endorsements.push({ ...endorsement, url })
-              console.log(`  ✅ Found: ${endorsement.position} ${endorsement.candidateName} by ${endorsement.letterWriter}`)
+              const normalizedCandidateName = typeof endorsement.candidateName === 'string'
+                ? endorsement.candidateName.trim()
+                : endorsement.candidateName
+              const officeTypeLabel = normalizedCandidateName
+                ? candidateOfficeMap.get(normalizedCandidateName) ?? endorsement.officeType
+                : endorsement.officeType
+              endorsements.push({
+                ...endorsement,
+                candidateName: normalizedCandidateName,
+                officeType: officeTypeLabel,
+                url
+              })
+              console.log(`  ✅ Found: ${endorsement.position} ${normalizedCandidateName} by ${endorsement.letterWriter}`)
             }
           }
         } else {
@@ -341,8 +387,14 @@ ${articleText}`
   console.log('\n\n=== RESULTS ===')
   console.log('Candidate Name,Letter Writer,Position,Office Type,Excerpt,URL')
   for (const e of endorsements) {
-    const excerpt = e.excerpt ? `"${e.excerpt.replace(/"/g, '""')}"` : ''
-    console.log(`${e.candidateName},${e.letterWriter},${e.position},${e.officeType},${excerpt},${e.url}`)
+    console.log([
+      escapeCsv(e.candidateName ?? ''),
+      escapeCsv(e.letterWriter ?? ''),
+      escapeCsv(e.position),
+      escapeCsv(e.officeType),
+      escapeCsv(e.excerpt ?? ''),
+      escapeCsv(e.url)
+    ].join(','))
   }
 
   // Group by position
@@ -359,10 +411,16 @@ ${articleText}`
   const csv = [
     'Candidate Name,Letter Writer,Position,Office Type,Excerpt,URL',
     ...endorsements.map(e => {
-      const excerpt = e.excerpt ? `"${e.excerpt.replace(/"/g, '""')}"` : ''
-      return `${e.candidateName},${e.letterWriter},${e.position},${e.officeType},${excerpt},${e.url}`
-    })
-  ].join('\n')
+    return [
+      escapeCsv(e.candidateName ?? ''),
+      escapeCsv(e.letterWriter ?? ''),
+      escapeCsv(e.position),
+      escapeCsv(e.officeType),
+      escapeCsv(e.excerpt ?? ''),
+      escapeCsv(e.url)
+    ].join(',')
+  })
+].join('\n')
 
   const fs = await import('fs')
   const outputPath = 'scripts/import/letter-endorsements.csv'
@@ -374,8 +432,14 @@ ${articleText}`
     const reviewCsv = [
       'Candidate Name,Letter Writer,Position,Office Type,Excerpt,URL',
       ...reviewItems.map(e => {
-        const excerpt = e.excerpt ? `"${e.excerpt.replace(/"/g, '""')}"` : ''
-        return `${e.candidateName},${e.letterWriter},${e.position},${e.officeType},${excerpt},${e.url}`
+        return [
+          escapeCsv(e.candidateName ?? ''),
+          escapeCsv(e.letterWriter ?? ''),
+          escapeCsv(e.position),
+          escapeCsv(e.officeType),
+          escapeCsv(e.excerpt ?? ''),
+          escapeCsv(e.url)
+        ].join(',')
       })
     ].join('\n')
     fs.writeFileSync('scripts/import/letter-endorsements-review.csv', reviewCsv)
@@ -384,6 +448,13 @@ ${articleText}`
 
   console.log(`\n✅ All results saved to ${outputPath}`)
   console.log(`📊 Total mentions found: ${endorsements.length}`)
+}
+
+function escapeCsv(value: string | null | undefined) {
+  const normalized = value ?? ''
+  const needsQuotes = /[",\n]/.test(normalized)
+  const sanitized = normalized.replace(/"/g, '""')
+  return needsQuotes ? `"${sanitized}"` : sanitized
 }
 
 scrapeLetters().catch(console.error)

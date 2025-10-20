@@ -119,12 +119,12 @@ ${committees}`
 
   const MEASURE_COMMITTEES = [
     {
-      name: 'Pro Districts',
+      name: 'Yes to Districts',
       committeeId: 'CO-2025-31659',
       link: 'https://www.pdc.wa.gov/political-disclosure-reporting-data/browse-search-data/committees/co-2025-31659'
     },
     {
-      name: 'Con Districts',
+      name: 'No to Districts',
       committeeId: 'CO-2025-37825',
       link: 'https://www.pdc.wa.gov/political-disclosure-reporting-data/browse-search-data/committees/co-2025-37825'
     }
@@ -134,7 +134,10 @@ ${committees}`
     let candidate = await prisma.candidate.findFirst({
       where: {
         electionYear,
-        name: entry.name
+        OR: [
+          { stateId: entry.committeeId },
+          { name: entry.name }
+        ]
       }
     })
 
@@ -142,6 +145,7 @@ ${committees}`
       candidate = await prisma.candidate.update({
         where: { id: candidate.id },
         data: {
+          name: entry.name,
           officeId: office.id,
           stateId: entry.committeeId,
           pdc: entry.link,

@@ -18,9 +18,13 @@ interface CandidateInfoProps {
   }
   year: number
   size?: number
+  badge?: {
+    label: string
+    backgroundColor?: string
+  } | null
 }
 
-export function CandidateInfo({ candidate, year, size }: CandidateInfoProps) {
+export function CandidateInfo({ candidate, year, size, badge }: CandidateInfoProps) {
   const displayName = preferWikiString(candidate as any, 'name') ?? candidate.name
   const imageSrc = preferWikiString(candidate as any, 'image') ?? candidate.image ?? undefined
   const candidateSlug = slugify(candidate.name)
@@ -33,6 +37,7 @@ export function CandidateInfo({ candidate, year, size }: CandidateInfoProps) {
         image={imageSrc}
         url={url}
         size={size}
+        badge={badge}
       />
       <CandidateLinkCollection
         candidateId={candidate.id}

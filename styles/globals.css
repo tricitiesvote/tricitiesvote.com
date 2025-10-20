@@ -1261,6 +1261,34 @@ del, del a:link, del li {
   text-transform: uppercase;
 }
 
+.candidate-measure-badge {
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.candidate-measure-badge span {
+  display: block;
+}
+
+.candidate-measure-badge--mini {
+  width: 150px;
+  height: 150px;
+  background-color: #53bce4;
+  font-size: 48px;
+}
+
+.candidate-measure-badge--mini span {
+  font-size: inherit;
+}
+
 .candidate.candidate-full .candidate-no-image {
   width: 100px;
   height: 100px;
@@ -1482,6 +1510,23 @@ del, del a:link, del li {
 .endorsement-meta {
   font-size: 0.85em;
   color: #555;
+}
+
+.endorsements-columns {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.endorsement-column h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.endorsement-empty {
+  color: #666;
+  font-style: italic;
+  margin: 0;
 }
 
 .endorsement-suggest {
