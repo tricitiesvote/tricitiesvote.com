@@ -1,4 +1,3 @@
-import { Prisma } from '@prisma/client'
 import { prisma } from '@/lib/db'
 import { CandidateImage } from '@/components/candidate/CandidateImage'
 import { slugify } from '@/lib/utils'
@@ -42,16 +41,32 @@ interface OpenQuestion {
   responses: Record<string, string>
 }
 
-type QuestionnaireWithRelations = Prisma.QuestionnaireGetPayload<{
-  include: {
-    questions: true
-    responses: {
-      include: {
-        candidate: true
-      }
-    }
-  }
-}>
+type QuestionnaireRecord = {
+  id: string
+  slug?: string | null
+  title: string
+  questions: Array<{
+    id: string
+    type: string
+    position: number
+    question: string | null
+    statementA: string | null
+    statementB: string | null
+  }>
+  responses: Array<{
+    id: string
+    candidateId: string
+    questionId: string
+    value: number | null
+    comment: string | null
+    textResponse: string | null
+    candidate: {
+      id: string
+      name: string
+      image: string | null
+    } | null
+  }>
+}
 
 interface QuestionnaireSection {
   id: string
@@ -90,7 +105,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
     ? [{ regionId: null }, { regionId }]
     : [{ regionId: null }]
 
-  const questionnaires = await prisma.questionnaire.findMany({
+  const questionnaires = (await prisma.questionnaire.findMany({
     where: {
       year,
       OR: regionFilter,
@@ -115,7 +130,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
       },
     },
     orderBy: { title: 'asc' },
-  })
+  })) as QuestionnaireRecord[]
 
   const hiddenTitleSet = new Set(hiddenTitles)
 
@@ -247,7 +262,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
 }
 
 function buildSection(
-  questionnaire: QuestionnaireWithRelations,
+  questionnaire: QuestionnaireRecord,
   candidateMap: Map<string, CandidateMeta>
 ): QuestionnaireSection {
   const abRows: AbRow[] = []
@@ -329,7 +344,7 @@ function buildSection(
 function toCandidateEntry(
   response: {
     candidateId: string
-    candidate: { id: string; name: string; image: string | null } | null
+    candidate: (CandidateMeta | { id: string; name: string; image: string | null; slug?: string }) | null
     comment: string | null
   },
   candidateMap: Map<string, CandidateMeta>
@@ -340,13 +355,13 @@ function toCandidateEntry(
     return null
   }
 
-  const slug = 'slug' in candidate ? candidate.slug : slugify(candidate.name)
+  const slugValue = 'slug' in candidate && candidate.slug ? candidate.slug : slugify(candidate.name)
 
   return {
     id: candidate.id,
     name: candidate.name,
     image: candidate.image ?? null,
-    slug,
+    slug: slugValue,
     comment: response.comment?.trim() ? response.comment.trim() : null,
   }
 }
@@ -354,7 +369,7 @@ function toCandidateEntry(
 function toOpenEntry(
   response: {
     candidateId: string
-    candidate: { id: string; name: string; image: string | null } | null
+    candidate: (CandidateMeta | { id: string; name: string; image: string | null; slug?: string }) | null
     textResponse: string | null
   },
   candidateMap: Map<string, CandidateMeta>
@@ -365,13 +380,13 @@ function toOpenEntry(
     return null
   }
 
-  const slug = 'slug' in candidate ? candidate.slug : slugify(candidate.name)
+  const slugValue = 'slug' in candidate && candidate.slug ? candidate.slug : slugify(candidate.name)
 
   return {
     id: candidate.id,
     name: candidate.name,
     image: candidate.image ?? null,
-    slug,
+    slug: slugValue,
     answer: response.textResponse.trim(),
   }
 }

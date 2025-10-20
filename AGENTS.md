@@ -56,6 +56,9 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `scripts/check-*` utilities to spot duplicates or missing offices.
   - `npm run import:questionnaire <city-council|school-board|all>` loads 2025 questionnaire CSVs (rerunnable; writes unmatched names to `scripts/import/unmatched-*.txt`).
   - `npx tsx scripts/add-announcements.ts` – populate League of Women Voters events in guides.
+  - `./node_modules/.bin/ts-node scripts/data/update-office-titles.ts` – sync abbreviated office names (`Pos`, port cleanup) after title changes.
+  - `./node_modules/.bin/ts-node scripts/check-contribution-flags.ts [year]` – sanity-check cash vs in-kind totals from PDC imports.
+  - `./node_modules/.bin/ts-node scripts/import/pdc-committees.ts` – load measure committee contribution history (e.g., Pro/Con charter campaigns).
   - Engagement/questionnaire imports live under `scripts/import/` (`npm run import:tcrc`, `import:tcrc:videos`, `import:ballotpedia`, `import:wrcg`, `import:lowv`). Each script produces both a participation CSV **and** a detailed responses CSV, then upserts into `Engagement` + `CandidateEngagement`; run the `:load` companion command to write DB changes after reviewing CSV output.
   - Vote411 scraper (`import:lowv`) calls the Vote411 REST API directly (client credentials are embedded in the public widget). No browser automation is required; ensure outbound HTTPS is available.
 
@@ -66,7 +69,7 @@ Notes:
 - Next.js app and Prisma schema are in place; voter guide pages render from DB data.
 - Primary 2025 data is archived; only the November general roster is present in Prisma (26 races, every seat named per the standards below).
 - The `/` landing page mirrors the legacy intro, auto-selects the latest election, and lists every general race via `RaceCard` so DB changes surface immediately. Uncontested races are hidden by default; flip `NEXT_PUBLIC_SHOW_UNCONTESTED=true` locally if you need to inspect them in list views.
-- PDC importers normalize offices to the canonical seat format (`{City} City Council {Ward/Position/District}`, `{City} School Board {District/Position}`, `Port of {Locale} Commissioner District {n}`) and only ingest candidates defined in `scripts/import/2025-seats.ts`.
+- PDC importers rely on the canonical seat format noted above (`Ward`, `Pos`, etc.) and only ingest candidates defined in `scripts/import/2025-seats.ts`.
 - West Richland (including the **Mayor** contest), Kennewick, Pasco, Richland, and the two ports all have current general lineups; unopposed seats show a single candidate.
 - Compare view (`/{year}/compare/{slug}`) is live and uses the same "N/A" fallbacks as the main pages.
 - General statements/photos/contact are still arriving; pamphlet scripts are re-runnable and fill gaps as counties publish updates.
@@ -121,9 +124,15 @@ Notes:
 - If you need to reset the 2025 municipal dataset, run `npx tsx scripts/data/cleanup-2025-offices.ts` before kicking off the imports above – it removes primary races, generic council/school offices, and old mayor data.
 
 ## Naming Standards
-- City council seats: `{City} City Council {Ward/District/Position} {Number}` (e.g., `Kennewick City Council Ward 1`, `Pasco City Council District 6`).
-- School board seats: `{City} School Board {District/Position} {Number}` or `{City} School Board At-Large Position {Number}`.
-- Port seats: `Port of {Benton|Kennewick} Commissioner District {Number}`.
+- City council seats: `{City} City Council {Ward/District/Pos} {Number}` (e.g., `Kennewick City Council Ward 1`, `Richland City Council Pos 3`).
+- School board seats: `{City} School Board {District/Pos} {Number}` (e.g., `Pasco School Board Pos 5`).
+- Port seats: `Port of {Benton|Kennewick|Pasco} Commissioner` (district numbers noted in body copy if needed).
+
+## Ballot Measures
+- Set the race `OfficeType` to `BALLOT_MEASURE` in Prisma (handled automatically once the seat definition uses that enum).
+- Store the neutral overview in the race `intro` field (Markdown supported) and use the `body` field for structured details—e.g., `### Pro` and `### Con` sections, key dates, fiscal notes.
+- On the compare page we hide candidate cards, so volunteers should ensure the `intro/body` copy contains everything voters need.
+- When importing pamphlet text, keep the short summary concise (the compare cards truncate after ~220 characters).
 
 ## Wiki System & Community Editing
 - **Authentication**: Passwordless email magic links (15-min expiry)

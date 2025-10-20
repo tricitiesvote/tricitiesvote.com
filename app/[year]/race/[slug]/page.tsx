@@ -10,6 +10,7 @@ import { preferWikiString } from '@/lib/wiki/utils'
 import { ensureHtml } from '@/lib/richText'
 import { evaluateTriCitiesRaceStatus } from '@/lib/triCitiesVote'
 import { TriCitiesQuestionnaireBanner } from '@/components/race/TriCitiesQuestionnaireBanner'
+import { BallotMeasureDetails } from '@/components/race/BallotMeasureDetails'
 
 interface RacePageProps {
   params: { 
@@ -62,8 +63,11 @@ export default async function RacePage({ params }: RacePageProps) {
   const triCitiesStatus = evaluateTriCitiesRaceStatus(race, year)
   
   const guide = race.Guide?.[0]
-  const introHtml = ensureHtml(preferWikiString(race as any, 'intro'))
-  const bodyHtml = ensureHtml(preferWikiString(race as any, 'body'))
+  const introSource = preferWikiString(race as any, 'intro') ?? race.intro ?? null
+  const bodySource = preferWikiString(race as any, 'body') ?? race.body ?? null
+  const introHtml = ensureHtml(introSource)
+  const bodyHtml = ensureHtml(bodySource)
+  const isBallotMeasure = race.office.type === 'BALLOT_MEASURE'
   const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
   const breadcrumbs = buildBreadcrumbs({
     year,
@@ -88,35 +92,63 @@ export default async function RacePage({ params }: RacePageProps) {
         <section className="race">
           <h1 className="race-title">{displayTitle}</h1>
 
-          {introHtml && (
-            <div className="race-intro" dangerouslySetInnerHTML={{ __html: introHtml }} />
-          )}
+          {isBallotMeasure ? (
+            <>
+              <BallotMeasureDetails intro={introSource} body={bodySource} />
+              <div className="compare-candidate-list">
+                {race.candidates.filter(({ candidate }) => !candidate.hide).length === 0 ? (
+                  <p className="candidate-empty">Campaign committees N/A.</p>
+                ) : (
+                  race.candidates
+                    .filter(({ candidate }) => !candidate.hide)
+                    .map(({ candidate }) => {
+                      const fundraising = calculateFundraising(candidate.contributions || [])
 
-          <div className="compare-candidate-list">
-            {race.candidates.filter(({ candidate }) => !candidate.hide).length === 0 ? (
-              <p className="candidate-empty">Candidate details N/A.</p>
-            ) : (
-              race.candidates
-                .filter(({ candidate }) => !candidate.hide)
-                .map(({ candidate }) => {
-                  // Calculate fundraising from contributions
-                  const fundraising = calculateFundraising(candidate.contributions || [])
+                      return (
+                        <Candidate
+                          key={candidate.id}
+                          candidate={candidate}
+                          fundraising={fundraising}
+                          year={year}
+                          fullsize={false}
+                        />
+                      )
+                    })
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              {introHtml && (
+                <div className="race-intro" dangerouslySetInnerHTML={{ __html: introHtml }} />
+              )}
 
-                  return (
-                    <Candidate
-                      key={candidate.id}
-                      candidate={candidate}
-                      fundraising={fundraising}
-                      year={year}
-                      fullsize={false}
-                    />
-                  )
-                })
-            )}
-          </div>
+              <div className="compare-candidate-list">
+                {race.candidates.filter(({ candidate }) => !candidate.hide).length === 0 ? (
+                  <p className="candidate-empty">Candidate details N/A.</p>
+                ) : (
+                  race.candidates
+                    .filter(({ candidate }) => !candidate.hide)
+                    .map(({ candidate }) => {
+                      const fundraising = calculateFundraising(candidate.contributions || [])
 
-          {bodyHtml && (
-            <div className="race-body" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+                      return (
+                        <Candidate
+                          key={candidate.id}
+                          candidate={candidate}
+                          fundraising={fundraising}
+                          year={year}
+                          fullsize={false}
+                        />
+                      )
+                    })
+                )}
+              </div>
+
+              {bodyHtml && (
+                <div className="race-body" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+              )}
+            </>
           )}
         </section>
       </div>

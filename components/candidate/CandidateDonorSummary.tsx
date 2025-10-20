@@ -60,6 +60,12 @@ export function CandidateDonorSummary({
         <h3>Donors</h3>
         <p>
           💰 <strong>{usd.format(fundraising.total)} from {donorCountLabel} donors</strong>
+          {fundraising.totalCash !== undefined && fundraising.totalInKind !== undefined && (
+            <span className="cash-vs-in-kind">
+              {' '}
+              ({usd.format(fundraising.totalCash)} cash / {usd.format(fundraising.totalInKind)} in-kind)
+            </span>
+          )}
           {normalizedDonors.length > 0 && ':'}
           {normalizedDonors.length > 0 && (
             <>

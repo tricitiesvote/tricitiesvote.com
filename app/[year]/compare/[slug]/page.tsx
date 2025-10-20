@@ -16,6 +16,7 @@ import { CandidateEndorsements } from '@/components/candidate/CandidateEndorseme
 import { CandidateEngagementList } from '@/components/candidate/CandidateEngagementList'
 import { CompareCandidateDonorCard } from '@/components/compare/CompareCandidateDonorCard'
 import { ensureHtml } from '@/lib/richText'
+import { BallotMeasureDetails } from '@/components/race/BallotMeasureDetails'
 
 interface ComparePageProps {
   params: {
@@ -72,6 +73,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
   const compareRows: ComparisonRow[] = Array.isArray((race as any)?.comparisons)
     ? ((race as any).comparisons as ComparisonRow[])
     : []
+  const isBallotMeasure = race.office.type === 'BALLOT_MEASURE'
 
   const breadcrumbs = buildBreadcrumbs({
     year,
@@ -83,9 +85,9 @@ export default async function ComparePage({ params }: ComparePageProps) {
   const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
 
   const candidateCards = visibleCandidates.map(({ candidate }) => {
-    const displayName = preferWikiString(candidate as any, 'name') ?? candidate.name
-    const slug = slugify(candidate.name)
-    const image = preferWikiString(candidate as any, 'image') ?? candidate.image ?? null
+      const displayName = preferWikiString(candidate as any, 'name') ?? candidate.name
+      const slug = slugify(candidate.name)
+      const image = preferWikiString(candidate as any, 'image') ?? candidate.image ?? null
     const statementValue = preferWikiString(candidate as any, 'statement')
     const statementHtml = ensureHtml(statementValue)
     const engagementValue = preferWikiString(candidate as any, 'engagement')
@@ -118,8 +120,8 @@ export default async function ComparePage({ params }: ComparePageProps) {
         pdc: candidate.pdc,
         phone: preferWikiString(candidate as any, 'phone'),
       },
-    }
-  })
+      }
+    })
 
   const compareCardRows = [
     {
@@ -245,6 +247,15 @@ export default async function ComparePage({ params }: ComparePageProps) {
 
           <CompareTable rows={compareRows} />
 
+          {isBallotMeasure && (
+            <div className="ballot-measure-card">
+              <BallotMeasureDetails
+                intro={preferWikiString(race as any, 'intro') ?? race.intro ?? null}
+                body={preferWikiString(race as any, 'body') ?? race.body ?? null}
+              />
+            </div>
+          )}
+
           {candidateCards.length === 0 ? (
             <p className="candidate-empty">Candidate details N/A.</p>
           ) : (
@@ -265,12 +276,14 @@ export default async function ComparePage({ params }: ComparePageProps) {
             </div>
           )}
 
-          <CompareQuestionnaires
-            year={year}
-            regionId={race.office.regionId}
-            candidates={questionnaireCandidates}
-            hiddenTitles={triCitiesStatus.hiddenTitles}
-          />
+          {!isBallotMeasure && (
+            <CompareQuestionnaires
+              year={year}
+              regionId={race.office.regionId}
+              candidates={questionnaireCandidates}
+              hiddenTitles={triCitiesStatus.hiddenTitles}
+            />
+          )}
         </section>
       </div>
     </>

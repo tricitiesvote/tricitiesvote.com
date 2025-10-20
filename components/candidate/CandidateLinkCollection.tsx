@@ -32,7 +32,7 @@ export function CandidateLinkCollection({
 }: CandidateLinkCollectionProps) {
   const { editMode } = useEditMode();
   const { user } = useAuth();
-  const showEditControls = editMode && user;
+  const showEditControls = Boolean(editMode && user);
 
   const contactFields = [
     {
@@ -148,7 +148,7 @@ export function CandidateLinkCollection({
 
         return (
           <li key={field} className="candidate-link-item">
-            <span class="link-item-icon">{icon}</span>
+            <span className="link-item-icon">{icon}</span>
             {readonly ? (
               value ? (
                 render(value)

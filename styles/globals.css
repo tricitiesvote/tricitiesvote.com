@@ -534,6 +534,70 @@ form {
   font-style: italic;
 }
 
+.ballot-measure-card {
+  border: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0px 5px 10px rgba(38, 58, 172, .1);
+}
+
+.ballot-measure-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ballot-measure-details .ballot-measure-card,
+.ballot-measure-details .ballot-measure-body,
+.ballot-measure-details .ballot-measure-intro {
+  margin: 0;
+}
+
+.ballot-measure-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.ballot-measure-summary-card {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.ballot-measure-summary-card p {
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+}
+
+.ballot-measure-summary p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ballot-measure-link {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: #2a708a;
+}
+
+.ballot-measure-link:hover {
+  text-decoration: underline;
+}
+
+.ballot-measure-placeholder {
+  font-style: italic;
+  color: #6b7280;
+}
+
 .candidate-card-body-answer {
   flex: 1 1 auto;
   display: flex;
@@ -553,7 +617,7 @@ form {
 .compare-row {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(var(--compare-columns, 1), minmax(100px, 1fr));
+  grid-template-columns: repeat(var(--compare-columns, 1), minmax(260px, 1fr));
   margin-bottom: 24px;
 }
 
@@ -1003,7 +1067,7 @@ label {
   color: rgba(83,187,228,1);
 }
 
-input, textarea {
+input[type="text"], textarea {
   width: 310px;
   padding: 10px;
   margin: 0;
@@ -1105,6 +1169,11 @@ del, del a:link, del li {
 
 .donor-summary, .endorsements-summary {
   margin-bottom: 30px;
+}
+
+.cash-vs-in-kind {
+  font-size: 0.85rem;
+  color: #475569;
 }
 
 .candidate-mini .donor-summary {

@@ -108,7 +108,6 @@ function NewEndorsementModal({ candidateId, mode, isOpen, onClose }: NewEndorsem
     setUrl('');
     setFile(null);
     setNotes('');
-    setRationale('');
     setMessage(null);
     onClose();
   };

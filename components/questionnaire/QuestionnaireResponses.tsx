@@ -78,27 +78,8 @@ export async function QuestionnaireResponses({
         }>
       }
     })
-    .filter((section): section is {
-      id: string
-      title: string
-      items: Array<{
-        type: 'AB' | 'OPEN'
-        question: {
-          id: string
-          position: number
-          type: string
-          question: string | null
-          statementA: string | null
-          statementB: string | null
-        }
-        response: {
-          id: string
-          value: number | null
-          comment: string | null
-          textResponse: string | null
-        }
-      }>
-    } => Boolean(section) && !hiddenTitles.includes(section!.title))
+    .filter((section): section is NonNullable<typeof section> => section !== null)
+    .filter(section => !hiddenTitles.includes(section.title))
 
   if (sections.length === 0) {
     return null

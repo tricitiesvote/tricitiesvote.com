@@ -13,6 +13,7 @@ type RaceLike = {
 }
 
 const ODD_YEAR_PRIORITY: OfficeType[] = [
+  OfficeType.BALLOT_MEASURE,
   OfficeType.MAYOR,
   OfficeType.CITY_COUNCIL,
   OfficeType.SCHOOL_BOARD,
@@ -20,6 +21,7 @@ const ODD_YEAR_PRIORITY: OfficeType[] = [
 ]
 
 const EVEN_YEAR_PRIORITY: OfficeType[] = [
+  OfficeType.BALLOT_MEASURE,
   OfficeType.COUNTY_COMMISSIONER,
   OfficeType.STATE_SENATOR,
   OfficeType.STATE_REPRESENTATIVE,

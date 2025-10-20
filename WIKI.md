@@ -142,6 +142,17 @@ This creates natural rate limiting and enables shadow-banning problematic users 
 - **Imports**: The letters-to-the-editor loader continues to produce URL-based endorsements. Future scripts can add file uploads by writing into these same columns.
 - **Community suggestions**: When edit mode is enabled on candidate pages, contributors can submit supporting or opposing endorsements. Submissions create `ENDORSEMENT` edits (link or upload). Uploaded files are staged under `/uploads/endorsements/pending/{year}` and moved into the final directory once a moderator approves the edit.
 
+## Ballot Measure Entries
+
+- **Race setup**: Measures use the `BALLOT_MEASURE` office type. Each initiative is paired with two pseudo-candidates (“Pro …” and “Con …”) so endorsements, contributions, and compare layouts behave just like council races.
+- **Content fields**:
+  - `intro` → concise overview surfaced above the compare grid (aim for 2–3 sentences; the UI truncates after ~220 characters).
+  - `body` → longer Markdown block. Start with context and include `### Pro` / `### Con` sections (pamphlet copy drops straight in).
+  - Optional `announcements` / `articles` fields continue to work for events and background reading.
+- **Committees**: Store the PDC committee ID in `candidate.stateId` (`Pro Districts`, `Con Districts`, etc.). Run `./node_modules/.bin/ts-node scripts/import/pdc-committees.ts` to refresh all-time contribution totals.
+- **Editing flow**: Moderators can edit `intro` / `body` via the wiki UI (`/moderate`) or rely on import scripts. Preview the compare page after edits to confirm formatting.
+- **Compare/Race behaviour**: Measure summaries render above the two committee cards; questionnaires stay hidden unless you explicitly add a measure-friendly survey.
+
 ## Database Schema & Data Flow
 
 ### Schema considerations

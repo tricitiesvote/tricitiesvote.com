@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/db';
 import { EditLogTable } from '@/components/wiki/EditLogTable';
 import { EDIT_INCLUDE, serializeEdit } from '@/lib/wiki/editQueries';
@@ -45,7 +46,7 @@ export default async function PublicEditsPage({ searchParams }: PageProps) {
   const entityType = typeof searchParams.entityType === 'string' ? searchParams.entityType : undefined;
   const entityId = typeof searchParams.entityId === 'string' ? searchParams.entityId : undefined;
 
-  const where: Parameters<typeof prisma.edit.findMany>[0]['where'] = {};
+  const where: Prisma.EditWhereInput = {};
 
   if (statusParam && statusParam !== 'all') {
     where.status = statusParam as any;

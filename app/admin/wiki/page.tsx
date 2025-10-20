@@ -65,11 +65,11 @@ export default function WikiAdminPage() {
         setPendingEdits(edits);
 
         // Fetch entity data for all candidate edits
-        const candidateIds = edits
+        const candidateIds: string[] = edits
           .filter((e: WikiEdit) => e.entityType === 'CANDIDATE' || e.entityType === 'ENDORSEMENT')
           .map((e: WikiEdit) => e.entityId);
 
-        const uniqueCandidateIds = Array.from(new Set(candidateIds));
+        const uniqueCandidateIds = Array.from(new Set(candidateIds)) as string[];
 
         if (uniqueCandidateIds.length > 0) {
           await loadEntityData(uniqueCandidateIds);

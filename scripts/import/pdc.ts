@@ -18,9 +18,11 @@ interface PDCContribution {
   contributor_zip: string
   contributor_employer: string
   contributor_occupation: string
-  contribution_amount: string
-  contribution_date: string
+  amount: string
+  contribution_date?: string
+  receipt_date?: string
   description: string
+  cash_or_in_kind?: string | null
 }
 
 async function importContributionsForYear(year: number) {
@@ -67,11 +69,14 @@ async function processContribution(contribution: PDCContribution, year: number) 
   }
 
   // Parse date safely
-  const contributionDate = contribution.receipt_date ? new Date(contribution.receipt_date) : new Date()
+  const rawDate = contribution.receipt_date || contribution.contribution_date
+  const contributionDate = rawDate ? new Date(rawDate) : new Date()
   if (isNaN(contributionDate.getTime())) {
-    console.warn(`Invalid date for contribution ${contribution.id}: ${contribution.receipt_date}`)
+    console.warn(`Invalid date for contribution ${contribution.id}: ${rawDate}`)
     return
   }
+
+  const cashOrInKind = normalizeContributionType(contribution.cash_or_in_kind || null)
 
   // Create contribution record
   await prisma.contribution.upsert({
@@ -89,7 +94,8 @@ async function processContribution(contribution: PDCContribution, year: number) 
       donorOccupation: contribution.contributor_occupation,
       amount: parseFloat(contribution.amount) || 0,
       date: contributionDate,
-      description: contribution.description
+      description: contribution.description,
+      cashOrInKind
     },
     update: {
       donorName: contribution.contributor_name,
@@ -100,11 +106,19 @@ async function processContribution(contribution: PDCContribution, year: number) 
       donorOccupation: contribution.contributor_occupation,
       amount: parseFloat(contribution.amount) || 0,
       date: contributionDate,
-      description: contribution.description
+      description: contribution.description,
+      cashOrInKind
     }
   })
 }
 
+function normalizeContributionType(raw: string | null): string | null {
+  if (!raw) return null
+  const value = raw.trim().toLowerCase()
+  if (value === 'cash') return 'cash'
+  if (value === 'in-kind' || value === 'in kind' || value === 'inkind') return 'in-kind'
+  return null
+}
 async function main() {
   const years = process.argv.slice(2).map(y => parseInt(y))
   

@@ -62,7 +62,8 @@ async function importContributionsForYear(year: number) {
           donorOccupation: contribution.contributor_occupation || null,
           amount: parseFloat(contribution.amount) || 0,
           date: contributionDate,
-          description: contribution.description || null
+          description: contribution.description || null,
+          cashOrInKind: normalizeContributionType(contribution.cash_or_in_kind ?? contribution.cashOrInKind)
         })
         
         // Batch insert every 500 records
@@ -90,18 +91,30 @@ async function importContributionsForYear(year: number) {
   }
 }
 
+function normalizeContributionType(raw: string | null | undefined): string | null {
+  if (!raw) return null
+  const value = raw.trim().toLowerCase()
+  if (value === 'cash') return 'cash'
+  if (value === 'in-kind' || value === 'in kind' || value === 'inkind') return 'in-kind'
+  return null
+}
+
 async function batchUpsertContributions(contributions: any[]) {
-  // First, delete existing contributions with these IDs to avoid conflicts
+  if (contributions.length === 0) {
+    return
+  }
+
   const ids = contributions.map(c => c.id)
-  await prisma.contribution.deleteMany({
-    where: { id: { in: ids } }
-  })
-  
-  // Then create all new contributions in one batch
-  await prisma.contribution.createMany({
-    data: contributions,
-    skipDuplicates: true
-  })
+
+  await prisma.$transaction([
+    prisma.contribution.deleteMany({
+      where: { id: { in: ids } }
+    }),
+    prisma.contribution.createMany({
+      data: contributions,
+      skipDuplicates: true
+    })
+  ])
 }
 
 async function updateCandidateDonorSummaries(year: number) {

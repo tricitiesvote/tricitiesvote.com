@@ -35,8 +35,8 @@ interface CandidateMiniProps {
       filePath?: string | null
       sourceTitle?: string | null
       notes?: string | null
-      type: string
-      forAgainst: string
+      type?: string | null
+      forAgainst?: string | null
     }>
   }
   fundraising?: {
@@ -110,20 +110,34 @@ export function CandidateMini({ candidate, fundraising, year }: CandidateMiniPro
       {(endorsementsFor.length > 0 || endorsementsAgainst.length > 0) && (
         <div className="endorsements-summary">
           <ul className="recs">
-            {endorsementsFor.map(endorsement => (
-              <li key={endorsement.id} className="yes">
-                <a href={endorsement.url} target="_blank" rel="noopener noreferrer">
-                  {endorsement.endorser}
-                </a>
-              </li>
-            ))}
-            {endorsementsAgainst.map(endorsement => (
-              <li key={endorsement.id} className="no">
-                <a href={endorsement.url} target="_blank" rel="noopener noreferrer">
-                  {endorsement.endorser}
-                </a>
-              </li>
-            ))}
+            {endorsementsFor.map(endorsement => {
+              const href = endorsement.url || endorsement.filePath || undefined
+              return (
+                <li key={endorsement.id} className="yes">
+                  {href ? (
+                    <a href={href} target="_blank" rel="noopener noreferrer">
+                      {endorsement.endorser}
+                    </a>
+                  ) : (
+                    <span>{endorsement.endorser}</span>
+                  )}
+                </li>
+              )
+            })}
+            {endorsementsAgainst.map(endorsement => {
+              const href = endorsement.url || endorsement.filePath || undefined
+              return (
+                <li key={endorsement.id} className="no">
+                  {href ? (
+                    <a href={href} target="_blank" rel="noopener noreferrer">
+                      {endorsement.endorser}
+                    </a>
+                  ) : (
+                    <span>{endorsement.endorser}</span>
+                  )}
+                </li>
+              )
+            })}
           </ul>
         </div>
       )}
