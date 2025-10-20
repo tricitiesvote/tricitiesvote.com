@@ -3,6 +3,7 @@ const nextConfig = {
   // We'll start with these basic settings
   reactStrictMode: true,
   swcMinify: true,
+  output: 'standalone',
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: '**' },

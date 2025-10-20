@@ -100,3 +100,6 @@ build/
 *.backup
 *_backup/
 lib_backup/
+
+# Local Netlify folder
+.netlify
