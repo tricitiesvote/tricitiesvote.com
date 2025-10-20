@@ -3,16 +3,31 @@ import FormData from 'form-data';
 
 const mailgun = new Mailgun(FormData);
 
-const mg = mailgun.client({
-  username: 'api',
-  key: process.env.MAILGUN_API_KEY || '',
-  url: process.env.MAILGUN_URL || 'https://api.mailgun.net'
-});
-
 const domain = process.env.MAILGUN_DOMAIN || '';
 
+let cachedClient: ReturnType<typeof mailgun.client> | null = null;
+
+function getMailgunClient() {
+  const key = process.env.MAILGUN_API_KEY;
+  const url = process.env.MAILGUN_URL || 'https://api.mailgun.net';
+
+  if (!key || !domain) {
+    return null;
+  }
+
+  if (!cachedClient) {
+    cachedClient = mailgun.client({
+      username: 'api',
+      key,
+      url
+    });
+  }
+
+  return cachedClient;
+}
+
 function isConfigured() {
-  return Boolean(process.env.MAILGUN_API_KEY && domain);
+  return Boolean(getMailgunClient());
 }
 
 export async function sendMagicLink(email: string, token: string) {
@@ -62,8 +77,14 @@ export async function sendMagicLink(email: string, token: string) {
     `,
   };
 
+  const client = getMailgunClient();
+  if (!client) {
+    console.warn('Mailgun not configured; skipping magic link email.', { email });
+    return null;
+  }
+
   try {
-    const result = await mg.messages.create(domain, messageData);
+    const result = await client.messages.create(domain, messageData);
     console.log('Magic link email sent:', result.id);
     return result;
   } catch (error) {
@@ -123,8 +144,14 @@ export async function sendEditNotification(moderatorEmail: string, editCount: nu
     `,
   };
 
+  const client = getMailgunClient();
+  if (!client) {
+    console.warn('Mailgun not configured; skipping edit notification.', { moderatorEmail, editCount });
+    return null;
+  }
+
   try {
-    const result = await mg.messages.create(domain, messageData);
+    const result = await client.messages.create(domain, messageData);
     console.log('Moderator notification sent:', result.id);
     return result;
   } catch (error) {
@@ -201,8 +228,18 @@ export async function sendEditStatusNotification(
     `,
   };
 
+  const client = getMailgunClient();
+  if (!client) {
+    console.warn('Mailgun not configured; skipping edit status notification.', {
+      userEmail,
+      status,
+      field
+    });
+    return null;
+  }
+
   try {
-    const result = await mg.messages.create(domain, messageData);
+    const result = await client.messages.create(domain, messageData);
     console.log('Edit status notification sent:', result.id);
     return result;
   } catch (error) {
