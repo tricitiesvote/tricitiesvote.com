@@ -1,5 +1,6 @@
-import { getGuidesForYear, getAvailableYears } from '@/lib/queries'
+import { getGuidesForYear } from '@/lib/queries'
 import { getYearType, slugify } from '@/lib/utils'
+import { createOgMetadata } from '@/lib/meta/og'
 import { getVisibleRaces } from '@/lib/raceVisibility'
 import { GuideSelector } from '@/components/GuideSelector'
 import Link from 'next/link'
@@ -7,6 +8,28 @@ import { notFound } from 'next/navigation'
 
 interface YearHomePageProps {
   params: { year: string }
+}
+
+export async function generateMetadata({ params }: YearHomePageProps) {
+  const year = Number.parseInt(params.year, 10)
+
+  if (!Number.isFinite(year)) {
+    return createOgMetadata({
+      title: 'Tri-Cities Vote',
+      canonicalPath: '/',
+      description: 'Nonpartisan voter guides for Tri-Cities elections'
+    })
+  }
+
+  const yearType = getYearType(year)
+  const label = yearType === 'municipal' ? 'Municipal' : 'General'
+
+  return createOgMetadata({
+    title: `${year} ${label} Election Guide`,
+    description: `Explore Tri-Cities races, candidate statements, questionnaires, endorsements, and events for the ${year} ${label.toLowerCase()} election.`,
+    canonicalPath: `/${year}`,
+    imagePath: `og/${year}/year.png`
+  })
 }
 
 export default async function YearHomePage({ params }: YearHomePageProps) {

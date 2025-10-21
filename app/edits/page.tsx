@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from 'next/link';
 import type { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/db';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';

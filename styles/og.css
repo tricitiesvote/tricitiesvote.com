@@ -1,0 +1,204 @@
+.og-body {
+  margin: 0;
+  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
+  background-color: #e8f6fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.og-canvas {
+  width: 1200px;
+  height: 630px;
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid #02bee8;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+  padding: 56px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #0f172a;
+}
+
+.og-header {
+  text-align: center;
+}
+
+.og-kicker {
+  font-family: titling-gothic-fb-condensed, sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #02bee8;
+  margin: 0;
+}
+
+.og-subtitle {
+  margin: 12px 0 0 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #256484;
+}
+
+.og-title {
+  margin: 40px 0 0 0;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.og-race-deck,
+.og-guide-deck,
+.og-year-deck {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 24px;
+  color: #33546a;
+}
+
+.og-competitors {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 56px;
+  margin-top: 48px;
+}
+
+.og-competitor {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.og-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 4px solid #53bce4;
+  background: linear-gradient(180deg, #f7ffff 0%, #e4f5f5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.og-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+}
+
+.og-avatar .candidate-no-image {
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+
+.og-avatar .candidate-no-image span {
+  font-size: 72px;
+  color: #6b8797;
+}
+
+.og-competitor-name {
+  margin-top: 24px;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.og-competitor-caption {
+  margin-top: 8px;
+  font-size: 22px;
+  color: #4b6b7a;
+}
+
+.og-divider {
+  position: relative;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.og-divider span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 100px;
+  background: #53bce4;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 24px rgba(83, 188, 228, 0.28);
+}
+
+.og-footer {
+  text-align: center;
+  font-size: 20px;
+  color: #4b6b7a;
+  margin-top: 48px;
+}
+
+.og-footer strong {
+  color: #256484;
+}
+
+.og-single-card {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.og-single-card .og-avatar {
+  border-color: #256484;
+}
+
+.og-tagline {
+  font-size: 24px;
+  color: #4b6b7a;
+  margin-top: 20px;
+}
+
+.og-year-grid {
+  margin: 64px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 900px;
+}
+
+.og-year-grid-item {
+  border: 2px solid #bee9f6;
+  border-radius: 18px;
+  padding: 24px;
+  background: #f7ffff;
+  font-size: 20px;
+  font-weight: 600;
+  color: #256484;
+}
+
+.og-year-grid-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4b6b7a;
+  margin-top: 12px;
+}
+
+.og-muted {
+  color: #6b8797;
+}
+

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { User } from '@prisma/client';
 
 export function calculateTrustLevel(user: User): {

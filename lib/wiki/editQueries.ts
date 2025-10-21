@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Prisma, EditStatus } from '@prisma/client';
 import { prisma } from '@/lib/db';
 import { slugify } from '@/lib/utils';

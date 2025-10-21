@@ -11,6 +11,7 @@ import { ensureHtml } from '@/lib/richText'
 import { evaluateTriCitiesRaceStatus } from '@/lib/triCitiesVote'
 import { TriCitiesQuestionnaireBanner } from '@/components/race/TriCitiesQuestionnaireBanner'
 import { BallotMeasureDetails } from '@/components/race/BallotMeasureDetails'
+import { createOgMetadata } from '@/lib/meta/og'
 
 interface RacePageProps {
   params: { 
@@ -47,6 +48,40 @@ export async function generateStaticParams() {
   return params
 }
 
+export async function generateMetadata({ params }: RacePageProps) {
+  const year = Number.parseInt(params.year, 10)
+
+  if (!Number.isFinite(year)) {
+    return createOgMetadata({
+      title: 'Tri-Cities Vote',
+      canonicalPath: '/',
+      description: 'Nonpartisan voter guides for Tri-Cities elections'
+    })
+  }
+
+  const race = await getRaceCached(year, params.slug)
+
+  if (!race) {
+    notFound()
+  }
+
+  const raceWithRelations = race as any
+  const displayTitle = preferWikiString(raceWithRelations.office as any, 'title') ?? raceWithRelations.office.title
+  const regionLabel = raceWithRelations.Guide?.[0]?.region?.name ?? 'Tri-Cities'
+  const introSource = preferWikiString(raceWithRelations as any, 'intro') ?? raceWithRelations.intro ?? null
+  const bodySource = preferWikiString(raceWithRelations as any, 'body') ?? raceWithRelations.body ?? null
+  const description = introSource
+    ? introSource.replace(/\s+/g, ' ').replace(/[#*_`>~]/g, '')
+    : `Compare candidates in the ${displayTitle} race for the ${year} ${regionLabel} ballot.`
+
+  return createOgMetadata({
+    title: `${displayTitle} • ${year} General Election`,
+    description,
+    canonicalPath: `/${year}/race/${params.slug}`,
+    imagePath: `og/${year}/race/${params.slug}.png`
+  })
+}
+
 export default async function RacePage({ params }: RacePageProps) {
   const year = Number.parseInt(params.year, 10)
 
@@ -60,19 +95,20 @@ export default async function RacePage({ params }: RacePageProps) {
     notFound()
   }
 
-  const triCitiesStatus = evaluateTriCitiesRaceStatus(race, year)
+  const raceWithRelations = race as any
+  const triCitiesStatus = evaluateTriCitiesRaceStatus(raceWithRelations, year)
   
-  const guide = race.Guide?.[0]
-  const introSource = preferWikiString(race as any, 'intro') ?? race.intro ?? null
-  const bodySource = preferWikiString(race as any, 'body') ?? race.body ?? null
+  const guide = raceWithRelations.Guide?.[0]
+  const introSource = preferWikiString(raceWithRelations as any, 'intro') ?? raceWithRelations.intro ?? null
+  const bodySource = preferWikiString(raceWithRelations as any, 'body') ?? raceWithRelations.body ?? null
   const introHtml = ensureHtml(introSource)
   const bodyHtml = ensureHtml(bodySource)
-  const isBallotMeasure = race.office.type === 'BALLOT_MEASURE'
-  const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
+  const isBallotMeasure = raceWithRelations.office.type === 'BALLOT_MEASURE'
+  const displayTitle = preferWikiString(raceWithRelations.office as any, 'title') ?? raceWithRelations.office.title
   const breadcrumbs = buildBreadcrumbs({
     year,
     region: guide?.region,
-    office: race.office
+    office: raceWithRelations.office
   })
 
   return (
@@ -96,12 +132,12 @@ export default async function RacePage({ params }: RacePageProps) {
             <>
               <BallotMeasureDetails intro={introSource} body={bodySource} />
               <div className="compare-candidate-list">
-                {race.candidates.filter(({ candidate }) => !candidate.hide).length === 0 ? (
+                {raceWithRelations.candidates.filter(({ candidate }: any) => !candidate.hide).length === 0 ? (
                   <p className="candidate-empty">Campaign committees N/A.</p>
                 ) : (
-                  race.candidates
-                    .filter(({ candidate }) => !candidate.hide)
-                    .map(({ candidate }) => {
+                  raceWithRelations.candidates
+                    .filter(({ candidate }: any) => !candidate.hide)
+                    .map(({ candidate }: any) => {
                       const fundraising = calculateFundraising(candidate.contributions || [])
 
                       return (
@@ -124,12 +160,12 @@ export default async function RacePage({ params }: RacePageProps) {
               )}
 
               <div className="compare-candidate-list">
-                {race.candidates.filter(({ candidate }) => !candidate.hide).length === 0 ? (
+                {raceWithRelations.candidates.filter(({ candidate }: any) => !candidate.hide).length === 0 ? (
                   <p className="candidate-empty">Candidate details N/A.</p>
                 ) : (
-                  race.candidates
-                    .filter(({ candidate }) => !candidate.hide)
-                    .map(({ candidate }) => {
+                  raceWithRelations.candidates
+                    .filter(({ candidate }: any) => !candidate.hide)
+                    .map(({ candidate }: any) => {
                       const fundraising = calculateFundraising(candidate.contributions || [])
 
                       return (

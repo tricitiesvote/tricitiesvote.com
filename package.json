@@ -41,7 +41,8 @@
     "import:lowv": "ts-node --project tsconfig.scripts.json scripts/import/lowv-scrape.ts",
     "import:lowv:load": "ts-node --project tsconfig.scripts.json scripts/import/lowv-load.ts",
     "prepare:2025": "ts-node --project tsconfig.scripts.json scripts/prepare-2025.ts",
-    "prepare:2025:general": "ts-node --project tsconfig.scripts.json scripts/prepare-2025-general.ts"
+    "prepare:2025:general": "ts-node --project tsconfig.scripts.json scripts/prepare-2025-general.ts",
+    "generate:og": "next build && ts-node --project tsconfig.scripts.json scripts/generate-og-images.ts"
   },
   "dependencies": {
     "@prisma/client": "latest",

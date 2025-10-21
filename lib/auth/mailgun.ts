@@ -7,8 +7,21 @@ const domain = process.env.MAILGUN_DOMAIN || '';
 
 let cachedClient: ReturnType<typeof mailgun.client> | null = null;
 
+function resolveBaseUrl() {
+  const configured = process.env.NEXT_PUBLIC_BASE_URL?.trim();
+  if (configured) {
+    return configured;
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    return 'https://tricitiesvote.com';
+  }
+
+  return 'http://localhost:3000';
+}
+
 function getMailgunClient() {
-  const key = process.env.MAILGUN_API_KEY;
+  const key = process.env.MAILGUN_API_KEY ?? process.env.MAILGUN_KEY;
   const url = process.env.MAILGUN_URL || 'https://api.mailgun.net';
 
   if (!key || !domain) {
@@ -36,7 +49,7 @@ export async function sendMagicLink(email: string, token: string) {
     return null;
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const baseUrl = resolveBaseUrl();
   const magicLink = `${baseUrl}/api/auth/verify?token=${token}`;
 
   const messageData = {
@@ -99,7 +112,7 @@ export async function sendEditNotification(moderatorEmail: string, editCount: nu
     return null;
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const baseUrl = resolveBaseUrl();
   const moderationUrl = `${baseUrl}/moderate`;
 
   const messageData = {
@@ -177,6 +190,7 @@ export async function sendEditStatusNotification(
 
   const statusColor = status === 'approved' ? '#28a745' : '#dc3545';
   const statusIcon = status === 'approved' ? '✅' : '❌';
+  const baseUrl = resolveBaseUrl();
 
   const messageData = {
     from: process.env.MAILGUN_FROM || 'Tri-Cities Vote <noreply@tricitiesvote.com>',
@@ -201,7 +215,7 @@ export async function sendEditStatusNotification(
         </p>
 
         <div style="text-align: center; margin: 30px 0;">
-          <a href="${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/edits"
+          <a href="${baseUrl}/edits"
              style="background-color: #6c757d; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
             View Edit History
           </a>
@@ -221,7 +235,7 @@ export async function sendEditStatusNotification(
 
       Thank you for contributing to Tri-Cities Vote! Your efforts help provide accurate, nonpartisan election information to our community.
 
-      View your edit history at: ${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/edits
+      View your edit history at: ${baseUrl}/edits
 
       ---
       Tri-Cities Vote - Nonpartisan election information for the Tri-Cities area

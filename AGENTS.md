@@ -59,6 +59,7 @@ This file gives working instructions for agents in this repo. Its scope is the e
   - `./node_modules/.bin/ts-node scripts/data/update-office-titles.ts` – sync abbreviated office names (`Pos`, port cleanup) after title changes.
   - `./node_modules/.bin/ts-node scripts/check-contribution-flags.ts [year]` – sanity-check cash vs in-kind totals from PDC imports.
   - `./node_modules/.bin/ts-node scripts/import/pdc-committees.ts` – load measure committee contribution history (e.g., Pro/Con charter campaigns).
+  - `npm run generate:og` – build the app, render the `/og/...` image templates, and export refreshed OpenGraph/Twitter share cards under `public/og/`. Commit the new images with related data/content changes.
   - Engagement/questionnaire imports live under `scripts/import/` (`npm run import:tcrc`, `import:tcrc:videos`, `import:ballotpedia`, `import:wrcg`, `import:lowv`). Each script produces both a participation CSV **and** a detailed responses CSV, then upserts into `Engagement` + `CandidateEngagement`; run the `:load` companion command to write DB changes after reviewing CSV output.
   - Vote411 scraper (`import:lowv`) calls the Vote411 REST API directly (client credentials are embedded in the public widget). No browser automation is required; ensure outbound HTTPS is available.
 

@@ -5,12 +5,38 @@ import { notFound } from 'next/navigation'
 import { orderRaces } from '@/lib/raceOrdering'
 import { slugify } from '@/lib/utils'
 import { getVisibleRaces } from '@/lib/raceVisibility'
+import { createOgMetadata } from '@/lib/meta/og'
 
 const getGuideCached = cache(async (year: number, regionSlug: string) =>
   getGuideByYearAndRegion(year, regionSlug)
 )
 
 export const revalidate = 3600
+
+export async function generateMetadata({ params }: RegionalGuidePageProps) {
+  const year = Number.parseInt(params.year, 10)
+
+  if (!Number.isFinite(year)) {
+    return createOgMetadata({
+      title: 'Tri-Cities Vote',
+      canonicalPath: '/',
+      description: 'Nonpartisan voter guides for Tri-Cities elections'
+    })
+  }
+
+  const guide = await getGuideCached(year, params.region)
+
+  if (!guide) {
+    notFound()
+  }
+
+  return createOgMetadata({
+    title: `${guide.region.name} Guide • ${year} Election`,
+    description: `See candidate statements, questionnaires, and events for ${guide.region.name} races in ${year}.`,
+    canonicalPath: `/${year}/guide/${params.region}`,
+    imagePath: `og/${year}/guide/${params.region}.png`
+  })
+}
 
 export async function generateStaticParams() {
   const years = await getAvailableYears()

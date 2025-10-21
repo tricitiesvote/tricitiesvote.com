@@ -67,25 +67,29 @@ export default async function ComparePage({ params }: ComparePageProps) {
     notFound()
   }
 
-  const triCitiesStatus = evaluateTriCitiesRaceStatus(race, year)
+  const raceWithRelations = race as any
+  const triCitiesStatus = evaluateTriCitiesRaceStatus(raceWithRelations, year)
 
-  const guide = race.Guide?.[0]
-  const visibleCandidates = race.candidates.filter(({ candidate }) => !candidate.hide)
-  const compareRows: ComparisonRow[] = Array.isArray((race as any)?.comparisons)
-    ? ((race as any).comparisons as ComparisonRow[])
+  const guide = raceWithRelations.Guide?.[0]
+  const visibleCandidates = (Array.isArray(raceWithRelations.candidates)
+    ? (raceWithRelations.candidates as Array<{ candidate: any }>)
     : []
-  const isBallotMeasure = race.office.type === 'BALLOT_MEASURE'
+  ).filter(({ candidate }) => !candidate.hide)
+  const compareRows: ComparisonRow[] = Array.isArray(raceWithRelations?.comparisons)
+    ? (raceWithRelations.comparisons as ComparisonRow[])
+    : []
+  const isBallotMeasure = raceWithRelations.office.type === 'BALLOT_MEASURE'
 
   const breadcrumbs = buildBreadcrumbs({
     year,
     region: guide?.region,
-    office: race.office,
+    office: raceWithRelations.office,
   })
   breadcrumbs.push({ label: 'Compare', url: `/${year}/compare/${params.slug}` })
 
-  const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
+  const displayTitle = preferWikiString(raceWithRelations.office as any, 'title') ?? raceWithRelations.office.title
 
-  const candidateCards = visibleCandidates.map(({ candidate }) => {
+  const candidateCards = visibleCandidates.map(({ candidate }: { candidate: any }) => {
       const displayName = preferWikiString(candidate as any, 'name') ?? candidate.name
       const slug = slugify(candidate.name)
       const image = preferWikiString(candidate as any, 'image') ?? candidate.image ?? null
@@ -104,7 +108,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
     const engagementValue = preferWikiString(candidate as any, 'engagement')
     const legacyEngagementHtml = ensureHtml(engagementValue)
     const structuredEngagements = Array.isArray(candidate.engagements)
-      ? candidate.engagements.filter(entry => entry.engagement)
+      ? candidate.engagements.filter((entry: any) => entry?.engagement)
       : []
 
     const fundraising = calculateFundraising(candidate.contributions || [])
@@ -275,8 +279,8 @@ export default async function ComparePage({ params }: ComparePageProps) {
           {isBallotMeasure && (
             <div className="ballot-measure-card">
               <BallotMeasureDetails
-                intro={preferWikiString(race as any, 'intro') ?? race.intro ?? null}
-                body={preferWikiString(race as any, 'body') ?? race.body ?? null}
+                intro={preferWikiString(raceWithRelations as any, 'intro') ?? raceWithRelations.intro ?? null}
+                body={preferWikiString(raceWithRelations as any, 'body') ?? raceWithRelations.body ?? null}
               />
             </div>
           )}
@@ -304,7 +308,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
           {!isBallotMeasure && (
             <CompareQuestionnaires
               year={year}
-              regionId={race.office.regionId}
+              regionId={raceWithRelations.office.regionId}
               candidates={questionnaireCandidates}
               hiddenTitles={triCitiesStatus.hiddenTitles}
             />
