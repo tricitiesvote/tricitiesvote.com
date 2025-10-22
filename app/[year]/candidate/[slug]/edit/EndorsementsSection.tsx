@@ -74,52 +74,45 @@ export function EndorsementsSection({ endorsements, candidateId, candidateYear, 
   const opposingEndorsements = endorsements.filter(e => e.forAgainst === 'AGAINST');
 
   return (
-    <section className="bg-white rounded-lg shadow-sm p-6">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold">Endorsements</h2>
-        <button
-          onClick={openAddModal}
-          className="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
+    <section className="admin-section">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+        <h2>Endorsements</h2>
+        <button onClick={openAddModal} className="admin-save-button" style={{ fontSize: '13px', padding: '6px 14px' }}>
           Add Endorsement
         </button>
       </div>
 
       {endorsements.length === 0 ? (
-        <p className="text-sm text-gray-500">No endorsements found.</p>
+        <p style={{ fontSize: '14px', opacity: 0.6 }}>No endorsements found.</p>
       ) : (
-        <div className="space-y-6">
+        <div className="admin-endorsements">
           {supportingEndorsements.length > 0 && (
-            <div>
-              <h3 className="text-sm font-semibold text-green-700 mb-2">Supporting ({supportingEndorsements.length})</h3>
-              <div className="space-y-2">
-                {supportingEndorsements.map((endorsement) => (
-                  <EndorsementRow
-                    key={endorsement.id}
-                    endorsement={endorsement}
-                    onEdit={() => openEditModal(endorsement)}
-                    onDelete={() => handleDelete(endorsement.id)}
-                    deleting={deleting === endorsement.id}
-                  />
-                ))}
-              </div>
+            <div className="admin-endorsement-group">
+              <h3 style={{ color: '#2d7a2d' }}>Supporting ({supportingEndorsements.length})</h3>
+              {supportingEndorsements.map((endorsement) => (
+                <EndorsementRow
+                  key={endorsement.id}
+                  endorsement={endorsement}
+                  onEdit={() => openEditModal(endorsement)}
+                  onDelete={() => handleDelete(endorsement.id)}
+                  deleting={deleting === endorsement.id}
+                />
+              ))}
             </div>
           )}
 
           {opposingEndorsements.length > 0 && (
-            <div>
-              <h3 className="text-sm font-semibold text-red-700 mb-2">Opposing ({opposingEndorsements.length})</h3>
-              <div className="space-y-2">
-                {opposingEndorsements.map((endorsement) => (
-                  <EndorsementRow
-                    key={endorsement.id}
-                    endorsement={endorsement}
-                    onEdit={() => openEditModal(endorsement)}
-                    onDelete={() => handleDelete(endorsement.id)}
-                    deleting={deleting === endorsement.id}
-                  />
-                ))}
-              </div>
+            <div className="admin-endorsement-group">
+              <h3 style={{ color: '#c00' }}>Opposing ({opposingEndorsements.length})</h3>
+              {opposingEndorsements.map((endorsement) => (
+                <EndorsementRow
+                  key={endorsement.id}
+                  endorsement={endorsement}
+                  onEdit={() => openEditModal(endorsement)}
+                  onDelete={() => handleDelete(endorsement.id)}
+                  deleting={deleting === endorsement.id}
+                />
+              ))}
             </div>
           )}
         </div>
@@ -154,53 +147,46 @@ function EndorsementRow({
   deleting: boolean;
 }) {
   return (
-    <div className="bg-gray-50 p-3 rounded border border-gray-200 flex items-start justify-between">
-      <div className="flex-1 min-w-0">
-        <p className="font-medium text-sm text-gray-900">{endorsement.endorser}</p>
-        <div className="mt-1 space-y-1 text-xs text-gray-600">
-          <div>
-            <span className="font-medium">Type:</span> {endorsement.type}
+    <div className="admin-endorsement-item">
+      <div style={{ flex: 1 }}>
+        <p style={{ fontWeight: 500, fontSize: '14px', margin: '0 0 8px 0' }}>{endorsement.endorser}</p>
+        <div style={{ fontSize: '12px', opacity: 0.8 }}>
+          <div style={{ marginBottom: '4px' }}>
+            <strong>Type:</strong> {endorsement.type}
           </div>
           {endorsement.url && (
-            <div className="truncate">
-              <span className="font-medium">URL:</span>{' '}
-              <a href={endorsement.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+            <div style={{ marginBottom: '4px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              <strong>URL:</strong>{' '}
+              <a href={endorsement.url} target="_blank" rel="noopener noreferrer">
                 {endorsement.url}
               </a>
             </div>
           )}
           {endorsement.filePath && (
-            <div className="truncate">
-              <span className="font-medium">File:</span>{' '}
-              <a href={endorsement.filePath} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+            <div style={{ marginBottom: '4px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              <strong>File:</strong>{' '}
+              <a href={endorsement.filePath} target="_blank" rel="noopener noreferrer">
                 {endorsement.filePath}
               </a>
             </div>
           )}
           {endorsement.sourceTitle && (
-            <div>
-              <span className="font-medium">Source:</span> {endorsement.sourceTitle}
+            <div style={{ marginBottom: '4px' }}>
+              <strong>Source:</strong> {endorsement.sourceTitle}
             </div>
           )}
           {endorsement.notes && (
-            <div>
-              <span className="font-medium">Notes:</span> {endorsement.notes}
+            <div style={{ marginBottom: '4px' }}>
+              <strong>Notes:</strong> {endorsement.notes}
             </div>
           )}
         </div>
       </div>
-      <div className="flex items-center gap-2 ml-4">
-        <button
-          onClick={onEdit}
-          className="text-sm text-blue-600 hover:text-blue-800"
-        >
+      <div style={{ display: 'flex', gap: '10px', marginLeft: '15px' }}>
+        <button onClick={onEdit} style={{ fontSize: '14px' }}>
           Edit
         </button>
-        <button
-          onClick={onDelete}
-          disabled={deleting}
-          className="text-sm text-red-600 hover:text-red-800 disabled:opacity-50"
-        >
+        <button onClick={onDelete} disabled={deleting} style={{ fontSize: '14px', color: deleting ? '#999' : '#c00' }}>
           {deleting ? 'Deleting...' : 'Delete'}
         </button>
       </div>
@@ -331,144 +317,97 @@ function EndorsementModal({
   };
 
   return (
-    <div
-      onClick={onClose}
-      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-    >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-      >
-        <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h3 className="text-xl font-semibold">
-            {mode === 'add' ? 'Add Endorsement' : 'Edit Endorsement'}
-          </h3>
-          <button
-            onClick={onClose}
-            className="text-2xl text-gray-400 hover:text-gray-600"
-          >
+    <div onClick={onClose} className="admin-modal-overlay">
+      <div onClick={(e) => e.stopPropagation()} className="admin-modal">
+        <div className="admin-modal-header">
+          <h3>{mode === 'add' ? 'Add Endorsement' : 'Edit Endorsement'}</h3>
+          <button onClick={onClose} style={{ fontSize: '28px', border: 'none', background: 'transparent', cursor: 'pointer', opacity: 0.5, lineHeight: 1 }}>
             ×
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Endorser Name *
-            </label>
+        <form onSubmit={handleSubmit} className="admin-modal-body">
+          <div className="admin-field">
+            <label>Endorser Name *</label>
             <input
               type="text"
               value={endorser}
               onChange={(e) => setEndorser(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Organization or Person Name"
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Type
-              </label>
-              <select
-                value={type}
-                onChange={(e) => setType(e.target.value as any)}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
+          <div className="admin-grid-2">
+            <div className="admin-field">
+              <label>Type</label>
+              <select value={type} onChange={(e) => setType(e.target.value as any)}>
                 <option value="LETTER">Letter</option>
                 <option value="SOCIAL">Social Media</option>
                 <option value="ORG">Organization</option>
               </select>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Position
-              </label>
-              <select
-                value={forAgainst}
-                onChange={(e) => setForAgainst(e.target.value as any)}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
+            <div className="admin-field">
+              <label>Position</label>
+              <select value={forAgainst} onChange={(e) => setForAgainst(e.target.value as any)}>
                 <option value="FOR">Supporting</option>
                 <option value="AGAINST">Opposing</option>
               </select>
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              URL {mode === 'add' && !file && '*'}
-            </label>
+          <div className="admin-field">
+            <label>URL {mode === 'add' && !file && '*'}</label>
             <input
               type="url"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="https://example.com/endorsement"
             />
           </div>
 
           {mode === 'add' && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Or Upload File (PDF/Image)
-              </label>
+            <div className="admin-field">
+              <label>Or Upload File (PDF/Image)</label>
               <input
                 type="file"
                 accept=".pdf,.png,.jpg,.jpeg,.gif,.webp"
                 onChange={(e) => setFile(e.target.files?.[0] || null)}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           )}
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Source Title (Optional)
-            </label>
+          <div className="admin-field">
+            <label>Source Title (Optional)</label>
             <input
               type="text"
               value={sourceTitle}
               onChange={(e) => setSourceTitle(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="e.g., Tri-City Herald"
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Notes (Optional)
-            </label>
+          <div className="admin-field">
+            <label>Notes (Optional)</label>
             <textarea
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Additional context or notes"
             />
           </div>
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded text-sm">
+            <div className="admin-message-error">
               {error}
             </div>
           )}
 
-          <div className="flex justify-end gap-3 pt-4">
-            <button
-              type="button"
-              onClick={onClose}
-              disabled={submitting}
-              className="px-4 py-2 text-sm border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50"
-            >
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '25px' }}>
+            <button type="button" onClick={onClose} disabled={submitting}>
               Cancel
             </button>
-            <button
-              type="submit"
-              disabled={submitting}
-              className="px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-            >
+            <button type="submit" disabled={submitting} className="admin-save-button">
               {submitting ? 'Saving...' : mode === 'add' ? 'Add' : 'Update'}
             </button>
           </div>

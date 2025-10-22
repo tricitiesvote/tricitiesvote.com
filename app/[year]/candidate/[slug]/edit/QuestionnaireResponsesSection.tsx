@@ -83,9 +83,9 @@ export function QuestionnaireResponsesSection({ responses, candidateId, onUpdate
 
   if (responses.length === 0) {
     return (
-      <section className="bg-white rounded-lg shadow-sm p-6">
-        <h2 className="text-lg font-semibold mb-4">Questionnaire Responses</h2>
-        <p className="text-sm text-gray-500">No questionnaire responses found.</p>
+      <section className="admin-section">
+        <h2>Questionnaire Responses</h2>
+        <p style={{ fontSize: '14px', opacity: 0.6 }}>No questionnaire responses found.</p>
       </section>
     );
   }
@@ -101,128 +101,117 @@ export function QuestionnaireResponsesSection({ responses, candidateId, onUpdate
   }, {} as Record<string, QuestionnaireResponse[]>);
 
   return (
-    <section className="bg-white rounded-lg shadow-sm p-6">
-      <h2 className="text-lg font-semibold mb-4">Questionnaire Responses</h2>
-      <p className="text-sm text-gray-600 mb-4">
+    <section className="admin-section">
+      <h2>Questionnaire Responses</h2>
+      <p style={{ fontSize: '14px', opacity: 0.7, marginBottom: '15px' }}>
         Edit existing responses. Cannot create or delete responses from this interface.
       </p>
 
       {error && (
-        <div className="mb-4 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded text-sm">
+        <div className="admin-message-error" style={{ marginBottom: '15px' }}>
           {error}
         </div>
       )}
 
-      <div className="space-y-6">
+      <div className="admin-responses">
         {Object.entries(grouped).map(([questionnaireTitle, questionnaireResponses]) => (
-          <div key={questionnaireTitle} className="border-b border-gray-200 pb-6 last:border-b-0">
-            <h3 className="font-medium text-gray-900 mb-3">{questionnaireTitle}</h3>
-            <div className="space-y-4">
-              {questionnaireResponses.map((response) => (
-                <div key={response.id} className="bg-gray-50 p-4 rounded border border-gray-200">
-                  <div className="flex items-start justify-between mb-2">
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-gray-900">
-                        {response.question.question || 'Question'}
-                      </p>
-                      <p className="text-xs text-gray-500 mt-1">
-                        Type: {response.question.type}
-                      </p>
-                    </div>
-                    {editingId !== response.id && (
-                      <button
-                        onClick={() => startEdit(response)}
-                        className="ml-4 text-sm text-blue-600 hover:text-blue-800"
-                      >
-                        Edit
-                      </button>
-                    )}
+          <div key={questionnaireTitle} className="admin-response-group">
+            <h3>{questionnaireTitle}</h3>
+            {questionnaireResponses.map((response) => (
+              <div key={response.id} className="admin-response-item">
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                  <div style={{ flex: 1 }}>
+                    <p style={{ fontSize: '14px', fontWeight: 500, margin: 0 }}>
+                      {response.question.question || 'Question'}
+                    </p>
+                    <p style={{ fontSize: '12px', opacity: 0.6, margin: '3px 0 0 0' }}>
+                      Type: {response.question.type}
+                    </p>
                   </div>
-
-                  {editingId === response.id ? (
-                    <div className="mt-3 space-y-3">
-                      {response.question.type === 'scale' && (
-                        <div>
-                          <label className="block text-xs font-medium text-gray-700 mb-1">
-                            Value (scale)
-                          </label>
-                          <input
-                            type="number"
-                            value={editValue ?? ''}
-                            onChange={(e) => setEditValue(e.target.value ? Number.parseInt(e.target.value, 10) : null)}
-                            className="w-32 px-2 py-1 text-sm border border-gray-300 rounded"
-                          />
-                        </div>
-                      )}
-
-                      <div>
-                        <label className="block text-xs font-medium text-gray-700 mb-1">
-                          Comment
-                        </label>
-                        <textarea
-                          value={editComment}
-                          onChange={(e) => setEditComment(e.target.value)}
-                          rows={2}
-                          className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-medium text-gray-700 mb-1">
-                          Text Response
-                        </label>
-                        <textarea
-                          value={editTextResponse}
-                          onChange={(e) => setEditTextResponse(e.target.value)}
-                          rows={4}
-                          className="w-full px-2 py-1 text-sm border border-gray-300 rounded font-mono"
-                        />
-                      </div>
-
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => saveEdit(response.id)}
-                          disabled={saving}
-                          className="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-                        >
-                          {saving ? 'Saving...' : 'Save'}
-                        </button>
-                        <button
-                          onClick={cancelEdit}
-                          disabled={saving}
-                          className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300 disabled:opacity-50"
-                        >
-                          Cancel
-                        </button>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="mt-2 space-y-2 text-sm">
-                      {response.value !== null && (
-                        <div>
-                          <span className="font-medium text-gray-700">Value:</span> {response.value}
-                        </div>
-                      )}
-                      {response.comment && (
-                        <div>
-                          <span className="font-medium text-gray-700">Comment:</span>
-                          <p className="text-gray-600 mt-1">{response.comment}</p>
-                        </div>
-                      )}
-                      {response.textResponse && (
-                        <div>
-                          <span className="font-medium text-gray-700">Text Response:</span>
-                          <p className="text-gray-600 mt-1 whitespace-pre-wrap">{response.textResponse}</p>
-                        </div>
-                      )}
-                      {!response.value && !response.comment && !response.textResponse && (
-                        <p className="text-gray-500 italic">No response provided</p>
-                      )}
-                    </div>
+                  {editingId !== response.id && (
+                    <button onClick={() => startEdit(response)} style={{ fontSize: '14px' }}>
+                      Edit
+                    </button>
                   )}
                 </div>
-              ))}
-            </div>
+
+                {editingId === response.id ? (
+                  <div style={{ marginTop: '10px' }}>
+                    {response.question.type === 'scale' && (
+                      <div className="admin-field">
+                        <label style={{ fontSize: '12px' }}>Value (scale)</label>
+                        <input
+                          type="number"
+                          value={editValue ?? ''}
+                          onChange={(e) => setEditValue(e.target.value ? Number.parseInt(e.target.value, 10) : null)}
+                          style={{ width: '120px' }}
+                        />
+                      </div>
+                    )}
+
+                    <div className="admin-field">
+                      <label style={{ fontSize: '12px' }}>Comment</label>
+                      <textarea
+                        value={editComment}
+                        onChange={(e) => setEditComment(e.target.value)}
+                        rows={2}
+                      />
+                    </div>
+
+                    <div className="admin-field">
+                      <label style={{ fontSize: '12px' }}>Text Response</label>
+                      <textarea
+                        value={editTextResponse}
+                        onChange={(e) => setEditTextResponse(e.target.value)}
+                        rows={4}
+                        style={{ fontFamily: 'monospace', fontSize: '13px' }}
+                      />
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <button
+                        onClick={() => saveEdit(response.id)}
+                        disabled={saving}
+                        className="admin-save-button"
+                        style={{ fontSize: '13px', padding: '5px 12px' }}
+                      >
+                        {saving ? 'Saving...' : 'Save'}
+                      </button>
+                      <button
+                        onClick={cancelEdit}
+                        disabled={saving}
+                        style={{ fontSize: '13px', padding: '5px 12px' }}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div style={{ marginTop: '8px', fontSize: '14px' }}>
+                    {response.value !== null && (
+                      <div style={{ marginBottom: '8px' }}>
+                        <strong>Value:</strong> {response.value}
+                      </div>
+                    )}
+                    {response.comment && (
+                      <div style={{ marginBottom: '8px' }}>
+                        <strong>Comment:</strong>
+                        <p style={{ margin: '4px 0 0 0', opacity: 0.8 }}>{response.comment}</p>
+                      </div>
+                    )}
+                    {response.textResponse && (
+                      <div style={{ marginBottom: '8px' }}>
+                        <strong>Text Response:</strong>
+                        <p style={{ margin: '4px 0 0 0', opacity: 0.8, whiteSpace: 'pre-wrap' }}>{response.textResponse}</p>
+                      </div>
+                    )}
+                    {!response.value && !response.comment && !response.textResponse && (
+                      <p style={{ opacity: 0.5, fontStyle: 'italic' }}>No response provided</p>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         ))}
       </div>

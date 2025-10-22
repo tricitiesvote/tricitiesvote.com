@@ -2,10 +2,12 @@
 
 import { useAuth } from '@/lib/auth/AuthProvider';
 import { useEditMode } from '@/lib/wiki/EditModeProvider';
+import { usePathname } from 'next/navigation';
 
 export function EditModeButton() {
   const { user, logout, isLoading } = useAuth();
   const { editMode, toggleEditMode } = useEditMode();
+  const pathname = usePathname();
 
   // Hide completely if no user is logged in
   if (!user || isLoading) {
@@ -13,10 +15,16 @@ export function EditModeButton() {
   }
 
   const isModerator = ['MODERATOR', 'ADMIN'].includes(user.role);
+  const isAdmin = user.role === 'ADMIN';
   const roleIcon =
     user.role === 'ADMIN' ? '👑' :
     user.role === 'MODERATOR' ? '🛡️' :
     user.role === 'CANDIDATE' ? '🎯' : '👤';
+
+  // Detect if we're on a candidate page and extract year/slug
+  const candidatePageMatch = pathname?.match(/^\/(\d{4})\/candidate\/([^\/]+)$/);
+  const isCandidatePage = candidatePageMatch && candidatePageMatch.length === 3;
+  const editUrl = isCandidatePage ? `${pathname}/edit` : null;
 
   return (
     <div className="wiki-controls">
@@ -29,13 +37,20 @@ export function EditModeButton() {
           >
             {editMode ? 'Exit Edit Mode' : 'Suggest edit'}
           </button>
+        {isAdmin && isCandidatePage && editUrl && (
+          <button onClick={() => window.location.href = editUrl}>
+            Edit
+          </button>
+        )}
         {isModerator ? (
-          <a
-            href="/admin/wiki"
-            className=""
-          >
-            Admin
-          </a>
+          <span>
+            <a
+              href="/admin/wiki"
+              className=""
+            >
+              Admin
+            </a>
+          </span>
         ) : null}
           {/* <span className="">
             {roleIcon}

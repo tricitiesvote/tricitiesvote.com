@@ -537,7 +537,6 @@ async function syncTriCitiesVoteEngagement() {
   const engagementTitle = 'Tri-Cities Vote Q&A'
   const engagementDate = new Date('2025-10-01')
   const engagementSlug = generateEngagementSlug(engagementTitle, engagementDate)
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://tricitiesvote.com'
 
   const questionnaires = await prisma.questionnaire.findMany({
     where: { slug: { in: ['2025-city-council', '2025-school-board'] } },
@@ -564,13 +563,13 @@ async function syncTriCitiesVoteEngagement() {
       slug: engagementSlug,
       title: engagementTitle,
       date: engagementDate,
-      primaryLink: `${baseUrl}/2025`,
+      primaryLink: '/2025',
       notes: 'Tri-Cities Vote candidate questionnaire responses (city councils and school boards).'
     },
     update: {
       title: engagementTitle,
       date: engagementDate,
-      primaryLink: `${baseUrl}/2025`,
+      primaryLink: '/2025',
       notes: 'Tri-Cities Vote candidate questionnaire responses (city councils and school boards).'
     }
   })
@@ -615,7 +614,7 @@ async function syncTriCitiesVoteEngagement() {
     const generalRace = candidate.races.find(entry => entry.race?.type === 'GENERAL')
     const raceTitle = generalRace?.race?.office?.title ?? candidate.office.title
     const raceSlug = slugify(raceTitle)
-    const raceLink = `${baseUrl}/${candidate.electionYear}/race/${raceSlug}`
+    const raceLink = `/${candidate.electionYear}/race/${raceSlug}`
 
     await prisma.candidateEngagement.upsert({
       where: {

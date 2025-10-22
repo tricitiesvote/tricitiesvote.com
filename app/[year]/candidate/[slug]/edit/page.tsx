@@ -111,7 +111,7 @@ export default function CandidateEditPage() {
     try {
       setLoading(true);
       setError('');
-      const response = await fetch(`/api/admin/candidates/${slug}?year=${year}`);
+      const response = await fetch(`/api/admin/candidates/by-slug/${slug}?year=${year}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -184,207 +184,157 @@ export default function CandidateEditPage() {
   };
 
   if (authLoading || !isAdmin) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-sm text-gray-500">Loading...</div>
-      </div>
-    );
+    return <div style={{ padding: '40px', textAlign: 'center' }}>Loading...</div>;
   }
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-sm text-gray-500">Loading candidate data...</div>
-      </div>
-    );
+    return <div style={{ padding: '40px', textAlign: 'center' }}>Loading candidate data...</div>;
   }
 
   if (error && !candidate) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-xl font-medium mb-2">Error</h1>
-          <p className="text-sm text-red-600 mb-4">{error}</p>
-          <Link href={`/${year}/candidate/${slug}`} className="text-blue-600 hover:underline">
-            Back to candidate page
-          </Link>
-        </div>
+      <div style={{ padding: '40px', textAlign: 'center' }}>
+        <h1>Error</h1>
+        <p style={{ color: '#c00' }}>{error}</p>
+        <p><Link href={`/${year}/candidate/${slug}`}>Back to candidate page</Link></p>
       </div>
     );
   }
 
   if (!candidate) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-xl font-medium mb-2">Candidate not found</h1>
-          <Link href="/" className="text-blue-600 hover:underline">
-            Go to home page
-          </Link>
-        </div>
+      <div style={{ padding: '40px', textAlign: 'center' }}>
+        <h1>Candidate not found</h1>
+        <p><Link href="/">Go to home page</Link></p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-100">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div className="admin-edit-page">
+      <header className="admin-header">
+        <div className="admin-header-content">
           <div>
-            <h1 className="text-2xl font-semibold text-gray-900">
-              Edit: {candidate.name}
-            </h1>
-            <p className="text-sm text-gray-600 mt-1">
+            <h1>Edit: {candidate.name}</h1>
+            <p style={{ fontSize: '14px', opacity: 0.7, margin: '5px 0 0 0' }}>
               {candidate.office.title} • {candidate.electionYear}
             </p>
           </div>
-          <div className="flex items-center gap-4">
-            <Link
-              href={`/${year}/candidate/${slug}`}
-              className="text-sm text-gray-600 hover:text-gray-900"
-            >
-              View public page
-            </Link>
-            <button
-              onClick={handleSave}
-              disabled={saving}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 text-sm font-medium"
-            >
+          <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+            <Link href={`/${year}/candidate/${slug}`}>View public page</Link>
+            <button onClick={handleSave} disabled={saving} className="admin-save-button">
               {saving ? 'Saving...' : 'Save changes'}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Messages */}
       {successMessage && (
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded">
-            {successMessage}
-          </div>
+        <div className="admin-message admin-message-success">
+          {successMessage}
         </div>
       )}
       {error && (
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded">
-            {error}
-          </div>
+        <div className="admin-message admin-message-error">
+          {error}
         </div>
       )}
 
-      {/* Main content */}
-      <main className="max-w-7xl mx-auto px-6 py-8">
-        <div className="space-y-8">
-          {/* Basic Information */}
-          <section className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-lg font-semibold mb-4">Basic Information</h2>
-            <div className="space-y-4">
-              <FormField label="Name" value={candidate.name} onChange={(v) => updateField('name', v)} />
-              <FormField label="State ID (PDC Committee ID)" value={candidate.stateId || ''} onChange={(v) => updateField('stateId', v || null)} />
-              <FormField label="Party" value={candidate.party || ''} onChange={(v) => updateField('party', v || null)} />
-              <div className="grid grid-cols-2 gap-4">
-                <CheckboxField label="Incumbent" checked={candidate.incumbent} onChange={(v) => updateField('incumbent', v)} />
-                <CheckboxField label="Minifiler" checked={candidate.minifiler} onChange={(v) => updateField('minifiler', v)} />
-                <CheckboxField label="Hide from public" checked={candidate.hide} onChange={(v) => updateField('hide', v)} />
-                <NumberField label="Years in office" value={candidate.yearsInOffice} onChange={(v) => updateField('yearsInOffice', v)} />
-              </div>
-            </div>
-          </section>
+      <main className="admin-content">
+        <section className="admin-section">
+          <h2>Basic Information</h2>
+          <FormField label="Name" value={candidate.name} onChange={(v) => updateField('name', v)} />
+          <FormField label="State ID (PDC Committee ID)" value={candidate.stateId || ''} onChange={(v) => updateField('stateId', v || null)} />
+          <FormField label="Party" value={candidate.party || ''} onChange={(v) => updateField('party', v || null)} />
+          <div className="admin-grid-2">
+            <CheckboxField label="Incumbent" checked={candidate.incumbent} onChange={(v) => updateField('incumbent', v)} />
+            <CheckboxField label="Minifiler" checked={candidate.minifiler} onChange={(v) => updateField('minifiler', v)} />
+            <CheckboxField label="Hide from public" checked={candidate.hide} onChange={(v) => updateField('hide', v)} />
+            <NumberField label="Years in office" value={candidate.yearsInOffice} onChange={(v) => updateField('yearsInOffice', v)} />
+          </div>
+        </section>
 
-          {/* Contact & Links */}
-          <section className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-lg font-semibold mb-4">Contact & Links</h2>
-            <div className="space-y-4">
-              <FormField label="Email" value={candidate.email || ''} onChange={(v) => updateField('email', v || null)} />
-              <FormField label="Website" value={candidate.website || ''} onChange={(v) => updateField('website', v || null)} />
-              <FormField label="Facebook" value={candidate.facebook || ''} onChange={(v) => updateField('facebook', v || null)} />
-              <FormField label="Twitter" value={candidate.twitter || ''} onChange={(v) => updateField('twitter', v || null)} />
-              <FormField label="Instagram" value={candidate.instagram || ''} onChange={(v) => updateField('instagram', v || null)} />
-              <FormField label="YouTube" value={candidate.youtube || ''} onChange={(v) => updateField('youtube', v || null)} />
-              <FormField label="PDC Link" value={candidate.pdc || ''} onChange={(v) => updateField('pdc', v || null)} />
-            </div>
-          </section>
+        <section className="admin-section">
+          <h2>Contact & Links</h2>
+          <FormField label="Email" value={candidate.email || ''} onChange={(v) => updateField('email', v || null)} />
+          <FormField label="Website" value={candidate.website || ''} onChange={(v) => updateField('website', v || null)} />
+          <FormField label="Facebook" value={candidate.facebook || ''} onChange={(v) => updateField('facebook', v || null)} />
+          <FormField label="Twitter" value={candidate.twitter || ''} onChange={(v) => updateField('twitter', v || null)} />
+          <FormField label="Instagram" value={candidate.instagram || ''} onChange={(v) => updateField('instagram', v || null)} />
+          <FormField label="YouTube" value={candidate.youtube || ''} onChange={(v) => updateField('youtube', v || null)} />
+          <FormField label="PDC Link" value={candidate.pdc || ''} onChange={(v) => updateField('pdc', v || null)} />
+        </section>
 
-          {/* Photo */}
-          <section className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-lg font-semibold mb-4">Photo</h2>
-            <FormField
-              label="Image URL"
-              value={candidate.image || ''}
-              onChange={(v) => updateField('image', v || null)}
-              help="Path relative to public directory, e.g., /images/candidates/2025/john-doe.jpg"
-            />
-            {candidate.image && (
-              <div className="mt-4">
-                <p className="text-sm text-gray-600 mb-2">Preview:</p>
-                <img
-                  src={candidate.image}
-                  alt={candidate.name}
-                  className="w-48 h-48 object-cover rounded border border-gray-300"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                  }}
-                />
-              </div>
-            )}
-          </section>
-
-          {/* Bio & Statement */}
-          <section className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-lg font-semibold mb-4">Bio & Statement</h2>
-            <div className="space-y-4">
-              <TextAreaField
-                label="Bio"
-                value={candidate.bio || ''}
-                onChange={(v) => updateField('bio', v || null)}
-                rows={6}
-                help="Markdown supported"
-              />
-              <TextAreaField
-                label="Statement"
-                value={candidate.statement || ''}
-                onChange={(v) => updateField('statement', v || null)}
-                rows={8}
-                help="Markdown supported"
+        <section className="admin-section">
+          <h2>Photo</h2>
+          <FormField
+            label="Image URL"
+            value={candidate.image || ''}
+            onChange={(v) => updateField('image', v || null)}
+            help="Path relative to public directory, e.g., /images/candidates/2025/john-doe.jpg"
+          />
+          {candidate.image && (
+            <div style={{ marginTop: '15px' }}>
+              <p style={{ fontSize: '13px', opacity: 0.7, marginBottom: '8px' }}>Preview:</p>
+              <img
+                src={candidate.image}
+                alt={candidate.name}
+                style={{ width: '200px', height: '200px', objectFit: 'cover', border: '1px solid #ddd' }}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
               />
             </div>
-          </section>
+          )}
+        </section>
 
-          {/* Articles/News */}
-          <section className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-lg font-semibold mb-4">Articles & News</h2>
-            <TextAreaField
-              label="Articles (Markdown)"
-              value={candidate.articles || ''}
-              onChange={(v) => updateField('articles', v || null)}
-              rows={10}
-              help="Markdown format for news items and articles"
-            />
-          </section>
-
-          {/* Questionnaire Responses */}
-          <QuestionnaireResponsesSection
-            responses={candidate.questionnaireResponses}
-            candidateId={candidate.id}
-            onUpdate={loadCandidate}
+        <section className="admin-section">
+          <h2>Bio & Statement</h2>
+          <TextAreaField
+            label="Bio"
+            value={candidate.bio || ''}
+            onChange={(v) => updateField('bio', v || null)}
+            rows={6}
+            help="Markdown supported"
           />
-
-          {/* Endorsements */}
-          <EndorsementsSection
-            endorsements={candidate.endorsements}
-            candidateId={candidate.id}
-            candidateYear={candidate.electionYear}
-            onUpdate={loadCandidate}
+          <TextAreaField
+            label="Statement"
+            value={candidate.statement || ''}
+            onChange={(v) => updateField('statement', v || null)}
+            rows={8}
+            help="Markdown supported"
           />
+        </section>
 
-          {/* Enforcement Cases */}
-          <EnforcementCasesSection
-            cases={candidate.enforcementCases}
-            candidateId={candidate.id}
-            onUpdate={loadCandidate}
+        <section className="admin-section">
+          <h2>Articles & News</h2>
+          <TextAreaField
+            label="Articles (Markdown)"
+            value={candidate.articles || ''}
+            onChange={(v) => updateField('articles', v || null)}
+            rows={10}
+            help="Markdown format for news items and articles"
           />
-        </div>
+        </section>
+
+        <QuestionnaireResponsesSection
+          responses={candidate.questionnaireResponses}
+          candidateId={candidate.id}
+          onUpdate={loadCandidate}
+        />
+
+        <EndorsementsSection
+          endorsements={candidate.endorsements}
+          candidateId={candidate.id}
+          candidateYear={candidate.electionYear}
+          onUpdate={loadCandidate}
+        />
+
+        <EnforcementCasesSection
+          cases={candidate.enforcementCases}
+          candidateId={candidate.id}
+          onUpdate={loadCandidate}
+        />
       </main>
     </div>
   );
@@ -403,17 +353,14 @@ function FormField({
   help?: string;
 }) {
   return (
-    <div>
-      <label className="block text-sm font-medium text-gray-700 mb-1">
-        {label}
-      </label>
+    <div className="admin-field">
+      <label>{label}</label>
       <input
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      {help && <p className="text-xs text-gray-500 mt-1">{help}</p>}
+      {help && <small>{help}</small>}
     </div>
   );
 }
@@ -432,17 +379,15 @@ function TextAreaField({
   help?: string;
 }) {
   return (
-    <div>
-      <label className="block text-sm font-medium text-gray-700 mb-1">
-        {label}
-      </label>
+    <div className="admin-field">
+      <label>{label}</label>
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
         rows={rows}
-        className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
+        style={{ fontFamily: 'monospace', fontSize: '13px' }}
       />
-      {help && <p className="text-xs text-gray-500 mt-1">{help}</p>}
+      {help && <small>{help}</small>}
     </div>
   );
 }
@@ -457,14 +402,15 @@ function CheckboxField({
   onChange: (value: boolean) => void;
 }) {
   return (
-    <div className="flex items-center">
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-        className="mr-2"
-      />
-      <label className="text-sm font-medium text-gray-700">{label}</label>
+    <div className="admin-field-checkbox">
+      <label>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={(e) => onChange(e.target.checked)}
+        />
+        {label}
+      </label>
     </div>
   );
 }
@@ -479,15 +425,12 @@ function NumberField({
   onChange: (value: number | null) => void;
 }) {
   return (
-    <div>
-      <label className="block text-sm font-medium text-gray-700 mb-1">
-        {label}
-      </label>
+    <div className="admin-field">
+      <label>{label}</label>
       <input
         type="number"
         value={value ?? ''}
         onChange={(e) => onChange(e.target.value ? Number.parseInt(e.target.value, 10) : null)}
-        className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
     </div>
   );
