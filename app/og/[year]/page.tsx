@@ -8,6 +8,7 @@ interface OgYearPageProps {
 }
 
 export const revalidate = 3600
+export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
   return [{ year: String(CURRENT_ELECTION_YEAR) }]

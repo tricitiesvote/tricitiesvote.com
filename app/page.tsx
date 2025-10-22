@@ -12,6 +12,7 @@ const getAvailableYearsCached = cache(getAvailableYears)
 const getGuidesForYearCached = cache(async (year: number) => getGuidesForYear(year))
 
 export const revalidate = 3600
+export const dynamic = 'force-static'
 
 export async function generateMetadata() {
   const year = CURRENT_ELECTION_YEAR
