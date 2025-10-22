@@ -75,13 +75,15 @@ export class ElectionResultsClient {
     return date.toISOString()
   }
 
-  async determineShortTerms(electionId: string) {
+  // TODO: Fix this method to work with current schema
+  /*
+  async determineShortTerms(electionYear: number) {
     // Get all winning candidates in city council races
     const races = await this.prisma.race.findMany({
       where: {
-        electionId,
+        electionYear,
         office: {
-          type: 'LEGISLATIVE', // City Council
+          type: 'CITY_COUNCIL', // City Council
           region: {
             name: 'Richland' // Only Richland has short terms
           }
@@ -106,7 +108,7 @@ export class ElectionResultsClient {
     for (const race of races) {
       if (race.candidates.length > 0) {
         const lowestVoteWinner = race.candidates[0]
-        
+
         // Update this candidate's term to be short
         await this.prisma.candidateRace.update({
           where: {
@@ -122,7 +124,10 @@ export class ElectionResultsClient {
       }
     }
   }
+  */
 
+  // TODO: Fix this method to work with current schema (no election model)
+  /*
   async inferIncumbents() {
     // For each candidate in the current election
     const currentElection = await this.prisma.election.findFirst({
@@ -149,7 +154,7 @@ export class ElectionResultsClient {
         where: {
           race: {
             office: { id: race.office.id },
-            election: { 
+            election: {
               year: { lt: currentElection.year }
             }
           },
@@ -189,4 +194,5 @@ export class ElectionResultsClient {
       }
     }
   }
+  */
 }
