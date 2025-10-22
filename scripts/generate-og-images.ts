@@ -36,7 +36,11 @@ async function waitForServer(origin: string) {
 
 function startServer() {
   const server = spawn('node', ['node_modules/next/dist/bin/next', 'start', '-p', String(SERVER_PORT)], {
-    stdio: 'inherit'
+    stdio: 'inherit',
+    env: {
+      ...process.env,
+      NEXT_DISABLE_IMAGE_OPTIMIZATION: '1'
+    }
   })
   return server
 }
