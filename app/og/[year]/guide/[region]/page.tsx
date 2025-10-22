@@ -35,16 +35,10 @@ export default async function OgGuidePage({ params }: OgGuidePageProps) {
 
   return (
     <>
-      <OgHeader title={`${guide.region.name} Guide`} subtitle={`${year} General Election`} />
+      <OgHeader title={`${guide.region.name} Election Guide`} subtitle={`${year} General Election`} />
       <div className="og-guide-deck">
-        Candidate statements, questionnaires, endorsements, and events tailored to {guide.region.name} voters.
-      </div>
-      <div className="og-year-grid">
-        {topRaces.map(race => (
-          <div key={race.id} className="og-year-grid-item">
-            {race.office.title}
-          </div>
-        ))}
+        A non-partisan collection of <br/>
+        information to help you decide.
       </div>
     </>
   )

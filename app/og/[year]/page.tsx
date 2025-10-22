@@ -31,19 +31,10 @@ export default async function OgYearPage({ params }: OgYearPageProps) {
 
   return (
     <>
-      <OgHeader title={`${year} ${label} Election Guide`} />
+      <OgHeader title={`${year} Election Guide`} />
       <div className="og-year-deck">
-        Featuring comprehensive coverage for every contested race across the Tri-Cities.
-      </div>
-      <div className="og-year-grid">
-        {guides.slice(0, 6).map(guide => (
-          <div key={guide.id} className="og-year-grid-item">
-            {guide.region.name}
-            <div className="og-year-grid-label">
-              {guide.Race.length} {guide.Race.length === 1 ? 'race' : 'races'} tracked
-            </div>
-          </div>
-        ))}
+        A non-partisan collection of <br/>
+        information to help you decide.
       </div>
     </>
   )
