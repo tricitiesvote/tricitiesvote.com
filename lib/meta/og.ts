@@ -32,13 +32,15 @@ interface CreateOgMetadataOptions {
   description?: string | null
   canonicalPath: string
   imagePath?: string | null
+  type?: string | null
 }
 
 export async function createOgMetadata({
   title,
   description,
   canonicalPath,
-  imagePath
+  imagePath,
+  type = 'website'
 }: CreateOgMetadataOptions): Promise<Metadata> {
   const metaDescription = description ?? DEFAULT_DESCRIPTION
   const imageUrl = await resolveImageUrl(imagePath)
@@ -55,6 +57,7 @@ export async function createOgMetadata({
       description: metaDescription,
       url: canonicalUrl,
       siteName: SITE_NAME,
+      type: type ?? undefined,
       images: [
         {
           url: imageUrl,
