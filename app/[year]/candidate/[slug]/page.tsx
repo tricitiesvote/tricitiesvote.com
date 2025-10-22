@@ -1,12 +1,13 @@
 import { getCandidateByYearAndSlug } from '@/lib/queries'
 import { Candidate } from '@/components/candidate/Candidate'
 import { ContactInline } from '@/components/ContactInline'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { calculateFundraising } from '@/lib/calculateFundraising'
 import { buildBreadcrumbs } from '@/lib/officeDisplay'
 import { createOgMetadata } from '@/lib/meta/og'
 import { preferWikiString } from '@/lib/wiki/utils'
+import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
 
 const primaryRaceFromCandidate = (candidate: any) => {
   const races = Array.isArray(candidate?.races) ? candidate.races : []
@@ -32,7 +33,7 @@ interface CandidatePageProps {
 export async function generateMetadata({ params }: CandidatePageProps) {
   const year = Number.parseInt(params.year, 10)
 
-  if (!Number.isFinite(year)) {
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
     return createOgMetadata({
       title: 'Tri-Cities Vote',
       canonicalPath: '/',
@@ -63,8 +64,8 @@ export async function generateMetadata({ params }: CandidatePageProps) {
 export default async function CandidatePage({ params }: CandidatePageProps) {
   const year = Number.parseInt(params.year, 10)
 
-  if (!Number.isFinite(year)) {
-    notFound()
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
+    redirect('/')
   }
 
   const candidate = await getCandidateByYearAndSlug(year, params.slug)

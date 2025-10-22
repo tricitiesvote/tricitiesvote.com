@@ -1,9 +1,10 @@
 import { OgHeader } from '@/components/og/OgHeader'
 import { OgAvatar } from '@/components/og/OgAvatar'
-import { getAvailableYears, getGuidesForYear, getCandidateByYearAndSlug } from '@/lib/queries'
+import { getGuidesForYear, getCandidateByYearAndSlug } from '@/lib/queries'
 import { preferWikiString } from '@/lib/wiki/utils'
 import { slugify } from '@/lib/utils'
 import { notFound } from 'next/navigation'
+import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
 
 interface OgCandidatePageProps {
   params: { year: string; slug: string }
@@ -12,21 +13,18 @@ interface OgCandidatePageProps {
 export const revalidate = 3600
 
 export async function generateStaticParams() {
-  const years = await getAvailableYears()
+  const year = CURRENT_ELECTION_YEAR
+  const guides = await getGuidesForYear(year)
+  const seen = new Set<string>()
   const params: Array<{ year: string; slug: string }> = []
 
-  for (const year of years) {
-    const guides = await getGuidesForYear(year)
-    const seen = new Set<string>()
-
-    for (const guide of guides) {
-      for (const race of guide.Race) {
-        for (const { candidate } of race.candidates) {
-          const candidateSlug = slugify(candidate.name)
-          if (!seen.has(candidateSlug)) {
-            seen.add(candidateSlug)
-            params.push({ year: String(year), slug: candidateSlug })
-          }
+  for (const guide of guides) {
+    for (const race of guide.Race) {
+      for (const { candidate } of race.candidates) {
+        const candidateSlug = slugify(candidate.name)
+        if (!seen.has(candidateSlug)) {
+          seen.add(candidateSlug)
+          params.push({ year: String(year), slug: candidateSlug })
         }
       }
     }
@@ -37,7 +35,7 @@ export async function generateStaticParams() {
 
 export default async function OgCandidatePage({ params }: OgCandidatePageProps) {
   const year = Number.parseInt(params.year, 10)
-  if (!Number.isFinite(year)) {
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
     notFound()
   }
 

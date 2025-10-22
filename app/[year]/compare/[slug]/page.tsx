@@ -1,6 +1,6 @@
 import { cache, type CSSProperties } from 'react'
-import { getAvailableYears, getGuidesForYear, getRaceByYearAndSlug } from '@/lib/queries'
-import { notFound } from 'next/navigation'
+import { getGuidesForYear, getRaceByYearAndSlug } from '@/lib/queries'
+import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
@@ -18,6 +18,8 @@ import { CompareCandidateDonorCard } from '@/components/compare/CompareCandidate
 import { ensureHtml } from '@/lib/richText'
 import { BallotMeasureDetails } from '@/components/race/BallotMeasureDetails'
 import { deriveMeasureStance } from '@/components/candidate/measureUtils'
+import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
+import { createOgMetadata } from '@/lib/meta/og'
 
 interface ComparePageProps {
   params: {
@@ -31,13 +33,8 @@ const getRaceCached = cache(async (year: number, slug: string) => getRaceByYearA
 export const revalidate = 3600
 
 export async function generateStaticParams() {
-  const years = await getAvailableYears()
-  if (years.length === 0) {
-    return []
-  }
-
-  const latestYear = years[0]
-  const guides = await getGuidesForYear(latestYear)
+  const year = CURRENT_ELECTION_YEAR
+  const guides = await getGuidesForYear(year)
   const seen = new Set<string>()
   const params: Array<{ year: string; slug: string }> = []
 
@@ -46,7 +43,7 @@ export async function generateStaticParams() {
       const raceSlug = slugify(race.office.title)
       if (!seen.has(raceSlug)) {
         seen.add(raceSlug)
-        params.push({ year: String(latestYear), slug: raceSlug })
+        params.push({ year: String(year), slug: raceSlug })
       }
     }
   }
@@ -54,11 +51,43 @@ export async function generateStaticParams() {
   return params
 }
 
+export async function generateMetadata({ params }: ComparePageProps) {
+  const year = Number.parseInt(params.year, 10)
+
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
+    return createOgMetadata({
+      title: 'Tri-Cities Vote',
+      canonicalPath: '/',
+      description: 'Nonpartisan voter guides for Tri-Cities elections'
+    })
+  }
+
+  const race = await getRaceCached(year, params.slug)
+
+  if (!race) {
+    notFound()
+  }
+
+  const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
+  const regionLabel = race.Guide?.[0]?.region?.name ?? 'Tri-Cities'
+  const introSource = preferWikiString(race as any, 'intro') ?? race.intro ?? null
+  const description = introSource
+    ? introSource.replace(/\s+/g, ' ').replace(/[#*_`>~]/g, '')
+    : `Compare candidates in the ${displayTitle} race for the ${year} ${regionLabel} ballot.`
+
+  return createOgMetadata({
+    title: `${displayTitle} • ${year} Comparison`,
+    description,
+    canonicalPath: `/${year}/compare/${params.slug}`,
+    imagePath: `og/${year}/compare/${params.slug}.png`
+  })
+}
+
 export default async function ComparePage({ params }: ComparePageProps) {
   const year = Number.parseInt(params.year, 10)
 
-  if (!Number.isFinite(year)) {
-    notFound()
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
+    redirect('/')
   }
 
   const race = await getRaceCached(year, params.slug)
@@ -220,7 +249,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
             </div>
           </div>
           <div className="candidate-card-body">
-            <p className="candidate-card-placeholder">Community letters coming soon.</p>
+            <p className="candidate-card-placeholder">No endorsement letters yet.</p>
           </div>
         </>
       ),

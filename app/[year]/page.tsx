@@ -1,10 +1,11 @@
 import { getGuidesForYear } from '@/lib/queries'
 import { getYearType, slugify } from '@/lib/utils'
 import { createOgMetadata } from '@/lib/meta/og'
+import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
+import { redirect } from 'next/navigation'
 import { getVisibleRaces } from '@/lib/raceVisibility'
 import { GuideSelector } from '@/components/GuideSelector'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 
 interface YearHomePageProps {
   params: { year: string }
@@ -13,7 +14,7 @@ interface YearHomePageProps {
 export async function generateMetadata({ params }: YearHomePageProps) {
   const year = Number.parseInt(params.year, 10)
 
-  if (!Number.isFinite(year)) {
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
     return createOgMetadata({
       title: 'Tri-Cities Vote',
       canonicalPath: '/',
@@ -35,8 +36,8 @@ export async function generateMetadata({ params }: YearHomePageProps) {
 export default async function YearHomePage({ params }: YearHomePageProps) {
   const year = Number.parseInt(params.year, 10)
 
-  if (!Number.isFinite(year)) {
-    notFound()
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
+    redirect('/')
   }
   const guides = await getGuidesForYear(year)
   const yearType = getYearType(year)

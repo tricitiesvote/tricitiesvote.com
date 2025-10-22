@@ -11,3 +11,4 @@ The Next.js frontend reads a handful of optional toggles from the environment. C
 ## Social previews
 
 Run `npm run generate:og` after updating race rosters or candidate content to rebuild the share-card images. The command runs `next build`, spins up the production server on port `3110`, captures the `/og/...` templates with Playwright, and writes PNGs to `public/og/…`. Commit the refreshed assets alongside the data changes they represent.
+If this is your first time using Playwright locally, install the browser binaries once via `npx playwright install chromium` before running the command.

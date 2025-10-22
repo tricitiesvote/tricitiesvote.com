@@ -1,6 +1,6 @@
-// @ts-nocheck
 import { prisma } from './db'
 import { ElectionType, OfficeType, Prisma } from '@prisma/client'
+import { CURRENT_ELECTION_YEAR, isCurrentElectionYear } from './constants'
 import { unslugify } from './utils'
 
 const raceInclude = (year: number) => ({
@@ -18,6 +18,15 @@ const raceInclude = (year: number) => ({
               amount: true,
               cashOrInKind: true
             }
+          },
+          enforcementCases: {
+            where: {
+              opened: {
+                gte: new Date(`${year}-01-01`),
+                lt: new Date(`${year + 1}-01-01`)
+              }
+            },
+            orderBy: { opened: 'desc' as const }
           },
           engagements: {
             include: {
@@ -60,10 +69,16 @@ export async function getAvailableYears(): Promise<number[]> {
       distinct: ['electionYear'],
       orderBy: { electionYear: 'desc' }
     })
-    return guides.map(g => g.electionYear)
+    const years = guides.map(g => g.electionYear)
+    const uniqueSorted = Array.from(new Set(years)).sort((a, b) => b - a)
+    const filtered = uniqueSorted.filter(isCurrentElectionYear)
+    if (filtered.length > 0) {
+      return filtered
+    }
+    return [CURRENT_ELECTION_YEAR]
   } catch (error) {
     console.error('Error fetching years:', error)
-    return []
+    return [CURRENT_ELECTION_YEAR]
   }
 }
 
@@ -137,6 +152,17 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
       contributions: {
         orderBy: {
           amount: 'desc'
+        }
+      },
+      enforcementCases: {
+        where: {
+          opened: {
+            gte: new Date(`${year}-01-01`),
+            lt: new Date(`${year + 1}-01-01`)
+          }
+        },
+        orderBy: {
+          opened: 'desc'
         }
       },
       engagements: {

@@ -1,31 +1,29 @@
 import { OgHeader } from '@/components/og/OgHeader'
 import { OgCompetitorCard } from '@/components/og/OgCompetitorCard'
-import { getAvailableYears, getGuidesForYear, getRaceByYearAndSlug } from '@/lib/queries'
+import { getGuidesForYear, getRaceByYearAndSlug } from '@/lib/queries'
 import { preferWikiString } from '@/lib/wiki/utils'
 import { slugify } from '@/lib/utils'
 import { notFound } from 'next/navigation'
+import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
 
-interface OgRacePageProps {
+interface OgComparePageProps {
   params: { year: string; slug: string }
 }
 
 export const revalidate = 3600
 
 export async function generateStaticParams() {
-  const years = await getAvailableYears()
+  const year = CURRENT_ELECTION_YEAR
+  const guides = await getGuidesForYear(year)
+  const seen = new Set<string>()
   const params: Array<{ year: string; slug: string }> = []
 
-  for (const year of years) {
-    const guides = await getGuidesForYear(year)
-    const seen = new Set<string>()
-
-    for (const guide of guides) {
-      for (const race of guide.Race) {
-        const raceSlug = slugify(race.office.title)
-        if (!seen.has(raceSlug)) {
-          seen.add(raceSlug)
-          params.push({ year: String(year), slug: raceSlug })
-        }
+  for (const guide of guides) {
+    for (const race of guide.Race) {
+      const raceSlug = slugify(race.office.title)
+      if (!seen.has(raceSlug)) {
+        seen.add(raceSlug)
+        params.push({ year: String(year), slug: raceSlug })
       }
     }
   }
@@ -33,9 +31,9 @@ export async function generateStaticParams() {
   return params
 }
 
-export default async function OgRacePage({ params }: OgRacePageProps) {
+export default async function OgComparePage({ params }: OgComparePageProps) {
   const year = Number.parseInt(params.year, 10)
-  if (!Number.isFinite(year)) {
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
     notFound()
   }
 
@@ -44,14 +42,11 @@ export default async function OgRacePage({ params }: OgRacePageProps) {
     notFound()
   }
 
-  const raceWithRelations = race as any
-  const displayTitle = preferWikiString(raceWithRelations.office as any, 'title') ?? raceWithRelations.office.title
-  const regionLabel = raceWithRelations.Guide?.[0]?.region?.name ?? 'Tri-Cities'
+  const displayTitle = preferWikiString(race.office as any, 'title') ?? race.office.title
+  const regionLabel = race.Guide?.[0]?.region?.name ?? 'Tri-Cities'
   const subtitle = `${regionLabel} • ${year} General Election`
 
-  const visible = (Array.isArray(raceWithRelations.candidates)
-    ? (raceWithRelations.candidates as Array<{ candidate: any }>)
-    : [])
+  const visible = race.candidates
     .filter(({ candidate }) => !candidate.hide)
     .map(({ candidate }) => {
       const name = preferWikiString(candidate as any, 'name') ?? candidate.name
@@ -78,7 +73,13 @@ export default async function OgRacePage({ params }: OgRacePageProps) {
         <div className="og-divider">
           <span>vs</span>
         </div>
-        {right ? <OgCompetitorCard name={right.name} imageUrl={right.image} fallbackLabel={right.name === 'Uncontested' ? '—' : undefined} /> : null}
+        {right ? (
+          <OgCompetitorCard
+            name={right.name}
+            imageUrl={right.image}
+            fallbackLabel={right.name === 'Uncontested' ? '—' : undefined}
+          />
+        ) : null}
       </div>
       {extras > 0 ? (
         <div className="og-footer">

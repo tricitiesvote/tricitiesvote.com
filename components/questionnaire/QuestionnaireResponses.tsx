@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { prisma } from '@/lib/db'
 
 const SCALE_LABELS = ['', 'Strong A', 'Lean A', 'Lean B', 'Strong B'] as const

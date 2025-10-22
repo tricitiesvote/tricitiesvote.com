@@ -1,7 +1,8 @@
 import { OgHeader } from '@/components/og/OgHeader'
-import { getAvailableYears, getGuidesForYear, getGuideByYearAndRegion } from '@/lib/queries'
+import { getGuidesForYear, getGuideByYearAndRegion } from '@/lib/queries'
 import { slugify } from '@/lib/utils'
 import { notFound } from 'next/navigation'
+import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
 
 interface OgGuidePageProps {
   params: { year: string; region: string }
@@ -10,22 +11,18 @@ interface OgGuidePageProps {
 export const revalidate = 3600
 
 export async function generateStaticParams() {
-  const years = await getAvailableYears()
-  const params: Array<{ year: string; region: string }> = []
+  const year = CURRENT_ELECTION_YEAR
+  const guides = await getGuidesForYear(year)
 
-  for (const year of years) {
-    const guides = await getGuidesForYear(year)
-    for (const guide of guides) {
-      params.push({ year: String(year), region: slugify(guide.region.name) })
-    }
-  }
-
-  return params
+  return guides.map(guide => ({
+    year: String(year),
+    region: slugify(guide.region.name)
+  }))
 }
 
 export default async function OgGuidePage({ params }: OgGuidePageProps) {
   const year = Number.parseInt(params.year, 10)
-  if (!Number.isFinite(year)) {
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
     notFound()
   }
 

@@ -5,6 +5,7 @@ import { getAvailableYears, getGuidesForYear } from '@/lib/queries'
 import Link from 'next/link'
 import { slugify } from '@/lib/utils'
 import { orderRaces } from '@/lib/raceOrdering'
+import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
 
 const getAvailableYearsCached = cache(getAvailableYears)
 const getGuidesForYearCached = cache(async (year: number) => getGuidesForYear(year))
@@ -13,7 +14,7 @@ export const revalidate = 3600
 
 export default async function HomePage() {
   const availableYears = await getAvailableYearsCached()
-  const latestYear = availableYears[0] || new Date().getFullYear()
+  const latestYear = availableYears[0] ?? CURRENT_ELECTION_YEAR
   const guides = await getGuidesForYearCached(latestYear)
 
   return (

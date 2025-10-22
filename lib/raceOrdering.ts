@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { OfficeType } from '@prisma/client'
 
 type RaceLike = {

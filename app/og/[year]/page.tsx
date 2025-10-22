@@ -1,7 +1,8 @@
 import { OgHeader } from '@/components/og/OgHeader'
-import { getGuidesForYear, getAvailableYears } from '@/lib/queries'
+import { getGuidesForYear } from '@/lib/queries'
 import { getYearType } from '@/lib/utils'
 import { notFound } from 'next/navigation'
+import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
 
 interface OgYearPageProps {
   params: { year: string }
@@ -10,14 +11,13 @@ interface OgYearPageProps {
 export const revalidate = 3600
 
 export async function generateStaticParams() {
-  const years = await getAvailableYears()
-  return years.map(year => ({ year: String(year) }))
+  return [{ year: String(CURRENT_ELECTION_YEAR) }]
 }
 
 export default async function OgYearPage({ params }: OgYearPageProps) {
   const year = Number.parseInt(params.year, 10)
 
-  if (!Number.isFinite(year)) {
+  if (!Number.isFinite(year) || year !== CURRENT_ELECTION_YEAR) {
     notFound()
   }
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { verifyToken } from '@/lib/auth/jwt';
@@ -69,7 +68,7 @@ function serializeEngagement(record: Awaited<ReturnType<typeof fetchEngagement>>
           regionName: record.race.Guide?.[0]?.region.name ?? null
         }
       : null,
-    participants: record.participants.map((participant: any) => ({
+    participants: record.participants.map((participant) => ({
       candidateId: participant.candidateId,
       participated: participant.participated,
       notes: participant.notes,

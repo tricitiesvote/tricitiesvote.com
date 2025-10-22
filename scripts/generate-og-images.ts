@@ -2,9 +2,10 @@ import { spawn } from 'node:child_process'
 import path from 'node:path'
 import { promises as fs } from 'node:fs'
 import { chromium } from 'playwright'
-import { prisma } from '@/lib/db'
-import { getAvailableYears, getGuidesForYear } from '@/lib/queries'
-import { slugify } from '@/lib/utils'
+import { prisma } from '../lib/db'
+import { getGuidesForYear } from '../lib/queries'
+import { slugify } from '../lib/utils'
+import { CURRENT_ELECTION_YEAR } from '../lib/constants'
 
 const OG_WIDTH = 1200
 const OG_HEIGHT = 630
@@ -41,73 +42,58 @@ function startServer() {
 }
 
 async function collectTargets(): Promise<Target[]> {
-  let years: number[]
+  const year = CURRENT_ELECTION_YEAR
+  let guides
 
   try {
-    years = await getAvailableYears()
+    guides = await getGuidesForYear(year)
   } catch (error) {
     throw new Error(
-      `Failed to fetch available years. Ensure the database defined by DATABASE_URL is reachable before running generate:og.\nOriginal error: ${(error as Error).message}`
+      `Failed to fetch guides for ${year}. Confirm your database is online and credentials are valid.\nOriginal error: ${(error as Error).message}`
     )
   }
-  const targets: Target[] = []
 
-  for (const year of years) {
-    let guides
-
-    try {
-      guides = await getGuidesForYear(year)
-    } catch (error) {
-      throw new Error(
-        `Failed to fetch guides for ${year}. Confirm your database is online and credentials are valid.\nOriginal error: ${(error as Error).message}`
-      )
-    }
-
-    targets.push({
+  const targets: Target[] = [
+    {
       url: `/og/${year}`,
       imagePath: `og/${year}/year.png`,
       label: `${year} year`
+    }
+  ]
+
+  const candidateSlugs = new Set<string>()
+
+  for (const guide of guides) {
+    const regionSlug = slugify(guide.region.name)
+    targets.push({
+      url: `/og/${year}/guide/${regionSlug}`,
+      imagePath: `og/${year}/guide/${regionSlug}.png`,
+      label: `${year} ${guide.region.name} guide`
     })
 
-    const guideSlugPairs = guides.map(guide => ({
-      slug: slugify(guide.region.name),
-      label: guide.region.name,
-      races: guide.Race
-    }))
-
-    for (const entry of guideSlugPairs) {
+    for (const race of guide.Race) {
+      if (race.electionYear !== year) {
+        continue
+      }
+      const raceSlug = slugify(race.office.title)
       targets.push({
-        url: `/og/${year}/guide/${entry.slug}`,
-        imagePath: `og/${year}/guide/${entry.slug}.png`,
-        label: `${year} ${entry.label} guide`
+        url: `/og/${year}/compare/${raceSlug}`,
+        imagePath: `og/${year}/compare/${raceSlug}.png`,
+        label: `${year} ${race.office.title} comparison`
       })
-    }
 
-    const raceSlugs = new Set<string>()
-    const candidateSlugs = new Set<string>()
-
-    for (const entry of guideSlugPairs) {
-      for (const race of entry.races) {
-        const raceSlug = slugify(race.office.title)
-        if (!raceSlugs.has(raceSlug)) {
-          raceSlugs.add(raceSlug)
-          targets.push({
-            url: `/og/${year}/race/${raceSlug}`,
-            imagePath: `og/${year}/race/${raceSlug}.png`,
-            label: `${year} ${race.office.title} race`
-          })
+      for (const { candidate } of race.candidates) {
+        if (candidate.electionYear !== year) {
+          continue
         }
-
-        for (const { candidate } of race.candidates) {
-          const candidateSlug = slugify(candidate.name)
-          if (!candidateSlugs.has(candidateSlug)) {
-            candidateSlugs.add(candidateSlug)
-            targets.push({
-              url: `/og/${year}/candidate/${candidateSlug}`,
-              imagePath: `og/${year}/candidate/${candidateSlug}.png`,
-              label: `${year} ${candidate.name} candidate`
-            })
-          }
+        const candidateSlug = slugify(candidate.name)
+        if (!candidateSlugs.has(candidateSlug)) {
+          candidateSlugs.add(candidateSlug)
+          targets.push({
+            url: `/og/${year}/candidate/${candidateSlug}`,
+            imagePath: `og/${year}/candidate/${candidateSlug}.png`,
+            label: `${year} ${candidate.name} candidate`
+          })
         }
       }
     }
@@ -122,7 +108,18 @@ async function ensureDirectory(relativePath: string) {
 }
 
 async function captureTargets(targets: Target[]) {
-  const browser = await chromium.launch({ headless: true })
+  let browser
+
+  try {
+    browser = await chromium.launch({ headless: true })
+  } catch (error) {
+    if (error instanceof Error && error.message.includes('Executable doesn\'t exist')) {
+      throw new Error(
+        'Playwright browser binaries are missing. Run `npx playwright install chromium` before executing `npm run generate:og`.'
+      )
+    }
+    throw error
+  }
   const context = await browser.newContext({
     viewport: { width: OG_WIDTH, height: OG_HEIGHT },
     deviceScaleFactor: 2

@@ -2,7 +2,7 @@ import type { PrismaClient } from '@prisma/client';
 import { generatePublicId } from './generatePublicId';
 
 export async function generateUniquePublicId(
-  prisma: any,
+  prisma: PrismaClient,
   attempts = 10
 ): Promise<string> {
   for (let i = 0; i < attempts; i += 1) {
@@ -17,7 +17,7 @@ export async function generateUniquePublicId(
 }
 
 export async function ensureUserPublicId(
-  prisma: any,
+  prisma: PrismaClient,
   userId: string
 ): Promise<string> {
   const existing = await prisma.user.findUnique({

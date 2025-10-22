@@ -8,7 +8,7 @@
   min-height: 100vh;
 }
 
-.og-canvas {
+/* .og-canvas {
   width: 1200px;
   height: 630px;
   background: #ffffff;
@@ -20,18 +20,16 @@
   flex-direction: column;
   justify-content: space-between;
   color: #0f172a;
-}
+} */
 
 .og-header {
   text-align: center;
 }
 
 .og-kicker {
-  font-family: titling-gothic-fb-condensed, sans-serif;
+  font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
   font-size: 48px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: #02bee8;
   margin: 0;
 }
@@ -142,6 +140,8 @@
   text-transform: uppercase;
   letter-spacing: 0.02em;
   box-shadow: 0 12px 24px rgba(83, 188, 228, 0.28);
+  position: relative;
+  top: -30px;
 }
 
 .og-footer {
