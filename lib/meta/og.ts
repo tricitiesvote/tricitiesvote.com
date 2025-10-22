@@ -18,18 +18,19 @@ async function resolveImageUrl(relativePath?: string | null) {
 
   const sanitized = relativePath.replace(/^\/+/, '')
 
-  // If it's a dynamic OG route, use it directly without checking file system
-  if (sanitized.startsWith('og/')) {
-    return toAbsoluteUrl(`/${sanitized}`)
-  }
-
-  // For static images, check if they exist in public/
+  // All images should be checked in filesystem (even OG images are pre-generated PNGs)
   const target = path.join(process.cwd(), 'public', sanitized)
 
   try {
     await fs.access(target)
     return toAbsoluteUrl(`/${sanitized}`)
   } catch {
+    // In production, OG images might not exist yet if build failed
+    // Still return the path so it can be generated on-demand
+    if (sanitized.startsWith('og/')) {
+      console.warn(`OG image not found at ${target}, using path anyway: /${sanitized}`)
+      return toAbsoluteUrl(`/${sanitized}`)
+    }
     return toAbsoluteUrl(FALLBACK_IMAGE)
   }
 }
