@@ -2431,43 +2431,50 @@ span.note {
 }
 
 
+
 .intro-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
   gap: 32px;
-  margin: 10px;
+  margin: 20px auto;
+  justify-content: center;
   justify-items: center;
+  max-width: 1080px;
+  width: 100%;
 }
 
 .intro-container div {
   margin: 0;
-  max-width: 320px;
   width: 100%;
+  max-width: 320px;
 }
 
 .intro-container div img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  display: block;
   border-radius: 12px;
 }
 
 .intro-container h3 {
-  margin: 16px 0 10px 0;
+  margin: 0 0 10px 0;
   padding: 0;
 }
 
 .intro-container p {
   margin: 0;
-  padding: 0;
-  font-size: 14px;
+  padding: 0 0 40px 0;
 }
 
 .intro-container img {
-  margin: 0;
+  margin: 0 0 10px 0;
   padding: 10px;
   background-color: rgba(83, 187, 228, 0.1);
   border-radius: 12px;
+}
+
+.intro-container p {
+  font-size: 14px;
 }
 
 .intro-container h3 br {
@@ -2481,12 +2488,6 @@ span.note {
 /* was 500px but making it 720 in order to ensure break in margin etc */
 
 @media screen and (max-width: 720px) {
-
-  .compare-table table {
-    overflow: visible;
-    display: block;
-    padding-bottom: 100px;
-  }
 
   .candidate-card-heading img {
     flex: 0 0 auto !important;      /* don’t flex-shrink */
@@ -2862,54 +2863,6 @@ td .more, .no-response .more {
 }
 
 @media screen and (max-width: 500px) {
-
-  .compare-row {
-    grid-template-columns: repeat(var(--compare-columns, 1), minmax(150px, 1fr));
-    gap: 2px
-  }
-
-  .questionnaire-open-answer-list {
-    gap: 2px !important;
-    grid-gap: 2px;
-  }
-
-  .race:first-of-type {
-    padding-top: 0;
-  }
-
-  .breadcrumb {
-    font-size: 11px
-  }
-
-  .show .more {
-    width: 230px;
-    top: -5px;
-  }
-  td:nth-of-type(n+3) .more {
-    padding: 20px 40px 20px 20px !important;
-  }
-  td:nth-of-type(-n+2) .more {
-    padding: 20px 20px 20px 40px !important;
-  }
-  .more .says {
-    font-size: 11px;
-  }
-  .close {
-    width: 25px;
-    padding: 5px 7px;
-    font-size: 11px;
-  }
-  .site-nav {
-    display: inline-block;
-    gap: 0px;
-    padding: 5px 5px 10px 5px;
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .site-nav a:first-child {
-    display:none;
-  }
 
   .compare-table th,
   .compare-table td {
