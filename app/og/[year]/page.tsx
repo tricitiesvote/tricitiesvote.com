@@ -1,5 +1,4 @@
 import { OgHeader } from '@/components/og/OgHeader'
-import { getGuidesForYear } from '@/lib/queries'
 import { getYearType } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
@@ -21,11 +20,7 @@ export default async function OgYearPage({ params }: OgYearPageProps) {
     notFound()
   }
 
-  const guides = await getGuidesForYear(year)
-  if (!guides) {
-    notFound()
-  }
-
+  // No database query needed - just generate the image
   const yearType = getYearType(year)
   const label = yearType === 'municipal' ? 'Municipal' : 'General'
 

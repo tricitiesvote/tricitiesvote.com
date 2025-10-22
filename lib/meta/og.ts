@@ -17,6 +17,13 @@ async function resolveImageUrl(relativePath?: string | null) {
   }
 
   const sanitized = relativePath.replace(/^\/+/, '')
+
+  // If it's a dynamic OG route, use it directly without checking file system
+  if (sanitized.startsWith('og/')) {
+    return toAbsoluteUrl(`/${sanitized}`)
+  }
+
+  // For static images, check if they exist in public/
   const target = path.join(process.cwd(), 'public', sanitized)
 
   try {
