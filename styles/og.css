@@ -8,19 +8,14 @@
   min-height: 100vh;
 }
 
-/* .og-canvas {
+.og-canvas {
   width: 1200px;
   height: 630px;
-  background: #ffffff;
-  border-radius: 28px;
-  border: 1px solid #02bee8;
-  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
-  padding: 56px 72px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   color: #0f172a;
-} */
+}
 
 .og-header {
   text-align: center;
@@ -28,33 +23,35 @@
 
 .og-kicker {
   font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
-  font-size: 48px;
+  font-size: 64px;
   font-weight: 500;
   color: #02bee8;
   margin: 0;
 }
 
 .og-subtitle {
-  margin: 12px 0 0 0;
-  font-size: 22px;
+  margin: 16px 0 0 0;
+  font-size: 32px;
   font-weight: 600;
   color: #256484;
 }
 
 .og-title {
-  margin: 40px 0 0 0;
-  font-size: 56px;
+  margin: 32px 0 0 0;
+  font-size: 96px;
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .og-race-deck,
 .og-guide-deck,
 .og-year-deck {
   text-align: center;
-  margin-top: 32px;
-  font-size: 24px;
+  margin-top: 40px;
+  font-size: 36px;
   color: #33546a;
+  line-height: 1.4;
 }
 
 .og-competitors {
