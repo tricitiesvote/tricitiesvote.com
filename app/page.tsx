@@ -21,7 +21,7 @@ export async function generateMetadata() {
     title: 'Tri-Cities Vote',
     description: 'Nonpartisan voter guides for Tri-Cities elections',
     canonicalPath: '/',
-    imagePath: `og/${year}/year.png?v=2`,
+    imagePath: `og/${year}/year.png`,
     type: 'website'
   })
 }
