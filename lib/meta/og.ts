@@ -32,7 +32,7 @@ interface CreateOgMetadataOptions {
   description?: string | null
   canonicalPath: string
   imagePath?: string | null
-  type?: string | null
+  type?: 'website' | 'article' | 'book' | 'profile' | null
 }
 
 export async function createOgMetadata({
@@ -57,7 +57,7 @@ export async function createOgMetadata({
       description: metaDescription,
       url: canonicalUrl,
       siteName: SITE_NAME,
-      type: type ?? undefined,
+      ...(type && { type }),
       images: [
         {
           url: imageUrl,
