@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useAuth, getCsrfToken } from '@/lib/auth';
 import { QuestionnaireResponsesSection } from './QuestionnaireResponsesSection';
 import { EndorsementsSection } from './EndorsementsSection';
@@ -275,13 +276,12 @@ export default function CandidateEditPage() {
           {candidate.image && (
             <div style={{ marginTop: '15px' }}>
               <p style={{ fontSize: '13px', opacity: 0.7, marginBottom: '8px' }}>Preview:</p>
-              <img
+              <Image
                 src={candidate.image}
                 alt={candidate.name}
-                style={{ width: '200px', height: '200px', objectFit: 'cover', border: '1px solid #ddd' }}
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
+                width={200}
+                height={200}
+                style={{ objectFit: 'cover', border: '1px solid #ddd' }}
               />
             </div>
           )}
