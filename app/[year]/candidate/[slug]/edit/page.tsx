@@ -3,8 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useAuth } from '@/lib/auth/AuthProvider';
-import { getCsrfToken } from '@/lib/auth/getCsrfToken';
+import { useAuth, getCsrfToken } from '@/lib/auth';
 import { QuestionnaireResponsesSection } from './QuestionnaireResponsesSection';
 import { EndorsementsSection } from './EndorsementsSection';
 import { EnforcementCasesSection } from './EnforcementCasesSection';

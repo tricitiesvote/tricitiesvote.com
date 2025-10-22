@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { getCsrfToken } from '@/lib/auth/getCsrfToken';
+import { getCsrfToken } from '@/lib/auth';
 
 interface QuestionnaireResponse {
   id: string;
