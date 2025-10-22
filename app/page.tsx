@@ -6,11 +6,23 @@ import Link from 'next/link'
 import { slugify } from '@/lib/utils'
 import { orderRaces } from '@/lib/raceOrdering'
 import { CURRENT_ELECTION_YEAR } from '@/lib/constants'
+import { createOgMetadata } from '@/lib/meta/og'
 
 const getAvailableYearsCached = cache(getAvailableYears)
 const getGuidesForYearCached = cache(async (year: number) => getGuidesForYear(year))
 
 export const revalidate = 3600
+
+export async function generateMetadata() {
+  const year = CURRENT_ELECTION_YEAR
+
+  return createOgMetadata({
+    title: 'Tri-Cities Vote',
+    description: 'Nonpartisan voter guides for Tri-Cities elections',
+    canonicalPath: '/',
+    imagePath: `og/${year}/year.png`
+  })
+}
 
 export default async function HomePage() {
   const availableYears = await getAvailableYearsCached()
