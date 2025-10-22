@@ -614,7 +614,7 @@ async function syncTriCitiesVoteEngagement() {
     const generalRace = candidate.races.find(entry => entry.race?.type === 'GENERAL')
     const raceTitle = generalRace?.race?.office?.title ?? candidate.office.title
     const raceSlug = slugify(raceTitle)
-    const raceLink = `/${candidate.electionYear}/race/${raceSlug}`
+    const raceLink = `/${candidate.electionYear}/compare/${raceSlug}`
 
     await prisma.candidateEngagement.upsert({
       where: {
