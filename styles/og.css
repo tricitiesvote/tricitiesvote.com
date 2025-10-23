@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 60px 80px;
   color: #0f172a;
 }
 
@@ -23,22 +24,22 @@
 
 .og-kicker {
   font-family: "Avenir Next", "Corbel", "Helvetica Neue", sans-serif;
-  font-size: 64px;
+  font-size: 52px;
   font-weight: 500;
   color: #02bee8;
   margin: 0;
 }
 
 .og-subtitle {
-  margin: 16px 0 0 0;
-  font-size: 32px;
+  margin: 12px 0 0 0;
+  font-size: 26px;
   font-weight: 600;
   color: #256484;
 }
 
 .og-title {
-  margin: 32px 0 0 0;
-  font-size: 96px;
+  margin: 24px 0 0 0;
+  font-size: 58px;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -48,8 +49,8 @@
 .og-guide-deck,
 .og-year-deck {
   text-align: center;
-  margin-top: 40px;
-  font-size: 36px;
+  margin-top: 32px;
+  font-size: 32px;
   color: #33546a;
   line-height: 1.4;
 }

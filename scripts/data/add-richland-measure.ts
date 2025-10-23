@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 
 async function main() {
   const electionYear = 2025
-  const officeTitle = 'Richland Charter Amendment Council Districting'
+  const officeTitle = 'Richland Charter Amendment For Council Districting'
 
   const region = await prisma.region.findFirst({ where: { name: { equals: 'Richland', mode: 'insensitive' } } })
   if (!region) {

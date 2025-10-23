@@ -4,6 +4,7 @@ import { prisma } from '@/lib/db';
 import { verifyToken } from '@/lib/auth/jwt';
 import { validateCsrfToken } from '@/lib/auth/csrf';
 import { slugify } from '@/lib/utils';
+import { CURRENT_ELECTION_YEAR } from '@/lib/constants';
 
 type AllowedRole = 'MODERATOR' | 'ADMIN';
 const ALLOWED_ROLES: AllowedRole[] = ['MODERATOR', 'ADMIN'];
@@ -217,10 +218,10 @@ export async function GET(request: NextRequest) {
       }),
       prisma.race.findMany({
         where: {
-          type: ElectionType.GENERAL
+          type: ElectionType.GENERAL,
+          electionYear: CURRENT_ELECTION_YEAR
         },
         orderBy: [
-          { electionYear: 'desc' },
           { office: { title: 'asc' } }
         ],
         include: {

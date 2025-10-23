@@ -46,6 +46,25 @@ export default async function OgComparePage({ params }: OgComparePageProps) {
   const regionLabel = race.Guide?.[0]?.region?.name ?? 'Tri-Cities'
   const subtitle = `${regionLabel} • ${year} General Election`
 
+  const isBallotMeasure = race.office.type === 'BALLOT_MEASURE'
+  const isRichlandDistricts = params.slug === 'richland-charter-amendment-for-council-districting'
+
+  // Custom template for Richland Districts ballot measure
+  if (isRichlandDistricts) {
+    return (
+      <>
+        <OgHeader title="Should Richland Have Districts?" kicker="🗳️ Tri-Cities Vote" />
+        <div className="og-competitors">
+          <OgCompetitorCard name="" imageUrl={null} fallbackLabel="YES" />
+          <div className="og-divider">
+            <span>vs</span>
+          </div>
+          <OgCompetitorCard name="" imageUrl={null} fallbackLabel="NO" />
+        </div>
+      </>
+    )
+  }
+
   const visible = race.candidates
     .filter(({ candidate }) => !candidate.hide)
     .map(({ candidate }) => {
