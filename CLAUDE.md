@@ -228,6 +228,10 @@ The system integrates with several Washington State data sources through the `li
 - Data: Campaign contributions, expenditures, last-minute contributions
 - Authentication: Requires API credentials for higher rate limits
 - Script: `lib/wa-state/client.ts`
+- **Note**: PDC candidate profile URLs use numeric IDs (e.g., `/candidates/3335342`) that are NOT available via API
+  - Must be scraped from PDC website using `import:pdc:scrape` script
+  - The API provides `filer_id` (e.g., `HERNC--024`) which is stored as `stateId` and used for contribution matching
+  - Old URL format (`/candidate?filer_id=...`) is deprecated and no longer works
 
 **VoteWA Voter Pamphlet**:
 - URL: `voter.votewa.gov/elections/candidate.ashx`
@@ -246,14 +250,20 @@ The system integrates with several Washington State data sources through the `li
 #### Core Import Commands
 
 ```bash
+# Scrape PDC website for candidate profile URLs and mini filer status
+npm run import:pdc:scrape:fast  # Headless, 3 parallel browsers (fastest, ~1 min)
+npm run import:pdc:scrape       # Headless, single browser
+npm run import:pdc:scrape:visible # Visible browser for debugging
+npm run import:pdc:scrape:test  # Test on first 3 candidates
+
 # Import campaign finance data from PDC (single year)
-npm run import:pdc 2023
+npm run import:pdc 2025
 
 # Import all PDC data (2020-2025)
 npm run import:pdc:all
 
 # Fast PDC import (10-50x faster, batch operations)
-npm run import:pdc:fast 2023
+npm run import:pdc:fast 2025
 npm run import:pdc:fast:all
 
 # Import historical data from Git branches
@@ -305,14 +315,24 @@ To prepare for the 2025 municipal election:
    ```bash
    # 1. Set up base data structures
    npm run prepare:2025
-   
-   # 2. Import PDC data (ongoing during campaign)
-   npm run import:pdc
-   
-   # 3. Import pamphlet data (when available)
+
+   # 2. Bootstrap candidates from PDC API
+   # This creates candidate records with stateId (filer_id) but NOT PDC URLs
+   # (PDC URLs require web scraping in next step)
+   # Run the appropriate script based on election year
+
+   # 3. Scrape PDC website for profile URLs and mini filer status
+   npm run import:pdc:scrape:fast
+   # This uses Playwright to find the correct PDC profile URLs (numeric IDs)
+   # and determine which candidates are mini filers
+
+   # 4. Import campaign contribution data (ongoing during campaign)
+   npm run import:pdc 2025
+
+   # 5. Import pamphlet data (when available)
    npm run import:pamphlet
-   
-   # 4. Import results (after election)
+
+   # 6. Import results (after election)
    npm run import:results
    ```
 

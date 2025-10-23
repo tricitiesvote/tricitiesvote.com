@@ -1,4 +1,19 @@
 #!/usr/bin/env node
+/**
+ * Bootstrap 2025 candidates from PDC API
+ *
+ * This script:
+ * 1. Fetches candidate filings from PDC API (via contributions)
+ * 2. Creates candidate records with basic info (name, office, stateId/filer_id)
+ * 3. Does NOT set PDC profile URLs (those require web scraping)
+ *
+ * IMPORTANT: After running this script, you must run:
+ *   npm run import:pdc:scrape:fast
+ *
+ * That will scrape the PDC website to:
+ * - Get correct PDC profile URLs (numeric IDs, not filer_ids)
+ * - Determine mini filer status
+ */
 import 'dotenv/config'
 import { PrismaClient } from '@prisma/client'
 import { WAStateClient } from '../../lib/wa-state/client'
@@ -155,10 +170,9 @@ async function importCandidatesFrom2025() {
           updates.stateId = filerId
         }
 
-        const pdcUrl = `https://www.pdc.wa.gov/browse/campaign-explorer/candidate/${filerId}`
-        if (existing.pdc !== pdcUrl) {
-          updates.pdc = pdcUrl
-        }
+        // NOTE: PDC URLs are NOT set here - they use numeric IDs that must be scraped
+        // After running this script, run: npm run import:pdc:scrape:fast
+        // That will set the correct PDC URLs and mini filer status
 
         if (Object.keys(updates).length > 0) {
           await prisma.candidate.update({
@@ -251,7 +265,14 @@ async function importCandidatesFrom2025() {
     }
     
     console.log(`\n✅ Created ${racesCreated} races`)
-    
+
+    console.log('\n📌 NEXT STEPS:')
+    console.log('   1. Run: npm run import:pdc:scrape:fast')
+    console.log('      → Sets PDC profile URLs and mini filer status')
+    console.log('   2. Run: npm run import:pdc 2025')
+    console.log('      → Imports campaign contribution data')
+    console.log('')
+
   } catch (error) {
     console.error('❌ Error importing candidates:', error)
     throw error
