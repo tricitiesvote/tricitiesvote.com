@@ -103,9 +103,10 @@ function EndorsementLink({
   const href = endorsement.url || endorsement.filePath || null
   const label = endorsement.endorser
   const secondary = endorsement.sourceTitle || endorsement.notes || null
+  const isPetition = label.includes('3,800') || label.includes('Petitioner')
 
   return (
-    <div className="endorsement-item">
+    <div className={`endorsement-item${isPetition ? ' endorsement-petition' : ''}`}>
       {href ? (
         <a href={href} target="_blank" rel="noopener noreferrer">
           {label}
