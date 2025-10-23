@@ -33,11 +33,15 @@ export function CandidateEndorsements({ endorsements, showPlaceholder = true, st
   return (
     <div className="endorsements-summary">
       <ul className="recs">
-        {displayList.map(item => (
-          <li key={item.id} className={item.variant === 'yes' ? 'yes' : 'no'}>
-            <EndorsementLink endorsement={item.endorsement} />
-          </li>
-        ))}
+        {displayList.map(item => {
+          const isPetition = item.endorsement.endorser.includes('3,800') || item.endorsement.endorser.includes('Petitioner')
+          const liClass = item.variant === 'yes' ? 'yes' : 'no'
+          return (
+            <li key={item.id} className={isPetition ? `${liClass} endorsement-petition` : liClass}>
+              <EndorsementLink endorsement={item.endorsement} />
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
@@ -103,10 +107,9 @@ function EndorsementLink({
   const href = endorsement.url || endorsement.filePath || null
   const label = endorsement.endorser
   const secondary = endorsement.sourceTitle || endorsement.notes || null
-  const isPetition = label.includes('3,800') || label.includes('Petitioner')
 
   return (
-    <div className={`endorsement-item${isPetition ? ' endorsement-petition' : ''}`}>
+    <div className="endorsement-item">
       {href ? (
         <a href={href} target="_blank" rel="noopener noreferrer">
           {label}

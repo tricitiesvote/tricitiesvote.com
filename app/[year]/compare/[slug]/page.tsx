@@ -245,7 +245,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
           <div className="candidate-card-heading">
             <div>
               <span className="candidate-card-subhead">{card.displayName}</span>
-              <h3>Endorsements</h3>
+              <h3>Endorsements and Opposition</h3>
             </div>
           </div>
           <div className="candidate-card-body">

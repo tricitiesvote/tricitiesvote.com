@@ -206,7 +206,7 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
 
        <section className="candidate-card candidate-card--support">
          <div className="candidate-card-heading">
-           <h3>Endorsements</h3>
+           <h3>Endorsements and Opposition</h3>
          </div>
 
           <div className="candidate-card-body">

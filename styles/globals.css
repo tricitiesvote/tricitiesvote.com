@@ -1187,7 +1187,15 @@ del, del a:link, del li {
   text-align: center;
 }
 
-
+.recs .yes.endorsement-petition {
+  background-color: #2aa1ff;
+  border: 1px solid #105287;
+  font-weight: bold;
+}
+.recs .yes.endorsement-petition a:link, .recs .yes.endorsement-petition a:visited {
+  color: #fff;
+  font-size: 15px;
+}
 .donor-summary {
   border-top: 1px solid #eee;
   padding-top: 10px;
@@ -1522,8 +1530,8 @@ del, del a:link, del li {
 
 .recs .yes::before, .recs .no::before {
   position: absolute;
-  left: 5px;
-  top: 5px;
+  left: 8px;
+  top: 4px;
   font-size: 18px;
 }
 
