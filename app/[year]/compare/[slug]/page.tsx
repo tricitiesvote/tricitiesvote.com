@@ -300,7 +300,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
       <TriCitiesQuestionnaireBanner status={triCitiesStatus} />
 
       <div className="guide">
-        <section className="race race-compare">
+        <section className="race race-compare candidate-comparison-race">
           <h1 className="race-title">{displayTitle}</h1>
 
           <CompareTable rows={compareRows} />

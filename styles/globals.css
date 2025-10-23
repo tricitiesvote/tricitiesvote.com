@@ -2143,7 +2143,7 @@ td, th {
   object-position: center 10%;
 }
 
-.pos.has-comment img {
+.candidate-comparison-race .pos.has-comment img {
   border-color: #2a708a;
   background-color: #2a708a;
 }
@@ -2157,7 +2157,7 @@ td, th {
   content: '💬';
   position: absolute;
   top: 0px;
-  right: -16px;
+  right: 0px;
   font-size: 20px;
   pointer-events: none;
 }
@@ -2243,6 +2243,103 @@ tbody .pos img, .close {
 
 .pos-6.color-key, .wa16-senator.color-key {
   border: 3px solid #ef9b9b;
+}
+
+/* Candidate color classes for aggregate compare views */
+.candidate-color-1 img {
+  border-color: #89db8b;
+  background-color: #89db8b;
+}
+
+.candidate-color-2 img {
+  border-color: #6f7fd1;
+  background-color: #6f7fd1;
+}
+
+.candidate-color-3 img {
+  border-color: #FFC328;
+  background-color: #FFC328;
+}
+
+.candidate-color-4 img {
+  border-color: #e196f5;
+  background-color: #e196f5;
+}
+
+.candidate-color-5 img {
+  border-color: #94e3d9;
+  background-color: #94e3d9;
+}
+
+.candidate-color-6 img {
+  border-color: #ef9b9b;
+  background-color: #ef9b9b;
+}
+
+.candidate-color-7 img {
+  border-color: #ff9f5e;
+  background-color: #ff9f5e;
+}
+
+.candidate-color-1 .more {
+  background-color: #89db8b;
+}
+
+.candidate-color-2 .more {
+  background-color: #6f7fd1;
+}
+
+.candidate-color-3 .more {
+  background-color: #FFC328;
+}
+
+.candidate-color-4 .more {
+  background-color: #e196f5;
+}
+
+.candidate-color-5 .more {
+  background-color: #94e3d9;
+}
+
+.candidate-color-6 .more {
+  background-color: #ef9b9b;
+}
+
+.candidate-color-7 .more {
+  background-color: #ff9f5e;
+}
+
+.candidate-color-1.color-key {
+  border: 3px solid #89db8b;
+}
+
+.candidate-color-2.color-key {
+  border: 3px solid #6f7fd1;
+}
+
+.candidate-color-3.color-key {
+  border: 3px solid #FFC328;
+}
+
+.candidate-color-4.color-key {
+  border: 3px solid #e196f5;
+}
+
+.candidate-color-5.color-key {
+  border: 3px solid #94e3d9;
+}
+
+.candidate-color-6.color-key {
+  border: 3px solid #ef9b9b;
+}
+
+.candidate-color-7.color-key {
+  border: 3px solid #ff9f5e;
+}
+
+/* Hide comment indicator on aggregate compare pages */
+.pos .has-comment-indicator {
+  display: none;
 }
 
 .color-key-set {
@@ -3693,6 +3790,12 @@ td .more, .no-response .more {
   color: #fff;
   font-weight: 600;
   font-size: 1rem;
+  position: relative;
+  top: -14px;
+}
+
+.has-placeholder.pos.has-comment::after {
+  top: -15px;
 }
 
 /* Next.js specific styles */

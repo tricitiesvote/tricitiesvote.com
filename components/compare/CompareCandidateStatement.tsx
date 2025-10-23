@@ -7,12 +7,14 @@ interface CompareCandidateStatementProps {
   name: string
   image?: string | null
   comment?: string | null
+  colorClass?: string
 }
 
 export function CompareCandidateStatement({
   name,
   image,
-  comment
+  comment,
+  colorClass
 }: CompareCandidateStatementProps) {
   const [open, setOpen] = useState(false)
 
@@ -41,6 +43,9 @@ export function CompareCandidateStatement({
   }
 
   const classes = ['pos']
+  if (colorClass) {
+    classes.push(colorClass)
+  }
   if (comment?.trim()) {
     classes.push('has-comment')
   }
@@ -51,7 +56,10 @@ export function CompareCandidateStatement({
   return (
     <button
       type="button"
-      className={classes.join(' ')}
+      className={[
+        ...classes,
+        !image ? 'has-placeholder' : ''
+      ].filter(Boolean).join(' ')}
       onClick={toggle}
       onKeyDown={handleKeyDown}
       aria-expanded={open}
@@ -76,5 +84,5 @@ export function CompareCandidateStatement({
         </div>
       )}
     </button>
-  )
+  );
 }

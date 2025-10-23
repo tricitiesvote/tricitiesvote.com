@@ -8,6 +8,8 @@ interface CompareQuestionnairesProps {
   regionId?: string | null
   candidates: CandidateMeta[]
   hiddenTitles?: string[]
+  colorMap?: Map<string, string>
+  hideOpenQuestions?: boolean
 }
 
 interface CandidateMeta {
@@ -83,7 +85,7 @@ function isTriCitiesQuestionnaire(slug?: string | null) {
   return TRI_CITIES_SLUGS.some(segment => normalized.includes(segment))
 }
 
-export async function CompareQuestionnaires({ year, regionId, candidates, hiddenTitles = [] }: CompareQuestionnairesProps) {
+export async function CompareQuestionnaires({ year, regionId, candidates, hiddenTitles = [], colorMap, hideOpenQuestions = false }: CompareQuestionnairesProps) {
   const orderedCandidates = candidates
     .map(candidate => ({
       id: candidate.id,
@@ -150,9 +152,11 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
     <div className="questionnaire-compare">
       {sections.map(section => (
         <section key={section.id} className="questionnaire-compare-section">
-          <h2 className="questionnaire-compare-heading">{section.title}</h2>
+          {!hideOpenQuestions && (
+            <h2 className="questionnaire-compare-heading">{section.title}</h2>
+          )}
 
-          {section.openQuestions.length > 0 && (
+          {!hideOpenQuestions && section.openQuestions.length > 0 && (
             <div className="questionnaire-open">
               {section.openQuestions.map(question => (
                 <div key={question.id} className="questionnaire-open-block">
@@ -213,6 +217,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
                             name={candidate.name}
                             image={candidate.image}
                             comment={candidate.comment}
+                            colorClass={colorMap?.get(candidate.id)}
                           />
                         ))}
                       </td>
@@ -223,6 +228,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
                             name={candidate.name}
                             image={candidate.image}
                             comment={candidate.comment}
+                            colorClass={colorMap?.get(candidate.id)}
                           />
                         ))}
                       </td>
@@ -233,6 +239,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
                             name={candidate.name}
                             image={candidate.image}
                             comment={candidate.comment}
+                            colorClass={colorMap?.get(candidate.id)}
                           />
                         ))}
                       </td>
@@ -243,6 +250,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
                             name={candidate.name}
                             image={candidate.image}
                             comment={candidate.comment}
+                            colorClass={colorMap?.get(candidate.id)}
                           />
                         ))}
                       </td>
