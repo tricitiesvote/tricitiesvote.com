@@ -192,19 +192,13 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
             </div>
           )}
           
-          {endorsementStance ? (
-            <div className="endorsements-summary">
-              <p>No letters of support or opposition listed yet.</p>
-            </div>
-          ) : (
-            <>
-              <CandidateEndorsements
-                endorsements={candidate.endorsements || []}
-                showPlaceholder={true}
-              />
-              <EditableCandidateEndorsements candidateId={candidate.id} />
-            </>
-          )}
+          <>
+            <CandidateEndorsements
+              endorsements={candidate.endorsements || []}
+              showPlaceholder={true}
+            />
+            <EditableCandidateEndorsements candidateId={candidate.id} />
+          </>
 
           <div className="candidate-articles">
             <div className="candidate-articles-header">

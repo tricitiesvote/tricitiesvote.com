@@ -249,7 +249,10 @@ export default async function ComparePage({ params }: ComparePageProps) {
             </div>
           </div>
           <div className="candidate-card-body">
-            <p className="candidate-card-placeholder">No endorsement letters yet.</p>
+            <CandidateEndorsements
+              endorsements={card.endorsements}
+              showPlaceholder={true}
+            />
           </div>
         </>
       ),

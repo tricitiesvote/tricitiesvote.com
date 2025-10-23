@@ -209,19 +209,13 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
            <h3>Endorsements</h3>
          </div>
 
-          {endorsementStance ? (
-            <div className="candidate-card-body">
-              <p className="candidate-card-placeholder">Community letters coming soon.</p>
-            </div>
-          ) : (
-            <div className="candidate-card-body">
-              <CandidateEndorsements
-                endorsements={candidate.endorsements || []}
-                showPlaceholder={!showEditControls}
-              />
-              <EditableCandidateEndorsements candidateId={candidate.id} />
-            </div>
-          )}
+          <div className="candidate-card-body">
+            <CandidateEndorsements
+              endorsements={candidate.endorsements || []}
+              showPlaceholder={!showEditControls}
+            />
+            <EditableCandidateEndorsements candidateId={candidate.id} />
+          </div>
         </section>
 
         <section className="candidate-card candidate-card--donors">
@@ -305,15 +299,9 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
           )
         )}
 
-        {endorsementStance ? (
-          <div className="endorsements-summary">
-            <p>No letters of support or opposition listed yet.</p>
-          </div>
-        ) : (
-          <CandidateEndorsements
-            endorsements={candidate.endorsements || []}
-          />
-        )}
+        <CandidateEndorsements
+          endorsements={candidate.endorsements || []}
+        />
 
         {articlesHtml && (
           <div className="candidate-articles news">

@@ -120,15 +120,9 @@ export function CandidateMini({ candidate, fundraising, year, officeType }: Cand
         mini={true}
       />
       
-      {endorsementStance ? (
-        <div className="endorsements-summary">
-          <p>No letters of support or opposition listed yet.</p>
-        </div>
-      ) : (
-        <CandidateEndorsements
-          endorsements={(candidate.endorsements as any) || []}
-        />
-      )}
+      <CandidateEndorsements
+        endorsements={(candidate.endorsements as any) || []}
+      />
     </div>
   )
 }

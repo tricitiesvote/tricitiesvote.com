@@ -63,7 +63,25 @@ function computeDisplayList(
       .map(entry => ({ id: entry.id, endorsement: entry, variant: 'yes' as DisplayVariant }))
   }
 
-  return endorsements.map(entry => ({
+  // Sort endorsements: FOR first, then AGAINST
+  // Within each group, prioritize petition entry (3,800 petitioners), then by ID/date
+  const sorted = [...endorsements].sort((a, b) => {
+    // Primary sort: FOR before AGAINST
+    if (a.forAgainst === 'FOR' && b.forAgainst === 'AGAINST') return -1
+    if (a.forAgainst === 'AGAINST' && b.forAgainst === 'FOR') return 1
+
+    // Within same forAgainst group, prioritize petition entry
+    const isPetitionA = a.endorser.includes('3,800') || a.endorser.includes('Petitioner')
+    const isPetitionB = b.endorser.includes('3,800') || b.endorser.includes('Petitioner')
+
+    if (isPetitionA && !isPetitionB) return -1
+    if (!isPetitionA && isPetitionB) return 1
+
+    // Otherwise maintain original order (by ID creation order)
+    return a.id.localeCompare(b.id)
+  })
+
+  return sorted.map(entry => ({
     id: entry.id,
     endorsement: entry,
     variant: entry.forAgainst === 'FOR' ? 'yes' : 'no'
