@@ -105,10 +105,15 @@ async function processCandidate(candidate: any, regionName: string, page: Page):
     // Note: We don't fail on region mismatch since "PORT OF BENTON" is valid for "Benton County" etc.
 
     // Check if they're a mini filer
-    const isMiniFiler = pageText?.toLowerCase().includes('mini') ||
-                        pageText?.toLowerCase().includes('mini-filer') ||
-                        pageText?.toLowerCase().includes('minifiler') ||
-                        false
+    // Look for specific indicators that they filed as a mini-filer, not just the word "mini"
+    const isMiniFiler = (
+      pageText?.toLowerCase().includes('filed as a mini') ||
+      pageText?.toLowerCase().includes('mini-filer candidate') ||
+      pageText?.toLowerCase().includes('minifiler candidate') ||
+      pageText?.toLowerCase().includes('campaign status: mini') ||
+      // Check for the specific PDC table cell or heading that indicates mini-filer status
+      (pageText?.toLowerCase().includes('filer type') && pageText?.toLowerCase().includes('mini'))
+    ) || false
 
     const pdcUrl = page.url()
 

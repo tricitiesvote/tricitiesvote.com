@@ -27,7 +27,11 @@ export function CandidateDonorSummary({
   mini = false,
   className
 }: DonorSummaryProps) {
-  if (minifiler) {
+  // Protective logic: if we have actual donation data, show it regardless of minifiler flag
+  // This prevents false positives from the scraper from hiding real contributions
+  const hasActualDonations = fundraising && fundraising.donors > 0
+
+  if (minifiler && !hasActualDonations) {
     return (
       <div className={className ?? 'donor-summary'}>
         <p>Mini-filer: detailed reports N/A.</p>
