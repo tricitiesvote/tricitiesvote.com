@@ -3408,8 +3408,8 @@ td .more, .no-response .more {
   
   .candidate-links {
     text-align: center;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+    border-bottom: 0;
+    padding-bottom: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
