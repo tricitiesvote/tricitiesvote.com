@@ -22,7 +22,8 @@ export function buildBreadcrumbs(
 ): BreadcrumbSegment[] {
   const segments: BreadcrumbSegment[] = []
 
-  segments.push({ label: String(params.year), url: `/${params.year}` })
+  // Don't include year in breadcrumbs - it's redundant
+  // segments.push({ label: String(params.year), url: `/${params.year}` })
 
   if (params.region) {
     const regionSlug = slugify(params.region.name)
@@ -34,11 +35,9 @@ export function buildBreadcrumbs(
     const displayTitle = preferWikiString(params.office as any, 'title') ?? params.office.title
     const { section, seat } = splitOffice(params.office.type, displayTitle)
 
-    segments.push({ label: section, url: `/${params.year}/race/${officeSlug}` })
-
-    if (seat) {
-      segments.push({ label: seat, url: `/${params.year}/race/${officeSlug}` })
-    }
+    // Combine section and seat into one breadcrumb since we don't have separate office listing pages
+    const officeLabel = seat ? `${section} ${seat}` : section
+    segments.push({ label: officeLabel, url: `/${params.year}/race/${officeSlug}` })
   }
 
   if (options.includeCandidate && params.candidateName) {

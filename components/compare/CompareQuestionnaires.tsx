@@ -153,7 +153,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
       {sections.map(section => (
         <section key={section.id} className="questionnaire-compare-section">
           {!hideOpenQuestions && (
-            <h2 className="questionnaire-compare-heading">{section.title}</h2>
+            <h2 id="tcv" className="questionnaire-compare-heading">{section.title}</h2>
           )}
 
           {!hideOpenQuestions && section.openQuestions.length > 0 && (

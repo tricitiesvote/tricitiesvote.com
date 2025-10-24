@@ -60,7 +60,12 @@ export function CandidateEngagementList({
           const icon = entry.participated ? '✅' : '❌'
 
           // Use per-candidate link if available, otherwise fall back to engagement primaryLink
-          const link = entry.link || engagement.primaryLink
+          let link = entry.link || engagement.primaryLink
+
+          // For Tri-Cities Vote Q&A, append #tcv to jump to the questionnaire section
+          if (link && engagement.slug?.startsWith('tri-cities-vote-q-a')) {
+            link = link + '#tcv'
+          }
 
           const content = link ? (
             <a
