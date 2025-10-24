@@ -1190,12 +1190,13 @@ del, del a:link, del li {
 .recs .yes.endorsement-petition {
   background-color: #2aa1ff;
   border: 1px solid #105287;
-  font-weight: bold;
+  font-weight: 500;
 }
 .recs .yes.endorsement-petition a:link, .recs .yes.endorsement-petition a:visited {
   color: #fff;
   font-size: 15px;
 }
+
 .donor-summary {
   border-top: 1px solid #eee;
   padding-top: 10px;
@@ -1499,7 +1500,7 @@ del, del a:link, del li {
   margin: 0 10px 10px 0;
   display: inline-block;
   padding: 5px 8px 5px 33px;
-  border-radius: 15px;
+  border-radius: 50px;
 }
 
 .recs .yes {
@@ -1918,15 +1919,16 @@ del, del a:link, del li {
 }
 
 .candidate-mini li a, .candidate-mini .recs .yes::before, .candidate-mini .recs .no::before {
-  font-size: 10px;
+  font-size: 11px;
+  top: 20%;
 }
 
 .candidate-mini .recs li {
   position: relative;
   margin: 0 5px 5px 0;
   display: inline-block;
-  padding: 3px 5px 3px 20px;
-  border-radius: 15px;
+  padding: 3px 5px 3px 25px;
+  border-radius: 50px;
 }
 
 .hero-actions {
@@ -3044,6 +3046,14 @@ span.note {
 }
 
 @media screen and (min-width: 1000px) {
+
+.candidate-mini .recs .endorsement-petition.yes::before {
+  font-size: 20px !important;
+}
+
+.candidate-mini .recs .yes.endorsement-petition {
+  max-width: 180px;
+}
   .container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
