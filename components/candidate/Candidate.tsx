@@ -191,7 +191,7 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
             </div>
 
             <div className="candidate-card-body">
-              {(structuredEngagements.length > 0 || showEditControls) && (
+              {showEditControls && (
                 <EditableCandidateEngagements
                   candidateId={candidate.id}
                   electionYear={candidate.electionYear}
