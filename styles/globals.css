@@ -3272,6 +3272,32 @@ td .more, .no-response .more {
 
 @media screen and (max-width: 500px) {
 
+  .regional-guide h1 {
+    font-size: 22px;
+    margin-bottom: -10px;
+    padding-bottom: 0;
+  }
+
+  .compare-link {
+    text-align: center;
+  }
+
+  .container-candidate.container-candidate-mini {
+    gap: 3px;
+  }
+  .site-nav {
+    gap: 10px;
+    padding: 5px;
+  }
+
+  .site-nav a:first-of-type {
+    display: none;
+  }
+
+  .site-nav a {
+    margin: 0;
+  }
+
   .compare-table th,
   .compare-table td {
     padding: 5px;
