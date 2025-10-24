@@ -1,7 +1,7 @@
 import { prisma } from './db'
 import { ElectionType, OfficeType, Prisma } from '@prisma/client'
 import { CURRENT_ELECTION_YEAR, isCurrentElectionYear } from './constants'
-import { unslugify } from './utils'
+import { unslugify, slugify } from './utils'
 
 const raceInclude = (year: number) => ({
   office: true,
@@ -139,12 +139,35 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
 
 export async function getCandidateByYearAndSlug(year: number, slug: string) {
   // Convert slug back to name (e.g., "john-doe" -> "John Doe")
-  const name = unslugify(slug)
+  // Note: We can't do a simple name match because slugs strip apostrophes
+  // (e.g., "Bill O'Neil" becomes "bill-oneil")
+  // So we need to find all candidates for the year and match by slug
 
-  return await prisma.candidate.findFirst({
+  const candidates = await prisma.candidate.findMany({
     where: {
-      name: { equals: name, mode: 'insensitive' },
       electionYear: year
+    },
+    select: {
+      id: true,
+      name: true,
+      nameWiki: true
+    }
+  })
+
+  // Find candidate by matching slug
+  const matchedCandidate = candidates.find(c => {
+    const displayName = c.nameWiki?.trim() || c.name
+    return slugify(displayName) === slug
+  })
+
+  if (!matchedCandidate) {
+    return null
+  }
+
+  // Now fetch the full candidate with all relations
+  return await prisma.candidate.findUnique({
+    where: {
+      id: matchedCandidate.id
     },
     include: {
       office: true,
