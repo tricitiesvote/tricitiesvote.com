@@ -87,22 +87,45 @@ async function processCandidate(candidate: any, regionName: string, page: Page):
     })
     await page.waitForTimeout(2000)
 
-    // Verify region (be lenient with matching)
+    // Verify region - check that the jurisdiction/office matches our expected region
     const pageText = await page.textContent('body')
-    const regionKeywords = [
-      regionName,
-      'Benton',
-      'Franklin',
-      'Pasco',
-      'Kennewick',
-      'Richland',
-      'West Richland'
+
+    // Build more specific region checks - look for jurisdiction context
+    const jurisdictionKeywords = [
+      `CITY OF ${regionName.toUpperCase()}`,
+      `${regionName.toUpperCase()} CITY`,
+      `${regionName.toUpperCase()} SCHOOL`,
+      `PORT OF ${regionName.toUpperCase()}`,
+      `${regionName.toUpperCase()} COUNTY`,
+      // Specific city names for our Tri-Cities region
+      'CITY OF PASCO',
+      'CITY OF KENNEWICK',
+      'CITY OF RICHLAND',
+      'CITY OF WEST RICHLAND',
+      'PASCO SCHOOL',
+      'KENNEWICK SCHOOL',
+      'RICHLAND SCHOOL',
+      'PORT OF BENTON',
+      'PORT OF KENNEWICK',
+      'PORT OF PASCO',
+      'BENTON COUNTY',
+      'FRANKLIN COUNTY'
     ]
-    const regionMatch = regionKeywords.some(keyword =>
-      pageText?.toLowerCase().includes(keyword.toLowerCase())
+
+    const regionMatch = jurisdictionKeywords.some(keyword =>
+      pageText?.toUpperCase().includes(keyword)
     )
 
-    // Note: We don't fail on region mismatch since "PORT OF BENTON" is valid for "Benton County" etc.
+    if (!regionMatch) {
+      console.log(`  ⚠️  Region mismatch - expected ${regionName} jurisdiction, page appears to be for a different area`)
+      return {
+        candidateName: candidate.name,
+        pdcUrl: null,
+        isMiniFiler: false,
+        region: regionName,
+        error: `Region mismatch - found PDC profile but not for ${regionName}`
+      }
+    }
 
     // Check if they're a mini filer
     // Look for specific indicators that they filed as a mini-filer, not just the word "mini"
