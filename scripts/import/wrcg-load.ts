@@ -17,6 +17,7 @@ import { PrismaClient } from '@prisma/client'
 import {
   EMOJI,
   parseCsvLine,
+  parseCsvFile,
   getOutputMode,
   generateEngagementSlug,
   escapeCsvField,
@@ -50,23 +51,23 @@ async function loadWrcg() {
     process.exit(1)
   }
 
-  // Read CSV
+  // Read CSV with proper multi-line handling
   console.log(`${EMOJI.SEARCH} Reading CSV file...`)
   const csvContent = fs.readFileSync(csvPath, 'utf-8')
-  const lines = csvContent.split('\n').slice(1) // Skip header
+  const lines = parseCsvFile(csvContent)
 
   const rows: CsvRow[] = []
-  let lineNum = 2 // Start at 2 (header is line 1)
 
-  for (const line of lines) {
-    if (!line.trim()) continue
+  // Skip header and parse rows
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i]
+    if (!line) continue
 
     const fields = parseCsvLine(line, 5)
     if (!fields) {
       console.log(
-        `${EMOJI.WARNING} Skipping malformed line ${lineNum}: ${line.substring(0, 50)}...`
+        `${EMOJI.WARNING} Skipping malformed line ${i + 1}: ${line.substring(0, 50)}...`
       )
-      lineNum++
       continue
     }
 
@@ -79,8 +80,6 @@ async function loadWrcg() {
       questionnaireText: questionnaireText || undefined,
       notes: notes || undefined,
     })
-
-    lineNum++
   }
 
   console.log(`${EMOJI.SUCCESS} Parsed ${rows.length} rows from CSV\n`)

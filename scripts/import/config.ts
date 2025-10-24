@@ -97,6 +97,42 @@ export function parseCsvLine(line: string, expectedColumns: number): string[] | 
 }
 
 /**
+ * Parse CSV file with proper handling of multi-line quoted fields
+ * Returns array of lines where each line represents a complete CSV row
+ */
+export function parseCsvFile(csvContent: string): string[] {
+  const lines: string[] = []
+  let currentLine = ''
+  let inQuotes = false
+
+  // Handle multi-line quoted fields
+  for (let i = 0; i < csvContent.length; i++) {
+    const char = csvContent[i]
+    currentLine += char
+
+    if (char === '"') {
+      // Check if it's an escaped quote
+      if (csvContent[i + 1] === '"') {
+        currentLine += '"'
+        i++ // Skip next quote
+      } else {
+        inQuotes = !inQuotes
+      }
+    } else if (char === '\n' && !inQuotes) {
+      lines.push(currentLine.trim())
+      currentLine = ''
+    }
+  }
+
+  // Add final line if exists
+  if (currentLine.trim()) {
+    lines.push(currentLine.trim())
+  }
+
+  return lines
+}
+
+/**
  * Generate a deterministic slug for engagement deduplication
  * Combines title and date into a URL-safe string
  */
