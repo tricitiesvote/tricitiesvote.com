@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import path from 'path'
-import { promises as fs } from 'fs'
+import { put } from '@vercel/blob'
 import { verifyToken } from '@/lib/auth/jwt'
 import { prisma } from '@/lib/db'
 import { slugify } from '@/lib/utils'
@@ -72,35 +71,26 @@ export async function POST(request: NextRequest) {
     }
 
     const originalName = file.name || 'endorsement'
-    const ext = path.extname(originalName).toLowerCase() || '.pdf'
+    const ext = originalName.split('.').pop()?.toLowerCase() || 'pdf'
+    const fullExt = `.${ext}`
 
-    if (!ALLOWED_EXTENSIONS.includes(ext)) {
+    if (!ALLOWED_EXTENSIONS.includes(fullExt)) {
       return NextResponse.json({
         error: `Unsupported file type. Allowed: ${ALLOWED_EXTENSIONS.join(', ')}`
       }, { status: 400 })
     }
 
-    const pendingDir = path.join(
-      process.cwd(),
-      'public',
-      'uploads',
-      'endorsements',
-      'pending',
-      String(candidate.electionYear)
-    )
-    await fs.mkdir(pendingDir, { recursive: true })
-
     const baseName = slugify(`${endorser}-${Date.now()}`)
-    const fileName = `${baseName}${ext}`
-    const pendingPathAbsolute = path.join(pendingDir, fileName)
-    const pendingPathRelative = `/uploads/endorsements/pending/${candidate.electionYear}/${fileName}`
+    const fileName = `endorsements/pending/${candidate.electionYear}/${baseName}.${ext}`
 
-    const arrayBuffer = await file.arrayBuffer()
-    await fs.writeFile(pendingPathAbsolute, Buffer.from(arrayBuffer))
+    const blob = await put(fileName, file, {
+      access: 'public',
+      addRandomSuffix: false,
+    })
 
     return NextResponse.json({
       success: true,
-      filePath: pendingPathRelative,
+      filePath: blob.url,
       url: url || null,
       sourceTitle: sourceTitle || null,
       notes: notes || null,

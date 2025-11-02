@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import path from 'path';
-import { promises as fs } from 'fs';
+import { put } from '@vercel/blob';
 import { prisma } from '@/lib/db';
 import { verifyToken } from '@/lib/auth/jwt';
 import { validateCsrfToken } from '@/lib/auth/csrf';
@@ -79,12 +78,6 @@ function extractString(value: unknown): string | null {
   if (typeof value !== 'string') return null;
   const trimmed = value.trim();
   return trimmed.length > 0 ? trimmed : null;
-}
-
-async function ensureUploadsDir(year: number) {
-  const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'endorsements', String(year));
-  await fs.mkdir(uploadsDir, { recursive: true });
-  return uploadsDir;
 }
 
 export async function GET(request: NextRequest) {
@@ -258,23 +251,22 @@ async function handleFileUpload(request: NextRequest) {
   const type = normalizeEnum(formData.get('type'), ['LETTER', 'SOCIAL', 'ORG'] as const, 'LETTER');
   const forAgainst = normalizeEnum(formData.get('forAgainst'), ['FOR', 'AGAINST'] as const, 'FOR');
 
-  const uploadsDir = await ensureUploadsDir(candidate.electionYear);
   const originalName = file.name || 'endorsement';
-  const ext = path.extname(originalName) || '.pdf';
+  const ext = originalName.split('.').pop()?.toLowerCase() || 'pdf';
   const base = slugify(`${endorser}-${Date.now()}`);
-  const fileName = `${base}${ext}`;
-  const filePathRelative = `/uploads/endorsements/${candidate.electionYear}/${fileName}`;
-  const filePathAbsolute = path.join(uploadsDir, fileName);
+  const fileName = `endorsements/${candidate.electionYear}/${base}.${ext}`;
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  await fs.writeFile(filePathAbsolute, buffer);
+  const blob = await put(fileName, file, {
+    access: 'public',
+    addRandomSuffix: false,
+  });
 
   const endorsement = await prisma.endorsement.create({
     data: {
       candidateId,
       endorser,
       url: url ?? null,
-      filePath: filePathRelative,
+      filePath: blob.url,
       sourceTitle,
       notes,
       type,
