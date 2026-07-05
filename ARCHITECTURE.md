@@ -1,6 +1,6 @@
 # Tri-Cities Vote Architecture
 
-This document describes the current architecture of the Tri-Cities Vote codebase, focusing on the application structure, database schema, and the data-maintenance scripts that keep donor and letter-to-the-editor data fresh during the 2025 general cycle.
+This document describes the current architecture of the Tri-Cities Vote codebase, focusing on the application structure, database schema, and the data-maintenance scripts that keep donor and letter-to-the-editor data fresh during an election cycle.
 
 ## High-Level Overview
 
@@ -109,7 +109,7 @@ Prisma preview feature `fullTextSearchPostgres` is enabled but not yet in heavy 
 
 ## Data Access Layer (`lib/`)
 
-- **`lib/queries.ts`**: Centralized Prisma queries for pages. Encapsulates include trees (`raceInclude`, `guideInclude`), port race grouping, structured engagement joins, and slug helpers. By concentrating queries here, server components remain lean and data fetching can easily be reused by API routes if needed.
+- **`lib/queries.ts`**: Centralized Prisma queries for pages. Encapsulates include trees (`raceInclude`, `guideInclude`), port race grouping, structured engagement joins, and slug helpers. Queries are parameterized by election year and `ElectionType` (`PRIMARY` or `GENERAL`), defaulting to `CURRENT_ELECTION_YEAR` and `CURRENT_ELECTION_TYPE` from `lib/constants.ts`—flipping those two constants switches which election the whole site displays. By concentrating queries here, server components remain lean and data fetching can easily be reused by API routes if needed.
 - **`lib/db.ts`**: Creates a singleton Prisma client to avoid exhausting connection pools during hot reloads.
 - **`lib/calculateFundraising.ts`**: Converts raw contributions into totals, donor counts, and top-donor lists for UI display.
 - **`lib/wa-state/*`**: Socrata client and helper utilities for PDC data (contributions, enforcement, calendar, results placeholder). `WAStateClient` applies jurisdiction filters for Benton/Franklin targets and handles pagination/rate limiting.
@@ -162,9 +162,9 @@ While not directly part of donor or letter ingestion, enforcement data rounds ou
 
 These cases appear on candidate detail pages alongside contributions and endorsements, so keeping them in sync is part of the data hygiene workflow during the election.
 
-### Questionnaire & Engagement Tracking (New in October 2025)
+### Questionnaire & Engagement Tracking
 
-A new set of import scripts track candidate participation in questionnaires, forums, and surveys. All scripts follow a safety-first pattern with dry-run mode by default and CSV output for review.
+A set of import scripts track candidate participation in questionnaires, forums, and surveys. All scripts follow a safety-first pattern with dry-run mode by default and CSV output for review.
 
 **0. City + School Questionnaire Responses (2025)**
 - **Source files**: `2025-city-council-responses.csv` and `2025-school-board-responses.csv` in the repo root (embedded newlines in headers, occasional trailing spaces/accents on names).
@@ -205,12 +205,18 @@ A new set of import scripts track candidate participation in questionnaires, for
 
 **Documentation**: Full usage details in `scripts/import/README.md`.
 
+### Year Snapshot & Archival
+
+- **`npm run snapshot -- <year>`** → `scripts/snapshot-year.ts` freezes a completed election year as a static archive. It crawls the live site (same-origin pages and assets) into a local directory, rewriting `/_next/image` URLs to plain image files so the archive is self-contained; commits the result to an orphan git branch named for the year and pushes it to origin; and deploys it to Vercel as project `<year>-tricitiesvote` (stable at `https://<year>-tricitiesvote.vercel.app`).
+- Flags: `--base <url>` (site to crawl, default `https://tricitiesvote.com`), `--out <dir>` (default `tmp/snapshot/<year>`), `--no-push`, `--no-deploy`, `--limit <n>` (page cap).
+- DNS for `<year>.tricitiesvote.com` points at the Vercel project. Years 2020-2023 predate this command and remain as Gatsby builds on Netlify subdomains.
+
 ## Operational Flow
 
 1. **Data ingestion**: Run the relevant scripts (letters, contributions, enforcement) in a terminal with the correct `.env` in place. Each script is safe to rerun; they upsert or batch-delete-reinsert rather than blindly duplicating rows.
 2. **Content moderation**: Community edits enter the `Edit` queue. Moderators use `/moderate` to accept or reject; approvals populate `*Wiki` fields, immediately affecting front-end pages via `preferWiki*` helpers.
 3. **Rendering**: Server-rendered pages fetch fresh data on request, revalidated hourly for guides and region pages. Client components (compare views, moderation UI) fetch JSON from API routes for dynamic behavior.
-4. **Deployment**: No dedicated CI is configured in-repo, but `ARCHITECTURE.md` assumes a manual deploy process that runs `npm install`, `npx prisma generate`, and `npm run build`.
+4. **Deployment**: Production runs on Vercel (Next.js app) with the PostgreSQL database on Railway. The build runs `npm install`, `npx prisma generate`, and `npm run build`. Archived election years are separate static Vercel deployments (see the year snapshot section above); the `netlify.toml` in the repo is a leftover from earlier Netlify hosting.
 
 ## Key Dependencies & Configuration
 

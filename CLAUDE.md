@@ -1,6 +1,6 @@
 # Tri-Cities Vote Election Guide System
 
-This project is currently being modernized from a Gatsby-based static site to a Next.js application with PostgreSQL database. This document describes the intended long-term architecture and business logic.
+This project is a Next.js application with a PostgreSQL database, rearchitected from the original Gatsby static site. This document describes the architecture and business logic.
 
 ## CRITICAL: Design Philosophy
 
@@ -36,7 +36,7 @@ The Tri-Cities Vote website provides nonpartisan voter guides for elections in t
 - **Frontend**: Next.js with App Router
 - **Database**: PostgreSQL with Prisma ORM
 - **Content Management**: Decap CMS (formerly Netlify CMS) with Git-based workflow
-- **Hosting**: Railway (database), Netlify (static site)
+- **Hosting**: Vercel (Next.js app), Railway (PostgreSQL database); archived election years are separate static deployments (see "Archiving an Election Year")
 - **Data Sources**: Washington State PDC (campaign finance), VoteWA (election results)
 
 ### Core Data Model
@@ -99,13 +99,21 @@ The guide system adapts to different types of elections:
 - **Focus Offices**: County Commissioner, State Rep/Senator, Federal offices, Sheriff, Prosecutor
 - **Typical Pattern**: County, state, and federal offices
 
-### Year-Aware Navigation
+### Current Election Display
 
-The frontend supports browsing historical election data:
-- URL structure: `/{year}/guide/{region}` 
-- Year toggle in navigation allows switching between election cycles
-- Each year maintains its appropriate guide structure (city vs county)
-- All historical data preserved and accessible
+The app displays one election at a time, controlled by two constants in `lib/constants.ts`:
+
+- `CURRENT_ELECTION_YEAR` - the election year the site serves
+- `CURRENT_ELECTION_TYPE` - `PRIMARY` or `GENERAL`; the queries in `lib/queries.ts` take an election-type parameter that defaults to this constant, so flipping it switches the whole site between the primary and general ballots
+
+URL structure is `/{year}/guide/{region}`, and `next.config.js` redirects the bare `/{year}` path for the current year to `/`.
+
+Past election years are frozen static snapshots served on year subdomains (e.g. `2023.tricitiesvote.com`), not by this app. See "Archiving an Election Year" below.
+
+Moving to a new election year:
+1. Snapshot and archive the completed year (`npm run snapshot -- <year>`)
+2. Seed the new year's data (regions, offices, guides, candidates)
+3. Update `CURRENT_ELECTION_YEAR` and `CURRENT_ELECTION_TYPE` in `lib/constants.ts`, plus the year redirect in `next.config.js`
 
 ## Business Logic Details
 
@@ -257,13 +265,13 @@ npm run import:pdc:scrape:visible # Visible browser for debugging
 npm run import:pdc:scrape:test  # Test on first 3 candidates
 
 # Import campaign finance data from PDC (single year)
-npm run import:pdc 2025
+npm run import:pdc 2026
 
-# Import all PDC data (2020-2025)
+# Import all PDC data (2020-2025; see package.json for the year list)
 npm run import:pdc:all
 
 # Fast PDC import (10-50x faster, batch operations)
-npm run import:pdc:fast 2025
+npm run import:pdc:fast 2026
 npm run import:pdc:fast:all
 
 # Import historical data from Git branches
@@ -468,25 +476,34 @@ ANTHROPIC_API_KEY=your_anthropic_api_key
 
 This architecture provides a flexible, maintainable system for managing election information across multiple cycles while preserving the simplicity and effectiveness of the original voter guide format.
 
+## Archiving an Election Year
+
+Completed election years are preserved as frozen static copies on year subdomains, freeing the app to serve the next cycle:
+
+- **2020-2023**: old Gatsby builds hosted on Netlify subdomains
+- **2025 onward**: static snapshots produced by `npm run snapshot -- <year>` (`scripts/snapshot-year.ts`)
+
+The snapshot command:
+1. Crawls the live site into a local directory of static HTML and assets, rewriting `/_next/image` URLs to plain image files so nothing depends on a running server
+2. Commits the result to an orphan git branch named for the year and pushes it to origin (durable archival copy)
+3. Deploys it to Vercel as project `<year>-tricitiesvote` (e.g. https://2025-tricitiesvote.vercel.app)
+
+DNS: point `<year>.tricitiesvote.com` at the Vercel project. See the README for the command's flags.
+
 ## Current Implementation Status
 
 ### ✅ Completed
-- Next.js app with year-aware routing
+- Next.js app with year routing, race/candidate/compare views, donor data display, endorsements, engagements, and wiki editing with moderation
+- CSS matching the legacy Gatsby site
 - Database schema with all core entities
 - Historical data import (2020-2023)
-- PDC contribution import with correct amounts
-- Basic UI components matching legacy structure
-- Endorsement display functionality
+- PDC contribution import
+- VoteWA pamphlet import (`npm run import:pamphlet`)
+- 2025 election (complete; archived at https://2025-tricitiesvote.vercel.app)
 
 ### 🚧 In Progress
-- Donor data display on race/candidate pages
-- CSS styling to match legacy exactly
-- Markdown processing for bio/statement fields
-
-### ❌ TODO
-- VoteWA pamphlet import
-- Election results import
-- 2025 election preparation
+- 2026 election preparation (county guides for Benton/Franklin; August 4 primary, November general)
+- Election results importer (being rebuilt as `scripts/import/results.ts`)
 
 ## General Notes
 
