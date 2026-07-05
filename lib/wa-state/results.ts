@@ -1,198 +1,173 @@
-import { PrismaClient } from '@prisma/client'
-import * as cheerio from 'cheerio'
+/**
+ * Washington State election results (results.vote.wa.gov)
+ *
+ * The state publishes per-county CSV exports for each election at:
+ *
+ *   https://results.vote.wa.gov/results/{YYYYMMDD}/export/{YYYYMMDD}_{county}.csv
+ *
+ * Columns: Race, Candidate, Party, Votes, PercentageOfTotalVotes, JurisdictionName
+ *
+ * This module handles fetching and parsing those exports plus small pure
+ * helpers (election date math, write-in detection, Richland short-term
+ * selection). Database matching and writes live in scripts/import/results.ts.
+ */
 
-interface ElectionResult {
-  office: string
+export type ResultsElectionType = 'PRIMARY' | 'GENERAL'
+
+export interface ResultRow {
+  race: string
   candidate: string
+  party: string
   votes: number
-  percentage: number
-  position?: string
-}
-
-interface ParsedResults {
+  percent: number
+  jurisdiction: string
   county: string
-  date: string
-  results: ElectionResult[]
 }
 
-export class ElectionResultsClient {
-  constructor(private prisma: PrismaClient) {}
+const RESULTS_CSV_HEADER = [
+  'Race',
+  'Candidate',
+  'Party',
+  'Votes',
+  'PercentageOfTotalVotes',
+  'JurisdictionName',
+]
 
-  async fetchResults(year: number, month: string, county: string) {
-    const url = `https://results.vote.wa.gov/results/${year}${month}/${county}/`
-    const response = await fetch(url)
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch results for ${county}: ${response.status}`)
-    }
+/**
+ * Election date as the YYYYMMDD code used in results.vote.wa.gov URLs.
+ * Primaries are the first Tuesday of August (RCW 29A.04.311); general
+ * elections are the first Tuesday after the first Monday of November.
+ */
+export function electionDateCode(year: number, type: ResultsElectionType): string {
+  if (type === 'PRIMARY') {
+    return formatDateCode(firstWeekday(year, 7, 2))
+  }
+  const firstMonday = firstWeekday(year, 10, 1)
+  return formatDateCode(new Date(Date.UTC(year, 10, firstMonday.getUTCDate() + 1)))
+}
 
-    const html = await response.text()
-    return this.parseResults(html, county)
+function firstWeekday(year: number, monthIndex: number, weekday: number): Date {
+  const first = new Date(Date.UTC(year, monthIndex, 1))
+  const offset = (weekday - first.getUTCDay() + 7) % 7
+  return new Date(Date.UTC(year, monthIndex, 1 + offset))
+}
+
+function formatDateCode(date: Date): string {
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0')
+  const day = String(date.getUTCDate()).padStart(2, '0')
+  return `${date.getUTCFullYear()}${month}${day}`
+}
+
+export function resultsCsvUrl(dateCode: string, county: string): string {
+  return `https://results.vote.wa.gov/results/${dateCode}/export/${dateCode}_${county.toLowerCase()}.csv`
+}
+
+export async function fetchCountyResults(dateCode: string, county: string): Promise<ResultRow[]> {
+  const url = resultsCsvUrl(dateCode, county)
+  const response = await fetch(url)
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch results for ${county} (${url}): ${response.status}`)
   }
 
-  private parseResults(html: string, county: string): ParsedResults {
-    const $ = cheerio.load(html)
-    const results: ElectionResult[] = []
-    
-    // Find all result tables
-    $('.race-results').each((_: any, table: any) => {
-      const office = $(table).find('.race-title').text().trim()
-      
-      $(table).find('tr').each((_: any, row: any) => {
-        const cols = $(row).find('td')
-        if (cols.length >= 3) { // Valid result row
-          results.push({
-            office,
-            candidate: $(cols[0]).text().trim(),
-            votes: parseInt($(cols[1]).text().replace(/,/g, ''), 10),
-            percentage: parseFloat($(cols[2]).text().replace('%', '')),
-            position: this.extractPosition(office)
-          })
-        }
-      })
-    })
+  return parseResultsCsv(await response.text(), county)
+}
 
-    // Extract the election date from the page
-    const dateText = $('.election-date').text()
-    const date = this.parseElectionDate(dateText)
+export function parseResultsCsv(csv: string, county: string): ResultRow[] {
+  const [header, ...rows] = parseCsv(csv)
 
-    return {
+  if (!header || RESULTS_CSV_HEADER.some((name, i) => header[i] !== name)) {
+    throw new Error(
+      `Unexpected results CSV header for ${county}: ${JSON.stringify(header)} ` +
+        `(expected ${JSON.stringify(RESULTS_CSV_HEADER)})`
+    )
+  }
+
+  return rows
+    .filter(row => row.length >= RESULTS_CSV_HEADER.length)
+    .map(row => ({
+      race: row[0].trim(),
+      candidate: row[1].trim(),
+      party: row[2].trim(),
+      votes: Number.parseInt(row[3].replace(/,/g, ''), 10) || 0,
+      percent: Number.parseFloat(row[4]) || 0,
+      jurisdiction: row[5].trim(),
       county,
-      date,
-      results
+    }))
+}
+
+/**
+ * Minimal RFC 4180 CSV parser (quoted fields, escaped quotes, CRLF).
+ */
+function parseCsv(text: string): string[][] {
+  const rows: string[][] = []
+  let row: string[] = []
+  let field = ''
+  let inQuotes = false
+
+  const pushField = () => {
+    row.push(field)
+    field = ''
+  }
+
+  const pushRow = () => {
+    if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+      rows.push(row)
     }
+    row = []
   }
 
-  private extractPosition(office: string): string | undefined {
-    // Extract position number from strings like "City Council Position 3"
-    const match = office.match(/Position (\d+)/i)
-    return match ? match[1] : undefined
-  }
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i]
 
-  private parseElectionDate(dateText: string): string {
-    // Parse date from format like "November 7, 2023"
-    const date = new Date(dateText)
-    return date.toISOString()
-  }
-
-  // TODO: Fix this method to work with current schema
-  /*
-  async determineShortTerms(electionYear: number) {
-    // Get all winning candidates in city council races
-    const races = await this.prisma.race.findMany({
-      where: {
-        electionYear,
-        office: {
-          type: 'CITY_COUNCIL', // City Council
-          region: {
-            name: 'Richland' // Only Richland has short terms
-          }
-        }
-      },
-      include: {
-        candidates: {
-          where: {
-            elected: true
-          },
-          orderBy: {
-            voteCount: 'asc'
-          },
-          include: {
-            candidate: true
-          }
-        }
+    if (char === '"') {
+      if (inQuotes && text[i + 1] === '"') {
+        field += '"'
+        i++
+      } else {
+        inQuotes = !inQuotes
       }
-    })
-
-    // Find the winner with lowest votes in each race
-    for (const race of races) {
-      if (race.candidates.length > 0) {
-        const lowestVoteWinner = race.candidates[0]
-
-        // Update this candidate's term to be short
-        await this.prisma.candidateRace.update({
-          where: {
-            candidateId_raceId: {
-              candidateId: lowestVoteWinner.candidateId,
-              raceId: race.id
-            }
-          },
-          data: {
-            shortTerm: true
-          }
-        })
-      }
+      continue
     }
-  }
-  */
 
-  // TODO: Fix this method to work with current schema (no election model)
-  /*
-  async inferIncumbents() {
-    // For each candidate in the current election
-    const currentElection = await this.prisma.election.findFirst({
-      where: { year: new Date().getFullYear() },
-      include: {
-        races: {
-          include: {
-            office: true,
-            candidates: {
-              include: {
-                candidate: true
-              }
-            }
-          }
-        }
-      }
-    })
-
-    if (!currentElection) return
-
-    // Look for previous election winners in same offices
-    for (const race of currentElection.races) {
-      const previousWinners = await this.prisma.candidateRace.findMany({
-        where: {
-          race: {
-            office: { id: race.office.id },
-            election: {
-              year: { lt: currentElection.year }
-            }
-          },
-          elected: true
-        },
-        include: {
-          candidate: true
-        },
-        orderBy: {
-          race: {
-            election: {
-              year: 'desc'
-            }
-          }
-        }
-      })
-
-      // Mark current candidates who were previous winners as incumbents
-      for (const candidate of race.candidates) {
-        const wasWinner = previousWinners.some(
-          winner => winner.candidate.name === candidate.candidate.name
-        )
-
-        if (wasWinner) {
-          await this.prisma.candidateRace.update({
-            where: {
-              candidateId_raceId: {
-                candidateId: candidate.candidateId,
-                raceId: race.id
-              }
-            },
-            data: {
-              incumbent: true
-            }
-          })
-        }
-      }
+    if (char === ',' && !inQuotes) {
+      pushField()
+      continue
     }
+
+    if ((char === '\n' || char === '\r') && !inQuotes) {
+      if (char === '\r' && text[i + 1] === '\n') {
+        i++
+      }
+      pushField()
+      pushRow()
+      continue
+    }
+
+    field += char
   }
-  */
+
+  if (field.length > 0 || row.length > 0) {
+    pushField()
+    pushRow()
+  }
+
+  return rows
+}
+
+export function isWriteIn(candidate: string): boolean {
+  return /^write[\s-]?in$/i.test(candidate.trim())
+}
+
+/**
+ * Richland city council terms are staggered by vote count: among the council
+ * winners in a general election, the winner with the fewest votes serves the
+ * short term. Returns that winner, or null when there are fewer than two
+ * winners to rank.
+ */
+export function pickShortTermWinner<T extends { voteCount: number }>(winners: T[]): T | null {
+  if (winners.length < 2) {
+    return null
+  }
+  return winners.reduce((lowest, winner) => (winner.voteCount < lowest.voteCount ? winner : lowest))
 }
