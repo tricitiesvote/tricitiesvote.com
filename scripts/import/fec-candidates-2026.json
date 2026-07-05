@@ -1,0 +1,363 @@
+{
+  "cycle": 2026,
+  "generatedAt": "2026-07-05T04:28:46.427Z",
+  "matched": [
+    {
+      "dbId": "cmr7950y40007vo24g4pva35f",
+      "dbName": "Amanda McKinney",
+      "district": "04",
+      "fecCandidateId": "H6WA04216",
+      "fecName": "MCKINNEY, AMANDA",
+      "committeeId": "C00932582",
+      "committeeName": "AMANDA MCKINNEY FOR WASHINGTON",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr79539k000hvo24evxx54p8",
+      "dbName": "Devin Poore",
+      "district": "04",
+      "fecCandidateId": "H6WA04208",
+      "fecName": "POORE, DEVIN",
+      "committeeId": "C00932566",
+      "committeeName": "DEVIN FOR WASHINGTON",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr7954om000nvo24bmix1hhv",
+      "dbName": "Elpidia Saavedra",
+      "district": "04",
+      "fecCandidateId": "H6WA04265",
+      "fecName": "SAAVEDRA, ELPIDIA",
+      "committeeId": "C00950477",
+      "committeeName": "ELPIDIA SAAVEDRA FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr7952b3000dvo24ygqb7sqt",
+      "dbName": "Favian Valencia",
+      "district": "04",
+      "fecCandidateId": "H6WA04257",
+      "fecName": "VALENCIA, FAVIAN",
+      "committeeId": "C00946343",
+      "committeeName": "VALENCIA FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr7952s0000fvo24msbm920z",
+      "dbName": "Jerrod Sessler",
+      "district": "04",
+      "fecCandidateId": "H2WA04165",
+      "fecName": "SESSLER, JERROD",
+      "committeeId": "C00773101",
+      "committeeName": "JERROD SESSLER FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr7951up000bvo244cj5un4j",
+      "dbName": "John C. Hughs",
+      "district": "04",
+      "fecCandidateId": "H6WA04232",
+      "fecName": "HUGHS, JOHN C",
+      "committeeId": "C00941856",
+      "committeeName": "THE COMMITTEE TO ELECT JOHN C. HUGHS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr7951e20009vo24g5xm9tm8",
+      "dbName": "John Duresky",
+      "district": "04",
+      "fecCandidateId": "H6WA04190",
+      "fecName": "DURESKY, JOHN",
+      "committeeId": "C00916585",
+      "committeeName": "JOHN DURESKY FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr79555d000pvo24d1a5blwo",
+      "dbName": "Matt Boehnke",
+      "district": "04",
+      "fecCandidateId": "H6WA04224",
+      "fecName": "BOEHNKE, MATTHEW",
+      "committeeId": "C00935981",
+      "committeeName": "MATT BOEHNKE FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr795a3d001bvo249kesg04x",
+      "dbName": "Andrew Bartleson",
+      "district": "05",
+      "fecCandidateId": "H6WA05262",
+      "fecName": "BARTLESON, ANDREW",
+      "committeeId": "C00922963",
+      "committeeName": "ANDREW BARTLESON COMMITTEE TO ELECT FOR US CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr795amq001dvo24f30fuug5",
+      "dbName": "Ann Marie Danimus",
+      "district": "05",
+      "fecCandidateId": "H2WA05097",
+      "fecName": "DANIMUS, ANN MARIE",
+      "committeeId": "C00791236",
+      "committeeName": "COMMITTEE TO ELECT ANN MARIE DANIMUS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr7957kz0011vo24y8ksa05u",
+      "dbName": "Bajun R. Mavalwalla",
+      "district": "05",
+      "fecCandidateId": "H6WA05221",
+      "fecName": "MAVALWALLA, BAJUN",
+      "committeeId": "C00932517",
+      "committeeName": "FRIENDS OF BAJUN",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr7956md000xvo24h1brxq94",
+      "dbName": "Carmela Conroy",
+      "district": "05",
+      "fecCandidateId": "H4WA05168",
+      "fecName": "CONROY, CARMELA",
+      "committeeId": "C00849794",
+      "committeeName": "CONROY FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr795blg001hvo240v3eyg12",
+      "dbName": "David Womack",
+      "district": "05",
+      "fecCandidateId": "H6WA05213",
+      "fecName": "WOMACK, DAVID",
+      "committeeId": "C00926667",
+      "committeeName": "WOMACK4US",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr7958l20015vo249p9z5zfq",
+      "dbName": "Kevin Fagan",
+      "district": "05",
+      "fecCandidateId": "H6WA05247",
+      "fecName": "FAGAN, KEVIN",
+      "committeeId": "C00935858",
+      "committeeName": "KEVIN FAGAN FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr7959lh0019vo24axc8bpmj",
+      "dbName": "Kyle Usrey",
+      "district": "05",
+      "fecCandidateId": "H6WA05254",
+      "fecName": "USREY, KYLE B",
+      "committeeId": "C00949214",
+      "committeeName": "KYLE USREY",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr79573c000zvo24lr61l2at",
+      "dbName": "Matthew Hayes",
+      "district": "05",
+      "fecCandidateId": "H6WA05296",
+      "fecName": "HAYES, MATTHEW STEPHEN",
+      "committeeId": "C00952382",
+      "committeeName": "MATTHEW HAYES FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr79593b0017vo24z6rcjkt5",
+      "dbName": "Michael Baumgartner",
+      "district": "05",
+      "fecCandidateId": "H4WA05234",
+      "fecName": "BAUMGARTNER, MICHAEL JAMES",
+      "committeeId": "C00870758",
+      "committeeName": "VOTE BAUMGARTNER FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr79564w000vvo24a5ldk95e",
+      "dbName": "Nate Powell",
+      "district": "05",
+      "fecCandidateId": "H6WA05239",
+      "fecName": "POWELL, NATE",
+      "committeeId": "C00935866",
+      "committeeName": "POWELL FOR CONGRESS",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    },
+    {
+      "dbId": "cmr795b3h001fvo24xlqhmgp1",
+      "dbName": "Richard Freudenberg",
+      "district": "05",
+      "fecCandidateId": "H6WA05288",
+      "fecName": "FREUDENBERG, RICHARD",
+      "committeeId": "C00950501",
+      "committeeName": "PEOPLE FOR RICHARD FREUDENBERG",
+      "matchSource": "exact",
+      "matchConfidence": 1
+    }
+  ],
+  "unmatchedDb": [
+    {
+      "dbId": "cmr79504q0005vo24o2lu3gwl",
+      "dbName": "Jacek \"Jack\" Kobiesa",
+      "district": "04",
+      "reason": "no FEC candidate matched (may not have filed FEC Form 2 yet)"
+    },
+    {
+      "dbId": "cmr7953r7000jvo244exoa5no",
+      "dbName": "Ken Vaz",
+      "district": "04",
+      "reason": "no FEC candidate matched (may not have filed FEC Form 2 yet)"
+    },
+    {
+      "dbId": "cmr79582c0013vo247xwqipkp",
+      "dbName": "Michael McGarr",
+      "district": "05",
+      "reason": "no FEC candidate matched (may not have filed FEC Form 2 yet)"
+    },
+    {
+      "dbId": "cmr795476000lvo248sbp260v",
+      "dbName": "Zac Rossi",
+      "district": "04",
+      "reason": "no FEC candidate matched (may not have filed FEC Form 2 yet)"
+    }
+  ],
+  "unmatchedFec": [
+    {
+      "fecCandidateId": "H2WA04124",
+      "fecName": "BAECHLER, MARY",
+      "district": "04",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H6WA04240",
+      "fecName": "BLACK, CARMEN ELIZABETH",
+      "district": "04",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA04211",
+      "fecName": "BOYD, CHERISSA BROOKS",
+      "district": "04",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H6WA04182",
+      "fecName": "MEIER, WESLEY",
+      "district": "04",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA04104",
+      "fecName": "NEWHOUSE, DAN",
+      "district": "04",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA04179",
+      "fecName": "SMILEY, TIFFANY",
+      "district": "04",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H6WA05270",
+      "fecName": "BARTLESON, ANDREW",
+      "district": "05",
+      "reason": "conflict: DB candidate \"Andrew Bartleson\" already matched to H6WA05262 (BARTLESON, ANDREW)"
+    },
+    {
+      "fecCandidateId": "H4WA05242",
+      "fecName": "BINGLE, JONATHAN",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA05259",
+      "fecName": "COOPER, TERRI KAY",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H6WA05197",
+      "fecName": "CROFT, AARON MATTHEW",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA05200",
+      "fecName": "DANSEL, BRIAN",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA05218",
+      "fecName": "DANSEL, BRIAN",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H6WA05023",
+      "fecName": "FOLEY, THOMAS S",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA05275",
+      "fecName": "HOLADAY, RENE'",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H6WA05189",
+      "fecName": "JENSEN, ANTHONY",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA05192",
+      "fecName": "MAYCUMBER, JACQUELIN",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA05077",
+      "fecName": "MCMORRIS RODGERS, CATHY",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA05226",
+      "fecName": "SPURGEON, JODY GAYLE",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H4WA05119",
+      "fecName": "SULLIVAN, CRAIG",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    },
+    {
+      "fecCandidateId": "H6WA05205",
+      "fecName": "WHISENHUNT, ANTHONY A",
+      "district": "05",
+      "reason": "no DB candidate matched (exact or fuzzy >= 0.85)"
+    }
+  ]
+}
