@@ -49,10 +49,10 @@ const PDC_DATASET_URL = 'https://data.wa.gov/resource/kv7h-kjye.json'
 const VOTEWA_URL = 'https://voter.votewa.gov/elections/candidate.ashx'
 
 // Race IDs to exclude from the import. Precinct Committee Officer races are
-// already excluded from the config itself. Scope pruning of the statewide
-// judicial races (Supreme Court / Court of Appeals) and the LD 14/15 races
-// that only clip Benton County is pending an editorial decision -- add their
-// raceIds here once that decision is made.
+// already excluded from the config itself. Statewide judicial races
+// (Supreme Court / Court of Appeals) and the LD 14/15 races that only clip
+// Benton County are deliberately in scope; add a raceId here to exclude a
+// specific contest.
 const SKIP_RACES: string[] = []
 
 // PDC filer_ids that must never be matched to a candidate.
