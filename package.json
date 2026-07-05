@@ -43,6 +43,7 @@
     "import:ballotpedia:load": "ts-node --project tsconfig.scripts.json scripts/import/ballotpedia-load.ts",
     "import:wrcg": "ts-node --project tsconfig.scripts.json scripts/import/wrcg-scrape.ts",
     "import:wrcg:load": "ts-node --project tsconfig.scripts.json scripts/import/wrcg-load.ts",
+    "import:fec": "ts-node --project tsconfig.scripts.json scripts/import/fec.ts",
     "import:lowv": "ts-node --project tsconfig.scripts.json scripts/import/lowv-scrape.ts",
     "import:lowv:load": "ts-node --project tsconfig.scripts.json scripts/import/lowv-load.ts",
     "snapshot": "ts-node --project tsconfig.scripts.json scripts/snapshot-year.ts",
