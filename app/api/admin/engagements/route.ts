@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Prisma, ElectionType } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/db';
 import { verifyToken } from '@/lib/auth/jwt';
 import { validateCsrfToken } from '@/lib/auth/csrf';
 import { slugify } from '@/lib/utils';
-import { CURRENT_ELECTION_YEAR } from '@/lib/constants';
+import { CURRENT_ELECTION_YEAR, CURRENT_ELECTION_TYPE } from '@/lib/constants';
 
 type AllowedRole = 'MODERATOR' | 'ADMIN';
 const ALLOWED_ROLES: AllowedRole[] = ['MODERATOR', 'ADMIN'];
@@ -218,7 +218,7 @@ export async function GET(request: NextRequest) {
       }),
       prisma.race.findMany({
         where: {
-          type: ElectionType.GENERAL,
+          type: CURRENT_ELECTION_TYPE,
           electionYear: CURRENT_ELECTION_YEAR
         },
         orderBy: [

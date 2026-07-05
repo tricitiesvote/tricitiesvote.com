@@ -1,6 +1,6 @@
 import { prisma } from './db'
 import { ElectionType, OfficeType, Prisma } from '@prisma/client'
-import { CURRENT_ELECTION_YEAR, isCurrentElectionYear } from './constants'
+import { CURRENT_ELECTION_YEAR, CURRENT_ELECTION_TYPE, isCurrentElectionYear } from './constants'
 import { unslugify, slugify } from './utils'
 
 const raceInclude = (year: number) => ({
@@ -44,11 +44,11 @@ const raceInclude = (year: number) => ({
   }
 } as const)
 
-const guideInclude = (year: number) => ({
+const guideInclude = (year: number, electionType: ElectionType = CURRENT_ELECTION_TYPE) => ({
   include: {
     region: true,
     Race: {
-      where: { type: ElectionType.GENERAL },
+      where: { type: electionType },
       include: raceInclude(year),
       orderBy: {
         office: {
@@ -61,10 +61,12 @@ const guideInclude = (year: number) => ({
 
 type GuideWithRelations = Prisma.GuideGetPayload<ReturnType<typeof guideInclude>>
 
-export async function getAvailableYears(): Promise<number[]> {
+export async function getAvailableYears(
+  electionType: ElectionType = CURRENT_ELECTION_TYPE
+): Promise<number[]> {
   try {
     const guides = await prisma.guide.findMany({
-      where: { type: ElectionType.GENERAL },
+      where: { type: electionType },
       select: { electionYear: true },
       distinct: ['electionYear'],
       orderBy: { electionYear: 'desc' }
@@ -87,10 +89,13 @@ export async function getLatestYear(): Promise<number> {
   return years[0] || new Date().getFullYear()
 }
 
-export async function getGuidesForYear(year: number) {
+export async function getGuidesForYear(
+  year: number,
+  electionType: ElectionType = CURRENT_ELECTION_TYPE
+) {
   const guides = await prisma.guide.findMany({
-    where: { electionYear: year, type: ElectionType.GENERAL },
-    ...guideInclude(year),
+    where: { electionYear: year, type: electionType },
+    ...guideInclude(year, electionType),
     orderBy: {
       region: {
         name: 'asc' as const
@@ -98,13 +103,17 @@ export async function getGuidesForYear(year: number) {
     }
   }) as GuideWithRelations[]
 
-  const portGroups = await fetchPortRacesByKey(year)
+  const portGroups = await fetchPortRacesByKey(year, electionType)
   guides.forEach(guide => attachPortRaces(guide, portGroups))
 
   return guides
 }
 
-export async function getGuideByYearAndRegion(year: number, regionSlug: string) {
+export async function getGuideByYearAndRegion(
+  year: number,
+  regionSlug: string,
+  electionType: ElectionType = CURRENT_ELECTION_TYPE
+) {
   // Convert slug back to region name (e.g., "benton-county" -> "Benton County")
   const regionName = unslugify(regionSlug)
   
@@ -119,25 +128,29 @@ export async function getGuideByYearAndRegion(year: number, regionSlug: string) 
   }
   
   const guide = await prisma.guide.findFirst({
-    where: { 
+    where: {
       electionYear: year,
       regionId: region.id,
-      type: ElectionType.GENERAL
+      type: electionType
     },
-    ...guideInclude(year)
+    ...guideInclude(year, electionType)
   }) as GuideWithRelations | null
 
   if (!guide) {
     return null
   }
 
-  const portGroups = await fetchPortRacesByKey(year)
+  const portGroups = await fetchPortRacesByKey(year, electionType)
   attachPortRaces(guide, portGroups)
 
   return guide
 }
 
-export async function getCandidateByYearAndSlug(year: number, slug: string) {
+export async function getCandidateByYearAndSlug(
+  year: number,
+  slug: string,
+  electionType: ElectionType = CURRENT_ELECTION_TYPE
+) {
   // Convert slug back to name (e.g., "john-doe" -> "John Doe")
   // Note: We can't do a simple name match because slugs strip apostrophes
   // (e.g., "Bill O'Neil" becomes "bill-oneil")
@@ -196,7 +209,7 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
       races: {
         where: {
           race: {
-            type: ElectionType.GENERAL
+            type: electionType
           }
         },
         include: {
@@ -216,14 +229,18 @@ export async function getCandidateByYearAndSlug(year: number, slug: string) {
   })
 }
 
-export async function getRaceByYearAndSlug(year: number, slug: string) {
+export async function getRaceByYearAndSlug(
+  year: number,
+  slug: string,
+  electionType: ElectionType = CURRENT_ELECTION_TYPE
+) {
   // Convert slug back to office title (e.g., "kennewick-city-council" -> "Kennewick City Council")
   const officeTitle = unslugify(slug)
-  
+
   return await prisma.race.findFirst({
     where: {
       electionYear: year,
-      type: ElectionType.GENERAL,
+      type: electionType,
       office: {
         title: { equals: officeTitle, mode: 'insensitive' }
       }
@@ -270,11 +287,14 @@ function getRaceInclude(year: number) {
 
 type PortGroupKey = 'benton' | 'kennewick' | 'pasco'
 
-async function fetchPortRacesByKey(year: number) {
+async function fetchPortRacesByKey(
+  year: number,
+  electionType: ElectionType = CURRENT_ELECTION_TYPE
+) {
   const races = await prisma.race.findMany({
     where: {
       electionYear: year,
-      type: ElectionType.GENERAL,
+      type: electionType,
       office: {
         type: OfficeType.PORT_COMMISSIONER
       }
