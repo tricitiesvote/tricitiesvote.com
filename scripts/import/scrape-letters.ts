@@ -1,6 +1,7 @@
 import { chromium } from 'playwright'
 import Anthropic from '@anthropic-ai/sdk'
 import { PrismaClient } from '@prisma/client'
+import { CURRENT_ELECTION_YEAR } from '../../lib/constants'
 
 const prisma = new PrismaClient()
 
@@ -24,6 +25,9 @@ const args = process.argv.slice(2)
 const forceFullRescan = args.includes('--full')
 const sinceArg = args.find(arg => arg.startsWith('--since='))
 const parsedSince = sinceArg ? new Date(sinceArg.split('=')[1]) : null
+const yearArg = args.find(arg => arg.startsWith('--year='))
+const parsedYear = yearArg ? parseInt(yearArg.split('=')[1], 10) : NaN
+const electionYear = Number.isNaN(parsedYear) ? CURRENT_ELECTION_YEAR : parsedYear
 const sinceIsValid = parsedSince instanceof Date && !Number.isNaN(parsedSince?.getTime?.() ?? Number.NaN)
 
 async function scrapeLetters() {
@@ -40,7 +44,7 @@ async function scrapeLetters() {
   console.log('📊 Fetching candidates from database...')
   const candidates = await prisma.candidate.findMany({
     where: {
-      electionYear: 2025,
+      electionYear,
       office: {
         type: {
           in: ['CITY_COUNCIL', 'SCHOOL_BOARD', 'PORT_COMMISSIONER', 'BALLOT_MEASURE']
@@ -60,7 +64,7 @@ async function scrapeLetters() {
     candidates.map(c => [c.name, OFFICE_LABELS[c.office.type] ?? c.office.type])
   )
 
-  console.log(`✅ Found ${candidateNames.length} candidates in 2025 races\n`)
+  console.log(`✅ Found ${candidateNames.length} candidates in ${electionYear} races\n`)
 
   // Find the most recent letter we've already processed
   console.log('🔍 Checking for previously processed letters...')
@@ -79,10 +83,10 @@ async function scrapeLetters() {
     }
   })
 
-  let cutoffDate = sinceIsValid ? parsedSince! : new Date('2025-05-01') // Default fallback
+  let cutoffDate = sinceIsValid ? parsedSince! : new Date(`${electionYear}-05-01`) // Default fallback
   let cutoffMessage = sinceIsValid
     ? parsedSince!.toLocaleDateString()
-    : 'May 2025 (default)'
+    : `May ${electionYear} (default)`
 
   const lastLetterUrl = lastLetter?.url ?? null
 
@@ -204,7 +208,7 @@ async function scrapeLetters() {
         }
 
         if (articleDate && articleDate < cutoffDate) {
-          console.log(`  Found article from ${item.dateText}, before May 2025 cutoff - stopping`)
+          console.log(`  Found article from ${item.dateText}, before ${cutoffDate.toLocaleDateString()} cutoff - stopping`)
           stopScraping = true
           break
         }
@@ -225,7 +229,7 @@ async function scrapeLetters() {
 
   const sinceMessage = lastProcessedArticleNum > 0
     ? `since article ${lastProcessedArticleNum}`
-    : 'since May 2025'
+    : `since ${cutoffMessage}`
   console.log(`✅ Found ${uniqueLinks.length} unique letter articles (${sinceMessage}) across ${currentPage - 1} pages\n`)
 
   const endorsements: Endorsement[] = []
@@ -268,7 +272,7 @@ async function scrapeLetters() {
           role: 'user',
           content: `You are analyzing letters to the editor for mentions of local election candidates.
 
-Candidate list (2025 Tri-Cities races):
+Candidate list (${electionYear} Tri-Cities races):
 ${candidateNames.join(', ')}
 
 Ballot measure context:

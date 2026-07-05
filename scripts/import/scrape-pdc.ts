@@ -1,7 +1,12 @@
 import { chromium, Browser, Page } from 'playwright'
 import { PrismaClient } from '@prisma/client'
+import { CURRENT_ELECTION_YEAR } from '../../lib/constants'
 
 const prisma = new PrismaClient()
+
+const yearArg = process.argv.slice(2).find(arg => arg.startsWith('--year='))
+const parsedYear = yearArg ? parseInt(yearArg.split('=')[1], 10) : NaN
+const ELECTION_YEAR = Number.isNaN(parsedYear) ? CURRENT_ELECTION_YEAR : parsedYear
 
 interface PDCResult {
   candidateName: string
@@ -73,8 +78,8 @@ async function processCandidate(candidate: any, regionName: string, page: Page):
       }
     }
 
-    // Prefer 2025 entries
-    let bestMatch = candidateLinks.find(link => link.year === 2025) || candidateLinks[0]
+    // Prefer entries for the target election year
+    let bestMatch = candidateLinks.find(link => link.year === ELECTION_YEAR) || candidateLinks[0]
 
     if (candidateLinks.length > 1) {
       console.log(`  ℹ️  Found ${candidateLinks.length} entries (using ${bestMatch.year})`)
@@ -291,11 +296,11 @@ async function scrapePDC() {
     console.log(`⚡ Running ${parallelCount} browsers in parallel`)
   }
 
-  // Fetch 2025 candidates from database
-  console.log('📊 Fetching 2025 candidates from database...')
+  // Fetch candidates for the target election year from database
+  console.log(`📊 Fetching ${ELECTION_YEAR} candidates from database...`)
   let candidates = await prisma.candidate.findMany({
     where: {
-      electionYear: 2025
+      electionYear: ELECTION_YEAR
     },
     include: {
       office: {
