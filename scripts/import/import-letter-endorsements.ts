@@ -1,6 +1,7 @@
 import { PrismaClient, EndorsementType, ForAgainst } from '@prisma/client'
 import * as fs from 'fs'
 import * as path from 'path'
+import { CURRENT_ELECTION_YEAR } from '../../lib/constants'
 
 const prisma = new PrismaClient()
 
@@ -96,7 +97,7 @@ async function importLetterEndorsements() {
       const candidate = await prisma.candidate.findFirst({
         where: {
           name: { equals: normalizedCandidateName, mode: 'insensitive' },
-          electionYear: 2025
+          electionYear: CURRENT_ELECTION_YEAR
         }
       })
 

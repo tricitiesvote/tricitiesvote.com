@@ -1,7 +1,12 @@
 import { chromium, Browser, Page } from 'playwright'
 import { PrismaClient } from '@prisma/client'
+import { CURRENT_ELECTION_YEAR } from '../../lib/constants'
 
 const prisma = new PrismaClient()
+
+const yearArg = process.argv.slice(2).find(arg => arg.startsWith('--year='))
+const parsedYear = yearArg ? parseInt(yearArg.split('=')[1], 10) : NaN
+const ELECTION_YEAR = Number.isNaN(parsedYear) ? CURRENT_ELECTION_YEAR : parsedYear
 
 interface PDCResult {
   candidateName: string
@@ -73,8 +78,8 @@ async function processCandidate(candidate: any, regionName: string, page: Page):
       }
     }
 
-    // Prefer 2025 entries
-    let bestMatch = candidateLinks.find(link => link.year === 2025) || candidateLinks[0]
+    // Prefer entries for the target election year
+    let bestMatch = candidateLinks.find(link => link.year === ELECTION_YEAR) || candidateLinks[0]
 
     if (candidateLinks.length > 1) {
       console.log(`  ℹ️  Found ${candidateLinks.length} entries (using ${bestMatch.year})`)
@@ -87,22 +92,45 @@ async function processCandidate(candidate: any, regionName: string, page: Page):
     })
     await page.waitForTimeout(2000)
 
-    // Verify region (be lenient with matching)
+    // Verify region - check that the jurisdiction/office matches our expected region
     const pageText = await page.textContent('body')
-    const regionKeywords = [
-      regionName,
-      'Benton',
-      'Franklin',
-      'Pasco',
-      'Kennewick',
-      'Richland',
-      'West Richland'
+
+    // Build more specific region checks - look for jurisdiction context
+    const jurisdictionKeywords = [
+      `CITY OF ${regionName.toUpperCase()}`,
+      `${regionName.toUpperCase()} CITY`,
+      `${regionName.toUpperCase()} SCHOOL`,
+      `PORT OF ${regionName.toUpperCase()}`,
+      `${regionName.toUpperCase()} COUNTY`,
+      // Specific city names for our Tri-Cities region
+      'CITY OF PASCO',
+      'CITY OF KENNEWICK',
+      'CITY OF RICHLAND',
+      'CITY OF WEST RICHLAND',
+      'PASCO SCHOOL',
+      'KENNEWICK SCHOOL',
+      'RICHLAND SCHOOL',
+      'PORT OF BENTON',
+      'PORT OF KENNEWICK',
+      'PORT OF PASCO',
+      'BENTON COUNTY',
+      'FRANKLIN COUNTY'
     ]
-    const regionMatch = regionKeywords.some(keyword =>
-      pageText?.toLowerCase().includes(keyword.toLowerCase())
+
+    const regionMatch = jurisdictionKeywords.some(keyword =>
+      pageText?.toUpperCase().includes(keyword)
     )
 
-    // Note: We don't fail on region mismatch since "PORT OF BENTON" is valid for "Benton County" etc.
+    if (!regionMatch) {
+      console.log(`  ⚠️  Region mismatch - expected ${regionName} jurisdiction, page appears to be for a different area`)
+      return {
+        candidateName: candidate.name,
+        pdcUrl: null,
+        isMiniFiler: false,
+        region: regionName,
+        error: `Region mismatch - found PDC profile but not for ${regionName}`
+      }
+    }
 
     // Check if they're a mini filer
     // Look for specific indicators that they filed as a mini-filer, not just the word "mini"
@@ -268,11 +296,11 @@ async function scrapePDC() {
     console.log(`⚡ Running ${parallelCount} browsers in parallel`)
   }
 
-  // Fetch 2025 candidates from database
-  console.log('📊 Fetching 2025 candidates from database...')
+  // Fetch candidates for the target election year from database
+  console.log(`📊 Fetching ${ELECTION_YEAR} candidates from database...`)
   let candidates = await prisma.candidate.findMany({
     where: {
-      electionYear: 2025
+      electionYear: ELECTION_YEAR
     },
     include: {
       office: {

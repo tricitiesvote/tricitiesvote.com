@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import TurndownService from 'turndown'
 import { NameMatcher } from '../normalize/names'
+import { CURRENT_ELECTION_YEAR } from '../constants'
 import * as foldToAscii from 'fold-to-ascii'
 import path from 'path'
 import fs from 'fs/promises'
@@ -88,7 +89,7 @@ export class PamphletClient {
     const candidate = await this.prisma.candidate.findFirst({
       where: { 
         name: normalizedName,
-        electionYear: { in: [2025, 2024] } // Check recent years
+        electionYear: { in: [CURRENT_ELECTION_YEAR, CURRENT_ELECTION_YEAR - 1] } // Check recent years
       }
     })
     
