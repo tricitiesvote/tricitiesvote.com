@@ -10,7 +10,7 @@ export class WAStateClient {
     'CITY OF PASCO'
   ]
   private static COUNTIES = ['BENTON', 'FRANKLIN']
-  private static DISTRICTS = ['16', '08', '09', '8', '9']
+  private static DISTRICTS = ['16', '08', '09', '8', '9', '14', '15']
 
   constructor(credentials?: SocrataCredentials) {
     this.client = new SocrataClient('data.wa.gov', credentials)
