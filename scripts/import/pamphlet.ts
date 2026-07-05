@@ -54,6 +54,14 @@ function slugify(text: string): string {
 async function importPamphletData() {
   const electionYear = parseInt(electionConfig.year)
   console.log(`\n🗳️  Importing ${electionYear} voter pamphlet data...\n`)
+
+  // Seed the matcher with this election's candidates so ballot names match
+  // even before they have entries in load-config-names.json
+  const yearCandidates = await prisma.candidate.findMany({
+    where: { electionYear },
+    select: { name: true }
+  })
+  yearCandidates.forEach(c => nameMatcher.addKnownName(c.name, c.name))
   
   const electionId = electionConfig.electionId
   const raceIds = electionConfig.raceIds
