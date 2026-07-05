@@ -5,6 +5,13 @@ const nextConfig = {
   // We'll start with these basic settings
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    // public/ is served from the CDN; keep its ~280MB of images out of
+    // serverless function bundles (Vercel caps functions at 250MB)
+    outputFileTracingExcludes: {
+      '*': ['./public/**']
+    }
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: '**' },
