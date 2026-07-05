@@ -14,7 +14,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/2025',
+        source: '/2026',
         destination: '/',
         permanent: false
       }
