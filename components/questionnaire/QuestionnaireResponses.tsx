@@ -1,6 +1,21 @@
 import { prisma } from '@/lib/db'
 
-const SCALE_LABELS = ['', 'Strong A', 'Lean A', 'Lean B', 'Strong B'] as const
+function scaleLabel(scale: number, value: number): string {
+  const labels = scale === 5
+    ? ['Strong A', 'Lean A', 'Neutral', 'Lean B', 'Strong B']
+    : ['Strong A', 'Lean A', 'Lean B', 'Strong B']
+  return labels[value - 1] ?? ''
+}
+
+// Reuse the 4-point color ramp on 5-point scales: the middle value gets its
+// own neutral style and the B side shifts up one.
+function scaleClass(scale: number, value: number): string {
+  if (scale === 5) {
+    if (value === 3) return 'scale-neutral'
+    return value < 3 ? `scale-${value}` : `scale-${value - 1}`
+  }
+  return `scale-${value}`
+}
 
 interface QuestionnaireResponsesProps {
   candidateId: string
@@ -14,7 +29,7 @@ export async function QuestionnaireResponses({
   hiddenTitles = []
 }: QuestionnaireResponsesProps) {
   const questionnaires = await prisma.questionnaire.findMany({
-    where: { year },
+    where: { year, hidden: false },
     include: {
       questions: {
         orderBy: { position: 'asc' }
@@ -71,6 +86,9 @@ export async function QuestionnaireResponses({
       return {
         id: q.id,
         title: q.title,
+        scale: q.scale === 5 ? 5 : 4,
+        sourceName: q.sourceName,
+        sourceUrl: q.sourceUrl,
         items: items as Array<{
           type: 'AB' | 'OPEN'
           question: typeof q.questions[number]
@@ -90,11 +108,20 @@ export async function QuestionnaireResponses({
       {sections.map(section => (
         <div key={section.id} className="questionnaire-section">
           <h4>{section.title}</h4>
+          {section.sourceName && (
+            <p className="questionnaire-source">
+              Survey by{' '}
+              {section.sourceUrl ? (
+                <a href={section.sourceUrl}>{section.sourceName}</a>
+              ) : (
+                section.sourceName
+              )}
+            </p>
+          )}
           {section.items.map(item => {
             const questionText = item.question.question
             if (item.type === 'AB') {
               const value = item.response.value ?? 0
-              const scaleLabel = SCALE_LABELS[value] ?? ''
 
               return (
                 <div key={item.question.id} className="q-and-a">
@@ -106,8 +133,8 @@ export async function QuestionnaireResponses({
                     <span className="statement-b">{item.question.statementB}</span>
                   </div>
                   {value > 0 && (
-                    <span className={`scale-value scale-${value}`}>
-                      {scaleLabel}
+                    <span className={`scale-value ${scaleClass(section.scale, value)}`}>
+                      {scaleLabel(section.scale, value)}
                     </span>
                   )}
                   {item.response.comment && (

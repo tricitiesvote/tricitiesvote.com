@@ -3705,6 +3705,11 @@ td .more, .no-response .more {
   color: #fff;
 }
 
+.scale-neutral {
+  background: #8a9aa3;
+  color: #fff;
+}
+
 .response {
   margin-top: 0.5rem;
   line-height: 1.6;
@@ -3728,6 +3733,47 @@ td .more, .no-response .more {
   margin: 0 0 1.5rem;
   font-size: 1.75rem;
   color: #0066cc;
+}
+
+details.questionnaire-compare-section > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+details.questionnaire-compare-section > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.questionnaire-compare-section > summary .questionnaire-compare-heading {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+details.questionnaire-compare-section > summary .questionnaire-compare-heading::before {
+  content: '▸ ';
+  font-size: 1.2rem;
+  color: #4b6b7a;
+}
+
+details.questionnaire-compare-section[open] > summary .questionnaire-compare-heading::before {
+  content: '▾ ';
+}
+
+.questionnaire-source {
+  margin: 0 0 1.5rem;
+  font-size: 0.9em;
+  color: #4b6b7a;
+}
+
+.questionnaire-source a {
+  color: #0066cc;
+}
+
+.questionnaire-nonresponders {
+  margin: 0.5rem 0 0;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #4b6b7a;
 }
 
 .questionnaire-open {

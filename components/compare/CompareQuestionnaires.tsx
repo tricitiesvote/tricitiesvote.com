@@ -10,6 +10,7 @@ interface CompareQuestionnairesProps {
   hiddenTitles?: string[]
   colorMap?: Map<string, string>
   hideOpenQuestions?: boolean
+  collapsed?: boolean
 }
 
 interface CandidateMeta {
@@ -17,16 +18,14 @@ interface CandidateMeta {
   name: string
   image?: string | null
   slug: string
+  officeId?: string
 }
 
 interface AbRow {
   id: string
   statementA: string
   statementB: string
-  strongA: CandidateEntry[]
-  leanA: CandidateEntry[]
-  leanB: CandidateEntry[]
-  strongB: CandidateEntry[]
+  buckets: CandidateEntry[][]
 }
 
 interface CandidateEntry {
@@ -47,6 +46,9 @@ type QuestionnaireRecord = {
   id: string
   slug?: string | null
   title: string
+  scale: number
+  sourceName: string | null
+  sourceUrl: string | null
   questions: Array<{
     id: string
     type: string
@@ -73,25 +75,35 @@ type QuestionnaireRecord = {
 interface QuestionnaireSection {
   id: string
   title: string
+  scale: number
+  sourceName: string | null
+  sourceUrl: string | null
   abRows: AbRow[]
   openQuestions: OpenQuestion[]
+  responderIds: Set<string>
 }
 
-const TRI_CITIES_SLUGS = ['city-council', 'school-board']
-
-function isTriCitiesQuestionnaire(slug?: string | null) {
-  if (!slug) return false
-  const normalized = slug.toLowerCase()
-  return TRI_CITIES_SLUGS.some(segment => normalized.includes(segment))
+export function scaleLabels(scale: number): string[] {
+  return scale === 5
+    ? ['Strong A', 'Lean A', 'Neutral', 'Lean B', 'Strong B']
+    : ['Strong A', 'Lean A', 'Lean B', 'Strong B']
 }
 
-export async function CompareQuestionnaires({ year, regionId, candidates, hiddenTitles = [], colorMap, hideOpenQuestions = false }: CompareQuestionnairesProps) {
+const BUCKET_CLASSES_4 = ['strong-a', 'lean-a', 'lean-b', 'strong-b']
+const BUCKET_CLASSES_5 = ['strong-a', 'lean-a', 'neutral', 'lean-b', 'strong-b']
+
+export function bucketClasses(scale: number): string[] {
+  return scale === 5 ? BUCKET_CLASSES_5 : BUCKET_CLASSES_4
+}
+
+export async function CompareQuestionnaires({ year, regionId, candidates, hiddenTitles = [], colorMap, hideOpenQuestions = false, collapsed = false }: CompareQuestionnairesProps) {
   const orderedCandidates = candidates
     .map(candidate => ({
       id: candidate.id,
       name: candidate.name,
       image: candidate.image ?? null,
       slug: candidate.slug,
+      officeId: candidate.officeId,
     }))
     .filter(candidate => candidate.name.trim().length > 0)
 
@@ -110,6 +122,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
   const questionnaires = (await prisma.questionnaire.findMany({
     where: {
       year,
+      hidden: false,
       OR: regionFilter,
     },
     include: {
@@ -137,7 +150,6 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
   const hiddenTitleSet = new Set(hiddenTitles)
 
   const sections: QuestionnaireSection[] = questionnaires
-    .filter(questionnaire => isTriCitiesQuestionnaire(questionnaire.slug))
     .map(questionnaire => buildSection(questionnaire, candidateMap))
     .filter(section =>
       (section.abRows.length > 0 || section.openQuestions.length > 0) &&
@@ -150,135 +162,154 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
 
   return (
     <div className="questionnaire-compare">
-      {sections.map(section => (
-        <section key={section.id} className="questionnaire-compare-section">
-          {!hideOpenQuestions && (
-            <h2 id="tcv" className="questionnaire-compare-heading">{section.title}</h2>
-          )}
+      {sections.map(section => {
+        const labels = scaleLabels(section.scale)
+        const classes = bucketClasses(section.scale)
+        const nonResponders = findNonResponders(orderedCandidates, section.responderIds)
 
-          {!hideOpenQuestions && section.openQuestions.length > 0 && (
-            <div className="questionnaire-open">
-              {section.openQuestions.map(question => (
-                <div key={question.id} className="questionnaire-open-block">
-                  <div className="questionnaire-open-question-cell">
-                    <h3>{question.question}</h3>
+        return (
+          <details key={section.id} className="questionnaire-compare-section" open={!collapsed}>
+            <summary>
+              <h2 id="tcv" className="questionnaire-compare-heading">{section.title}</h2>
+              {section.sourceName && (
+                <p className="questionnaire-source">
+                  Survey by{' '}
+                  {section.sourceUrl ? (
+                    <a href={section.sourceUrl}>{section.sourceName}</a>
+                  ) : (
+                    section.sourceName
+                  )}
+                </p>
+              )}
+            </summary>
+
+            {!hideOpenQuestions && section.openQuestions.length > 0 && (
+              <div className="questionnaire-open">
+                {section.openQuestions.map(question => (
+                  <div key={question.id} className="questionnaire-open-block">
+                    <div className="questionnaire-open-question-cell">
+                      <h3>{question.question}</h3>
+                    </div>
+                    <div className={`questionnaire-open-answer-list columns-${Math.min(orderedCandidates.length, 6)}`}>
+                      {orderedCandidates
+                        .filter(candidate => section.responderIds.has(candidate.id))
+                        .map(candidate => {
+                          const answer = question.responses[candidate.id]
+                          const candidateUrl = `/${year}/candidate/${candidate.slug}`
+                          const cardClass = `questionnaire-open-answer-card candidate-card${answer ? '' : ' questionnaire-open-answer-empty'}`
+
+                          return (
+                            <div key={candidate.id} className={cardClass}>
+                              <div className="candidate-card-heading">
+                                <CandidateImage name={candidate.name} image={candidate.image} url={candidateUrl} size={38} />
+                                <h4>{candidate.name}</h4>
+                              </div>
+                              <div className="candidate-card-body candidate-card-body-answer">
+                                {answer ? (
+                                  <p className="candidate-card-text">{answer}</p>
+                                ) : (
+                                  <span className="questionnaire-open-answer-none">—</span>
+                                )}
+                              </div>
+                            </div>
+                          )
+                        })}
+                    </div>
                   </div>
-                  <div className={`questionnaire-open-answer-list columns-${Math.min(orderedCandidates.length, 6)}`}>
-                    {orderedCandidates.map(candidate => {
-                      const answer = question.responses[candidate.id]
-                      const candidateUrl = `/${year}/candidate/${candidate.slug}`
-                      const cardClass = `questionnaire-open-answer-card candidate-card${answer ? '' : ' questionnaire-open-answer-empty'}`
+                ))}
+              </div>
+            )}
 
-                      return (
-                        <div key={candidate.id} className={cardClass}>
-                          <div className="candidate-card-heading">
-                            <CandidateImage name={candidate.name} image={candidate.image} url={candidateUrl} size={38} />
-                            <h4>{candidate.name}</h4>
-                          </div>
-                          <div className="candidate-card-body candidate-card-body-answer">
-                            {answer ? (
-                              <p className="candidate-card-text">{answer}</p>
-                            ) : (
-                              <span className="questionnaire-open-answer-none">—</span>
-                            )}
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {section.abRows.length > 0 && (
-            <div className="compare-table legacy-compare">
-              <table>
-                <thead>
-                  <tr className="key">
-                    <th>Statement A</th>
-                    <th>Strong A</th>
-                    <th>Lean A</th>
-                    <th>Lean B</th>
-                    <th>Strong B</th>
-                    <th>Statement B</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {section.abRows.map(row => (
-                    <tr key={row.id}>
-                      <th>
-                        <p>{row.statementA}</p>
-                      </th>
-                      <td className="strong-a">
-                        {row.strongA.map(candidate => (
-                          <CompareCandidateStatement
-                            key={candidate.id}
-                            name={candidate.name}
-                            image={candidate.image}
-                            comment={candidate.comment}
-                            colorClass={colorMap?.get(candidate.id)}
-                          />
-                        ))}
-                      </td>
-                      <td className="lean-a">
-                        {row.leanA.map(candidate => (
-                          <CompareCandidateStatement
-                            key={candidate.id}
-                            name={candidate.name}
-                            image={candidate.image}
-                            comment={candidate.comment}
-                            colorClass={colorMap?.get(candidate.id)}
-                          />
-                        ))}
-                      </td>
-                      <td className="lean-b">
-                        {row.leanB.map(candidate => (
-                          <CompareCandidateStatement
-                            key={candidate.id}
-                            name={candidate.name}
-                            image={candidate.image}
-                            comment={candidate.comment}
-                            colorClass={colorMap?.get(candidate.id)}
-                          />
-                        ))}
-                      </td>
-                      <td className="strong-b">
-                        {row.strongB.map(candidate => (
-                          <CompareCandidateStatement
-                            key={candidate.id}
-                            name={candidate.name}
-                            image={candidate.image}
-                            comment={candidate.comment}
-                            colorClass={colorMap?.get(candidate.id)}
-                          />
-                        ))}
-                      </td>
-                      <th>
-                        <p>{row.statementB}</p>
-                      </th>
+            {section.abRows.length > 0 && (
+              <div className="compare-table legacy-compare">
+                <table>
+                  <thead>
+                    <tr className="key">
+                      <th>Statement A</th>
+                      {labels.map(label => (
+                        <th key={label}>{label}</th>
+                      ))}
+                      <th>Statement B</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </section>
-      ))}
+                  </thead>
+                  <tbody>
+                    {section.abRows.map(row => (
+                      <tr key={row.id}>
+                        <th>
+                          <p>{row.statementA}</p>
+                        </th>
+                        {row.buckets.map((bucket, index) => (
+                          <td key={classes[index]} className={classes[index]}>
+                            {bucket.map(candidate => (
+                              <CompareCandidateStatement
+                                key={candidate.id}
+                                name={candidate.name}
+                                image={candidate.image}
+                                comment={candidate.comment}
+                                colorClass={colorMap?.get(candidate.id)}
+                              />
+                            ))}
+                          </td>
+                        ))}
+                        <th>
+                          <p>{row.statementB}</p>
+                        </th>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+
+            {nonResponders.length > 0 && (
+              <p className="questionnaire-nonresponders">
+                Did not respond: {nonResponders.map(candidate => candidate.name).join(', ')}
+              </p>
+            )}
+          </details>
+        )
+      })}
     </div>
   )
+}
+
+// A candidate counts as a non-responder only when someone from their own
+// office answered — a questionnaire aimed at one race shouldn't flag the
+// rest of the field on aggregate boards.
+function findNonResponders(
+  candidates: Array<CandidateMeta & { officeId?: string }>,
+  responderIds: Set<string>
+): CandidateMeta[] {
+  const responderOffices = new Set(
+    candidates
+      .filter(candidate => responderIds.has(candidate.id) && candidate.officeId)
+      .map(candidate => candidate.officeId as string)
+  )
+
+  return candidates.filter(candidate => {
+    if (responderIds.has(candidate.id)) {
+      return false
+    }
+    if (!candidate.officeId || responderOffices.size === 0) {
+      return true
+    }
+    return responderOffices.has(candidate.officeId)
+  })
 }
 
 function buildSection(
   questionnaire: QuestionnaireRecord,
   candidateMap: Map<string, CandidateMeta>
 ): QuestionnaireSection {
+  const scale = questionnaire.scale === 5 ? 5 : 4
   const abRows: AbRow[] = []
   const openQuestions: OpenQuestion[] = []
+  const responderIds = new Set<string>()
 
   const responsesByQuestion = new Map<string, typeof questionnaire.responses>()
 
   for (const response of questionnaire.responses) {
+    responderIds.add(response.candidateId)
     const list = responsesByQuestion.get(response.questionId) ?? []
     list.push(response)
     responsesByQuestion.set(response.questionId, list)
@@ -288,35 +319,24 @@ function buildSection(
     const responses = responsesByQuestion.get(question.id) ?? []
 
     if (question.type === 'AB') {
-      const strongA = responses
-        .filter(response => response.value === 1)
-        .map(response => toCandidateEntry(response, candidateMap))
-        .filter(Boolean) as CandidateEntry[]
+      const buckets: CandidateEntry[][] = Array.from({ length: scale }, () => [])
 
-      const leanA = responses
-        .filter(response => response.value === 2)
-        .map(response => toCandidateEntry(response, candidateMap))
-        .filter(Boolean) as CandidateEntry[]
+      for (const response of responses) {
+        if (response.value == null || response.value < 1 || response.value > scale) {
+          continue
+        }
+        const entry = toCandidateEntry(response, candidateMap)
+        if (entry) {
+          buckets[response.value - 1].push(entry)
+        }
+      }
 
-      const leanB = responses
-        .filter(response => response.value === 3)
-        .map(response => toCandidateEntry(response, candidateMap))
-        .filter(Boolean) as CandidateEntry[]
-
-      const strongB = responses
-        .filter(response => response.value === 4)
-        .map(response => toCandidateEntry(response, candidateMap))
-        .filter(Boolean) as CandidateEntry[]
-
-      if (strongA.length || leanA.length || leanB.length || strongB.length) {
+      if (buckets.some(bucket => bucket.length > 0)) {
         abRows.push({
           id: question.id,
           statementA: question.statementA ?? '',
           statementB: question.statementB ?? '',
-          strongA,
-          leanA,
-          leanB,
-          strongB,
+          buckets,
         })
       }
     }
@@ -344,8 +364,12 @@ function buildSection(
   return {
     id: questionnaire.id,
     title: questionnaire.title,
+    scale,
+    sourceName: questionnaire.sourceName,
+    sourceUrl: questionnaire.sourceUrl,
     abRows,
     openQuestions,
+    responderIds,
   }
 }
 
