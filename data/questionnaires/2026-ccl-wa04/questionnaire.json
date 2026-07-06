@@ -1,0 +1,100 @@
+{
+  "slug": "2026-ccl-wa04",
+  "year": 2026,
+  "title": "Climate & Energy Survey — U.S. House District 4",
+  "sourceName": "Citizens' Climate Lobby Tri-Cities",
+  "sourceUrl": "https://citizensclimatelobby.org/",
+  "scale": 5,
+  "engagement": {
+    "name": "CCL Climate Survey",
+    "date": "2026-06-26"
+  },
+  "coverage": {
+    "officeTitles": [
+      "U.S. House District 4"
+    ]
+  },
+  "aliases": {
+    "Favien Valencia": "Favian Valencia",
+    "John C. Hughes": "John C. Hughs",
+    "Jack Kobiesa": "Jacek \"Jack\" Kobiesa",
+    "Jacek Kobiesa": "Jacek \"Jack\" Kobiesa"
+  },
+  "questions": [
+    {
+      "position": 1,
+      "type": "AB",
+      "question": "Global Warming",
+      "statementA": "Global warming, driven by human activities threatens our well-being",
+      "statementB": "The climate has always changed by itself, and is nothing to worry about"
+    },
+    {
+      "position": 2,
+      "type": "AB",
+      "question": "Energy Portfolio Choices",
+      "statementA": "Continue to subsidize the already established fossil fuel industry",
+      "statementB": "Subsidize carbon-free solutions, including nuclear and renewable energy"
+    },
+    {
+      "position": 3,
+      "type": "AB",
+      "question": "Climate and the Economy",
+      "statementA": "We can thrive by proactively addressing climate change",
+      "statementB": "Prioritizing climate change solutions negatively impacts business and economy"
+    },
+    {
+      "position": 4,
+      "type": "AB",
+      "question": "Making Important Public Decisions",
+      "statementA": "I mostly trust my own lived experiences, judgements, beliefs and values",
+      "statementB": "I mostly seek out opinions and perspectives different from my own"
+    },
+    {
+      "position": 5,
+      "type": "AB",
+      "question": "Power Generation on Public Lands",
+      "statementA": "I support allowing renewable power generation on public lands",
+      "statementB": "I am against allowing renewable power generation on public lands"
+    },
+    {
+      "position": 6,
+      "type": "AB",
+      "question": "Repealing the EPA's Endangerment Findings",
+      "statementA": "Repealing is a mistake which will ultimately increase pollution and harm the climate",
+      "statementB": "Repealing removes unnecessary regulations and will improve the economy"
+    },
+    {
+      "position": 7,
+      "type": "AB",
+      "question": "Climate Change Education Act",
+      "statementA": "Favorable, I would vote for the Act",
+      "statementB": "Unfavorable, I would vote against the Act"
+    },
+    {
+      "position": 8,
+      "type": "AB",
+      "question": "Regulating CO2 and CH4",
+      "statementA": "I support regulating CO2 and CH4 as pollutants",
+      "statementB": "I oppose regulating CO2 and CH4 as pollutants"
+    },
+    {
+      "position": 9,
+      "type": "AB",
+      "question": "Carbon-based Border Tariffs",
+      "statementA": "I support carbon-based border adjustments on imports",
+      "statementB": "I oppose carbon-based border tariffs on imports"
+    },
+    {
+      "position": 10,
+      "type": "AB",
+      "question": "Forest Management",
+      "statementA": "I support management guided by climate science, e.g., using forests as carbon sinks",
+      "statementB": "I support business as usual with no special references to climate science"
+    },
+    {
+      "position": 11,
+      "type": "OPEN",
+      "question": "What would you do, as a member of Congress, about climate change in terms of policy and legislation?"
+    }
+  ]
+}

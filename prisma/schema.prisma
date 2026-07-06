@@ -211,6 +211,10 @@ model Questionnaire {
   year        Int
   title       String
   regionId    String?
+  scale       Int                    @default(4)
+  sourceName  String?
+  sourceUrl   String?
+  hidden      Boolean                @default(false)
 
   region      Region?                @relation(fields: [regionId], references: [id])
   questions   QuestionnaireQuestion[]

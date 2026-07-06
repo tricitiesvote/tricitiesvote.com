@@ -234,16 +234,26 @@ export async function getRaceByYearAndSlug(
   slug: string,
   electionType: ElectionType = CURRENT_ELECTION_TYPE
 ) {
-  // Convert slug back to office title (e.g., "kennewick-city-council" -> "Kennewick City Council")
-  const officeTitle = unslugify(slug)
+  // Resolve the office by slugifying titles rather than reversing the slug:
+  // unslugify can't restore punctuation ("U.S. House District 4" slugs to
+  // "us-house-district-4" but unslugifies to "Us House District 4").
+  const offices = await prisma.office.findMany({
+    where: {
+      races: { some: { electionYear: year, type: electionType } }
+    },
+    select: { id: true, title: true }
+  })
+  const office = offices.find(candidate => slugify(candidate.title) === slug)
+
+  if (!office) {
+    return null
+  }
 
   return await prisma.race.findFirst({
     where: {
       electionYear: year,
       type: electionType,
-      office: {
-        title: { equals: officeTitle, mode: 'insensitive' }
-      }
+      officeId: office.id
     },
     include: {
       office: true,
