@@ -3812,7 +3812,9 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
 }
 
 .compare-selection-chip span,
-.questionnaire-open-picker-chip span {
+.compare-selection-chip img,
+.questionnaire-open-picker-chip span,
+.questionnaire-open-picker-chip img {
   margin: 0;
 }
 
@@ -3835,6 +3837,12 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
 
 .compare-selection-pin {
   font-size: 0.85em;
+}
+
+.compare-selection-face,
+.questionnaire-open-picker-face {
+  display: flex;
+  align-items: center;
 }
 
 .compare-selection-face img,
