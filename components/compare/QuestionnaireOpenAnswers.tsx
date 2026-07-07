@@ -45,17 +45,6 @@ export function QuestionnaireOpenAnswers({ year, questions, candidates, responde
 
   let visible: OpenAnswerCandidate[]
   if (selection) {
-    if (!selection.active) {
-      // The page-level picker is idle; prompt instead of cramming every
-      // full-length answer into skinny columns.
-      return (
-        <div className="questionnaire-open">
-          <p className="questionnaire-open-prompt">
-            Pick candidates at the top of the page to read their answers side by side.
-          </p>
-        </div>
-      )
-    }
     visible = selection.orderedVisibleIds
       .map(id => candidateById.get(id))
       .filter(Boolean) as OpenAnswerCandidate[]

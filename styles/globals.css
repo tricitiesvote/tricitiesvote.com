@@ -3855,16 +3855,7 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
 }
 
 .compare-selection.is-filtering .compare-row {
-  grid-template-columns: repeat(var(--visible-columns, 2), minmax(260px, 1fr));
-}
-
-.questionnaire-open-prompt {
-  margin: 0;
-  padding: 1rem 1.25rem;
-  background: #edfafa;
-  border-radius: 6px;
-  font-size: 0.95em;
-  color: #4b6b7a;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
 }
 
 .questionnaire-source {
