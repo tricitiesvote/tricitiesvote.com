@@ -3798,9 +3798,9 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
 .questionnaire-open-picker-chip {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  height: 42px;
-  padding: 0 18px 0 7px;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px 0 4px;
   border: 1px solid #cde4e4;
   border-radius: 999px;
   background: #fff;
@@ -3809,6 +3809,11 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
   line-height: 1;
   color: #234;
   cursor: pointer;
+}
+
+.compare-selection-chip span,
+.questionnaire-open-picker-chip span {
+  margin: 0;
 }
 
 .compare-selection-chip:hover,
