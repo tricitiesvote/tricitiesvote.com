@@ -1,11 +1,11 @@
 import { cache, type CSSProperties } from 'react'
+import { prisma } from '@/lib/db'
 import { getGuidesForYear, getRaceByYearAndSlug } from '@/lib/queries'
 import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
 import { CompareTable, type ComparisonRow } from '@/components/compare/CompareTable'
-import { CompareQuestionnaires } from '@/components/compare/CompareQuestionnaires'
 import { CompareSelectionProvider, SelectableCompareCard } from '@/components/compare/CompareSelection'
 import { buildBreadcrumbs } from '@/lib/officeDisplay'
 import { preferWikiString } from '@/lib/wiki/utils'
@@ -279,18 +279,25 @@ export default async function ComparePage({ params }: ComparePageProps) {
     },
   ]
 
-  const questionnaireCandidates = candidateCards.map(card => ({
-    id: card.id,
-    name: card.displayName,
-    image: card.image,
-    slug: card.slug,
-  }))
-
   const rowsToRender = isBallotMeasure
     ? compareCardRows.filter(row => row.key !== 'engagement')
     : compareCardRows
 
-  const usePicker = !isBallotMeasure && candidateCards.length > 2
+  const usePicker = !isBallotMeasure && candidateCards.length > 3
+
+  const surveys = isBallotMeasure
+    ? []
+    : await prisma.questionnaire.findMany({
+        where: {
+          year,
+          hidden: false,
+          responses: {
+            some: { candidateId: { in: candidateCards.map(card => card.id) } },
+          },
+        },
+        select: { id: true, title: true, sourceName: true, official: true },
+        orderBy: { title: 'asc' },
+      })
 
   const comparisonBody = (
     <>
@@ -318,13 +325,25 @@ export default async function ComparePage({ params }: ComparePageProps) {
         </div>
       )}
 
-      {!isBallotMeasure && (
-        <CompareQuestionnaires
-          year={year}
-          regionId={raceWithRelations.office.regionId}
-          candidates={questionnaireCandidates}
-          hiddenTitles={triCitiesStatus.hiddenTitles}
-        />
+      {surveys.length > 0 && (
+        <div className="questionnaire-link-card">
+          <h2>Candidate surveys</h2>
+          <ul>
+            {surveys.map(survey => (
+              <li key={survey.id}>
+                {survey.title}
+                {!survey.official && survey.sourceName && (
+                  <span className="questionnaire-link-source"> — by {survey.sourceName}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p>
+            <Link href={`/${year}/questionnaires/${params.slug}`}>
+              See how the candidates answered →
+            </Link>
+          </p>
+        </div>
       )}
     </>
   )

@@ -23,6 +23,7 @@ interface QuestionnaireConfig {
   sourceUrl?: string
   scale: number
   hidden?: boolean
+  official?: boolean
   regionName?: string
   engagement?: { name: string; date?: string }
   coverage: { officeTitles: string[] }
@@ -201,6 +202,7 @@ async function writeQuestionnaire(
       sourceName: config.sourceName ?? null,
       sourceUrl: config.sourceUrl ?? null,
       hidden: config.hidden ?? false,
+      official: config.official ?? false,
       regionId,
     },
     update: {
@@ -210,6 +212,7 @@ async function writeQuestionnaire(
       sourceName: config.sourceName ?? null,
       sourceUrl: config.sourceUrl ?? null,
       hidden: config.hidden ?? false,
+      official: config.official ?? false,
       regionId,
     },
   })
@@ -290,7 +293,7 @@ async function syncEngagement(
   const date = config.engagement.date ? new Date(config.engagement.date) : undefined
   const engagementSlug = generateEngagementSlug(config.engagement.name, date)
   const raceLinkByOffice = new Map(
-    offices.map(o => [o.id, `/${config.year}/compare/${slugify(o.title)}`])
+    offices.map(o => [o.id, `/${config.year}/questionnaires/${slugify(o.title)}`])
   )
   const primaryLink = raceLinkByOffice.get(offices[0].id) ?? `/${config.year}`
   const notes = config.sourceName

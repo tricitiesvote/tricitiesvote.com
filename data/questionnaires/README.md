@@ -32,6 +32,7 @@ The importer is idempotent: questions upsert by position, responses are deleted 
   "sourceUrl": "https://citizensclimatelobby.org/",    // attribution link (optional)
   "scale": 5,                            // 4 = StrongA/LeanA/LeanB/StrongB, 5 adds Neutral in the middle
   "hidden": false,                       // true = store but never display (optional, default false)
+  "official": false,                     // true = a Tri-Cities Vote questionnaire, not an outside org's (optional)
   "regionName": "Benton County",         // optional; scopes display to a region's guides
   "engagement": {
     "name": "CCL Climate Survey",       // at-a-glance participation row label
