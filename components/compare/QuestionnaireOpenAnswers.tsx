@@ -34,7 +34,7 @@ export function QuestionnaireOpenAnswers({ year, questions, candidates, responde
   const selection = useCompareSelection()
   const respondentIdSet = new Set(respondentIds)
   const respondents = candidates.filter(candidate => respondentIdSet.has(candidate.id))
-  const usePicker = !selection && respondents.length > 2
+  const usePicker = !selection && respondents.length > 3
   const [selected, setSelected] = useState<string[]>(respondents.slice(0, 2).map(r => r.id))
 
   if (questions.length === 0 || respondents.length === 0) {

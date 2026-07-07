@@ -105,7 +105,7 @@ export default async function QuestionnairePage({ params }: QuestionnairePagePro
   })
   breadcrumbs.push({ label: 'Surveys', url: `/${year}/questionnaires/${params.slug}` })
 
-  const usePicker = questionnaireCandidates.length > 2
+  const usePicker = questionnaireCandidates.length > 3
 
   const body = (
     <>

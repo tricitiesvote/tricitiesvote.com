@@ -283,7 +283,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
     ? compareCardRows.filter(row => row.key !== 'engagement')
     : compareCardRows
 
-  const usePicker = !isBallotMeasure && candidateCards.length > 2
+  const usePicker = !isBallotMeasure && candidateCards.length > 3
 
   const surveys = isBallotMeasure
     ? []

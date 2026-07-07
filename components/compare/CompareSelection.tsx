@@ -8,9 +8,10 @@ export interface CompareSelectionCandidate {
   image: string | null
 }
 
+export const MAX_COMPARE_SELECTION = 3
+
 interface CompareSelectionState {
   left: string | null
-  right: string | null
   isVisible: (candidateId: string) => boolean
   orderedVisibleIds: string[]
 }
@@ -32,44 +33,38 @@ interface CompareSelectionProviderProps {
 }
 
 // Nothing is shown until chips are clicked. The first selection becomes the
-// pinned left-column reference; the second fills the right column, and
-// further clicks swap the right side so you can walk the field against your
-// pick. Clicking a shown candidate removes them.
+// pinned left-column reference; later selections fill up to three columns,
+// and once full, further clicks swap the rightmost slot so you can walk the
+// field against your picks. Clicking a shown candidate removes them.
 export function CompareSelectionProvider({ candidates, children }: CompareSelectionProviderProps) {
-  const [left, setLeft] = useState<string | null>(null)
-  const [right, setRight] = useState<string | null>(null)
+  const [selected, setSelected] = useState<string[]>([])
 
   const selectCandidate = (id: string) => {
-    if (id === left) {
-      setLeft(right)
-      setRight(null)
+    if (selected.includes(id)) {
+      setSelected(selected.filter(entry => entry !== id))
       return
     }
-    if (id === right) {
-      setRight(null)
+    if (selected.length < MAX_COMPARE_SELECTION) {
+      setSelected([...selected, id])
       return
     }
-    if (left === null) {
-      setLeft(id)
-      return
-    }
-    setRight(id)
+    setSelected([...selected.slice(0, MAX_COMPARE_SELECTION - 1), id])
   }
 
-  const visibleCount = [left, right].filter(Boolean).length
+  const visibleCount = selected.length
+  const left = selected[0] ?? null
 
   const state: CompareSelectionState = {
     left,
-    right,
-    isVisible: id => id === left || id === right,
-    orderedVisibleIds: [left, right].filter(Boolean) as string[],
+    isVisible: id => selected.includes(id),
+    orderedVisibleIds: selected,
   }
 
-  const hint = left === null
+  const hint = selected.length === 0
     ? 'Click a candidate to start comparing:'
-    : right === null
-      ? 'Pinned to the left column — click another candidate to compare side by side.'
-      : 'Click other candidates to swap the right side; click a selected one to remove them.'
+    : selected.length < MAX_COMPARE_SELECTION
+      ? 'Click more candidates to compare up to three side by side; click a selected one to remove them.'
+      : 'Comparing three — click another candidate to swap the rightmost, or click a selected one to remove them.'
 
   return (
     <CompareSelectionContext.Provider value={state}>
@@ -82,7 +77,7 @@ export function CompareSelectionProvider({ candidates, children }: CompareSelect
           <ul className="compare-selection-rail">
             {candidates.map(candidate => {
               const isPinned = candidate.id === left
-              const isSecond = candidate.id === right
+              const isSecond = selected.includes(candidate.id) && candidate.id !== left
               return (
                 <li key={candidate.id}>
                   <button
@@ -122,7 +117,7 @@ interface SelectableCompareCardProps {
 }
 
 // Client wrapper that hides server-rendered cards outside the selection and
-// keeps the pinned candidate in the left column.
+// arranges columns in selection order (pinned reference first).
 export function SelectableCompareCard({ candidateId, className, children }: SelectableCompareCardProps) {
   const selection = useCompareSelection()
 
@@ -130,10 +125,10 @@ export function SelectableCompareCard({ candidateId, className, children }: Sele
     return null
   }
 
-  const isLeft = selection?.left === candidateId
+  const position = selection ? selection.orderedVisibleIds.indexOf(candidateId) : -1
 
   return (
-    <div className={className} style={isLeft ? { order: -1 } : undefined}>
+    <div className={className} style={position >= 0 ? { order: position } : undefined}>
       {children}
     </div>
   )
