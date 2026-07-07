@@ -1,7 +1,7 @@
 import { prisma } from '@/lib/db'
-import { CandidateImage } from '@/components/candidate/CandidateImage'
 import { slugify } from '@/lib/utils'
 import { CompareCandidateStatement } from './CompareCandidateStatement'
+import { QuestionnaireOpenAnswers } from './QuestionnaireOpenAnswers'
 
 interface CompareQuestionnairesProps {
   year: number
@@ -184,44 +184,27 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
             </summary>
 
             {!hideOpenQuestions && section.openQuestions.length > 0 && (
-              <div className="questionnaire-open">
-                {section.openQuestions.map(question => (
-                  <div key={question.id} className="questionnaire-open-block">
-                    <div className="questionnaire-open-question-cell">
-                      <h3>{question.question}</h3>
-                    </div>
-                    <div className={`questionnaire-open-answer-list columns-${Math.min(orderedCandidates.length, 6)}`}>
-                      {orderedCandidates
-                        .filter(candidate => section.responderIds.has(candidate.id))
-                        .map(candidate => {
-                          const answer = question.responses[candidate.id]
-                          const candidateUrl = `/${year}/candidate/${candidate.slug}`
-                          const cardClass = `questionnaire-open-answer-card candidate-card${answer ? '' : ' questionnaire-open-answer-empty'}`
-
-                          return (
-                            <div key={candidate.id} className={cardClass}>
-                              <div className="candidate-card-heading">
-                                <CandidateImage name={candidate.name} image={candidate.image} url={candidateUrl} size={38} />
-                                <h4>{candidate.name}</h4>
-                              </div>
-                              <div className="candidate-card-body candidate-card-body-answer">
-                                {answer ? (
-                                  <p className="candidate-card-text">{answer}</p>
-                                ) : (
-                                  <span className="questionnaire-open-answer-none">—</span>
-                                )}
-                              </div>
-                            </div>
-                          )
-                        })}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <QuestionnaireOpenAnswers
+                year={year}
+                questions={section.openQuestions.map(question => ({ id: question.id, question: question.question }))}
+                respondents={orderedCandidates
+                  .filter(candidate =>
+                    section.openQuestions.some(question => question.responses[candidate.id])
+                  )
+                  .map(candidate => ({
+                    id: candidate.id,
+                    name: candidate.name,
+                    image: candidate.image ?? null,
+                    slug: candidate.slug,
+                  }))}
+                answers={Object.fromEntries(
+                  section.openQuestions.map(question => [question.id, question.responses])
+                )}
+              />
             )}
 
             {section.abRows.length > 0 && (
-              <div className="compare-table legacy-compare">
+              <div className={`compare-table legacy-compare${section.scale === 5 ? ' scale-5' : ''}`}>
                 <table>
                   <thead>
                     <tr className="key">

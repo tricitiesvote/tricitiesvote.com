@@ -3759,6 +3759,81 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
   content: '▾ ';
 }
 
+/* The global nth-child(3)/(4) borders draw the A/B midline for 4-point
+   grids; a 5-point grid has Neutral as its middle, so no divider. */
+.legacy-compare.scale-5 td:nth-child(3),
+.legacy-compare.scale-5 th:nth-child(3) {
+  border-right: 0;
+}
+
+.legacy-compare.scale-5 td:nth-child(4),
+.legacy-compare.scale-5 th:nth-child(4) {
+  border-left: 1px solid #eee;
+}
+
+.questionnaire-open-picker {
+  margin-bottom: 1.5rem;
+}
+
+.questionnaire-open-picker-hint {
+  margin: 0 0 0.5rem;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #4b6b7a;
+}
+
+.questionnaire-open-picker-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.questionnaire-open-picker-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid #cde4e4;
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 0.9em;
+  color: #234;
+  cursor: pointer;
+}
+
+.questionnaire-open-picker-chip:hover {
+  border-color: #53bce4;
+}
+
+.questionnaire-open-picker-chip.is-selected {
+  border-color: #0066cc;
+  background: #e1f2fc;
+  font-weight: 600;
+}
+
+.questionnaire-open-picker-face img,
+.questionnaire-open-picker-initials {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.questionnaire-open-picker-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e4f5f5;
+  color: #4b6b7a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
 .questionnaire-source {
   margin: 0 0 1.5rem;
   font-size: 0.9em;
