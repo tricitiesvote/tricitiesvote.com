@@ -3855,7 +3855,11 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
 }
 
 .compare-selection.is-filtering .compare-row {
-  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  grid-template-columns: repeat(var(--visible-columns, 2), minmax(260px, 1fr));
+}
+
+.compare-selection:not(.is-filtering) .compare-card-matrix {
+  display: none;
 }
 
 .questionnaire-source {

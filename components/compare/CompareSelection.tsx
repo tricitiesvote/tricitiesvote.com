@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState, type ReactNode } from 'react'
+import { createContext, useContext, useState, type CSSProperties, type ReactNode } from 'react'
 
 export interface CompareSelectionCandidate {
   id: string
@@ -9,9 +9,8 @@ export interface CompareSelectionCandidate {
 }
 
 interface CompareSelectionState {
-  left: string
-  right: string
-  pinned: boolean
+  left: string | null
+  right: string | null
   isVisible: (candidateId: string) => boolean
   orderedVisibleIds: string[]
 }
@@ -32,62 +31,64 @@ interface CompareSelectionProviderProps {
   children: ReactNode
 }
 
-// Exactly two candidates are visible at all times. Clicking a chip makes that
-// candidate the pinned left-column reference; further clicks swap the right
-// column, so you can walk the field against your pick. Clicking the pinned
-// chip releases the stick without changing what's shown.
+// Nothing is shown until chips are clicked. The first selection becomes the
+// pinned left-column reference; the second fills the right column, and
+// further clicks swap the right side so you can walk the field against your
+// pick. Clicking a shown candidate removes them.
 export function CompareSelectionProvider({ candidates, children }: CompareSelectionProviderProps) {
-  const [left, setLeft] = useState<string>(candidates[0]?.id ?? '')
-  const [right, setRight] = useState<string>(candidates[1]?.id ?? '')
-  const [pinned, setPinned] = useState(false)
+  const [left, setLeft] = useState<string | null>(null)
+  const [right, setRight] = useState<string | null>(null)
 
   const selectCandidate = (id: string) => {
     if (id === left) {
-      setPinned(!pinned)
+      setLeft(right)
+      setRight(null)
       return
     }
     if (id === right) {
-      // Promote the right-column candidate to the pinned reference slot.
-      setRight(left)
+      setRight(null)
+      return
+    }
+    if (left === null) {
       setLeft(id)
-      setPinned(true)
       return
     }
-    if (pinned) {
-      setRight(id)
-      return
-    }
-    setLeft(id)
-    setPinned(true)
+    setRight(id)
   }
+
+  const visibleCount = [left, right].filter(Boolean).length
 
   const state: CompareSelectionState = {
     left,
     right,
-    pinned,
     isVisible: id => id === left || id === right,
-    orderedVisibleIds: [left, right].filter(Boolean),
+    orderedVisibleIds: [left, right].filter(Boolean) as string[],
   }
+
+  const hint = left === null
+    ? 'Click a candidate to start comparing:'
+    : right === null
+      ? 'Pinned to the left column — click another candidate to compare side by side.'
+      : 'Click other candidates to swap the right side; click a selected one to remove them.'
 
   return (
     <CompareSelectionContext.Provider value={state}>
-      <div className="compare-selection is-filtering">
+      <div
+        className={`compare-selection${visibleCount > 0 ? ' is-filtering' : ''}`}
+        style={{ '--visible-columns': String(Math.max(visibleCount, 1)) } as CSSProperties}
+      >
         <div className="compare-selection-picker" role="group" aria-label="Choose candidates to compare">
-          <p className="compare-selection-hint">
-            {pinned
-              ? 'Pinned to the left column — click other candidates to compare against them, or click the pinned one to release.'
-              : 'Click a candidate to pin them to the left column, then click through the rest to compare:'}
-          </p>
+          <p className="compare-selection-hint">{hint}</p>
           <ul className="compare-selection-rail">
             {candidates.map(candidate => {
-              const isPinned = pinned && candidate.id === left
-              const isShown = candidate.id === left || candidate.id === right
+              const isPinned = candidate.id === left
+              const isSecond = candidate.id === right
               return (
                 <li key={candidate.id}>
                   <button
                     type="button"
-                    className={`compare-selection-chip${isPinned ? ' is-pinned' : ''}${isShown && !isPinned ? ' is-selected' : ''}`}
-                    aria-pressed={isShown}
+                    className={`compare-selection-chip${isPinned ? ' is-pinned' : ''}${isSecond ? ' is-selected' : ''}`}
+                    aria-pressed={isPinned || isSecond}
                     onClick={() => selectCandidate(candidate.id)}
                   >
                     <span className="compare-selection-face">
@@ -121,7 +122,7 @@ interface SelectableCompareCardProps {
 }
 
 // Client wrapper that hides server-rendered cards outside the selection and
-// keeps the left-slot candidate in the left column.
+// keeps the pinned candidate in the left column.
 export function SelectableCompareCard({ candidateId, className, children }: SelectableCompareCardProps) {
   const selection = useCompareSelection()
 
