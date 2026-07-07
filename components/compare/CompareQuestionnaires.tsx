@@ -49,6 +49,7 @@ type QuestionnaireRecord = {
   scale: number
   sourceName: string | null
   sourceUrl: string | null
+  official: boolean
   questions: Array<{
     id: string
     type: string
@@ -78,6 +79,7 @@ interface QuestionnaireSection {
   scale: number
   sourceName: string | null
   sourceUrl: string | null
+  official: boolean
   abRows: AbRow[]
   openQuestions: OpenQuestion[]
   responderIds: Set<string>
@@ -155,6 +157,7 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
       (section.abRows.length > 0 || section.openQuestions.length > 0) &&
       !hiddenTitleSet.has(section.title)
     )
+    .sort((a, b) => Number(b.official) - Number(a.official))
 
   if (sections.length === 0) {
     return null
@@ -171,16 +174,19 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
           <details key={section.id} className="questionnaire-compare-section" open={!collapsed}>
             <summary>
               <h2 id="tcv" className="questionnaire-compare-heading">{section.title}</h2>
-              {section.sourceName && (
+              {section.official ? (
+                <p className="questionnaire-source">A Tri-Cities Vote questionnaire</p>
+              ) : section.sourceName ? (
                 <p className="questionnaire-source">
                   Survey by{' '}
                   {section.sourceUrl ? (
                     <a href={section.sourceUrl}>{section.sourceName}</a>
                   ) : (
                     section.sourceName
-                  )}
+                  )}{' '}
+                  — an independent community organization
                 </p>
-              )}
+              ) : null}
             </summary>
 
             {!hideOpenQuestions && section.openQuestions.length > 0 && (
@@ -351,6 +357,7 @@ function buildSection(
     scale,
     sourceName: questionnaire.sourceName,
     sourceUrl: questionnaire.sourceUrl,
+    official: questionnaire.official,
     abRows,
     openQuestions,
     responderIds,

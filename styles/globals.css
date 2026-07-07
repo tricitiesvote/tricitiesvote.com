@@ -3892,6 +3892,55 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
   color: #4b6b7a;
 }
 
+.questionnaire-page-intro {
+  margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  background: #edfafa;
+  border-radius: 6px;
+  font-size: 0.95em;
+  color: #234;
+}
+
+.questionnaire-page-intro p {
+  margin: 0 0 0.5rem;
+}
+
+.questionnaire-page-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.questionnaire-link-card {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #cde4e4;
+  border-radius: 6px;
+  background: #edfafa;
+}
+
+.questionnaire-link-card h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  color: #0066cc;
+}
+
+.questionnaire-link-card ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.questionnaire-link-card li {
+  margin-bottom: 0.25rem;
+}
+
+.questionnaire-link-source {
+  color: #4b6b7a;
+}
+
+.questionnaire-link-card p {
+  margin: 0;
+  font-weight: 600;
+}
+
 .questionnaire-open {
   margin-bottom: 3rem;
   display: grid;

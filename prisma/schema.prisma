@@ -215,6 +215,7 @@ model Questionnaire {
   sourceName  String?
   sourceUrl   String?
   hidden      Boolean                @default(false)
+  official    Boolean                @default(false)
 
   region      Region?                @relation(fields: [regionId], references: [id])
   questions   QuestionnaireQuestion[]
