@@ -6,6 +6,7 @@ import { calculateFundraising } from '@/lib/calculateFundraising'
 import { slugify } from '@/lib/utils'
 import { CompareTable, type ComparisonRow } from '@/components/compare/CompareTable'
 import { CompareQuestionnaires } from '@/components/compare/CompareQuestionnaires'
+import { CompareSelectionProvider, SelectableCompareCard } from '@/components/compare/CompareSelection'
 import { buildBreadcrumbs } from '@/lib/officeDisplay'
 import { preferWikiString } from '@/lib/wiki/utils'
 import { evaluateTriCitiesRaceStatus } from '@/lib/triCitiesVote'
@@ -289,6 +290,45 @@ export default async function ComparePage({ params }: ComparePageProps) {
     ? compareCardRows.filter(row => row.key !== 'engagement')
     : compareCardRows
 
+  const usePicker = !isBallotMeasure && candidateCards.length > 2
+
+  const comparisonBody = (
+    <>
+      {candidateCards.length === 0 ? (
+        <p className="candidate-empty">Candidate details N/A.</p>
+      ) : (
+        <div className="compare-card-matrix">
+          {rowsToRender.map(row => (
+            <div
+              key={row.key}
+              className="compare-row"
+              style={{ '--compare-columns': String(candidateCards.length) } as CSSProperties}
+            >
+              {candidateCards.map(card => (
+                <SelectableCompareCard
+                  key={`${row.key}-${card.id}`}
+                  candidateId={card.id}
+                  className={`candidate-card compare-card compare-card-${row.key}`}
+                >
+                  {row.render(card)}
+                </SelectableCompareCard>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {!isBallotMeasure && (
+        <CompareQuestionnaires
+          year={year}
+          regionId={raceWithRelations.office.regionId}
+          candidates={questionnaireCandidates}
+          hiddenTitles={triCitiesStatus.hiddenTitles}
+        />
+      )}
+    </>
+  )
+
   return (
     <>
       <nav className="breadcrumb">
@@ -317,33 +357,18 @@ export default async function ComparePage({ params }: ComparePageProps) {
             </div>
           )}
 
-          {candidateCards.length === 0 ? (
-            <p className="candidate-empty">Candidate details N/A.</p>
+          {usePicker ? (
+            <CompareSelectionProvider
+              candidates={candidateCards.map(card => ({
+                id: card.id,
+                name: card.displayName,
+                image: card.image,
+              }))}
+            >
+              {comparisonBody}
+            </CompareSelectionProvider>
           ) : (
-            <div className="compare-card-matrix">
-              {rowsToRender.map(row => (
-                <div
-                  key={row.key}
-                  className="compare-row"
-                  style={{ '--compare-columns': String(candidateCards.length) } as CSSProperties}
-                >
-                  {candidateCards.map(card => (
-                    <div key={`${row.key}-${card.id}`} className={`candidate-card compare-card compare-card-${row.key}`}>
-                      {row.render(card)}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {!isBallotMeasure && (
-            <CompareQuestionnaires
-              year={year}
-              regionId={raceWithRelations.office.regionId}
-              candidates={questionnaireCandidates}
-              hiddenTitles={triCitiesStatus.hiddenTitles}
-            />
+            comparisonBody
           )}
         </section>
       </div>

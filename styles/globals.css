@@ -3771,67 +3771,100 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
   border-left: 1px solid #eee;
 }
 
+.compare-selection-picker,
 .questionnaire-open-picker {
   margin-bottom: 1.5rem;
 }
 
+.compare-selection-hint,
 .questionnaire-open-picker-hint {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.75rem;
   font-size: 0.9em;
   font-weight: 600;
   color: #4b6b7a;
 }
 
+.compare-selection-rail,
 .questionnaire-open-picker-rail {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
+.compare-selection-chip,
 .questionnaire-open-picker-chip {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 4px 12px 4px 4px;
+  height: 36px;
+  padding: 0 14px 0 4px;
   border: 1px solid #cde4e4;
   border-radius: 999px;
   background: #fff;
   font: inherit;
   font-size: 0.9em;
+  line-height: 1;
   color: #234;
   cursor: pointer;
 }
 
+.compare-selection-chip span,
+.questionnaire-open-picker-chip span {
+  margin: 0;
+}
+
+.compare-selection-chip:hover,
 .questionnaire-open-picker-chip:hover {
   border-color: #53bce4;
 }
 
+.compare-selection-chip.is-selected,
 .questionnaire-open-picker-chip.is-selected {
   border-color: #0066cc;
   background: #e1f2fc;
-  font-weight: 600;
 }
 
+.compare-selection-chip.is-pinned {
+  border-color: #0066cc;
+  background: #0066cc;
+  color: #fff;
+}
+
+.compare-selection-pin {
+  font-size: 0.85em;
+}
+
+.compare-selection-face img,
+.compare-selection-initials,
 .questionnaire-open-picker-face img,
 .questionnaire-open-picker-initials {
   display: block;
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   object-fit: cover;
 }
 
+.compare-selection-initials,
 .questionnaire-open-picker-initials {
   display: flex;
   align-items: center;
   justify-content: center;
   background: #e4f5f5;
   color: #4b6b7a;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
+}
+
+.compare-selection.is-filtering .compare-row {
+  grid-template-columns: repeat(var(--visible-columns, 2), minmax(260px, 1fr));
+}
+
+.compare-selection:not(.is-filtering) .compare-card-matrix {
+  display: none;
 }
 
 .questionnaire-source {

@@ -187,16 +187,17 @@ export async function CompareQuestionnaires({ year, regionId, candidates, hidden
               <QuestionnaireOpenAnswers
                 year={year}
                 questions={section.openQuestions.map(question => ({ id: question.id, question: question.question }))}
-                respondents={orderedCandidates
+                candidates={orderedCandidates.map(candidate => ({
+                  id: candidate.id,
+                  name: candidate.name,
+                  image: candidate.image ?? null,
+                  slug: candidate.slug,
+                }))}
+                respondentIds={orderedCandidates
                   .filter(candidate =>
                     section.openQuestions.some(question => question.responses[candidate.id])
                   )
-                  .map(candidate => ({
-                    id: candidate.id,
-                    name: candidate.name,
-                    image: candidate.image ?? null,
-                    slug: candidate.slug,
-                  }))}
+                  .map(candidate => candidate.id)}
                 answers={Object.fromEntries(
                   section.openQuestions.map(question => [question.id, question.responses])
                 )}

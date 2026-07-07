@@ -2,13 +2,14 @@
 
 import { useState } from 'react'
 import { CandidateImage } from '@/components/candidate/CandidateImage'
+import { useCompareSelection } from './CompareSelection'
 
 interface OpenQuestion {
   id: string
   question: string
 }
 
-interface Respondent {
+interface OpenAnswerCandidate {
   id: string
   name: string
   image: string | null
@@ -18,7 +19,8 @@ interface Respondent {
 interface QuestionnaireOpenAnswersProps {
   year: number
   questions: OpenQuestion[]
-  respondents: Respondent[]
+  candidates: OpenAnswerCandidate[]
+  respondentIds: string[]
   // questionId -> candidateId -> answer text
   answers: Record<string, Record<string, string>>
 }
@@ -28,17 +30,33 @@ function lastName(name: string): string {
   return parts[parts.length - 1] ?? name
 }
 
-export function QuestionnaireOpenAnswers({ year, questions, respondents, answers }: QuestionnaireOpenAnswersProps) {
-  const usePicker = respondents.length > 2
+export function QuestionnaireOpenAnswers({ year, questions, candidates, respondentIds, answers }: QuestionnaireOpenAnswersProps) {
+  const selection = useCompareSelection()
+  const respondentIdSet = new Set(respondentIds)
+  const respondents = candidates.filter(candidate => respondentIdSet.has(candidate.id))
+  const usePicker = !selection && respondents.length > 2
   const [selected, setSelected] = useState<string[]>(respondents.slice(0, 2).map(r => r.id))
 
   if (questions.length === 0 || respondents.length === 0) {
     return null
   }
 
-  const visible = usePicker
-    ? respondents.filter(r => selected.includes(r.id))
-    : respondents
+  const candidateById = new Map(candidates.map(candidate => [candidate.id, candidate]))
+
+  let visible: OpenAnswerCandidate[]
+  if (selection) {
+    visible = selection.orderedVisibleIds
+      .map(id => candidateById.get(id))
+      .filter(Boolean) as OpenAnswerCandidate[]
+  } else if (usePicker) {
+    visible = respondents.filter(r => selected.includes(r.id))
+  } else {
+    visible = respondents
+  }
+
+  if (visible.length === 0) {
+    return null
+  }
 
   const selectCandidate = (id: string) => {
     if (selected.includes(id)) {
@@ -67,7 +85,7 @@ export function QuestionnaireOpenAnswers({ year, questions, respondents, answers
                     <span className="questionnaire-open-picker-face">
                       {candidate.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={candidate.image} alt="" width={34} height={34} />
+                        <img src={candidate.image} alt="" width={28} height={28} />
                       ) : (
                         <span className="questionnaire-open-picker-initials">
                           {candidate.name.split(' ').map(part => part[0]).join('').toUpperCase()}
@@ -104,7 +122,9 @@ export function QuestionnaireOpenAnswers({ year, questions, respondents, answers
                     {answer ? (
                       <p className="candidate-card-text">{answer}</p>
                     ) : (
-                      <span className="questionnaire-open-answer-none">—</span>
+                      <span className="questionnaire-open-answer-none">
+                        {respondentIdSet.has(candidate.id) ? '—' : 'Did not respond to this survey.'}
+                      </span>
                     )}
                   </div>
                 </div>
