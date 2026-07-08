@@ -227,16 +227,29 @@ export function RaceGridSection({
     </span>
   )
 
-  const endorseDetail = (m: CandidateMetrics) => (
+  const endorseForDetail = (m: CandidateMetrics) => (
     <span className="rg-pop-list">
       {m.endorsedFor.map(e => (
         <span key={e.id} className="is-yes">✓ {e.endorser}</span>
       ))}
+    </span>
+  )
+
+  const endorseAgainstDetail = (m: CandidateMetrics) => (
+    <span className="rg-pop-list">
       {m.endorsedAgainst.map(e => (
-        <span key={e.id} className="is-no">✗ {e.endorser} (against)</span>
+        <span key={e.id} className="is-no">✗ {e.endorser}</span>
       ))}
     </span>
   )
+
+  const legendParts = [
+    showEndorseCol && 'endorsements/letters',
+    showMoneyCol && 'fundraising',
+    showEngagementCol && 'engagement',
+  ].filter(Boolean)
+  const metricColCount =
+    (showEndorseCol ? 2 : 0) + (showMoneyCol ? 1 : 0) + (showEngagementCol ? 1 : 0)
 
   return (
     <section className={`rg-section${isMega ? ' is-mega' : ''}`}>
@@ -252,11 +265,15 @@ export function RaceGridSection({
       <table className="rg-table">
         {hasAnyMetric && (
           <thead>
+            <tr className="rg-legend-row">
+              <th colSpan={1 + metricColCount}>{legendParts.join(', ')}</th>
+            </tr>
             <tr>
-              <th className="rg-col-name">candidate</th>
-              {showEngagementCol && <th className="rg-col-num">engaged</th>}
-              {showMoneyCol && <th className="rg-col-num">raised</th>}
-              {showEndorseCol && <th className="rg-col-num">endorsed</th>}
+              <th className="rg-col-name" />
+              {showEndorseCol && <th className="rg-col-num">👍</th>}
+              {showEndorseCol && <th className="rg-col-num">👎</th>}
+              {showMoneyCol && <th className="rg-col-num">💰</th>}
+              {showEngagementCol && <th className="rg-col-num">🎙️</th>}
             </tr>
           </thead>
         )}
@@ -275,14 +292,25 @@ export function RaceGridSection({
                   {badge && <span className={`rg-party rg-party-${badge.cls}`}>{badge.label}</span>}
                   {incumbent && <span className="rg-incumbent">inc.</span>}
                 </td>
-                {showEngagementCol && (
+                {showEndorseCol && (
                   <td className="rg-col-num">
-                    {opportunityTotal > 0 ? (
-                      <MetricPopover value={`${m.engaged}/${opportunityTotal}`}>
-                        {engagementDetail(m)}
+                    {m.endorsedFor.length > 0 ? (
+                      <MetricPopover value={String(m.endorsedFor.length)}>
+                        {endorseForDetail(m)}
                       </MetricPopover>
                     ) : (
-                      emptyCell
+                      <span className="rg-empty">0</span>
+                    )}
+                  </td>
+                )}
+                {showEndorseCol && (
+                  <td className="rg-col-num">
+                    {m.endorsedAgainst.length > 0 ? (
+                      <MetricPopover value={String(m.endorsedAgainst.length)}>
+                        {endorseAgainstDetail(m)}
+                      </MetricPopover>
+                    ) : (
+                      <span className="rg-empty">0</span>
                     )}
                   </td>
                 )}
@@ -297,15 +325,11 @@ export function RaceGridSection({
                     )}
                   </td>
                 )}
-                {showEndorseCol && (
+                {showEngagementCol && (
                   <td className="rg-col-num">
-                    {m.endorsedFor.length + m.endorsedAgainst.length > 0 ? (
-                      <MetricPopover value={String(m.endorsedFor.length)}>
-                        {endorseDetail(m)}
-                      </MetricPopover>
-                    ) : (
-                      emptyCell
-                    )}
+                    <MetricPopover value={`${m.engaged}/${opportunityTotal}`}>
+                      {engagementDetail(m)}
+                    </MetricPopover>
                   </td>
                 )}
               </tr>
