@@ -341,7 +341,7 @@ export function RaceGridSection({
       {stories.map(story => (
         <details key={story.id} className="rg-story">
           <summary>
-            <span className="rg-story-mark">⚡</span> {story.headline}
+            <span className="rg-story-kicker">📰 Top News</span> {story.headline}
           </summary>
           <div className="rg-story-body">
             {story.blurb && <p>{story.blurb}</p>}
