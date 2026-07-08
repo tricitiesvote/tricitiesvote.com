@@ -4373,7 +4373,9 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
 
 .rg-head-meta a,
 .rg-head-meta a:visited {
-  color: #2a708a;
+  color: #53bce4;
+  font-size: 12px;
+  font-weight: 600;
   text-decoration: none;
 }
 
