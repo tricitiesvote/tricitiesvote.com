@@ -117,6 +117,7 @@ model Race {
   office       Office          @relation(fields: [officeId], references: [id])
   Guide        Guide[]         @relation("GuideRaces")
   engagements  Engagement[]
+  storyPlacements StoryPlacement[]
 
   introWiki         String?
   bodyWiki          String?
@@ -131,6 +132,7 @@ model Guide {
   announcements String?
   region       Region       @relation(fields: [regionId], references: [id])
   Race         Race[]       @relation("GuideRaces")
+  storyPlacements StoryPlacement[]
 
   announcementsWiki String?
 }
@@ -203,6 +205,54 @@ model CandidateEngagement {
 
   @@id([engagementId, candidateId])
   @@index([candidateId])
+}
+
+model Story {
+  id           String           @id @default(cuid())
+  slug         String           @unique
+  headline     String
+  blurb        String?
+  date         DateTime
+  category     StoryCategory    @default(NEWS)
+  electionYear Int
+  hide         Boolean          @default(false)
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  placements   StoryPlacement[]
+  citations    Citation[]
+
+  @@index([electionYear])
+  @@index([date])
+}
+
+model StoryPlacement {
+  id      String     @id @default(cuid())
+  storyId String
+  scope   StoryScope
+  guideId String?
+  raceId  String?
+  story   Story      @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  guide   Guide?     @relation(fields: [guideId], references: [id])
+  race    Race?      @relation(fields: [raceId], references: [id])
+
+  @@index([storyId])
+  @@index([guideId])
+  @@index([raceId])
+}
+
+model Citation {
+  id             String   @id @default(cuid())
+  storyId        String
+  position       Int
+  outlet         String
+  title          String
+  url            String
+  author         String?
+  publishedAt    DateTime?
+  isPrimarySource Boolean @default(false)
+  story          Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+
+  @@index([storyId])
 }
 
 model Questionnaire {
@@ -321,6 +371,19 @@ enum ElectionType {
 enum EngagementLinkType {
   SHARED        // One link for all candidates (e.g., questionnaire)
   PER_CANDIDATE // Individual link per candidate (e.g., video timestamp)
+}
+
+enum StoryCategory {
+  NEWS
+  ANALYSIS
+  ANNOUNCEMENT
+  QUESTIONNAIRE_ADDED
+}
+
+enum StoryScope {
+  SITE
+  GUIDE
+  RACE
 }
 
 // Wiki System Models
