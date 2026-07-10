@@ -2,6 +2,7 @@ import { prisma } from './db'
 import { ElectionType, OfficeType, Prisma } from '@prisma/client'
 import { CURRENT_ELECTION_YEAR, CURRENT_ELECTION_TYPE, isCurrentElectionYear } from './constants'
 import { unslugify, slugify } from './utils'
+import { orderRaces } from './raceOrdering'
 
 const raceInclude = (year: number) => ({
   office: true,
@@ -104,7 +105,10 @@ export async function getGuidesForYear(
   }) as GuideWithRelations[]
 
   const portGroups = await fetchPortRacesByKey(year, electionType)
-  guides.forEach(guide => attachPortRaces(guide, portGroups))
+  guides.forEach(guide => {
+    attachPortRaces(guide, portGroups)
+    guide.Race = orderRaces(guide.Race, year)
+  })
 
   return guides
 }
@@ -142,8 +146,97 @@ export async function getGuideByYearAndRegion(
 
   const portGroups = await fetchPortRacesByKey(year, electionType)
   attachPortRaces(guide, portGroups)
+  guide.Race = orderRaces(guide.Race, year)
 
   return guide
+}
+
+const storyInclude = {
+  citations: { orderBy: { position: 'asc' as const } },
+} satisfies Prisma.StoryInclude
+
+export type StoryWithCitations = Prisma.StoryGetPayload<{ include: typeof storyInclude }>
+
+/**
+ * Recent published stories for a scope. Site-wide stories appear on the
+ * landing page; a guide's feed pulls stories placed on the guide itself or on
+ * any of its races.
+ */
+export async function getRecentStories(opts: {
+  year: number
+  siteWide?: boolean
+  guideId?: string
+  raceIds?: string[]
+  limit?: number
+}): Promise<StoryWithCitations[]> {
+  const { year, siteWide, guideId, raceIds = [], limit = 5 } = opts
+
+  const placementOr: Prisma.StoryPlacementWhereInput[] = []
+  if (siteWide) placementOr.push({ scope: 'SITE' })
+  if (guideId) placementOr.push({ scope: 'GUIDE', guideId })
+  if (raceIds.length) placementOr.push({ scope: 'RACE', raceId: { in: raceIds } })
+
+  if (!placementOr.length) return []
+
+  return prisma.story.findMany({
+    where: {
+      electionYear: year,
+      hide: false,
+      placements: { some: { OR: placementOr } },
+    },
+    include: storyInclude,
+    orderBy: { date: 'desc' },
+    take: limit,
+  })
+}
+
+/**
+ * Stories placed directly on races, keyed by race id — drives the inline
+ * story callout inside each race section.
+ */
+export async function getRaceStoryMap(
+  year: number,
+  raceIds: string[]
+): Promise<Map<string, StoryWithCitations[]>> {
+  const map = new Map<string, StoryWithCitations[]>()
+  if (!raceIds.length) return map
+
+  const placements = await prisma.storyPlacement.findMany({
+    where: {
+      scope: 'RACE',
+      raceId: { in: raceIds },
+      story: { electionYear: year, hide: false },
+    },
+    include: { story: { include: storyInclude } },
+    orderBy: { story: { date: 'desc' } },
+  })
+
+  for (const placement of placements) {
+    if (!placement.raceId) continue
+    const stories = map.get(placement.raceId) ?? []
+    stories.push(placement.story)
+    map.set(placement.raceId, stories)
+  }
+
+  return map
+}
+
+/**
+ * Candidate ids that have at least one questionnaire response — powers the
+ * "N of M answered" at-a-glance item without loading response content.
+ */
+export async function getQuestionnaireRespondentIds(
+  candidateIds: string[]
+): Promise<Set<string>> {
+  if (!candidateIds.length) return new Set()
+
+  const rows = await prisma.questionnaireResponse.findMany({
+    where: { candidateId: { in: candidateIds } },
+    select: { candidateId: true },
+    distinct: ['candidateId'],
+  })
+
+  return new Set(rows.map(row => row.candidateId))
 }
 
 export async function getCandidateByYearAndSlug(

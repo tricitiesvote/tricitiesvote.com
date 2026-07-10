@@ -4205,3 +4205,409 @@ details.questionnaire-compare-section[open] > summary .questionnaire-compare-hea
 .candidate-profile--compare .candidate-card {
   width: 100%;
 }
+
+/* News & updates feed */
+.updates-feed {
+  max-width: 640px;
+  margin: 0 auto 40px auto;
+}
+
+.updates-feed-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #02BEE8;
+}
+
+.updates-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.update-item {
+  border-bottom: 1px solid #e4f5f5;
+}
+
+.update-item details > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.update-item details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.update-item details > summary::before {
+  content: '+';
+  color: #02BEE8;
+  font-weight: 700;
+  margin-right: 2px;
+}
+
+.update-item details[open] > summary::before {
+  content: '\2013';
+}
+
+.update-date {
+  font-size: 13px;
+  color: #4b6b7a;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.update-headline {
+  font-weight: 500;
+}
+
+.update-blurb {
+  margin: 0 0 10px 22px;
+  color: #333;
+}
+
+.update-citations {
+  margin: 0 0 14px 22px;
+  padding-left: 18px;
+}
+
+.update-citations li {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.update-citations a {
+  color: #2a708a;
+}
+
+.update-citation-outlet {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+/* ---------- race grid prototype (dense guide view) ---------- */
+
+.race-grid-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 60px;
+}
+
+.race-grid-page h1 {
+  text-align: left;
+  font-size: 26px;
+  margin: 10px 0 6px;
+  padding: 20px 0 0;
+}
+
+.race-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 12px;
+  align-items: start;
+  text-align: left;
+}
+
+.rg-group {
+  grid-column: 1 / -1;
+  margin: 20px 0 0;
+  padding-bottom: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4b6b7a;
+  border-bottom: 1px solid #cfe8f2;
+}
+
+.rg-section {
+  border: 1px solid rgba(83, 187, 228, 0.25);
+  background: #fff;
+  margin: 0;
+  padding: 12px 14px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.rg-section img {
+  margin: 0;
+  max-height: none;
+}
+
+.rg-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: left;
+  margin: 0;
+  border-bottom: none;
+}
+
+.rg-head h3 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.rg-head h3 a,
+.rg-head h3 a:visited {
+  color: #234;
+  text-decoration: none;
+}
+
+.rg-head h3 a:hover {
+  color: #1c5a78;
+}
+
+.rg-head-meta {
+  font-size: 11.5px;
+  color: #4b6b7a;
+  white-space: nowrap;
+}
+
+.rg-head-meta a,
+.rg-head-meta a:visited {
+  color: #53bce4;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rg-face {
+  display: flex;
+  align-items: center;
+}
+
+.rg-face img,
+.rg-initials {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.rg-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e4f5f5;
+  color: #4b6b7a;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.rg-party {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+  line-height: 1.2;
+}
+
+.rg-party-d {
+  background: #e3ecfb;
+  color: #1d4e9e;
+}
+
+.rg-party-r {
+  background: #fbe5e3;
+  color: #a2261c;
+}
+
+.rg-party-x {
+  background: #eeeeee;
+  color: #555;
+}
+
+.rg-incumbent {
+  font-size: 10px;
+  font-style: italic;
+  color: #4b6b7a;
+}
+
+.rg-table {
+  width: 100%;
+  align-self: stretch;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.rg-table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #4b6b7a;
+  padding: 2px 8px 5px;
+  border-bottom: 1px solid #dceef5;
+  border-left: none;
+  border-right: none;
+  font-family: inherit;
+}
+
+.rg-table td {
+  text-align: left;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-bottom: 1px solid #eef6f9;
+  border-left: none;
+  border-right: none;
+  vertical-align: middle;
+}
+
+.rg-empty {
+  color: #b6cdd8;
+}
+
+.rg-table tr:last-child td {
+  border-bottom: none;
+}
+
+.rg-table thead tr:last-of-type th {
+  border-bottom: 1px solid #dceef5;
+}
+
+/* Uniform metric columns, sized to the widest value ("$999k"). */
+.rg-table th.rg-col-num,
+.rg-table td.rg-col-num {
+  text-align: center;
+  white-space: nowrap;
+  width: 52px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.rg-table th.rg-col-num {
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.rg-table .rg-legend-row th {
+  text-align: right;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: #93b1bf;
+  padding: 0 4px 4px;
+  border-bottom: none;
+}
+
+.rg-table-candidate,
+.rg-table-candidate:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1c5a78;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rg-table .rg-party {
+  margin-left: 5px;
+}
+
+.rg-pop {
+  position: relative;
+  display: inline-block;
+}
+
+.rg-pop-trigger {
+  font: inherit;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  border: none;
+  background: none;
+  padding: 0;
+  color: #1c5a78;
+  border-bottom: 1px dotted #8fc3d9;
+  cursor: pointer;
+}
+
+.rg-pop-card {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: 0;
+  z-index: 30;
+  min-width: 190px;
+  max-width: 280px;
+  background: #fff;
+  border: 1px solid #cde4e4;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(38, 58, 172, 0.15);
+  padding: 8px 10px;
+  font-size: 11.5px;
+  line-height: 1.4;
+  text-align: left;
+  color: #234;
+}
+
+.rg-pop-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.rg-pop-list .is-yes {
+  color: #1c6b3a;
+}
+
+.rg-pop-list .is-no {
+  color: #a2261c;
+}
+
+.rg-story {
+  padding: 2px 0 0;
+  font-size: 12.5px;
+  color: #333;
+}
+
+.rg-story summary {
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.rg-story-kicker {
+  display: inline-block;
+  background: #eef6f9;
+  color: #2a708a;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 4px;
+  vertical-align: 1px;
+  white-space: nowrap;
+}
+
+.rg-story-body p {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  max-width: 620px;
+}
+
+.rg-story-cites a,
+.rg-story-cites a:visited {
+  margin-right: 10px;
+  color: #2a708a;
+  text-decoration: none;
+  font-size: 11.5px;
+}
+
+@media (max-width: 640px) {
+  .race-grid {
+    grid-template-columns: 1fr;
+  }
+}
