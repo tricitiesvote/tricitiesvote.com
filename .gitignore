@@ -105,3 +105,20 @@ lib_backup/
 
 # Local Netlify folder
 .netlify
+.fray/
+
+# Herald authenticated scraper session (contains login cookies)
+scripts/import/herald-session.json
+
+# Raw scraped letter captures (subscriber content, re-analyzable cache)
+scripts/import/letters-raw.jsonl
+
+# Herald candidate news captures (subscriber content)
+scripts/import/herald-articles.jsonl
+
+# Google News candidate captures
+scripts/import/google-news.jsonl
+
+# Ballotpedia scrape resume cache + run log
+scripts/import/ballotpedia-cache.jsonl
+scripts/import/ballotpedia-scrape.out
