@@ -1,7 +1,12 @@
+import 'dotenv/config'
 import { chromium } from 'playwright'
 import Anthropic from '@anthropic-ai/sdk'
 import { PrismaClient } from '@prisma/client'
 import { CURRENT_ELECTION_YEAR } from '../../lib/constants'
+
+// Raw letter captures (append-only JSONL) — persisted before analysis so a
+// failed parse never loses the pull and analysis can re-run from cache.
+const RAW_LETTERS_PATH = 'scripts/import/letters-raw.jsonl'
 
 const prisma = new PrismaClient()
 
@@ -29,6 +34,22 @@ const yearArg = args.find(arg => arg.startsWith('--year='))
 const parsedYear = yearArg ? parseInt(yearArg.split('=')[1], 10) : NaN
 const electionYear = Number.isNaN(parsedYear) ? CURRENT_ELECTION_YEAR : parsedYear
 const sinceIsValid = parsedSince instanceof Date && !Number.isNaN(parsedSince?.getTime?.() ?? Number.NaN)
+const maxPagesArg = args.find(arg => arg.startsWith('--max-pages='))
+const parsedMaxPages = maxPagesArg ? parseInt(maxPagesArg.split('=')[1], 10) : NaN
+// --urls=a,b,c or --urls-file=path : process exactly these letter URLs and skip
+// the index scrape entirely (fast, targeted re-processing).
+const urlsArg = args.find(arg => arg.startsWith('--urls='))
+const urlsFileArg = args.find(arg => arg.startsWith('--urls-file='))
+const explicitUrls: string[] = (() => {
+  let raw: string[] = []
+  if (urlsArg) raw = urlsArg.slice('--urls='.length).split(',')
+  if (urlsFileArg) {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const fsSync = require('fs') as typeof import('fs')
+    raw = raw.concat(fsSync.readFileSync(urlsFileArg.slice('--urls-file='.length), 'utf8').split(/\r?\n/))
+  }
+  return raw.map(u => u.trim().split('#')[0]).filter(u => /^https?:\/\//.test(u))
+})()
 
 async function scrapeLetters() {
   console.log('🔍 Starting Tri-City Herald Letters scraper...\n')
@@ -42,14 +63,11 @@ async function scrapeLetters() {
 
   // Fetch candidates from database
   console.log('📊 Fetching candidates from database...')
+  // Match letters against every candidate for the cycle — letters can endorse
+  // any office (the previous municipal-only filter dropped 90 of 99 in 2026).
   const candidates = await prisma.candidate.findMany({
     where: {
-      electionYear,
-      office: {
-        type: {
-          in: ['CITY_COUNCIL', 'SCHOOL_BOARD', 'PORT_COMMISSIONER', 'BALLOT_MEASURE']
-        }
-      }
+      electionYear
     },
     include: {
       office: true
@@ -125,11 +143,24 @@ async function scrapeLetters() {
     args: ['--disable-blink-features=AutomationControlled']
   })
 
+  // Load a saved authenticated Herald session if one was captured
+  // (scripts/import/herald-session.json via `capture-herald-session.ts`) so
+  // the paywall is bypassed with a real subscriber login.
+  const fsMod = await import('fs')
+  const HERALD_SESSION_PATH = 'scripts/import/herald-session.json'
+  const hasHeraldSession = fsMod.existsSync(HERALD_SESSION_PATH)
+  if (hasHeraldSession) {
+    console.log('🔐 Using saved Herald subscriber session')
+  } else {
+    console.log('⚠️  No saved Herald session found — running unauthenticated (paywall may block content). Run: npm run import:letters:session')
+  }
+
   const context = await browser.newContext({
     userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     viewport: { width: 1920, height: 1080 },
     locale: 'en-US',
-    timezoneId: 'America/Los_Angeles'
+    timezoneId: 'America/Los_Angeles',
+    ...(hasHeraldSession ? { storageState: HERALD_SESSION_PATH } : {})
   })
 
   const page = await context.newPage()
@@ -148,10 +179,10 @@ async function scrapeLetters() {
   }
 
   let currentPage = 1
-  const maxPages = 10 // Will stop early when we hit already-processed articles
+  const maxPages = Number.isNaN(parsedMaxPages) ? 10 : parsedMaxPages // Will stop early when we hit already-processed articles; --max-pages caps the index scan for a completable batch
   let stopScraping = false
 
-  while (currentPage <= maxPages && !stopScraping) {
+  while (currentPage <= maxPages && !stopScraping && explicitUrls.length === 0) {
     const pageUrl = currentPage === 1
       ? 'https://www.tri-cityherald.com/opinion/letters-to-the-editor/'
       : `https://www.tri-cityherald.com/opinion/letters-to-the-editor/#storylink=readmore_inline&page=${currentPage}`
@@ -225,7 +256,9 @@ async function scrapeLetters() {
 
   // Deduplicate - remove anchor fragments (#storylink=...) before deduping
   const cleanedLinks = allLetterLinks.map(url => url.split('#')[0])
-  const uniqueLinks = Array.from(new Set(cleanedLinks))
+  const uniqueLinks = explicitUrls.length > 0
+    ? explicitUrls
+    : Array.from(new Set(cleanedLinks))
 
   const sinceMessage = lastProcessedArticleNum > 0
     ? `since article ${lastProcessedArticleNum}`
@@ -263,10 +296,18 @@ async function scrapeLetters() {
         continue
       }
 
+      // Persist the raw capture immediately (before analysis) so a parse
+      // failure never loses the pull, and analysis can be re-run from cache.
+      const rawArticleId = url.match(/article(\d+)\.html/)?.[1] ?? url
+      fsMod.appendFileSync(
+        RAW_LETTERS_PATH,
+        JSON.stringify({ articleId: rawArticleId, url, text: articleText, capturedAt: new Date().toISOString() }) + '\n'
+      )
+
       // Analyze with Claude
       console.log('  🤖 Analyzing with AI...')
       const message = await anthropic.messages.create({
-        model: 'claude-3-5-sonnet-20241022',
+        model: 'claude-sonnet-5',
         max_tokens: 2048,
         messages: [{
           role: 'user',
@@ -325,9 +366,10 @@ ${articleText}`
         }]
       })
 
-      const responseText = message.content[0].type === 'text'
-        ? message.content[0].text
-        : ''
+      // Newer models return a leading `thinking` block, so the text answer is
+      // not always content[0] — find the text block explicitly.
+      const textBlock = message.content.find(block => block.type === 'text')
+      const responseText = textBlock && textBlock.type === 'text' ? textBlock.text : ''
 
       // Parse JSON response - extract JSON from markdown code blocks if present
       try {
@@ -375,6 +417,9 @@ ${articleText}`
         console.log(`  ⚠️  Failed to parse AI response`)
         console.log(`  Raw response: ${responseText.substring(0, 200)}...`)
       }
+
+      // Persist incrementally so an interrupted run keeps what it found
+      writeEndorsementCsvs(endorsements)
 
       // Rate limit
       await new Promise(resolve => setTimeout(resolve, 1000))
@@ -459,6 +504,24 @@ function escapeCsv(value: string | null | undefined) {
   const needsQuotes = /[",\n]/.test(normalized)
   const sanitized = normalized.replace(/"/g, '""')
   return needsQuotes ? `"${sanitized}"` : sanitized
+}
+
+// Write both CSVs from the current accumulator. Called after every letter so an
+// interrupted run still persists everything found up to that point.
+function writeEndorsementCsvs(endorsements: Array<Record<string, any>>) {
+  const fsSync = require('fs') as typeof import('fs')
+  const header = 'Candidate Name,Letter Writer,Position,Office Type,Excerpt,URL'
+  const row = (e: Record<string, any>) => [
+    escapeCsv(e.candidateName ?? ''),
+    escapeCsv(e.letterWriter ?? ''),
+    escapeCsv(e.position),
+    escapeCsv(e.officeType),
+    escapeCsv(e.excerpt ?? ''),
+    escapeCsv(e.url)
+  ].join(',')
+  fsSync.writeFileSync('scripts/import/letter-endorsements.csv', [header, ...endorsements.map(row)].join('\n'))
+  const reviewItems = endorsements.filter(e => e.position === 'REVIEW')
+  fsSync.writeFileSync('scripts/import/letter-endorsements-review.csv', [header, ...reviewItems.map(row)].join('\n'))
 }
 
 scrapeLetters().catch(console.error)
