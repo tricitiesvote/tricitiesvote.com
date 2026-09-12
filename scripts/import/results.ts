@@ -31,10 +31,12 @@ import { NameMatcher } from '../../lib/normalize/names'
 import {
   electionDateCode,
   fetchCountyResults,
-  isWriteIn,
+  fetchStatewideResults,
   pickShortTermWinner,
   ResultRow,
   ResultsElectionType,
+  ResultsProvenance,
+  rowIsWriteIn,
 } from '../../lib/wa-state/results'
 import { getOutputMode, isDryRun } from './config'
 import { ADDITIONAL_CANDIDATE_ALIASES } from './2025-seats'
@@ -61,18 +63,42 @@ type RaceKind =
   | 'mayor'
   | 'school'
   | 'port'
+  | 'pud'
   | 'measure'
   | 'county-commissioner'
+  | 'assessor'
+  | 'auditor'
+  | 'clerk'
+  | 'treasurer'
+  | 'coroner'
   | 'sheriff'
   | 'prosecutor'
   | 'judge'
+  | 'district-court'
+  | 'appeals-court'
+  | 'supreme-court'
   | 'state-senator'
   | 'state-rep'
   | 'us-house'
   | 'us-senate'
+  | 'pco'
 
 /** Race kinds whose jurisdiction spans counties; matched by kind/district/position only. */
-const STATE_KINDS = new Set<RaceKind>(['judge', 'state-senator', 'state-rep', 'us-house', 'us-senate'])
+const STATE_KINDS = new Set<RaceKind>([
+  'judge',
+  'appeals-court',
+  'supreme-court',
+  'state-senator',
+  'state-rep',
+  'us-house',
+  'us-senate',
+])
+
+/**
+ * Kinds we do not carry in the guide. Recognized so they are skipped quietly
+ * rather than reported as races we failed to match.
+ */
+const IGNORED_KINDS = new Set<RaceKind>(['pco'])
 
 interface RaceDescriptor {
   kind: RaceKind | null
@@ -86,8 +112,10 @@ type DbRace = Awaited<ReturnType<typeof loadRaces>>[number]
 interface CsvRaceGroup {
   title: string
   counties: Set<string>
-  /** Combined votes per CSV candidate name (summed when a race spans counties). */
+  /** Combined votes per result candidate name (summed when a race spans counties). */
   candidates: Map<string, number>
+  /** Names the source flagged as write-ins. */
+  writeIns: Set<string>
 }
 
 interface PlannedUpdate {
@@ -160,40 +188,89 @@ function lastNumber(text: string): number | null {
   return matches ? Number.parseInt(matches[matches.length - 1], 10) : null
 }
 
+/**
+ * Legislative or congressional district number.
+ *
+ * Two vocabularies have to agree here: the state writes "Legislative District
+ * 14" and "Congressional District 4", while our office titles write "14th
+ * District Representative Pos 1" and "U.S. House District 4". Both forms are
+ * matched so a state race and its database race describe the same district.
+ *
+ * "School District 17" and "District Court" are deliberately not districts.
+ */
 function extractDistrict(text: string): number | null {
-  const match = text.match(/(?:legislative|congressional) district (\d+)/)
-  return match ? Number.parseInt(match[1], 10) : null
+  const chamber = text.match(
+    /(?:legislative|congressional|u\.?s\.? house|u\.?s\.? senate|house|senate) district (\d+)/
+  )
+  if (chamber) return Number.parseInt(chamber[1], 10)
+
+  const ordinal = text.match(/(\d+)(?:st|nd|rd|th) (?:legislative |congressional )?district/)
+  if (ordinal) return Number.parseInt(ordinal[1], 10)
+
+  return null
 }
 
 /**
  * Strip identifiers that would confuse position-number extraction: school
  * district numbers ("School District 17", "School District No. J-51") and
- * legislative/congressional district numbers.
+ * district numbers in either vocabulary, so that what is left of a title is
+ * only ever its position number.
  */
 function stripDistrictIdentifiers(text: string): string {
   return text
     .replace(/school district\s*(?:no\.?\s*)?j?-?\d+/g, 'school district')
-    .replace(/(?:legislative|congressional) district \d+/g, '')
+    .replace(
+      /(?:legislative|congressional|u\.?s\.? house|u\.?s\.? senate|house|senate) district \d+/g,
+      ''
+    )
+    .replace(/\d+(?:st|nd|rd|th) (?:legislative |congressional )?district/g, '')
 }
 
-function csvKind(title: string): RaceKind | null {
-  if (/\bport of\b/.test(title)) return 'port'
-  if (/school district/.test(title) && /director/.test(title)) return 'school'
+/**
+ * The office a race title names, derived the same way for a state race title
+ * and for one of our office titles so the two can be compared.
+ *
+ * Order matters: the narrower phrase has to win. "Port of Kennewick
+ * Commissioner" is a port race, not a county commissioner one; "U.S. Senator"
+ * is federal, not state.
+ */
+function kindFromTitle(title: string): RaceKind | null {
+  if (/precinct committee officer/.test(title)) return 'pco'
   if (/\bmeasure\b|\bproposition\b|\bprop\b/.test(title)) return 'measure'
+  if (/\bport of\b/.test(title)) return 'port'
+  if (/\bpud\b|public utility district/.test(title)) return 'pud'
+  if (/school district/.test(title) && /director/.test(title)) return 'school'
   if (/\bmayor\b/.test(title)) return 'mayor'
   if (/council/.test(title)) return 'council'
+  if (/supreme court/.test(title)) return 'supreme-court'
+  if (/court of appeals/.test(title)) return 'appeals-court'
+  if (/district court/.test(title)) return 'district-court'
   if (/superior court/.test(title)) return 'judge'
-  if (/state senator/.test(title)) return 'state-senator'
-  if (/state representative/.test(title)) return 'state-rep'
-  if (/u\.?s\.? senator/.test(title)) return 'us-senate'
-  if (/u\.?s\.? representative|congressional district/.test(title)) return 'us-house'
-  if (/sheriff/.test(title)) return 'sheriff'
+  if (/u\.?s\.? senator|united states senator/.test(title)) return 'us-senate'
+  if (/u\.?s\.? representative|u\.?s\.? house|congressional district/.test(title)) return 'us-house'
+  if (/\bsenator\b/.test(title)) return 'state-senator'
+  if (/\brepresentative\b/.test(title)) return 'state-rep'
   if (/prosecut/.test(title)) return 'prosecutor'
-  if (/(?:benton|franklin)\s+(?:county\s+)?commissioner/.test(title)) return 'county-commissioner'
+  if (/sheriff/.test(title)) return 'sheriff'
+  if (/assessor/.test(title)) return 'assessor'
+  if (/auditor/.test(title)) return 'auditor'
+  if (/\bclerk\b/.test(title)) return 'clerk'
+  if (/treasurer/.test(title)) return 'treasurer'
+  if (/coroner/.test(title)) return 'coroner'
+  if (/commissioner/.test(title)) return 'county-commissioner'
   return null
 }
 
-function csvEntity(title: string, kind: RaceKind | null): string | null {
+/**
+ * The jurisdiction a race belongs to. Statewide and multi-county kinds are all
+ * 'state'; everything else is a city or a county, read from the title, falling
+ * back to the county the row came from.
+ *
+ * The fallback carries the county offices: the state's JSON reports them under
+ * bare titles ("Sheriff", "Assessor") because the county is the jurisdiction
+ * the results were requested for.
+ */
+function csvEntity(title: string, kind: RaceKind | null, county: string | null): string | null {
   if (kind && STATE_KINDS.has(kind)) return 'state'
   if (kind === 'port') {
     const match = title.match(/port of ([a-z]+)/)
@@ -206,20 +283,25 @@ function csvEntity(title: string, kind: RaceKind | null): string | null {
   if (/pasco/.test(title)) return 'pasco'
   if (/benton/.test(title)) return 'benton'
   if (/franklin/.test(title)) return 'franklin'
-  return null
+  return county ? county.toLowerCase().replace(/ county$/, '') : null
 }
 
-function describeCsvRace(rawTitle: string): RaceDescriptor {
+function describeCsvRace(rawTitle: string, county: string | null): RaceDescriptor {
   const title = rawTitle.toLowerCase().replace(/#/g, '')
-  const kind = csvKind(title)
+  const kind = kindFromTitle(title)
   return {
     kind,
-    entity: csvEntity(title, kind),
+    entity: csvEntity(title, kind, county),
     district: extractDistrict(title),
     num: lastNumber(stripDistrictIdentifiers(title)),
   }
 }
 
+/**
+ * Fallback kind per office type, for a title whose words say nothing. Several
+ * county offices share the COUNTY_COMMISSIONER type, so the title is the
+ * better signal and this only catches what it misses.
+ */
 const OFFICE_TYPE_KIND: Record<OfficeType, RaceKind | null> = {
   CITY_COUNCIL: 'council',
   SCHOOL_BOARD: 'school',
@@ -238,7 +320,7 @@ const OFFICE_TYPE_KIND: Record<OfficeType, RaceKind | null> = {
 
 function describeDbRace(race: DbRace): RaceDescriptor {
   const title = race.office.title.toLowerCase().replace(/#/g, '')
-  const kind = OFFICE_TYPE_KIND[race.office.type]
+  const kind = kindFromTitle(title) ?? OFFICE_TYPE_KIND[race.office.type]
 
   let entity: string | null
   if (kind && STATE_KINDS.has(kind)) {
@@ -278,10 +360,13 @@ function groupCsvRows(rows: ResultRow[]): CsvRaceGroup[] {
   for (const row of rows) {
     let group = groups.get(row.race)
     if (!group) {
-      group = { title: row.race, counties: new Set(), candidates: new Map() }
+      group = { title: row.race, counties: new Set(), candidates: new Map(), writeIns: new Set() }
       groups.set(row.race, group)
     }
     group.counties.add(row.county)
+    if (rowIsWriteIn(row)) {
+      group.writeIns.add(row.candidate)
+    }
     // Sum across counties for races that span both (e.g. district-wide races)
     group.candidates.set(row.candidate, (group.candidates.get(row.candidate) ?? 0) + row.votes)
   }
@@ -387,10 +472,26 @@ async function main() {
     `\n📥 Importing ${year} ${type} results (election date ${dateCode}${typeInferred ? ', type inferred — pass --type to override' : ''})`
   )
 
-  const rows = (
-    await Promise.all(COUNTIES.map(county => fetchCountyResults(dateCode, county)))
-  ).flat()
-  console.log(`   Fetched ${rows.length} result rows from ${COUNTIES.join(', ')}`)
+  // County feeds carry each county's own offices; the statewide feed carries
+  // the races spanning counties, with their whole totals. Both are needed —
+  // see lib/wa-state/results.ts.
+  const fetched = await Promise.all([
+    ...COUNTIES.map(county => fetchCountyResults(dateCode, county)),
+    fetchStatewideResults(dateCode, COUNTIES),
+  ])
+  const rows: ResultRow[] = fetched.flatMap(result => result.rows)
+  const provenance: ResultsProvenance = fetched[0].provenance
+  console.log(
+    `   Fetched ${rows.length} result rows (${COUNTIES.join(', ')} + statewide for multi-county races)`
+  )
+  console.log(
+    `   Source: ${provenance.source === 'api' ? 'state results API' : 'legacy CSV export'} — ` +
+      `${provenance.official ? 'CERTIFIED' : 'NOT certified'}` +
+      (provenance.asOf ? ` as of ${provenance.asOf}` : '')
+  )
+  if (!provenance.official) {
+    console.log('   ⚠️  These are unofficial counts. Re-run after certification.')
+  }
 
   const races = await loadRaces(year, electionType)
   const dbRaces = races.map(race => ({ race, descriptor: describeDbRace(race) }))
@@ -408,9 +509,17 @@ async function main() {
   const matchedRaceIds = new Map<string, string>() // raceId -> csv title
 
   for (const group of groups) {
-    const descriptor = describeCsvRace(group.title)
+    // A county-only race carries no county in its title, so the county the rows
+    // came from supplies it. A race spanning counties names its district
+    // instead and is matched as statewide.
+    const soleCounty = group.counties.size === 1 ? Array.from(group.counties)[0] : null
+    const descriptor = describeCsvRace(group.title, soleCounty)
     const { race, reason } = matchDbRace(descriptor, dbRaces)
     const label = `"${group.title}" (${Array.from(group.counties).join('+')}, ${group.candidates.size} rows)`
+
+    if (descriptor.kind && IGNORED_KINDS.has(descriptor.kind)) {
+      continue
+    }
 
     if (!race) {
       if (reason === 'unrecognized') unrecognizedRaces.push(label)
@@ -431,7 +540,7 @@ async function main() {
 
     // Candidate rows, write-ins excluded (they are not database candidates)
     const candidateRows = Array.from(group.candidates.entries())
-      .filter(([name]) => !isWriteIn(name))
+      .filter(([name]) => !group.writeIns.has(name))
       .map(([name, votes]) => ({
         name,
         votes,
@@ -457,7 +566,7 @@ async function main() {
       const writeInVotes = Math.max(
         0,
         ...Array.from(group.candidates.entries())
-          .filter(([name]) => isWriteIn(name))
+          .filter(([name]) => group.writeIns.has(name))
           .map(([, votes]) => votes)
       )
       if (topRows.length === 0 || topRows.some(row => !row.candidateId)) {
