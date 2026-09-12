@@ -248,10 +248,20 @@ The system integrates with several Washington State data sources through the `li
 - Script: `lib/wa-state/pamphlet.ts`
 
 **Election Results**:
-- URL: `results.vote.wa.gov/results/{year}{month}/{county}/`
-- Data: Vote counts, percentages, winners
-- Method: HTML scraping
-- Script: `lib/wa-state/results.ts`
+- URL: `results.votewa.gov/results/public/api/elections/{jurisdiction}/{YYYYMMDD}/data` (JSON),
+  where `{jurisdiction}` is `benton-county-wa`, `franklin-county-wa` or `washington`
+- Data: Vote counts, whether the results are certified, and which counties each race spans
+- Two scopes, both needed: a county jurisdiction returns that county's own offices
+  (under bare titles like "Sheriff" — the jurisdiction says which county) plus its
+  share of any multi-county race; `washington` returns the multi-county races with
+  their whole totals. A congressional or legislative race must be read from
+  `washington`, or a candidate who lost the district reads as having won the part
+  of it we cover
+- Elections older than the current cycle answer 204 there and are still served by
+  the retired per-county CSV export at
+  `results.vote.wa.gov/results/{YYYYMMDD}/export/{YYYYMMDD}_{county}.csv`, which the
+  fetch layer falls back to
+- Script: `lib/wa-state/results.ts`, matching and writes in `scripts/import/results.ts`
 
 ### Data Import Scripts
 
@@ -500,10 +510,13 @@ DNS: point `<year>.tricitiesvote.com` at the Vercel project. See the README for 
 - PDC contribution import
 - VoteWA pamphlet import (`npm run import:pamphlet`)
 - 2025 election (complete; archived at https://2025-tricitiesvote.vercel.app)
+- Election results importer (`npm run import:results -- <year> --type primary|general`)
+- 2026 primary: certified results imported; general ballot seeded from them
+  (`scripts/prepare-2026-general.ts`)
 
 ### 🚧 In Progress
-- 2026 election preparation (county guides for Benton/Franklin; August 4 primary, November general)
-- Election results importer (being rebuilt as `scripts/import/results.ts`)
+- 2026 general election (November 3): voters' pamphlet statements when they publish,
+  questionnaire coverage for the local races
 
 ## General Notes
 
