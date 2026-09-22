@@ -56,6 +56,7 @@ model Candidate {
   instagram     String?
   youtube       String?
   pdc           String?
+  votesmart     String?
   donors        String?
   lettersYes    String?
   lettersNo     String?

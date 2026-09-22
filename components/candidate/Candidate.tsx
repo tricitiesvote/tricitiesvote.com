@@ -29,6 +29,7 @@ interface CandidateProps {
     instagram?: string | null
     youtube?: string | null
     pdc?: string | null
+    votesmart?: string | null
     minifiler: boolean
     bio?: string | null
     statement?: string | null
@@ -172,6 +173,7 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
               instagram={instagramValue}
               youtube={youtubeValue}
               pdc={candidate.pdc}
+              votesmart={candidate.votesmart}
               phone={phoneValue}
               variant="inline"
             />

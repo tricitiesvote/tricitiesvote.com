@@ -25,6 +25,7 @@
     "import:enforcement:incremental": "ts-node --project tsconfig.scripts.json scripts/import/enforcement-cases.ts --incremental",
     "import:historical": "ts-node --project tsconfig.scripts.json scripts/import/historical-data-safe.ts",
     "import:historical:test": "npm run import:historical -- --dry-run",
+    "import:votesmart": "ts-node --project tsconfig.scripts.json scripts/import/votesmart-links.ts",
     "import:pamphlet": "ts-node --project tsconfig.scripts.json scripts/import/pamphlet.ts",
     "import:results": "ts-node --project tsconfig.scripts.json scripts/import/results.ts",
     "import:questionnaire": "ts-node --project tsconfig.scripts.json scripts/import/questionnaire-import.ts",

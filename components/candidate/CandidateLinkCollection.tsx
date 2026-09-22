@@ -14,6 +14,7 @@ interface CandidateLinkCollectionProps {
   instagram?: string | null
   youtube?: string | null
   pdc?: string | null
+  votesmart?: string | null
   phone?: string | null
   variant?: 'stacked' | 'inline'
 }
@@ -27,6 +28,7 @@ export function CandidateLinkCollection({
   instagram,
   youtube,
   pdc,
+  votesmart,
   phone,
   variant = 'stacked'
 }: CandidateLinkCollectionProps) {
@@ -126,6 +128,18 @@ export function CandidateLinkCollection({
           Finance
         </a>
       )
+    },
+    {
+      field: 'votesmart',
+      value: votesmart ?? '',
+      label: 'Vote Smart',
+      icon: '📋',
+      readonly: true,
+      render: (value: string) => (
+        <a href={value} target="_blank" rel="noopener noreferrer">
+          Vote Smart
+        </a>
+      )
     }
   ]
 
@@ -153,7 +167,7 @@ export function CandidateLinkCollection({
               value ? (
                 render(value)
               ) : (
-                <span className="text-gray-500">Finance link N/A.</span>
+                <span className="text-gray-500">{label} link N/A.</span>
               )
             ) : (
               <EditableField

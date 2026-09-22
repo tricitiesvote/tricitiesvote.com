@@ -15,6 +15,7 @@ interface CandidateInfoProps {
     instagram?: string | null
     youtube?: string | null
     pdc?: string | null
+    votesmart?: string | null
   }
   year: number
   size?: number
@@ -48,6 +49,7 @@ export function CandidateInfo({ candidate, year, size, badge }: CandidateInfoPro
         instagram={preferWikiString(candidate as any, 'instagram') ?? candidate.instagram}
         youtube={preferWikiString(candidate as any, 'youtube') ?? candidate.youtube}
         pdc={candidate.pdc}
+        votesmart={candidate.votesmart}
         phone={preferWikiString(candidate as any, 'phone')}
       />
     </>
