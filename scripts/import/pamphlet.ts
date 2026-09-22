@@ -43,6 +43,18 @@ function fixUrl(url?: string): string | undefined {
   return url
 }
 
+// A pamphlet statement whose only content is the section headings and
+// "No information submitted" is worse than none — it renders as a wall of
+// nothing. Treat it as absent.
+function hasSubstance(markdown: string): boolean {
+  return (
+    markdown
+      .replace(/\*\*[^*]*\*\*/g, '')
+      .replace(/no information submitted/gi, '')
+      .replace(/[\s\\*_-]/g, '').length > 0
+  )
+}
+
 // Create slug from name
 function slugify(text: string): string {
   return text
@@ -136,12 +148,15 @@ async function importPamphletData() {
         }
         
         // Convert HTML statement to markdown
-        const statementMarkdown = item.statement.Statement 
+        const turndowned = item.statement.Statement
           ? markdownConverter.turndown(item.statement.Statement)
           : null
-        
+        const statementMarkdown = turndowned && hasSubstance(turndowned) ? turndowned : null
+
         if (statementMarkdown) {
           statementsImported++
+        } else if (turndowned) {
+          console.log(`  ∅ ${normalizedName} submitted no pamphlet content`)
         }
 
         // Only write fields the pamphlet actually changes, so a re-run shows
