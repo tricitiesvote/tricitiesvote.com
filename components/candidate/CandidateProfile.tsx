@@ -21,6 +21,7 @@ interface CandidateProfileProps {
     instagram?: string | null
     youtube?: string | null
     pdc?: string | null
+    votesmart?: string | null
     minifiler: boolean
     bio?: string | null
     statement?: string | null
@@ -165,6 +166,11 @@ export function CandidateProfile({ candidate, year }: CandidateProfileProps) {
             {candidate.pdc && (
               <li>
                 <a href={candidate.pdc} target="_blank" rel="noopener noreferrer">Campaign Finance (PDC)</a>
+              </li>
+            )}
+            {candidate.votesmart && (
+              <li>
+                <a href={candidate.votesmart} target="_blank" rel="noopener noreferrer">Vote Smart</a>
               </li>
             )}
           </ul>

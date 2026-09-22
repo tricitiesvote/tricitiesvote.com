@@ -86,6 +86,7 @@ export async function PATCH(
     if ('instagram' in body) updateData.instagram = extractString(body.instagram);
     if ('youtube' in body) updateData.youtube = extractString(body.youtube);
     if ('pdc' in body) updateData.pdc = extractString(body.pdc);
+    if ('votesmart' in body) updateData.votesmart = extractString(body.votesmart);
     if ('articles' in body) updateData.articles = extractString(body.articles);
     if ('hide' in body) updateData.hide = extractBoolean(body.hide);
     if ('minifiler' in body) updateData.minifiler = extractBoolean(body.minifiler);

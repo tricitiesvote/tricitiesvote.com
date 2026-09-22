@@ -43,6 +43,18 @@ function fixUrl(url?: string): string | undefined {
   return url
 }
 
+// A pamphlet statement whose only content is the section headings and
+// "No information submitted" is worse than none — it renders as a wall of
+// nothing. Treat it as absent.
+function hasSubstance(markdown: string): boolean {
+  return (
+    markdown
+      .replace(/\*\*[^*]*\*\*/g, '')
+      .replace(/no information submitted/gi, '')
+      .replace(/[\s\\*_-]/g, '').length > 0
+  )
+}
+
 // Create slug from name
 function slugify(text: string): string {
   return text
@@ -52,8 +64,11 @@ function slugify(text: string): string {
 }
 
 async function importPamphletData() {
+  const dryRun = process.argv.includes('--dry-run')
   const electionYear = parseInt(electionConfig.year)
-  console.log(`\n🗳️  Importing ${electionYear} voter pamphlet data...\n`)
+  console.log(
+    `\n🗳️  Importing ${electionYear} ${electionConfig.type} voter pamphlet data${dryRun ? ' (dry run)' : ''}...\n`
+  )
 
   // Seed the matcher with this election's candidates so ballot names match
   // even before they have entries in load-config-names.json
@@ -123,41 +138,60 @@ async function importPamphletData() {
           const photoBuffer = Buffer.from(item.statement.Photo, 'base64')
           const imageFilename = `${filename}-original.png`
           const fullImagePath = path.join(imageDir, imageFilename)
-          
-          await fs.writeFile(fullImagePath, photoBuffer)
+
+          if (!dryRun) {
+            await fs.writeFile(fullImagePath, photoBuffer)
+          }
           imagePath = `/images/candidates/${imageFilename}`
           photosImported++
-          console.log(`  📸 Saved photo for ${normalizedName}`)
+          console.log(`  📸 ${dryRun ? 'Would save' : 'Saved'} photo for ${normalizedName}`)
         }
         
         // Convert HTML statement to markdown
-        const statementMarkdown = item.statement.Statement 
+        const turndowned = item.statement.Statement
           ? markdownConverter.turndown(item.statement.Statement)
           : null
-        
+        const statementMarkdown = turndowned && hasSubstance(turndowned) ? turndowned : null
+
         if (statementMarkdown) {
           statementsImported++
+        } else if (turndowned) {
+          console.log(`  ∅ ${normalizedName} submitted no pamphlet content`)
         }
-        
-        // Update candidate with pamphlet data
-        await prisma.candidate.update({
-          where: { id: candidate.id },
-          data: {
-            email: item.statement.OrgEmail || candidate.email,
-            website: fixUrl(item.statement.OrgWebsite) || candidate.website,
-            image: imagePath || candidate.image,
-            statement: statementMarkdown || candidate.statement
-          }
-        })
-        
-        console.log(`  ✓ Updated ${normalizedName}`)
+
+        // Only write fields the pamphlet actually changes, so a re-run shows
+        // what moved rather than touching every candidate
+        const updateData: Record<string, string> = {}
+        const email = item.statement.OrgEmail
+        if (email && email !== candidate.email) updateData.email = email
+        const website = fixUrl(item.statement.OrgWebsite)
+        if (website && website !== candidate.website) updateData.website = website
+        if (imagePath && imagePath !== candidate.image) updateData.image = imagePath
+        if (statementMarkdown && statementMarkdown !== candidate.statement) {
+          updateData.statement = statementMarkdown
+        }
+
+        const changed = Object.keys(updateData)
+        if (changed.length === 0) {
+          console.log(`  = ${normalizedName} unchanged`)
+          continue
+        }
+
+        if (!dryRun) {
+          await prisma.candidate.update({
+            where: { id: candidate.id },
+            data: updateData
+          })
+        }
+
+        console.log(`  ✓ ${dryRun ? 'Would update' : 'Updated'} ${normalizedName}: ${changed.join(', ')}`)
       }
     } catch (error) {
       console.error(`  ❌ Error processing race ${raceId}:`, error)
     }
   }
   
-  console.log('\n✅ Pamphlet import complete!')
+  console.log(`\n✅ Pamphlet import complete!${dryRun ? ' (dry run — nothing written)' : ''}`)
   console.log(`   Total candidates processed: ${totalCandidates}`)
   console.log(`   Photos imported: ${photosImported}`)
   console.log(`   Statements imported: ${statementsImported}`)

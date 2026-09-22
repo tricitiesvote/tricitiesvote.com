@@ -247,11 +247,36 @@ The system integrates with several Washington State data sources through the `li
 - Requirements: Election ID and Race IDs for specific contests
 - Script: `lib/wa-state/pamphlet.ts`
 
+**Voters' pamphlet race IDs**:
+- Each election has its own numeric election ID and its own set of race IDs, and
+  a primary's race IDs return nothing for that year's general. Find the general's
+  IDs from `voter.votewa.gov/CandidateList.aspx?e={electionId}&c={countyCode}`
+  (Benton = `03`, Franklin = `11`): each candidate link is
+  `/genericvoterguide.aspx?e=...#/candidates/{raceId}/{candidateId}`. Confirm each
+  one by fetching `candidate.ashx?e={electionId}&r={raceId}&la=&c=` and checking
+  the names come back.
+- The API exposes the statement twice. `CandidateStatementText` stays empty and
+  `IsApprovedForPost` stays `False` well past the point at which the text is
+  really published; the `Statement` field carries the content. The importer reads
+  `CandidateStatementText || Statement` and ignores the approval flag.
+- A candidate who filed nothing still returns a statement made only of section
+  headings and "No information submitted". The importer discards those.
+
 **Election Results**:
-- URL: `results.vote.wa.gov/results/{year}{month}/{county}/`
-- Data: Vote counts, percentages, winners
-- Method: HTML scraping
-- Script: `lib/wa-state/results.ts`
+- URL: `results.votewa.gov/results/public/api/elections/{jurisdiction}/{YYYYMMDD}/data` (JSON),
+  where `{jurisdiction}` is `benton-county-wa`, `franklin-county-wa` or `washington`
+- Data: Vote counts, whether the results are certified, and which counties each race spans
+- Two scopes, both needed: a county jurisdiction returns that county's own offices
+  (under bare titles like "Sheriff" — the jurisdiction says which county) plus its
+  share of any multi-county race; `washington` returns the multi-county races with
+  their whole totals. A congressional or legislative race must be read from
+  `washington`, or a candidate who lost the district reads as having won the part
+  of it we cover
+- Elections older than the current cycle answer 204 there and are still served by
+  the retired per-county CSV export at
+  `results.vote.wa.gov/results/{YYYYMMDD}/export/{YYYYMMDD}_{county}.csv`, which the
+  fetch layer falls back to
+- Script: `lib/wa-state/results.ts`, matching and writes in `scripts/import/results.ts`
 
 ### Data Import Scripts
 
@@ -281,7 +306,15 @@ npm run import:historical 2020 2021 2022 2023
 npm run import:historical:test 2020
 
 # Import candidate statements and photos from voter pamphlet
+# Reads electionId and raceIds from legacy/data/json/load-config-election.json;
+# the primary and the general of the same year have different race IDs, so those
+# must be swapped when the ballot changes (see "Voters' pamphlet race IDs")
 npm run import:pamphlet
+npm run import:pamphlet -- --dry-run  # report what would change, write nothing
+
+# Link candidates to their Vote Smart profile
+npm run import:votesmart -- 2026
+npm run import:votesmart -- 2026 --dry-run
 
 # Import election results (after election)
 npm run import:results
@@ -499,11 +532,18 @@ DNS: point `<year>.tricitiesvote.com` at the Vercel project. See the README for 
 - Historical data import (2020-2023)
 - PDC contribution import
 - VoteWA pamphlet import (`npm run import:pamphlet`)
+- Vote Smart profile links (`npm run import:votesmart`), loaded from
+  `scripts/import/votesmart-links.csv`; Vote Smart blocks automated requests, so
+  the links are collected by web search rather than scraped
 - 2025 election (complete; archived at https://2025-tricitiesvote.vercel.app)
+- Election results importer (`npm run import:results -- <year> --type primary|general`)
+- 2026 primary: certified results imported; general ballot seeded from them
+  (`scripts/prepare-2026-general.ts`)
 
 ### 🚧 In Progress
-- 2026 election preparation (county guides for Benton/Franklin; August 4 primary, November general)
-- Election results importer (being rebuilt as `scripts/import/results.ts`)
+- 2026 general election (November 3): candidates may revise their pamphlet
+  statements before ballots mail on October 16, so re-run `npm run import:pamphlet`
+  in mid-October; questionnaire coverage for the local races
 
 ## General Notes
 

@@ -1,0 +1,53 @@
+{
+  "slug": "2026-indivisible-cd4",
+  "year": 2026,
+  "title": "Primary Candidate Questionnaire — U.S. House District 4",
+  "sourceName": "Indivisible Tri-Cities WA",
+  "sourceUrl": "https://www.indivisibletricitieswa.org/cd4-primary-candidate-responses-2026",
+  "scale": 4,
+  "engagement": {
+    "name": "Indivisible CD4 Questionnaire",
+    "date": "2026-07-01"
+  },
+  "coverage": {
+    "officeTitles": [
+      "U.S. House District 4"
+    ]
+  },
+  "aliases": {
+    "Jacek Kobiesa": "Jacek \"Jack\" Kobiesa",
+    "John Hughs": "John C. Hughs"
+  },
+  "questions": [
+    {
+      "position": 1,
+      "type": "OPEN",
+      "question": "What effect have tariffs had on consumers and farmers in Washington's 4th district?"
+    },
+    {
+      "position": 2,
+      "type": "OPEN",
+      "question": "Deregulation — cutting red tape — is a popular topic in all political circles, from the DOGE task force to the left's “Abundance” agenda. What areas would you like to see de-regulated, and what are the limits of this approach to governance?"
+    },
+    {
+      "position": 3,
+      "type": "OPEN",
+      "question": "Would improving conditions and keeping the most vulnerable (children, pregnant and postpartum women, medically vulnerable people) out of ICE/DHS detention be a priority? What realistic steps would you take, and how will you hold government accountable and prevent future abuses of power?"
+    },
+    {
+      "position": 4,
+      "type": "OPEN",
+      "question": "Our Hispanic community has been historically underrepresented in Central Washington despite being the backbone of the agricultural workforce. How will you ensure the Hispanic community is considered when making decisions that affect them?"
+    },
+    {
+      "position": 5,
+      "type": "OPEN",
+      "question": "How will you defend our Constitution and rights? Will you cross party lines for something good? Are you a “party first, party always” candidate? How will you make sure you hear from and represent ALL constituents, not just those who align with your party?"
+    },
+    {
+      "position": 6,
+      "type": "OPEN",
+      "question": "As an engineer, I'm excited about the advances of AI but worried about the downsides. How will you encourage progress AND responsible growth that does not leave the public “holding the bag”?"
+    }
+  ]
+}

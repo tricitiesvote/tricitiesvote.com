@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  LaunchAgent that runs scripts/import/cron-refresh.sh every 2 days (172800s).
+
+  Install:
+    cp scripts/import/cron-refresh.plist ~/Library/LaunchAgents/com.tricitiesvote.import-refresh.plist
+    launchctl load ~/Library/LaunchAgents/com.tricitiesvote.import-refresh.plist
+
+  Run once now (test):   launchctl start com.tricitiesvote.import-refresh
+  Check it is loaded:    launchctl list | grep tricitiesvote
+  Uninstall:
+    launchctl unload ~/Library/LaunchAgents/com.tricitiesvote.import-refresh.plist
+    rm ~/Library/LaunchAgents/com.tricitiesvote.import-refresh.plist
+
+  StartInterval fires every 2 days from load; if the Mac is asleep at the mark,
+  it runs on the next wake. Per-run detail is logged under
+  scripts/import/cron-logs/; this plist's stdout/stderr go to the paths below.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.tricitiesvote.import-refresh</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/adam/dev/tricitiesvote.com/scripts/import/cron-refresh.sh</string>
+  </array>
+
+  <key>StartInterval</key>
+  <integer>172800</integer>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/adam/dev/tricitiesvote.com/scripts/import/cron-logs/launchd.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/adam/dev/tricitiesvote.com/scripts/import/cron-logs/launchd.err.log</string>
+</dict>
+</plist>

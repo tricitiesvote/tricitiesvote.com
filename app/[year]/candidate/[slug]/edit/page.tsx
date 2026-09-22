@@ -27,6 +27,7 @@ interface CandidateData {
   instagram: string | null;
   youtube: string | null;
   pdc: string | null;
+  votesmart: string | null;
   articles: string | null;
   hide: boolean;
   minifiler: boolean;
@@ -156,6 +157,7 @@ export default function CandidateEditPage() {
           instagram: candidate.instagram,
           youtube: candidate.youtube,
           pdc: candidate.pdc,
+          votesmart: candidate.votesmart,
           articles: candidate.articles,
           hide: candidate.hide,
           minifiler: candidate.minifiler
@@ -263,6 +265,7 @@ export default function CandidateEditPage() {
           <FormField label="Instagram" value={candidate.instagram || ''} onChange={(v) => updateField('instagram', v || null)} />
           <FormField label="YouTube" value={candidate.youtube || ''} onChange={(v) => updateField('youtube', v || null)} />
           <FormField label="PDC Link" value={candidate.pdc || ''} onChange={(v) => updateField('pdc', v || null)} />
+          <FormField label="Vote Smart Link" value={candidate.votesmart || ''} onChange={(v) => updateField('votesmart', v || null)} />
         </section>
 
         <section className="admin-section">

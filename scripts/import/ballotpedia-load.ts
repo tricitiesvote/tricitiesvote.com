@@ -26,6 +26,7 @@ import {
   isDryRun,
 } from './config'
 import { ADDITIONAL_CANDIDATE_ALIASES } from './2025-seats'
+import { CURRENT_ELECTION_YEAR } from '../../lib/constants'
 
 const prisma = new PrismaClient()
 
@@ -51,7 +52,8 @@ interface ResponseCsvRow {
 }
 
 const RESPONSES_CSV_PATH = 'scripts/import/ballotpedia-responses.csv'
-const BALLOTPEDIA_QUESTIONNAIRE_SLUG = '2025-ballotpedia'
+const BALLOTPEDIA_QUESTIONNAIRE_SLUG = `${CURRENT_ELECTION_YEAR}-ballotpedia`
+const BALLOTPEDIA_QUESTIONNAIRE_TITLE = `Ballotpedia Candidate Connection ${CURRENT_ELECTION_YEAR}`
 
 function normalizeName(value: string): string {
   return value
@@ -142,11 +144,15 @@ async function syncBallotpediaResponses(
     where: { slug: BALLOTPEDIA_QUESTIONNAIRE_SLUG },
     create: {
       slug: BALLOTPEDIA_QUESTIONNAIRE_SLUG,
-      title: 'Ballotpedia Candidate Connection 2025',
-      year: 2025
+      title: BALLOTPEDIA_QUESTIONNAIRE_TITLE,
+      year: CURRENT_ELECTION_YEAR,
+      sourceName: 'Ballotpedia',
+      sourceUrl: 'https://ballotpedia.org'
     },
     update: {
-      title: 'Ballotpedia Candidate Connection 2025'
+      title: BALLOTPEDIA_QUESTIONNAIRE_TITLE,
+      sourceName: 'Ballotpedia',
+      sourceUrl: 'https://ballotpedia.org'
     }
   })
 
@@ -288,7 +294,7 @@ async function loadBallotpedia() {
   console.log(`${EMOJI.SEARCH} Fetching candidates from database...`)
   const candidates = await prisma.candidate.findMany({
     where: {
-      electionYear: 2025,
+      electionYear: CURRENT_ELECTION_YEAR,
     },
     include: {
       office: true,
@@ -322,8 +328,9 @@ async function loadBallotpedia() {
   let responseUnmatched: string[] = []
 
   // Engagement details for survey completion
-  const engagementTitle = 'Ballotpedia Survey 2025'
-  const engagementSlug = generateEngagementSlug(engagementTitle, new Date('2025-08-01'))
+  const engagementTitle = `Ballotpedia Survey ${CURRENT_ELECTION_YEAR}`
+  const engagementDate = new Date(`${CURRENT_ELECTION_YEAR}-08-01`)
+  const engagementSlug = generateEngagementSlug(engagementTitle, engagementDate)
 
   if (!isDryRun()) {
     // Create or update the Engagement record (once for all candidates)
@@ -333,9 +340,9 @@ async function loadBallotpedia() {
       create: {
         slug: engagementSlug,
         title: engagementTitle,
-        date: new Date('2025-08-01'),
+        date: engagementDate,
         primaryLink: 'https://ballotpedia.org',
-        notes: 'Ballotpedia candidate survey for 2025 elections',
+        notes: `Ballotpedia candidate survey for ${CURRENT_ELECTION_YEAR} elections`,
       },
       update: {
         title: engagementTitle,

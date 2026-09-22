@@ -171,6 +171,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
         instagram: preferWikiString(candidate as any, 'instagram') ?? candidate.instagram,
         youtube: preferWikiString(candidate as any, 'youtube') ?? candidate.youtube,
         pdc: candidate.pdc,
+        votesmart: candidate.votesmart,
         phone: preferWikiString(candidate as any, 'phone'),
       },
       }
@@ -202,6 +203,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
               instagram={card.contact.instagram}
               youtube={card.contact.youtube}
               pdc={card.contact.pdc}
+              votesmart={card.contact.votesmart}
               phone={card.contact.phone}
               variant="inline"
             />
