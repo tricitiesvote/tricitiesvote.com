@@ -247,6 +247,21 @@ The system integrates with several Washington State data sources through the `li
 - Requirements: Election ID and Race IDs for specific contests
 - Script: `lib/wa-state/pamphlet.ts`
 
+**Voters' pamphlet race IDs**:
+- Each election has its own numeric election ID and its own set of race IDs, and
+  a primary's race IDs return nothing for that year's general. Find the general's
+  IDs from `voter.votewa.gov/CandidateList.aspx?e={electionId}&c={countyCode}`
+  (Benton = `03`, Franklin = `11`): each candidate link is
+  `/genericvoterguide.aspx?e=...#/candidates/{raceId}/{candidateId}`. Confirm each
+  one by fetching `candidate.ashx?e={electionId}&r={raceId}&la=&c=` and checking
+  the names come back.
+- The API exposes the statement twice. `CandidateStatementText` stays empty and
+  `IsApprovedForPost` stays `False` well past the point at which the text is
+  really published; the `Statement` field carries the content. The importer reads
+  `CandidateStatementText || Statement` and ignores the approval flag.
+- A candidate who filed nothing still returns a statement made only of section
+  headings and "No information submitted". The importer discards those.
+
 **Election Results**:
 - URL: `results.votewa.gov/results/public/api/elections/{jurisdiction}/{YYYYMMDD}/data` (JSON),
   where `{jurisdiction}` is `benton-county-wa`, `franklin-county-wa` or `washington`
@@ -291,7 +306,15 @@ npm run import:historical 2020 2021 2022 2023
 npm run import:historical:test 2020
 
 # Import candidate statements and photos from voter pamphlet
+# Reads electionId and raceIds from legacy/data/json/load-config-election.json;
+# the primary and the general of the same year have different race IDs, so those
+# must be swapped when the ballot changes (see "Voters' pamphlet race IDs")
 npm run import:pamphlet
+npm run import:pamphlet -- --dry-run  # report what would change, write nothing
+
+# Link candidates to their Vote Smart profile
+npm run import:votesmart -- 2026
+npm run import:votesmart -- 2026 --dry-run
 
 # Import election results (after election)
 npm run import:results
@@ -509,14 +532,18 @@ DNS: point `<year>.tricitiesvote.com` at the Vercel project. See the README for 
 - Historical data import (2020-2023)
 - PDC contribution import
 - VoteWA pamphlet import (`npm run import:pamphlet`)
+- Vote Smart profile links (`npm run import:votesmart`), loaded from
+  `scripts/import/votesmart-links.csv`; Vote Smart blocks automated requests, so
+  the links are collected by web search rather than scraped
 - 2025 election (complete; archived at https://2025-tricitiesvote.vercel.app)
 - Election results importer (`npm run import:results -- <year> --type primary|general`)
 - 2026 primary: certified results imported; general ballot seeded from them
   (`scripts/prepare-2026-general.ts`)
 
 ### 🚧 In Progress
-- 2026 general election (November 3): voters' pamphlet statements when they publish,
-  questionnaire coverage for the local races
+- 2026 general election (November 3): candidates may revise their pamphlet
+  statements before ballots mail on October 16, so re-run `npm run import:pamphlet`
+  in mid-October; questionnaire coverage for the local races
 
 ## General Notes
 
