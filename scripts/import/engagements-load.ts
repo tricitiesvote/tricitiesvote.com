@@ -11,9 +11,11 @@
  * each candidate links to their own interview instead of a shared recording.
  *
  * CSV columns: title,organization,kind,date,status,url,candidateLink,candidates,confidence,notes
- *   date        YYYY-MM-DD, or a full ISO timestamp when the hour matters
- *   candidates  pipe-separated, spelled as the database spells them
- *   confidence  high | medium — only "high" loads unless --include-medium
+ *   date          YYYY-MM-DD, or a full ISO timestamp when the hour matters
+ *   candidates    pipe-separated, spelled as the database spells them
+ *   confidence    high | medium — only "high" loads unless --include-medium
+ *   participated  optional; "no" for a candidate who was invited and did not
+ *                 take part, which the guide shows as a missed engagement
  *
  * Usage:
  *   npx ts-node --project tsconfig.scripts.json \
@@ -38,6 +40,7 @@ interface Row {
   candidates: string
   confidence: string
   notes: string
+  participated: string
 }
 
 function parseCsv(text: string): Row[] {
@@ -70,6 +73,7 @@ function parseCsv(text: string): Row[] {
     date: at('date'), status: at('status'), url: at('url'),
     candidateLink: at('candidateLink'), candidates: at('candidates'),
     confidence: at('confidence'), notes: at('notes'),
+    participated: at('participated'),
   }
   if (cols.title === -1 || cols.candidates === -1) {
     throw new Error('CSV needs at least "title" and "candidates" columns')
@@ -88,6 +92,7 @@ function parseCsv(text: string): Row[] {
       candidates: get(cols.candidates),
       confidence: get(cols.confidence).toLowerCase(),
       notes: get(cols.notes),
+      participated: get(cols.participated).toLowerCase(),
     }
   })
 }
@@ -187,8 +192,14 @@ async function main() {
           continue
         }
 
+        // Absent means they took part; "no" records an invitation they did not answer
+        const participated = !['no', 'false', '0'].includes(row.participated)
+
         if (dryRun) {
-          console.log(`  + would link ${candidate.name}${row.candidateLink ? ` -> ${row.candidateLink}` : ''}`)
+          console.log(
+            `  ${participated ? '+' : '-'} would link ${candidate.name}` +
+              `${row.candidateLink ? ` -> ${row.candidateLink}` : ''}${participated ? '' : ' (did not take part)'}`
+          )
           linked++
           continue
         }
@@ -202,11 +213,11 @@ async function main() {
           create: {
             engagementId,
             candidateId: candidate.id,
-            participated: true,
+            participated,
             link: row.candidateLink || null,
           },
           update: {
-            participated: true,
+            participated,
             link: row.candidateLink || null,
           },
         })
@@ -215,7 +226,10 @@ async function main() {
           alreadyLinked++
         } else {
           linked++
-          console.log(`  + ${candidate.name}${row.candidateLink ? ` -> ${row.candidateLink}` : ''}`)
+          console.log(
+            `  ${participated ? '+' : '-'} ${candidate.name}` +
+              `${row.candidateLink ? ` -> ${row.candidateLink}` : ''}${participated ? '' : ' (did not take part)'}`
+          )
         }
       }
     }
