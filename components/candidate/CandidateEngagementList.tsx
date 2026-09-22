@@ -57,7 +57,9 @@ export function CandidateEngagementList({
         {sorted.map(entry => {
           const engagement = entry.engagement!
           const displayTitle = formatEngagementTitle(engagement.title)
-          const icon = entry.participated ? '✅' : '❌'
+          const date = toDateValue(engagement.date)
+          const upcoming = date ? date.getTime() > Date.now() : false
+          const icon = upcoming ? '🗓️' : entry.participated ? '✅' : '❌'
 
           // Use per-candidate link if available, otherwise fall back to engagement primaryLink
           let link = entry.link || engagement.primaryLink
@@ -82,15 +84,29 @@ export function CandidateEngagementList({
           return (
             <li
               key={`${engagement.id}-${entry.participated ? 'yes' : 'no'}`}
-              className={cn(!entry.participated && 'engagement-missed')}
+              className={cn(
+                !upcoming && !entry.participated && 'engagement-missed',
+                upcoming && 'engagement-upcoming'
+              )}
             >
               {icon} {content}
+              {upcoming && date && (
+                <span className="engagement-when"> {formatWhen(date)}</span>
+              )}
             </li>
           )
         })}
       </ul>
     </div>
   )
+}
+
+function formatWhen(date: Date): string {
+  return date.toLocaleString('en-US', {
+    timeZone: 'America/Los_Angeles',
+    month: 'short',
+    day: 'numeric',
+  })
 }
 
 function toDateValue(value: Date | string | null | undefined): Date | null {

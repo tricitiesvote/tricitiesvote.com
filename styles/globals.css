@@ -2765,6 +2765,12 @@ li span {
   text-decoration-color: rgba(220, 38, 38, 0.4);
 }
 
+.engagement-when {
+  color: #777;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
 .engagement-more {
   margin-top: 0.5rem;
   font-size: 0.85em;
