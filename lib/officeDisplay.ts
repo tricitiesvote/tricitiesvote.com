@@ -79,8 +79,15 @@ function splitOffice(type: OfficeType, title: string): { section: string; seat?:
       return { section: 'State Representative', seat: match ? match[1] : null }
     }
     case OfficeType.SUPERIOR_COURT_JUDGE: {
-      const match = title.match(/Judge\s+(.*)$/i)
-      return { section: 'Superior Court Judge', seat: match ? match[1] : null }
+      // District, superior, appeals and supreme courts are different courts but
+      // share one OfficeType, so the court has to be read off the title. The
+      // region already names the county, so a county prefix is dropped.
+      const court = title.replace(/^[A-Za-z .'-]+County\s+/i, '')
+      const match = court.match(/^(.*?)\s+(Pos(?:ition)?\.?\s*\d+.*)$/i)
+      if (match) {
+        return { section: match[1], seat: match[2] }
+      }
+      return { section: court }
     }
     case OfficeType.MAYOR:
       return { section: 'Mayor' }
