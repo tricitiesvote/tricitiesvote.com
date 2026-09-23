@@ -1927,8 +1927,22 @@ del, del a:link, del li {
   position: relative;
   margin: 0 5px 5px 0;
   display: inline-block;
-  padding: 3px 5px 3px 25px;
+  padding: 3px 5px 3px 23px;
   border-radius: 50px;
+  font-size: 9px;
+}
+
+/* Endorsements without a source link render their name as a span, so size it
+   alongside the link or the pill falls back to the card's larger text */
+.candidate-mini .recs li a,
+.candidate-mini .recs li span {
+  font-size: 9px;
+}
+
+.candidate-mini .recs .yes::before,
+.candidate-mini .recs .no::before {
+  font-size: 8px;
+  top: 10%;
 }
 
 .hero-actions {
