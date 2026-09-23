@@ -139,8 +139,10 @@ async function scrapeLetters() {
 
   // Launch browser with realistic settings to avoid blocking
   const browser = await chromium.launch({
-    headless: false, // Some sites block headless
-    args: ['--disable-blink-features=AutomationControlled']
+    // The Herald blocks headless browsers; the window is parked off-screen so
+    // the scheduled job doesn't open pages across the desktop
+    headless: false,
+    args: ['--disable-blink-features=AutomationControlled', '--window-position=-3000,-3000']
   })
 
   // Load a saved authenticated Herald session if one was captured
