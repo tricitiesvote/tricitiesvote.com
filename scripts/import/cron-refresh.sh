@@ -4,6 +4,7 @@
 #   1. Donor / campaign-finance data from the PDC (2026)
 #   2. Tri-City Herald candidate news search
 #   3. Tri-City Herald letters-to-the-editor search
+#   4. Loading those letters' FOR/AGAINST endorsements onto the site
 #
 # Runs on this Mac (not a cloud agent) because the Herald steps need the local
 # authenticated subscriber session at scripts/import/herald-session.json, which
@@ -13,9 +14,10 @@
 # 172800s = 2 days). Each step is independent: a failure in one (e.g. an expired
 # Herald session) is logged and the others still run.
 #
-# The letters step only searches and writes the review CSV/JSONL — it does NOT
-# load endorsements into the database. Loading stays a manual step after review
-# (`npm run import:letters:load`), per the letters workflow.
+# Letters tagged FOR or AGAINST load straight onto the site: a manual review
+# step was skipped for months at a time, so letters never appeared. Letters the
+# AI is unsure about are tagged REVIEW, which the loader skips; they wait in
+# scripts/import/letter-endorsements-review.csv for a person.
 
 set -uo pipefail
 
@@ -45,6 +47,7 @@ echo "=== $(date '+%F %T') refresh run start ===" >>"$LOG"
 run "pdc-donors-2026" npm run import:pdc:fast 2026
 run "herald-articles" npm run import:herald-articles
 run "herald-letters"  npm run import:letters
+run "letters-load"    npm run import:letters:load
 
 echo "=== $(date '+%F %T') refresh run done ===" >>"$LOG"
 
