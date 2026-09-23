@@ -1,0 +1,45 @@
+{
+  "slug": "2026-tumbleweird",
+  "year": 2026,
+  "title": "Tumbleweird Q&A",
+  "sourceName": "Tumbleweird",
+  "sourceUrl": "https://tumbleweird.org/",
+  "scale": 4,
+  "engagement": {
+    "name": "Tumbleweird Q&A",
+    "date": "2026-09-22"
+  },
+  "coverage": {
+    "electionType": "GENERAL",
+    "officeTitles": [
+      "Benton County Sheriff",
+      "Benton County Prosecutor",
+      "Franklin County Sheriff",
+      "Franklin County Assessor",
+      "8th District Senator",
+      "16th District Representative Pos 1",
+      "U.S. House District 4",
+      "U.S. House District 5"
+    ]
+  },
+  "aliases": {
+    "Chris Lee": "Christopher (Chris) Lee"
+  },
+  "questions": [
+    {
+      "position": 1,
+      "type": "OPEN",
+      "question": "Why did you originally choose to run for office?"
+    },
+    {
+      "position": 2,
+      "type": "OPEN",
+      "question": "What are the three most important things you want to do if you are elected?"
+    },
+    {
+      "position": 3,
+      "type": "OPEN",
+      "question": "Imagine a world in which elected officials always do the right thing. How would that world differ from our own?"
+    }
+  ]
+}

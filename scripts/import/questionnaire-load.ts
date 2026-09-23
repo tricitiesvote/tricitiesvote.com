@@ -26,7 +26,9 @@ interface QuestionnaireConfig {
   official?: boolean
   regionName?: string
   engagement?: { name: string; date?: string }
-  coverage: { officeTitles: string[] }
+  // electionType narrows coverage to one ballot, so a general-election
+  // questionnaire does not count primary losers as non-responders
+  coverage: { officeTitles: string[]; electionType?: 'PRIMARY' | 'GENERAL' }
   aliases?: Record<string, string>
   questions: QuestionConfig[]
 }
@@ -133,6 +135,9 @@ async function resolveCoverage(config: QuestionnaireConfig) {
     where: {
       electionYear: config.year,
       officeId: { in: offices.map(o => o.id) },
+      ...(config.coverage.electionType
+        ? { races: { some: { race: { type: config.coverage.electionType } } } }
+        : {}),
     },
     select: { id: true, name: true, officeId: true },
   })
