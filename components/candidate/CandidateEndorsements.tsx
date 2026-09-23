@@ -15,6 +15,17 @@ interface EndorsementProps {
 
 type DisplayVariant = 'yes' | 'no'
 
+type EndorsementEntry = EndorsementProps['endorsements'][number]
+
+interface DisplayItem {
+  id: string
+  endorsement: EndorsementEntry
+  variant: DisplayVariant
+  // Every entry this item stands for; more than one when a writer sent
+  // several letters, which then link as #1, #2, ... from a single pill
+  sources: EndorsementEntry[]
+}
+
 export function CandidateEndorsements({ endorsements, showPlaceholder = true, stance }: EndorsementProps) {
   const displayList = computeDisplayList(endorsements, stance)
 
@@ -38,7 +49,11 @@ export function CandidateEndorsements({ endorsements, showPlaceholder = true, st
           const liClass = item.variant === 'yes' ? 'yes' : 'no'
           return (
             <li key={item.id} className={isPetition ? `${liClass} endorsement-petition` : liClass}>
-              <EndorsementLink endorsement={item.endorsement} />
+              {item.sources.length > 1 ? (
+                <GroupedEndorsement endorsement={item.endorsement} sources={item.sources} />
+              ) : (
+                <EndorsementLink endorsement={item.endorsement} />
+              )}
             </li>
           )
         })}
@@ -50,7 +65,14 @@ export function CandidateEndorsements({ endorsements, showPlaceholder = true, st
 function computeDisplayList(
   endorsements: EndorsementProps['endorsements'],
   stance: EndorsementProps['stance']
-): Array<{ id: string; endorsement: EndorsementProps['endorsements'][number]; variant: DisplayVariant }> {
+): DisplayItem[] {
+  return groupRepeatEndorsers(orderedEntries(endorsements, stance))
+}
+
+function orderedEntries(
+  endorsements: EndorsementProps['endorsements'],
+  stance: EndorsementProps['stance']
+): Array<{ id: string; endorsement: EndorsementEntry; variant: DisplayVariant }> {
   if (endorsements.length === 0) {
     return []
   }
@@ -90,6 +112,57 @@ function computeDisplayList(
     endorsement: entry,
     variant: entry.forAgainst === 'FOR' ? 'yes' : 'no'
   }))
+}
+
+function groupRepeatEndorsers(
+  entries: Array<{ id: string; endorsement: EndorsementEntry; variant: DisplayVariant }>
+): DisplayItem[] {
+  const groups = new Map<string, DisplayItem>()
+  for (const entry of entries) {
+    const key = `${entry.variant}|${entry.endorsement.endorser.trim().toLowerCase()}`
+    const group = groups.get(key)
+    if (group) {
+      group.sources.push(entry.endorsement)
+    } else {
+      groups.set(key, { ...entry, sources: [entry.endorsement] })
+    }
+  }
+  for (const group of groups.values()) {
+    group.sources.sort((a, b) => sourceOrder(a) - sourceOrder(b))
+  }
+  return [...groups.values()]
+}
+
+// Herald article numbers only go up, so they number a writer's letters in the
+// order they were published
+function sourceOrder(entry: EndorsementEntry): number {
+  const match = (entry.url || '').match(/article(\d+)/)
+  return match ? parseInt(match[1], 10) : Number.MAX_SAFE_INTEGER
+}
+
+function GroupedEndorsement({
+  endorsement,
+  sources
+}: {
+  endorsement: EndorsementEntry
+  sources: EndorsementEntry[]
+}) {
+  return (
+    <div className="endorsement-item">
+      <span className="endorsement-name">{endorsement.endorser}</span>
+      <span className="endorsement-sources">
+        {sources.map((source, index) => {
+          const href = source.url || source.filePath || null
+          const label = `#${index + 1}`
+          return href ? (
+            <a key={source.id} href={href} target="_blank" rel="noopener noreferrer">{label}</a>
+          ) : (
+            <span key={source.id}>{label}</span>
+          )
+        })}
+      </span>
+    </div>
+  )
 }
 
 function EndorsementLink({

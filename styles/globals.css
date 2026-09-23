@@ -914,8 +914,18 @@ form {
   }
 }
 
-.recs .yes a, .recs .no a, .recs .yes::before, .recs .no::before  {
+.recs .yes a, .recs .no a, .recs .yes::before, .recs .no::before,
+.recs .endorsement-item span {
   font-size: 11px;
+}
+
+/* A writer's name heads their #1, #2 letter links, so it takes the link colour */
+.recs .yes .endorsement-name {
+  color: #468a47;
+}
+
+.recs .no .endorsement-name {
+  color: #7c8082;
 }
 
 
@@ -1546,6 +1556,11 @@ del, del a:link, del li {
 .endorsement-meta {
   font-size: 0.85em;
   color: #555;
+}
+
+.endorsement-sources {
+  display: inline-flex;
+  gap: 0.3em;
 }
 
 .endorsement-suggest {
