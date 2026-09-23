@@ -1,8 +1,8 @@
 /**
  * Tri-City Herald candidate news search + relevance assessment.
  *
- * For each 2026 candidate: search the Herald (authenticated) for their name,
- * fetch each result's full text, and have Claude assess whether the article
+ * Finds Herald articles (authenticated), fetches each one's full text, and for
+ * any that name a candidate has Claude assess whether the article
  * tells voters something MEANINGFUL (skipping filler like "X files" / "X wins").
  *
  * Everything captured is appended to a JSONL cache (full text + assessment) so
@@ -12,10 +12,17 @@
  * Requires: scripts/import/herald-session.json (npm run import:letters:session)
  *           ANTHROPIC_API_KEY in .env
  *
+ * Two ways to discover articles:
+ *   default   read the Herald's newest-first section pages and keep only
+ *             articles newer than the newest one already captured, so each
+ *             run looks at what was published since the last run
+ *   --search  search the Herald for every candidate's name — a backfill for
+ *             older coverage, slow and repetitive, not for the scheduled run
+ *
  * Usage:
- *   npm run import:herald-articles                      # all 2026 candidates
- *   npm run import:herald-articles -- --only="John Duresky|Nikki Torres"
- *   npm run import:herald-articles -- --limit=5
+ *   npm run import:herald-articles
+ *   npm run import:herald-articles -- --search --only="John Duresky|Nikki Torres"
+ *   npm run import:herald-articles -- --search --limit=5
  */
 import 'dotenv/config'
 import { chromium, Browser, Page } from 'playwright'
@@ -44,6 +51,16 @@ const DEFAULT_SINCE_ARTICLE = 313_983_288
 const args = process.argv.slice(2)
 const onlyArg = args.find(a => a.startsWith('--only='))
 const limitArg = args.find(a => a.startsWith('--limit='))
+const searchMode = args.includes('--search')
+
+// Section fronts list their newest articles first; together they cover the
+// election, politics and local news where candidate coverage appears
+const SECTION_PAGES = [
+  'https://www.tri-cityherald.com/news/politics-government/election/',
+  'https://www.tri-cityherald.com/news/politics-government/',
+  'https://www.tri-cityherald.com/news/local/',
+  'https://www.tri-cityherald.com/latest-news/',
+]
 const sinceArticleArg = args.find(a => a.startsWith('--since-article='))
 const SINCE_ARTICLE = sinceArticleArg
   ? parseInt(sinceArticleArg.slice('--since-article='.length), 10)
@@ -168,6 +185,28 @@ async function fetchArticleText(page: Page, url: string): Promise<{ title: strin
   }
 }
 
+async function listSection(page: Page, sectionUrl: string): Promise<string[]> {
+  try {
+    await page.goto(sectionUrl, { waitUntil: 'domcontentloaded', timeout: 45000 })
+    await page.waitForTimeout(2500)
+    return await page.evaluate(() =>
+      Array.from(document.querySelectorAll('a[href*="/article"]'))
+        .map(a => (a as HTMLAnchorElement).href.split('#')[0].split('?')[0])
+        .filter(href => /tri-cityherald\.com\/(news|opinion)\/.*article\d+\.html$/.test(href))
+        .filter((v, i, arr) => arr.indexOf(v) === i)
+    )
+  } catch (e) {
+    console.log(`   ⚠️  could not read ${sectionUrl}: ${(e as Error).message?.slice(0, 80)}`)
+    return []
+  }
+}
+
+function newestArticle(urls: Iterable<string>): number {
+  let newest = 0
+  for (const url of urls) newest = Math.max(newest, articleNumber(url))
+  return newest
+}
+
 async function searchCandidate(page: Page, term: string): Promise<string[]> {
   try {
     await page.goto(SEARCH_URL(term), { waitUntil: 'domcontentloaded', timeout: 45000 })
@@ -223,7 +262,7 @@ async function main() {
   const idByFirstLast = new Map(terms.map(t => [firstLastKey(t.name), t.id]))
   const resolveId = (candidateName: string): string | null =>
     nameToId.get(candidateName) ?? idByFirstLast.get(firstLastKey(candidateName)) ?? null
-  console.log(`🔍 ${terms.length} candidates; searching Herald...`)
+  console.log(`🔍 ${terms.length} candidates`)
 
   // The Herald blocks headless browsers, so this runs a real window, parked
   // off-screen so the scheduled job doesn't flash articles across the desktop
@@ -238,22 +277,40 @@ async function main() {
   })
   const page = await context.newPage()
 
-  // Discovery: map each article URL to the candidates whose search surfaced it.
+  const seen = loadSeenUrls()
+
+  // Discovery: map each article URL to the candidates whose search surfaced it
+  // (section discovery surfaces articles, not candidates, so its sets stay empty)
   const urlToCandidates = new Map<string, Set<string>>()
-  for (const t of terms) {
-    for (const term of t.searchTerms) {
-      const urls = await searchCandidate(page, term)
+  if (searchMode) {
+    for (const t of terms) {
+      for (const term of t.searchTerms) {
+        const urls = await searchCandidate(page, term)
+        for (const u of urls) {
+          if (!urlToCandidates.has(u)) urlToCandidates.set(u, new Set())
+          urlToCandidates.get(u)!.add(t.name)
+        }
+        await page.waitForTimeout(2000)
+      }
+      console.log(`  ${t.name}: search done`)
+    }
+  } else {
+    const since = Math.max(SINCE_ARTICLE, newestArticle(seen))
+    console.log(`📰 Reading section pages for articles newer than article${since}...`)
+    for (const section of SECTION_PAGES) {
+      const urls = await listSection(page, section)
       for (const u of urls) {
-        if (!urlToCandidates.has(u)) urlToCandidates.set(u, new Set())
-        urlToCandidates.get(u)!.add(t.name)
+        if (articleNumber(u) > since && !urlToCandidates.has(u)) urlToCandidates.set(u, new Set())
       }
       await page.waitForTimeout(2000)
     }
-    console.log(`  ${t.name}: search done`)
   }
 
-  const seen = loadSeenUrls()
-  const toProcess = [...urlToCandidates.keys()].filter(u => !seen.has(u))
+  // Oldest first, so a run cut short leaves no unread article below the newest
+  // one captured — the next run starts from that newest one
+  const toProcess = [...urlToCandidates.keys()]
+    .filter(u => !seen.has(u))
+    .sort((a, b) => articleNumber(a) - articleNumber(b))
   console.log(`\n📄 ${urlToCandidates.size} unique articles found, ${toProcess.length} new to process\n`)
 
   for (const url of toProcess) {

@@ -2,11 +2,24 @@ import 'dotenv/config'
 import { chromium } from 'playwright'
 import Anthropic from '@anthropic-ai/sdk'
 import { PrismaClient } from '@prisma/client'
+import { readFileSync, writeFileSync } from 'fs'
 import { CURRENT_ELECTION_YEAR } from '../../lib/constants'
 
 // Raw letter captures (append-only JSONL) — persisted before analysis so a
 // failed parse never loses the pull and analysis can re-run from cache.
 const RAW_LETTERS_PATH = 'scripts/import/letters-raw.jsonl'
+// Newest letter article every letter up to which has been analyzed. Letters
+// that name no candidate leave no endorsement behind, so the database alone
+// cannot say how far a run got, and they were re-analyzed on every run.
+const STATE_PATH = 'scripts/import/letters-state.json'
+
+function readHighWater(): number {
+  try {
+    return Number(JSON.parse(readFileSync(STATE_PATH, 'utf8')).analyzedThroughArticle) || 0
+  } catch {
+    return 0
+  }
+}
 
 const prisma = new PrismaClient()
 
@@ -179,6 +192,13 @@ async function scrapeLetters() {
       lastProcessedArticleNum = parseInt(match[1])
     }
   }
+  if (!forceFullRescan) {
+    const highWater = readHighWater()
+    if (highWater > lastProcessedArticleNum) {
+      console.log(`✅ Letters analyzed through article ${highWater}`)
+      lastProcessedArticleNum = highWater
+    }
+  }
 
   let currentPage = 1
   const maxPages = Number.isNaN(parsedMaxPages) ? 10 : parsedMaxPages // Will stop early when we hit already-processed articles; --max-pages caps the index scan for a completable batch
@@ -268,6 +288,7 @@ async function scrapeLetters() {
   console.log(`✅ Found ${uniqueLinks.length} unique letter articles (${sinceMessage}) across ${currentPage - 1} pages\n`)
 
   const endorsements: Endorsement[] = []
+  let runHadFailure = false
 
   // Process each letter
   for (const url of uniqueLinks) {
@@ -418,6 +439,7 @@ ${articleText}`
           console.log('  ℹ️  No relevant endorsements found')
         }
       } catch (e) {
+        runHadFailure = true
         console.log(`  ⚠️  Failed to parse AI response${e instanceof Error ? `: ${e.message}` : ''}`)
         console.log(`  Raw response: ${responseText.substring(0, 200)}...`)
       }
@@ -429,11 +451,25 @@ ${articleText}`
       await new Promise(resolve => setTimeout(resolve, 1000))
 
     } catch (error) {
+      runHadFailure = true
       console.error(`  ❌ Error processing ${url}:`, error)
     }
   }
 
   await browser.close()
+
+  // Advance only after a clean scheduled run, so a letter that failed is
+  // retried next time instead of being skipped for good
+  if (explicitUrls.length === 0 && !forceFullRescan && !runHadFailure) {
+    const newest = uniqueLinks.reduce((max, url) => {
+      const n = parseInt(url.match(/article(\d+)\.html/)?.[1] ?? '0', 10)
+      return Math.max(max, n)
+    }, lastProcessedArticleNum)
+    if (newest > readHighWater()) {
+      writeFileSync(STATE_PATH, JSON.stringify({ analyzedThroughArticle: newest }, null, 2) + '\n')
+      console.log(`📌 Letters analyzed through article ${newest}`)
+    }
+  }
   await prisma.$disconnect()
 
   // Output CSV
