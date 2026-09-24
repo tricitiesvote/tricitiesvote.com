@@ -68,7 +68,9 @@ async function importLetterEndorsements() {
       field.replace(/^,?"?|"?$/g, '').replace(/""/g, '"')
     )
 
-    const [rawCandidateName, letterWriter, position, officeType, excerpt, url] = fields
+    const [rawCandidateName, letterWriter, position, officeType, excerpt, rawUrl] = fields
+    // A CSV saved with Windows line endings leaves a carriage return on the last field
+    const url = rawUrl.trim()
     const trimmedCandidateName = rawCandidateName.trim()
     const trimmedLetterWriter = letterWriter.trim()
     const normalizedPosition = position.trim().toUpperCase()
