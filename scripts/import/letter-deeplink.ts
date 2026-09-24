@@ -65,7 +65,7 @@ export function findWritersLetter(sections: LetterSection[], writer: string): Le
 
 /** The letter's URL with a text fragment for its subheading, or the URL unchanged. */
 export function letterDeepLink(url: string, sections: LetterSection[], writer: string): string {
-  const base = url.split('#')[0]
+  const base = url.split('#')[0].trim()
   const letter = findWritersLetter(sections, writer)
   if (!letter) return base
   // "-" and "," delimit prefix/suffix inside a text fragment, so both must be escaped

@@ -34,7 +34,7 @@ async function main() {
 
   const byPage = new Map<string, typeof endorsements>()
   for (const e of endorsements) {
-    const base = e.url!.split('#')[0]
+    const base = e.url!.split('#')[0].trim()
     byPage.set(base, [...(byPage.get(base) ?? []), e])
   }
   console.log(`${endorsements.length} letter endorsements across ${byPage.size} Herald pages`)
