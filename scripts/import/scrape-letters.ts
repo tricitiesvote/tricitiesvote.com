@@ -3,6 +3,7 @@ import { chromium } from 'playwright'
 import Anthropic from '@anthropic-ai/sdk'
 import { PrismaClient } from '@prisma/client'
 import { readFileSync, writeFileSync } from 'fs'
+import { extractLetterSections, letterDeepLink } from './letter-deeplink'
 import { CURRENT_ELECTION_YEAR } from '../../lib/constants'
 
 // Raw letter captures (append-only JSONL) — persisted before analysis so a
@@ -319,6 +320,8 @@ async function scrapeLetters() {
         continue
       }
 
+      const letterSections = await extractLetterSections(page)
+
       // Persist the raw capture immediately (before analysis) so a parse
       // failure never loses the pull, and analysis can be re-run from cache.
       const rawArticleId = url.match(/article(\d+)\.html/)?.[1] ?? url
@@ -430,7 +433,7 @@ ${articleText}`
                 ...endorsement,
                 candidateName: normalizedCandidateName,
                 officeType: officeTypeLabel,
-                url
+                url: letterDeepLink(url, letterSections, endorsement.letterWriter)
               })
               console.log(`  ✅ Found: ${endorsement.position} ${normalizedCandidateName} by ${endorsement.letterWriter}`)
             }
