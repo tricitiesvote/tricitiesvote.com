@@ -1563,6 +1563,12 @@ del, del a:link, del li {
   gap: 0.3em;
 }
 
+/* The pill's own gaps space these; the site-wide li span margin pushes the
+   letter numbers away from the name */
+.recs .endorsement-item span {
+  margin-right: 0;
+}
+
 .endorsement-suggest {
   margin-top: 15px;
   padding: 12px 14px;
