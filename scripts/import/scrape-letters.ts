@@ -2,11 +2,24 @@ import 'dotenv/config'
 import { chromium } from 'playwright'
 import Anthropic from '@anthropic-ai/sdk'
 import { PrismaClient } from '@prisma/client'
+import { readFileSync, writeFileSync } from 'fs'
 import { CURRENT_ELECTION_YEAR } from '../../lib/constants'
 
 // Raw letter captures (append-only JSONL) — persisted before analysis so a
 // failed parse never loses the pull and analysis can re-run from cache.
 const RAW_LETTERS_PATH = 'scripts/import/letters-raw.jsonl'
+// Newest letter article every letter up to which has been analyzed. Letters
+// that name no candidate leave no endorsement behind, so the database alone
+// cannot say how far a run got, and they were re-analyzed on every run.
+const STATE_PATH = 'scripts/import/letters-state.json'
+
+function readHighWater(): number {
+  try {
+    return Number(JSON.parse(readFileSync(STATE_PATH, 'utf8')).analyzedThroughArticle) || 0
+  } catch {
+    return 0
+  }
+}
 
 const prisma = new PrismaClient()
 
@@ -139,8 +152,10 @@ async function scrapeLetters() {
 
   // Launch browser with realistic settings to avoid blocking
   const browser = await chromium.launch({
-    headless: false, // Some sites block headless
-    args: ['--disable-blink-features=AutomationControlled']
+    // The Herald blocks headless browsers; the window is parked off-screen so
+    // the scheduled job doesn't open pages across the desktop
+    headless: false,
+    args: ['--disable-blink-features=AutomationControlled', '--window-position=-3000,-3000']
   })
 
   // Load a saved authenticated Herald session if one was captured
@@ -175,6 +190,13 @@ async function scrapeLetters() {
     const match = lastLetterUrl.match(/article(\d+)\.html/)
     if (match) {
       lastProcessedArticleNum = parseInt(match[1])
+    }
+  }
+  if (!forceFullRescan) {
+    const highWater = readHighWater()
+    if (highWater > lastProcessedArticleNum) {
+      console.log(`✅ Letters analyzed through article ${highWater}`)
+      lastProcessedArticleNum = highWater
     }
   }
 
@@ -266,6 +288,7 @@ async function scrapeLetters() {
   console.log(`✅ Found ${uniqueLinks.length} unique letter articles (${sinceMessage}) across ${currentPage - 1} pages\n`)
 
   const endorsements: Endorsement[] = []
+  let runHadFailure = false
 
   // Process each letter
   for (const url of uniqueLinks) {
@@ -308,7 +331,9 @@ async function scrapeLetters() {
       console.log('  🤖 Analyzing with AI...')
       const message = await anthropic.messages.create({
         model: 'claude-sonnet-5',
-        max_tokens: 2048,
+        // Index pages bundle many letters, and the model may reason before it
+        // answers; a tight cap cut the answer off before the JSON arrived
+        max_tokens: 16000,
         messages: [{
           role: 'user',
           content: `You are analyzing letters to the editor for mentions of local election candidates.
@@ -359,7 +384,7 @@ For each FOR, AGAINST, or REVIEW mention found, return a JSON array with objects
 - officeType: ("City Council", "School Board", "Port Commissioner", or "Ballot Measure")
 - excerpt: (brief quote showing the relevant mention WITH THE FULL NAME, max 100 chars)
 
-Return ONLY valid JSON array. If nothing found (all IGNORE), return: []
+Respond with the JSON array and nothing else — no analysis or commentary before or after it. If nothing found (all IGNORE), return: []
 
 Letters text:
 ${articleText}`
@@ -375,16 +400,16 @@ ${articleText}`
       try {
         let jsonText = responseText.trim()
 
+        if (message.stop_reason === 'max_tokens') {
+          throw new Error('response hit max_tokens before the answer was complete')
+        }
+
         // Try to extract JSON from markdown code blocks
         const jsonMatch = jsonText.match(/```(?:json)?\s*(\[[\s\S]*?\])\s*```/)
         if (jsonMatch) {
           jsonText = jsonMatch[1]
         } else {
-          // Try to find raw JSON array
-          const arrayMatch = jsonText.match(/(\[[\s\S]*\])/);
-          if (arrayMatch) {
-            jsonText = arrayMatch[1]
-          }
+          jsonText = lastJsonArray(jsonText) ?? jsonText
         }
 
         const parsed = JSON.parse(jsonText)
@@ -414,7 +439,8 @@ ${articleText}`
           console.log('  ℹ️  No relevant endorsements found')
         }
       } catch (e) {
-        console.log(`  ⚠️  Failed to parse AI response`)
+        runHadFailure = true
+        console.log(`  ⚠️  Failed to parse AI response${e instanceof Error ? `: ${e.message}` : ''}`)
         console.log(`  Raw response: ${responseText.substring(0, 200)}...`)
       }
 
@@ -425,11 +451,25 @@ ${articleText}`
       await new Promise(resolve => setTimeout(resolve, 1000))
 
     } catch (error) {
+      runHadFailure = true
       console.error(`  ❌ Error processing ${url}:`, error)
     }
   }
 
   await browser.close()
+
+  // Advance only after a clean scheduled run, so a letter that failed is
+  // retried next time instead of being skipped for good
+  if (explicitUrls.length === 0 && !forceFullRescan && !runHadFailure) {
+    const newest = uniqueLinks.reduce((max, url) => {
+      const n = parseInt(url.match(/article(\d+)\.html/)?.[1] ?? '0', 10)
+      return Math.max(max, n)
+    }, lastProcessedArticleNum)
+    if (newest > readHighWater()) {
+      writeFileSync(STATE_PATH, JSON.stringify({ analyzedThroughArticle: newest }, null, 2) + '\n')
+      console.log(`📌 Letters analyzed through article ${newest}`)
+    }
+  }
   await prisma.$disconnect()
 
   // Output CSV
@@ -525,3 +565,19 @@ function writeEndorsementCsvs(endorsements: Array<Record<string, any>>) {
 }
 
 scrapeLetters().catch(console.error)
+
+// When the model explains itself before answering, prose can contain stray
+// brackets, so take the last bracketed span that parses as a JSON array
+function lastJsonArray(text: string): string | null {
+  for (let end = text.lastIndexOf(']'); end !== -1; end = text.lastIndexOf(']', end - 1)) {
+    for (let start = text.lastIndexOf('[', end); start !== -1; start = text.lastIndexOf('[', start - 1)) {
+      const candidate = text.slice(start, end + 1)
+      try {
+        if (Array.isArray(JSON.parse(candidate))) return candidate
+      } catch {
+        // keep widening toward an earlier opening bracket
+      }
+    }
+  }
+  return null
+}

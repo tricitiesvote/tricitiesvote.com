@@ -914,8 +914,18 @@ form {
   }
 }
 
-.recs .yes a, .recs .no a, .recs .yes::before, .recs .no::before  {
+.recs .yes a, .recs .no a, .recs .yes::before, .recs .no::before,
+.recs .endorsement-item span {
   font-size: 11px;
+}
+
+/* A writer's name heads their #1, #2 letter links, so it takes the link colour */
+.recs .yes .endorsement-name {
+  color: #468a47;
+}
+
+.recs .no .endorsement-name {
+  color: #7c8082;
 }
 
 
@@ -1548,6 +1558,11 @@ del, del a:link, del li {
   color: #555;
 }
 
+.endorsement-sources {
+  display: inline-flex;
+  gap: 0.3em;
+}
+
 .endorsement-suggest {
   margin-top: 15px;
   padding: 12px 14px;
@@ -1927,8 +1942,22 @@ del, del a:link, del li {
   position: relative;
   margin: 0 5px 5px 0;
   display: inline-block;
-  padding: 3px 5px 3px 25px;
+  padding: 3px 5px 3px 23px;
   border-radius: 50px;
+  font-size: 9px;
+}
+
+/* Endorsements without a source link render their name as a span, so size it
+   alongside the link or the pill falls back to the card's larger text */
+.candidate-mini .recs li a,
+.candidate-mini .recs li span {
+  font-size: 9px;
+}
+
+.candidate-mini .recs .yes::before,
+.candidate-mini .recs .no::before {
+  font-size: 8px;
+  top: 10%;
 }
 
 .hero-actions {
@@ -2763,6 +2792,12 @@ li span {
 .engagement-missed .engagement-title a,
 .engagement-missed .engagement-title span {
   text-decoration-color: rgba(220, 38, 38, 0.4);
+}
+
+.engagement-when {
+  color: #777;
+  font-size: 0.85em;
+  white-space: nowrap;
 }
 
 .engagement-more {

@@ -113,6 +113,9 @@ scripts/import/herald-session.json
 # Raw scraped letter captures (subscriber content, re-analyzable cache)
 scripts/import/letters-raw.jsonl
 
+# How far this machine's scheduled letters run has analyzed
+scripts/import/letters-state.json
+
 # Herald candidate news captures (subscriber content)
 scripts/import/herald-articles.jsonl
 
