@@ -3226,7 +3226,7 @@ span.note {
     grid-template-columns: 1fr 1fr;
   }
 
-  .guide-page .races-collection {
+  .races-collection.guide-page {
     grid-template-columns: 1fr;
     display: block;
   }
@@ -3244,7 +3244,7 @@ span.note {
     grid-template-columns: 1fr 1fr;
   }
 
-  .guide-page .races-collection {
+  .races-collection.guide-page {
     grid-template-columns: 1fr;
     display: block;
   }
@@ -3257,7 +3257,7 @@ span.note {
 
 @media screen and (max-width: 800px) {
 
-  .guide-page .races-collection {
+  .races-collection.guide-page {
     grid-template-columns: 1fr;
     display: block;
   }
