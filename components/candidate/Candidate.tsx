@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { CandidateImage } from './CandidateImage'
 import { CandidateLinkCollection } from './CandidateLinkCollection'
 import { CandidateEndorsements } from './CandidateEndorsements'
-import { CandidateDonorSummary } from './CandidateDonorSummary'
+import { CandidateDonorSummary, MINI_NAME_LIMIT } from './CandidateDonorSummary'
+import { CandidateReportedEndorsements, ReportedEndorsementsTitle } from './CandidateReportedEndorsements'
 import { EditableCandidateEndorsements } from '@/components/wiki/EditableCandidateEndorsements'
 import { CandidateEngagementList } from './CandidateEngagementList'
 import { CandidateInfo } from './CandidateInfo'
@@ -71,6 +72,12 @@ interface CandidateProps {
       notes?: string | null
       type: string
       forAgainst: string
+    }>
+    reportedEndorsements?: Array<{
+      id: string
+      endorser: string
+      category?: string | null
+      position?: number | null
     }>
   }
   year: number
@@ -208,7 +215,7 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
 
        <section className="candidate-card candidate-card--support">
          <div className="candidate-card-heading">
-           <h3>Endorsements and Opposition</h3>
+           <h3>Written endorsements</h3>
          </div>
 
           <div className="candidate-card-body">
@@ -219,6 +226,20 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
             <EditableCandidateEndorsements candidateId={candidate.id} />
           </div>
         </section>
+
+        {(candidate.reportedEndorsements?.length ?? 0) > 0 && (
+          <section className="candidate-card candidate-card--reported">
+            <div className="candidate-card-heading">
+              <ReportedEndorsementsTitle as="h3" />
+            </div>
+            <div className="candidate-card-body">
+              <CandidateReportedEndorsements
+                endorsements={candidate.reportedEndorsements}
+                showTitle={false}
+              />
+            </div>
+          </section>
+        )}
 
         <section className="candidate-card candidate-card--donors">
           <div className="candidate-card-heading">
@@ -303,6 +324,11 @@ export function Candidate({ candidate, year, fullsize = false, fundraising }: Ca
 
         <CandidateEndorsements
           endorsements={candidate.endorsements || []}
+        />
+
+        <CandidateReportedEndorsements
+          endorsements={candidate.reportedEndorsements}
+          limit={MINI_NAME_LIMIT}
         />
 
         {articlesHtml && (

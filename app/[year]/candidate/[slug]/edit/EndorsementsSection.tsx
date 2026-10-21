@@ -76,7 +76,7 @@ export function EndorsementsSection({ endorsements, candidateId, candidateYear, 
   return (
     <section className="admin-section">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-        <h2>Endorsements</h2>
+        <h2>Written endorsements</h2>
         <button onClick={openAddModal} className="admin-save-button" style={{ fontSize: '13px', padding: '6px 14px' }}>
           Add Endorsement
         </button>

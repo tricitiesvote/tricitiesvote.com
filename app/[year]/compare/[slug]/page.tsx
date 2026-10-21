@@ -14,6 +14,7 @@ import { TriCitiesQuestionnaireBanner } from '@/components/race/TriCitiesQuestio
 import { CandidateImage } from '@/components/candidate/CandidateImage'
 import { CandidateLinkCollection } from '@/components/candidate/CandidateLinkCollection'
 import { CandidateEndorsements } from '@/components/candidate/CandidateEndorsements'
+import { CandidateReportedEndorsements } from '@/components/candidate/CandidateReportedEndorsements'
 import { CandidateEngagementList } from '@/components/candidate/CandidateEngagementList'
 import { CompareCandidateDonorCard } from '@/components/compare/CompareCandidateDonorCard'
 import { ensureHtml } from '@/lib/richText'
@@ -160,6 +161,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
       legacyEngagementHtml,
       structuredEngagements,
       endorsements: candidate.endorsements || [],
+      reportedEndorsements: candidate.reportedEndorsements || [],
       minifiler: candidate.minifiler,
       fundraising,
       endorsementStance,
@@ -248,7 +250,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
           <div className="candidate-card-heading">
             <div>
               <span className="candidate-card-subhead">{card.displayName}</span>
-              <h3>Endorsements and Opposition</h3>
+              <h3>Written endorsements</h3>
             </div>
           </div>
           <div className="candidate-card-body">
@@ -256,6 +258,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
               endorsements={card.endorsements}
               showPlaceholder={true}
             />
+            <CandidateReportedEndorsements endorsements={card.reportedEndorsements} />
           </div>
         </>
       ),

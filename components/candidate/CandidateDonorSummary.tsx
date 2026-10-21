@@ -1,3 +1,7 @@
+// How many names a guide card lists before cutting off; the reported
+// endorsements line on the same card uses it too so the two read alike
+export const MINI_NAME_LIMIT = 8
+
 const usd = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -74,7 +78,7 @@ export function CandidateDonorSummary({
           {normalizedDonors.length > 0 && (
             <>
               {' including '}
-              {normalizedDonors.slice(0, 8).map(donor => (
+              {normalizedDonors.slice(0, MINI_NAME_LIMIT).map(donor => (
                 <span key={donor.key} className="topdonors">
                   {donor.name}{' '}
                   <span className="topdonors-amount">({usd.format(donor.amount)})</span>

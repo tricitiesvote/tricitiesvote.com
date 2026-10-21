@@ -46,6 +46,12 @@ interface RaceCardProps {
           type?: string | null
           forAgainst?: string | null
         }>
+        reportedEndorsements?: Array<{
+          id: string
+          endorser: string
+          category?: string | null
+          position?: number | null
+        }>
         donors?: string | null
         contributions?: Array<{
           donorName: string

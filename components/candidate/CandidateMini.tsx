@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CandidateDonorSummary } from './CandidateDonorSummary'
+import { CandidateDonorSummary, MINI_NAME_LIMIT } from './CandidateDonorSummary'
+import { CandidateReportedEndorsements } from './CandidateReportedEndorsements'
 import { CandidateEngagementList } from './CandidateEngagementList'
 import { CandidateEndorsements } from './CandidateEndorsements'
 import { slugify } from '@/lib/utils'
@@ -39,6 +40,12 @@ interface CandidateMiniProps {
       notes?: string | null
       type?: string | null
       forAgainst?: string | null
+    }>
+    reportedEndorsements?: Array<{
+      id: string
+      endorser: string
+      category?: string | null
+      position?: number | null
     }>
   }
   fundraising?: {
@@ -122,6 +129,11 @@ export function CandidateMini({ candidate, fundraising, year, officeType }: Cand
       
       <CandidateEndorsements
         endorsements={(candidate.endorsements as any) || []}
+      />
+
+      <CandidateReportedEndorsements
+        endorsements={candidate.reportedEndorsements}
+        limit={MINI_NAME_LIMIT}
       />
     </div>
   )
