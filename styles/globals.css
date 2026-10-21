@@ -2127,6 +2127,11 @@ del, del a:link, del li {
   font-size: 15px;
 }
 
+/* Campaigns often write "Name, Title", so commas can't also separate entries */
+.reported-endorsements .topdonors:not(:last-of-type)::after {
+  content: "; ";
+}
+
 /* A lone name would otherwise read " and Name" from the shared list rules */
 .reported-endorsements .topdonors:only-of-type::before {
   content: "";
