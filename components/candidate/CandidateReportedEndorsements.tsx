@@ -58,6 +58,8 @@ export function CandidateReportedEndorsements({
 
   const ordered = sortReportedEndorsements(endorsements)
   const shown = typeof limit === 'number' ? ordered.slice(0, limit) : ordered
+  // Unlike the donor line, nothing else on the card says the list was cut
+  const hidden = ordered.length - shown.length
 
   return (
     <div className="reported-endorsements">
@@ -68,6 +70,7 @@ export function CandidateReportedEndorsements({
             {entry.endorser}
           </span>
         ))}
+        {hidden > 0 && <span className="topdonors">{hidden} more</span>}
       </p>
     </div>
   )
