@@ -4,6 +4,13 @@ import { CURRENT_ELECTION_YEAR, CURRENT_ELECTION_TYPE, isCurrentElectionYear } f
 import { unslugify, slugify } from './utils'
 import { orderRaces } from './raceOrdering'
 
+// The category enum is declared in display priority and Postgres sorts enums
+// by declaration order, so this yields officials first, individuals last
+const reportedEndorsementsOrder = [
+  { category: 'asc' as const },
+  { position: 'asc' as const },
+]
+
 const raceInclude = (year: number) => ({
   office: true,
   candidates: {
@@ -11,6 +18,7 @@ const raceInclude = (year: number) => ({
       candidate: {
         include: {
           endorsements: true,
+          reportedEndorsements: { orderBy: reportedEndorsementsOrder },
           contributions: {
             where: { electionYear: year },
             orderBy: { amount: 'desc' as const },
@@ -278,6 +286,7 @@ export async function getCandidateByYearAndSlug(
     include: {
       office: true,
       endorsements: true,
+      reportedEndorsements: { orderBy: reportedEndorsementsOrder },
       contributions: {
         orderBy: {
           amount: 'desc'
@@ -361,6 +370,7 @@ export async function getRaceByYearAndSlug(
             include: {
               office: true,
               endorsements: true,
+              reportedEndorsements: { orderBy: reportedEndorsementsOrder },
               contributions: {
                 orderBy: {
                   amount: 'desc'

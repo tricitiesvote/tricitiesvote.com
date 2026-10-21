@@ -83,6 +83,7 @@ model Candidate {
   races            CandidateRace[]
   contributions    Contribution[]
   endorsements     Endorsement[]
+  reportedEndorsements ReportedEndorsement[]
   enforcementCases EnforcementCase[]
   user             User?
   engagements      CandidateEngagement[]
@@ -150,6 +151,21 @@ model Endorsement {
   forAgainst  ForAgainst
   candidate   Candidate       @relation(fields: [candidateId], references: [id])
   createdAt   DateTime        @default(now())
+}
+
+// Endorsements the candidate lists on their own campaign materials, kept apart
+// from Endorsement because there is no endorser-authored source to link to
+model ReportedEndorsement {
+  id          String                   @id @default(cuid())
+  candidateId String
+  endorser    String
+  category    ReportedEndorserCategory
+  position    Int                      @default(0)
+  sourceUrl   String?
+  createdAt   DateTime                 @default(now())
+  candidate   Candidate                @relation(fields: [candidateId], references: [id])
+
+  @@index([candidateId])
 }
 
 model Contribution {
@@ -356,6 +372,14 @@ enum EndorsementType {
   LETTER
   SOCIAL
   ORG
+}
+
+// Declaration order is display priority: Postgres sorts enums by it
+enum ReportedEndorserCategory {
+  CURRENT_OFFICIAL
+  FORMER_OFFICIAL
+  ORGANIZATION
+  INDIVIDUAL
 }
 
 enum ForAgainst {
