@@ -5,13 +5,14 @@
  *   { candidateId, sourceUrl, endorsements: [{ endorser, category }] }
  * as gathered from the candidates' own campaign sites.
  *
- * A candidate's list is replaced wholesale, so re-running after a campaign
- * updates its page leaves no stale names behind. Candidates absent from the
- * input are left alone.
+ * A candidate's campaign-page list is replaced wholesale, so re-running after
+ * a campaign updates its page leaves no stale names behind. Candidates absent
+ * from the input are left alone.
  *
- * Endorsement rows of type ORG or SOCIAL with no link are moved here too: the
- * written-endorsements list only carries entries that link to the endorser's
- * own words.
+ * Endorsement rows of type ORG or SOCIAL with no link are moved here too, since
+ * the written-endorsements list only carries entries that link to the
+ * endorser's own words. They have no sourceUrl, which is what keeps a later
+ * replacement of the campaign-page list from deleting them.
  *
  * Usage: npx tsx scripts/import/load-reported-endorsements.ts <file.json>... [--dry-run]
  */
@@ -48,25 +49,13 @@ async function main() {
     lists.set(c.candidateId, { sourceUrl: c.sourceUrl ?? null, rows: [...c.endorsements] })
   }
 
-  const legacy = await prisma.endorsement.findMany({
-    where: { type: { in: ['ORG', 'SOCIAL'] }, url: null, filePath: null },
-  })
-  for (const e of legacy) {
-    const list = lists.get(e.candidateId) ?? { sourceUrl: null, rows: [] }
-    const seen = new Set(list.rows.map(r => r.endorser.toLowerCase()))
-    if (!seen.has(e.endorser.toLowerCase())) {
-      list.rows.push({ endorser: e.endorser, category: e.type === 'ORG' ? 'ORGANIZATION' : legacyCategory(e.endorser) })
-    }
-    lists.set(e.candidateId, list)
-  }
-
   let total = 0
   for (const [candidateId, list] of lists) {
     total += list.rows.length
     console.log(`${candidateId}: ${list.rows.length} endorsers`)
     if (dryRun) continue
     await prisma.$transaction([
-      prisma.reportedEndorsement.deleteMany({ where: { candidateId } }),
+      prisma.reportedEndorsement.deleteMany({ where: { candidateId, sourceUrl: { not: null } } }),
       prisma.reportedEndorsement.createMany({
         data: list.rows.map((r, position) => ({
           candidateId,
@@ -78,10 +67,31 @@ async function main() {
       }),
     ])
   }
-  console.log(`${lists.size} candidates, ${total} endorsers, ${legacy.length} unlinked endorsements moved${dryRun ? ' (dry run)' : ''}`)
-  if (!dryRun && legacy.length) {
-    await prisma.endorsement.deleteMany({ where: { id: { in: legacy.map(e => e.id) } } })
+
+  const legacy = await prisma.endorsement.findMany({
+    where: { type: { in: ['ORG', 'SOCIAL'] }, url: null, filePath: null },
+  })
+  let moved = 0
+  for (const e of legacy) {
+    const existing = await prisma.reportedEndorsement.findMany({ where: { candidateId: e.candidateId } })
+    const listed = lists.get(e.candidateId)?.rows.map(r => r.endorser.toLowerCase()) ?? []
+    const duplicate = [...listed, ...existing.map(r => r.endorser.toLowerCase())].includes(e.endorser.toLowerCase())
+    if (!duplicate) moved++
+    if (dryRun) continue
+    await prisma.$transaction([
+      ...(duplicate ? [] : [prisma.reportedEndorsement.create({
+        data: {
+          candidateId: e.candidateId,
+          endorser: e.endorser,
+          category: e.type === 'ORG' ? 'ORGANIZATION' : legacyCategory(e.endorser),
+          // After the campaign-page list, in their original order
+          position: 10000 + existing.length,
+        },
+      })]),
+      prisma.endorsement.delete({ where: { id: e.id } }),
+    ])
   }
+  console.log(`${lists.size} candidates, ${total} listed endorsers, ${moved} of ${legacy.length} unlinked endorsements moved${dryRun ? ' (dry run)' : ''}`)
 }
 
 main().finally(() => prisma.$disconnect())
